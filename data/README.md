@@ -18,7 +18,7 @@ Source files are downloaded at build time and verified by checksum. They are nev
 
 A released dataset version is never changed. A change is a new version.
 
-No packages exist yet.
+First package: `aeg-d-sparc/v1`.
 
 ## How packages are built and checked
 
