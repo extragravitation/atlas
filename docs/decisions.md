@@ -197,6 +197,30 @@ All entries below: ruled by JvH on 2026-10-28 (week 1 of the MVP plan).
 
 **Checked.** UCD list read from astropy 8.0.2's bundled copy (`EN-UCDlist-v1.6-2024-12-18`); every UCD used in the standard validated with astropy's parser against it; ECSV header written and read back with astropy.
 
+## D-016 — SPARC reproduction test: implementation bug
+
+**Ruling (2026-10-28, JvH accepted the recommendation).** Correct the test implementation so the frozen rule δV/V < 0.1 is applied in exact decimal arithmetic on the published two-decimal values. `REPRODUCTION.md` is unchanged. The failed first run is kept on record in `REPRODUCTION_RESULT.md`.
+
+**Reason.** The frozen text is unambiguous; floating-point division kept two points (F568-3, ratios 10.7/107.0 and 11.7/117.0) that the rule excludes. Correcting an implementation to match its frozen specification is not re-scoring; changing the specification would be.
+
+**Alternative rejected.** Leaving the bug in place.
+
+## D-017 — SPARC reproduction discrepancies
+
+**Ruling (2026-10-28, JvH accepted the recommendation).** Four SPARC points (UGC00128 at 53.75 kpc; UGC07524 at 2.41 and 10.69 kpc; UGC09133 at 77.5 kpc) do not match the authors' published file. Ask the maintainer (draft to Lelli). Whether SPARC v1 ships is decided at milestone M5 with the answer in hand, not now. D-005 condition 1 ("a package that fails does not ship") is unchanged.
+
+**Reason.** Avoid relaxing a rule immediately after seeing a failure; the site takes weeks to build, so waiting costs nothing.
+
+**Alternative rejected.** Ship now with the four points flagged.
+
+## D-018 — Data standard 1.1.0
+
+**Ruling (2026-10-28, JvH accepted the recommendation).** Minor (additive) version of `docs/data-standard.md`: optional measurement columns `g_bar_stars_disk`, `g_bar_stars_bulge`; optional systems columns `inclination_deg`, `inclination_err_deg` (UCD `src.orbital.inclination`); slider formulas may reference core columns of the row's system as `system.<column>`. Every package valid under 1.0.0 stays valid.
+
+**Reason.** Needed by D-014 (separate disc and bulge mass-to-light sliders; per-galaxy distance and inclination sliders) and found while building the first package.
+
+**Alternative rejected.** Revise further before approving.
+
 ---
 
 ## Recorded alongside (not decisions; corrections to the plans)

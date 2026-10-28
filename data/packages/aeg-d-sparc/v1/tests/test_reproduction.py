@@ -10,6 +10,7 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+from decimal import Decimal
 from pathlib import Path
 
 import numpy as np
@@ -42,7 +43,9 @@ def selected(tables):
         q, inc = sysinfo[row["system_id"]]
         if q == 3 or inc < 30:
             continue
-        if not (row["x_sparc_e_v_obs"] / row["x_sparc_v_obs"] < 0.1):
+        # D-016: compare in exact decimal arithmetic on the published two-decimal values;
+        # floating-point division kept two points whose ratio is exactly 0.1.
+        if not (Decimal(repr(float(row["x_sparc_e_v_obs"]))) / Decimal(repr(float(row["x_sparc_v_obs"]))) < Decimal("0.1")):
             continue
         keep.append(row)
     return keep

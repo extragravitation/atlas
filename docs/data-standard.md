@@ -1,6 +1,6 @@
 # Atlas data standard
 
-**Version 1.0.0 — FROZEN 2026-10-28 (decision D-015).** Packages state the version they follow. Changes follow section 0. Nothing enters `data/packages/` that does not follow a frozen version of this standard.
+**Version 1.1.0 — FROZEN 2026-10-28** (1.0.0: D-015; 1.1.0, additive: D-018). Packages state the version they follow. Changes follow section 0. Nothing enters `data/packages/` that does not follow a frozen version of this standard.
 
 The standard is written so that each of the four v0.1 sources (SPARC, KiDS-1000 RAR, X-COP, CLASH lensing) fits without special cases. The source readings that shaped it are in `docs/sources/`.
 
@@ -15,6 +15,13 @@ The standard uses semantic versioning, MAJOR.MINOR.PATCH. Every change gets a de
 | **Major**: breaking; some valid package would become invalid, or a column would change meaning | Renaming, removing or retyping a column; changing a unit; changing what a column means; making an optional column required | 1.x → 2.0.0 |
 
 A package following an older version stays valid under it. A package is never edited to follow a newer version; it is re-issued as a new dataset version (D-006).
+
+## Version history
+
+| Version | Date | Decision | Change |
+|---|---|---|---|
+| 1.0.0 | 2026-10-28 | D-015 | First frozen version |
+| 1.1.0 | 2026-10-28 | D-018 | Added disc/bulge columns, inclination columns, `system.<column>` in formulas |
 
 ## 1. Package layout
 
@@ -82,6 +89,7 @@ One row per measurement.
 | `g_bar` | float64 | m / s2 | `phys.acceleration;meta.modelled` | yes | Newtonian acceleration from detected baryons, at catalogue defaults |
 | `g_bar_err_lo`, `g_bar_err_hi` | float64 | m / s2 | `stat.error;phys.acceleration` | if available | Bounds |
 | `g_bar_stars`, `g_bar_gas_cold`, `g_bar_gas_hot` | float64 | m / s2 | `phys.acceleration;meta.modelled` | where separable | Components at catalogue defaults |
+| `g_bar_stars_disk`, `g_bar_stars_bulge` | float64 | m / s2 | `phys.acceleration;meta.modelled` | optional (1.1.0) | Stellar disc and bulge parts of `g_bar_stars`, where the source separates them; they sum to `g_bar_stars` |
 | `stars_status`, `gas_cold_status`, `gas_hot_status` | string (closed list) | | `meta.code` | yes | `measured`, `modelled`, `absent`, `not_separable` |
 | `assumptions` | string | | `meta.note` | yes | Semicolon-separated assumption IDs (section 6) affecting this row, each with its catalogue value |
 | `adjustable` | string | | `meta.note` | yes | Assumption IDs whose sliders can change this row; empty if none |
@@ -108,6 +116,7 @@ Global registry `data/registry/systems.csv` (ID, primary name, first dataset ver
 | `distance_err_mpc` | Mpc | `stat.error;pos.distance` | As given by the source |
 | `distance_method` | | `meta.code` | As given by the source |
 | `ra_deg`, `dec_deg` | deg | `pos.eq.ra`, `pos.eq.dec` | Where the source gives them |
+| `inclination_deg`, `inclination_err_deg` | deg | `src.orbital.inclination`, `stat.error;src.orbital.inclination` | Optional (1.1.0). Disc inclination and error, as given by the source |
 | `properties` | | `meta.note` | JSON object of other source-given properties, units in the key names (e.g. `"inclination_deg"`, `"r500_kpc"`) |
 
 Cross-identifications (`data/registry/crossids.csv`: `system_id`, `catalogue`, `identifier`) are added when a second dataset names the same system. A match is never made by name alone without a recorded position check.
@@ -136,7 +145,7 @@ One entry per named assumption, shared across datasets.
 | `adjustable` | true for sliders; false for assumptions shown but fixed |
 | `status` | `draft` until default and range are read at source; only `confirmed` assumptions may drive a slider |
 
-**Formula expression language (D-014).** One formula per effect, written once and executed by both the pipeline (Python) and the site (JavaScript) from the same text. Allowed: numbers; the parameter `p` and its default `p0`; column names of the same row; `+ - * /`, `^` for powers; parentheses; functions `sqrt`, `abs`, `sin`, `cos`, `deg2rad`. Nothing else: no loops, no conditionals, no other rows. Example (SPARC distance, g_obs at fixed angle): `g_obs * p0 / p`.
+**Formula expression language (D-014).** One formula per effect, written once and executed by both the pipeline (Python) and the site (JavaScript) from the same text. Allowed: numbers; the parameter `p` and its default `p0`; column names of the same row; core columns of the row's system as `system.<column>` (1.1.0); `+ - * /`, `^` for powers; parentheses; functions `sqrt`, `abs`, `sin`, `cos`, `deg2rad`. Nothing else: no loops, no conditionals, no other rows. Example (SPARC distance, g_obs at fixed angle): `g_obs * p0 / p`.
 
 Both evaluators are tested on every measurement and every adjustable assumption at its default and range ends; results must agree to a relative tolerance of 1e-12.
 
