@@ -25,7 +25,8 @@ Not used: the `MSTAR_RAW` extension (R/R500 grid, statistical and cosmic-varianc
 
 ## Conversion
 
-- **Rows** are the hydrostatic file's own radii. A radius is converted only if it lies inside the tabulated range of every component used for that cluster (gas file, and stellar file where measured): no profile is extrapolated. This keeps 83–93 of the 100 radii per cluster, 1 065 in all, from 30 kpc out to between 1.4 and 2.3 Mpc.
+- **Rows** are the hydrostatic file's own radii. A radius is converted only if it lies inside the tabulated range of every component used for that cluster (gas file, and stellar file where measured): no profile is extrapolated. This keeps 83–93 of the 100 radii per cluster (1 065 in all), from 30 kpc out to between 1.4 and 2.3 Mpc.
+- **Cut for modelled stars (D-023).** Rows of the 5 modelled-star clusters ship only within r/R500 = 0.145 to 1.38, the range in which the same prescription reproduces the measured clusters' g_bar within 10 % (frozen test `MODEL_TEST.md`; result `MODEL_TEST_RESULT.md`). 204 rows removed; 861 measurements ship.
 - **Interpolation.** Gas and stellar masses (and their errors or bounds) are interpolated to each radius linearly in log M against log r.
 - **Accelerations.** g = G M(<r) / r² for each mass, with G and M☉ from astropy; g_bar = g_bar,gas + g_bar,stars. g_bar errors: gas and stellar errors added in quadrature, separately below and above; modelled stars carry no error.
 - **Modelled stars (D-022 item 3).** M★(<r) ∝ ln(1 + x) − x/(1 + x) with x = r / r_s, r_s = R200 / 2.9; normalised so that M★(<R500) = 0.39 (M500 / 10¹⁴ M☉)^−0.84 × M_gas(<R500), where R500, M500 and R200 are Ettori et al. 2019 Table 1's values and M_gas(<R500) is the gas mass interpolated at that R500 (for all 5 modelled clusters the gas file's header R500 equals Table 1's).

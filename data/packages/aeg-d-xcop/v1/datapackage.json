@@ -16,6 +16,33 @@
   "x_known_issues": [
     "https://github.com/extragravitation/atlas/issues/19"
   ],
+  "x_model_test": {
+    "decision": "D-023",
+    "x_min_r_over_r500": 0.144545584715558,
+    "x_max_r_over_r500": 1.379756529655343,
+    "modelled_rows": {
+      "A1644": {
+        "kept": 49,
+        "removed": 38
+      },
+      "A2255": {
+        "kept": 49,
+        "removed": 42
+      },
+      "A3158": {
+        "kept": 48,
+        "removed": 44
+      },
+      "A3266": {
+        "kept": 44,
+        "removed": 41
+      },
+      "RXC1825": {
+        "kept": 49,
+        "removed": 39
+      }
+    }
+  },
   "x_cosmology": "As in the source papers (flat LCDM, H0 = 70 km/s/Mpc, Omega_m = 0.3)",
   "resources": [
     {

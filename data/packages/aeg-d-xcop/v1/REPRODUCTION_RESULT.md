@@ -9,7 +9,7 @@
 | 2. Archive NFW mass at 0.5, 1 and 1.5 Mpc within 1.5 % of Table 1 (36 checks) | **31 pass, 5 fail** (A644 at all three radii; A2319 at 1 and 1.5 Mpc) |
 | 3a. Archive NFW mass at Table 1 R500 within 1.5 % of M500 (12 checks) | **10 pass, 2 fail** (A644, A2319) |
 | 3b. Gas file's NFW mass at R/R500 = 1 within 1.5 % of M500 (12 checks) | **9 pass, 3 fail** (A644, A2029, A2319) |
-| 4. Conversion integrity, 1 065 rows, relative 1e-9, recomputed from the archive independently of `convert.py` | pass |
+| 4. Conversion integrity, all 861 rows (1 065 before the D-023 cut), relative 1e-9, recomputed from the archive independently of `convert.py` | pass |
 
 ## Numbers: archive relative to Ettori et al. 2019 Table 1 (%)
 

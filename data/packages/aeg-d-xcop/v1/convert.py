@@ -24,6 +24,7 @@ from __future__ import annotations
 import io
 import json
 import math
+import os
 import sys
 import tarfile
 from pathlib import Path
@@ -152,7 +153,7 @@ def build():
     s: dict[str, list] = {k: [] for k in ["system_id", "name_in_source", "class_in_source", "properties"]}
 
     issues = json.loads((HERE / "known_issues.json").read_text(encoding="utf-8"))["issues"]
-    n = 0
+    tmp: dict[str, list] = {"name": [], "x": [], "d": []}
     with tarfile.open(TAR) as tar:
         names = set(tar.getnames())
         found = sorted(x for x in names if "/" not in x and x in TABLE1)
@@ -166,18 +167,18 @@ def build():
             lo, hi = p["gas_r"].min(), p["gas_r"].max()
             if has_stars:
                 lo, hi = max(lo, p["star_r"].min()), min(hi, p["star_r"].max())
-            else:
-                mgas500 = loglog(r500 * 1000.0, p["gas_r"], p["mgas"])
-                mstar500 = STAR_NORM * (m500) ** STAR_SLOPE * mgas500
-                rs = r200 * 1000.0 / STAR_C200
-                star_scale = mstar500 / nfw_shape(r500 * 1000.0 / rs)
+            # The modelled-star prescription is evaluated for every cluster: it is used for the 5
+            # without measured stars, and tested against the 7 with measured stars (D-023).
+            mgas500 = loglog(r500 * 1000.0, p["gas_r"], p["mgas"])
+            mstar500 = STAR_NORM * (m500) ** STAR_SLOPE * mgas500
+            rs = r200 * 1000.0 / STAR_C200
+            star_scale = mstar500 / nfw_shape(r500 * 1000.0 / rs)
             sid = ids[name]
             kept = 0
             for k, r in enumerate(p["r"], start=1):
                 if not (lo <= r <= hi):
                     continue
                 kept += 1
-                n += 1
                 mf, emf = float(p["m_forw"][k - 1]), float(p["em_forw"][k - 1])
                 mg = loglog(r, p["gas_r"], p["mgas"])
                 mg_lo = loglog(r, p["gas_r"], p["mgas_lo"])
@@ -192,8 +193,11 @@ def build():
                     ms = star_scale * nfw_shape(r / rs)
                     ms_lo = ms_hi = None
                 f = GCONV / r**2
+                tmp["name"].append(name)
+                tmp["x"].append(r / (r500 * 1000.0))
+                tmp["d"].append((f * mg + f * star_scale * nfw_shape(r / rs)) / (f * mg + f * ms) - 1)
                 gs, gg = f * ms, f * mg
-                m["measurement_id"].append(f"{DATASET}/{VERSION}/m{n:06d}")
+                m["measurement_id"].append(None)  # assigned after the D-023 cut
                 m["system_id"].append(sid)
                 m["kind"].append("profile_point")
                 m["channel"].append("dynamics")
@@ -221,9 +225,8 @@ def build():
                     m["assumptions"].append("xray_hse_bias=0;stars_cluster_modelled=ettori2019")
                     m["adjustable"].append("xray_hse_bias")
                 m["source_ref"].append(f"allfiles.tar.gz:{name}/{name}_hydro_mass.fits:row {k}")
-                mid = m["measurement_id"][-1]
-                m["flags"].append(";".join(sorted({ki["flag"] for ki in issues if mid in ki["measurements"]})))
-                m["known_issues"].append(";".join(f"#{ki['issue']}" for ki in issues if mid in ki["measurements"]))
+                m["flags"].append(";".join(sorted({ki["flag"] for ki in issues if name in ki["clusters"]})))
+                m["known_issues"].append(";".join(f"#{ki['issue']}" for ki in issues if name in ki["clusters"]))
                 m["x_xcop_m_forw"].append(mf)
                 m["x_xcop_m_gas"].append(mg)
                 m["x_xcop_m_star"].append(ms)
@@ -243,6 +246,23 @@ def build():
                 "r500_gas_file_header_kpc": p["r500_gas_header_kpc"],
                 "stars": "measured (Ghizzardi et al. 2020)" if has_stars else "modelled (Ettori et al. 2019 prescription, D-022)",
             }, separators=(",", ":")))
+
+    # D-023: keep modelled-star rows only inside the range validated on the measured clusters.
+    validation = validate_model(tmp)
+    keep = [nm in MEASURED_STARS or (validation["x_min"] is not None and validation["x_min"] <= x <= validation["x_max"])
+            for nm, x in zip(tmp["name"], tmp["x"])]
+    m = {k: [v for v, ok in zip(vals, keep) if ok] for k, vals in m.items()}
+    kept_names = [nm for nm, ok in zip(tmp["name"], keep) if ok]
+    m["measurement_id"] = [f"{DATASET}/{VERSION}/m{i:06d}" for i in range(1, len(kept_names) + 1)]
+    validation["rows"] = {nm: {"kept": kept_names.count(nm), "removed": tmp["name"].count(nm) - kept_names.count(nm)}
+                          for nm in TABLE1 if nm not in MEASURED_STARS}
+    for ki in issues:
+        flagged = [mid for mid, nm in zip(m["measurement_id"], kept_names) if nm in ki["clusters"]]
+        if os.environ.get("AEG_UPDATE_KNOWN_ISSUES") == "1":  # maintainer use, before committing
+            ki["measurements"] = flagged
+            (HERE / "known_issues.json").write_text(json.dumps({"issues": issues}, indent=2) + "\n", encoding="utf-8")
+        if flagged != ki["measurements"]:
+            raise SystemExit(f"known_issues.json issue #{ki['issue']}: measurement list does not match its clusters")
 
     acc = u.m / u.s**2
     msun = u.Msun
@@ -287,11 +307,36 @@ def build():
         col("properties", s["properties"], ucd="meta.note", description="Source-given properties (JSON; units in key names)"),
     ])
     systems.meta = {"dataset": DATASET, "version": VERSION, "standard_version": STANDARD}
-    return meas, systems
+    return meas, systems, validation
+
+
+def validate_model(tmp: dict) -> dict:
+    """The frozen test of MODEL_TEST.md (D-023), steps 3 to 5."""
+    grid = np.exp(np.linspace(math.log(0.025), math.log(1.5), 50))
+    per = {}
+    for nm in MEASURED_STARS:
+        xs = np.array([x for n_, x in zip(tmp["name"], tmp["x"]) if n_ == nm])
+        ds = np.array([d for n_, d in zip(tmp["name"], tmp["d"]) if n_ == nm])
+        per[nm] = (xs, ds)
+    points = []
+    for x in grid:
+        vals = [abs(float(np.interp(math.log(x), np.log(xs), ds))) for xs, ds in per.values() if xs.min() <= x <= xs.max()]
+        D = float(np.median(vals)) if len(vals) >= 5 else None
+        points.append({"x": float(x), "n": len(vals), "D": D, "pass": None if D is None else D <= 0.10})
+    covered = [pt for pt in points if pt["D"] is not None]
+    x_min = x_max = None
+    if covered and covered[-1]["pass"]:
+        x_max = covered[-1]["x"]
+        x_min = x_max
+        for pt in reversed(covered):
+            if not pt["pass"]:
+                break
+            x_min = pt["x"]
+    return {"points": points, "x_min": x_min, "x_max": x_max}
 
 
 def main() -> int:
-    meas, systems = build()
+    meas, systems, validation = build()
     (HERE / "tables").mkdir(exist_ok=True)
     meas.write(HERE / "tables/measurements.ecsv", format="ascii.ecsv", delimiter=",", overwrite=True)
     systems.write(HERE / "tables/systems.ecsv", format="ascii.ecsv", delimiter=",", overwrite=True)
@@ -305,10 +350,13 @@ def main() -> int:
         "sources": [{"title": "X-COP public data release", "path": "https://dominiqueeckert.wixsite.com/xcop/data"}],
         "x_citation": "As the X-COP data page requests (read 2026-10-28): thermodynamic profiles, Ghirardini et al. 2018; mass profiles, Ettori et al. 2018 (arXiv:1805.00035; A&A 621, A39); gas mass and gas fraction, Eckert et al. 2018 (arXiv:1805.00034); metal abundance profiles, Ghizzardi et al. 2020 (arXiv:2007.01084; its stellar-mass profiles are used here); A2142, Tchernin et al. 2016; A2319, Ghirardini et al. 2017; RXC 1825, Clavico et al. 2019.",
         "x_known_issues": [ki["url"] for ki in json.loads((HERE / "known_issues.json").read_text(encoding="utf-8"))["issues"]],
+        "x_model_test": {"decision": "D-023", "x_min_r_over_r500": validation["x_min"], "x_max_r_over_r500": validation["x_max"],
+                         "modelled_rows": validation["rows"]},
         "x_cosmology": "As in the source papers (flat LCDM, H0 = 70 km/s/Mpc, Omega_m = 0.3)",
     }, {"measurements": ("tables/measurements.ecsv", meas), "systems": ("tables/systems.ecsv", systems)})
     write_checksums(HERE)
-    print(f"wrote {len(meas)} measurements, {len(systems)} systems")
+    (HERE / "source" / "model_test.json").write_text(json.dumps(validation, indent=1), encoding="utf-8")
+    print(f"wrote {len(meas)} measurements, {len(systems)} systems; model test range {validation['x_min']} to {validation['x_max']}")
     return 0
 
 
