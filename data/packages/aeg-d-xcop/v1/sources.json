@@ -1,0 +1,21 @@
+{
+  "standard_version": "1.2.1",
+  "dataset": "aeg-d-xcop",
+  "version": "v1",
+  "reproduction_file": {
+    "path": "REPRODUCTION.md",
+    "sha256": "a49cb132015e7c43cf072fcdb14e310d0b814dddc0ed4a2ae1f69755f2c90654",
+    "frozen": "2026-10-28"
+  },
+  "sources": [
+    {
+      "role": "X-COP public data release (entire dataset), linked from https://dominiqueeckert.wixsite.com/xcop/data",
+      "url": "https://drive.switch.ch/public.php/dav/files/j3WUOYXWgv9Jbnz/",
+      "file": "allfiles.tar.gz",
+      "bytes": 315080566,
+      "sha256": "0edf5038b419b70d070b73b22f4801e27f318b0854db61eec52142c27c140d94",
+      "retrieved": "2026-10-28",
+      "redistributable": false
+    }
+  ]
+}
