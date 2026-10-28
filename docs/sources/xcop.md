@@ -41,6 +41,6 @@ Photometric stellar masses of member galaxies above 10⁹ M☉, with statistical
 
 ## Consequences for the Atlas
 
-- The amended D-005 (2026-10-28: Eckert et al. 2022 non-parametric masses) **cannot be built from public data**: those profiles are not released. Options for a revised ruling are set out in the pull request discussion.
+- The amended D-005 (2026-10-28: Eckert et al. 2022 non-parametric masses) **cannot be built from public data**: those profiles are not released. D-005 was amended again on 2026-10-28 accordingly (see `docs/decisions.md`).
 - What the public release **does** support: forward-method masses (no assumed shape for the potential) for all 12 clusters; measured gas mass for all 12; **measured stellar mass for 7** (not 5); intracluster light as a natural named assumption with a published range (≈10–50 % of cluster light, read here; the underlying studies to be read at source before use).
 - Licence: none stated; per D-004 the archive is not committed. The package records the share address and the hash above, and the pipeline verifies them on each build.
