@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use the Atlas of Extra Gravitation, please cite it as below, and cite the original sources of any data you use (listed on each dataset page)."
+title: "Atlas of Extra Gravitation"
+abstract: "An open, theory-neutral atlas of the acceleration discrepancy: where and how the observed gravitational acceleration exceeds what Newtonian gravity predicts from detected baryonic matter, from star clusters to galaxy clusters."
+type: dataset
+authors:
+  - family-names: "van Hemert"
+    given-names: "John"
+license: CC-BY-4.0
+repository-code: "https://github.com/extragravitation/atlas"
+keywords:
+  - acceleration discrepancy
+  - galaxy dynamics
+  - gravitational lensing
+  - galaxy clusters
+  - open data

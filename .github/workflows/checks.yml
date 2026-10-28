@@ -1,0 +1,24 @@
+name: checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pipeline
+        run: pip install -e "pipeline[test]"
+      - name: Unit tests
+        run: pytest pipeline/tests -q
+      - name: Repository checks
+        run: python -m aeg.check

@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+
+# Downloaded source files: fetched at build time, verified by checksum, never committed
+# (sources that may not be redistributed must never enter the repository; see LICENSE-CONTENT.md)
+data/packages/*/*/source/
+data/cache/
+
+# Site build output
+site/dist/
+site/node_modules/
+site/.astro/
+
+# OS and editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Secrets: never commit credentials or tokens
+.env
+.env.*
