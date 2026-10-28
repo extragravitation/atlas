@@ -21,7 +21,7 @@ from astropy.table import MaskedColumn, Table
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[3]
-DATASET, VERSION, STANDARD = "aeg-d-sparc", "v1", "1.1.0"
+DATASET, VERSION, STANDARD = "aeg-d-sparc", "v1", "1.2.0"
 ASSIGNED_ON = "2026-10-28"
 
 # Catalogue defaults, read at source: arXiv:1606.09251 (eq. 2, eq. 7) and arXiv:1610.08981 (Table 1).
@@ -122,6 +122,7 @@ def build(source_dir: Path) -> tuple[Table, Table, list[dict]]:
         raise SystemExit(f"mass-model galaxies missing from Table 1: {sorted(missing)}")
 
     system_ids = {g["name"]: f"aeg-s-{i:06d}" for i, g in enumerate(galaxies, start=1)}
+    issues = json.loads((HERE / "known_issues.json").read_text(encoding="utf-8"))["issues"]
     has_bulge = {r["name"] for r in rows if r["Vbul"] != 0.0}
 
     m = {k: [] for k in [
@@ -129,7 +130,7 @@ def build(source_dir: Path) -> tuple[Table, Table, list[dict]]:
         "g_obs", "g_obs_err_lo", "g_obs_err_hi", "g_bar", "g_bar_err_lo", "g_bar_err_hi",
         "g_bar_stars", "g_bar_stars_disk", "g_bar_stars_bulge", "g_bar_gas_cold", "g_bar_gas_hot",
         "stars_status", "gas_cold_status", "gas_hot_status", "assumptions", "adjustable",
-        "quality_source", "source_ref", "flags",
+        "quality_source", "source_ref", "flags", "known_issues",
         "x_sparc_v_obs", "x_sparc_e_v_obs", "x_sparc_v_gas", "x_sparc_v_disk", "x_sparc_v_bul"]}
 
     for i, r in enumerate(rows, start=1):
@@ -178,7 +179,10 @@ def build(source_dir: Path) -> tuple[Table, Table, list[dict]]:
         m["adjustable"].append(";".join(adjustable))
         m["quality_source"].append(f"Q={g['Q']}")
         m["source_ref"].append(f"MassModels_Lelli2016c.mrt:data row {i}")
-        m["flags"].append("source_quality_low" if g["Q"] == 3 else "")
+        mid = f"{DATASET}/{VERSION}/m{i:06d}"
+        flags = (["source_quality_low"] if g["Q"] == 3 else []) + sorted({ki["flag"] for ki in issues if mid in ki["measurements"]})
+        m["flags"].append(";".join(flags))
+        m["known_issues"].append(";".join(f"#{ki['issue']}" for ki in issues if mid in ki["measurements"]))
         m["x_sparc_v_obs"].append(r["Vobs"])
         m["x_sparc_e_v_obs"].append(r["e_Vobs"])
         m["x_sparc_v_gas"].append(r["Vgas"])
@@ -215,6 +219,7 @@ def build(source_dir: Path) -> tuple[Table, Table, list[dict]]:
         col("quality_source", m["quality_source"], ucd="meta.code.qual", description="Source's rotation-curve quality flag (1 high, 2 medium, 3 low)"),
         col("source_ref", m["source_ref"], ucd="meta.ref", description="Pointer to the source row"),
         col("flags", m["flags"], ucd="meta.code", description="Atlas flags"),
+        col("known_issues", m["known_issues"], ucd="meta.ref", description="Open known issues affecting this row (GitHub issue numbers)"),
         col("x_sparc_v_obs", m["x_sparc_v_obs"], kms, "phys.veloc.rotat", "SPARC Vobs, as published", "f8"),
         col("x_sparc_e_v_obs", m["x_sparc_e_v_obs"], kms, "stat.error;phys.veloc.rotat", "SPARC e_Vobs, as published", "f8"),
         col("x_sparc_v_gas", m["x_sparc_v_gas"], kms, "phys.veloc.rotat;meta.modelled", "SPARC Vgas, as published (includes helium factor 1.33)", "f8"),

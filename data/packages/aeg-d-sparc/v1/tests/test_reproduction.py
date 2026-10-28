@@ -1,5 +1,10 @@
 """Reproduction test for aeg-d-sparc/v1, implementing REPRODUCTION.md exactly.
 
+Tests 1 and 2 FAIL (known issue #8). Under D-019 they are kept unchanged and
+marked as strict expected failures: the failure stays visible in every run,
+and if they ever start passing the run fails, forcing a review. The exact
+discrepancy is locked by test_known_mismatch_is_exactly_as_documented.
+
 REPRODUCTION.md was frozen (and its hash recorded) before this file or
 convert.py existed. If this test fails, the package does not ship; the test
 is not changed to make it pass.
@@ -65,10 +70,12 @@ def reference():
     return rows
 
 
+@pytest.mark.xfail(strict=True, reason="Known issue #8 (D-019): reproduction against RAR.mrt fails; see REPRODUCTION_RESULT.md")
 def test_1_selection_count(tables):
     assert len(selected(tables)) == 2693
 
 
+@pytest.mark.xfail(strict=True, reason="Known issue #8 (D-019): reproduction against RAR.mrt fails; see REPRODUCTION_RESULT.md")
 def test_2_point_by_point(tables):
     points = [(math.log10(r["g_bar"]), math.log10(r["g_obs"])) for r in selected(tables)]
     ref = reference()
@@ -135,3 +142,37 @@ def test_3_conversion_integrity(tables):
         assert row["g_bar"] == pytest.approx(parts, rel=1e-9, abs=1e-30)
     # The unit factor itself must be the physical one: (km/s)^2/kpc in m/s^2.
     assert conv == pytest.approx(1e6 / 3.0856775814913673e19, rel=1e-12)
+
+
+def test_known_mismatch_is_exactly_as_documented(tables):
+    """D-019: the discrepancy must be exactly the documented one; anything else fails."""
+    issues = json.loads((PKG / "known_issues.json").read_text(encoding="utf-8"))["issues"]
+    documented = {m for ki in issues if ki["flag"] == "reproduction_mismatch" for m in ki["measurements"]}
+    documented_refs = sorted(tuple(r) for ki in issues for r in ki.get("unmatched_reference_rows", []))
+    sel = selected(tables)
+    pts = [(str(r["measurement_id"]), math.log10(r["g_bar"]), math.log10(r["g_obs"])) for r in sel]
+    ref = reference()
+    cands = [[j for j, (b, o) in enumerate(ref) if abs(b - pb) <= TOL_DEX and abs(o - po) <= TOL_DEX]
+             for _, pb, po in pts]
+    match_ref = [-1] * len(ref)
+
+    def augment(i, seen):
+        for j in cands[i]:
+            if not seen[j]:
+                seen[j] = True
+                if match_ref[j] == -1 or augment(match_ref[j], seen):
+                    match_ref[j] = i
+                    return True
+        return False
+
+    import sys
+    sys.setrecursionlimit(20000)
+    for i in range(len(pts)):
+        augment(i, [False] * len(ref))
+    matched_pts = {i for i in match_ref if i >= 0}
+    unmatched = {pts[i][0] for i in range(len(pts)) if i not in matched_pts}
+    unmatched_refs = sorted(ref[j] for j in range(len(ref)) if match_ref[j] == -1)
+    assert unmatched == documented
+    assert unmatched_refs == documented_refs
+    flagged = {str(r["measurement_id"]) for r in tables[0] if "reproduction_mismatch" in str(r["flags"])}
+    assert flagged == documented

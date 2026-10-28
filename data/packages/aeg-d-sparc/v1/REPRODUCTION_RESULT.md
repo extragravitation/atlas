@@ -42,3 +42,7 @@ Pending JvH's ruling: whether to correct implementation bug A (disclosed, with t
 | 3. Conversion integrity | exact | exact | pass |
 
 Status under D-017: referred to the maintainer; whether SPARC v1 ships is decided at milestone M5.
+
+## Status under D-019 (2026-10-28)
+
+The test result remains **FAILED**. SPARC v1 may ship: conversion integrity is exact. The four measurements are flagged `reproduction_mismatch` and linked to known issue [#8](https://github.com/extragravitation/atlas/issues/8). In the test suite, checks 1 and 2 are unchanged and marked as strict expected failures; `test_known_mismatch_is_exactly_as_documented` fails the build if the discrepancy changes in any way.

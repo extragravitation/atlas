@@ -1,0 +1,17 @@
+{
+  "issues": [
+    {
+      "issue": 8,
+      "url": "https://github.com/extragravitation/atlas/issues/8",
+      "title": "SPARC: 4 points do not reproduce the authors' published RAR file",
+      "flag": "reproduction_mismatch",
+      "measurements": [
+        "aeg-d-sparc/v1/m001903",
+        "aeg-d-sparc/v1/m002872",
+        "aeg-d-sparc/v1/m002896",
+        "aeg-d-sparc/v1/m003135"
+      ],
+      "unmatched_reference_rows": [[-11.18, -10.66], [-11.22, -10.58], [-11.23, -10.58]]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Atlas data standard
 
-**Version 1.1.0 — FROZEN 2026-10-28** (1.0.0: D-015; 1.1.0, additive: D-018). Packages state the version they follow. Changes follow section 0. Nothing enters `data/packages/` that does not follow a frozen version of this standard.
+**Version 1.2.0 — FROZEN 2026-10-28** (1.0.0: D-015; 1.1.0, additive: D-018; 1.2.0, additive: D-019). Packages state the version they follow. Changes follow section 0. Nothing enters `data/packages/` that does not follow a frozen version of this standard.
 
 The standard is written so that each of the four v0.1 sources (SPARC, KiDS-1000 RAR, X-COP, CLASH lensing) fits without special cases. The source readings that shaped it are in `docs/sources/`.
 
@@ -22,6 +22,7 @@ A package following an older version stays valid under it. A package is never ed
 |---|---|---|---|
 | 1.0.0 | 2026-10-28 | D-015 | First frozen version |
 | 1.1.0 | 2026-10-28 | D-018 | Added disc/bulge columns, inclination columns, `system.<column>` in formulas |
+| 1.2.0 | 2026-10-28 | D-019 | Added flag `reproduction_mismatch`, optional column `known_issues`, package file `known_issues.json` |
 
 ## 1. Package layout
 
@@ -38,6 +39,7 @@ One folder per dataset version: `data/packages/<dataset>/<version>/`, e.g. `data
 | `tables/systems.ecsv` | Section 4 (omitted for population-only datasets) | yes |
 | `tables/covariance.ecsv` | Section 5, where the source provides covariance | yes |
 | `tests/` | Reproduction, schema and assumption tests | yes |
+| `known_issues.json` | Optional (1.2.0): known issues affecting the package, each with its GitHub issue number, flag and affected measurement IDs; the converter sets flags and `known_issues` from it | yes |
 | `checksums.sha256` | SHA-256 of every committed file in the package | yes |
 | `source/` | Downloaded source files | **never** (`.gitignore`) |
 
@@ -96,6 +98,7 @@ One row per measurement.
 | `quality_source` | string | | `meta.code.qual` | no | The source's own quality label, verbatim. Shown; never used to hide data by default |
 | `source_ref` | string | | `meta.ref` | yes | Pointer to the source row or file |
 | `flags` | string | | `meta.code` | no | Semicolon-separated values from the closed list in section 7 |
+| `known_issues` | string | | `meta.ref` | optional (1.2.0) | Semicolon-separated GitHub issue numbers (e.g. `#8`) of open known issues affecting the row |
 
 `meta.modelled` on g_bar records what g_bar is: the Newtonian prediction from detected matter, as distinct from the observed g_obs.
 
@@ -161,7 +164,7 @@ Both evaluators are tested on every measurement and every adjustable assumption 
 8. Every assumption named in `assumptions` or `adjustable` exists in the registry; every `adjustable` one is `confirmed`.
 9. Slider formulas: changing each assumption changes only rows listing it in `adjustable`, exactly as its formula says; the Python and JavaScript evaluators agree (section 6).
 10. Licence: if any source is not redistributable, no file from it is committed and the release archive excludes it.
-11. Closed list of `flags`: `no_uncertainty`, `beyond_source_range`, `inner_resolution_limited`, `source_quality_low`. Adding a value is a minor version change.
+11. Closed list of `flags`: `no_uncertainty`, `beyond_source_range`, `inner_resolution_limited`, `source_quality_low`, `reproduction_mismatch` (1.2.0). Adding a value is a minor version change.
 12. Extension columns (section 8) are named correctly and carry unit (where applicable), description and a valid UCD.
 
 ## 8. Extension columns
