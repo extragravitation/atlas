@@ -30,4 +30,4 @@ The `data` workflow (`.github/workflows/data.yml`) runs on every pull request th
 4. **Check slider formulas** in Python and JavaScript on every measurement (`python -m aeg.formula_check`).
 5. **Compare** the committed tables with the regenerated ones. On a pull request they are committed back to the branch by the workflow if they differ; on `main` a difference fails.
 
-GitHub holds commits made by the workflow for manual approval before running checks on them. A later commit by a maintainer runs the checks normally.
+GitHub holds commits made by the workflow for manual approval before running checks on them. To avoid that, after editing any committed file in a package, refresh its checksums before committing: `python -m aeg.package checksums data/packages/<dataset>/<version>`. A later commit by a maintainer also runs the checks normally.

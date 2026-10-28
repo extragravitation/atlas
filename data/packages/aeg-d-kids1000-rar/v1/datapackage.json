@@ -1,0 +1,254 @@
+{
+  "name": "aeg-d-kids1000-rar",
+  "version": "v1",
+  "title": "KiDS-1000 weak-lensing radial acceleration relation: stacked isolated lenses",
+  "description": "Atlas conversion of the released ESD profiles behind Brouwer et al. 2021 Fig. 4 (KiDS-bright, KiDS-bright with hot gas, GAMA). See SOURCE.md and REPRODUCTION.md.",
+  "x_standard_version": "1.2.1",
+  "x_licence_status": "No licence stated by the source; Atlas tables intended CC BY 4.0 under D-004, citing the source. Source file not redistributed.",
+  "licenses": [],
+  "sources": [
+    {
+      "title": "KiDS science-data release, Brouwer et al. 2021",
+      "path": "https://kids.strw.leidenuniv.nl/sci_data/brouwer2021_rar.tar"
+    }
+  ],
+  "x_citation": "Brouwer, M. M. et al. 2021, A&A 650, A113, with the KiDS acknowledgement given in that paper.",
+  "x_h": 0.7,
+  "resources": [
+    {
+      "name": "measurements",
+      "path": "tables/measurements.ecsv",
+      "format": "ecsv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "dialect": {
+        "delimiter": ",",
+        "commentChar": "#",
+        "header": true
+      },
+      "schema": {
+        "fields": [
+          {
+            "name": "measurement_id",
+            "type": "string",
+            "description": "Permanent measurement identifier",
+            "ucd": "meta.id;meta.main"
+          },
+          {
+            "name": "system_id",
+            "type": "string",
+            "description": "Empty: population measurement (stacked lenses)",
+            "ucd": "meta.id"
+          },
+          {
+            "name": "kind",
+            "type": "string",
+            "description": "Kind of measurement",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "channel",
+            "type": "string",
+            "description": "Observational channel",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "method_class",
+            "type": "string",
+            "description": "Class of method",
+            "ucd": "meta.code.class"
+          },
+          {
+            "name": "method",
+            "type": "string",
+            "description": "Method as given by the source",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "r_kpc",
+            "type": "number",
+            "description": "Empty: the source bins by g_bar, not radius",
+            "ucd": "phys.size.radius",
+            "unit": "kpc"
+          },
+          {
+            "name": "r_kind",
+            "type": "string",
+            "description": "Empty: no radius",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "g_obs",
+            "type": "number",
+            "description": "Observed acceleration, 4 G Delta Sigma (bias-corrected)",
+            "ucd": "phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_obs_err_lo",
+            "type": "number",
+            "description": "One-sigma error, from the source's ESD error (bias-corrected)",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_obs_err_hi",
+            "type": "number",
+            "description": "One-sigma error, from the source's ESD error (bias-corrected)",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar",
+            "type": "number",
+            "description": "Mean baryonic acceleration of the bin (stars plus cold gas; plus hot gas for the hot-gas variant), as given by the source",
+            "ucd": "phys.acceleration;meta.modelled",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar_err_lo",
+            "type": "number",
+            "description": "Not given by the source",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar_err_hi",
+            "type": "number",
+            "description": "Not given by the source",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "stars_status",
+            "type": "string",
+            "description": "Stars are measured photometrically but included only in total g_bar",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "gas_cold_status",
+            "type": "string",
+            "description": "Cold gas from a scaling relation, included only in total g_bar",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "gas_hot_status",
+            "type": "string",
+            "description": "Hot gas: absent, or the authors' estimate included in total g_bar",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "assumptions",
+            "type": "string",
+            "description": "Named assumptions affecting this row",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "adjustable",
+            "type": "string",
+            "description": "Assumptions whose sliders can change this row (none)",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "quality_source",
+            "type": "string",
+            "description": "Source's own caveat, where it applies",
+            "ucd": "meta.code.qual"
+          },
+          {
+            "name": "source_ref",
+            "type": "string",
+            "description": "Pointer to the source file and row",
+            "ucd": "meta.ref"
+          },
+          {
+            "name": "flags",
+            "type": "string",
+            "description": "Atlas flags",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "x_kids1000_rar_sample",
+            "type": "string",
+            "description": "Lens sample: kids_bright, kids_bright_hotgas or gama",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "x_kids1000_rar_esd_t",
+            "type": "number",
+            "description": "Tangential excess surface density, as released (h70 M_sun/pc^2)",
+            "ucd": "phys.columnDensity;meta.main",
+            "unit": "solMass / pc2"
+          },
+          {
+            "name": "x_kids1000_rar_esd_x",
+            "type": "number",
+            "description": "Cross excess surface density (null check), as released",
+            "ucd": "phys.columnDensity",
+            "unit": "solMass / pc2"
+          },
+          {
+            "name": "x_kids1000_rar_esd_err",
+            "type": "number",
+            "description": "Error on the tangential ESD, as released",
+            "ucd": "stat.error;phys.columnDensity",
+            "unit": "solMass / pc2"
+          },
+          {
+            "name": "x_kids1000_rar_bias",
+            "type": "number",
+            "description": "Multiplicative calibration (1+K), as released",
+            "ucd": "instr.calib"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    },
+    {
+      "name": "covariance",
+      "path": "tables/covariance.ecsv",
+      "format": "ecsv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "dialect": {
+        "delimiter": ",",
+        "commentChar": "#",
+        "header": true
+      },
+      "schema": {
+        "fields": [
+          {
+            "name": "measurement_id_i",
+            "type": "string",
+            "description": "First measurement of the pair",
+            "ucd": "meta.id"
+          },
+          {
+            "name": "measurement_id_j",
+            "type": "string",
+            "description": "Second measurement of the pair",
+            "ucd": "meta.id"
+          },
+          {
+            "name": "quantity",
+            "type": "string",
+            "description": "Quantity whose covariance is given",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "covariance",
+            "type": "number",
+            "description": "Covariance of g_obs, converted from the released ESD covariance (bias-corrected)",
+            "ucd": "stat.covariance;phys.acceleration",
+            "unit": "m2 / s4"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    }
+  ]
+}

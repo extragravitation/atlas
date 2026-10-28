@@ -1,5 +1,5 @@
 {
-  "standard_version": "1.2.0",
+  "standard_version": "1.2.1",
   "rules": "Effects of one assumption are evaluated simultaneously against the row as it was before that assumption; assumptions apply in the order listed here. Formulas use the language of docs/data-standard.md §6.",
   "assumptions": [
     {
@@ -8,7 +8,9 @@
       "name_plain": "How much mass each unit of starlight in the disc stands for",
       "adjustable": true,
       "status": "confirmed",
-      "parameter": {"unit": "solMass / solLum"},
+      "parameter": {
+        "unit": "solMass / solLum"
+      },
       "datasets": {
         "aeg-d-sparc/v1": {
           "default": 0.5,
@@ -17,11 +19,26 @@
           "default_ref": "Lelli, McGaugh & Schombert 2016 (arXiv:1606.09251), 'as suggested by stellar population models'; Lelli et al. 2017 (arXiv:1610.08981) Table 1",
           "range_ref": "Lelli, McGaugh & Schombert 2016 (arXiv:1606.09251) abstract: 0.2 as suggested by the DiskMass survey; 0.7 the mean maximum-disk limit in bright galaxies",
           "effects": [
-            {"column": "g_bar_stars_disk", "formula": "g_bar_stars_disk * p / p0"},
-            {"column": "g_bar_stars", "formula": "g_bar_stars + g_bar_stars_disk * (p / p0 - 1)"},
-            {"column": "g_bar", "formula": "g_bar + g_bar_stars_disk * (p / p0 - 1)"},
-            {"column": "g_bar_err_lo", "formula": "sqrt((0.1 * g_bar_gas_cold)^2 + (0.25 * (g_bar_stars + g_bar_stars_disk * (p / p0 - 1)))^2)"},
-            {"column": "g_bar_err_hi", "formula": "sqrt((0.1 * g_bar_gas_cold)^2 + (0.25 * (g_bar_stars + g_bar_stars_disk * (p / p0 - 1)))^2)"}
+            {
+              "column": "g_bar_stars_disk",
+              "formula": "g_bar_stars_disk * p / p0"
+            },
+            {
+              "column": "g_bar_stars",
+              "formula": "g_bar_stars + g_bar_stars_disk * (p / p0 - 1)"
+            },
+            {
+              "column": "g_bar",
+              "formula": "g_bar + g_bar_stars_disk * (p / p0 - 1)"
+            },
+            {
+              "column": "g_bar_err_lo",
+              "formula": "sqrt((0.1 * g_bar_gas_cold)^2 + (0.25 * (g_bar_stars + g_bar_stars_disk * (p / p0 - 1)))^2)"
+            },
+            {
+              "column": "g_bar_err_hi",
+              "formula": "sqrt((0.1 * g_bar_gas_cold)^2 + (0.25 * (g_bar_stars + g_bar_stars_disk * (p / p0 - 1)))^2)"
+            }
           ]
         }
       }
@@ -32,7 +49,9 @@
       "name_plain": "How much mass each unit of starlight in the central bulge stands for",
       "adjustable": true,
       "status": "confirmed",
-      "parameter": {"unit": "solMass / solLum"},
+      "parameter": {
+        "unit": "solMass / solLum"
+      },
       "datasets": {
         "aeg-d-sparc/v1": {
           "default": 0.7,
@@ -41,11 +60,26 @@
           "default_ref": "Lelli et al. 2017 (arXiv:1610.08981) Table 1; equals 1.4 Υ_disk at the disc default (arXiv:1606.09251 eq. 7)",
           "range_ref": "1.4 × the disc range, following the source's adopted relation Υ_bul = 1.4 Υ_disk, 'as suggested by SPS models' (arXiv:1606.09251 eq. 7)",
           "effects": [
-            {"column": "g_bar_stars_bulge", "formula": "g_bar_stars_bulge * p / p0"},
-            {"column": "g_bar_stars", "formula": "g_bar_stars + g_bar_stars_bulge * (p / p0 - 1)"},
-            {"column": "g_bar", "formula": "g_bar + g_bar_stars_bulge * (p / p0 - 1)"},
-            {"column": "g_bar_err_lo", "formula": "sqrt((0.1 * g_bar_gas_cold)^2 + (0.25 * (g_bar_stars + g_bar_stars_bulge * (p / p0 - 1)))^2)"},
-            {"column": "g_bar_err_hi", "formula": "sqrt((0.1 * g_bar_gas_cold)^2 + (0.25 * (g_bar_stars + g_bar_stars_bulge * (p / p0 - 1)))^2)"}
+            {
+              "column": "g_bar_stars_bulge",
+              "formula": "g_bar_stars_bulge * p / p0"
+            },
+            {
+              "column": "g_bar_stars",
+              "formula": "g_bar_stars + g_bar_stars_bulge * (p / p0 - 1)"
+            },
+            {
+              "column": "g_bar",
+              "formula": "g_bar + g_bar_stars_bulge * (p / p0 - 1)"
+            },
+            {
+              "column": "g_bar_err_lo",
+              "formula": "sqrt((0.1 * g_bar_gas_cold)^2 + (0.25 * (g_bar_stars + g_bar_stars_bulge * (p / p0 - 1)))^2)"
+            },
+            {
+              "column": "g_bar_err_hi",
+              "formula": "sqrt((0.1 * g_bar_gas_cold)^2 + (0.25 * (g_bar_stars + g_bar_stars_bulge * (p / p0 - 1)))^2)"
+            }
           ]
         }
       }
@@ -56,7 +90,9 @@
       "name_plain": "How far away the galaxy is",
       "adjustable": true,
       "status": "confirmed",
-      "parameter": {"unit": "published one-sigma errors from the catalogue distance"},
+      "parameter": {
+        "unit": "published one-sigma errors from the catalogue distance"
+      },
       "datasets": {
         "aeg-d-sparc/v1": {
           "default": 0,
@@ -65,10 +101,22 @@
           "default_ref": "SPARC Table 1 distance D and error e_D, per galaxy (arXiv:1606.09251)",
           "range_ref": "SPARC Table 1 e_D, per galaxy. At fixed angle R scales with D, so g_obs = V²/R scales as 1/D; g_bar is distance independent (arXiv:1610.08981 §II.1.2)",
           "effects": [
-            {"column": "r_kpc", "formula": "r_kpc * (system.distance_mpc + p * system.distance_err_mpc) / system.distance_mpc"},
-            {"column": "g_obs", "formula": "g_obs * system.distance_mpc / (system.distance_mpc + p * system.distance_err_mpc)"},
-            {"column": "g_obs_err_lo", "formula": "g_obs_err_lo * system.distance_mpc / (system.distance_mpc + p * system.distance_err_mpc)"},
-            {"column": "g_obs_err_hi", "formula": "g_obs_err_hi * system.distance_mpc / (system.distance_mpc + p * system.distance_err_mpc)"}
+            {
+              "column": "r_kpc",
+              "formula": "r_kpc * (system.distance_mpc + p * system.distance_err_mpc) / system.distance_mpc"
+            },
+            {
+              "column": "g_obs",
+              "formula": "g_obs * system.distance_mpc / (system.distance_mpc + p * system.distance_err_mpc)"
+            },
+            {
+              "column": "g_obs_err_lo",
+              "formula": "g_obs_err_lo * system.distance_mpc / (system.distance_mpc + p * system.distance_err_mpc)"
+            },
+            {
+              "column": "g_obs_err_hi",
+              "formula": "g_obs_err_hi * system.distance_mpc / (system.distance_mpc + p * system.distance_err_mpc)"
+            }
           ]
         }
       }
@@ -79,7 +127,9 @@
       "name_plain": "How tilted the disc is as we see it",
       "adjustable": true,
       "status": "confirmed",
-      "parameter": {"unit": "published one-sigma errors from the catalogue inclination"},
+      "parameter": {
+        "unit": "published one-sigma errors from the catalogue inclination"
+      },
       "datasets": {
         "aeg-d-sparc/v1": {
           "default": 0,
@@ -88,9 +138,18 @@
           "default_ref": "SPARC Table 1 inclination and error, per galaxy (arXiv:1606.09251)",
           "range_ref": "SPARC Table 1 e_Inc, per galaxy. V_obs scales as 1/sin i, so g_obs scales as 1/sin² i; the source's g_bar error carries no inclination term (arXiv:1610.08981 eq. 2 and §II.1.2)",
           "effects": [
-            {"column": "g_obs", "formula": "g_obs * sin(deg2rad(system.inclination_deg))^2 / sin(deg2rad(system.inclination_deg + p * system.inclination_err_deg))^2"},
-            {"column": "g_obs_err_lo", "formula": "g_obs_err_lo * sin(deg2rad(system.inclination_deg))^2 / sin(deg2rad(system.inclination_deg + p * system.inclination_err_deg))^2"},
-            {"column": "g_obs_err_hi", "formula": "g_obs_err_hi * sin(deg2rad(system.inclination_deg))^2 / sin(deg2rad(system.inclination_deg + p * system.inclination_err_deg))^2"}
+            {
+              "column": "g_obs",
+              "formula": "g_obs * sin(deg2rad(system.inclination_deg))^2 / sin(deg2rad(system.inclination_deg + p * system.inclination_err_deg))^2"
+            },
+            {
+              "column": "g_obs_err_lo",
+              "formula": "g_obs_err_lo * sin(deg2rad(system.inclination_deg))^2 / sin(deg2rad(system.inclination_deg + p * system.inclination_err_deg))^2"
+            },
+            {
+              "column": "g_obs_err_hi",
+              "formula": "g_obs_err_hi * sin(deg2rad(system.inclination_deg))^2 / sin(deg2rad(system.inclination_deg + p * system.inclination_err_deg))^2"
+            }
           ]
         }
       }
@@ -101,11 +160,47 @@
       "name_plain": "Allowance for helium mixed in with the hydrogen gas",
       "adjustable": false,
       "status": "confirmed",
-      "parameter": {"unit": "dimensionless"},
+      "parameter": {
+        "unit": "dimensionless"
+      },
       "datasets": {
         "aeg-d-sparc/v1": {
           "default": 1.33,
           "default_ref": "SPARC Table 2 note 2; arXiv:1606.09251 §III.3: total gas mass 1.33 M_HI",
+          "effects": []
+        }
+      }
+    },
+    {
+      "id": "deproj_lensing",
+      "name_technical": "Deprojection of the lensing excess surface density to g_obs: singular isothermal sphere, g_obs = 4 G ΔΣ",
+      "name_plain": "How the light-bending measurement is turned into a pull at a given distance",
+      "adjustable": false,
+      "status": "confirmed",
+      "parameter": {
+        "unit": "method"
+      },
+      "datasets": {
+        "aeg-d-kids1000-rar/v1": {
+          "default": "sis",
+          "default_ref": "Brouwer et al. 2021 (arXiv:2106.11677) §2.2, eq. 7; validated by the authors against a piece-wise power-law method assuming only spherical symmetry (App. B, §4.4)",
+          "effects": []
+        }
+      }
+    },
+    {
+      "id": "hot_gas_halo",
+      "name_technical": "Hot gas around isolated galaxies: isothermal, within 100 h70⁻¹ kpc, mass equal to the stellar mass",
+      "name_plain": "An allowance for hot, hard-to-see gas around galaxies",
+      "adjustable": false,
+      "status": "confirmed",
+      "parameter": {
+        "unit": "method"
+      },
+      "datasets": {
+        "aeg-d-kids1000-rar/v1": {
+          "default": "authors_estimate",
+          "default_ref": "Brouwer et al. 2021 (arXiv:2106.11677) Fig. 4 caption and §5.2: 'only a rough order of magnitude estimate'; applies to the kids_bright_hotgas sample only",
           "effects": []
         }
       }

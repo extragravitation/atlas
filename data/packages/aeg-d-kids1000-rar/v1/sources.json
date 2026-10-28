@@ -1,0 +1,21 @@
+{
+  "standard_version": "1.2.1",
+  "dataset": "aeg-d-kids1000-rar",
+  "version": "v1",
+  "reproduction_file": {
+    "path": "REPRODUCTION.md",
+    "sha256": "71bcf439bec6a6a5c95310997b291fdd16bac793bc44ed5f9fa9e1623d4e057a",
+    "frozen": "2026-10-28"
+  },
+  "sources": [
+    {
+      "role": "ESD profiles and covariance behind the figures of Brouwer et al. 2021 (KiDS science-data release)",
+      "url": "https://kids.strw.leidenuniv.nl/sci_data/brouwer2021_rar.tar",
+      "file": "brouwer2021_rar.tar",
+      "bytes": 2430464,
+      "sha256": "73adc2d4e848fa0a6a43187f7b5447e749b92eaec4a795b9902b0beaf8a78733",
+      "retrieved": "2026-10-28",
+      "redistributable": false
+    }
+  ]
+}

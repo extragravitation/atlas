@@ -54,8 +54,11 @@ def close(a, b) -> bool:
 def load_package(pkg: Path):
     from astropy.table import Table
     meas = Table.read(pkg / "tables/measurements.ecsv", format="ascii.ecsv")
-    systems = Table.read(pkg / "tables/systems.ecsv", format="ascii.ecsv")
     rows = [{k: _clean(r[k]) for k in meas.colnames} for r in meas]
+    sys_path = pkg / "tables/systems.ecsv"
+    if not sys_path.is_file():  # population-only package (e.g. stacked lensing)
+        return rows, {}, set(meas.colnames), set()
+    systems = Table.read(sys_path, format="ascii.ecsv")
     sysrows = {str(r["system_id"]): {k: _clean(r[k]) for k in systems.colnames} for r in systems}
     return rows, sysrows, set(meas.colnames), set(systems.colnames)
 

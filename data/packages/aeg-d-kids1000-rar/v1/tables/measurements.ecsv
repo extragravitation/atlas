@@ -1,0 +1,200 @@
+# %ECSV 1.0
+# ---
+# datatype:
+# - name: measurement_id
+#   datatype: string
+#   description: Permanent measurement identifier
+#   meta: !!omap
+#   - {ucd: meta.id;meta.main}
+# - name: system_id
+#   datatype: string
+#   description: 'Empty: population measurement (stacked lenses)'
+#   meta: !!omap
+#   - {ucd: meta.id}
+# - name: kind
+#   datatype: string
+#   description: Kind of measurement
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: channel
+#   datatype: string
+#   description: Observational channel
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: method_class
+#   datatype: string
+#   description: Class of method
+#   meta: !!omap
+#   - {ucd: meta.code.class}
+# - name: method
+#   datatype: string
+#   description: Method as given by the source
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: r_kpc
+#   unit: kpc
+#   datatype: float64
+#   description: 'Empty: the source bins by g_bar, not radius'
+#   meta: !!omap
+#   - {ucd: phys.size.radius}
+# - name: r_kind
+#   datatype: string
+#   description: 'Empty: no radius'
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: g_obs
+#   unit: m / s2
+#   datatype: float64
+#   description: Observed acceleration, 4 G Delta Sigma (bias-corrected)
+#   meta: !!omap
+#   - {ucd: phys.acceleration}
+# - name: g_obs_err_lo
+#   unit: m / s2
+#   datatype: float64
+#   description: One-sigma error, from the source's ESD error (bias-corrected)
+#   meta: !!omap
+#   - {ucd: stat.error;phys.acceleration}
+# - name: g_obs_err_hi
+#   unit: m / s2
+#   datatype: float64
+#   description: One-sigma error, from the source's ESD error (bias-corrected)
+#   meta: !!omap
+#   - {ucd: stat.error;phys.acceleration}
+# - name: g_bar
+#   unit: m / s2
+#   datatype: float64
+#   description: Mean baryonic acceleration of the bin (stars plus cold gas; plus hot gas for the hot-gas variant), as given by the source
+#   meta: !!omap
+#   - {ucd: phys.acceleration;meta.modelled}
+# - name: g_bar_err_lo
+#   unit: m / s2
+#   datatype: float64
+#   description: Not given by the source
+#   meta: !!omap
+#   - {ucd: stat.error;phys.acceleration}
+# - name: g_bar_err_hi
+#   unit: m / s2
+#   datatype: float64
+#   description: Not given by the source
+#   meta: !!omap
+#   - {ucd: stat.error;phys.acceleration}
+# - name: stars_status
+#   datatype: string
+#   description: Stars are measured photometrically but included only in total g_bar
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: gas_cold_status
+#   datatype: string
+#   description: Cold gas from a scaling relation, included only in total g_bar
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: gas_hot_status
+#   datatype: string
+#   description: 'Hot gas: absent, or the authors'' estimate included in total g_bar'
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: assumptions
+#   datatype: string
+#   description: Named assumptions affecting this row
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: adjustable
+#   datatype: string
+#   description: Assumptions whose sliders can change this row (none)
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: quality_source
+#   datatype: string
+#   description: Source's own caveat, where it applies
+#   meta: !!omap
+#   - {ucd: meta.code.qual}
+# - name: source_ref
+#   datatype: string
+#   description: Pointer to the source file and row
+#   meta: !!omap
+#   - {ucd: meta.ref}
+# - name: flags
+#   datatype: string
+#   description: Atlas flags
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: x_kids1000_rar_sample
+#   datatype: string
+#   description: 'Lens sample: kids_bright, kids_bright_hotgas or gama'
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: x_kids1000_rar_esd_t
+#   unit: solMass / pc2
+#   datatype: float64
+#   description: Tangential excess surface density, as released (h70 M_sun/pc^2)
+#   meta: !!omap
+#   - {ucd: phys.columnDensity;meta.main}
+# - name: x_kids1000_rar_esd_x
+#   unit: solMass / pc2
+#   datatype: float64
+#   description: Cross excess surface density (null check), as released
+#   meta: !!omap
+#   - {ucd: phys.columnDensity}
+# - name: x_kids1000_rar_esd_err
+#   unit: solMass / pc2
+#   datatype: float64
+#   description: Error on the tangential ESD, as released
+#   meta: !!omap
+#   - {ucd: stat.error;phys.columnDensity}
+# - name: x_kids1000_rar_bias
+#   datatype: float64
+#   description: Multiplicative calibration (1+K), as released
+#   meta: !!omap
+#   - {ucd: instr.calib}
+# delimiter: ','
+# meta: !!omap
+# - {dataset: aeg-d-kids1000-rar}
+# - {version: v1}
+# - {standard_version: 1.2.1}
+# schema: astropy-2.0
+measurement_id,system_id,kind,channel,method_class,method,r_kpc,r_kind,g_obs,g_obs_err_lo,g_obs_err_hi,g_bar,g_bar_err_lo,g_bar_err_hi,stars_status,gas_cold_status,gas_hot_status,assumptions,adjustable,quality_source,source_ref,flags,x_kids1000_rar_sample,x_kids1000_rar_esd_t,x_kids1000_rar_esd_x,x_kids1000_rar_esd_err,x_kids1000_rar_bias
+aeg-d-kids1000-rar/v1/m000001,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses (photometric redshifts)",,,4.2384635508933224e-13,5.319680579535864e-14,5.319680579535864e-14,1.3822e-15,,,not_separable,not_separable,absent,deproj_lensing=sis,,"isolation not reliable below g_bar ~ 1e-13 m/s2 (authors, section 5.2)",brouwer2021_rar.tar:Fig-4-5-C1_RAR-KiDS-isolated_Nobins.txt:data row 1,source_quality_low;no_uncertainty,kids_bright,0.74905,-0.15482,0.094013,0.98531
+aeg-d-kids1000-rar/v1/m000002,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses (photometric redshifts)",,,7.138703178435372e-13,6.85068796617922e-14,6.85068796617922e-14,2.4388e-15,,,not_separable,not_separable,absent,deproj_lensing=sis,,"isolation not reliable below g_bar ~ 1e-13 m/s2 (authors, section 5.2)",brouwer2021_rar.tar:Fig-4-5-C1_RAR-KiDS-isolated_Nobins.txt:data row 2,source_quality_low;no_uncertainty,kids_bright,1.2616,-0.31588,0.12107,0.98531
+aeg-d-kids1000-rar/v1/m000003,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses (photometric redshifts)",,,9.91021302053877e-13,8.865096916340122e-14,8.865096916340122e-14,4.303e-15,,,not_separable,not_separable,absent,deproj_lensing=sis,,"isolation not reliable below g_bar ~ 1e-13 m/s2 (authors, section 5.2)",brouwer2021_rar.tar:Fig-4-5-C1_RAR-KiDS-isolated_Nobins.txt:data row 3,source_quality_low;no_uncertainty,kids_bright,1.7514,-0.013917,0.15667,0.98531
+aeg-d-kids1000-rar/v1/m000004,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses (photometric redshifts)",,,1.4617479328513075e-12,1.1463458123963394e-13,1.1463458123963394e-13,7.5922e-15,,,not_separable,not_separable,absent,deproj_lensing=sis,,"isolation not reliable below g_bar ~ 1e-13 m/s2 (authors, section 5.2)",brouwer2021_rar.tar:Fig-4-5-C1_RAR-KiDS-isolated_Nobins.txt:data row 4,source_quality_low;no_uncertainty,kids_bright,2.5833,0.14423,0.20259,0.98531
+aeg-d-kids1000-rar/v1/m000005,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses (photometric redshifts)",,,1.6885952778286968e-12,1.4905494540769227e-13,1.4905494540769227e-13,1.3396e-14,,,not_separable,not_separable,absent,deproj_lensing=sis,,"isolation not reliable below g_bar ~ 1e-13 m/s2 (authors, section 5.2)",brouwer2021_rar.tar:Fig-4-5-C1_RAR-KiDS-isolated_Nobins.txt:data row 5,source_quality_low;no_uncertainty,kids_bright,2.9842,-0.045765,0.26342,0.98531
+aeg-d-kids1000-rar/v1/m000006,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses (photometric redshifts)",,,2.1884063524571023e-12,1.9473562926906575e-13,1.9473562926906575e-13,2.3635e-14,,,not_separable,not_separable,absent,deproj_lensing=sis,,"isolation not reliable below g_bar ~ 1e-13 m/s2 (authors, section 5.2)",brouwer2021_rar.tar:Fig-4-5-C1_RAR-KiDS-isolated_Nobins.txt:data row 6,source_quality_low;no_uncertainty,kids_bright,3.8675,0.094982,0.34415,0.98531
+aeg-d-kids1000-rar/v1/m000007,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses (photometric redshifts)",,,3.4943205142762996e-12,2.551905315823216e-13,2.551905315823216e-13,4.1702e-14,,,not_separable,not_separable,absent,deproj_lensing=sis,,"isolation not reliable below g_bar ~ 1e-13 m/s2 (authors, section 5.2)",brouwer2021_rar.tar:Fig-4-5-C1_RAR-KiDS-isolated_Nobins.txt:data row 7,source_quality_low;no_uncertainty,kids_bright,6.1754,-0.33518,0.45099,0.98531
+aeg-d-kids1000-rar/v1/m000008,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses (photometric redshifts)",,,4.0473776232333966e-12,3.3506524152746554e-13,3.3506524152746554e-13,7.358e-14,,,not_separable,not_separable,absent,deproj_lensing=sis,,"isolation not reliable below g_bar ~ 1e-13 m/s2 (authors, section 5.2)",brouwer2021_rar.tar:Fig-4-5-C1_RAR-KiDS-isolated_Nobins.txt:data row 8,source_quality_low;no_uncertainty,kids_bright,7.1528,0.463,0.59215,0.98531
+aeg-d-kids1000-rar/v1/m000009,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses (photometric redshifts)",,,5.984944793778609e-12,4.404482535718381e-13,4.404482535718381e-13,1.2982e-13,,,not_separable,not_separable,absent,deproj_lensing=sis,,,brouwer2021_rar.tar:Fig-4-5-C1_RAR-KiDS-isolated_Nobins.txt:data row 9,no_uncertainty,kids_bright,10.577,0.4012,0.77839,0.98531
+aeg-d-kids1000-rar/v1/m000010,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses (photometric redshifts)",,,6.801459432846637e-12,5.798781719451941e-13,5.798781719451941e-13,2.2906e-13,,,not_separable,not_separable,absent,deproj_lensing=sis,,,brouwer2021_rar.tar:Fig-4-5-C1_RAR-KiDS-isolated_Nobins.txt:data row 10,no_uncertainty,kids_bright,12.02,-1.3001,1.0248,0.98531
+aeg-d-kids1000-rar/v1/m000011,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses (photometric redshifts)",,,9.582022798321544e-12,7.629290976129053e-13,7.629290976129053e-13,4.0416e-13,,,not_separable,not_separable,absent,deproj_lensing=sis,,,brouwer2021_rar.tar:Fig-4-5-C1_RAR-KiDS-isolated_Nobins.txt:data row 11,no_uncertainty,kids_bright,16.934,-0.36049,1.3483,0.98531
+aeg-d-kids1000-rar/v1/m000012,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses (photometric redshifts)",,,1.08466868442793e-11,1.0073176441225944e-12,1.0073176441225944e-12,7.131e-13,,,not_separable,not_separable,absent,deproj_lensing=sis,,,brouwer2021_rar.tar:Fig-4-5-C1_RAR-KiDS-isolated_Nobins.txt:data row 12,no_uncertainty,kids_bright,19.169,0.92619,1.7802,0.98531
+aeg-d-kids1000-rar/v1/m000013,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses (photometric redshifts)",,,1.4427355337711373e-11,1.326793850094742e-12,1.326793850094742e-12,1.2582e-12,,,not_separable,not_separable,absent,deproj_lensing=sis,,,brouwer2021_rar.tar:Fig-4-5-C1_RAR-KiDS-isolated_Nobins.txt:data row 13,no_uncertainty,kids_bright,25.497,1.1767,2.3448,0.98531
+aeg-d-kids1000-rar/v1/m000014,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses (photometric redshifts)",,,1.8628190182091857e-11,1.7546859984407173e-12,1.7546859984407173e-12,2.22e-12,,,not_separable,not_separable,absent,deproj_lensing=sis,,,brouwer2021_rar.tar:Fig-4-5-C1_RAR-KiDS-isolated_Nobins.txt:data row 14,no_uncertainty,kids_bright,32.921,4.1086,3.101,0.98531
+aeg-d-kids1000-rar/v1/m000015,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses (photometric redshifts)",,,1.9101236778253238e-11,2.3265291683936967e-12,2.3265291683936967e-12,3.9169e-12,,,not_separable,not_separable,absent,deproj_lensing=sis,,,brouwer2021_rar.tar:Fig-4-5-C1_RAR-KiDS-isolated_Nobins.txt:data row 15,no_uncertainty,kids_bright,33.757,1.1884,4.1116,0.98531
+aeg-d-kids1000-rar/v1/m000016,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses; g_bar includes the authors' hot-gas estimate",,,6.93782812863e-14,2.4089728155955065e-14,2.4089728155955065e-14,1.3822e-15,,,not_separable,not_separable,not_separable,deproj_lensing=sis;hot_gas_halo=authors_estimate,,"isolation not reliable below g_bar ~ 1e-13 m/s2 (authors, section 5.2)",brouwer2021_rar.tar:Fig-4_RAR-KiDS-isolated_hotgas_Nobins.txt:data row 1,source_quality_low;no_uncertainty,kids_bright_hotgas,0.12261,0.028607,0.042573,0.98531
+aeg-d-kids1000-rar/v1/m000017,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses; g_bar includes the authors' hot-gas estimate",,,1.6219387120059567e-13,2.962652354284395e-14,2.962652354284395e-14,2.4388e-15,,,not_separable,not_separable,not_separable,deproj_lensing=sis;hot_gas_halo=authors_estimate,,"isolation not reliable below g_bar ~ 1e-13 m/s2 (authors, section 5.2)",brouwer2021_rar.tar:Fig-4_RAR-KiDS-isolated_hotgas_Nobins.txt:data row 2,source_quality_low;no_uncertainty,kids_bright_hotgas,0.28664,-0.12448,0.052358,0.98531
+aeg-d-kids1000-rar/v1/m000018,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses; g_bar includes the authors' hot-gas estimate",,,3.935170517947748e-13,4.2655675364867796e-14,4.2655675364867796e-14,4.303e-15,,,not_separable,not_separable,not_separable,deproj_lensing=sis;hot_gas_halo=authors_estimate,,"isolation not reliable below g_bar ~ 1e-13 m/s2 (authors, section 5.2)",brouwer2021_rar.tar:Fig-4_RAR-KiDS-isolated_hotgas_Nobins.txt:data row 3,source_quality_low;no_uncertainty,kids_bright_hotgas,0.69545,-0.13572,0.075384,0.98531
+aeg-d-kids1000-rar/v1/m000019,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses; g_bar includes the authors' hot-gas estimate",,,7.04420702824524e-13,6.381036441282157e-14,6.381036441282157e-14,7.5922e-15,,,not_separable,not_separable,not_separable,deproj_lensing=sis;hot_gas_halo=authors_estimate,,"isolation not reliable below g_bar ~ 1e-13 m/s2 (authors, section 5.2)",brouwer2021_rar.tar:Fig-4_RAR-KiDS-isolated_hotgas_Nobins.txt:data row 4,source_quality_low;no_uncertainty,kids_bright_hotgas,1.2449,-0.14655,0.11277,0.98531
+aeg-d-kids1000-rar/v1/m000020,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses; g_bar includes the authors' hot-gas estimate",,,1.284298874769718e-12,9.41905937763437e-14,9.41905937763437e-14,1.3396e-14,,,not_separable,not_separable,not_separable,deproj_lensing=sis;hot_gas_halo=authors_estimate,,"isolation not reliable below g_bar ~ 1e-13 m/s2 (authors, section 5.2)",brouwer2021_rar.tar:Fig-4_RAR-KiDS-isolated_hotgas_Nobins.txt:data row 5,source_quality_low;no_uncertainty,kids_bright_hotgas,2.2697,0.016622,0.16646,0.98531
+aeg-d-kids1000-rar/v1/m000021,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses; g_bar includes the authors' hot-gas estimate",,,1.7864299147620729e-12,1.360631393695759e-13,1.360631393695759e-13,2.3635e-14,,,not_separable,not_separable,not_separable,deproj_lensing=sis;hot_gas_halo=authors_estimate,,"isolation not reliable below g_bar ~ 1e-13 m/s2 (authors, section 5.2)",brouwer2021_rar.tar:Fig-4_RAR-KiDS-isolated_hotgas_Nobins.txt:data row 6,source_quality_low;no_uncertainty,kids_bright_hotgas,3.1571,-0.016709,0.24046,0.98531
+aeg-d-kids1000-rar/v1/m000022,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses; g_bar includes the authors' hot-gas estimate",,,2.476138642107894e-12,1.9358696349130543e-13,1.9358696349130543e-13,4.1702e-14,,,not_separable,not_separable,not_separable,deproj_lensing=sis;hot_gas_halo=authors_estimate,,"isolation not reliable below g_bar ~ 1e-13 m/s2 (authors, section 5.2)",brouwer2021_rar.tar:Fig-4_RAR-KiDS-isolated_hotgas_Nobins.txt:data row 7,source_quality_low;no_uncertainty,kids_bright_hotgas,4.376,-0.014082,0.34212,0.98531
+aeg-d-kids1000-rar/v1/m000023,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses; g_bar includes the authors' hot-gas estimate",,,3.886111738178381e-12,2.713227785399303e-13,2.713227785399303e-13,7.358e-14,,,not_separable,not_separable,not_separable,deproj_lensing=sis;hot_gas_halo=authors_estimate,,"isolation not reliable below g_bar ~ 1e-13 m/s2 (authors, section 5.2)",brouwer2021_rar.tar:Fig-4_RAR-KiDS-isolated_hotgas_Nobins.txt:data row 8,source_quality_low;no_uncertainty,kids_bright_hotgas,6.8678,0.32124,0.4795,0.98531
+aeg-d-kids1000-rar/v1/m000024,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses; g_bar includes the authors' hot-gas estimate",,,4.838938488508701e-12,3.7512708244639586e-13,3.7512708244639586e-13,1.2982e-13,,,not_separable,not_separable,not_separable,deproj_lensing=sis;hot_gas_halo=authors_estimate,,,brouwer2021_rar.tar:Fig-4_RAR-KiDS-isolated_hotgas_Nobins.txt:data row 9,no_uncertainty,kids_bright_hotgas,8.5517,-0.095523,0.66295,0.98531
+aeg-d-kids1000-rar/v1/m000025,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses; g_bar includes the authors' hot-gas estimate",,,6.563238599133789e-12,5.135384794404571e-13,5.135384794404571e-13,2.2906e-13,,,not_separable,not_separable,not_separable,deproj_lensing=sis;hot_gas_halo=authors_estimate,,,brouwer2021_rar.tar:Fig-4_RAR-KiDS-isolated_hotgas_Nobins.txt:data row 10,no_uncertainty,kids_bright_hotgas,11.599,-1.2097,0.90756,0.98531
+aeg-d-kids1000-rar/v1/m000026,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses; g_bar includes the authors' hot-gas estimate",,,8.5340774680693e-12,6.962159472690933e-13,6.962159472690933e-13,4.0416e-13,,,not_separable,not_separable,not_separable,deproj_lensing=sis;hot_gas_halo=authors_estimate,,,brouwer2021_rar.tar:Fig-4_RAR-KiDS-isolated_hotgas_Nobins.txt:data row 11,no_uncertainty,kids_bright_hotgas,15.082,-0.35541,1.2304,0.98531
+aeg-d-kids1000-rar/v1/m000027,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses; g_bar includes the authors' hot-gas estimate",,,1.1213354540825441e-11,9.393596343151997e-13,9.393596343151997e-13,7.131e-13,,,not_separable,not_separable,not_separable,deproj_lensing=sis;hot_gas_halo=authors_estimate,,,brouwer2021_rar.tar:Fig-4_RAR-KiDS-isolated_hotgas_Nobins.txt:data row 12,no_uncertainty,kids_bright_hotgas,19.817,0.69546,1.6601,0.98531
+aeg-d-kids1000-rar/v1/m000028,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses; g_bar includes the authors' hot-gas estimate",,,1.3770409048066204e-11,1.2602504533141454e-12,1.2602504533141454e-12,1.2582e-12,,,not_separable,not_separable,not_separable,deproj_lensing=sis;hot_gas_halo=authors_estimate,,,brouwer2021_rar.tar:Fig-4_RAR-KiDS-isolated_hotgas_Nobins.txt:data row 13,no_uncertainty,kids_bright_hotgas,24.336,1.1644,2.2272,0.98531
+aeg-d-kids1000-rar/v1/m000029,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses; g_bar includes the authors' hot-gas estimate",,,1.774433996294823e-11,1.6859923898593876e-12,1.6859923898593876e-12,2.22e-12,,,not_separable,not_separable,not_separable,deproj_lensing=sis;hot_gas_halo=authors_estimate,,,brouwer2021_rar.tar:Fig-4_RAR-KiDS-isolated_hotgas_Nobins.txt:data row 14,no_uncertainty,kids_bright_hotgas,31.359,5.3441,2.9796,0.98531
+aeg-d-kids1000-rar/v1/m000030,,population_bin,lensing,lensing,"Weak lensing, stacked isolated KiDS-bright lenses; g_bar includes the authors' hot-gas estimate",,,2.0574131861755715e-11,2.2565341158277123e-12,2.2565341158277123e-12,3.9169e-12,,,not_separable,not_separable,not_separable,deproj_lensing=sis;hot_gas_halo=authors_estimate,,,brouwer2021_rar.tar:Fig-4_RAR-KiDS-isolated_hotgas_Nobins.txt:data row 15,no_uncertainty,kids_bright_hotgas,36.36,1.9256,3.9879,0.98531
+aeg-d-kids1000-rar/v1/m000031,,population_bin,lensing,lensing,"Weak lensing, stacked isolated GAMA lenses (spectroscopic redshifts)",,,2.6927342022205264e-13,2.029974339644871e-13,2.029974339644871e-13,1.3822e-15,,,not_separable,not_separable,absent,deproj_lensing=sis,,,brouwer2021_rar.tar:Fig-4-C1_RAR-GAMA-isolated_Nobins.txt:data row 1,no_uncertainty,gama,0.47597,0.20787,0.35882,0.9855
+aeg-d-kids1000-rar/v1/m000032,,population_bin,lensing,lensing,"Weak lensing, stacked isolated GAMA lenses (spectroscopic redshifts)",,,7.186545910626164e-13,2.6506434350198195e-13,2.6506434350198195e-13,2.4388e-15,,,not_separable,not_separable,absent,deproj_lensing=sis,,,brouwer2021_rar.tar:Fig-4-C1_RAR-GAMA-isolated_Nobins.txt:data row 2,no_uncertainty,gama,1.2703,0.33164,0.46853,0.9855
+aeg-d-kids1000-rar/v1/m000033,,population_bin,lensing,lensing,"Weak lensing, stacked isolated GAMA lenses (spectroscopic redshifts)",,,4.624100736447612e-13,3.483180706694027e-13,3.483180706694027e-13,4.303e-15,,,not_separable,not_separable,absent,deproj_lensing=sis,,,brouwer2021_rar.tar:Fig-4-C1_RAR-GAMA-isolated_Nobins.txt:data row 3,no_uncertainty,gama,0.81736,0.38405,0.61569,0.9855
+aeg-d-kids1000-rar/v1/m000034,,population_bin,lensing,lensing,"Weak lensing, stacked isolated GAMA lenses (spectroscopic redshifts)",,,7.810552849099017e-13,4.586931873476019e-13,4.586931873476019e-13,7.5922e-15,,,not_separable,not_separable,absent,deproj_lensing=sis,,,brouwer2021_rar.tar:Fig-4-C1_RAR-GAMA-isolated_Nobins.txt:data row 4,no_uncertainty,gama,1.3806,-0.42576,0.81079,0.9855
+aeg-d-kids1000-rar/v1/m000035,,population_bin,lensing,lensing,"Weak lensing, stacked isolated GAMA lenses (spectroscopic redshifts)",,,1.0530046369714618e-12,6.059599562994319e-13,6.059599562994319e-13,1.3396e-14,,,not_separable,not_separable,absent,deproj_lensing=sis,,,brouwer2021_rar.tar:Fig-4-C1_RAR-GAMA-isolated_Nobins.txt:data row 5,no_uncertainty,gama,1.8613,-0.48621,1.0711,0.9855
+aeg-d-kids1000-rar/v1/m000036,,population_bin,lensing,lensing,"Weak lensing, stacked isolated GAMA lenses (spectroscopic redshifts)",,,1.4574493879363241e-12,8.028361254640313e-13,8.028361254640313e-13,2.3635e-14,,,not_separable,not_separable,absent,deproj_lensing=sis,,,brouwer2021_rar.tar:Fig-4-C1_RAR-GAMA-isolated_Nobins.txt:data row 6,no_uncertainty,gama,2.5762,0.26175,1.4191,0.9855
+aeg-d-kids1000-rar/v1/m000037,,population_bin,lensing,lensing,"Weak lensing, stacked isolated GAMA lenses (spectroscopic redshifts)",,,2.9499178415947415e-12,1.063810196830783e-12,1.063810196830783e-12,4.1702e-14,,,not_separable,not_separable,absent,deproj_lensing=sis,,,brouwer2021_rar.tar:Fig-4-C1_RAR-GAMA-isolated_Nobins.txt:data row 7,no_uncertainty,gama,5.2143,1.4773,1.8804,0.9855
+aeg-d-kids1000-rar/v1/m000038,,population_bin,lensing,lensing,"Weak lensing, stacked isolated GAMA lenses (spectroscopic redshifts)",,,4.8694039173377566e-12,1.4110590262366196e-12,1.4110590262366196e-12,7.358e-14,,,not_separable,not_separable,absent,deproj_lensing=sis,,,brouwer2021_rar.tar:Fig-4-C1_RAR-GAMA-isolated_Nobins.txt:data row 8,no_uncertainty,gama,8.6072,3.2772,2.4942,0.9855
+aeg-d-kids1000-rar/v1/m000039,,population_bin,lensing,lensing,"Weak lensing, stacked isolated GAMA lenses (spectroscopic redshifts)",,,3.6280091529760314e-12,1.8738311709970858e-12,1.8738311709970858e-12,1.2982e-13,,,not_separable,not_separable,absent,deproj_lensing=sis,,,brouwer2021_rar.tar:Fig-4-C1_RAR-GAMA-isolated_Nobins.txt:data row 9,no_uncertainty,gama,6.4129,-0.8741,3.3122,0.9855
+aeg-d-kids1000-rar/v1/m000040,,population_bin,lensing,lensing,"Weak lensing, stacked isolated GAMA lenses (spectroscopic redshifts)",,,1.0201353684988663e-11,2.489974377425721e-12,2.489974377425721e-12,2.2906e-13,,,not_separable,not_separable,absent,deproj_lensing=sis,,,brouwer2021_rar.tar:Fig-4-C1_RAR-GAMA-isolated_Nobins.txt:data row 10,no_uncertainty,gama,18.032,-7.9301,4.4013,0.9855
+aeg-d-kids1000-rar/v1/m000041,,population_bin,lensing,lensing,"Weak lensing, stacked isolated GAMA lenses (spectroscopic redshifts)",,,1.6612275377440503e-11,3.3050869766566257e-12,3.3050869766566257e-12,4.0416e-13,,,not_separable,not_separable,absent,deproj_lensing=sis,,,brouwer2021_rar.tar:Fig-4-C1_RAR-GAMA-isolated_Nobins.txt:data row 11,no_uncertainty,gama,29.364,7.4761,5.8421,0.9855
+aeg-d-kids1000-rar/v1/m000042,,population_bin,lensing,lensing,"Weak lensing, stacked isolated GAMA lenses (spectroscopic redshifts)",,,9.546796996128198e-12,4.377326641649916e-12,4.377326641649916e-12,7.131e-13,,,not_separable,not_separable,absent,deproj_lensing=sis,,,brouwer2021_rar.tar:Fig-4-C1_RAR-GAMA-isolated_Nobins.txt:data row 12,no_uncertainty,gama,16.875,6.3634,7.7374,0.9855
+aeg-d-kids1000-rar/v1/m000043,,population_bin,lensing,lensing,"Weak lensing, stacked isolated GAMA lenses (spectroscopic redshifts)",,,1.8404527400180298e-11,5.837831004625002e-12,5.837831004625002e-12,1.2582e-12,,,not_separable,not_separable,absent,deproj_lensing=sis,,,brouwer2021_rar.tar:Fig-4-C1_RAR-GAMA-isolated_Nobins.txt:data row 13,no_uncertainty,gama,32.532,7.3342,10.319,0.9855
+aeg-d-kids1000-rar/v1/m000044,,population_bin,lensing,lensing,"Weak lensing, stacked isolated GAMA lenses (spectroscopic redshifts)",,,1.4920724383756157e-11,7.756807917861555e-12,7.756807917861555e-12,2.22e-12,,,not_separable,not_separable,absent,deproj_lensing=sis,,,brouwer2021_rar.tar:Fig-4-C1_RAR-GAMA-isolated_Nobins.txt:data row 14,no_uncertainty,gama,26.374,-4.1953,13.711,0.9855
+aeg-d-kids1000-rar/v1/m000045,,population_bin,lensing,lensing,"Weak lensing, stacked isolated GAMA lenses (spectroscopic redshifts)",,,1.2114673237042328e-11,1.0355233909163292e-11,1.0355233909163292e-11,3.9169e-12,,,not_separable,not_separable,absent,deproj_lensing=sis,,,brouwer2021_rar.tar:Fig-4-C1_RAR-GAMA-isolated_Nobins.txt:data row 15,no_uncertainty,gama,21.414,8.2395,18.304,0.9855
