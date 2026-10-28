@@ -1,0 +1,313 @@
+{
+  "name": "aeg-d-xcop",
+  "version": "v1",
+  "title": "X-COP galaxy clusters: hydrostatic acceleration profiles with gas and stellar masses",
+  "description": "Atlas conversion of the X-COP public data release: forward-method hydrostatic masses (Ettori et al. 2019), gas masses (Eckert et al. 2019) and stellar masses (Ghizzardi et al. 2020; modelled for 5 clusters, D-022). See SOURCE.md and REPRODUCTION.md.",
+  "x_standard_version": "1.2.1",
+  "x_licence_status": "No licence stated by the source; Atlas tables intended CC BY 4.0 under D-004, citing the source. Source archive not redistributed.",
+  "licenses": [],
+  "sources": [
+    {
+      "title": "X-COP public data release",
+      "path": "https://dominiqueeckert.wixsite.com/xcop/data"
+    }
+  ],
+  "x_citation": "As the X-COP data page requests (read 2026-10-28): thermodynamic profiles, Ghirardini et al. 2018; mass profiles, Ettori et al. 2018 (arXiv:1805.00035; A&A 621, A39); gas mass and gas fraction, Eckert et al. 2018 (arXiv:1805.00034); metal abundance profiles, Ghizzardi et al. 2020 (arXiv:2007.01084; its stellar-mass profiles are used here); A2142, Tchernin et al. 2016; A2319, Ghirardini et al. 2017; RXC 1825, Clavico et al. 2019.",
+  "x_known_issues": [
+    "https://github.com/extragravitation/atlas/issues/19"
+  ],
+  "x_model_test": {
+    "decision": "D-023",
+    "x_min_r_over_r500": 0.144545584715558,
+    "x_max_r_over_r500": 1.379756529655343,
+    "modelled_rows": {
+      "A1644": {
+        "kept": 49,
+        "removed": 38
+      },
+      "A2255": {
+        "kept": 49,
+        "removed": 42
+      },
+      "A3158": {
+        "kept": 48,
+        "removed": 44
+      },
+      "A3266": {
+        "kept": 44,
+        "removed": 41
+      },
+      "RXC1825": {
+        "kept": 49,
+        "removed": 39
+      }
+    }
+  },
+  "x_cosmology": "As in the source papers (flat LCDM, H0 = 70 km/s/Mpc, Omega_m = 0.3)",
+  "resources": [
+    {
+      "name": "measurements",
+      "path": "tables/measurements.ecsv",
+      "format": "ecsv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "dialect": {
+        "delimiter": ",",
+        "commentChar": "#",
+        "header": true
+      },
+      "schema": {
+        "fields": [
+          {
+            "name": "measurement_id",
+            "type": "string",
+            "description": "Permanent measurement identifier",
+            "ucd": "meta.id;meta.main"
+          },
+          {
+            "name": "system_id",
+            "type": "string",
+            "description": "Atlas system identifier",
+            "ucd": "meta.id"
+          },
+          {
+            "name": "kind",
+            "type": "string",
+            "description": "Kind of measurement",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "channel",
+            "type": "string",
+            "description": "Observational channel",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "method_class",
+            "type": "string",
+            "description": "Class of method",
+            "ucd": "meta.code.class"
+          },
+          {
+            "name": "method",
+            "type": "string",
+            "description": "Method as given by the source",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "r_kpc",
+            "type": "number",
+            "description": "Three-dimensional radius, from the source's hydrostatic-mass grid",
+            "ucd": "phys.size.radius",
+            "unit": "kpc"
+          },
+          {
+            "name": "r_kind",
+            "type": "string",
+            "description": "Radius is three-dimensional",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "g_obs",
+            "type": "number",
+            "description": "Observed acceleration, G M_forward(<r) / r^2",
+            "ucd": "phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_obs_err_lo",
+            "type": "number",
+            "description": "One-sigma error, from the source's forward-method mass error",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_obs_err_hi",
+            "type": "number",
+            "description": "One-sigma error, from the source's forward-method mass error",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar",
+            "type": "number",
+            "description": "Baryonic acceleration, G (M_gas + M_stars)(<r) / r^2",
+            "ucd": "phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar_err_lo",
+            "type": "number",
+            "description": "Gas and measured-star errors in quadrature; modelled stars carry no error",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar_err_hi",
+            "type": "number",
+            "description": "Gas and measured-star errors in quadrature; modelled stars carry no error",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar_stars",
+            "type": "number",
+            "description": "Stellar component of g_bar (measured or modelled, see stars_status)",
+            "ucd": "phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar_gas_hot",
+            "type": "number",
+            "description": "Hot-gas component of g_bar, from the X-ray gas mass",
+            "ucd": "phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "stars_status",
+            "type": "string",
+            "description": "Stars measured (Ghizzardi et al. 2020) or modelled (D-022)",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "gas_cold_status",
+            "type": "string",
+            "description": "Cold gas not included by the source",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "gas_hot_status",
+            "type": "string",
+            "description": "Hot gas measured from X-ray emission",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "assumptions",
+            "type": "string",
+            "description": "Named assumptions affecting this row",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "adjustable",
+            "type": "string",
+            "description": "Assumptions whose sliders can change this row",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "source_ref",
+            "type": "string",
+            "description": "Pointer to the source file and row",
+            "ucd": "meta.ref"
+          },
+          {
+            "name": "flags",
+            "type": "string",
+            "description": "Atlas flags",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "known_issues",
+            "type": "string",
+            "description": "Open known issues affecting this row (GitHub issue numbers)",
+            "ucd": "meta.ref"
+          },
+          {
+            "name": "x_xcop_m_forw",
+            "type": "number",
+            "description": "Forward-method hydrostatic mass within r, as released",
+            "ucd": "phys.mass",
+            "unit": "solMass"
+          },
+          {
+            "name": "x_xcop_m_gas",
+            "type": "number",
+            "description": "Gas mass within r, interpolated in log-log from the release",
+            "ucd": "phys.mass",
+            "unit": "solMass"
+          },
+          {
+            "name": "x_xcop_m_star",
+            "type": "number",
+            "description": "Stellar mass within r: interpolated from the release, or modelled (D-022)",
+            "ucd": "phys.mass",
+            "unit": "solMass"
+          },
+          {
+            "name": "x_xcop_g_bar_gas_err_lo",
+            "type": "number",
+            "description": "Lower one-sigma error of the gas component",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "x_xcop_g_bar_gas_err_hi",
+            "type": "number",
+            "description": "Upper one-sigma error of the gas component",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "x_xcop_g_bar_stars_err_lo",
+            "type": "number",
+            "description": "Lower error of measured stars (total uncertainty as released); empty if modelled",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "x_xcop_g_bar_stars_err_hi",
+            "type": "number",
+            "description": "Upper error of measured stars (total uncertainty as released); empty if modelled",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    },
+    {
+      "name": "systems",
+      "path": "tables/systems.ecsv",
+      "format": "ecsv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "dialect": {
+        "delimiter": ",",
+        "commentChar": "#",
+        "header": true
+      },
+      "schema": {
+        "fields": [
+          {
+            "name": "system_id",
+            "type": "string",
+            "description": "Atlas system identifier",
+            "ucd": "meta.id;meta.main"
+          },
+          {
+            "name": "name_in_source",
+            "type": "string",
+            "description": "Cluster name as in the X-COP release",
+            "ucd": "meta.id"
+          },
+          {
+            "name": "class_in_source",
+            "type": "string",
+            "description": "Class as the source gives it",
+            "ucd": "src.class"
+          },
+          {
+            "name": "properties",
+            "type": "string",
+            "description": "Source-given properties (JSON; units in key names)",
+            "ucd": "meta.note"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    }
+  ]
+}

@@ -253,6 +253,32 @@ All entries below: ruled by JvH on 2026-10-28 (week 1 of the MVP plan).
 
 **Alternative rejected.** Shift g_bar by ±0.2 dex as an approximate band.
 
+## D-022 — X-COP assumptions: defaults and ranges
+
+**Ruling (2026-10-28, JvH), before the X-COP conversion was run.** Applies D-014 to `aeg-d-xcop/v1`.
+
+1. **X-ray hydrostatic bias** `xray_hse_bias`, b, with M_true = M_hydrostatic / (1 − b). Default **0**, range **0 to 0.2**, adjustable on all 12 clusters. Effect: g_obs and its errors divided by (1 − b); g_bar unchanged (gas mass comes from the gas density, not from hydrostatic balance).
+   - Default: the X-COP team find about 6 % non-thermal pressure at R500 and 10 % at R200, and that hydrostatic masses "require little correction" (Eckert et al. 2019, arXiv:1805.00034).
+   - Upper end: the same paper reports 1 − b = 0.85 ± 0.05 for Planck's SZ-based masses; 0.2 is that value's one-sigma edge.
+2. **Intracluster light** `icl_fraction`, f, the share of total cluster starlight not counted in the measured stellar masses. Default **0**, range **0 to 0.5**, adjustable on the **7 clusters with measured stars only**. Effect: g_bar,stars divided by (1 − f), so the extra light is assumed to follow the measured stars' radial distribution (Zibetti et al. 2005 find it more concentrated; stated on the page).
+   - Range: the span the stellar-mass source itself gives (Ghizzardi et al. 2020, arXiv:2007.01084): Zibetti et al. 2005, 10.9 ± 5.0 % within 500 kpc; Zhang et al. 2019, 44 ± 17 % within 1 Mpc. Zhang's figure includes the central galaxy, which the measured masses already count, so 0.5 is generous.
+3. **Modelled stars, 5 clusters** (A1644, A2255, A3158, A3266, RXC1825) `stars_cluster_modelled`. The default follows Ettori et al. 2019 (arXiv:1805.00035 §5): an NFW-shaped cumulative profile with concentration 2.9 (Lin et al. 2004, arXiv:astro-ph/0402308, from galaxy number counts with the central galaxy excluded, defined relative to r200, which Ettori's Table 1 gives per cluster), normalised so that M★(<R500) / M_gas(<R500) = 0.39 (M500 / 10¹⁴ M☉)^−0.84 (Gonzalez et al. 2013). M500 and R200 are Ettori Table 1's hydrostatic values and are not recomputed under the bias slider. **Status draft, no slider ("disabled until read")**: the slider is switched on only after Gonzalez et al. 2013 has been read at source for the relation's scatter and for whether its stellar masses include the central galaxy and intracluster light. Rows carry `stars_status = modelled`.
+
+**Reason.** Defaults are the source team's own; ranges are the spans the cited literature gives, read at source. Nothing ships switched on whose range has not been read.
+
+**Alternatives rejected.** Range 0 to 0.3 for the bias (beyond what any cited X-COP or Planck figure supports); intracluster light on all 12 clusters (the modelled-star prescription may already include it); a modelled-stars slider from sample quartiles (forbidden by D-005 condition 3).
+
+
+## D-023 — Modelled stars: ship only where the model is validated
+
+**Ruling (2026-10-28, JvH), before the test was run.** The modelled-star profile (D-022 item 3) excludes the central galaxy, so near the centre it under-predicts g_bar and inflates g_obs/g_bar for the 5 modelled clusters. The prescription is tested where the truth is known: applied to the 7 clusters with measured stars, it must reproduce their g_bar within 10 % (median of the absolute deviation over the clusters, as a function of r/R500). Modelled rows ship only within the validated range of r/R500. Exact procedure frozen in `data/packages/aeg-d-xcop/v1/MODEL_TEST.md` (hash in `sources.json`); outcome in `MODEL_TEST_RESULT.md`; the dataset page explains the cut.
+
+**Reason.** A model artefact must not sit on the map as an observation; the cut is set by data, by a rule fixed before the comparison was made. The 10 % is a judgement call, inside the hydrostatic-bias range already allowed (0 to 20 %).
+
+**Alternatives rejected.** A fixed inner radius chosen after the star fractions had been seen (post hoc); shipping every row with the problem stated in words (leaves an artefact on the map).
+
+**Result (first run, 2026-10-28).** Validated range r/R500 = 0.145 to 1.38; inside 0.145 R500 the prescription misses the measured clusters' g_bar by up to 74 %, outside 0.2 R500 by 4 % or less (median). 204 modelled rows removed (innermost kept radius 153–212 kpc); 861 measurements ship. Details: `MODEL_TEST_RESULT.md`.
+
 ---
 
 ## Recorded alongside (not decisions; corrections to the plans)

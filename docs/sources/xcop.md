@@ -18,7 +18,7 @@ Read 2026-10-28: Ettori et al. 2019 (A&A 621, A39; arXiv:1805.00035, via ar5iv),
 
 ## Data page and archive
 
-Data page: https://dominiqueeckert.wixsite.com/xcop/data. **No licence stated**; it asks that the listed papers be cited (thermodynamic profiles: Ghirardini et al.; mass profiles: Ettori et al.; gas mass and gas fraction: Eckert et al.; stellar mass: Ghizzardi et al. 2020).
+Data page: https://dominiqueeckert.wixsite.com/xcop/data. **No licence stated**; it asks that these papers be cited (re-read 2026-10-28): thermodynamic profiles, Ghirardini et al. 2018; mass profiles, Ettori et al. 2018; gas mass and gas fraction, Eckert et al. 2018; metal abundance profiles, Ghizzardi et al. 2020; Hydra A, De Grandi et al. 2016; A2142, Tchernin et al. 2016; A2319, Ghirardini et al. 2017; RXC 1825, Clavico et al. 2019. The stellar-mass files are not listed separately; their header names them as the profiles used in Ghizzardi et al. 2020.
 
 The whole release is one archive, linked from the page (Switch Drive public share `j3WUOYXWgv9Jbnz`), read 2026-10-28:
 
@@ -44,3 +44,9 @@ Photometric stellar masses of member galaxies above 10⁹ M☉, with statistical
 - The amended D-005 (2026-10-28: Eckert et al. 2022 non-parametric masses) **cannot be built from public data**: those profiles are not released. D-005 was amended again on 2026-10-28 accordingly (see `docs/decisions.md`).
 - What the public release **does** support: forward-method masses (no assumed shape for the potential) for all 12 clusters; measured gas mass for all 12; **measured stellar mass for 7** (not 5); intracluster light as a natural named assumption with a published range (≈10–50 % of cluster light, read here; the underlying studies to be read at source before use).
 - Licence: none stated; per D-004 the archive is not committed. The package records the share address and the hash above, and the pipeline verifies them on each build.
+
+## Archive details read during conversion (2026-10-28)
+
+- `MGAS_LO`/`MGAS_HI` are one-sigma errors; `MSTAR_SMOOTHED` `MSTAR_LO`/`MSTAR_HI` are bounds (total uncertainty); `MSTAR_RAW` gives statistical and cosmic-variance errors separately on an R/R500 grid.
+- The gas and stellar files carry `R500` and `M500` header keywords. For A644, A2029 and A2319 these differ from Ettori et al. 2019 Table 1 (1250, 1414, 1368 kpc against 1230, 1423, 1346); for the other nine they are equal. Known issue #19.
+- Ettori et al. 2019 Table 1 also gives redshift, c200, R200 and M200 per cluster; its concentration is defined with Δ = 200 (eq. 3). Lin et al. 2004 (arXiv:astro-ph/0402308) define their galaxy concentration (c = 2.90 +0.21/−0.22) relative to r200, from galaxy number counts excluding the central galaxy.

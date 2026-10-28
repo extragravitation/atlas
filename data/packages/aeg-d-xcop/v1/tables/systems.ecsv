@@ -1,0 +1,42 @@
+# %ECSV 1.0
+# ---
+# datatype:
+# - name: system_id
+#   datatype: string
+#   description: Atlas system identifier
+#   meta: !!omap
+#   - {ucd: meta.id;meta.main}
+# - name: name_in_source
+#   datatype: string
+#   description: Cluster name as in the X-COP release
+#   meta: !!omap
+#   - {ucd: meta.id}
+# - name: class_in_source
+#   datatype: string
+#   description: Class as the source gives it
+#   meta: !!omap
+#   - {ucd: src.class}
+# - name: properties
+#   datatype: string
+#   description: Source-given properties (JSON; units in key names)
+#   meta: !!omap
+#   - {ucd: meta.note}
+# delimiter: ','
+# meta: !!omap
+# - {dataset: aeg-d-xcop}
+# - {version: v1}
+# - {standard_version: 1.2.1}
+# schema: astropy-2.0
+system_id,name_in_source,class_in_source,properties
+aeg-s-000176,A85,Galaxy cluster (X-COP sample),"{""redshift"":0.0555,""r500_kpc"":1235.0,""m500_1e14_solMass"":5.65,""r200_kpc"":1921.0,""m200_1e14_solMass"":8.5,""r500_mass_ref"":""Ettori et al. 2019 Table 1 (backward method, NFW model)"",""r500_gas_file_header_kpc"":1235.0,""stars"":""measured (Ghizzardi et al. 2020)""}"
+aeg-s-000177,A644,Galaxy cluster (X-COP sample),"{""redshift"":0.0704,""r500_kpc"":1230.0,""m500_1e14_solMass"":5.66,""r200_kpc"":1847.0,""m200_1e14_solMass"":7.67,""r500_mass_ref"":""Ettori et al. 2019 Table 1 (backward method, NFW model)"",""r500_gas_file_header_kpc"":1250.0,""stars"":""measured (Ghizzardi et al. 2020)""}"
+aeg-s-000178,A1644,Galaxy cluster (X-COP sample),"{""redshift"":0.0473,""r500_kpc"":1054.0,""m500_1e14_solMass"":3.48,""r200_kpc"":1778.0,""m200_1e14_solMass"":6.69,""r500_mass_ref"":""Ettori et al. 2019 Table 1 (backward method, NFW model)"",""r500_gas_file_header_kpc"":1054.0,""stars"":""modelled (Ettori et al. 2019 prescription, D-022)""}"
+aeg-s-000179,A1795,Galaxy cluster (X-COP sample),"{""redshift"":0.0622,""r500_kpc"":1153.0,""m500_1e14_solMass"":4.63,""r200_kpc"":1755.0,""m200_1e14_solMass"":6.53,""r500_mass_ref"":""Ettori et al. 2019 Table 1 (backward method, NFW model)"",""r500_gas_file_header_kpc"":1153.0,""stars"":""measured (Ghizzardi et al. 2020)""}"
+aeg-s-000180,A2029,Galaxy cluster (X-COP sample),"{""redshift"":0.0773,""r500_kpc"":1423.0,""m500_1e14_solMass"":8.82,""r200_kpc"":2173.0,""m200_1e14_solMass"":12.57,""r500_mass_ref"":""Ettori et al. 2019 Table 1 (backward method, NFW model)"",""r500_gas_file_header_kpc"":1414.0,""stars"":""measured (Ghizzardi et al. 2020)""}"
+aeg-s-000181,A2142,Galaxy cluster (X-COP sample),"{""redshift"":0.0909,""r500_kpc"":1424.0,""m500_1e14_solMass"":8.95,""r200_kpc"":2224.0,""m200_1e14_solMass"":13.64,""r500_mass_ref"":""Ettori et al. 2019 Table 1 (backward method, NFW model)"",""r500_gas_file_header_kpc"":1424.0,""stars"":""measured (Ghizzardi et al. 2020)""}"
+aeg-s-000182,A2255,Galaxy cluster (X-COP sample),"{""redshift"":0.0809,""r500_kpc"":1196.0,""m500_1e14_solMass"":5.26,""r200_kpc"":2033.0,""m200_1e14_solMass"":10.33,""r500_mass_ref"":""Ettori et al. 2019 Table 1 (backward method, NFW model)"",""r500_gas_file_header_kpc"":1196.0,""stars"":""modelled (Ettori et al. 2019 prescription, D-022)""}"
+aeg-s-000183,A2319,Galaxy cluster (X-COP sample),"{""redshift"":0.0557,""r500_kpc"":1346.0,""m500_1e14_solMass"":7.31,""r200_kpc"":2040.0,""m200_1e14_solMass"":10.18,""r500_mass_ref"":""Ettori et al. 2019 Table 1 (backward method, NFW model)"",""r500_gas_file_header_kpc"":1368.0,""stars"":""measured (Ghizzardi et al. 2020)""}"
+aeg-s-000184,A3158,Galaxy cluster (X-COP sample),"{""redshift"":0.0597,""r500_kpc"":1123.0,""m500_1e14_solMass"":4.26,""r200_kpc"":1766.0,""m200_1e14_solMass"":6.63,""r500_mass_ref"":""Ettori et al. 2019 Table 1 (backward method, NFW model)"",""r500_gas_file_header_kpc"":1123.0,""stars"":""modelled (Ettori et al. 2019 prescription, D-022)""}"
+aeg-s-000185,A3266,Galaxy cluster (X-COP sample),"{""redshift"":0.0589,""r500_kpc"":1430.0,""m500_1e14_solMass"":8.8,""r200_kpc"":2325.0,""m200_1e14_solMass"":15.12,""r500_mass_ref"":""Ettori et al. 2019 Table 1 (backward method, NFW model)"",""r500_gas_file_header_kpc"":1430.0,""stars"":""modelled (Ettori et al. 2019 prescription, D-022)""}"
+aeg-s-000186,RXC1825,Galaxy cluster (X-COP sample),"{""redshift"":0.065,""r500_kpc"":1105.0,""m500_1e14_solMass"":4.08,""r200_kpc"":1719.0,""m200_1e14_solMass"":6.15,""r500_mass_ref"":""Ettori et al. 2019 Table 1 (backward method, NFW model)"",""r500_gas_file_header_kpc"":1105.0,""stars"":""modelled (Ettori et al. 2019 prescription, D-022)""}"
+aeg-s-000187,ZW1215,Galaxy cluster (X-COP sample),"{""redshift"":0.0766,""r500_kpc"":1358.0,""m500_1e14_solMass"":7.66,""r200_kpc"":2200.0,""m200_1e14_solMass"":13.03,""r500_mass_ref"":""Ettori et al. 2019 Table 1 (backward method, NFW model)"",""r500_gas_file_header_kpc"":1358.0,""stars"":""measured (Ghizzardi et al. 2020)""}"
