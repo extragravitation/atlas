@@ -1,0 +1,354 @@
+{
+  "name": "aeg-d-sparc",
+  "version": "v1",
+  "title": "SPARC rotation curves: observed and baryonic accelerations of 175 disc galaxies",
+  "description": "Atlas conversion of the SPARC mass models (Lelli, McGaugh & Schombert 2016) to the Atlas data standard: g_obs and g_bar per radius, with g_bar components kept separate. See SOURCE.md and REPRODUCTION_RESULT.md.",
+  "x_standard_version": "1.2.0",
+  "x_licence_status": "Atlas tables intended CC BY 4.0 under D-004; to be confirmed against the terms of the CDS/VizieR record J/AJ/152/157 (issue #9). Source files are not redistributed.",
+  "licenses": [],
+  "sources": [
+    {
+      "title": "mass models (SPARC Table 2)",
+      "path": "https://astroweb.case.edu/SPARC/MassModels_Lelli2016c.mrt"
+    },
+    {
+      "title": "galaxy sample (SPARC Table 1)",
+      "path": "https://astroweb.case.edu/SPARC/SPARC_Lelli2016c.mrt"
+    },
+    {
+      "title": "reproduction reference (Lelli et al. 2017, data behind Figure 2)",
+      "path": "https://astroweb.case.edu/SPARC/RAR.mrt"
+    }
+  ],
+  "x_citation": "Lelli, F., McGaugh, S. S. & Schombert, J. M. 2016, AJ 152, 157; plus the rotation-curve source for each galaxy (systems table, rotation_curve_refs).",
+  "x_known_issues": [
+    "https://github.com/extragravitation/atlas/issues/8"
+  ],
+  "resources": [
+    {
+      "name": "measurements",
+      "path": "tables/measurements.ecsv",
+      "format": "ecsv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "dialect": {
+        "delimiter": ",",
+        "commentChar": "#",
+        "header": true
+      },
+      "schema": {
+        "fields": [
+          {
+            "name": "measurement_id",
+            "type": "string",
+            "description": "Permanent measurement identifier",
+            "ucd": "meta.id;meta.main"
+          },
+          {
+            "name": "system_id",
+            "type": "string",
+            "description": "Permanent system identifier",
+            "ucd": "meta.id"
+          },
+          {
+            "name": "kind",
+            "type": "string",
+            "description": "Kind of measurement",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "channel",
+            "type": "string",
+            "description": "Observational channel",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "method_class",
+            "type": "string",
+            "description": "Class of method",
+            "ucd": "meta.code.class"
+          },
+          {
+            "name": "method",
+            "type": "string",
+            "description": "Method as given by the source",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "r_kpc",
+            "type": "number",
+            "description": "Galactocentric radius in the disc plane",
+            "ucd": "phys.size.radius",
+            "unit": "kpc"
+          },
+          {
+            "name": "r_kind",
+            "type": "string",
+            "description": "Radius type",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "g_obs",
+            "type": "number",
+            "description": "Observed acceleration, V_obs^2/R",
+            "ucd": "phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_obs_err_lo",
+            "type": "number",
+            "description": "Lower one-sigma bound (velocity, inclination and distance errors)",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_obs_err_hi",
+            "type": "number",
+            "description": "Upper one-sigma bound (velocity, inclination and distance errors)",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar",
+            "type": "number",
+            "description": "Newtonian acceleration from detected baryons at catalogue defaults",
+            "ucd": "phys.acceleration;meta.modelled",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar_err_lo",
+            "type": "number",
+            "description": "Lower one-sigma bound (10% gas, 25% stellar, per source)",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar_err_hi",
+            "type": "number",
+            "description": "Upper one-sigma bound (10% gas, 25% stellar, per source)",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar_stars",
+            "type": "number",
+            "description": "Stellar component of g_bar",
+            "ucd": "phys.acceleration;meta.modelled",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar_stars_disk",
+            "type": "number",
+            "description": "Stellar disc component of g_bar",
+            "ucd": "phys.acceleration;meta.modelled",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar_stars_bulge",
+            "type": "number",
+            "description": "Bulge component of g_bar; empty where the source has no bulge",
+            "ucd": "phys.acceleration;meta.modelled",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar_gas_cold",
+            "type": "number",
+            "description": "Cold gas (atomic hydrogen with helium) component of g_bar; sign kept",
+            "ucd": "phys.acceleration;meta.modelled",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar_gas_hot",
+            "type": "number",
+            "description": "Hot gas component of g_bar; not given by the source",
+            "ucd": "phys.acceleration;meta.modelled",
+            "unit": "m / s2"
+          },
+          {
+            "name": "stars_status",
+            "type": "string",
+            "description": "Status of the stellar component",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "gas_cold_status",
+            "type": "string",
+            "description": "Status of the cold gas component",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "gas_hot_status",
+            "type": "string",
+            "description": "Status of the hot gas component",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "assumptions",
+            "type": "string",
+            "description": "Named assumptions affecting this row, with catalogue values",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "adjustable",
+            "type": "string",
+            "description": "Assumptions whose sliders can change this row",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "quality_source",
+            "type": "string",
+            "description": "Source's rotation-curve quality flag (1 high, 2 medium, 3 low)",
+            "ucd": "meta.code.qual"
+          },
+          {
+            "name": "source_ref",
+            "type": "string",
+            "description": "Pointer to the source row",
+            "ucd": "meta.ref"
+          },
+          {
+            "name": "flags",
+            "type": "string",
+            "description": "Atlas flags",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "known_issues",
+            "type": "string",
+            "description": "Open known issues affecting this row (GitHub issue numbers)",
+            "ucd": "meta.ref"
+          },
+          {
+            "name": "x_sparc_v_obs",
+            "type": "number",
+            "description": "SPARC Vobs, as published",
+            "ucd": "phys.veloc.rotat",
+            "unit": "km / s"
+          },
+          {
+            "name": "x_sparc_e_v_obs",
+            "type": "number",
+            "description": "SPARC e_Vobs, as published",
+            "ucd": "stat.error;phys.veloc.rotat",
+            "unit": "km / s"
+          },
+          {
+            "name": "x_sparc_v_gas",
+            "type": "number",
+            "description": "SPARC Vgas, as published (includes helium factor 1.33)",
+            "ucd": "phys.veloc.rotat;meta.modelled",
+            "unit": "km / s"
+          },
+          {
+            "name": "x_sparc_v_disk",
+            "type": "number",
+            "description": "SPARC Vdisk, as published (for M/L = 1 at 3.6 micron)",
+            "ucd": "phys.veloc.rotat;meta.modelled",
+            "unit": "km / s"
+          },
+          {
+            "name": "x_sparc_v_bul",
+            "type": "number",
+            "description": "SPARC Vbul, as published (for M/L = 1 at 3.6 micron)",
+            "ucd": "phys.veloc.rotat;meta.modelled",
+            "unit": "km / s"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    },
+    {
+      "name": "systems",
+      "path": "tables/systems.ecsv",
+      "format": "ecsv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "dialect": {
+        "delimiter": ",",
+        "commentChar": "#",
+        "header": true
+      },
+      "schema": {
+        "fields": [
+          {
+            "name": "system_id",
+            "type": "string",
+            "description": "Permanent system identifier",
+            "ucd": "meta.id;meta.main"
+          },
+          {
+            "name": "name_in_source",
+            "type": "string",
+            "description": "Galaxy name as given by SPARC",
+            "ucd": "meta.id"
+          },
+          {
+            "name": "class_in_source",
+            "type": "string",
+            "description": "Hubble type as given by SPARC",
+            "ucd": "src.class"
+          },
+          {
+            "name": "distance_mpc",
+            "type": "number",
+            "description": "Distance as given by SPARC",
+            "ucd": "pos.distance",
+            "unit": "Mpc"
+          },
+          {
+            "name": "distance_err_mpc",
+            "type": "number",
+            "description": "Distance error as given by SPARC",
+            "ucd": "stat.error;pos.distance",
+            "unit": "Mpc"
+          },
+          {
+            "name": "distance_method",
+            "type": "string",
+            "description": "Distance method as given by SPARC",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "ra_deg",
+            "type": "number",
+            "description": "Right ascension (not given by SPARC)",
+            "ucd": "pos.eq.ra",
+            "unit": "deg"
+          },
+          {
+            "name": "dec_deg",
+            "type": "number",
+            "description": "Declination (not given by SPARC)",
+            "ucd": "pos.eq.dec",
+            "unit": "deg"
+          },
+          {
+            "name": "inclination_deg",
+            "type": "number",
+            "description": "Disc inclination as given by SPARC",
+            "ucd": "src.orbital.inclination",
+            "unit": "deg"
+          },
+          {
+            "name": "inclination_err_deg",
+            "type": "number",
+            "description": "Inclination error as given by SPARC",
+            "ucd": "stat.error;src.orbital.inclination",
+            "unit": "deg"
+          },
+          {
+            "name": "properties",
+            "type": "string",
+            "description": "Other source-given properties (JSON; units in key names)",
+            "ucd": "meta.note"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    }
+  ]
+}
