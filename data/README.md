@@ -19,3 +19,15 @@ Source files are downloaded at build time and verified by checksum. They are nev
 A released dataset version is never changed. A change is a new version.
 
 No packages exist yet.
+
+## How packages are built and checked
+
+The `data` workflow (`.github/workflows/data.yml`) runs on every pull request that touches `data/` or `pipeline/`:
+
+1. **Fetch** every package's sources from their published addresses and verify size and SHA-256 (`python -m aeg.fetch`). Sources are never committed or uploaded.
+2. **Build** each package (`convert.py`), which writes the tables, `datapackage.json` and `checksums.sha256`.
+3. **Test** each package: the frozen reproduction test, conversion integrity, and the data standard (`aeg.validate`).
+4. **Check slider formulas** in Python and JavaScript on every measurement (`python -m aeg.formula_check`).
+5. **Compare** the committed tables with the regenerated ones. On a pull request they are committed back to the branch by the workflow if they differ; on `main` a difference fails.
+
+GitHub holds commits made by the workflow for manual approval before running checks on them. A later commit by a maintainer runs the checks normally.
