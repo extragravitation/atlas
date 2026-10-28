@@ -4,6 +4,7 @@
   "name": "extragravitation",
   "compatibility_date": "2026-10-28",
   "assets": {
-    "directory": "./site/public"
+    "directory": "./site/public",
+    "not_found_handling": "404-page"
   }
 }
