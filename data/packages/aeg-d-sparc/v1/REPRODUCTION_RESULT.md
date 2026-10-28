@@ -30,3 +30,15 @@ Run outside the test, in the browser on the published files, and labelled explor
 ## Next
 
 Pending JvH's ruling: whether to correct implementation bug A (disclosed, with this failed result kept), and how to treat discrepancy B (ask the maintainer; decide on shipping at release, not now).
+
+## Run 2 (2026-10-28, after D-016; data workflow run 40776593585, commit `0402e1b`)
+
+**Result: FAILED**, as diagnosis B predicted. The implementation bug (A) is corrected; `REPRODUCTION.md` unchanged.
+
+| Check | Required | Found | Outcome |
+|---|---|---|---|
+| 1. Selection count | 2 693 | 2 694 | fail (the one extra point is UGC00128 at 53.75 kpc) |
+| 2. Point-by-point | all matched | stops at the first unmatched point | fail |
+| 3. Conversion integrity | exact | exact | pass |
+
+Status under D-017: referred to the maintainer; whether SPARC v1 ships is decided at milestone M5.
