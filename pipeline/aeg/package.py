@@ -37,3 +37,14 @@ def write_checksums(here: Path) -> None:
                    and p.suffix != ".pyc")
     lines = [f"{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.relative_to(here).as_posix()}" for p in files]
     (here / "checksums.sha256").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+if __name__ == "__main__":
+    # python -m aeg.package checksums data/packages/<dataset>/<version>
+    import sys
+    if len(sys.argv) == 3 and sys.argv[1] == "checksums":
+        write_checksums(Path(sys.argv[2]).resolve())
+        print("checksums written")
+    else:
+        print("usage: python -m aeg.package checksums <package dir>")
+        sys.exit(2)
