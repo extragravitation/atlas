@@ -66,7 +66,7 @@
 # meta: !!omap
 # - {dataset: aeg-d-sparc}
 # - {version: v1}
-# - {standard_version: 1.1.0}
+# - {standard_version: 1.2.0}
 # schema: astropy-2.0
 system_id,name_in_source,class_in_source,distance_mpc,distance_err_mpc,distance_method,ra_deg,dec_deg,inclination_deg,inclination_err_deg,properties
 aeg-s-000001,CamB,Im (Hubble type T=10),3.36,0.26,Tip of the red giant branch,,,65.0,5.0,"{""quality_flag_Q"":2,""luminosity_3p6_1e9_solLum"":0.075,""luminosity_3p6_err_1e9_solLum"":0.003,""r_eff_kpc"":1.21,""sb_eff_solLum_per_pc2"":7.89,""r_disk_kpc"":0.47,""sb_disk_solLum_per_pc2"":66.2,""m_hi_1e9_solMass"":0.012,""r_hi_kpc"":1.21,""v_flat_km_s"":0.0,""v_flat_err_km_s"":0.0,""rotation_curve_refs"":""Bm03""}"
