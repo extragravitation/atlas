@@ -30,6 +30,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
       - name: Install pipeline
         run: pip install -e "pipeline[test,data]"
       - name: Fetch and verify sources
@@ -66,11 +69,19 @@ jobs:
             cat test.log
           done
           exit $status
+      - name: Slider formulas (Python and JavaScript agree; identity at defaults)
+        run: |
+          set -uo pipefail
+          if ! python -m aeg.formula_check > formula.log 2>&1; then
+            echo "::error title=formula check::$(tail -c 3000 formula.log | tr '\n' '|')"; cat formula.log; exit 1
+          fi
+          echo "::notice title=formula check::$(head -c 1500 formula.log | tr '\n' '|')"
+          cat formula.log
       - name: Committed tables equal regenerated tables
         if: always()
         run: |
           set -uo pipefail
-          git add -A data/packages/*/*/tables data/registry 2>/dev/null || true
+          git add -A data/packages/*/*/tables data/packages/*/*/datapackage.json data/packages/*/*/checksums.sha256 data/registry 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "::notice title=tables::committed tables match the pipeline output"; exit 0
           fi

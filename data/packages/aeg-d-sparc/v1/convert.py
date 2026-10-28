@@ -10,6 +10,7 @@ the two SPARC tables; the method is in SOURCE.md.
 from __future__ import annotations
 
 import csv
+import hashlib
 import json
 import math
 import sys
@@ -289,8 +290,55 @@ def main() -> int:
             w = csv.DictWriter(f, fieldnames=["system_id", "primary_name", "first_dataset", "assigned_on"], lineterminator="\n")
             w.writeheader()
             w.writerows(registry)
+    write_datapackage(meas, systems)
+    write_checksums()
     print(f"wrote {len(meas)} measurements, {len(systems)} systems")
     return 0
+
+
+def _schema(table) -> dict:
+    fields = []
+    for name in table.colnames:
+        c = table[name]
+        f = {"name": name, "type": "number" if c.dtype.kind == "f" else "string",
+             "description": c.description, "ucd": c.meta.get("ucd")}
+        if c.unit is not None:
+            f["unit"] = str(c.unit)
+        fields.append(f)
+    return {"fields": fields, "missingValues": [""]}
+
+
+def write_datapackage(meas, systems) -> None:
+    sources = json.loads((HERE / "sources.json").read_text(encoding="utf-8"))
+    dialect = {"delimiter": ",", "commentChar": "#", "header": True}
+    descriptor = {
+        "name": DATASET,
+        "version": VERSION,
+        "title": "SPARC rotation curves: observed and baryonic accelerations of 175 disc galaxies",
+        "description": "Atlas conversion of the SPARC mass models (Lelli, McGaugh & Schombert 2016) to the Atlas data standard: g_obs and g_bar per radius, with g_bar components kept separate. See SOURCE.md and REPRODUCTION_RESULT.md.",
+        "x_standard_version": STANDARD,
+        "x_licence_status": "Atlas tables intended CC BY 4.0 under D-004; to be confirmed against the terms of the CDS/VizieR record J/AJ/152/157 (issue #9). Source files are not redistributed.",
+        "licenses": [],
+        "sources": [{"title": s["role"], "path": s["url"]} for s in sources["sources"]],
+        "x_citation": "Lelli, F., McGaugh, S. S. & Schombert, J. M. 2016, AJ 152, 157; plus the rotation-curve source for each galaxy (systems table, rotation_curve_refs).",
+        "x_known_issues": [f"https://github.com/extragravitation/atlas/issues/{ki['issue']}"
+                           for ki in json.loads((HERE / "known_issues.json").read_text(encoding="utf-8"))["issues"]],
+        "resources": [
+            {"name": "measurements", "path": "tables/measurements.ecsv", "format": "ecsv", "mediatype": "text/csv",
+             "encoding": "utf-8", "dialect": dialect, "schema": _schema(meas)},
+            {"name": "systems", "path": "tables/systems.ecsv", "format": "ecsv", "mediatype": "text/csv",
+             "encoding": "utf-8", "dialect": dialect, "schema": _schema(systems)},
+        ],
+    }
+    (HERE / "datapackage.json").write_text(json.dumps(descriptor, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
+def write_checksums() -> None:
+    files = sorted(p for p in HERE.rglob("*") if p.is_file() and p.name != "checksums.sha256"
+                   and "source" not in p.relative_to(HERE).parts and "__pycache__" not in p.parts
+                   and p.suffix not in {".pyc"})
+    lines = [f"{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.relative_to(HERE).as_posix()}" for p in files]
+    (HERE / "checksums.sha256").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":

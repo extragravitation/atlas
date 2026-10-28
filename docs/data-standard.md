@@ -1,6 +1,6 @@
 # Atlas data standard
 
-**Version 1.2.0 — FROZEN 2026-10-28** (1.0.0: D-015; 1.1.0, additive: D-018; 1.2.0, additive: D-019). Packages state the version they follow. Changes follow section 0. Nothing enters `data/packages/` that does not follow a frozen version of this standard.
+**Version 1.2.1 — FROZEN 2026-10-28** (1.0.0: D-015; 1.1.0, additive: D-018; 1.2.0, additive: D-019; 1.2.1, clarification). Packages state the version they follow. Changes follow section 0. Nothing enters `data/packages/` that does not follow a frozen version of this standard.
 
 The standard is written so that each of the four v0.1 sources (SPARC, KiDS-1000 RAR, X-COP, CLASH lensing) fits without special cases. The source readings that shaped it are in `docs/sources/`.
 
@@ -23,6 +23,7 @@ A package following an older version stays valid under it. A package is never ed
 | 1.0.0 | 2026-10-28 | D-015 | First frozen version |
 | 1.1.0 | 2026-10-28 | D-018 | Added disc/bulge columns, inclination columns, `system.<column>` in formulas |
 | 1.2.0 | 2026-10-28 | D-019 | Added flag `reproduction_mismatch`, optional column `known_issues`, package file `known_issues.json` |
+| 1.2.1 | 2026-10-28 | patch | Clarified: how several assumptions combine (§6); g_bar may be ≤ 0 where a signed component is negative (§7 item 7) |
 
 ## 1. Package layout
 
@@ -150,6 +151,8 @@ One entry per named assumption, shared across datasets.
 
 **Formula expression language (D-014).** One formula per effect, written once and executed by both the pipeline (Python) and the site (JavaScript) from the same text. Allowed: numbers; the parameter `p` and its default `p0`; column names of the same row; core columns of the row's system as `system.<column>` (1.1.0); `+ - * /`, `^` for powers; parentheses; functions `sqrt`, `abs`, `sin`, `cos`, `deg2rad`. Nothing else: no loops, no conditionals, no other rows. Example (SPARC distance, g_obs at fixed angle): `g_obs * p0 / p`.
 
+**Combining assumptions (1.2.1).** All effects of one assumption are evaluated against the row as it was before that assumption (simultaneous assignment); several assumptions are applied one after another in the order of `data/assumptions.json`.
+
 Both evaluators are tested on every measurement and every adjustable assumption at its default and range ends; results must agree to a relative tolerance of 1e-12.
 
 ## 7. Validation (automated; fails the build)
@@ -160,7 +163,7 @@ Both evaluators are tested on every measurement and every adjustable assumption 
 4. Every table reads as ECSV with astropy; every column has the required unit, datatype, description and UCD; every UCD is valid against the UCD1+ list v1.6.
 5. Schema: required columns present; closed lists respected; units as section 2a; no sentinel values; error bounds non-negative.
 6. IDs: measurement IDs well-formed, unique, sequential; every `system_id` exists in the registry.
-7. Physical sanity (warnings that need an acknowledged note, not silent fixes): g_obs and g_bar positive where the source implies they must be; values within 10⁻¹⁶ to 10⁻⁶ m s⁻².
+7. Physical sanity (warnings that need an acknowledged note, not silent fixes): g_obs positive; magnitudes within 10⁻¹⁶ to 10⁻⁶ m s⁻². g_bar may be zero or negative where a signed component is negative (e.g. a central gas depression); such rows are kept and the site must show them without placing them on a logarithmic axis (1.2.1).
 8. Every assumption named in `assumptions` or `adjustable` exists in the registry; every `adjustable` one is `confirmed`.
 9. Slider formulas: changing each assumption changes only rows listing it in `adjustable`, exactly as its formula says; the Python and JavaScript evaluators agree (section 6).
 10. Licence: if any source is not redistributable, no file from it is committed and the release archive excludes it.

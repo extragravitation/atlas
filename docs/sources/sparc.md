@@ -30,6 +30,7 @@ The CDS/VizieR copy (J/AJ/152/157) could not be reached from this environment on
 Observed in the data:
 - **Vgas is negative in 361 rows (48 galaxies).** The sign carries meaning (the gas contribution to the radial force is outward at those radii), so g_bar must be built as V|V| per component, not V². The pipeline must test this explicitly.
 - Bulge present (Vbul > 0) in 32 galaxies.
+- **g_bar ≤ 0 at the catalogue defaults in 2 rows**: the two innermost points of UGC01281 (edge-on, i = 90°; R = 0.08 and 0.23 kpc), where the negative gas contribution outweighs the disc. Both fail the authors' 10 % velocity-error cut. At the lowest disc mass-to-light ratio (0.2) two further rows go negative (`m000036`, `m002904`). All are kept; the site lists them rather than placing them on a log axis.
 
 ## Galaxy table (Table 1)
 
