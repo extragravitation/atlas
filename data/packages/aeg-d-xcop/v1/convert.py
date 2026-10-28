@@ -82,7 +82,11 @@ def loglog(x_new, x, y):
         raise SystemExit("interpolation grid is not strictly increasing")
     if np.any(y <= 0):
         raise SystemExit("cannot interpolate non-positive values in log")
-    return float(np.exp(np.interp(math.log(x_new), np.log(x), np.log(y))))
+    # Scalar math.log/math.exp, not numpy's vectorised versions: those can differ in the last bit
+    # between CPUs, which would make the committed tables depend on the machine that built them.
+    lx = [math.log(v) for v in x.tolist()]
+    ly = [math.log(v) for v in y.tolist()]
+    return math.exp(float(np.interp(math.log(x_new), lx, ly)))
 
 
 def read_fits(tar: tarfile.TarFile, name: str):
