@@ -277,6 +277,8 @@ All entries below: ruled by JvH on 2026-10-28 (week 1 of the MVP plan).
 
 **Alternatives rejected.** A fixed inner radius chosen after the star fractions had been seen (post hoc); shipping every row with the problem stated in words (leaves an artefact on the map).
 
+**Result (first run, 2026-10-28).** Validated range r/R500 = 0.145 to 1.38; inside 0.145 R500 the prescription misses the measured clusters' g_bar by up to 74 %, outside 0.2 R500 by 4 % or less (median). 204 modelled rows removed (innermost kept radius 153–212 kpc); 861 measurements ship. Details: `MODEL_TEST_RESULT.md`.
+
 ---
 
 ## Recorded alongside (not decisions; corrections to the plans)
