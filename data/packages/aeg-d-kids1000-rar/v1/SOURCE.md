@@ -13,7 +13,7 @@ The KiDS page states no licence; the acknowledgement requested is that of the pa
 - Lenses: isolated galaxies (no neighbour above 10 % of the lens stellar mass within 3 h70⁻¹ Mpc; M* < 10¹¹ h70⁻² M☉), from KiDS-bright (photometric redshifts) or GAMA (spectroscopic). Paper §3.3.
 - g_bar: point mass of stars plus cold gas within the measurement radius; stellar masses from 9-band photometry (normalised to GAMA), cold gas from a scaling relation with stellar mass (Boselli et al. 2014). Stars and cold gas are not separately released. Paper §3.3, §4.3.
 - g_obs = 4 G ΔΣ (singular isothermal sphere deprojection), validated by the authors against a shape-free piece-wise power-law method. Paper §2.2, App. B, §4.4.
-- Systematic stellar-mass uncertainty ±0.2 dex, shown by the authors as a band (paper Fig. 4); the band is not part of the data release.
+- Systematic stellar-mass uncertainty ±0.2 dex, shown by the authors as a band (paper Fig. 4); the band is not part of the data release. **The Atlas states it in words on every KiDS point and on the dataset page, citing Fig. 4, and draws no band (D-021).** The shifted-mass files have been requested from the authors.
 - **Source caveat:** for KiDS-bright, the isolation criterion "is no longer reliable when g_bar ≲ 10⁻¹³ m s⁻²" (R > 0.3 h70⁻¹ Mpc), where satellites raise ΔΣ by about 30 %. The authors state the GAMA results remain reliable there. Paper §5.2.
 - Units carry h70; the Atlas takes h = 0.7 as the source does (physical units).
 

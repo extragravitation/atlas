@@ -46,7 +46,7 @@ Only assumptions whose effect can be computed exactly from what the packages sto
 | Intracluster light | X-COP | Adds a fraction of measured stellar mass to g_bar,stars | 0 (source excludes it); ≈10–50 % of cluster light per Ghizzardi et al. 2020, underlying studies to be read at source |
 
 **Shown but not adjustable:**
-- KiDS: the authors' ±0.2 dex stellar-mass systematic band, and their released "with hot gas" variant as a switchable alternative baseline (both are the source's published variants).
+- KiDS: the authors' ±0.2 dex stellar-mass systematic **stated in words**, citing their Fig. 4 (D-021: not computable from the release, so no band), and their released "with hot gas" variant as a switchable alternative baseline.
 - Lensing deprojection (KiDS: singular isothermal sphere, validated by the authors against a shape-free method).
 
 **Dropped from v1:** "gas beyond atomic hydrogen" as a uniform rescaling of SPARC gas. Molecular gas is not distributed like atomic gas, so a uniform scale factor is not an exact computation of a real assumption. It returns if a source with molecular-gas profiles is added.

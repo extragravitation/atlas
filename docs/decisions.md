@@ -175,7 +175,7 @@ All entries below: ruled by JvH on 2026-10-28 (week 1 of the MVP plan).
 **Ruling (2026-10-28).** The revised set in `docs/plans/MVP_PLAN_v2.md` §4:
 - SPARC: stellar mass-to-light (disc; bulge), distance and inclination (each per galaxy within its published error);
 - X-COP: X-ray hydrostatic bias; stellar mass of the 5 clusters without measured stars; intracluster light;
-- KiDS: no sliders; the authors' ±0.2 dex stellar-mass systematic shown as a band, and their released hot-gas variant as an alternative baseline;
+- KiDS: no sliders; the authors' ±0.2 dex stellar-mass systematic shown as a band (amended by D-021: stated in words, no band), and their released hot-gas variant as an alternative baseline;
 - dropped: uniform rescaling of SPARC gas for gas beyond atomic hydrogen (molecular gas is not distributed like atomic gas, so a uniform factor is not an exact computation of a real assumption).
 
 **Plus:** each slider's effect is written once, as a formula in a restricted expression language, and executed from that same text by both the pipeline and the site; the build checks that the two agree on every measurement (`docs/data-standard.md` §6).
@@ -244,6 +244,14 @@ All entries below: ruled by JvH on 2026-10-28 (week 1 of the MVP plan).
 **Alternative rejected.** A "backlog" or "to do" page mixing project work with data reliability.
 
 **Checked.** Label `known-issue` created; first issue opened: #8 (SPARC).
+
+## D-021 — KiDS stellar-mass uncertainty: no band
+
+**Ruling (2026-10-28, JvH).** Amends D-014 for KiDS. No band is drawn for the authors' ±0.2 dex stellar-mass systematic. It is stated in words on every KiDS point and on the dataset page, citing Brouwer et al. 2021 Fig. 4. The shifted-mass files are requested from the authors; if supplied, the band is added as a computed layer from them.
+
+**Reason.** The band is not in the data release: the authors produced it by re-running the analysis with shifted stellar masses, which moves lenses between g_bar bins, so it cannot be computed exactly from the public files. An approximate shift would be "approximated for show", which the charter forbids.
+
+**Alternative rejected.** Shift g_bar by ±0.2 dex as an approximate band.
 
 ---
 
