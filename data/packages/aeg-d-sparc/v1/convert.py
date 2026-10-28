@@ -42,60 +42,52 @@ DISTANCE_METHODS = {
 }
 
 
-def field(line: str, first: int, last: int) -> str:
-    """Byte-by-byte field, 1-indexed inclusive, as in the source headers."""
-    return line[first - 1:last].strip()
+def tokens(path: Path, n: int, numeric_from: tuple[int, int]) -> list[list[str]]:
+    """Whitespace-separated data rows with exactly n fields.
 
-
-def data_lines(path: Path, probe) -> list[str]:
-    """Lines that parse as data rows; header and notes fail the probe."""
-    rows = []
+    The SPARC files' byte-by-byte headers do not match the data layout of the
+    galaxy table as served (see docs/sources/sparc.md), so rows are parsed by
+    column order instead. A row is data if it has n fields and fields
+    numeric_from.. (as listed) parse as numbers; any other line must be header
+    or notes. Field counts are checked so a malformed row cannot slip through.
+    """
+    out = []
     for line in path.read_text(encoding="ascii").splitlines():
-        try:
-            probe(line)
-        except (ValueError, IndexError):
+        parts = line.split()
+        if len(parts) != n:
             continue
-        rows.append(line)
-    return rows
+        try:
+            [float(x) for x in parts[numeric_from[0]:numeric_from[1]]]
+        except ValueError:
+            continue
+        out.append(parts)
+    return out
 
 
 def read_table1(path: Path) -> list[dict]:
-    def probe(line):
-        if len(line) < 99:
-            raise ValueError
-        float(field(line, 14, 19)); int(field(line, 97, 99))
     out = []
-    for line in data_lines(path, probe):
+    for p in tokens(path, 19, (1, 18)):
         out.append({
-            "name": field(line, 1, 11),
-            "T": int(field(line, 12, 13)),
-            "D": float(field(line, 14, 19)), "e_D": float(field(line, 20, 24)),
-            "f_D": int(field(line, 25, 26)),
-            "inc": float(field(line, 27, 30)), "e_inc": float(field(line, 31, 34)),
-            "L36": float(field(line, 35, 41)), "e_L36": float(field(line, 42, 48)),
-            "Reff": float(field(line, 49, 53)), "SBeff": float(field(line, 54, 61)),
-            "Rdisk": float(field(line, 62, 66)), "SBdisk": float(field(line, 67, 74)),
-            "MHI": float(field(line, 75, 81)), "RHI": float(field(line, 82, 86)),
-            "Vflat": float(field(line, 87, 91)), "e_Vflat": float(field(line, 92, 96)),
-            "Q": int(field(line, 97, 99)),
-            "ref": field(line, 100, 113),
+            "name": p[0], "T": int(p[1]),
+            "D": float(p[2]), "e_D": float(p[3]), "f_D": int(p[4]),
+            "inc": float(p[5]), "e_inc": float(p[6]),
+            "L36": float(p[7]), "e_L36": float(p[8]),
+            "Reff": float(p[9]), "SBeff": float(p[10]),
+            "Rdisk": float(p[11]), "SBdisk": float(p[12]),
+            "MHI": float(p[13]), "RHI": float(p[14]),
+            "Vflat": float(p[15]), "e_Vflat": float(p[16]),
+            "Q": int(p[17]), "ref": p[18],
         })
     return out
 
 
 def read_table2(path: Path) -> list[dict]:
-    def probe(line):
-        if len(line) < 59:
-            raise ValueError
-        float(field(line, 13, 18)); float(field(line, 20, 25))
     out = []
-    for line in data_lines(path, probe):
+    for p in tokens(path, 10, (1, 10)):
         out.append({
-            "name": field(line, 1, 11),
-            "D": float(field(line, 13, 18)), "R": float(field(line, 20, 25)),
-            "Vobs": float(field(line, 27, 32)), "e_Vobs": float(field(line, 34, 38)),
-            "Vgas": float(field(line, 40, 45)), "Vdisk": float(field(line, 47, 52)),
-            "Vbul": float(field(line, 54, 59)),
+            "name": p[0], "D": float(p[1]), "R": float(p[2]),
+            "Vobs": float(p[3]), "e_Vobs": float(p[4]),
+            "Vgas": float(p[5]), "Vdisk": float(p[6]), "Vbul": float(p[7]),
         })
     return out
 

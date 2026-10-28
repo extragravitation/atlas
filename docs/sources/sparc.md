@@ -33,6 +33,9 @@ Observed in the data:
 
 ## Galaxy table (Table 1)
 
+**Format discrepancy (found 2026-10-28 while building the package):** the file's byte-by-byte header documents fixed positions over 113 bytes, but the data rows as served are 131 characters wide with shifted columns (e.g. the Hubble type sits at bytes 13–14, not 12–13). The values themselves are whitespace-separated and consistent, so the package parses by column order and checks that every data row has exactly 19 fields. Worth mentioning to the maintainer.
+
+
 Per galaxy: Hubble type, distance D with error e_D and **distance method** f_D (1 Hubble flow with H0 = 73 km/s/Mpc and Virgo-infall correction; 2 tip of the red giant branch; 3 Cepheids; 4 Ursa Major cluster; 5 supernovae), inclination with error, 3.6 µm luminosity with error, disc scale length, HI mass and radius, Vflat, **quality flag Q (1 high, 2 medium, 3 low)**, and references for the HI/Hα data.
 
 ## Consequences for the Atlas

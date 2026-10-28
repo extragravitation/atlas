@@ -51,10 +51,12 @@ def selected(tables):
 def reference():
     rows = []
     for line in (SOURCE / "RAR.mrt").read_text(encoding="ascii").splitlines():
+        parts = line.split()
+        if len(parts) != 4:
+            continue
         try:
-            gbar, gobs = float(line[0:6]), float(line[12:18])
-            float(line[7:11]); float(line[19:23])
-        except (ValueError, IndexError):
+            gbar, e_gbar, gobs, e_gobs = (float(x) for x in parts)
+        except ValueError:
             continue
         rows.append((gbar, gobs))
     return rows
@@ -107,11 +109,15 @@ def test_3_conversion_integrity(tables):
     conv = None
     src = []
     for line in (SOURCE / "MassModels_Lelli2016c.mrt").read_text(encoding="ascii").splitlines():
-        try:
-            float(line[12:18]); R = float(line[19:25])
-        except (ValueError, IndexError):
+        parts = line.split()
+        if len(parts) != 10:
             continue
-        src.append((R, float(line[26:32]), float(line[39:45]), float(line[46:52]), float(line[53:59])))
+        try:
+            nums = [float(x) for x in parts[1:]]
+        except ValueError:
+            continue
+        D, R, vobs, e_vobs, vgas, vdisk, vbul = nums[:7]
+        src.append((R, vobs, vgas, vdisk, vbul))
     assert len(src) == 3391
     for row, (R, vobs, vgas, vdisk, vbul) in zip(meas, src):
         assert row["r_kpc"] == pytest.approx(R, abs=1e-9)
