@@ -1,0 +1,59 @@
+name: data
+
+# Fetches every data package's sources, verifies their hashes, and runs the
+# package tests (including the frozen reproduction tests). Source files are
+# never committed; they are fetched here on every run.
+
+on:
+  pull_request:
+    paths: ["data/**", "pipeline/**", ".github/workflows/data.yml"]
+  push:
+    branches: [main]
+    paths: ["data/**", "pipeline/**", ".github/workflows/data.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  packages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history: the reproduction-freeze check reads it
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pipeline
+        run: pip install -e "pipeline[test,data]"
+      - name: Fetch and verify sources
+        run: |
+          set -euo pipefail
+          for pkg in data/packages/*/*/; do
+            if [ -f "$pkg/sources.json" ]; then python -m aeg.fetch "$pkg"; fi
+          done
+      - name: Build packages (where a converter exists)
+        run: |
+          set -euo pipefail
+          for pkg in data/packages/*/*/; do
+            if [ -f "$pkg/convert.py" ]; then python "$pkg/convert.py"; fi
+          done
+      - name: Package tests
+        run: |
+          set -euo pipefail
+          for pkg in data/packages/*/*/; do
+            if [ -d "$pkg/tests" ] && ls "$pkg"/tests/test_*.py >/dev/null 2>&1; then
+              pytest "$pkg/tests" -v
+            fi
+          done
+      - name: Keep generated tables for review (never the sources)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tables
+          path: |
+            data/packages/*/*/tables/
+            data/registry/systems.csv
+          retention-days: 3
+          if-no-files-found: ignore
