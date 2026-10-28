@@ -1,6 +1,6 @@
 # X-COP — source reading
 
-Read 2026-10-28: Ettori et al. 2019 (A&A 621, A39; arXiv:1805.00035, via ar5iv), Eckert et al. 2022 (A&A 662, A123), and the X-COP data page.
+Read 2026-10-28: Ettori et al. 2019 (A&A 621, A39; arXiv:1805.00035, via ar5iv), Eckert et al. 2022 (A&A 662, A123), Ghizzardi et al. 2020 (arXiv:2007.01084), the X-COP data page and the full data archive.
 
 ## Ettori et al. 2019 (hydrostatic mass profiles)
 
@@ -16,12 +16,31 @@ Read 2026-10-28: Ettori et al. 2019 (A&A 621, A39; arXiv:1805.00035, via ar5iv),
 - Compares total and baryonic accelerations directly.
 - The authors' `hydromass` Python package is public.
 
-## Data page
+## Data page and archive
 
-The current X-COP data page (https://dominiqueeckert.wixsite.com/xcop/data) offers per-cluster thermodynamic profiles, **mass profiles, gas mass, gas fraction**, density profiles, SZ profiles, and **stellar mass profiles** (Ghizzardi et al. 2020, added August 2020), plus a FITS master table, as one download. **No licence stated**; it asks that the listed papers be cited. Which method produced the released mass profiles is not stated on the page; this needs the download itself.
+Data page: https://dominiqueeckert.wixsite.com/xcop/data. **No licence stated**; it asks that the listed papers be cited (thermodynamic profiles: Ghirardini et al.; mass profiles: Ettori et al.; gas mass and gas fraction: Eckert et al.; stellar mass: Ghizzardi et al. 2020).
+
+The whole release is one archive, linked from the page (Switch Drive public share `j3WUOYXWgv9Jbnz`), read 2026-10-28:
+
+| File | Bytes | SHA-256 | Last modified (server) |
+|---|---|---|---|
+| `allfiles.tar.gz` | 315 080 566 | `0edf5038b419b70d070b73b22f4801e27f318b0854db61eec52142c27c140d94` | 2025-09-08 |
+
+271 entries; one folder per cluster (A85, A644, A1644, A1795, A2029, A2142, A2255, A2319, A3158, A3266, RXC1825, ZW1215). Per cluster, among others:
+
+- **`<cluster>_hydro_mass.fits`**: 100 radii (kpc), total mass with errors for the **forward method** (`M_FORW`, `EM_FORW`) and for NFW, Einasto, isothermal and Burkert models (plus a Hernquist error column). Header comment: hydrostatic mass profiles for various mass models.
+- **`<cluster>_fgas_profile.fits`**: radius in units of R500; NFW total mass, **gas mass with lower and upper bounds** (`MGAS`, `MGAS_LO`, `MGAS_HI`), and gas fraction.
+- **`<cluster>_mstar.fits`** (7 clusters only: A85, A644, A1795, A2029, A2142, A2319, ZW1215): radius in units of R500, **cumulative stellar mass** with statistical and cosmic-variance bounds, from Ghizzardi et al. 2020. No stellar file for A1644, A2255, A3158, A3266, RXC1825.
+- A FITS master table (separate link) with cluster properties, including R500, needed to convert R/R500 to kpc.
+
+**The non-parametric mass profiles of Eckert et al. 2022 are not in the release.**
+
+## Ghizzardi et al. 2020 stellar masses (arXiv:2007.01084, read via ar5iv)
+
+Photometric stellar masses of member galaxies above 10⁹ M☉, with statistical subtraction of foreground and background galaxies; **central galaxy included, intracluster light excluded**. The authors note that published estimates of the intracluster-light share of total cluster light range from about 10 % to about 50 % and adopt the larger value as a conservative case in their own analysis.
 
 ## Consequences for the Atlas
 
-- Ettori et al. 2019 alone **cannot** supply forward-method profiles: the D-005 plan needs a different X-COP source.
-- **Better source:** Eckert et al. 2022's non-parametric mass reconstruction with measured stellar masses. It is less model-dependent than the forward method and replaces the modelled stellar mass with a measurement for five clusters. Proposed for a ruling as a D-005 amendment.
-- Next step: download the X-COP archive (needs JvH's permission) and confirm which mass method and stellar products it contains, then hash and record it.
+- The amended D-005 (2026-10-28: Eckert et al. 2022 non-parametric masses) **cannot be built from public data**: those profiles are not released. Options for a revised ruling are set out in the pull request discussion.
+- What the public release **does** support: forward-method masses (no assumed shape for the potential) for all 12 clusters; measured gas mass for all 12; **measured stellar mass for 7** (not 5); intracluster light as a natural named assumption with a published range (≈10–50 % of cluster light, read here; the underlying studies to be read at source before use).
+- Licence: none stated; per D-004 the archive is not committed. The package records the share address and the hash above, and the pipeline verifies them on each build.
