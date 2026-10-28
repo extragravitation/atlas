@@ -12,7 +12,7 @@ A first public release that a working astronomer would find useful and cite, and
 - **The map:** ▲ observed-against-baryonic view by default (D-012), excess and radius views; dynamics and lensing channels; filters by the source's class labels; linked object card; shareable view addresses; ▲ **Technical · Plain language** switch, Technical by default (D-008).
 - **System pages:** all measurements, profile chart where available, sources, licence or archival terms, citation, download; ▲ per-measurement flags (stars measured or modelled; named assumptions).
 - **Dataset pages:** method, selection, assumptions, licence, citation, checksums, ▲ reproduction-test result, change history.
-- **Data:** CSV downloads (Parquet generated), the data standard, the changelog.
+- **Data:** ECSV downloads with units and column labels, plus generated CSV and Parquet; the data standard; the changelog.
 - **Methods:** definitions, baseline, both vocabularies, every assumption with formula and range, ▲ why the default view is the default, known limitations.
 - **About:** charter, authorship and AI disclosure, competing-interest statement, ▲ analytics disclosure (D-009), ▲ outside-review status (D-011), how to cite, how to report an error, corrections log.
 - **Release:** tagged, Zenodo DOI.
@@ -68,20 +68,20 @@ Only assumptions whose effect can be computed exactly from what the packages sto
 | # | Milestone | Done when | Estimate |
 |---|---|---|---|
 | M1 | Repository and accounts | Repository, checks, protection, domain, hosting, previews | ✅ 2026-10-28 |
-| M2 | Plans and standard | These plans approved; data standard frozen (D-015); D-013 and D-014 ruled | days |
+| M2 | Plans and standard | These plans approved; data standard frozen (D-015); D-013 and D-014 ruled | ✅ 2026-10-28 |
 | M3 | Data packages | SPARC, KiDS, X-COP passing reproduction tests; assumption registry confirmed | 2–3 weeks |
 | M4 | Site | Map, system and dataset pages, data, methods, about, on the preview | 3–4 weeks |
 | M5 | Review and release | Neutrality, accessibility, performance reviews; v0.1 tagged with DOI | 1–2 weeks |
 
 Total estimate 7–10 weeks from today with one maintainer. CLASH lensing joins at M3 or M5 if the data arrive; it never holds up the release.
 
-## 7. Decisions needed now
+## 7. Decisions (ruled 2026-10-28)
 
-| # | Decision | Recommendation | Main alternative |
-|---|---|---|---|
-| **D-013** | Solar System anchors on the map | **Defer to v0.2.** They need their own sourced package, and the v0.1 datasets already span the range shown | Build a small sourced package now |
-| **D-014** | The v0.1 slider set (section 4) | **Approve as listed**, including dropping the uniform gas rescaling and adding SPARC inclination | Keep v1's set |
-| **D-015** | Freeze `docs/data-standard.md` v1.0 | **Freeze as drafted** | Revise first |
+| # | Decision | Ruling |
+|---|---|---|
+| **D-013** | Solar System anchors | Deferred to v0.2 |
+| **D-014** | v0.1 slider set | Section 4, with formulas written once and executed identically by pipeline and site |
+| **D-015** | Data standard | Frozen as v1.0.0: semantic versioning, ECSV with units and UCD labels, namespaced extension columns |
 
 ## 8. Risks for v0.1
 

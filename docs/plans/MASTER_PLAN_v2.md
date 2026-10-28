@@ -43,7 +43,7 @@ Rules (unchanged): a System exists once whatever the number of datasets; dataset
 
 ## 3. Data standard
 
-Moved to its own document, `docs/data-standard.md`, which is frozen by ruling before any data are committed (D-015). Summary: Frictionless Data Packages; CSV canonical; SI accelerations; sources never committed unless redistributable, always hashed; a reproduction test per package, frozen first.
+Moved to its own document, `docs/data-standard.md`, **frozen as v1.0.0 on 2026-10-28 (D-015)**. Summary: Frictionless Data Packages; ECSV tables with units, descriptions and IVOA UCD labels; SI accelerations; semantic versioning of the standard; namespaced extension columns; sources never committed unless redistributable, always hashed; a reproduction test per package, frozen first.
 
 ## 4. Identifiers and addresses (permanent)
 
@@ -106,4 +106,4 @@ As v1. ▲ The mockup is updated to D-008, D-012 and the plain-language correcti
 
 ## 11. Before any data enter the repository
 
-`docs/data-standard.md` frozen by ruling (D-015), together with sections 2 and 4 of this plan.
+Done: `docs/data-standard.md` frozen as v1.0.0 (D-015), together with sections 2 and 4 of this plan.
