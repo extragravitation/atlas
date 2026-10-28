@@ -1,8 +1,12 @@
 name: data
 
-# Fetches every data package's sources, verifies their hashes, and runs the
-# package tests (including the frozen reproduction tests). Source files are
-# never committed; they are fetched here on every run.
+# Fetches every data package's sources, verifies their hashes, rebuilds the
+# tables and runs the package tests (including the frozen reproduction tests).
+# Source files are never committed and never uploaded; they are fetched here.
+#
+# The committed tables must equal what the pipeline produces. On a pull
+# request from this repository, if they differ, the regenerated tables are
+# committed back to the branch by the workflow. On main, a difference fails.
 
 on:
   pull_request:
@@ -13,7 +17,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   packages:
@@ -21,7 +25,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # full history: the reproduction-freeze check reads it
+          fetch-depth: 0
+          ref: ${{ github.head_ref || github.ref }}
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -29,31 +34,53 @@ jobs:
         run: pip install -e "pipeline[test,data]"
       - name: Fetch and verify sources
         run: |
-          set -euo pipefail
+          set -uo pipefail
           for pkg in data/packages/*/*/; do
-            if [ -f "$pkg/sources.json" ]; then python -m aeg.fetch "$pkg"; fi
+            [ -f "$pkg/sources.json" ] || continue
+            if ! python -m aeg.fetch "$pkg" > fetch.log 2>&1; then
+              echo "::error title=fetch $pkg::$(tail -c 3000 fetch.log | tr '\n' '|')"; exit 1
+            fi
+            cat fetch.log
           done
-      - name: Build packages (where a converter exists)
+      - name: Build packages
         run: |
-          set -euo pipefail
+          set -uo pipefail
           for pkg in data/packages/*/*/; do
-            if [ -f "$pkg/convert.py" ]; then python "$pkg/convert.py"; fi
+            [ -f "$pkg/convert.py" ] || continue
+            if ! python "$pkg/convert.py" > build.log 2>&1; then
+              echo "::error title=build $pkg::$(tail -c 3000 build.log | tr '\n' '|')"; exit 1
+            fi
+            cat build.log
           done
       - name: Package tests
         run: |
-          set -euo pipefail
+          set -uo pipefail
+          status=0
           for pkg in data/packages/*/*/; do
-            if [ -d "$pkg/tests" ] && ls "$pkg"/tests/test_*.py >/dev/null 2>&1; then
-              pytest "$pkg/tests" -v
+            ls "$pkg"/tests/test_*.py >/dev/null 2>&1 || continue
+            if ! pytest "$pkg/tests" -q -rA --tb=short > test.log 2>&1; then
+              echo "::error title=tests $pkg::$(tail -c 3500 test.log | tr '\n' '|')"; status=1
+            else
+              echo "::notice title=tests $pkg::$(tail -c 1500 test.log | tr '\n' '|')"
             fi
+            cat test.log
           done
-      - name: Keep generated tables for review (never the sources)
+          exit $status
+      - name: Committed tables equal regenerated tables
         if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: tables
-          path: |
-            data/packages/*/*/tables/
-            data/registry/systems.csv
-          retention-days: 3
-          if-no-files-found: ignore
+        run: |
+          set -uo pipefail
+          git add -A data/packages/*/*/tables data/registry 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "::notice title=tables::committed tables match the pipeline output"; exit 0
+          fi
+          echo "::warning title=tables::$(git diff --cached --stat | tail -n 20 | tr '\n' '|')"
+          if [ "${{ github.event_name }}" = "pull_request" ] && [ "${{ github.event.pull_request.head.repo.full_name }}" = "${{ github.repository }}" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -q -m "Regenerate tables from verified sources (data workflow)"
+            git push -q origin "HEAD:${{ github.head_ref }}"
+            echo "::notice title=tables::regenerated tables committed to ${{ github.head_ref }}"
+          else
+            echo "::error title=tables::committed tables differ from the pipeline output"; exit 1
+          fi
