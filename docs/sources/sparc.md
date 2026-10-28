@@ -30,8 +30,12 @@ The CDS/VizieR copy (J/AJ/152/157) could not be reached from this environment on
 Observed in the data:
 - **Vgas is negative in 361 rows (48 galaxies).** The sign carries meaning (the gas contribution to the radial force is outward at those radii), so g_bar must be built as V|V| per component, not V². The pipeline must test this explicitly.
 - Bulge present (Vbul > 0) in 32 galaxies.
+- **g_bar ≤ 0 at the catalogue defaults in 2 rows**: the two innermost points of UGC01281 (edge-on, i = 90°; R = 0.08 and 0.23 kpc), where the negative gas contribution outweighs the disc. Both fail the authors' 10 % velocity-error cut. At the lowest disc mass-to-light ratio (0.2) two further rows go negative (`m000036`, `m002904`). All are kept; the site lists them rather than placing them on a log axis.
 
 ## Galaxy table (Table 1)
+
+**Format discrepancy (found 2026-10-28 while building the package):** the file's byte-by-byte header documents fixed positions over 113 bytes, but the data rows as served are 131 characters wide with shifted columns (e.g. the Hubble type sits at bytes 13–14, not 12–13). The values themselves are whitespace-separated and consistent, so the package parses by column order and checks that every data row has exactly 19 fields. Worth mentioning to the maintainer.
+
 
 Per galaxy: Hubble type, distance D with error e_D and **distance method** f_D (1 Hubble flow with H0 = 73 km/s/Mpc and Virgo-infall correction; 2 tip of the red giant branch; 3 Cepheids; 4 Ursa Major cluster; 5 supernovae), inclination with error, 3.6 µm luminosity with error, disc scale length, HI mass and radius, Vflat, **quality flag Q (1 high, 2 medium, 3 low)**, and references for the HI/Hα data.
 

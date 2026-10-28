@@ -1,6 +1,6 @@
 # Atlas data standard
 
-**Version 1.0.0 — FROZEN 2026-10-28 (decision D-015).** Packages state the version they follow. Changes follow section 0. Nothing enters `data/packages/` that does not follow a frozen version of this standard.
+**Version 1.2.1 — FROZEN 2026-10-28** (1.0.0: D-015; 1.1.0, additive: D-018; 1.2.0, additive: D-019; 1.2.1, clarification). Packages state the version they follow. Changes follow section 0. Nothing enters `data/packages/` that does not follow a frozen version of this standard.
 
 The standard is written so that each of the four v0.1 sources (SPARC, KiDS-1000 RAR, X-COP, CLASH lensing) fits without special cases. The source readings that shaped it are in `docs/sources/`.
 
@@ -15,6 +15,15 @@ The standard uses semantic versioning, MAJOR.MINOR.PATCH. Every change gets a de
 | **Major**: breaking; some valid package would become invalid, or a column would change meaning | Renaming, removing or retyping a column; changing a unit; changing what a column means; making an optional column required | 1.x → 2.0.0 |
 
 A package following an older version stays valid under it. A package is never edited to follow a newer version; it is re-issued as a new dataset version (D-006).
+
+## Version history
+
+| Version | Date | Decision | Change |
+|---|---|---|---|
+| 1.0.0 | 2026-10-28 | D-015 | First frozen version |
+| 1.1.0 | 2026-10-28 | D-018 | Added disc/bulge columns, inclination columns, `system.<column>` in formulas |
+| 1.2.0 | 2026-10-28 | D-019 | Added flag `reproduction_mismatch`, optional column `known_issues`, package file `known_issues.json` |
+| 1.2.1 | 2026-10-28 | patch | Clarified: how several assumptions combine (§6); g_bar may be ≤ 0 where a signed component is negative (§7 item 7) |
 
 ## 1. Package layout
 
@@ -31,6 +40,7 @@ One folder per dataset version: `data/packages/<dataset>/<version>/`, e.g. `data
 | `tables/systems.ecsv` | Section 4 (omitted for population-only datasets) | yes |
 | `tables/covariance.ecsv` | Section 5, where the source provides covariance | yes |
 | `tests/` | Reproduction, schema and assumption tests | yes |
+| `known_issues.json` | Optional (1.2.0): known issues affecting the package, each with its GitHub issue number, flag and affected measurement IDs; the converter sets flags and `known_issues` from it | yes |
 | `checksums.sha256` | SHA-256 of every committed file in the package | yes |
 | `source/` | Downloaded source files | **never** (`.gitignore`) |
 
@@ -82,12 +92,14 @@ One row per measurement.
 | `g_bar` | float64 | m / s2 | `phys.acceleration;meta.modelled` | yes | Newtonian acceleration from detected baryons, at catalogue defaults |
 | `g_bar_err_lo`, `g_bar_err_hi` | float64 | m / s2 | `stat.error;phys.acceleration` | if available | Bounds |
 | `g_bar_stars`, `g_bar_gas_cold`, `g_bar_gas_hot` | float64 | m / s2 | `phys.acceleration;meta.modelled` | where separable | Components at catalogue defaults |
+| `g_bar_stars_disk`, `g_bar_stars_bulge` | float64 | m / s2 | `phys.acceleration;meta.modelled` | optional (1.1.0) | Stellar disc and bulge parts of `g_bar_stars`, where the source separates them; they sum to `g_bar_stars` |
 | `stars_status`, `gas_cold_status`, `gas_hot_status` | string (closed list) | | `meta.code` | yes | `measured`, `modelled`, `absent`, `not_separable` |
 | `assumptions` | string | | `meta.note` | yes | Semicolon-separated assumption IDs (section 6) affecting this row, each with its catalogue value |
 | `adjustable` | string | | `meta.note` | yes | Assumption IDs whose sliders can change this row; empty if none |
 | `quality_source` | string | | `meta.code.qual` | no | The source's own quality label, verbatim. Shown; never used to hide data by default |
 | `source_ref` | string | | `meta.ref` | yes | Pointer to the source row or file |
 | `flags` | string | | `meta.code` | no | Semicolon-separated values from the closed list in section 7 |
+| `known_issues` | string | | `meta.ref` | optional (1.2.0) | Semicolon-separated GitHub issue numbers (e.g. `#8`) of open known issues affecting the row |
 
 `meta.modelled` on g_bar records what g_bar is: the Newtonian prediction from detected matter, as distinct from the observed g_obs.
 
@@ -108,6 +120,7 @@ Global registry `data/registry/systems.csv` (ID, primary name, first dataset ver
 | `distance_err_mpc` | Mpc | `stat.error;pos.distance` | As given by the source |
 | `distance_method` | | `meta.code` | As given by the source |
 | `ra_deg`, `dec_deg` | deg | `pos.eq.ra`, `pos.eq.dec` | Where the source gives them |
+| `inclination_deg`, `inclination_err_deg` | deg | `src.orbital.inclination`, `stat.error;src.orbital.inclination` | Optional (1.1.0). Disc inclination and error, as given by the source |
 | `properties` | | `meta.note` | JSON object of other source-given properties, units in the key names (e.g. `"inclination_deg"`, `"r500_kpc"`) |
 
 Cross-identifications (`data/registry/crossids.csv`: `system_id`, `catalogue`, `identifier`) are added when a second dataset names the same system. A match is never made by name alone without a recorded position check.
@@ -136,7 +149,9 @@ One entry per named assumption, shared across datasets.
 | `adjustable` | true for sliders; false for assumptions shown but fixed |
 | `status` | `draft` until default and range are read at source; only `confirmed` assumptions may drive a slider |
 
-**Formula expression language (D-014).** One formula per effect, written once and executed by both the pipeline (Python) and the site (JavaScript) from the same text. Allowed: numbers; the parameter `p` and its default `p0`; column names of the same row; `+ - * /`, `^` for powers; parentheses; functions `sqrt`, `abs`, `sin`, `cos`, `deg2rad`. Nothing else: no loops, no conditionals, no other rows. Example (SPARC distance, g_obs at fixed angle): `g_obs * p0 / p`.
+**Formula expression language (D-014).** One formula per effect, written once and executed by both the pipeline (Python) and the site (JavaScript) from the same text. Allowed: numbers; the parameter `p` and its default `p0`; column names of the same row; core columns of the row's system as `system.<column>` (1.1.0); `+ - * /`, `^` for powers; parentheses; functions `sqrt`, `abs`, `sin`, `cos`, `deg2rad`. Nothing else: no loops, no conditionals, no other rows. Example (SPARC distance, g_obs at fixed angle): `g_obs * p0 / p`.
+
+**Combining assumptions (1.2.1).** All effects of one assumption are evaluated against the row as it was before that assumption (simultaneous assignment); several assumptions are applied one after another in the order of `data/assumptions.json`.
 
 Both evaluators are tested on every measurement and every adjustable assumption at its default and range ends; results must agree to a relative tolerance of 1e-12.
 
@@ -148,11 +163,11 @@ Both evaluators are tested on every measurement and every adjustable assumption 
 4. Every table reads as ECSV with astropy; every column has the required unit, datatype, description and UCD; every UCD is valid against the UCD1+ list v1.6.
 5. Schema: required columns present; closed lists respected; units as section 2a; no sentinel values; error bounds non-negative.
 6. IDs: measurement IDs well-formed, unique, sequential; every `system_id` exists in the registry.
-7. Physical sanity (warnings that need an acknowledged note, not silent fixes): g_obs and g_bar positive where the source implies they must be; values within 10⁻¹⁶ to 10⁻⁶ m s⁻².
+7. Physical sanity (warnings that need an acknowledged note, not silent fixes): g_obs positive; magnitudes within 10⁻¹⁶ to 10⁻⁶ m s⁻². g_bar may be zero or negative where a signed component is negative (e.g. a central gas depression); such rows are kept and the site must show them without placing them on a logarithmic axis (1.2.1).
 8. Every assumption named in `assumptions` or `adjustable` exists in the registry; every `adjustable` one is `confirmed`.
 9. Slider formulas: changing each assumption changes only rows listing it in `adjustable`, exactly as its formula says; the Python and JavaScript evaluators agree (section 6).
 10. Licence: if any source is not redistributable, no file from it is committed and the release archive excludes it.
-11. Closed list of `flags`: `no_uncertainty`, `beyond_source_range`, `inner_resolution_limited`, `source_quality_low`. Adding a value is a minor version change.
+11. Closed list of `flags`: `no_uncertainty`, `beyond_source_range`, `inner_resolution_limited`, `source_quality_low`, `reproduction_mismatch` (1.2.0). Adding a value is a minor version change.
 12. Extension columns (section 8) are named correctly and carry unit (where applicable), description and a valid UCD.
 
 ## 8. Extension columns

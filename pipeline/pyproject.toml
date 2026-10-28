@@ -12,6 +12,7 @@ dependencies = []
 
 [project.optional-dependencies]
 test = ["pytest>=8"]
+data = ["astropy>=6.1", "numpy>=1.26"]
 
 [tool.setuptools]
 packages = ["aeg"]

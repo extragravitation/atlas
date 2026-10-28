@@ -12,6 +12,7 @@ A first public release that a working astronomer would find useful and cite, and
 - **The map:** ▲ observed-against-baryonic view by default (D-012), excess and radius views; dynamics and lensing channels; filters by the source's class labels; linked object card; shareable view addresses; ▲ **Technical · Plain language** switch, Technical by default (D-008).
 - **System pages:** all measurements, profile chart where available, sources, licence or archival terms, citation, download; ▲ per-measurement flags (stars measured or modelled; named assumptions).
 - **Dataset pages:** method, selection, assumptions, licence, citation, checksums, ▲ reproduction-test result, change history.
+- ▲ **Known issues** page and a Validation panel on each dataset page (D-020).
 - **Data:** ECSV downloads with units and column labels, plus generated CSV and Parquet; the data standard; the changelog.
 - **Methods:** definitions, baseline, both vocabularies, every assumption with formula and range, ▲ why the default view is the default, known limitations.
 - **About:** charter, authorship and AI disclosure, competing-interest statement, ▲ analytics disclosure (D-009), ▲ outside-review status (D-011), how to cite, how to report an error, corrections log.
@@ -61,7 +62,7 @@ Only assumptions whose effect can be computed exactly from what the packages sto
 7. Performance: the map stays smooth with every v0.1 measurement shown, on a mid-range laptop and phone.
 8. Zenodo DOI, CITATION file, changelog.
 9. No illustrative data anywhere on the site.
-10. ▲ Every package passes its reproduction test, frozen before conversion.
+10. ▲ Every package passes its conversion-integrity check exactly; any mismatch with the source's published reference is recorded as failed, flagged per measurement, listed on the Known issues page and referred to the source (D-019).
 
 ## 6. Milestones (▲ replace weeks)
 
