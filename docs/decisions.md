@@ -97,6 +97,8 @@ All entries below: ruled by JvH on 2026-10-28 (week 1 of the MVP plan).
 
 **Alternative rejected.** GitHub Pages (no per-PR previews; public from day one).
 
+**Amended 2026-10-28.** Cloudflare Workers (static assets only, via Workers Builds) instead of Cloudflare Pages. When the project was created, Cloudflare's dashboard labelled Pages the "legacy Pages workflow" and defaulted new projects to Workers. Workers Builds keeps everything D-007 was chosen for: a preview for every pull request, with the preview address posted on the pull request, and optional Cloudflare Access protection. Configuration: `wrangler.jsonc` at the repository root, serving `site/public`; no server code. Starting a long-lived project on a product its vendor calls legacy would mean a migration later.
+
 ## D-008 — Reading layer and plain vocabulary
 
 **Ruling.**
