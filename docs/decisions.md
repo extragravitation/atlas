@@ -162,6 +162,41 @@ All entries below: ruled by JvH on 2026-10-28 (week 1 of the MVP plan).
 
 **Alternative rejected.** Excess against radius (scatters across scales; can read as hiding the tight relation). The mockup's former default (excess against g_bar) is also replaced.
 
+## D-013 — Solar System reference points
+
+**Ruling (2026-10-28).** Deferred to v0.2. They need their own sourced data package; v0.1 does not show them.
+
+**Reason.** No unsourced points on the map (rule 2); v0.1's datasets already span the range of the map.
+
+**Alternative rejected.** Build a small sourced package for v0.1.
+
+## D-014 — v0.1 assumption sliders
+
+**Ruling (2026-10-28).** The revised set in `docs/plans/MVP_PLAN_v2.md` §4:
+- SPARC: stellar mass-to-light (disc; bulge), distance and inclination (each per galaxy within its published error);
+- X-COP: X-ray hydrostatic bias; stellar mass of the 5 clusters without measured stars; intracluster light;
+- KiDS: no sliders; the authors' ±0.2 dex stellar-mass systematic shown as a band, and their released hot-gas variant as an alternative baseline;
+- dropped: uniform rescaling of SPARC gas for gas beyond atomic hydrogen (molecular gas is not distributed like atomic gas, so a uniform factor is not an exact computation of a real assumption).
+
+**Plus:** each slider's effect is written once, as a formula in a restricted expression language, and executed from that same text by both the pipeline and the site; the build checks that the two agree on every measurement (`docs/data-standard.md` §6).
+
+**Reason.** Only effects that can be computed exactly; one formula, proven identical in tests and on the site.
+
+**Alternative rejected.** The v1 slider set; separate Python and JavaScript implementations.
+
+## D-015 — Data standard frozen
+
+**Ruling (2026-10-28).** `docs/data-standard.md` frozen as **version 1.0.0**, with:
+- semantic versioning of the standard (patch: wording; minor: additive and backward-compatible; major: breaking);
+- **ECSV** tables carrying each column's unit, data type, description and **IVOA UCD** label (UCD1+ vocabulary v1.6, 2024-12-18, validated automatically);
+- namespaced extension columns (`x_<dataset>_<name>`) for source-specific extras that the core never depends on.
+
+**Reason.** Settle the template before any data are poured into it, so released data, checks and site share one meaning per column; use the astronomy community's own table format and vocabulary so the data are interoperable; allow growth without breaking anything published.
+
+**Alternative rejected.** Revise further before freezing; plain CSV without embedded metadata.
+
+**Checked.** UCD list read from astropy 8.0.2's bundled copy (`EN-UCDlist-v1.6-2024-12-18`); every UCD used in the standard validated with astropy's parser against it; ECSV header written and read back with astropy.
+
 ---
 
 ## Recorded alongside (not decisions; corrections to the plans)
