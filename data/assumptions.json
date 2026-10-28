@@ -204,6 +204,102 @@
           "effects": []
         }
       }
+    },
+    {
+      "id": "xray_hse_bias",
+      "name_technical": "X-ray hydrostatic bias b, with M_true = M_hydrostatic / (1 − b)",
+      "name_plain": "How much of the gas's support against the pull is missed by assuming pressure balance from heat alone",
+      "adjustable": true,
+      "status": "confirmed",
+      "parameter": {
+        "unit": "dimensionless"
+      },
+      "datasets": {
+        "aeg-d-xcop/v1": {
+          "default": 0,
+          "min": 0,
+          "max": 0.2,
+          "default_ref": "Eckert et al. 2019 (arXiv:1805.00034): non-thermal pressure about 6 % at R500 and 10 % at R200; hydrostatic masses 'require little correction'. D-022",
+          "range_ref": "Eckert et al. 2019 (arXiv:1805.00034): 1 − b = 0.85 ± 0.05 for Planck SZ-based masses; 0.2 is its one-sigma edge. D-022",
+          "effects": [
+            {
+              "column": "g_obs",
+              "formula": "g_obs * (1 - p0) / (1 - p)"
+            },
+            {
+              "column": "g_obs_err_lo",
+              "formula": "g_obs_err_lo * (1 - p0) / (1 - p)"
+            },
+            {
+              "column": "g_obs_err_hi",
+              "formula": "g_obs_err_hi * (1 - p0) / (1 - p)"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "icl_fraction",
+      "name_technical": "Intracluster light: share f of total cluster starlight not counted in the measured stellar masses",
+      "name_plain": "Starlight spread between the galaxies that the star counts leave out",
+      "adjustable": true,
+      "status": "confirmed",
+      "parameter": {
+        "unit": "dimensionless"
+      },
+      "datasets": {
+        "aeg-d-xcop/v1": {
+          "default": 0,
+          "min": 0,
+          "max": 0.5,
+          "default_ref": "Ghizzardi et al. 2020 (arXiv:2007.01084): measured stellar masses include the central galaxy and exclude intracluster light. D-022",
+          "range_ref": "Span given by Ghizzardi et al. 2020: Zibetti et al. 2005, 10.9 ± 5.0 % within 500 kpc; Zhang et al. 2019, 44 ± 17 % within 1 Mpc (includes the central galaxy, so 0.5 is generous). Assumed to follow the measured stars' radial distribution. D-022",
+          "effects": [
+            {
+              "column": "g_bar_stars",
+              "formula": "g_bar_stars * (1 - p0) / (1 - p)"
+            },
+            {
+              "column": "g_bar",
+              "formula": "g_bar + g_bar_stars * ((1 - p0) / (1 - p) - 1)"
+            },
+            {
+              "column": "x_xcop_g_bar_stars_err_lo",
+              "formula": "x_xcop_g_bar_stars_err_lo * (1 - p0) / (1 - p)"
+            },
+            {
+              "column": "x_xcop_g_bar_stars_err_hi",
+              "formula": "x_xcop_g_bar_stars_err_hi * (1 - p0) / (1 - p)"
+            },
+            {
+              "column": "g_bar_err_lo",
+              "formula": "sqrt(x_xcop_g_bar_gas_err_lo^2 + (x_xcop_g_bar_stars_err_lo * (1 - p0) / (1 - p))^2)"
+            },
+            {
+              "column": "g_bar_err_hi",
+              "formula": "sqrt(x_xcop_g_bar_gas_err_hi^2 + (x_xcop_g_bar_stars_err_hi * (1 - p0) / (1 - p))^2)"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "stars_cluster_modelled",
+      "name_technical": "Stellar mass of clusters without measured stars: NFW-shaped profile, c = 2.9 relative to r200, normalised by M★/M_gas(<R500) = 0.39 (M500/1e14 M☉)^−0.84",
+      "name_plain": "An estimate of the stars' mass in clusters where they were not measured",
+      "adjustable": false,
+      "status": "draft",
+      "parameter": {
+        "unit": "method"
+      },
+      "datasets": {
+        "aeg-d-xcop/v1": {
+          "default": "ettori2019",
+          "default_ref": "Ettori et al. 2019 (arXiv:1805.00035) §5; concentration from Lin et al. 2004 (arXiv:astro-ph/0402308); normalisation from Gonzalez et al. 2013; M500 and R200 from Ettori et al. 2019 Table 1. D-022",
+          "note": "No slider until Gonzalez et al. 2013 is read at source for the relation's scatter and its treatment of the central galaxy and intracluster light (D-022).",
+          "effects": []
+        }
+      }
     }
   ]
 }
