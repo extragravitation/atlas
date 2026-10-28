@@ -6,5 +6,7 @@
   "assets": {
     "directory": "./site/public",
     "not_found_handling": "404-page"
-  }
+  },
+  // Required by Workers Builds preview builds (one preview per branch and pull request).
+  "previews": {}
 }
