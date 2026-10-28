@@ -268,6 +268,15 @@ All entries below: ruled by JvH on 2026-10-28 (week 1 of the MVP plan).
 
 **Alternatives rejected.** Range 0 to 0.3 for the bias (beyond what any cited X-COP or Planck figure supports); intracluster light on all 12 clusters (the modelled-star prescription may already include it); a modelled-stars slider from sample quartiles (forbidden by D-005 condition 3).
 
+
+## D-023 — Modelled stars: ship only where the model is validated
+
+**Ruling (2026-10-28, JvH), before the test was run.** The modelled-star profile (D-022 item 3) excludes the central galaxy, so near the centre it under-predicts g_bar and inflates g_obs/g_bar for the 5 modelled clusters. The prescription is tested where the truth is known: applied to the 7 clusters with measured stars, it must reproduce their g_bar within 10 % (median of the absolute deviation over the clusters, as a function of r/R500). Modelled rows ship only within the validated range of r/R500. Exact procedure frozen in `data/packages/aeg-d-xcop/v1/MODEL_TEST.md` (hash in `sources.json`); outcome in `MODEL_TEST_RESULT.md`; the dataset page explains the cut.
+
+**Reason.** A model artefact must not sit on the map as an observation; the cut is set by data, by a rule fixed before the comparison was made. The 10 % is a judgement call, inside the hydrostatic-bias range already allowed (0 to 20 %).
+
+**Alternatives rejected.** A fixed inner radius chosen after the star fractions had been seen (post hoc); shipping every row with the problem stated in words (leaves an artefact on the map).
+
 ---
 
 ## Recorded alongside (not decisions; corrections to the plans)
