@@ -1,0 +1,9 @@
+// Cloudflare Workers configuration (decision D-007, amended 2026-10-28).
+// Static assets only: no server code runs. Cloudflare serves the files in site/public.
+{
+  "name": "extragravitation",
+  "compatibility_date": "2026-10-28",
+  "assets": {
+    "directory": "./site/public"
+  }
+}
