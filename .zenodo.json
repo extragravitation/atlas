@@ -1,0 +1,27 @@
+{
+  "title": "Atlas of Extra Gravitation",
+  "upload_type": "dataset",
+  "description": "An open, theory-neutral atlas of the acceleration discrepancy: where and how the observed gravitational acceleration exceeds what Newtonian gravity predicts from detected baryonic matter, from star clusters to galaxy clusters. Every value traces to a published source; cite the original sources of any data you use (listed on each dataset page). Text, figures and Atlas-produced data: CC BY 4.0; code: MIT (see LICENSE and LICENSE-CONTENT.md). Prepared with AI assistance (Claude, Anthropic), disclosed in the repository.",
+  "creators": [
+    {
+      "name": "van Hemert, John",
+      "affiliation": "Independent researcher, Calgary",
+      "orcid": "0009-0003-1893-7096"
+    }
+  ],
+  "license": "cc-by-4.0",
+  "keywords": [
+    "acceleration discrepancy",
+    "galaxy dynamics",
+    "gravitational lensing",
+    "galaxy clusters",
+    "open data"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/extragravitation/atlas",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}
