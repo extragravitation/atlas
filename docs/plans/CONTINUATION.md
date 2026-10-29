@@ -24,6 +24,10 @@ Data the site can render (summary given to JvH 2026-10-28): the g_obs–g_bar ma
 - **D-023** Modelled stars ship only where validated on the measured clusters (frozen test, passed 0.145–1.38 R500; 204 rows cut).
 - **D-024** v0.1 public release waits for galaxy groups, globular clusters and dwarf spheroidals; dispersion-supported systems need a ruled method first (D-025). Site is built meanwhile on the three datasets and previewed privately.
 
+## Design direction (agreed 2026-10-28, not a logged decision)
+
+Light theme after the "Journal figure" look (white, serif headings, thin black axes, numbered figure captions); dark theme after the "Observatory" look (near-black, instrument-like). Both share every encoding: shape for method, colour for dataset, rings for flags, dashed line for Newtonian gravity on detected matter. From the "Data desk" look: system search and the filter rail. Exploratory comps (real data, not wired) on the claude.ai canvas "Atlas look options". Working prototype on real data: claude.ai page "Atlas Map Prototype" (dark by default). D-026 and D-027 govern what the map draws.
+
 ## Next, in order
 
 1. **Site v0.1 (#14)** on the three datasets: map (default view D-012), SPARC and X-COP object pages, KiDS population page, sliders (formulas executed by `site/src/formula.mjs`), Known issues page (D-020, generated from issues labelled `known-issue`), Validation panels, downloads and citations, Technical · Plain language switch (D-008), dark and light themes, phones. Mockup update (#15) alongside.

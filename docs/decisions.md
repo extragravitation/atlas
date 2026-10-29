@@ -178,6 +178,8 @@ All entries below: ruled by JvH on 2026-10-28 (week 1 of the MVP plan).
 - KiDS: no sliders; the authors' ±0.2 dex stellar-mass systematic shown as a band (amended by D-021: stated in words, no band), and their released hot-gas variant as an alternative baseline;
 - dropped: uniform rescaling of SPARC gas for gas beyond atomic hydrogen (molecular gas is not distributed like atomic gas, so a uniform factor is not an exact computation of a real assumption).
 
+**Clarified 2026-10-28 (JvH), scope of each slider.** Dataset-wide (one value for every system in the dataset, as the sources adopt it): SPARC disc and bulge mass-to-light, X-COP hydrostatic bias, X-COP intracluster light (measured-star clusters only). Per system (each system only, within its own published error, set on that system's page): SPARC distance and inclination. Every page shows a list of changed assumptions with their scope and a reset for each; galaxies with per-system changes are marked on the map. The full published range of each assumption is shown separately on system pages, independent of the current setting.
+
 **Plus:** each slider's effect is written once, as a formula in a restricted expression language, and executed from that same text by both the pipeline and the site; the build checks that the two agree on every measurement (`docs/data-standard.md` §6).
 
 **Reason.** Only effects that can be computed exactly; one formula, proven identical in tests and on the site.
@@ -294,6 +296,33 @@ Systems supported by random motions need a ruled method before any of their data
 **Alternative rejected.** Ship v0.1 with three datasets and state the gap (faster, but the first public picture would rest almost entirely on rotating disc galaxies).
 
 **Backlog.** Issues #21 (groups), #22 (method, D-025), #23 (globular clusters), #24 (dwarf spheroidals).
+
+
+## D-026 — No fitted relation on the map in v0.1
+
+**Ruling (2026-10-28, JvH).** The map draws the data and the line g_obs = g_bar (Newtonian gravity on detected matter) only. No fitted relation (for example the published radial-acceleration fitting function) is drawn in v0.1. A fit may return later as a sourced Pattern entry, clearly labelled and switched off by default.
+
+**Reason.** A fitted curve on the default view tells readers what the pattern "is" before they have looked; the data and the Newtonian baseline say enough on their own.
+
+**Alternative rejected.** Show a published fit as an optional overlay from v0.1.
+
+## D-027 — Map display defaults
+
+**Ruling (2026-10-28, JvH).** Readers choose how the data are drawn; every choice is kept in the shareable address.
+- Marks: **points by default**; tracks (each system's points joined in order of radius) or both on request. Selecting a point highlights its whole system in every mode.
+- Error bars: **off by default** on the map, one click to show; every uncertainty is shown on hover and on the system page.
+- Colour by dataset by default; by method or source class label on request; continuous properties only with continuous scales.
+- A density layer for when the number of points makes overplotting unreadable.
+- Theme: **dark by default**; light on the reader's choice, remembered in their browser. (JvH, 2026-10-28, after the prototype; supersedes "follow the system setting".)
+- Filter by type in one click: selecting a type in the legend shows only that type; selecting it again shows everything.
+- Selection: no system is selected on arrival; selecting one draws its measurements joined in order of radius, labelled with its name, with a clear-selection control.
+- The legend states the weighting in words (for example "X-COP: 861 points from 12 clusters").
+- Display options never change which measurements appear or their values; flagged points stay visible, with their rings, in every mode.
+- Not a display option: one point per system (needs a rule for the representative radius, which is a method choice for a separate ruling).
+
+**Reason.** Points are the most literal picture (one mark per packaged measurement) and the easiest to read; tracks show where in each system the extra pull appears; stating the weighting stops a few densely sampled systems from reading as a population.
+
+**Alternative rejected.** Tracks or error bars on by default (harder to read at 4 300 points).
 
 ---
 
