@@ -4,6 +4,7 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
 
 ## Unreleased
 
+- D-041: data standard 2.0.0 frozen (the validator stays editable through tested pull requests).
 - Data standard 2.0.0 drafted (`docs/data-standard.md`; 1.3.0 kept in `docs/data-standard-1.3.0.md`); validator rules for 2.0.0 with synthetic tests. To be frozen on JvH's approval.
 - Frozen: the D-037 reproduction check and the D-038 3A consistency check, tested on synthetic data (`docs/methods/D037_D038_CHECKS.md`).
 - D-040: blind rulings replaced by recording who proposed each ruling (JvH or Claude) and what was changed before it was ruled (amends D-031).

@@ -1,0 +1,9 @@
+{
+  "description": "Data standard 2.0.0, frozen on JvH's approval before the first 2.0 package (issue #49, D-041); 1.3.0 text frozen alongside. The validator is not frozen: fixes go through pull requests with tests, and it must keep implementing the frozen text.",
+  "frozen_on": "2026-10-29",
+  "decision": "D-041",
+  "files": {
+    "docs/data-standard.md": "04658f003bdccbfa9370fa15c34a245e84906ac04cdae75359e4e285f60b62d3",
+    "docs/data-standard-1.3.0.md": "4a424916e6a680005afd47426a51befd02298deec9050829559eb109f89401fa"
+  }
+}
