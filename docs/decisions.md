@@ -558,6 +558,12 @@ Defaults and ranges for any conversion factor are read at source before a packag
 
 ---
 
+## Note on D-028 — Protocol deposited on Zenodo
+
+**2026-10-29, deposited by JvH.** The frozen selection protocol, taxonomy and freeze record are deposited on Zenodo as "Atlas of Extra Gravitation: v1.0 taxonomy and selection protocol (frozen 2026-10-29)", DOI [10.5281/zenodo.23780203](https://doi.org/10.5281/zenodo.23780203) (concept DOI 10.5281/zenodo.23780202), CC BY 4.0, open access. Claude checked the MD5 checksums Zenodo shows for all four files against the repository copies: all match, so the deposited protocol files are byte-identical to the frozen versions (SHA-256 in `data/taxonomy.json`). This meets TAXONOMY §6.8: the outside timestamp exists before the first new conversion.
+
+---
+
 ## Recorded alongside (not decisions; corrections to the plans)
 
 - X-ray hydrostatic measurements are not "motions": the method field distinguishes kinematic from hydrostatic, and plain-language labels for X-ray points must say gas pressure balance, not motions.

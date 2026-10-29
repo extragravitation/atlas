@@ -9,7 +9,7 @@
   },
   "search_window_opens": "2026-10-29",
   "data_freeze_date": "2026-12-24",
-  "zenodo_deposit": null,
+  "zenodo_deposit": {"doi": "10.5281/zenodo.23780203", "concept_doi": "10.5281/zenodo.23780202", "url": "https://zenodo.org/records/23780203", "published": "2026-10-29", "note": "Deposited copy of this file is the version at commit 9743a59 (zenodo_deposit null); MD5 checksums of all four deposited files verified against the repository copies on 2026-10-29."},
   "kinds": [
     {
       "id": "A0",
