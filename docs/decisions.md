@@ -2,7 +2,7 @@
 
 Decisions that change what the Atlas says or how it measures. Each entry gives the ruling, the reason, the main alternative rejected, and what was checked. JvH rules; Claude proposes and checks. This file is the authoritative log. A snapshot of the first eleven-plus-one rulings is kept in the project's working folder as `DECISIONS_v1.md`; new decisions are added here, by pull request.
 
-All entries below: ruled by JvH on 2026-10-28 (week 1 of the MVP plan).
+D-001 to D-027: ruled by JvH on 2026-10-28 (week 1 of the MVP plan). From D-028 each entry also records the data seen at the time of ruling, whether the call was delegated, and JvH's reason in his own words (D-031).
 
 ---
 
@@ -237,6 +237,8 @@ All entries below: ruled by JvH on 2026-10-28 (week 1 of the MVP plan).
 
 **Alternative rejected.** Keep "a package that fails does not ship" (D-005 condition 1 as first ruled).
 
+**Note (2026-10-29, D-031).** This ruling was made after SPARC's reproduction test had failed, and applied to SPARC; D-017 had said not to relax a rule immediately after a failure. The ruling stands pending the outside reader's written view (D-011, D-031). If the reader disagrees, SPARC v1 is held back from the first public release and the question is ruled again.
+
 ## D-020 — Known issues page
 
 **Ruling (2026-10-28, JvH).** A public **Known issues** page in the site's Data section, generated at build time from GitHub Issues labelled `known-issue`. Each entry: affected dataset and measurement IDs, date found, status (open, under investigation, resolved), action, evidence. Two-way links between flagged measurements and issues. Resolved issues move to the Corrections log with the release that fixed them. Each dataset page gets a Validation panel with its reproduction result. Development work stays in public GitHub Issues and Projects, linked from About.
@@ -323,6 +325,75 @@ Systems supported by random motions need a ruled method before any of their data
 **Reason.** Points are the most literal picture (one mark per packaged measurement) and the easiest to read; tracks show where in each system the extra pull appears; stating the weighting stops a few densely sampled systems from reading as a population.
 
 **Alternative rejected.** Tracks or error bars on by default (harder to read at 4 300 points).
+
+## D-028 — Taxonomy, selection protocol and release gate
+
+**Ruling (2026-10-29).** Delegated: JvH asked "As a good scientist, what do you recommend?" and approved the recommendation ("Proceed"). JvH's reason: "We need non-bias, but at the same time we need compelling and useful." Earlier in the same discussion: "It's of huge advantage to have all the types accounted for and all data gathered."
+1. **Taxonomy.** The first public release covers the kinds of system in `docs/plans/TAXONOMY.md` (A0 Solar System to A10 colliding clusters). Kinds are defined by morphology and composition, never by the tracer or by g_obs; rotational support (v/σ) and dynamical state are continuous properties. Kinds organise coverage and navigation only, never the presentation of findings.
+2. **Selection protocol, written before any new data are converted** (TAXONOMY §6): eligibility criteria per cell; a fixed search protocol with a logged record of what was found, screened and excluded and why; every eligible dataset included by default, with a pre-written ranking where a choice is unavoidable; eligibility decided on metadata only, with no g_obs–g_bar plot of a candidate before; a public deviations register.
+3. **Gaps.** A cell is a documented gap only if the logged search found no eligible public data, or a data request has gone unanswered for 8 weeks. "Method not yet ruled" is never a reason: every method ruling a cell needs has a deadline before the data-freeze date.
+4. **Freeze.** The taxonomy and protocol are frozen by hash and deposited on Zenodo for an outside timestamp before any new conversion. The outside reader is asked to review them first; if none has replied within 4 weeks, they are deposited and the page says so. A data-freeze date is set in the protocol; later finds go to the next version.
+5. **Release gate.** The first public release, named **v1.0**, is published when every cell is a package or a gap under 3, and these are live: a control where Newtonian gravity on detected matter is expected to suffice (Solar System as a limit; globular clusters); the lowest-g_bar individual systems (dwarf spheroidals and ultra-faint dwarfs); at least one galaxy kind other than rotating discs; both channels; at least two lenses (D-030); the cross-check status and the coverage report on continuous axes. Previews before v1.0 are unnumbered. Amends the charter's "launch v0.1 quickly", the D-010 rhythm before v1.0, and the master-plan roadmap; extends D-024.
+6. **Scope.** The Solar System is included as a limit on anomalous acceleration, not as a point. Wide binaries are included as a case study of each team's published results (they give no per-system g_obs). Open clusters are included as a kind and may end as a gap.
+7. **Contested single objects** (NGC 1052-DF2 and -DF4, AGC 114905, Abell 520, wide binaries) are case studies that present each side's published values as named alternatives, neither as the default.
+8. **Projection.** Lensing (projected) and dynamics (3D) are compared like with like; per dataset, the baryons are projected rather than the lensing deprojected, where the baryon data reach far enough.
+9. **Stellar mass-to-light** for star clusters and dwarfs: default and range from the stellar-population literature, read at source, adjustable per kind.
+
+**Reason.** A first public picture built on a few kinds answers the Atlas's question before asking it; fixing the selection rules before conversion, with an outside timestamp, makes the choice of data independent of what the data show; gap rules with deadlines bound the work without leaving an escape hatch; the minimum set guarantees the controls and extremes that make the picture fair.
+
+**Alternatives rejected.** Release on the three datasets now (D-024); release only when every cell is filled (unbounded); a minimum set alone without accounting for every kind (JvH wants all kinds accounted for).
+
+**Data seen at the time of ruling.** The three v1 packages and their results; the exploratory stress test of 2026-10-28; the source survey (metadata, abstracts and data pages; nothing converted); two AI methodology reviews (`docs/reviews/2026-10-29-methodology.md`).
+
+## D-029 — Data standard 2.0: observables first
+
+**Ruling (2026-10-29).** Delegated, as D-028. Data standard 2.0.0, as specified in `docs/plans/DATA_STANDARD_2_PROPOSAL.md` (revised 2026-10-29):
+- Packages record the observables the source releases machine-readable, with the chain of processing steps from data to each quantity (a ladder per tracer), and link every g_obs and g_bar to them. Where a source releases only inferred quantities, the package says so.
+- Every inference step is a registered assumption with a role (observed inference, baryonic inference, selection), adjustable or not; the background cosmology is registered where it enters (e.g. Σ_crit in lensing).
+- A `model_dependence` label on each measurement: none; parametric on a thermodynamic or projected observable; parametric on the total mass. All are included, labelled and filterable. Masses derived from scaling relations are excluded (circular).
+- A `limit` column (none, upper, lower) on g_obs and observables.
+- Required records: selection criteria (`x_selection`) and the baryon inventory (`x_baryon_inventory`, including components known to exist but not measured).
+- Cross-identifications record whether two datasets use independent data; a frozen precedence rule sets which dataset the default map shows; cross-checks use independent pairs only. A public register lists systems excluded by a source or by the Atlas, with reasons.
+- Licence recorded per source record; derived tables follow share-alike terms where a source requires them (e.g. ODbL).
+- Frozen tests compare at the observable level where the source releases observables.
+- The standard text is written into `docs/data-standard.md` and frozen before the first 2.0 package. New packages follow 2.0.0. The three v1 packages are not re-issued before v1.0 (they keep their observables as extension columns); they are re-issued afterwards. "Frozen" means no non-patch change for 30 days, except by a decision naming the package it blocks.
+
+**Reason.** g_obs and g_bar are inferences whose steps include assumptions not every account shares; keeping the observables lets any account be checked against the data rather than against the Atlas's conversion. The model-dependence label replaces an exclusion rule that could not be applied evenly (it would have excluded KiDS's isothermal deprojection and X-COP's fitted pressure forms).
+
+**Alternatives rejected.** Keep 1.x with optional observables (record stays framework-dependent); exclude fits that assume a total-mass shape (uneven, see Reason); re-derive every g_obs uniformly from raw data (replaces the sources' expertise; outside "describe, never analyse").
+
+**Data seen at the time of ruling.** As D-028.
+
+## D-030 — Layers, lenses and stance
+
+**Ruling (2026-10-29).** Delegated, as D-028.
+1. **Stance.** The Atlas is **cause-agnostic and reference-explicit**: it describes observed quantities against a declared reference calculation (Newtonian gravity on detected baryons; General Relativity for the lensing conversion), registers every step, and keeps the observables so any account can bypass the reference. "Theory-neutral" is not used. (The project description on claude.ai is JvH's to update.)
+2. **Five layers, each with its own rules.** (1) The record: data packages; strictest; nothing interpretive. (2) Lenses: several views of the same data, equal standing, each labelled with the tradition its framing comes from. (3) Patterns: descriptive regularities and where they fail, with strength, scope, exceptions and what would overturn them, judged by criteria frozen before the data they cite are added. (4) Accounts and tests: each account presented from its proponents' published claims in the same template; a test ledger open to frozen predictions deposited by anyone before new data are converted, results posted pass or fail. (5) Exploration: open, labelled exploratory, never cited as a finding.
+3. **Lenses for v1.0:** acceleration (g_obs against g_bar; default per D-012), mass (enclosed dynamical against baryonic mass), surface density, scale (radius), speed (rotation curves). Methods states that the acceleration plane comes from the radial-acceleration-relation tradition and the mass view from the dark-matter tradition.
+4. **Symmetry.** Before publishing any lens, pattern or account page: would a proponent of each account call it fair? The outside reader and advisers are asked exactly that. Where the discrepancy is absent is shown as prominently as where it is present.
+5. **Display of uncertainty:** shifts on both axes from shared assumptions (distance, inclination, mass-to-light) drawn from the registry formulas; limits as arrows; stacked bins with a mark style distinct from single systems.
+
+**Reason.** Respect for neutrality comes from rigour in the record and symmetry in presentation, not from showing less; plural lenses answer the objection that any single plane carries a tradition; an open test ledger makes "the test to pass" literal and gives every camp a reason to engage.
+
+**Alternatives rejected.** One privileged view (carries one tradition); no patterns or accounts until after v1.0 (safe but not compelling, and the charter calls for a confrontations section).
+
+**Data seen at the time of ruling.** As D-028.
+
+## D-031 — Process safeguards
+
+**Ruling (2026-10-29).** Delegated, as D-028. Responds to the methodology review.
+1. From D-028, every decision records the options as proposed, the recommendation, whether the call was delegated, JvH's reason in his own words, and the data seen at the time of ruling.
+2. A rule changed after a result is known applies only to later cases, unless the outside reader agrees in writing. D-019 carries a note to this effect.
+3. **Blind second reading.** Every number entering a package is read a second time at source by an independent session or a person, with a quote and its location; disagreements are logged in the package.
+4. For at least one in three method decisions, JvH rules before seeing Claude's recommendation; the log records which.
+5. Outside review (D-011) is brought forward: the outside reader is asked to review the D-028 protocol and D-030 before the protocol is deposited.
+6. AI reviews are labelled as such and never presented as outside review.
+
+**Reason.** The log shows a rule relaxed after a failure (D-017, D-019); most rulings so far accepted Claude's recommendations; AI readings had no independent check. These steps make the process auditable from outside.
+
+**Alternative rejected.** Rely on the repository history alone (shows what changed, not what was known when).
+
+**Data seen at the time of ruling.** As D-028.
 
 ---
 

@@ -1,6 +1,6 @@
-# Data standard 2.0: observables first (draft for ruling, D-029)
+# Data standard 2.0: observables first (D-029)
 
-**Status: draft, 2026-10-29. Nothing here is ruled.** Proposed with D-029, alongside D-028 (`TAXONOMY.md`). Once ruled, the changes are written into `docs/data-standard.md` as version 2.0.0 and frozen.
+**Status: ruled 2026-10-29 (D-029), revised after the methodology review (`docs/reviews/2026-10-29-methodology.md`).** This is the specification; the text is written into `docs/data-standard.md` as version 2.0.0 and frozen before the first 2.0 package.
 
 ## 1. The problem
 
@@ -23,7 +23,7 @@ The baryonic side is the same: g_bar is inferred from surface brightness, gas su
 
 **Two layers per measurement, on both sides.**
 
-1. **Observable layer**: the quantity as measured, at the deepest level the source releases.
+1. **Observable layer**: the quantity as measured, with the processing steps the source performed (§2f).
 2. **Inference layer**: g_obs and g_bar, as now, each linked to the observables it was computed from and to every assumption used, including the non-adjustable ones.
 
 The site's default views (map, pull budget) keep showing g_obs against g_bar: that is the agreed baseline. The record, the downloads and any frozen test are defined on the observables wherever the source releases them.
@@ -41,14 +41,18 @@ One row per published value of an observable.
 | `value`, `err_lo`, `err_hi` | float64 | per row (`unit`) | As the source gives them |
 | `unit` | string | | Astropy unit string |
 | `r_kpc`, `r_kind` | | kpc | Where the quantity is a profile |
-| `level` | closed list | | `measured` (an observable as the source measured it), `reduced` (a profile derived from measurements without a mass model, e.g. a binned dispersion), `inferred` (already a mass or acceleration in the source, e.g. a hydrostatic mass) |
+| `steps` | string | | The processing chain from data to this quantity, as semicolon-separated step IDs from the tracer's ladder (§2f), e.g. `spectra;line_velocities;tilted_ring;inclination;rotation_curve` for a SPARC V(r). Names the last step the source performed and every one before it |
+| `limit` | closed list | | `none`, `upper`, `lower` |
 | `source_ref` | string | | Pointer to the source row, file and column |
 
 ### 2b. Changes to `measurements.ecsv`
 
+- `model_dependence` (closed list): `none` (no fitted functional form between observable and g_obs); `observable_form` (a functional form fitted to a thermodynamic or projected observable, e.g. X-COP's fitted pressure and temperature profiles, or an isothermal lensing deprojection); `total_mass_form` (a functional form assumed for the total mass, e.g. NFW). All three are included, labelled and filterable. Masses from scaling relations are excluded.
+- `limit` on g_obs (`none`, `upper`, `lower`), drawn as arrows.
+
 - `observed_from`: semicolon-separated `observable_id`s used for g_obs.
 - `baryonic_from`: the same for g_bar.
-- `assumptions` keeps its meaning but must now list **every** inference step, adjustable or not (e.g. `circular_orbits`, `thin_disc`, `hydrostatic_equilibrium`, `spherical_symmetry`, `gr_lensing`, `deproj_sis`, `jeans_isotropic`). Each is a registry entry.
+- `assumptions` keeps its meaning but must now list **every** inference step, including the background cosmology where it enters (e.g. Σ_crit in lensing), adjustable or not (e.g. `circular_orbits`, `thin_disc`, `hydrostatic_equilibrium`, `spherical_symmetry`, `gr_lensing`, `deproj_sis`, `jeans_isotropic`). Each is a registry entry.
 
 ### 2c. Registry
 
@@ -69,7 +73,25 @@ Each assumption gets a `role`: `observed_inference`, `baryonic_inference` or `se
 
 Each status cites where it was read. The system page shows the inventory beside the pull budget, so the scope of "detected matter" is explicit. The Atlas never adds a component the source did not measure.
 
-### 2f. Frozen tests
+### 2f. Ladders of processing steps (per tracer)
+
+Each tracer has a fixed ladder of step IDs in the standard, from raw data to g_obs. A package declares, per observable, the steps the source performed (`steps`). The ladders are written into the standard with the first package of each tracer; examples:
+- rotation: `spectra → line_velocities → velocity_field → tilted_ring → inclination → asymmetric_drift → rotation_curve → g = V²/r`;
+- random motions: `spectra → stellar_velocities → membership → binned_dispersion → jeans_or_estimator → mass → g`;
+- hot gas: `events → spectra → projected_T_and_density → deprojected_profiles → fitted_forms (if any) → hydrostatic_mass → g`;
+- weak lensing: `shapes → shear → excess_surface_density (cosmology) → deprojection → g`.
+
+### 2g. Systems, duplicates and exclusions
+
+- `data/registry/crossids.csv` gains `independent_data` (true or false: whether two datasets use independent observations of the system).
+- A frozen precedence rule sets which dataset the default views show when a system appears in several; cross-checks use independent pairs only; coverage counts unique systems.
+- `data/registry/excluded.csv`: systems excluded by a source or by the Atlas (e.g. as out of equilibrium), with the reason and citation. Shown on the site.
+
+### 2h. Licences
+
+The licence is recorded per source record, read at source (CDS datasets may be CC BY, an open licence or ODbL; a contributor's own licence appears on the dataset page). Tables derived from share-alike sources follow those terms.
+
+### 2i. Frozen tests
 
 Reproduction and model tests compare at the observable level where the source releases observables, and at the inferred level otherwise; the frozen file states which.
 
@@ -77,11 +99,13 @@ Reproduction and model tests compare at the observable level where the source re
 
 This is a **major** version (2.0.0): the observable table, selection and inventory become required, so a valid 1.3.0 package is not valid under 2.0.0. Packages under 1.3.0 stay valid under 1.3.0 and are never edited.
 
+Ruled: the v1 packages are **not** re-issued before v1.0; they keep their observables as extension columns, and the site reads those. They are re-issued under 2.0.0 after v1.0.
+
 | Package | Observables already kept | To add | Plan |
 |---|---|---|---|
-| `aeg-d-sparc` | V_obs and error; V_gas, V_disk, V_bul (extension columns) | Surface brightness (SBdisk, SBbul) per radius from the same file; selection; inventory | Re-issue as v2 under 2.0.0 |
-| `aeg-d-kids1000-rar` | ΔΣ (ESD_t, ESD_x), error, bias (extension columns) | Selection (isolation criteria, mass bins); inventory | Re-issue as v2 |
-| `aeg-d-xcop` | Hydrostatic, gas and stellar masses (inferred level) | Temperature and density profiles from the same public archive (Ghirardini et al. 2018), at `reduced` level; selection; inventory | Re-issue as v2, with a new frozen reproduction test for the added files |
+| `aeg-d-sparc` | V_obs and error; V_gas, V_disk, V_bul (extension columns) | Surface brightness (SBdisk, SBbul) per radius from the same file; selection; inventory | v2 after v1.0 |
+| `aeg-d-kids1000-rar` | ΔΣ (ESD_t, ESD_x), error, bias (extension columns) | Selection (isolation criteria, mass bins); inventory | v2 after v1.0 |
+| `aeg-d-xcop` | Hydrostatic, gas and stellar masses (inferred level) | Temperature and density profiles from the same public archive (Ghirardini et al. 2018), with their processing steps; selection; inventory | v2 after v1.0, with a new frozen reproduction test for the added files |
 
 Each re-issue gets its own frozen test before conversion, as for v1. The v1 packages stay published and citable.
 
@@ -91,19 +115,10 @@ Each re-issue gets its own frozen test before conversion, as for v1. The v1 pack
 - Downloads include `observables` as well as `measurements`.
 - Methods describes the two layers.
 
-## 5. Proposed D-029
+## 5. Ruling
 
-**Proposed ruling.** Data standard 2.0.0: every package records the observables at the deepest level the source releases, links each g_obs and g_bar to them, and registers every inference step, adjustable or not. Selection criteria and the baryon inventory are required records. Frozen tests compare at the observable level where possible. New packages follow 2.0.0; the three v1 packages are re-issued as v2 before the first public release. Display defaults are unchanged.
-
-**Reason.** g_obs and g_bar are inferences whose steps include assumptions some accounts do not share. Keeping the observables makes the Atlas a test that any account can be checked against, rather than a test stated in one framework's terms. Selection and inventory records make explicit what "detected" and "observed" cover.
-
-**Alternatives.**
-- Keep 1.x and add observables as optional extension columns (cheaper; leaves the record framework-dependent where a source's observables are skipped).
-- Re-derive every g_obs uniformly from raw data with one Atlas method (most uniform; replaces the sources' expertise with ours and is out of scope).
-
-## 6. Questions for JvH
-
-1. **Required or optional observable layer?** Recommendation: required, with a stated exemption when the source releases only inferred quantities.
-2. **Re-issue the three packages before the first public release?** Recommendation: yes. SPARC and KiDS already carry most of what is needed; X-COP needs its thermodynamic profiles added.
-3. **Frozen tests at the observable level?** Recommendation: yes, where available.
-4. **"As measured" view on system pages for v1.0?** Recommendation: yes, modest: one panel, the observables with errors.
+See D-029 in `docs/decisions.md`. Rulings on the draft's questions:
+1. The observable layer is required where the source releases observables machine-readable; otherwise the package states that only inferred quantities are released.
+2. The v1 packages are not re-issued before v1.0 (reversed from the draft, after the review).
+3. Frozen tests compare at the observable level where available.
+4. System pages get an "As measured" panel for v1.0.
