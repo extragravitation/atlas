@@ -64,6 +64,8 @@ Each assumption gets a `role`: `observed_inference`, `baryonic_inference` or `se
 
 ### 2e. Baryon inventory (required, in `datapackage.json`)
 
+Status definitions follow D-034: **measured** (the component's distribution is observed in that system; conversion factors are registered assumptions), **modelled** (not observed in that system; inferred from other properties, simulations or an assumed shape), **absent**.
+
 `x_baryon_inventory`: one entry per component (stars by population, atomic gas, helium, molecular gas, ionised gas, hot gas, intracluster light, dust, remnants as relevant), each with a status:
 
 - `measured`, `modelled` (as now);
