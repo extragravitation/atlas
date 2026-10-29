@@ -1,0 +1,11 @@
+{
+  "description": "D-036 (ii) light-weighted dispersion conversion and its synthetic-profile tests, frozen before any real profile was opened (issue #46).",
+  "frozen_on": "2026-10-29",
+  "decision": "D-036",
+  "spec": "docs/methods/D036_CONVERSION.md",
+  "files": {
+    "pipeline/aeg/dispersion.py": "ded03c4507a151aa273005659d037122708c61599361fcc0a9815c1cdfb9fc40",
+    "pipeline/tests/test_dispersion.py": "3f5aeb04a8e9e46a2c3f7920774704bdcb14f888751026b0bd84ce63779efbc8",
+    "docs/methods/D036_CONVERSION.md": "3fb259bea4c7b2c08c4e6cd30a1ca786bf1d3392c38f89088c9b9a276f1eab77"
+  }
+}
