@@ -83,7 +83,7 @@ export function payload(d) {
   const out = { key: d.key, name: d.name, version: d.version, short: d.short, title: d.title, n: d.measurements.rows.length, columns: {} };
   for (const c of all) out.columns[c] = d.measurements.rows.map((r) => r[c]);
   if (d.systems) {
-    const scols = ['system_id', 'name_in_source', 'class_in_source', ...fc.sys].filter((c, i, a) => a.indexOf(c) === i);
+    const scols = ['system_id', 'name_in_source', 'class_in_source', 'distance_mpc', 'distance_method', 'inclination_deg', ...fc.sys].filter((c, i, a) => a.indexOf(c) === i && d.systems.columns.some((x) => x.name === c));
     out.systems = d.systems.rows.map((s) => { const o = {}; for (const c of scols) o[c] = s[c] ?? null; o.properties = s.properties ? JSON.parse(s.properties) : {}; return o; });
   }
   out.assumptions = d.assumptions.map((a) => ({ id: a.id, name_technical: a.name_technical, name_plain: a.name_plain, adjustable: a.adjustable, status: a.status, scope: a.scope || null, unit: a.parameter?.unit || '', ...a.datasets[d.key] }));

@@ -155,3 +155,6 @@ canvas.zoomable { touch-action: pan-x pan-y; }
 canvas.zoomable:focus-visible { outline: 2px solid var(--sel); outline-offset: 2px; }
 canvas.zoomable.panning { cursor: grab; touch-action: none; }
 canvas.zoomable.grabbing { cursor: grabbing; }
+.sel { font: inherit; min-height: 38px; padding: 0 10px; border-radius: 7px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); max-width: 100%; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.ramp { display: inline-block; width: 90px; height: 9px; vertical-align: -1px; background: linear-gradient(90deg, var(--c0), var(--c1), var(--c2), var(--c3), var(--c4)); border-radius: 2px; }

@@ -4,7 +4,7 @@
 import { loadData, adjusted, anyChange, ringed } from './model.js';
 import { state, set, onChange } from './state.js';
 import { css, plain } from './ui.js';
-import { setup, axes, sci, showTip, niceStep } from './draw.js';
+import { setup, axes, sci, showTip, niceStep, cmap } from './draw.js';
 import { wireSliders } from './sliders.js';
 
 const BASE = document.documentElement.dataset.base || '/';
@@ -20,7 +20,49 @@ const GM_SUN = 1.3271244e20, KPC = 3.0856775814913673e19;
 const massOf = (g, r) => (g > 0 && r > 0 ? (g * (r * KPC) ** 2) / GM_SUN : null);
 const speedOf = (g, r) => (g > 0 && r > 0 ? Math.sqrt(g * r * KPC) / 1000 : null);
 const RADIAL = ['rad', 'mass', 'speed'];
-function colorFor(d, row) { return state.col === 'channel' ? css(row.channel === 'lensing' ? '--kids' : '--sparc') : css(COLOR[d.name] || '--sparc'); }
+// Colour by a source property (systematics checks, D-033). Values exactly as the source gives them;
+// measurements without the property are drawn faint grey and counted in the key.
+const sysOf = (d, r) => (r.system_id && d.sysById ? d.sysById[r.system_id] : null);
+const PROPS = {
+  incl: { label: 'Inclination (°)', kind: 'cont', get: (d, r) => sysOf(d, r)?.inclination_deg ?? null, lo: 0, hi: 90, fmt: (v) => v.toFixed(0) + '°' },
+  dist: { label: 'Distance (Mpc, log scale)', kind: 'cont', log: true, get: (d, r) => sysOf(d, r)?.distance_mpc ?? null, lo: 0, hi: Math.log10(150), fmt: (v) => (v < 10 ? v.toFixed(1) : Math.round(v)) + ' Mpc' },
+  z: { label: 'Redshift', kind: 'cont', get: (d, r) => sysOf(d, r)?.properties?.redshift ?? null, lo: 0, hi: 0.12, fmt: (v) => v.toFixed(3) },
+  dmethod: { label: 'Distance method', kind: 'cat', get: (d, r) => sysOf(d, r)?.distance_method ?? null },
+  q: { label: 'Source quality flag Q (1 high, 3 low)', kind: 'cat', get: (d, r) => { const v = sysOf(d, r)?.properties?.quality_flag_Q; return v === undefined || v === null ? null : 'Q = ' + v; } },
+};
+const CATS = ['--sparc', '--xcop', '--kids', '--gas', '--bulge', '--flag'];
+let catIndex = {};
+function propValue(d, r) { const P = PROPS[state.col]; return P ? P.get(d, r) : undefined; }
+function colorFor(d, row) {
+  const P = PROPS[state.col];
+  if (P) {
+    const v = P.get(d, row);
+    if (v === null || v === undefined) return css('--muted');
+    if (P.kind === 'cat') return css(CATS[(catIndex[v] ?? 0) % CATS.length]);
+    const x = P.log ? Math.log10(v) : v, t = Math.max(0, Math.min(1, (x - P.lo) / (P.hi - P.lo)));
+    return cmap(t * 1.5);
+  }
+  return state.col === 'channel' ? css(row.channel === 'lensing' ? '--kids' : '--sparc') : css(COLOR[d.name] || '--sparc');
+}
+function prepareCats() {
+  const P = PROPS[state.col]; catIndex = {};
+  if (!P || P.kind !== 'cat') return;
+  const counts = {};
+  D.datasets.forEach((d) => d.rows.forEach((r) => { const v = P.get(d, r); if (v !== null && v !== undefined) counts[v] = (counts[v] || 0) + 1; }));
+  Object.keys(counts).sort((a, b) => counts[b] - counts[a]).forEach((k, i) => { catIndex[k] = i; });
+  return counts;
+}
+function colorKey() {
+  const P = PROPS[state.col], el = $('colkey');
+  if (!P) { el.hidden = true; return; }
+  let have = 0, miss = 0;
+  D.datasets.forEach((d) => { if (state.hide.includes(d.key)) return; d.rows.forEach((r) => { const v = P.get(d, r); if (v === null || v === undefined) miss++; else have++; }); });
+  let html = `<b>${P.label}.</b> `;
+  if (P.kind === 'cat') { const counts = prepareCats(); html += Object.keys(catIndex).map((k) => `<span style="white-space:nowrap"><span class="sw" style="display:inline-block;background:var(${CATS[catIndex[k] % CATS.length]})"></span> ${k} (${counts[k]})</span>`).join(' · '); }
+  else { const stops = [0, 0.5, 1].map((t) => P.lo + t * (P.hi - P.lo)).map((x) => P.fmt(P.log ? Math.pow(10, x) : x)); html += `<span class="ramp" aria-hidden="true"></span> ${stops[0]} → ${stops[1]} → ${stops[2]}`; }
+  html += `. ${have.toLocaleString('en')} measurements coloured; ${miss.toLocaleString('en')} without this property drawn faint grey.`;
+  el.innerHTML = html; el.hidden = false;
+}
 
 let cacheKey = null;
 function compute() {
@@ -103,9 +145,13 @@ function draw() {
         const lo = q.g_obs - (q.g_obs_err_lo ?? 0), hi = q.g_obs + (q.g_obs_err_hi ?? 0);
         g.strokeStyle = c; g.globalAlpha = pop ? 0.9 : 0.45; g.lineWidth = pop ? 0.9 : 0.6; g.beginPath(); g.moveTo(x, lo > 0 ? Y(lg(lo)) : T + ph); g.lineTo(x, Y(lg(hi))); g.stroke(); g.globalAlpha = 1;
       }
+      const faint = PROPS[state.col] && (propValue(d, r) === null || propValue(d, r) === undefined);
+      if (faint) { g.globalAlpha = 0.18; }
       if (shape === 'lensing') { g.save(); g.translate(x, y); g.rotate(Math.PI / 4); g.fillStyle = css('--bg'); g.fillRect(-3, -3, 6, 6); g.strokeStyle = c; g.lineWidth = 1.3; g.strokeRect(-3, -3, 6, 6); g.restore(); }
-      else if (state.marks !== 'tracks') { g.fillStyle = c; g.globalAlpha = shape === 'hydrostatic' ? 0.8 : alpha; if (shape === 'kinematic') { g.beginPath(); g.arc(x, y, 1.7, 0, 6.2832); g.fill(); } else g.fillRect(x - 1.8, y - 1.8, 3.6, 3.6); g.globalAlpha = 1; }
+      else if (state.marks !== 'tracks') { g.fillStyle = c; g.globalAlpha = faint ? 0.15 : shape === 'hydrostatic' ? 0.8 : alpha; if (shape === 'kinematic') { g.beginPath(); g.arc(x, y, 1.7, 0, 6.2832); g.fill(); } else g.fillRect(x - 1.8, y - 1.8, 3.6, 3.6); g.globalAlpha = 1; }
+      g.globalAlpha = faint ? 0.25 : 1;
       if (ringed(r.flags)) { g.strokeStyle = css('--flag'); g.lineWidth = 0.7; g.beginPath(); g.arc(x, y, 3.6, 0, 6.2832); g.stroke(); }
+      g.globalAlpha = 1;
       if (r.system_id && state.per[r.system_id]) { g.strokeStyle = css('--range'); g.lineWidth = 1; g.strokeRect(x - 3.5, y - 3.5, 7, 7); }
       if (x >= L && x <= L + pw && y >= T && y <= T + ph) hits.push({ x, y, d, r, q });
     });
@@ -131,7 +177,7 @@ function draw() {
 function legend() {
   const P = plain();
   const items = D.datasets.map((d) => {
-    const shape = d.rows[0].method_class, c = COLOR[d.name] || '--sparc';
+    const shape = d.rows[0].method_class, c = PROPS[state.col] ? '--muted' : COLOR[d.name] || '--sparc';
     const sw = shape === 'lensing' ? `width:8px;height:8px;border:1.5px solid var(${state.col === 'channel' ? '--kids' : c});transform:rotate(45deg)` : `${shape === 'kinematic' ? 'border-radius:50%;' : ''}background:var(${state.col === 'channel' ? '--sparc' : c})`;
     const on = !state.hide.includes(d.key);
     return `<li><button type="button" class="item" data-leg="${d.key}" aria-pressed="${on}"><span class="sw" style="${sw}" aria-hidden="true"></span><span>${LBL.ds[d.key][+P]}: ${LBL.weight[d.key]}</span></button></li>`;
@@ -176,11 +222,11 @@ function card() {
   prof.setAttribute('aria-label', `log g_obs and log g_bar of ${s.name_in_source} against radius`);
 }
 
-function render() { compute(); draw(); legend(); card(); syncControls(); }
+function render() { compute(); prepareCats(); draw(); legend(); colorKey(); card(); syncControls(); }
 function syncControls() {
   document.querySelectorAll('[data-view]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.view === state.view)));
   document.querySelectorAll('[data-marks]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.marks === state.marks)));
-  document.querySelectorAll('[data-col]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.col === state.col)));
+  $('colsel').value = state.col in PROPS || state.col === 'channel' ? state.col : 'dataset';
   $('err').checked = state.err;
 }
 
@@ -193,7 +239,7 @@ export async function start() {
   D = await loadData();
   document.querySelectorAll('[data-view]').forEach((b) => b.addEventListener('click', () => set({ view: b.dataset.view, zoom: null })));
   document.querySelectorAll('[data-marks]').forEach((b) => b.addEventListener('click', () => set({ marks: b.dataset.marks })));
-  document.querySelectorAll('[data-col]').forEach((b) => b.addEventListener('click', () => set({ col: b.dataset.col })));
+  $('colsel').addEventListener('change', (e) => set({ col: e.target.value }));
   $('err').addEventListener('change', (e) => set({ err: e.target.checked }));
   $('arrows').addEventListener('change', (e) => { state.arrows = e.target.checked; render(); });
   D.datasets.forEach((d) => { const cb = $('ds-' + d.short); if (cb) cb.addEventListener('change', () => set({ hide: cb.checked ? state.hide.filter((k) => k !== d.key) : [...state.hide, d.key] })); });
@@ -205,7 +251,9 @@ export async function start() {
     const h = nearest(ev); hover = h; draw();
     if (!h) { tip.hidden = true; return; }
     const q = h.q, r = h.r, name = r.system_id ? h.d.sysById[r.system_id].name_in_source : (LBL.bin + (r.x_kids1000_rar_sample ? ' · ' + r.x_kids1000_rar_sample.replace(/_/g, ' ') : ''));
-    const extra = state.view === 'mass' ? `<br>M_obs(&lt;r) ${sci(massOf(q.g_obs, q.r_kpc))} M☉<br>M_bar(&lt;r) ${sci(massOf(q.g_bar, q.r_kpc))} M☉` : state.view === 'speed' ? `<br>V_obs ${speedOf(q.g_obs, q.r_kpc).toFixed(1)} km s⁻¹` : '';
+    const Pp = PROPS[state.col], pv = Pp ? Pp.get(h.d, r) : null;
+    const propLine = Pp ? `<br>${Pp.label.replace(/ \(.*\)$/, '')}: ${pv === null || pv === undefined ? 'not given' : Pp.kind === 'cont' ? Pp.fmt(pv) : pv}` : '';
+    const extra = propLine + (state.view === 'mass' ? `<br>M_obs(&lt;r) ${sci(massOf(q.g_obs, q.r_kpc))} M☉<br>M_bar(&lt;r) ${sci(massOf(q.g_bar, q.r_kpc))} M☉` : state.view === 'speed' ? `<br>V_obs ${speedOf(q.g_obs, q.r_kpc).toFixed(1)} km s⁻¹` : '');
     showTip(tip, box, `<b>${name}</b><br>${h.d.title.split(':')[0]}${r.r_kpc !== null && r.r_kpc !== undefined ? ' · r = ' + (q.r_kpc < 10 ? q.r_kpc.toFixed(2) : Math.round(q.r_kpc)) + ' kpc' : ''}<br>g_obs ${sci(q.g_obs)} m s⁻²<br>g_bar ${sci(q.g_bar)} m s⁻²${extra}<br>g_obs / g_bar ${(q.g_obs / q.g_bar).toFixed(2)}${r.flags ? '<br><span style="color:var(--flag)">Flagged: ' + r.flags.replace(/;/g, ', ') + '</span>' : ''}<br><span class="muted">${r.measurement_id}</span>${r.system_id ? '<br><span class="muted">Click to select</span>' : ''}`, h.x, h.y);
   });
   fig.addEventListener('mouseleave', () => { hover = null; tip.hidden = true; draw(); });
