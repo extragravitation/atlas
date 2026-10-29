@@ -22,8 +22,12 @@ const speedOf = (g, r) => (g > 0 && r > 0 ? Math.sqrt(g * r * KPC) / 1000 : null
 const RADIAL = ['rad', 'mass', 'speed'];
 function colorFor(d, row) { return state.col === 'channel' ? css(row.channel === 'lensing' ? '--kids' : '--sparc') : css(COLOR[d.name] || '--sparc'); }
 
+let cacheKey = null;
 function compute() {
-  // Adjusted values for every row, once per state change.
+  // Adjusted values for every row, recomputed only when an assumption changes (not on zoom or pan).
+  const key = JSON.stringify([state.global, state.per]);
+  if (key === cacheKey && cache) return;
+  cacheKey = key;
   cache = D.datasets.map((d) => d.rows.map((r) => adjusted(d, r)));
 }
 
@@ -197,7 +201,7 @@ export async function start() {
   const fig = $('fig'), tip = $('tip'), box = $('figbox');
   wireZoom(fig);
   fig.addEventListener('mousemove', (ev) => {
-    if (brush || pinch) return;
+    if (brush || pinch || panning) return;
     const h = nearest(ev); hover = h; draw();
     if (!h) { tip.hidden = true; return; }
     const q = h.q, r = h.r, name = r.system_id ? h.d.sysById[r.system_id].name_in_source : (LBL.bin + (r.x_kids1000_rar_sample ? ' · ' + r.x_kids1000_rar_sample.replace(/_/g, ' ') : ''));
@@ -214,7 +218,7 @@ export async function start() {
 }
 
 // --- Zoom interactions: drag a box, Ctrl/⌘ + wheel, pinch, buttons and keys --------------------
-let suppressClick = false, pinch = null;
+let suppressClick = false, pinch = null, panMode = false, panning = null;
 const toData = (px, py) => ({ x: geom.rg.x[0] + (px - geom.L) / geom.pw * (geom.rg.x[1] - geom.rg.x[0]), y: geom.rg.y[1] - (py - geom.T) / geom.ph * (geom.rg.y[1] - geom.rg.y[0]) });
 function setZoom(x0, x1, y0, y1) {
   const b = geom.base, cx = (a) => Math.min(b.x[1], Math.max(b.x[0], a)), cy = (a) => Math.min(b.y[1], Math.max(b.y[0], a));
@@ -232,6 +236,16 @@ function shift(dx, dy) {
   const x0 = Math.min(b.x[1] - w, Math.max(b.x[0], r.x[0] + dx * w)), y0 = Math.min(b.y[1] - h, Math.max(b.y[0], r.y[0] + dy * h));
   setZoom(x0, x0 + w, y0, y0 + h);
 }
+function panTo(r0, dxPx, dyPx) {
+  const b = geom.base, w = r0.x[1] - r0.x[0], h = r0.y[1] - r0.y[0];
+  const x0 = Math.min(b.x[1] - w, Math.max(b.x[0], r0.x[0] - dxPx / geom.pw * w)), y0 = Math.min(b.y[1] - h, Math.max(b.y[0], r0.y[0] + dyPx / geom.ph * h));
+  setZoom(x0, x0 + w, y0, y0 + h);
+}
+function setPanMode(on) {
+  panMode = on; const fig = $('fig');
+  $('zoom-pan').setAttribute('aria-pressed', String(on));
+  fig.classList.toggle('panning', on);
+}
 function wireZoom(fig) {
   const local = (ev) => { const rc = fig.getBoundingClientRect(); return { x: ev.clientX - rc.left, y: ev.clientY - rc.top }; };
   const inPlot = (p) => p.x >= geom.L && p.x <= geom.L + geom.pw && p.y >= geom.T && p.y <= geom.T + geom.ph;
@@ -243,14 +257,26 @@ function wireZoom(fig) {
       if (touches.size === 2) { const [a, b] = [...touches.values()]; pinch = { d: Math.hypot(a.x - b.x, a.y - b.y), c: { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 }, rg: { x: [...geom.rg.x], y: [...geom.rg.y] } }; }
       return;
     }
-    if (ev.button !== 0) return;
     const p = local(ev); if (!inPlot(p)) return;
+    if (ev.button === 1 || (ev.button === 0 && panMode)) { // middle button, or pan mode: drag to pan
+      ev.preventDefault(); panning = { p, rg: { x: [...geom.rg.x], y: [...geom.rg.y] }, moved: false }; fig.setPointerCapture(ev.pointerId); fig.classList.add('grabbing'); return;
+    }
+    if (ev.button !== 0) return;
     start = p; fig.setPointerCapture(ev.pointerId);
   });
+  // Stop the browser's own middle-button autoscroll over the chart.
+  fig.addEventListener('mousedown', (ev) => { if (ev.button === 1) ev.preventDefault(); });
+  fig.addEventListener('auxclick', (ev) => { if (ev.button === 1) ev.preventDefault(); });
   fig.addEventListener('pointermove', (ev) => {
     if (ev.pointerType === 'touch') {
       if (!touches.has(ev.pointerId)) return;
       touches.set(ev.pointerId, local(ev));
+      if (panMode && touches.size === 1 && !pinch) {
+        const t = [...touches.values()][0];
+        if (!panning) panning = { p: t, rg: { x: [...geom.rg.x], y: [...geom.rg.y] }, moved: false };
+        else { panning.moved = true; panTo(panning.rg, t.x - panning.p.x, t.y - panning.p.y); }
+        return;
+      }
       if (pinch && touches.size === 2) {
         const [a, b] = [...touches.values()], d = Math.hypot(a.x - b.x, a.y - b.y), c = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
         const k = pinch.d / Math.max(d, 1), r0 = pinch.rg, sx = (r0.x[1] - r0.x[0]) / geom.pw, sy = (r0.y[1] - r0.y[0]) / geom.ph;
@@ -261,13 +287,15 @@ function wireZoom(fig) {
       }
       return;
     }
+    if (panning) { const p = local(ev), dx = p.x - panning.p.x, dy = p.y - panning.p.y; if (Math.abs(dx) + Math.abs(dy) > 2) { panning.moved = true; $('tip').hidden = true; panTo(panning.rg, dx, dy); } return; }
     if (!start) return;
     const p = local(ev), L = geom.L, T = geom.T, R = L + geom.pw, Bm = T + geom.ph;
     const cx = (v) => Math.min(R, Math.max(L, v)), cy = (v) => Math.min(Bm, Math.max(T, v));
     if (Math.abs(p.x - start.x) > 4 || Math.abs(p.y - start.y) > 4) { brush = { x0: Math.min(start.x, cx(p.x)), x1: Math.max(start.x, cx(p.x)), y0: Math.min(start.y, cy(p.y)), y1: Math.max(start.y, cy(p.y)) }; $('tip').hidden = true; draw(); }
   });
   const end = (ev) => {
-    if (ev.pointerType === 'touch') { touches.delete(ev.pointerId); if (touches.size < 2) pinch = null; return; }
+    if (ev.pointerType === 'touch') { touches.delete(ev.pointerId); if (touches.size < 2) pinch = null; if (panning && touches.size === 0) { if (panning.moved) suppressClick = true; panning = null; } return; }
+    if (panning) { if (panning.moved) suppressClick = true; panning = null; fig.classList.remove('grabbing'); return; }
     if (!start) return;
     const b = brush; start = null; brush = null;
     if (b && b.x1 - b.x0 > 8 && b.y1 - b.y0 > 8) { suppressClick = true; const p0 = toData(b.x0, b.y1), p1 = toData(b.x1, b.y0); setZoom(p0.x, p1.x, p0.y, p1.y); }
@@ -288,6 +316,7 @@ function wireZoom(fig) {
     if (k === '+' || k === '=') scaleAbout(0.67, 0.67, c.x, c.y);
     else if (k === '-' || k === '_') scaleAbout(1.5, 1.5, c.x, c.y);
     else if (k === '0') set({ zoom: null });
+    else if (k === 'p' || k === 'P') setPanMode(!panMode);
     else if (k === 'ArrowLeft') shift(-0.2, 0); else if (k === 'ArrowRight') shift(0.2, 0);
     else if (k === 'ArrowUp') shift(0, 0.2); else if (k === 'ArrowDown') shift(0, -0.2);
     else return;
@@ -296,4 +325,5 @@ function wireZoom(fig) {
   $('zoom-in').addEventListener('click', () => { const r = geom.rg; scaleAbout(0.67, 0.67, (r.x[0] + r.x[1]) / 2, (r.y[0] + r.y[1]) / 2); });
   $('zoom-out').addEventListener('click', () => { const r = geom.rg; scaleAbout(1.5, 1.5, (r.x[0] + r.x[1]) / 2, (r.y[0] + r.y[1]) / 2); });
   $('zoom-reset').addEventListener('click', () => set({ zoom: null }));
+  $('zoom-pan').addEventListener('click', () => setPanMode(!panMode));
 }

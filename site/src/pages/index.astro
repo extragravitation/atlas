@@ -97,6 +97,7 @@ const total = atlas.datasets.reduce((s, d) => s + d.measurements.rows.length, 0)
           <div class="zoombar" role="group" aria-label="Zoom">
             <button type="button" class="btn zb" id="zoom-in" aria-label="Zoom in">+</button>
             <button type="button" class="btn zb" id="zoom-out" aria-label="Zoom out" disabled>−</button>
+            <button type="button" class="btn zb" id="zoom-pan" aria-pressed="false" title="Pan: drag to move the zoomed view (also: hold the middle mouse button and drag)">✥ Pan</button>
             <button type="button" class="btn zb" id="zoom-reset" disabled>Reset</button>
           </div>
           <canvas id="fig" class="cv zoomable" role="img" aria-label="" tabindex="0"></canvas>
@@ -106,7 +107,7 @@ const total = atlas.datasets.reduce((s, d) => s + d.measurements.rows.length, 0)
       </figure>
       <p class="hint" id="lens-note"></p>
       <ul class="legend" id="legend" aria-label="Legend: select a type to show only it"></ul>
-      <p class="hint"><L t="Zoom: drag a box over the chart, pinch on a touch screen, or hold Ctrl (⌘ on a Mac) and scroll; double-click or Reset to see everything. With the chart focused, + and − zoom, the arrow keys move, 0 resets. Zooming changes only the window, never the data." p="To zoom, drag a box over the chart or pinch with two fingers. Double-click or press Reset to see everything again." /> <span id="zoom-state"></span></p>
+      <p class="hint"><L t="Zoom: drag a box over the chart, pinch on a touch screen, or hold Ctrl (⌘ on a Mac) and scroll; double-click or Reset to see everything. Pan: hold the middle mouse button and drag, or switch on Pan and drag. With the chart focused, + and − zoom, the arrow keys move, P toggles Pan, 0 resets. Zooming changes only the window, never the data." p="To zoom, drag a box over the chart or pinch with two fingers. To move around, press Pan and drag, or hold down the mouse wheel and drag. Double-click or press Reset to see everything again." /> <span id="zoom-state"></span></p>
       <p class="hint"><L t="Select a type in the legend to show only it; select it again to show everything. Hover a point for its values; click it to select its system." p="Tap a type in the legend to show only it; tap again for everything. Tap a point to pick its galaxy or cluster." /></p>
       <p class="hint" id="neg-note"></p>
       {nonPos.length > 0 && <p class="hint">Not plotted at the defaults: {nonPos.length} measurements with g_bar ≤ 0 (a component pulls outward, so they cannot be placed on log axes): {nonPos.join(', ')}.</p>}

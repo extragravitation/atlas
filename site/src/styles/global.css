@@ -153,3 +153,5 @@ th[aria-sort="descending"] button.sort::after { content: ' ↓'; }
 .zoombar .zb { min-height: 32px; min-width: 32px; padding: 0 8px; background: var(--panel); font-size: 15px; }
 canvas.zoomable { touch-action: pan-x pan-y; }
 canvas.zoomable:focus-visible { outline: 2px solid var(--sel); outline-offset: 2px; }
+canvas.zoomable.panning { cursor: grab; touch-action: none; }
+canvas.zoomable.grabbing { cursor: grabbing; }
