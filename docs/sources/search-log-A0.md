@@ -251,3 +251,12 @@ Applies JvH's rulings D-038 (and D-036, D-037) to the rows coded **P** in §7. N
 | R38b | P | P | Full text not reached; read through ADS. |
 | R40a, R40b, R41 | E-conv | E-conv, sub-row 'localised extra mass' | Single distant body: separate A0 sub-row, never default (D-038 5B). |
 | R29 | X | E-conv (recorded, not default) | Single-asteroid (Icarus) bound recorded, consistent with R3 (D-038 5C). |
+
+### 8a. Rows not read in §7, resolved through ADS (2026-10-29)
+
+Read on ADS abstract pages through the browser on JvH's computer. Some abstracts of older papers state dispersion or mass-to-light values in the text; they were seen by Claude in passing and are **not recorded here**. Older single-system papers are coded by D-038 3B (precedence among originals): they are kept as alternatives where later originals release per-star velocities or have more members.
+
+| Row | Was | Now | Basis |
+|---|---|---|---|
+| R27 | P | X | ADS abstract (1991AJ....101.2274H): detectability study on simulated model solar systems; no bound fitted to observations. |
+| R38b | P | E-conv (likely duplicate of R8) | ADS abstract (2014CeMDA.119..237P): review of EPM ephemerides and their uses, including the dark-mass upper limit (EPM2011, as R8). EPM ephemeris files are public (ftp://quasar.ipa.nw.ru/incoming/EPM/): a source for the baryonic side (masses used). |

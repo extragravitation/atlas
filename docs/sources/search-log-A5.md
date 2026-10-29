@@ -395,3 +395,14 @@ Applies JvH's rulings D-038 (and D-036, D-037) to the rows coded **P** in §7. N
 | R63 | E | E (A7, ambiguous) | Tucana III: disputed kind (D-038 4A); out of the A5 default view. |
 
 **Rows already E** in §7 that give a whole-sample σ are plotted only where the source states members beyond r_h (D-038 1A); this is checked per system at packaging.
+
+### 8a. Rows not read in §7, resolved through ADS (2026-10-29)
+
+Read on ADS abstract pages through the browser on JvH's computer. Some abstracts of older papers state dispersion or mass-to-light values in the text; they were seen by Claude in passing and are **not recorded here**. Older single-system papers are coded by D-038 3B (precedence among originals): they are kept as alternatives where later originals release per-star velocities or have more members.
+
+| Row | Was | Now | Basis |
+|---|---|---|---|
+| R45.1 | P | E-rec (alternative) | Leo I: later originals release per-star velocities with more members (D-038 3B); whether this profile is tabulated not verified. |
+| R47.1 | P | E-rec (alternative) | Carina: as R45.1. |
+| R47.2, R53.3, R59.2, R62.1, R65a, R71a | NS | E-rec (alternative) | Pre-arXiv measurements of Carina, Leo II, Fornax, Draco/Ursa Minor, Sextans and Sculptor; superseded as default by later originals releasing per-star velocities (D-038 3B). Full texts not read. |
+| R59.3 | NS | P | Hendricks et al. 2014 (Fornax outskirts; arXiv:1408.5597): full text available, to read. |

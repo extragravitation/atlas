@@ -574,3 +574,21 @@ Applies JvH's rulings D-038 (and D-036, D-037) to the rows coded **P** in §7. N
 **Distances from the system's own kinematics** (D-036 #6): R73 (NGC 6624), R78 (NGC 6266) and possibly R79 (ω Cen, via van de Ven et al. 2006) need an independent published distance at packaging.
 
 **New records** (found during screening): R134, Geha et al. 2026 Paper II (arXiv:2602.10202; global LOS σ, machine-readable Table A1; also A5); R135, Lützgendorf et al. 2011, A&A 533, A36 (NGC 6388 central IFU and surface-brightness profile; the original data behind R74); R136, Lanzoni et al. 2013 (NGC 6388, SINFONI). To be screened. Leads not yet records: Gerssen et al. 2002 (M15), Côté et al. 1994 (NGC 3201), Mayor et al. 1997 (ω Cen), Husser et al. 2016 (NGC 6397), Fabricius et al. 2014b (arXiv:1404.2272).
+
+### 8a. Rows not read in §7, resolved through ADS (2026-10-29)
+
+Read on ADS abstract pages through the browser on JvH's computer. Some abstracts of older papers state dispersion or mass-to-light values in the text; they were seen by Claude in passing and are **not recorded here**. Older single-system papers are coded by D-038 3B (precedence among originals): they are kept as alternatives where later originals release per-star velocities or have more members.
+
+| Row | Was | Now | Basis |
+|---|---|---|---|
+| R80 | NS | E-rec (alternative) | ADS abstract (1995A&A...303..761M): ω Cen dispersion profile from CORAVEL radial velocities; superseded as default by later originals under D-038 3B; tabulation not checked. |
+| R81 | NS | E-rec (alternative) | M15 profile (1997ApJ...481..267D; addendum 2003ApJ...585..598D); superseded as default by later originals with released per-star velocities (D-038 3B). Full text not read. |
+| R96 | NS | E-rec | ADS abstract (1992A&A...258..302Z): integrated-light central dispersions for 7 GCs, plus 16 stellar velocities in M30; central values, no correction to global stated (D-036 iii). |
+| R104 | NS | E-rec | PM only (recorded, not plotted, D-036). |
+| R107 | NS | E-rec (1B to confirm) | ADS abstract (1997ApJ...474L..19D): internal dispersions for 21 M31 GCs; integrated light; no correction to global stated in the abstract (D-038 1B); full text not read. |
+| R112 | NS | E-rec (alternative) | M15 core dispersion (1994ApJ...426..192D); central; superseded as default (D-038 3B). |
+| R115 | NS | X | ADS abstract (2019MNRAS.488.5400N): a compiled catalogue of compact stellar systems; compilation of published values, originals preferred (D-036 #5); UCDs go to A7 (D-037). |
+| R119 | NS | E-rec | ADS record (1997yCat..33240505D; paper 1997A&A...324..505D): integrated-light core dispersions for 25 Galactic and 10 old Magellanic GCs; central values, no correction to global stated (D-036 iii). Magellanic GCs belong in A3 (D-037). |
+| R120 | P/NS | E-rec | ADS abstract (1992ApJ...400..510D): integrated-light core dispersions of Fornax dSph GCs 3, 4, 5; central (D-036 iii). |
+| R131a | NS | X | ADS record (1999yCat..61111233S; paper 1999PASP..111.1233S): individual velocities of giants in M3, M13, M15, M92 only. |
+| R133c | NS | X | ADS record (2026yCat..37130301H; paper 2026A&A...713A.301H): ω Cen rotation profile and velocity map; no dispersion released. Lead: rotation for D-038 2A context. |
