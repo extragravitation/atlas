@@ -521,6 +521,41 @@ Defaults and ranges for any conversion factor are read at source before a packag
 
 ---
 
+## D-038 — When a dispersion is plotted, which number counts, precedence, boundary objects
+
+**Ruling (2026-10-29, JvH).** JvH ruled on the fourteen questions raised by the full-text screening of the A0, A3 and A5 candidates, adopting Claude's recommendations as worded in his message of 13:56 MDT (quoted in substance below). Not blind: ruled after Claude's options and recommendations (D-031 item 4 still unmet; the stellar mass-to-light ruling is to be made blind). JvH's reasons are those he quoted with each ruling.
+
+**1. When a dispersion is plotted**
+- **1A. Whole-sample dispersion.** Plotted only if the member stars reach beyond the half-light radius, as the source states it. Otherwise it is treated as an aperture value (needs the source's own or a cited correction, otherwise recorded only). The star-count weighting is registered as a named assumption ("member-sample σ taken as representative of the light-weighted σ"), shown on every point that uses it.
+- **1B. Aperture values corrected only to a central value.** Recorded, not plotted, unless the source or a cited paper gives the whole-system value. Earlier extragalactic sets (M31, NGC 5128 and others screened E) are re-checked the same way.
+
+**2. Which number counts**
+- **2A.** Where a source gives both, the second moment (including rotation) is used; the dispersion about rotation is recorded. Reason (JvH): "The estimator measures how much motion holds the system up, and rotation is part of that."
+- **2B.** Multi-population fits: the single whole-sample value is used; components are recorded. Reason: "Splitting into components adds a model choice on top of the data."
+- **2C.** Later re-analyses adding a binary-star correction to someone else's data: recorded as alternatives, never the default. Reason: "They add no new measurements, and the original stays the record."
+- **2D.** Fitted dispersion profiles: used under the profile rule (D-036 ii) only where no binned profile is tabulated; labelled as fitted forms (`model_dependence = observable_form`); the 80% light coverage is judged from where the data reach, never from where the fit extends.
+
+**3. Several measurements of one system**
+- **3A.** Original papers are the default. Geha et al. (2026, Keck/DEIMOS Stellar Archive) is a labelled alternative, and the default only for systems it alone covers. A consistency check between the originals and Geha is written and frozen before either set of values is opened; its result is published whichever way it goes. Reasons (JvH): D-036 already prefers originals; switching to whichever dataset turned out bigger, mid-search, is an after-the-fact change.
+- **3B.** Among several originals for one system: first the paper that releases its per-star velocities; then the one with the most member stars; then the most recent. All are kept and shown.
+
+**4. Boundary objects**
+- **4A.** Objects whose classification the sources dispute (Crater/Laevens I, UMa3/U1, Tucana III, G1 and others like them) go to A7, labelled "ambiguous: dwarf galaxy or star cluster", consistent with D-037; they stay out of the A3 and A5 default views.
+- **4B.** M54 is a globular cluster (A3). The Sagittarius nucleus's own stars count as part of the Sagittarius dwarf galaxy (A5). Membership rests on a metallicity cut, noted on both pages.
+- **4C.** VV124 goes to A5 with its measured gas in the baryonic side; its "transition" label is shown as a property.
+- **4D.** AIMSS compact stellar systems: the source's own label where it gives one; otherwise A7, labelled ambiguous. The Atlas never assigns a type from size or dynamics.
+
+**5. Small calls**
+- **5A.** A dispersion given only in a paper's running text is tier 2, flagged "text", transcribed twice.
+- **5B.** Bounds on a single distant body (Planet Nine-type) are recorded in A0 as a separate "localised extra mass" sub-row, never a default: their implied pull is directional and tidal, not a uniform outward pull.
+- **5C.** A bound from a single asteroid's orbit (Icarus) is recorded, never a default, consistent with R3.
+
+**Alternatives rejected.** 1A: plot every whole-sample value; apply the 80% light test (sources rarely state member positions). 1B: Atlas conversion of central to global with a model. 3A: the re-reduction as default everywhere. 4A: placing disputed objects in A3 or A5.
+
+**Data seen at the time of ruling.** The A0, A3 and A5 search logs including §6 (ADS titles and listing metadata) and §7 (full-text screening: abstracts, methods, data statements, table headings); no dispersion, velocity, mass, mass-to-light value or result opened or plotted.
+
+---
+
 ## Recorded alongside (not decisions; corrections to the plans)
 
 - X-ray hydrostatic measurements are not "motions": the method field distinguishes kinematic from hydrostatic, and plain-language labels for X-ray points must say gas pressure balance, not motions.
