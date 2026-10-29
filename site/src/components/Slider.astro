@@ -1,0 +1,19 @@
+---
+// One assumption slider, built from the registry entry for one dataset. Wired in the browser by
+// scripts/sliders.js; the effect is computed from the registry's formula text.
+import L from './L.astro';
+import { assumptionLabel, fmtParam } from '../lib/labels.mjs';
+const { a, dataset, idPrefix = '', system = null } = Astro.props; // a: registry assumption, dataset: dataset key, system: id for per-system sliders
+const e = a.datasets[dataset];
+const al = assumptionLabel(a.id);
+const key = `${dataset}:${a.id}`;
+const id = `${idPrefix}sl-${dataset.replace(/[^a-z0-9]/g, '-')}-${a.id}`;
+const step = al.kind === 'sigma' ? 0.1 : Math.round(((e.max - e.min) / 50) * 1000) / 1000;
+const unit = a.parameter?.unit || '';
+---
+<div class="slider" data-key={key} data-id={a.id} data-dataset={dataset} data-scope={a.scope} data-def={e.default} data-kind={al.kind} data-system={system}>
+  <label for={id}><span><L t={al.t} p={al.p} /></span><output id={id + '-o'}>{fmtParam(al.kind, e.default)}</output></label>
+  <input type="range" id={id} min={e.min} max={e.max} step={step} value={e.default}>
+  <p>{al.kind === 'sigma' ? 'Within the published one-sigma error' : `${fmtParam(al.kind, e.min)} to ${fmtParam(al.kind, e.max)}${al.kind === 'value' && unit && unit !== 'dimensionless' ? ' ' + unit.replace('solMass / solLum', 'M☉/L☉') : ''} · default ${fmtParam(al.kind, e.default)}`}</p>
+  <details class="small"><summary>Sources</summary><p>Default: {e.default_ref}</p><p>Range: {e.range_ref}</p></details>
+</div>

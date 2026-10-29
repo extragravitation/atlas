@@ -1,0 +1,6 @@
+---
+// One phrase in both reading layers (D-008). The build fails if either is missing.
+const { t, p } = Astro.props;
+if (!t || !p) throw new Error(`L: both layers are required (t=${JSON.stringify(t)}, p=${JSON.stringify(p)})`);
+---
+<span data-l="t">{t}</span><span data-l="p">{p}</span>

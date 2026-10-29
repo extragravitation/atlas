@@ -4,6 +4,7 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
 
 ## Unreleased
 
+- Site first pass (Astro, static): map, scale strip, 187 system pages with the pull budget, systems index, dataset pages with validation panels, Known issues (D-020), Methods, About, Data, downloads (ECSV and CSV per table). Both reading layers on every page; dark and light themes; assumption state in the page address. New check `aeg.site_check`: every served value equals the package table, downloads are byte-identical, internal links resolve, reading layers are paired. Hosting now serves `site/dist`.
 - KiDS-1000 RAR package (`aeg-d-kids1000-rar/v1`); reproduction PASSED. D-021: KiDS stellar-mass systematic stated in words, no band.
 - Slider formula engine in Python and JavaScript with a build check that they agree on every measurement (D-014); assumption registry with SPARC entries; standard validator; data standard 1.2.1 (clarifications).
 - D-019 (shipping rule when a reproduction test fails) and D-020 (Known issues page); data standard 1.2.0; first known issue #8 (SPARC).

@@ -1,0 +1,18 @@
+{
+  "name": "atlas-site",
+  "private": true,
+  "type": "module",
+  "description": "Static site of the Atlas of Extra Gravitation, built from the data packages in this repository.",
+  "scripts": {
+    "build": "astro build",
+    "dev": "astro dev",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "@fontsource/source-code-pro": "5.3.1",
+    "@fontsource/source-sans-3": "5.3.1",
+    "@fontsource/source-serif-4": "5.3.1",
+    "astro": "5.18.2",
+    "marked": "15.0.12"
+  }
+}

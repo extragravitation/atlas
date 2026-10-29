@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro';
+import L from '../components/L.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base title="Not found" active="">
+  <main style="padding-top:40px">
+    <p class="kicker">404</p>
+    <h1><L t="No page at this address" p="This page does not exist" /></h1>
+    <p class="lede"><L t="Identifiers are permanent once published, so if this was a link to a system or dataset, please report it." p="If a link brought you here, please tell us so we can fix it." /></p>
+    <p><a class="btn primary" href={base} style="min-height:44px;padding:0 16px">Go to the map</a> <a href={`${base}systems/`}>All systems</a> · <a href="https://github.com/extragravitation/atlas/issues/new">Report a broken link</a></p>
+  </main>
+</Base>
