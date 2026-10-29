@@ -406,3 +406,8 @@ Read on ADS abstract pages through the browser on JvH's computer. Some abstracts
 | R47.1 | P | E-rec (alternative) | Carina: as R45.1. |
 | R47.2, R53.3, R59.2, R62.1, R65a, R71a | NS | E-rec (alternative) | Pre-arXiv measurements of Carina, Leo II, Fornax, Draco/Ursa Minor, Sextans and Sculptor; superseded as default by later originals releasing per-star velocities (D-038 3B). Full texts not read. |
 | R59.3 | NS | P | Hendricks et al. 2014 (Fornax outskirts; arXiv:1408.5597): full text available, to read. |
+
+### 8b. New record (2026-10-29)
+
+- **R86, Ji et al. 2021** (S5; Antlia 2 and Crater 2; arXiv:2106.12656): **E**. Per-star velocities released (machine-readable tables). Antlia 2 members are stated to reach beyond 2 r½, so it qualifies under D-038 1A; Crater 2's coverage is not stated (recorded until it is). The source gives the dispersion with and without a fitted velocity gradient: by analogy with D-038 2A (total motion, rotation included), the value without the gradient model is used and the gradient-removed value is recorded. The authors' tidal interpretation of the gradient is not adopted. Full row:  §8b.
+- **R134** (Geha et al. 2026 Paper II) also applies here: see A3 §8b.
