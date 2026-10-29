@@ -1,0 +1,36 @@
+---
+// Kinds of system and coverage (D-028): what the Atlas covers, what it will cover, and the gaps.
+// Rendered from docs/plans/TAXONOMY.md, the ruled document, so the page cannot drift from it.
+import fs from 'node:fs';
+import path from 'node:path';
+import Base from '../layouts/Base.astro';
+import L from '../components/L.astro';
+import Layer from '../components/Layer.astro';
+import { ROOT } from '../lib/atlas.mjs';
+import { md, REPO } from '../lib/md.mjs';
+
+const text = fs.readFileSync(path.join(ROOT, 'docs/plans/TAXONOMY.md'), 'utf8');
+const sec = (n) => { const m = text.match(new RegExp('\\n## ' + n + '\\.[^\\n]*\\n([\\s\\S]*?)(?=\\n## \\d|$)')); return m ? m[1] : ''; };
+const kinds = sec(3), matrix = sec(5), protocol = sec(6), gate = sec(7);
+const base = import.meta.env.BASE_URL;
+---
+<Base title="Coverage" active="coverage">
+  <div class="doc">
+    <main>
+      <p class="kicker"><L t="Coverage · kinds of system" p="Coverage" /></p>
+      <h1><L t="Every kind of system, and what the Atlas covers" p="Where we can compare the pull, and how far we have got" /></h1>
+      <Layer as="p" class="lede"><Fragment slot="t">The first public release (v1.0) covers every kind of system in which observed and baryonic acceleration can be compared: each cell below either holds a data package or is shown as a documented gap (D-028). Kinds are defined by what a system is, never by its measured discrepancy, and they organise coverage only, never the findings.</Fragment><Fragment slot="p">The Atlas aims to cover every kind of object where the pull can be compared with the matter we detect: from the Solar System and pairs of stars to colliding clusters of galaxies. This page shows what is already in, what is coming, and what is missing.</Fragment></Layer>
+      <p class="boxed"><L t="Status: this preview holds three datasets (● below). The other cells list candidates from a source survey of 2026-10-28; none has been selected yet. Selection follows a protocol fixed before any new data are converted (§ Selection)." p="Right now three datasets are in. Everything marked ○ or ◐ is a candidate still to be checked and chosen by fixed rules." /> <a href={`${base}for-data-providers/`}><L t="For data providers" p="Have data that fits?" /></a></p>
+      <h2 id="kinds"><L t="Kinds of system" p="The kinds of object" /></h2>
+      <div class="prose wide" set:html={md(kinds, 'docs/plans')} />
+      <h2 id="matrix"><L t="Coverage matrix" p="What we have and what we need" /></h2>
+      <div class="prose wide" set:html={md(matrix, 'docs/plans')} />
+      <h2 id="selection"><L t="Selection protocol (draft)" p="How data are chosen" /></h2>
+      <div class="prose" set:html={md(protocol, 'docs/plans')} />
+      <h2 id="gate"><L t="Release gate" p="When v1.0 is published" /></h2>
+      <div class="prose" set:html={md(gate, 'docs/plans')} />
+      <p class="small"><L t="Source of this page:" p="Full document:" /> <a href={`${REPO}/blob/main/docs/plans/TAXONOMY.md`}>docs/plans/TAXONOMY.md</a> · <a href={`${REPO}/blob/main/docs/sources/survey-2026-10-28.md`}>source survey</a></p>
+    </main>
+    <aside class="toc"><p class="cap">On this page</p><a href="#kinds">Kinds</a><a href="#matrix">Coverage matrix</a><a href="#selection">Selection protocol</a><a href="#gate">Release gate</a></aside>
+  </div>
+</Base>

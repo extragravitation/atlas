@@ -3,6 +3,7 @@
 // measurements and its citation. All values come from the package tables.
 import Base from '../../layouts/Base.astro';
 import L from '../../components/L.astro';
+import Layer from '../../components/Layer.astro';
 import Slider from '../../components/Slider.astro';
 import { loadAtlas, ringed } from '../../lib/atlas.mjs';
 import { datasetLabel, assumptionLabel, sigFig } from '../../lib/labels.mjs';
@@ -51,6 +52,13 @@ if (d.name === 'aeg-d-sparc') {
 facts.push(['Radii measured', `${rows.length}, from ${fmtR(rMin)} to ${fmtR(rMax)} kpc`]);
 facts.push(['Method', lab.method_t]);
 
+const statusOf = (col) => { const v = [...new Set(rows.map((r) => r[col]).filter(Boolean))]; return v.length ? v.join(', ') : null; };
+const nMod = rows.filter((r) => r.stars_status === 'modelled').length;
+const inventory = [
+  ['Stars', statusOf('stars_status') + (nMod && nMod < rows.length ? ` (${nMod} of ${rows.length} radii modelled)` : '')],
+  ['Cold gas', statusOf('gas_cold_status')],
+  ['Hot gas', statusOf('gas_hot_status')],
+].filter(([, v]) => v && v !== 'null');
 const names = Object.fromEntries(adj.map((a) => [a.id, assumptionLabel(a.id).short]));
 const cfg = {
   dataset: d.key, system: sys.id, names,
@@ -98,6 +106,21 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
       </figure>
       <p class="hint"><L t="Hover for values at each radius. The ranges show the full published range of each assumption that applies here, whatever the sliders are set to." p="Point at the chart to read the values at each distance." /></p>
 
+      <h2 id="measured"><L t="As measured" p="What was actually measured" /></h2>
+      {d.name === 'aeg-d-sparc' && <Layer as="p"><Fragment slot="t">The source’s own quantities, before the Atlas converts them (D-029). SPARC gives the observed circular velocity V_obs with its random error (which excludes the inclination uncertainty) and the velocities that each baryonic component alone would produce: gas (atomic, × 1.33 for helium) and stars at a mass-to-light ratio of 1 at 3.6 μm. The Atlas then computes g_obs = V_obs² / R and g_bar = (|V_gas| V_gas + Υ_disk |V_disk| V_disk + Υ_bul |V_bul| V_bul) / R.</Fragment><Fragment slot="p">Before any conversion, the source gives speeds: how fast the galaxy turns at each distance, and how fast it would turn from its gas alone or its stars alone. The Atlas turns these speeds into pulls.</Fragment></Layer>}
+      {d.name === 'aeg-d-xcop' && <Layer as="p"><Fragment slot="t">The source’s own quantities, before the Atlas converts them (D-029). X-COP releases masses within each radius: the forward-method hydrostatic mass (already an inference from the X-ray and SZ temperature and pressure profiles, to which the source fits functional forms), the hot-gas mass and the stellar mass. The Atlas computes g = G M(&lt;r) / r². The temperature and density profiles behind the hydrostatic mass are in the same public archive and are added with the next version of this dataset.</Fragment><Fragment slot="p">The source gives masses: the total mass it works out from the hot gas, and the masses of hot gas and of stars. The Atlas turns these into pulls. The gas measurements behind them come with the next version.</Fragment></Layer>}
+      <figure>
+        <div class="figbox" id="measbox">
+          <canvas id="meas" class="cv" role="img" aria-label=""></canvas>
+          <div class="tip" id="meastip" hidden></div>
+        </div>
+        <ul class="legend" id="measlegend"></ul>
+        <figcaption><b>Figure.</b> <L t="Values exactly as released, at the source’s own assumptions; the assumption sliders do not move them." p="The numbers as the source published them. The sliders do not change them." /></figcaption>
+      </figure>
+
+      <h3><L t="Detected matter counted in g_bar" p="What the detected matter includes" /></h3>
+      <ul class="small">{inventory.map(([k, v]) => <li><b>{k}</b>: {v}</li>)}</ul>
+      <p class="small"><L t="From the status columns of the package. Components known to exist but not measured are recorded per dataset under data standard 2.0 (D-029) and shown here with the next version." p="Matter that exists but was not measured will be listed here with the next version of the data." /></p>
       </div>
       <div class="post">
       <h2 id="facts"><L t="Facts" p="About this system" /></h2>
@@ -152,7 +175,7 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
       </div>}
       <div>
         <p class="cap">On this page</p>
-        <nav class="toc"><a href="#budget"><L t="Pull budget" p="Where the pull comes from" /></a><a href="#facts">Facts</a><a href="#measurements">Measurements</a><a href="#issues">Known issues</a><a href="#cite">Cite</a></nav>
+        <nav class="toc"><a href="#budget"><L t="Pull budget" p="Where the pull comes from" /></a><a href="#measured"><L t="As measured" p="What was measured" /></a><a href="#facts">Facts</a><a href="#measurements">Measurements</a><a href="#issues">Known issues</a><a href="#cite">Cite</a></nav>
       </div>
     </aside>
   </div>

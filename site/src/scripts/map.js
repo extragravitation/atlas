@@ -14,6 +14,12 @@ const LBL = JSON.parse($('map-labels').textContent);
 let D = null, hits = [], hover = null, cache = null;
 
 const lg = (v) => (v > 0 ? Math.log10(v) : null);
+// Lenses (D-030): the same measurements in different framings. Spherical-equivalent enclosed mass
+// M(<r) = g r² / G (in M☉, with the IAU nominal G M☉); equivalent circular speed V = √(g r).
+const GM_SUN = 1.3271244e20, KPC = 3.0856775814913673e19;
+const massOf = (g, r) => (g > 0 && r > 0 ? (g * (r * KPC) ** 2) / GM_SUN : null);
+const speedOf = (g, r) => (g > 0 && r > 0 ? Math.sqrt(g * r * KPC) / 1000 : null);
+const RADIAL = ['rad', 'mass', 'speed'];
 function colorFor(d, row) { return state.col === 'channel' ? css(row.channel === 'lensing' ? '--kids' : '--sparc') : css(COLOR[d.name] || '--sparc'); }
 
 function compute() {
@@ -24,32 +30,42 @@ function compute() {
 function ranges() {
   if (state.view === 'obs') return { x: [-15, -7.5], y: [-13.5, -7.5], equal: true };
   if (state.view === 'ex') return { x: [-15, -7.5], y: [-0.5, 2.0] };
+  if (state.view === 'mass') return { x: [5, 15.5], y: [5, 15.5], equal: true };
+  if (state.view === 'speed') return { x: [-1.2, 3.5], y: [0.5, 3.5] };
   return { x: [-1.2, 3.5], y: [-0.5, 2.0] };
 }
+const VIEWS = ['obs', 'ex', 'mass', 'rad', 'speed'];
 
 function draw() {
   const box = $('figbox'), fig = $('fig'), W = box.clientWidth, narrow = W < 560, rg = ranges();
   const L = 58, R = 14, T = 12, B = 46, pw = W - L - R, ph = rg.equal ? pw * (rg.y[1] - rg.y[0]) / (rg.x[1] - rg.x[0]) : pw * 0.62;
   const g = setup(fig, W, Math.round(ph + T + B));
   const P = plain();
-  const xl = state.view === 'rad' ? LBL.xr[+P] : (narrow ? LBL.xs[+P] : LBL.x[+P]);
-  const yl = state.view === 'obs' ? (narrow ? LBL.ys[+P] : LBL.y[+P]) : (narrow ? LBL.yxs[+P] : LBL.yx[+P]);
-  const { X, Y } = axes(g, W, L, T, pw, ph, rg, xl, yl, 1, state.view === 'obs' ? 1 : 0.5, state.view === 'obs' ? 0 : 1);
+  if (!VIEWS.includes(state.view)) state.view = 'obs';
+  const v = state.view, n = narrow ? 's' : '';
+  const xl = v === 'mass' ? LBL['xm' + n][+P] : RADIAL.includes(v) ? LBL.xr[+P] : (narrow ? LBL.xs[+P] : LBL.x[+P]);
+  const yl = v === 'obs' ? (narrow ? LBL.ys[+P] : LBL.y[+P]) : v === 'mass' ? LBL['ym' + n][+P] : v === 'speed' ? LBL['yv' + n][+P] : (narrow ? LBL.yxs[+P] : LBL.yx[+P]);
+  const { X, Y } = axes(g, W, L, T, pw, ph, rg, xl, yl, 1, v === 'obs' || v === 'mass' ? 1 : 0.5, v === 'obs' || v === 'mass' ? 0 : 1);
   const ink = css('--ink'), alpha = parseFloat(css('--ptAlpha')) || 0.4, moved = anyChange(D.datasets);
   g.save(); g.beginPath(); g.rect(L, T, pw, ph); g.clip();
   g.setLineDash([6, 4]); g.strokeStyle = ink; g.lineWidth = 1.1; g.beginPath();
-  if (state.view === 'obs') { g.moveTo(X(-15), Y(-15)); g.lineTo(X(-7.5), Y(-7.5)); } else { g.moveTo(L, Y(0)); g.lineTo(L + pw, Y(0)); }
+  if (v === 'obs' || v === 'mass') { g.moveTo(X(rg.x[0]), Y(rg.x[0])); g.lineTo(X(rg.x[1]), Y(rg.x[1])); } else if (v !== 'speed') { g.moveTo(L, Y(0)); g.lineTo(L + pw, Y(0)); }
   g.stroke(); g.setLineDash([]);
   g.font = 'italic 13px ' + css('--serif'); g.fillStyle = ink;
-  if (state.view === 'obs') { const lx = narrow ? -12.4 : -12.7; g.save(); g.translate(X(lx), Y(lx) + 14); g.rotate(Math.atan2(Y(-10) - Y(-11), X(-10) - X(-11))); g.textAlign = 'center'; g.fillText(narrow ? LBL.zero[+P] : LBL.line[+P], 0, 0); g.restore(); }
-  else { g.textAlign = 'left'; g.fillText(LBL.zero[+P], L + 8, Y(0) + 16); }
+  if (v === 'obs') { const lx = narrow ? -12.4 : -12.7; g.save(); g.translate(X(lx), Y(lx) + 14); g.rotate(Math.atan2(Y(-10) - Y(-11), X(-10) - X(-11))); g.textAlign = 'center'; g.fillText(narrow ? LBL.zero[+P] : LBL.line[+P], 0, 0); g.restore(); }
+  else if (v === 'mass') { const lx = 7.2; g.save(); g.translate(X(lx), Y(lx) + 14); g.rotate(Math.atan2(Y(9) - Y(8), X(9) - X(8))); g.textAlign = 'center'; g.fillText(LBL.zerom[+P], 0, 0); g.restore(); }
+  else if (v !== 'speed') { g.textAlign = 'left'; g.fillText(LBL.zero[+P], L + 8, Y(0) + 16); }
   hits = []; let nNeg = 0;
-  const pos = (q) => { const x = state.view === 'rad' ? lg(q.r_kpc) : lg(q.g_bar); const yo = lg(q.g_obs), yb = lg(q.g_bar); if (x === null || yo === null || yb === null) return null; return [X(x), Y(state.view === 'obs' ? yo : yo - yb)]; };
+  const pos = (q) => {
+    if (v === 'mass') { const mb = lg(massOf(q.g_bar, q.r_kpc)), mo = lg(massOf(q.g_obs, q.r_kpc)); return mb === null || mo === null ? null : [X(mb), Y(mo)]; }
+    if (v === 'speed') { const x = lg(q.r_kpc), y = lg(speedOf(q.g_obs, q.r_kpc)); return x === null || y === null ? null : [X(x), Y(y)]; }
+    const x = v === 'rad' ? lg(q.r_kpc) : lg(q.g_bar); const yo = lg(q.g_obs), yb = lg(q.g_bar); if (x === null || yo === null || yb === null) return null; return [X(x), Y(v === 'obs' ? yo : yo - yb)];
+  };
   const posDef = (r) => pos(r);
   D.datasets.forEach((d, di) => {
     if (state.hide.includes(d.key)) return;
     const pop = !d.systems;
-    if (state.view === 'rad' && pop) return; // population bins have no radius
+    if (RADIAL.includes(v) && pop) return; // population bins have no radius
     const col = (r) => colorFor(d, r);
     // tracks
     if (state.marks !== 'points' && !pop) {
@@ -59,7 +75,7 @@ function draw() {
     }
     d.rows.forEach((r, i) => {
       const q = cache[di][i], xy = pos(q);
-      if (!xy) { if (!(q.g_bar > 0)) nNeg++; return; }
+      if (!xy) { if (!(q.g_bar > 0) && v !== 'speed') nNeg++; return; }
       const [x, y] = xy, c = col(r), shape = r.method_class;
       if (moved && state.arrows !== false && q !== r) {
         const xy0 = posDef(r);
@@ -87,7 +103,8 @@ function draw() {
   if (hover) { g.strokeStyle = ink; g.lineWidth = 1.5; g.beginPath(); g.arc(hover.x, hover.y, 6, 0, 6.2832); g.stroke(); }
   g.restore();
   $('neg-note').textContent = nNeg ? `${nNeg} measurements have g_bar ≤ 0 at these settings (a component pulls outward) and cannot be placed on log axes; they are listed in the downloads.` : '';
-  $('fig').setAttribute('aria-label', LBL['aria_' + state.view][+P]);
+  $('fig').setAttribute('aria-label', LBL['aria_' + v][+P]);
+  $('lens-note').innerHTML = LBL.lens[v][+P] + (RADIAL.includes(v) && D.datasets.some((d) => !d.systems && !state.hide.includes(d.key)) ? ' ' + LBL.noRadius[+P] : '');
 }
 
 function legend() {
@@ -165,7 +182,8 @@ export async function start() {
     const h = nearest(ev); hover = h; draw();
     if (!h) { tip.hidden = true; return; }
     const q = h.q, r = h.r, name = r.system_id ? h.d.sysById[r.system_id].name_in_source : (LBL.bin + (r.x_kids1000_rar_sample ? ' · ' + r.x_kids1000_rar_sample.replace(/_/g, ' ') : ''));
-    showTip(tip, box, `<b>${name}</b><br>${h.d.title.split(':')[0]}${r.r_kpc !== null && r.r_kpc !== undefined ? ' · r = ' + (q.r_kpc < 10 ? q.r_kpc.toFixed(2) : Math.round(q.r_kpc)) + ' kpc' : ''}<br>g_obs ${sci(q.g_obs)} m s⁻²<br>g_bar ${sci(q.g_bar)} m s⁻²<br>g_obs / g_bar ${(q.g_obs / q.g_bar).toFixed(2)}${r.flags ? '<br><span style="color:var(--flag)">Flagged: ' + r.flags.replace(/;/g, ', ') + '</span>' : ''}<br><span class="muted">${r.measurement_id}</span>${r.system_id ? '<br><span class="muted">Click to select</span>' : ''}`, h.x, h.y);
+    const extra = state.view === 'mass' ? `<br>M_obs(&lt;r) ${sci(massOf(q.g_obs, q.r_kpc))} M☉<br>M_bar(&lt;r) ${sci(massOf(q.g_bar, q.r_kpc))} M☉` : state.view === 'speed' ? `<br>V_obs ${speedOf(q.g_obs, q.r_kpc).toFixed(1)} km s⁻¹` : '';
+    showTip(tip, box, `<b>${name}</b><br>${h.d.title.split(':')[0]}${r.r_kpc !== null && r.r_kpc !== undefined ? ' · r = ' + (q.r_kpc < 10 ? q.r_kpc.toFixed(2) : Math.round(q.r_kpc)) + ' kpc' : ''}<br>g_obs ${sci(q.g_obs)} m s⁻²<br>g_bar ${sci(q.g_bar)} m s⁻²${extra}<br>g_obs / g_bar ${(q.g_obs / q.g_bar).toFixed(2)}${r.flags ? '<br><span style="color:var(--flag)">Flagged: ' + r.flags.replace(/;/g, ', ') + '</span>' : ''}<br><span class="muted">${r.measurement_id}</span>${r.system_id ? '<br><span class="muted">Click to select</span>' : ''}`, h.x, h.y);
   });
   fig.addEventListener('mouseleave', () => { hover = null; tip.hidden = true; draw(); });
   fig.addEventListener('click', (ev) => { const h = nearest(ev); if (h && h.r.system_id) set({ sel: h.r.system_id }); });

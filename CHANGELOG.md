@@ -4,6 +4,8 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
 
 ## Unreleased
 
+- Preview 2 of the site (D-030, D-032): lenses on the map (acceleration, excess, mass, scale, speed; surface density pending standard 2.0), an As measured panel on system pages and the KiDS dataset page, the matter counted in g_bar, Coverage page rendered from the taxonomy, Accounts and tests page with the open test ledger procedure, a page for data providers, methods and about rewritten to the cause-agnostic, reference-explicit stance, a pre-release banner on every page and no search-engine indexing. The site is built by wrangler's custom build step.
+- D-028 to D-032: taxonomy and selection protocol, data standard 2.0 (observables first), layers and lenses, process safeguards, outside review when v1.0 is complete. Methodology review by two independent AI sessions (`docs/reviews/`).
 - Site first pass (Astro, static): map, scale strip, 187 system pages with the pull budget, systems index, dataset pages with validation panels, Known issues (D-020), Methods, About, Data, downloads (ECSV and CSV per table). Both reading layers on every page; dark and light themes; assumption state in the page address. New check `aeg.site_check`: every served value equals the package table, downloads are byte-identical, internal links resolve, reading layers are paired. Hosting now serves `site/dist`.
 - KiDS-1000 RAR package (`aeg-d-kids1000-rar/v1`); reproduction PASSED. D-021: KiDS stellar-mass systematic stated in words, no band.
 - Slider formula engine in Python and JavaScript with a build check that they agree on every measurement (D-014); assumption registry with SPARC entries; standard validator; data standard 1.2.1 (clarifications).

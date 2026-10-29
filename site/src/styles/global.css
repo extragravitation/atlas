@@ -144,3 +144,8 @@ th[aria-sort="descending"] button.sort::after { content: ' ↓'; }
   header.site .search { width: 100%; order: 3; }
   header.site .seg .btn { padding: 0 9px; min-height: 36px; }
 }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.preview-band { background: var(--panel); border-bottom: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+.preview-band .page { padding-block: 6px; display: flex; flex-wrap: wrap; gap: 4px 10px; }
+.preview-band a { color: var(--kicker); }
+.prose.wide { max-width: none; }

@@ -77,7 +77,8 @@ export function payload(d) {
   const fc = formulaColumns(d);
   const present = new Set(d.measurements.columns.map((c) => c.name));
   const cols = [...new Set([...CORE, ...fc.row])].filter((c) => present.has(c));
-  const extra = d.measurements.columns.map((c) => c.name).filter((c) => c.startsWith('x_') && !cols.includes(c) && /sample/.test(c));
+  // Extension columns carry the source's own quantities (the observables, as released): all are sent.
+  const extra = d.measurements.columns.map((c) => c.name).filter((c) => c.startsWith('x_') && !cols.includes(c));
   const all = [...cols, ...extra];
   const out = { key: d.key, name: d.name, version: d.version, short: d.short, title: d.title, n: d.measurements.rows.length, columns: {} };
   for (const c of all) out.columns[c] = d.measurements.rows.map((r) => r[c]);

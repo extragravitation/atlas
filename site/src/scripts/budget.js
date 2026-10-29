@@ -7,6 +7,7 @@ import { state, set, onChange } from './state.js';
 import { css, plain } from './ui.js';
 import { setup, axes, niceStep, sci, showTip } from './draw.js';
 import { wireSliders } from './sliders.js';
+import { drawMeasured } from './measured.js';
 
 const $ = (id) => document.getElementById(id);
 const CFG = JSON.parse($('budget-config').textContent);
@@ -137,5 +138,8 @@ export async function start() {
   onChange(() => { sync(); draw(); });
   window.addEventListener('atlas-theme', draw); window.addEventListener('atlas-layer', draw);
   new ResizeObserver(draw).observe(box);
-  sync(); draw();
+  const meas = () => drawMeasured(d, rows);
+  window.addEventListener('atlas-theme', meas); window.addEventListener('atlas-layer', meas);
+  if ($('measbox')) new ResizeObserver(meas).observe($('measbox'));
+  sync(); draw(); meas();
 }
