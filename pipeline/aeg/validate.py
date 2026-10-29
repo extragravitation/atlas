@@ -17,7 +17,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-KNOWN_STANDARD_VERSIONS = {"1.0.0", "1.1.0", "1.2.0", "1.2.1", "1.3.0"}
+KNOWN_STANDARD_VERSIONS = {"1.0.0", "1.1.0", "1.2.0", "1.2.1", "1.3.0", "2.0.0"}
 
 FLAGS = {"no_uncertainty", "beyond_source_range", "inner_resolution_limited", "source_quality_low", "reproduction_mismatch"}
 CLOSED = {
@@ -55,7 +55,7 @@ def _vals(col):
     return out
 
 
-def check_columns(table, core: set[str], short: str, where: str) -> list[str]:
+def check_columns(table, core: set[str], short: str, where: str, units: dict | None = None) -> list[str]:
     import astropy.units as u
     from astropy.io.votable import ucd as ucdlib
     problems = []
@@ -73,9 +73,191 @@ def check_columns(table, core: set[str], short: str, where: str) -> list[str]:
                 ucdlib.parse_ucd(ucd, check_controlled_vocabulary=True, has_colon=False)
             except ValueError as e:
                 problems.append(f"{where}: column {name} UCD {ucd!r} invalid: {e}")
-        if name in UNITS:
-            if col.unit is None or u.Unit(col.unit) != u.Unit(UNITS[name]):
-                problems.append(f"{where}: column {name} unit {col.unit}, expected {UNITS[name]}")
+        units_map = UNITS if units is None else units
+        if name in units_map:
+            if col.unit is None or u.Unit(col.unit) != u.Unit(units_map[name]):
+                problems.append(f"{where}: column {name} unit {col.unit}, expected {units_map[name]}")
+    return problems
+
+
+# ------------------------------------------------------------------ 2.0.0
+FLAGS_V2 = FLAGS | {"edges_inferred", "value_in_text", "assumed_concentration", "derived_from_delta_g",
+                    "metallicity_cut_membership", "fitted_profile", "star_count_weighting"}
+CLOSED_V2 = {
+    **CLOSED,
+    "method_class": {"kinematic", "hydrostatic", "lensing", "ephemeris"},
+    "measured_quantity": {"g_obs", "delta_g"},
+    "limit": {"none", "upper", "lower"},
+    "model_dependence": {"none", "observable_form", "total_mass_form"},
+    "role": {"default", "alternative"},
+    "not_plotted_reason": {"coverage_below_threshold", "aperture_uncorrected", "central_only",
+                           "members_within_half_light", "proper_motion_only", "tier_3", "alternative_value",
+                           "limit_only", "epoch_gap", "kinematic_distance", "other"},
+}
+REQUIRED_MEAS_V2 = [c for c in REQUIRED_MEAS if c != "g_obs"] + [
+    "measured_quantity", "limit", "observed_from", "baryonic_from", "model_dependence", "evidence_tier", "role", "plotted"]
+CORE_MEAS_V2 = CORE_MEAS | set(REQUIRED_MEAS_V2) | {"delta_g", "delta_g_err_lo", "delta_g_err_hi", "err_level",
+                                                    "alternative_of", "not_plotted_reason", "notes"}
+QUANTITIES = {
+    "observed": {"v_rot", "sigma_los", "sigma_los_second_moment", "sigma_los_about_rotation", "sigma_pm",
+                 "velocity_gradient", "temperature_x", "density_e", "pressure_e", "mass_hse", "delta_sigma", "kappa",
+                 "einstein_radius", "binary_sep_proj", "binary_dv_proj", "delta_g_bound", "extra_mass_bound",
+                 "perihelion_precession_extra", "distance", "redshift"},
+    "baryonic": {"luminosity", "apparent_magnitude", "absolute_magnitude", "surface_brightness", "structural_param",
+                 "half_light_radius", "metallicity_feh", "age", "stellar_ml_population", "star_formation_history_ml",
+                 "mass_star", "mass_star_counted", "surface_density_hi", "mass_hi", "mass_gas", "mass_gas_limit",
+                 "line_flux_co", "known_mass", "distance", "redshift"},
+}
+LADDER_STEPS = {
+    "spectra", "stellar_velocities", "membership", "binary_treatment", "dispersion_global", "dispersion_profile",
+    "light_weighting", "half_light_estimator", "integrated_spectra", "aperture_dispersion",
+    "aperture_correction_global", "aperture_correction_central", "astrometry", "proper_motions", "dispersion_pm",
+    "line_velocities", "velocity_field", "tilted_ring", "inclination", "pressure_correction", "rotation_curve",
+    "centripetal", "events", "projected_t_and_density", "deprojected_profiles", "fitted_forms", "hydrostatic_mass",
+    "newtonian_g", "shapes", "shear", "excess_surface_density", "deprojection", "image_positions", "lens_model",
+    "einstein_radius", "projected_mass", "observations", "ephemeris_fit", "extra_term_fit", "bound", "photometry",
+    "luminosity", "structural_model", "stellar_ml", "star_counts", "mass_function", "mass_star_counted",
+    "hi_21cm", "co_line", "xray", "surface_density", "mass", "helium_factor",
+}
+CORE_OBS = {"observable_id", "system_id", "side", "quantity", "value", "err_lo", "err_hi", "unit", "band", "limit",
+            "err_level", "r_kpc", "r_kind", "r_in_kpc", "r_out_kpc", "steps", "evidence_tier", "in_text", "source_ref"}
+REQUIRED_OBS = ["observable_id", "side", "quantity", "value", "unit", "limit", "steps", "evidence_tier", "source_ref"]
+CORE_SYS_V2 = CORE_SYS | {"taxonomy_kind", "kind_label", "host", "distance_kinematic", "distance_ref", "redshift",
+                          "redshift_err", "metallicity_feh"}
+TAXONOMY_KINDS = {f"A{i}" for i in range(11)}
+INVENTORY_STATUS = {"measured", "modelled", "known_unmeasured", "stated_negligible", "absent_limit",
+                    "absent_literature_limit", "not_addressed"}
+UNITS_V2 = {**UNITS, "delta_g": "m / s2", "delta_g_err_lo": "m / s2", "delta_g_err_hi": "m / s2",
+            "r_in_kpc": "kpc", "r_out_kpc": "kpc"}
+
+
+def _truthy(v) -> bool:
+    return str(v).strip().lower() in {"true", "1", "yes"}
+
+
+def validate_v2(pkg: Path, meas) -> list[str]:
+    """Rules added in standard 2.0.0 (docs/data-standard.md §10)."""
+    from astropy.table import Table
+    dataset, version = pkg.parent.name, pkg.name
+    short = dataset.removeprefix("aeg-d-").replace("-", "_")
+    where = f"{dataset}/{version}"
+    problems: list[str] = []
+
+    for c in REQUIRED_MEAS_V2:
+        if c not in meas.colnames:
+            problems.append(f"{where} measurements: missing required column {c}")
+    if problems:
+        return problems
+    rows = [dict(zip(meas.colnames, r)) for r in zip(*[_vals(meas[c]) for c in meas.colnames])]
+    for name, allowed in CLOSED_V2.items():
+        if name in meas.colnames:
+            bad = {v for v in _vals(meas[name]) if v not in (None, "") and v not in allowed}
+            if bad:
+                problems.append(f"{where} measurements: {name} has values outside the closed list: {sorted(bad)}")
+
+    obs_path = pkg / "tables/observables.ecsv"
+    obs_ids: dict[str, str] = {}
+    if not obs_path.is_file():
+        problems.append(f"{where}: tables/observables.ecsv missing")
+    else:
+        obs = Table.read(obs_path, format="ascii.ecsv")
+        ow = f"{where} observables"
+        for c in REQUIRED_OBS:
+            if c not in obs.colnames:
+                problems.append(f"{ow}: missing required column {c}")
+        problems += check_columns(obs, CORE_OBS, short, ow, UNITS_V2)
+        if not any(p.startswith(f"{ow}: missing") for p in problems):
+            orows = [dict(zip(obs.colnames, r)) for r in zip(*[_vals(obs[c]) for c in obs.colnames])]
+            for i, r in enumerate(orows, start=1):
+                oid = str(r["observable_id"])
+                if oid != f"{dataset}/{version}/o{i:06d}":
+                    problems.append(f"{ow}: row {i} has observable_id {oid}, expected {dataset}/{version}/o{i:06d}")
+                    break
+            for r in orows:
+                oid, side = str(r["observable_id"]), r["side"]
+                obs_ids[oid] = side
+                if side not in QUANTITIES:
+                    problems.append(f"{ow}: {oid} side {side!r} not in the closed list")
+                elif r["quantity"] not in QUANTITIES[side]:
+                    problems.append(f"{ow}: {oid} quantity {r['quantity']!r} not allowed on the {side} side")
+                bad_steps = [s for s in str(r["steps"] or "").split(";") if s and s not in LADDER_STEPS]
+                if bad_steps or not r["steps"]:
+                    problems.append(f"{ow}: {oid} steps not from the ladders: {bad_steps or 'empty'}")
+                if r["limit"] not in ("none", "upper", "lower"):
+                    problems.append(f"{ow}: {oid} limit {r['limit']!r} not in the closed list")
+                if r["evidence_tier"] not in (1, 2, 3):
+                    problems.append(f"{ow}: {oid} evidence_tier must be 1, 2 or 3")
+
+    for r in rows:
+        mid = r["measurement_id"]
+        for col, side in (("observed_from", "observed"), ("baryonic_from", "baryonic")):
+            ids = [x for x in str(r[col] or "").split(";") if x]
+            if not ids:
+                problems.append(f"{where}: {mid} {col} is empty")
+            for x in ids:
+                if x not in obs_ids:
+                    problems.append(f"{where}: {mid} {col} refers to unknown observable {x}")
+                elif obs_ids[x] != side:
+                    problems.append(f"{where}: {mid} {col} refers to a {obs_ids[x]}-side observable {x}")
+        plotted = _truthy(r["plotted"])
+        reason = r.get("not_plotted_reason")
+        if plotted and reason:
+            problems.append(f"{where}: {mid} is plotted but has a not_plotted_reason")
+        if not plotted and not reason:
+            problems.append(f"{where}: {mid} is not plotted and has no not_plotted_reason")
+        if r["evidence_tier"] not in (1, 2, 3):
+            problems.append(f"{where}: {mid} evidence_tier must be 1, 2 or 3")
+        elif r["evidence_tier"] == 3 and plotted:
+            problems.append(f"{where}: {mid} is tier 3 and must not be plotted (D-035)")
+        if r["role"] == "alternative" and "alternative_of" not in r:
+            problems.append(f"{where}: {mid} is an alternative without alternative_of")
+        mq = r["measured_quantity"]
+        if mq == "g_obs" and r.get("g_obs") is None:
+            problems.append(f"{where}: {mid} measures g_obs but g_obs is empty")
+        if mq == "delta_g" and r.get("delta_g") is None:
+            problems.append(f"{where}: {mid} measures delta_g but delta_g is empty")
+        if r["limit"] != "none":
+            errs = [r.get(f"{mq}_err_lo"), r.get(f"{mq}_err_hi")]
+            if any(e is not None for e in errs):
+                problems.append(f"{where}: {mid} is a limit but has error values")
+
+    sys_path = pkg / "tables/systems.ecsv"
+    if sys_path.is_file():
+        systems = Table.read(sys_path, format="ascii.ecsv")
+        sw = f"{where} systems"
+        for c in ("taxonomy_kind", "kind_label", "distance_kinematic"):
+            if c not in systems.colnames:
+                problems.append(f"{sw}: missing required column {c}")
+        if not any(p.startswith(f"{sw}: missing") for p in problems):
+            plotted_systems = {r["system_id"] for r in rows if _truthy(r["plotted"])}
+            srows = [dict(zip(systems.colnames, r)) for r in zip(*[_vals(systems[c]) for c in systems.colnames])]
+            for r in srows:
+                sid = r["system_id"]
+                if r["taxonomy_kind"] not in TAXONOMY_KINDS:
+                    problems.append(f"{sw}: {sid} taxonomy_kind {r['taxonomy_kind']!r} not A0–A10")
+                if not r["kind_label"]:
+                    problems.append(f"{sw}: {sid} has no kind_label")
+                elif str(r["kind_label"]).startswith("ambiguous") and r["taxonomy_kind"] != "A7":
+                    problems.append(f"{sw}: {sid} is labelled ambiguous but not in A7")
+                if r.get("distance_mpc") is None and r.get("redshift") is None:
+                    problems.append(f"{sw}: {sid} has neither distance_mpc nor redshift")
+                if _truthy(r["distance_kinematic"]) and sid in plotted_systems:
+                    problems.append(f"{sw}: {sid} has a kinematic distance but plotted rows (D-036 #6)")
+
+    desc_path = pkg / "datapackage.json"
+    if desc_path.is_file():
+        desc = json.loads(desc_path.read_text(encoding="utf-8"))
+        for k in ("x_selection", "x_baryon_inventory", "x_search_log", "x_second_reading"):
+            if not desc.get(k):
+                problems.append(f"{where} datapackage.json: {k} missing or empty")
+        for comp in desc.get("x_baryon_inventory") or []:
+            if comp.get("status") not in INVENTORY_STATUS:
+                problems.append(f"{where} datapackage.json: baryon component {comp.get('component')!r} "
+                                f"status {comp.get('status')!r} not in the closed list")
+    else:
+        problems.append(f"{where}: datapackage.json missing")
+    if not (pkg / "SECOND_READING.md").is_file():
+        problems.append(f"{where}: SECOND_READING.md missing")
     return problems
 
 
@@ -87,35 +269,39 @@ def validate(pkg: Path) -> list[str]:
 
     meas = Table.read(pkg / "tables/measurements.ecsv", format="ascii.ecsv")
     where = f"{dataset}/{version} measurements"
-    if meas.meta.get("standard_version") not in KNOWN_STANDARD_VERSIONS:
-        problems.append(f"{where}: unknown standard_version {meas.meta.get('standard_version')!r}")
-    for c in REQUIRED_MEAS:
+    sv = meas.meta.get("standard_version")
+    if sv not in KNOWN_STANDARD_VERSIONS:
+        problems.append(f"{where}: unknown standard_version {sv!r}")
+    v2 = str(sv).startswith("2.")
+    for c in (REQUIRED_MEAS_V2 if v2 else REQUIRED_MEAS):
         if c not in meas.colnames:
             problems.append(f"{where}: missing required column {c}")
-    problems += check_columns(meas, CORE_MEAS, short, where)
+    problems += check_columns(meas, CORE_MEAS_V2 if v2 else CORE_MEAS, short, where, UNITS_V2 if v2 else None)
 
     ids = [str(x) for x in _vals(meas["measurement_id"])]
     for i, mid in enumerate(ids, start=1):
         if mid != f"{dataset}/{version}/m{i:06d}":
             problems.append(f"{where}: row {i} has measurement_id {mid}, expected {dataset}/{version}/m{i:06d}")
             break
-    for name, allowed in CLOSED.items():
+    for name, allowed in (CLOSED_V2 if v2 else CLOSED).items():
         if name in meas.colnames:
             bad = {v for v in _vals(meas[name]) if v not in (None, "") and v not in allowed}
             if bad:
                 problems.append(f"{where}: {name} has values outside the closed list: {sorted(bad)}")
     if "flags" in meas.colnames:
-        bad = {f for v in _vals(meas["flags"]) if v for f in str(v).split(";") if f and f not in FLAGS}
+        bad = {f for v in _vals(meas["flags"]) if v for f in str(v).split(";") if f and f not in (FLAGS_V2 if v2 else FLAGS)}
         if bad:
             problems.append(f"{where}: unknown flags {sorted(bad)}")
     for c in ["g_obs_err_lo", "g_obs_err_hi", "g_bar_err_lo", "g_bar_err_hi"]:
         if c in meas.colnames and any(v is not None and v < 0 for v in _vals(meas[c])):
             problems.append(f"{where}: negative values in {c}")
     for c in ["g_obs", "g_bar"]:
+        if c not in meas.colnames:
+            continue
         out = [v for v in _vals(meas[c]) if v is not None and not (1e-16 <= abs(v) <= 1e-6)]
         if out:
             problems.append(f"{where}: {len(out)} values of {c} outside 1e-16..1e-6 m/s2 in magnitude")
-    if any(v is not None and v <= 0 for v in _vals(meas["g_obs"])):
+    if "g_obs" in meas.colnames and any(v is not None and v <= 0 for v in _vals(meas["g_obs"])):
         problems.append(f"{where}: g_obs must be positive")
 
     registry = {r["system_id"] for r in csv.DictReader((ROOT / "data/registry/systems.csv").open(encoding="utf-8"))}
@@ -136,7 +322,9 @@ def validate(pkg: Path) -> list[str]:
     sys_path = pkg / "tables/systems.ecsv"
     if sys_path.is_file():
         systems = Table.read(sys_path, format="ascii.ecsv")
-        problems += check_columns(systems, CORE_SYS, short, f"{dataset}/{version} systems")
+        problems += check_columns(systems, CORE_SYS_V2 if v2 else CORE_SYS, short, f"{dataset}/{version} systems")
+    if v2:
+        problems += validate_v2(pkg, meas)
 
     # checksums.sha256 covers every committed file in the package
     sums = pkg / "checksums.sha256"
