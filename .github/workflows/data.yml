@@ -9,8 +9,9 @@ name: data
 # committed back to the branch by the workflow. On main, a difference fails.
 
 on:
+  # Every pull request: "packages" is a required check, and a path filter would leave
+  # documentation-only pull requests waiting for it forever.
   pull_request:
-    paths: ["data/**", "pipeline/**", ".github/workflows/data.yml"]
   push:
     branches: [main]
     paths: ["data/**", "pipeline/**", ".github/workflows/data.yml"]

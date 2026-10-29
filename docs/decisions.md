@@ -279,6 +279,22 @@ All entries below: ruled by JvH on 2026-10-28 (week 1 of the MVP plan).
 
 **Result (first run, 2026-10-28).** Validated range r/R500 = 0.145 to 1.38; inside 0.145 R500 the prescription misses the measured clusters' g_bar by up to 74 %, outside 0.2 R500 by 4 % or less (median). 204 modelled rows removed (innermost kept radius 153–212 kpc); 861 measurements ship. Details: `MODEL_TEST_RESULT.md`.
 
+
+## D-024 — Scope of v0.1: add groups, globular clusters and dwarf spheroidals
+
+**Ruling (2026-10-28, JvH).** The public v0.1 release waits until it also covers:
+- **galaxy groups** (candidate: X-GAP, Eckert et al. 2024, arXiv:2403.17145; release status to be read at source), filling the range between single galaxies and massive clusters;
+- **globular clusters** (candidate: Baumgardt & Hilker 2018, arXiv:1804.08359; VizieR J/MNRAS/478/1520), which include systems where Newtonian gravity on detected matter is expected to suffice;
+- **dwarf spheroidal galaxies** (source to be identified), the individual systems with the lowest g_bar.
+
+Systems supported by random motions need a ruled method before any of their data are converted (D-025, to come; leading candidate: a mass estimator at the half-light radius, Wolf et al. 2010, to be read at source). Measured velocity dispersions, not masses fitted with simulations, form the observed side (the principle of D-005). If X-GAP has not released usable profiles, alternatives are brought to JvH; the other two do not wait on groups. Wide binary stars are left to v0.2 with their own method ruling. Meanwhile the site is built on the three existing datasets and previewed privately.
+
+**Reason.** An atlas that shows only systems with large extra pull answers its question before asking it: the test to pass must include systems where no extra pull is expected, the most extreme low-acceleration systems, and more than one kind of system. Delay is acceptable; a biased first release is not.
+
+**Alternative rejected.** Ship v0.1 with three datasets and state the gap (faster, but the first public picture would rest almost entirely on rotating disc galaxies).
+
+**Backlog.** Issues #21 (groups), #22 (method, D-025), #23 (globular clusters), #24 (dwarf spheroidals).
+
 ---
 
 ## Recorded alongside (not decisions; corrections to the plans)
