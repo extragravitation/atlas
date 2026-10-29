@@ -88,7 +88,7 @@ Complete in kinds is not complete in parameter space. Each release reports how t
 
 ### 5c. Cosmic epoch (D-033)
 
-Every dataset so far is in the nearby universe (SPARC distances 1–128 Mpc; X-COP z = 0.047–0.091; KiDS lens redshifts not yet recorded in the package). Distance or redshift is one of the continuous axes in §5b. Systems at z ≳ 0.3 are surveyed under the protocol of §6 and **declared a documented gap for v1.0**; the cell is filled after v1.0 if eligible data exist (a machine-readable release in which g_bar does not rest on a scaling relation). Survey: `docs/sources/survey-highz-2026-10-29.md`.
+Every dataset so far is in the nearby universe (SPARC distances 1–128 Mpc; X-COP z = 0.047–0.091; KiDS lens redshifts not yet recorded in the package). Distance or redshift is one of the continuous axes in §5b. Systems at z ≳ 0.3 are surveyed under the protocol of §6 and **declared a documented gap for v1.0**; the cell is filled after v1.0 if eligible data exist (a machine-readable release in which g_bar does not rest on a scaling relation). Survey (`docs/sources/survey-highz-2026-10-29.md`): for galaxies at z ≳ 0.3, no machine-readable release with both sides was found (closest: ALPAKA, measured gas, derived products in paper tables only); for clusters, CLASH (z 0.19–0.69, already a candidate in A9) appears eligible with model-dependence labels and would reach z ≈ 0.7 if selected under §6.
 
 **What the survey shows.**
 - Every kind from A0 to A10 has at least one candidate except open clusters, where the one dispersion study warns against assuming equilibrium.
