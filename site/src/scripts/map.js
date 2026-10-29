@@ -304,10 +304,13 @@ function wireZoom(fig) {
   fig.addEventListener('pointerup', end); fig.addEventListener('pointercancel', end);
   fig.addEventListener('dblclick', () => set({ zoom: null }));
   fig.addEventListener('wheel', (ev) => {
-    if (!(ev.ctrlKey || ev.metaKey)) return; // plain scrolling keeps scrolling the page
-    ev.preventDefault();
+    // Inside the plot the wheel zooms about the pointer: forward in, backward out. Outside the plot,
+    // or backward at the full view (nothing further to zoom out to), the page scrolls as usual.
     const p = local(ev); if (!inPlot(p)) return;
-    const d = toData(p.x, p.y), f = ev.deltaY > 0 ? 1.25 : 0.8;
+    const dy = ev.deltaMode === 1 ? ev.deltaY * 33 : ev.deltaY;
+    if (dy > 0 && !state.zoom) return;
+    ev.preventDefault();
+    const d = toData(p.x, p.y), f = Math.exp(Math.sign(dy) * Math.min(Math.abs(dy), 300) * 0.002);
     scaleAbout(f, f, d.x, d.y);
   }, { passive: false });
   fig.addEventListener('keydown', (ev) => {
