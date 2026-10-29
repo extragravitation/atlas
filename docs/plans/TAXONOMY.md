@@ -49,8 +49,45 @@ Draft list, from smallest to largest. Scope note: the charter says "from star cl
 
 ## 5. Coverage matrix
 
-*Filled from the source survey below; status as read at source on 2026-10-28.*
+Status as read at source on 2026-10-28 (three source surveys; URLs and details in `docs/sources/survey-2026-10-28.md`). Nothing below is ruled, fetched or hashed yet except the three packages in hand.
+
+**Key:** ● in hand · ○ public data found, obtainable · ◐ needs a method ruling, an author's release or an answer · ✕ searched, no public data found · — not applicable
+
+| Kind | Rotation | Random motions | Orbiting tracers | Hot-gas pressure | Weak lensing | Strong lensing |
+|---|---|---|---|---|---|---|
+| A0 Solar System | — | — | ○ JPL DE440 ephemerides (reference) | — | — | — |
+| A1 Wide binaries | — | — | ◐ El-Badry et al. 2021 base catalogue (Zenodo, CC BY 4.0); Chae samples; contested | — | — | — |
+| A2 Open clusters | — | ◐ Pang et al. 2021, 13 clusters; authors report most may be expanding | — | — | — | — |
+| A3 Globular clusters | — | ○ Baumgardt database: 156 measured dispersion profiles | — | — | — | — |
+| A4 Rotation-supported galaxies | ● SPARC 175; ○ LITTLE THINGS 26 (full mass models); ○ PROBES 3 163 (no gas) | — | ✕ satellite kinematics as profiles | — | ● KiDS-1000 (isolated, stacked; with A6) | — |
+| A5 Dispersion-supported dwarfs | — | ○ Local Volume Database (Pace, CC0): one dispersion per galaxy; ○ stellar velocities for profiles (Walker 2009, Tollerud 2012) | — | — | — | — |
+| A6 Early-type galaxies | ◐ HI rings, 16 (Lelli et al. 2017 compilation) | ○ ATLAS3D 260, inside the half-light radius (model-derived) | ○ SLUGGS globular-cluster velocities, 27; ✕ planetary nebulae (not released) | ○ 9 X-ray profiles (Lelli et al. 2017 compilation) | ● KiDS-1000 (with A4) | ○ SLACS ~98, mass inside the Einstein radius |
+| A7 Unusual configurations | ◐ tidal dwarfs 6, polar rings (data scattered) | ◐ NGC 1052-DF2, -DF4 (distance contested) | | — | — | — |
+| A8 Groups | — | — | ✕ | ◐ X-GAP 49 (release announced, not found); Sun 2009, Lovisari 2015 (parametric, gas only) | ◐ HSC-XXL 136 (one aperture, model-fitted) | — |
+| A9 Clusters, relaxed | — | — | ○ HeCS caustic profiles 58 | ● X-COP 12 | ○ CLASH 20 (with strong lensing) | ○ CLASH |
+| A10 Clusters, merging | — | — | — | ○ Chandra archive (maps) | ○ Frontier Fields mass maps, 6 | ○ Frontier Fields; El Gordo |
+
+**What the survey shows.**
+- Every kind from A0 to A10 has at least one candidate except open clusters, where the one dispersion study warns against assuming equilibrium.
+- Lensing coverage is thin below clusters: one stacked galaxy dataset (KiDS) and one strong-lensing sample (SLACS). No HSC or DES galaxy-lensing release of g_obs against g_bar was found.
+- Groups are the weakest kind with profiles: X-GAP has announced a release that could not be found.
+- Many observed sides are model-derived (Jeans models, caustics, parametric mass fits). This is the main method question (§7, question 2).
+- About ten new packages would be needed if every ruling went the inclusive way, against three so far.
 
 ## 6. Release rule (proposed D-028)
 
+**Proposed ruling.** The first public release covers the taxonomy. It is published when every cell of the ruled coverage matrix is either (a) a shipped package or (b) a documented gap: no public data, data gated with the request on record, or a method not yet ruled, with the reason shown on the site. The taxonomy is frozen by hash before any new dataset is converted. Data packages keep their own versions and land one at a time. The private preview continues and is shown to the outside reader and advisers before release. Amends the charter's "launch v0.1 quickly", D-010 (release rhythm) and the master-plan roadmap; extends D-024.
+
+**Reason.** A first public picture built on some kinds of system answers the Atlas's question before asking it. Fixing the list before converting data keeps the selection independent of the results. A closed list with documented gaps bounds the work.
+
+**Alternatives.** Release v0.1 on the three datasets now (rejected in D-024 for bias); release only when every cell is filled (unbounded: several cells depend on others' releases).
+
 ## 7. Questions for JvH
+
+1. **Scope.** Include A0 (already D-013), A1 wide binaries and A2 open clusters? The charter's range starts at star clusters. Recommendation: include all three as kinds; A1 and A2 may end as documented gaps if their method rulings fail.
+2. **Model-derived observed side.** Some observed values come from a model: Jeans models of stellar motions, caustics, and fits with an assumed mass profile (e.g. NFW). Recommendation: accept direct measurements and estimates that assume no shape for the total mass profile (as with X-COP's forward method), each labelled by form. Exclude fits that assume a shape for the total mass, because the shape itself presumes an account (an NFW profile is a dark-matter halo shape). This would exclude most group lensing (HSC-XXL), so groups may rest on X-GAP alone.
+3. **Projected and 3D.** Lensing measures mass in projection; dynamics and baryon profiles are 3D. Recommendation: compare like with like; for lensing, project the baryons rather than deproject the lensing, where the baryon data reach far enough; ruling per dataset.
+4. **Stellar mass-to-light for star clusters and dwarfs.** g_bar is luminosity times an assumed ratio. Recommendation: the default and range from stellar-population literature, read at source, as a slider for each kind (as for SPARC).
+5. **Contested single objects** (NGC 1052-DF2 and -DF4, AGC 114905, Abell 520, wide binaries). Recommendation: case studies that present each side's published values as named alternatives, with neither as the default.
+6. **Release name.** Recommendation: v1.0 for the first public release, since it is the complete taxonomy; previews stay unnumbered.
+7. **Requests to send** (JvH): X-GAP release and licence (Eckert; already on the X-COP email list), HSC-XXL profiles, Bullet cluster maps.
