@@ -300,6 +300,26 @@ Systems supported by random motions need a ruled method before any of their data
 **Backlog.** Issues #21 (groups), #22 (method, D-025), #23 (globular clusters), #24 (dwarf spheroidals).
 
 
+## D-025 — From velocity dispersion to g_obs
+
+**Ruling (2026-10-29, JvH).** JvH: "Please Rule as A for v1.0, with C held as a labelled overlay to add after v1.0." Not blind: ruled after Claude's weighing of the options (D-031 item 4; the next method ruling is to be made blind). JvH's criteria: "We want usefulness, but can't be seen to be unscientific and we don't want to invite too much scrutiny."
+1. **v1.0 uses the half-light-radius estimator** (Wolf et al. 2010, arXiv:0908.2995): M(<r½) = 3 σ²_los r½ / G, so g_obs = 3 σ²_los / r½ at the 3D half-light radius r½; g_bar = G (½ L Υ★) / r½², with gas added where measured (D-034, D-035). One point per system, for globular clusters, dwarf spheroidal and ultra-faint galaxies, and dispersion-supported early-type galaxies where applicable.
+2. **Sub-choices.**
+   - σ is the source's global or luminosity-weighted line-of-sight dispersion. Where a source gives only a profile and no global value, the system is recorded but not plotted (computing one would be new analysis).
+   - r½ is taken from the source; where only the projected half-light radius is given, the conversion is registered as an assumption with its source.
+   - Upper limits on σ are plotted as limits.
+   - A flag records whether the source states multi-epoch screening for binary stars.
+   - Systems the source itself describes as tidally disturbed or out of equilibrium go to the exclusion register with the quotation.
+   - Assumptions registered: spherical symmetry, dynamical equilibrium, the estimator, the radius conversion, the stellar mass-to-light ratio (default and range read at source).
+3. **After v1.0:** sources' own published dynamical profiles or masses (Jeans or N-body fits) are added as a labelled overlay, with `model_dependence`, never in the default view, under rules ruled then.
+4. **Never:** Jeans modelling run by the Atlas itself.
+
+**Reason.** The estimator is the standard published method, chosen by its authors for its insensitivity to velocity anisotropy at r½; it covers nearly every known system, including those with only a global dispersion or an upper limit, with the fewest added assumptions, and the Atlas performs no modelling. Atlas-run Jeans modelling would break "describe, never analyse" and depend on the anisotropy assumption; sources' fitted profiles are heterogeneous and often assume a halo shape, so they are deferred to a labelled overlay.
+
+**Alternatives rejected.** Atlas-run Jeans modelling (B); sources' results only (C alone); both at once for v1.0 (D, deferred in two stages instead); dispersions only, with no g_obs (E: omits the lowest-acceleration systems and the controls).
+
+**Data seen at the time of ruling.** As D-035; the A0, A3 and A5 searches had started (metadata only); no candidate dataset examined for results or plotted.
+
 ## D-026 — No fitted relation on the map in v0.1
 
 **Ruling (2026-10-28, JvH).** The map draws the data and the line g_obs = g_bar (Newtonian gravity on detected matter) only. No fitted relation (for example the published radial-acceleration fitting function) is drawn in v0.1. A fit may return later as a sourced Pattern entry, clearly labelled and switched off by default.
