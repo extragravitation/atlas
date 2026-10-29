@@ -99,6 +99,8 @@ Every dataset so far is in the nearby universe (SPARC distances 1–128 Mpc; X-C
 
 ## 6. Selection protocol (draft; frozen before any new conversion)
 
+The per-cell eligibility, search procedure, required method rulings and dates are in `docs/plans/SELECTION_PROTOCOL.md`.
+
 1. **Eligibility, per cell, written in advance.** A dataset is eligible for a cell if:
    - it measures the cell's tracer for systems of the cell's kind;
    - g_obs and g_bar, or the observables they are computed from, are public in machine-readable form, or will be supplied by the authors on request;
