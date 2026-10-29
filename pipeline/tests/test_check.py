@@ -41,3 +41,19 @@ def test_registry_default_inside_range(tmp_path: Path):
     f = tmp_path / "a.json"
     f.write_text(json.dumps(reg), encoding="utf-8")
     assert any("outside" in p for p in check_assumption_registry(f))
+
+
+def test_check_frozen_detects_changes(tmp_path):
+    import hashlib
+    import json
+    from aeg.check import check_frozen
+    (tmp_path / "data/frozen").mkdir(parents=True)
+    f = tmp_path / "code.py"
+    f.write_text("x = 1\n")
+    h = hashlib.sha256(f.read_bytes()).hexdigest()
+    (tmp_path / "data/frozen/r.json").write_text(json.dumps({"files": {"code.py": h}}))
+    assert check_frozen(tmp_path) == []
+    f.write_text("x = 2\n")
+    assert check_frozen(tmp_path) == ["data/frozen/r.json: frozen file changed: code.py"]
+    f.unlink()
+    assert check_frozen(tmp_path) == ["data/frozen/r.json: frozen file missing: code.py"]

@@ -4,6 +4,7 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
 
 ## Unreleased
 
+- D-036 (ii) conversion frozen: light-weighted dispersion from binned profiles with the 80% light-coverage rule, tested on synthetic profiles (`docs/methods/D036_CONVERSION.md`); repository check that frozen files keep their hashes.
 - D-039: stellar mass-to-light ratio for star clusters and dwarf galaxies (one model family; per-system defaults; wide asymmetric ranges; counted masses as a cross-check).
 - Selection protocol deposited on Zenodo: DOI 10.5281/zenodo.23780203.
 - Citation metadata: author affiliation and ORCID in `CITATION.cff`; `.zenodo.json` for Zenodo releases.

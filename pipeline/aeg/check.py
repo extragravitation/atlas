@@ -5,6 +5,8 @@ Exits non-zero if any check fails. Every pull request runs this.
 
 from __future__ import annotations
 
+import hashlib
+import json
 import re
 import sys
 from pathlib import Path
@@ -90,6 +92,32 @@ def check_assumption_registry(path: Path) -> list[str]:
     return problems
 
 
+def check_frozen(root: Path) -> list[str]:
+    """Frozen files must keep the hash recorded when they were frozen.
+
+    Freeze records: data/frozen/*.json ({"files": {path: sha256}}) and the
+    protocol documents in data/taxonomy.json. A change to a frozen file needs
+    a new version (a new file and a new freeze record), never an edit.
+    """
+    problems = []
+    records = []
+    for rec in sorted((root / "data/frozen").glob("*.json")):
+        records.append((rec.relative_to(root).as_posix(), json.loads(rec.read_text())["files"]))
+    tax = root / "data/taxonomy.json"
+    if tax.is_file():
+        records.append(("data/taxonomy.json", json.loads(tax.read_text()).get("documents", {})))
+    for rec_name, files in records:
+        for rel, expected in files.items():
+            f = root / rel
+            if not f.is_file():
+                problems.append(f"{rec_name}: frozen file missing: {rel}")
+                continue
+            got = hashlib.sha256(f.read_bytes()).hexdigest()
+            if got != expected:
+                problems.append(f"{rec_name}: frozen file changed: {rel}")
+    return problems
+
+
 def run(root: Path = ROOT) -> list[str]:
     problems = check_required_files(root)
     if (root / "data/assumptions.json").is_file():
@@ -98,6 +126,7 @@ def run(root: Path = ROOT) -> list[str]:
     if registry.is_file():
         problems += [f"data/registry/systems.csv {p}" for p in check_registry(registry)]
     problems += check_no_secrets(root)
+    problems += check_frozen(root)
     return problems
 
 
