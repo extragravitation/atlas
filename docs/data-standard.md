@@ -1,6 +1,6 @@
 # Atlas data standard
 
-**Version 2.0.0 — DRAFT, 2026-10-29** (D-029; incorporates D-033 to D-039). Not yet frozen: it is frozen by hash (`data/frozen/data-standard-2.0.0.json`) when JvH approves it, before the first 2.0 package is converted. Version 1.3.0 is kept unchanged in `docs/data-standard-1.3.0.md`; packages that state 1.x are valid under that text and are never edited (references to "docs/data-standard.md §7" inside 1.x packages mean the 1.3.0 text).
+**Version 2.0.0 — FROZEN 2026-10-29** (D-029, D-041; incorporates D-033 to D-039). Frozen by hash in `data/frozen/data-standard-2.0.0.json` before the first 2.0 package was converted; `python -m aeg.check` fails if this file changes. The next change is a new version with its own file and freeze record. Version 1.3.0 is kept unchanged in `docs/data-standard-1.3.0.md`; packages that state 1.x are valid under that text and are never edited (references to "docs/data-standard.md §7" inside 1.x packages mean the 1.3.0 text).
 
 What changed from 1.3.0, in one line: every measurement now keeps **what was observed** (observables table) as well as g_obs and g_bar, and records how it was selected, how strong the evidence is, how much it leans on fitted forms, whether it is plotted and why not, and which value is the default when several exist.
 
@@ -13,7 +13,7 @@ Semantic versioning, MAJOR.MINOR.PATCH, as in 1.x: **patch** = wording with no e
 | Version | Date | Decision | Change |
 |---|---|---|---|
 | 1.0.0–1.3.0 | 2026-10-28 | D-015, D-018, D-019, D-014 | See `docs/data-standard-1.3.0.md` |
-| 2.0.0 | draft | D-029 (with D-033–D-039) | Observables table; selection, baryon inventory and precedence in the descriptor; evidence tier, model dependence, limits and confidence levels; plotted/not-plotted with reason; default and alternative values; kind and label per system; distance or redshift required and never kinematic; per-star table; frozen checks referenced; second reading recorded |
+| 2.0.0 | 2026-10-29 | D-029, D-041 (with D-033–D-039) | Observables table; selection, baryon inventory and precedence in the descriptor; evidence tier, model dependence, limits and confidence levels; plotted/not-plotted with reason; default and alternative values; kind and label per system; distance or redshift required and never kinematic; per-star table; frozen checks referenced; second reading recorded |
 
 ## 1. Package layout
 
