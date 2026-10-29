@@ -25,7 +25,7 @@ A field guide is organised by a taxonomy: what kinds of thing exist, how each is
 
 ## 3. Kinds of system (facet A)
 
-Draft list, from smallest to largest. Scope note: the charter says "from star clusters to galaxy clusters". Wide binaries and the Solar System lie below that range; including them needs JvH's ruling (question 1 in §7).
+From smallest to largest. The Solar System and wide binaries lie below the original charter's range ("from star clusters to galaxy clusters"); they are included by D-028.
 
 | # | Kind | Includes | Why included | Notes |
 |---|---|---|---|---|
