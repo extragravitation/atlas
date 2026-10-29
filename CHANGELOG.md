@@ -4,6 +4,7 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
 
 ## Unreleased
 
+- Frozen: the D-037 reproduction check and the D-038 3A consistency check, tested on synthetic data (`docs/methods/D037_D038_CHECKS.md`).
 - D-040: blind rulings replaced by recording who proposed each ruling (JvH or Claude) and what was changed before it was ruled (amends D-031).
 - D-036 (ii) conversion frozen: light-weighted dispersion from binned profiles with the 80% light-coverage rule, tested on synthetic profiles (`docs/methods/D036_CONVERSION.md`); repository check that frozen files keep their hashes.
 - D-039: stellar mass-to-light ratio for star clusters and dwarf galaxies (one model family; per-system defaults; wide asymmetric ranges; counted masses as a cross-check).

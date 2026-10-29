@@ -1,0 +1,11 @@
+{
+  "description": "D-037 reproduction check and D-038 3A consistency check, with synthetic tests, frozen before any velocity file or dispersion value was opened (issue #47).",
+  "frozen_on": "2026-10-29",
+  "decision": "D-037, D-038",
+  "spec": "docs/methods/D037_D038_CHECKS.md",
+  "files": {
+    "pipeline/aeg/repro_dispersion.py": "277c28991a7799ba67960170e27b5615dacca7a6b7a3a8f5638fd9c8ce679745",
+    "pipeline/tests/test_repro_dispersion.py": "5852189dca77d69fc7c294ef92360d577dc8f15d102785a22a0f3049b02190cf",
+    "docs/methods/D037_D038_CHECKS.md": "cb57a7ae24b5c6a0ec6474929cace0e83f758a64ee67de927ba1fa09abb57fd6"
+  }
+}
