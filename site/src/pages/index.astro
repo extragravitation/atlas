@@ -94,13 +94,20 @@ const total = atlas.datasets.reduce((s, d) => s + d.measurements.rows.length, 0)
       <h1><L t="Observed gravity compared with Newtonian gravity on detected matter" p="How much pull we see, compared with what the detected matter should give" /></h1>
       <figure>
         <div class="figbox" id="figbox">
-          <canvas id="fig" class="cv" role="img" aria-label=""></canvas>
+          <div class="zoombar" role="group" aria-label="Zoom">
+            <button type="button" class="btn zb" id="zoom-in" aria-label="Zoom in">+</button>
+            <button type="button" class="btn zb" id="zoom-out" aria-label="Zoom out" disabled>−</button>
+            <button type="button" class="btn zb" id="zoom-pan" aria-pressed="false" title="Pan: drag to move the zoomed view (also: hold the middle mouse button and drag)">✥ Pan</button>
+            <button type="button" class="btn zb" id="zoom-reset" disabled>Reset</button>
+          </div>
+          <canvas id="fig" class="cv zoomable" role="img" aria-label="" tabindex="0"></canvas>
           <div class="tip" id="tip" hidden></div>
         </div>
         <figcaption><b>Figure.</b> <L t="Each mark is one packaged measurement. Dashed line, where shown: g_obs = g_bar, Newtonian gravity on detected matter accounts for the observed acceleration. Rings: flagged measurements. No fitted relation is drawn (D-026)." p="Each mark is one measurement. On the dashed line, the detected matter explains all of the pull. Rings mark measurements with a known issue." /> <span id="caption-state"></span></figcaption>
       </figure>
       <p class="hint" id="lens-note"></p>
       <ul class="legend" id="legend" aria-label="Legend: select a type to show only it"></ul>
+      <p class="hint"><L t="Zoom: drag a box over the chart, scroll the wheel over the chart (forward to zoom in, back to zoom out), or pinch on a touch screen; double-click or Reset to see everything. Pan: hold the middle mouse button and drag, or switch on Pan and drag. With the chart focused, + and − zoom, the arrow keys move, P toggles Pan, 0 resets. Zooming changes only the window, never the data." p="To zoom, scroll over the chart, drag a box over it, or pinch with two fingers. To move around, press Pan and drag, or hold down the mouse wheel and drag. Double-click or press Reset to see everything again." /> <span id="zoom-state"></span></p>
       <p class="hint"><L t="Select a type in the legend to show only it; select it again to show everything. Hover a point for its values; click it to select its system." p="Tap a type in the legend to show only it; tap again for everything. Tap a point to pick its galaxy or cluster." /></p>
       <p class="hint" id="neg-note"></p>
       {nonPos.length > 0 && <p class="hint">Not plotted at the defaults: {nonPos.length} measurements with g_bar ≤ 0 (a component pulls outward, so they cannot be placed on log axes): {nonPos.join(', ')}.</p>}

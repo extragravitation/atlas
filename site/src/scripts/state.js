@@ -2,8 +2,8 @@
 // assumptions. Kept in the address (shareable, D-027) and in this tab's session storage, so it
 // survives moving between pages. Nothing is sent anywhere.
 
-const KEYS = ['view', 'marks', 'err', 'col', 'hide', 'sel', 'a', 's', 'unit', 'eb', 'rng'];
-export const state = { view: 'obs', marks: 'points', err: false, col: 'dataset', hide: [], sel: null, global: {}, per: {}, unit: 'acc', eb: true, rng: true };
+const KEYS = ['view', 'marks', 'err', 'col', 'hide', 'sel', 'a', 's', 'unit', 'eb', 'rng', 'z'];
+export const state = { view: 'obs', marks: 'points', err: false, col: 'dataset', hide: [], sel: null, global: {}, per: {}, unit: 'acc', eb: true, rng: true, zoom: null };
 const listeners = [];
 
 function decode(q) {
@@ -16,6 +16,7 @@ function decode(q) {
   if (q.has('unit')) state.unit = q.get('unit');
   if (q.has('eb')) state.eb = q.get('eb') !== '0';
   if (q.has('rng')) state.rng = q.get('rng') !== '0';
+  if (q.has('z')) { const z = q.get('z').split(',').map(Number); state.zoom = z.length === 4 && z.every(isFinite) && z[0] < z[1] && z[2] < z[3] ? z : null; }
   if (q.has('a')) { state.global = {}; for (const part of q.get('a').split(';').filter(Boolean)) { const [k, v] = part.split('='); if (k && v !== undefined && isFinite(+v)) state.global[k] = +v; } }
   if (q.has('s')) { state.per = {}; for (const part of q.get('s').split(';').filter(Boolean)) { const m = part.match(/^([^:]+):([^=]+)=(.+)$/); if (m && isFinite(+m[3])) (state.per[m[1]] = state.per[m[1]] || {})[m[2]] = +m[3]; } }
 }
@@ -33,6 +34,7 @@ export function encode(forPage) {
     if (state.unit !== 'acc') q.set('unit', state.unit);
     if (!state.eb) q.set('eb', '0');
     if (!state.rng) q.set('rng', '0');
+    if (state.zoom) q.set('z', state.zoom.map((v) => +v.toFixed(3)).join(','));
   }
   const a = Object.entries(state.global).map(([k, v]) => k + '=' + v).join(';');
   if (a) q.set('a', a);

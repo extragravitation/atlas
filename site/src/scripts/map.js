@@ -4,14 +4,14 @@
 import { loadData, adjusted, anyChange, ringed } from './model.js';
 import { state, set, onChange } from './state.js';
 import { css, plain } from './ui.js';
-import { setup, axes, sci, showTip } from './draw.js';
+import { setup, axes, sci, showTip, niceStep } from './draw.js';
 import { wireSliders } from './sliders.js';
 
 const BASE = document.documentElement.dataset.base || '/';
 const $ = (id) => document.getElementById(id);
 const COLOR = { 'aeg-d-sparc': '--sparc', 'aeg-d-xcop': '--xcop', 'aeg-d-kids1000-rar': '--kids' };
 const LBL = JSON.parse($('map-labels').textContent);
-let D = null, hits = [], hover = null, cache = null;
+let D = null, hits = [], hover = null, cache = null, geom = null, brush = null;
 
 const lg = (v) => (v > 0 ? Math.log10(v) : null);
 // Lenses (D-030): the same measurements in different framings. Spherical-equivalent enclosed mass
@@ -22,8 +22,12 @@ const speedOf = (g, r) => (g > 0 && r > 0 ? Math.sqrt(g * r * KPC) / 1000 : null
 const RADIAL = ['rad', 'mass', 'speed'];
 function colorFor(d, row) { return state.col === 'channel' ? css(row.channel === 'lensing' ? '--kids' : '--sparc') : css(COLOR[d.name] || '--sparc'); }
 
+let cacheKey = null;
 function compute() {
-  // Adjusted values for every row, once per state change.
+  // Adjusted values for every row, recomputed only when an assumption changes (not on zoom or pan).
+  const key = JSON.stringify([state.global, state.per]);
+  if (key === cacheKey && cache) return;
+  cacheKey = key;
   cache = D.datasets.map((d) => d.rows.map((r) => adjusted(d, r)));
 }
 
@@ -36,23 +40,37 @@ function ranges() {
 }
 const VIEWS = ['obs', 'ex', 'mass', 'rad', 'speed'];
 
+// Zoom (reader's choice, kept in the address as z=x0,x1,y0,y1): the plotted window only; it never
+// changes which measurements exist or their values.
+function view() {
+  const base = ranges(), z = state.zoom;
+  if (!z) return { base, rg: base, zoomed: false };
+  const cl = (a, lo, hi) => Math.min(hi, Math.max(lo, a));
+  const x0 = cl(z[0], base.x[0], base.x[1]), x1 = cl(z[1], base.x[0], base.x[1]), y0 = cl(z[2], base.y[0], base.y[1]), y1 = cl(z[3], base.y[0], base.y[1]);
+  if (x1 - x0 < 1e-3 || y1 - y0 < 1e-3) return { base, rg: base, zoomed: false };
+  return { base, rg: { x: [x0, x1], y: [y0, y1] }, zoomed: true };
+}
+
 function draw() {
-  const box = $('figbox'), fig = $('fig'), W = box.clientWidth, narrow = W < 560, rg = ranges();
-  const L = 58, R = 14, T = 12, B = 46, pw = W - L - R, ph = rg.equal ? pw * (rg.y[1] - rg.y[0]) / (rg.x[1] - rg.x[0]) : pw * 0.62;
+  const box = $('figbox'), fig = $('fig'), W = box.clientWidth, narrow = W < 560, { base, rg, zoomed } = view();
+  const L = 58, R = 14, T = 12, B = 46, pw = W - L - R, ph = base.equal ? pw * (base.y[1] - base.y[0]) / (base.x[1] - base.x[0]) : pw * 0.62;
+  geom = { L, T, pw, ph, rg, base };
   const g = setup(fig, W, Math.round(ph + T + B));
   const P = plain();
   if (!VIEWS.includes(state.view)) state.view = 'obs';
   const v = state.view, n = narrow ? 's' : '';
   const xl = v === 'mass' ? LBL['xm' + n][+P] : RADIAL.includes(v) ? LBL.xr[+P] : (narrow ? LBL.xs[+P] : LBL.x[+P]);
   const yl = v === 'obs' ? (narrow ? LBL.ys[+P] : LBL.y[+P]) : v === 'mass' ? LBL['ym' + n][+P] : v === 'speed' ? LBL['yv' + n][+P] : (narrow ? LBL.yxs[+P] : LBL.yx[+P]);
-  const { X, Y } = axes(g, W, L, T, pw, ph, rg, xl, yl, 1, v === 'obs' || v === 'mass' ? 1 : 0.5, v === 'obs' || v === 'mass' ? 0 : 1);
+  const xs = zoomed ? niceStep(rg.x[1] - rg.x[0]) : 1, ys = zoomed ? niceStep(rg.y[1] - rg.y[0]) : (v === 'obs' || v === 'mass' ? 1 : 0.5);
+  const { X, Y } = axes(g, W, L, T, pw, ph, rg, xl, yl, xs, ys, zoomed ? null : (v === 'obs' || v === 'mass' ? 0 : 1));
   const ink = css('--ink'), alpha = parseFloat(css('--ptAlpha')) || 0.4, moved = anyChange(D.datasets);
   g.save(); g.beginPath(); g.rect(L, T, pw, ph); g.clip();
   g.setLineDash([6, 4]); g.strokeStyle = ink; g.lineWidth = 1.1; g.beginPath();
-  if (v === 'obs' || v === 'mass') { g.moveTo(X(rg.x[0]), Y(rg.x[0])); g.lineTo(X(rg.x[1]), Y(rg.x[1])); } else if (v !== 'speed') { g.moveTo(L, Y(0)); g.lineTo(L + pw, Y(0)); }
+  if (v === 'obs' || v === 'mass') { g.moveTo(X(base.x[0]), Y(base.x[0])); g.lineTo(X(base.x[1]), Y(base.x[1])); } else if (v !== 'speed') { g.moveTo(L, Y(0)); g.lineTo(L + pw, Y(0)); }
   g.stroke(); g.setLineDash([]);
   g.font = 'italic 13px ' + css('--serif'); g.fillStyle = ink;
-  if (v === 'obs') { const lx = narrow ? -12.4 : -12.7; g.save(); g.translate(X(lx), Y(lx) + 14); g.rotate(Math.atan2(Y(-10) - Y(-11), X(-10) - X(-11))); g.textAlign = 'center'; g.fillText(narrow ? LBL.zero[+P] : LBL.line[+P], 0, 0); g.restore(); }
+  if (zoomed) { /* the line's label is placed for the full view only */ }
+  else if (v === 'obs') { const lx = narrow ? -12.4 : -12.7; g.save(); g.translate(X(lx), Y(lx) + 14); g.rotate(Math.atan2(Y(-10) - Y(-11), X(-10) - X(-11))); g.textAlign = 'center'; g.fillText(narrow ? LBL.zero[+P] : LBL.line[+P], 0, 0); g.restore(); }
   else if (v === 'mass') { const lx = 7.2; g.save(); g.translate(X(lx), Y(lx) + 14); g.rotate(Math.atan2(Y(9) - Y(8), X(9) - X(8))); g.textAlign = 'center'; g.fillText(LBL.zerom[+P], 0, 0); g.restore(); }
   else if (v !== 'speed') { g.textAlign = 'left'; g.fillText(LBL.zero[+P], L + 8, Y(0) + 16); }
   hits = []; let nNeg = 0;
@@ -89,7 +107,7 @@ function draw() {
       else if (state.marks !== 'tracks') { g.fillStyle = c; g.globalAlpha = shape === 'hydrostatic' ? 0.8 : alpha; if (shape === 'kinematic') { g.beginPath(); g.arc(x, y, 1.7, 0, 6.2832); g.fill(); } else g.fillRect(x - 1.8, y - 1.8, 3.6, 3.6); g.globalAlpha = 1; }
       if (ringed(r.flags)) { g.strokeStyle = css('--flag'); g.lineWidth = 0.7; g.beginPath(); g.arc(x, y, 3.6, 0, 6.2832); g.stroke(); }
       if (r.system_id && state.per[r.system_id]) { g.strokeStyle = css('--range'); g.lineWidth = 1; g.strokeRect(x - 3.5, y - 3.5, 7, 7); }
-      hits.push({ x, y, d, r, q });
+      if (x >= L && x <= L + pw && y >= T && y <= T + ph) hits.push({ x, y, d, r, q });
     });
   });
   // selected system as a highlighted track
@@ -101,7 +119,10 @@ function draw() {
     if (pts.length) { const l = pts[pts.length - 1]; g.font = '600 13px ' + css('--sans'); g.textAlign = 'left'; g.fillText(s.name_in_source, l[0] + 8, l[1] + 4); }
   }
   if (hover) { g.strokeStyle = ink; g.lineWidth = 1.5; g.beginPath(); g.arc(hover.x, hover.y, 6, 0, 6.2832); g.stroke(); }
+  if (brush) { g.fillStyle = css('--sel'); g.globalAlpha = 0.08; g.fillRect(brush.x0, brush.y0, brush.x1 - brush.x0, brush.y1 - brush.y0); g.globalAlpha = 1; g.strokeStyle = css('--sel'); g.lineWidth = 1; g.setLineDash([4, 3]); g.strokeRect(brush.x0, brush.y0, brush.x1 - brush.x0, brush.y1 - brush.y0); g.setLineDash([]); }
   g.restore();
+  $('zoom-reset').disabled = !zoomed; $('zoom-out').disabled = !zoomed;
+  $('zoom-state').textContent = zoomed ? (P ? 'Zoomed in.' : 'Zoomed: ' + rg.x.map((a) => a.toFixed(2)).join(' to ') + ' by ' + rg.y.map((a) => a.toFixed(2)).join(' to ') + '.') : '';
   $('neg-note').textContent = nNeg ? `${nNeg} measurements have g_bar ≤ 0 at these settings (a component pulls outward) and cannot be placed on log axes; they are listed in the downloads.` : '';
   $('fig').setAttribute('aria-label', LBL['aria_' + v][+P]);
   $('lens-note').innerHTML = LBL.lens[v][+P] + (RADIAL.includes(v) && D.datasets.some((d) => !d.systems && !state.hide.includes(d.key)) ? ' ' + LBL.noRadius[+P] : '');
@@ -170,7 +191,7 @@ function nearest(ev) {
 
 export async function start() {
   D = await loadData();
-  document.querySelectorAll('[data-view]').forEach((b) => b.addEventListener('click', () => set({ view: b.dataset.view })));
+  document.querySelectorAll('[data-view]').forEach((b) => b.addEventListener('click', () => set({ view: b.dataset.view, zoom: null })));
   document.querySelectorAll('[data-marks]').forEach((b) => b.addEventListener('click', () => set({ marks: b.dataset.marks })));
   document.querySelectorAll('[data-col]').forEach((b) => b.addEventListener('click', () => set({ col: b.dataset.col })));
   $('err').addEventListener('change', (e) => set({ err: e.target.checked }));
@@ -178,7 +199,9 @@ export async function start() {
   D.datasets.forEach((d) => { const cb = $('ds-' + d.short); if (cb) cb.addEventListener('change', () => set({ hide: cb.checked ? state.hide.filter((k) => k !== d.key) : [...state.hide, d.key] })); });
   $('card-clear').addEventListener('click', () => set({ sel: null }));
   const fig = $('fig'), tip = $('tip'), box = $('figbox');
+  wireZoom(fig);
   fig.addEventListener('mousemove', (ev) => {
+    if (brush || pinch || panning) return;
     const h = nearest(ev); hover = h; draw();
     if (!h) { tip.hidden = true; return; }
     const q = h.q, r = h.r, name = r.system_id ? h.d.sysById[r.system_id].name_in_source : (LBL.bin + (r.x_kids1000_rar_sample ? ' · ' + r.x_kids1000_rar_sample.replace(/_/g, ' ') : ''));
@@ -186,10 +209,124 @@ export async function start() {
     showTip(tip, box, `<b>${name}</b><br>${h.d.title.split(':')[0]}${r.r_kpc !== null && r.r_kpc !== undefined ? ' · r = ' + (q.r_kpc < 10 ? q.r_kpc.toFixed(2) : Math.round(q.r_kpc)) + ' kpc' : ''}<br>g_obs ${sci(q.g_obs)} m s⁻²<br>g_bar ${sci(q.g_bar)} m s⁻²${extra}<br>g_obs / g_bar ${(q.g_obs / q.g_bar).toFixed(2)}${r.flags ? '<br><span style="color:var(--flag)">Flagged: ' + r.flags.replace(/;/g, ', ') + '</span>' : ''}<br><span class="muted">${r.measurement_id}</span>${r.system_id ? '<br><span class="muted">Click to select</span>' : ''}`, h.x, h.y);
   });
   fig.addEventListener('mouseleave', () => { hover = null; tip.hidden = true; draw(); });
-  fig.addEventListener('click', (ev) => { const h = nearest(ev); if (h && h.r.system_id) set({ sel: h.r.system_id }); });
+  fig.addEventListener('click', (ev) => { if (suppressClick) { suppressClick = false; return; } const h = nearest(ev); if (h && h.r.system_id) set({ sel: h.r.system_id }); });
   wireSliders();
   onChange(render);
   window.addEventListener('atlas-theme', render); window.addEventListener('atlas-layer', render);
   new ResizeObserver(() => render()).observe(box);
   render();
+}
+
+// --- Zoom interactions: drag a box, Ctrl/⌘ + wheel, pinch, buttons and keys --------------------
+let suppressClick = false, pinch = null, panMode = false, panning = null;
+const toData = (px, py) => ({ x: geom.rg.x[0] + (px - geom.L) / geom.pw * (geom.rg.x[1] - geom.rg.x[0]), y: geom.rg.y[1] - (py - geom.T) / geom.ph * (geom.rg.y[1] - geom.rg.y[0]) });
+function setZoom(x0, x1, y0, y1) {
+  const b = geom.base, cx = (a) => Math.min(b.x[1], Math.max(b.x[0], a)), cy = (a) => Math.min(b.y[1], Math.max(b.y[0], a));
+  let z = [cx(Math.min(x0, x1)), cx(Math.max(x0, x1)), cy(Math.min(y0, y1)), cy(Math.max(y0, y1))];
+  const full = z[0] <= b.x[0] + 1e-9 && z[1] >= b.x[1] - 1e-9 && z[2] <= b.y[0] + 1e-9 && z[3] >= b.y[1] - 1e-9;
+  if (z[1] - z[0] < (b.x[1] - b.x[0]) / 400 || z[3] - z[2] < (b.y[1] - b.y[0]) / 400) return; // smallest window: 1/400 of the full range
+  set({ zoom: full ? null : z });
+}
+function scaleAbout(fx, fy, cxData, cyData) {
+  const r = geom.rg;
+  setZoom(cxData - (cxData - r.x[0]) * fx, cxData + (r.x[1] - cxData) * fx, cyData - (cyData - r.y[0]) * fy, cyData + (r.y[1] - cyData) * fy);
+}
+function shift(dx, dy) {
+  const r = geom.rg, b = geom.base, w = r.x[1] - r.x[0], h = r.y[1] - r.y[0];
+  const x0 = Math.min(b.x[1] - w, Math.max(b.x[0], r.x[0] + dx * w)), y0 = Math.min(b.y[1] - h, Math.max(b.y[0], r.y[0] + dy * h));
+  setZoom(x0, x0 + w, y0, y0 + h);
+}
+function panTo(r0, dxPx, dyPx) {
+  const b = geom.base, w = r0.x[1] - r0.x[0], h = r0.y[1] - r0.y[0];
+  const x0 = Math.min(b.x[1] - w, Math.max(b.x[0], r0.x[0] - dxPx / geom.pw * w)), y0 = Math.min(b.y[1] - h, Math.max(b.y[0], r0.y[0] + dyPx / geom.ph * h));
+  setZoom(x0, x0 + w, y0, y0 + h);
+}
+function setPanMode(on) {
+  panMode = on; const fig = $('fig');
+  $('zoom-pan').setAttribute('aria-pressed', String(on));
+  fig.classList.toggle('panning', on);
+}
+function wireZoom(fig) {
+  const local = (ev) => { const rc = fig.getBoundingClientRect(); return { x: ev.clientX - rc.left, y: ev.clientY - rc.top }; };
+  const inPlot = (p) => p.x >= geom.L && p.x <= geom.L + geom.pw && p.y >= geom.T && p.y <= geom.T + geom.ph;
+  const touches = new Map();
+  let start = null;
+  fig.addEventListener('pointerdown', (ev) => {
+    if (ev.pointerType === 'touch') {
+      touches.set(ev.pointerId, local(ev));
+      if (touches.size === 2) { const [a, b] = [...touches.values()]; pinch = { d: Math.hypot(a.x - b.x, a.y - b.y), c: { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 }, rg: { x: [...geom.rg.x], y: [...geom.rg.y] } }; }
+      return;
+    }
+    const p = local(ev); if (!inPlot(p)) return;
+    if (ev.button === 1 || (ev.button === 0 && panMode)) { // middle button, or pan mode: drag to pan
+      ev.preventDefault(); panning = { p, rg: { x: [...geom.rg.x], y: [...geom.rg.y] }, moved: false }; fig.setPointerCapture(ev.pointerId); fig.classList.add('grabbing'); return;
+    }
+    if (ev.button !== 0) return;
+    start = p; fig.setPointerCapture(ev.pointerId);
+  });
+  // Stop the browser's own middle-button autoscroll over the chart.
+  fig.addEventListener('mousedown', (ev) => { if (ev.button === 1) ev.preventDefault(); });
+  fig.addEventListener('auxclick', (ev) => { if (ev.button === 1) ev.preventDefault(); });
+  fig.addEventListener('pointermove', (ev) => {
+    if (ev.pointerType === 'touch') {
+      if (!touches.has(ev.pointerId)) return;
+      touches.set(ev.pointerId, local(ev));
+      if (panMode && touches.size === 1 && !pinch) {
+        const t = [...touches.values()][0];
+        if (!panning) panning = { p: t, rg: { x: [...geom.rg.x], y: [...geom.rg.y] }, moved: false };
+        else { panning.moved = true; panTo(panning.rg, t.x - panning.p.x, t.y - panning.p.y); }
+        return;
+      }
+      if (pinch && touches.size === 2) {
+        const [a, b] = [...touches.values()], d = Math.hypot(a.x - b.x, a.y - b.y), c = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
+        const k = pinch.d / Math.max(d, 1), r0 = pinch.rg, sx = (r0.x[1] - r0.x[0]) / geom.pw, sy = (r0.y[1] - r0.y[0]) / geom.ph;
+        const cx = r0.x[0] + (pinch.c.x - geom.L) * sx, cy = r0.y[1] - (pinch.c.y - geom.T) * sy;
+        const w = (r0.x[1] - r0.x[0]) * k, h = (r0.y[1] - r0.y[0]) * k, mx = -(c.x - pinch.c.x) * sx * k, my = (c.y - pinch.c.y) * sy * k;
+        const fx = (cx - r0.x[0]) / (r0.x[1] - r0.x[0]), fy = (cy - r0.y[0]) / (r0.y[1] - r0.y[0]);
+        setZoom(cx - fx * w + mx, cx + (1 - fx) * w + mx, cy - fy * h + my, cy + (1 - fy) * h + my);
+      }
+      return;
+    }
+    if (panning) { const p = local(ev), dx = p.x - panning.p.x, dy = p.y - panning.p.y; if (Math.abs(dx) + Math.abs(dy) > 2) { panning.moved = true; $('tip').hidden = true; panTo(panning.rg, dx, dy); } return; }
+    if (!start) return;
+    const p = local(ev), L = geom.L, T = geom.T, R = L + geom.pw, Bm = T + geom.ph;
+    const cx = (v) => Math.min(R, Math.max(L, v)), cy = (v) => Math.min(Bm, Math.max(T, v));
+    if (Math.abs(p.x - start.x) > 4 || Math.abs(p.y - start.y) > 4) { brush = { x0: Math.min(start.x, cx(p.x)), x1: Math.max(start.x, cx(p.x)), y0: Math.min(start.y, cy(p.y)), y1: Math.max(start.y, cy(p.y)) }; $('tip').hidden = true; draw(); }
+  });
+  const end = (ev) => {
+    if (ev.pointerType === 'touch') { touches.delete(ev.pointerId); if (touches.size < 2) pinch = null; if (panning && touches.size === 0) { if (panning.moved) suppressClick = true; panning = null; } return; }
+    if (panning) { if (panning.moved) suppressClick = true; panning = null; fig.classList.remove('grabbing'); return; }
+    if (!start) return;
+    const b = brush; start = null; brush = null;
+    if (b && b.x1 - b.x0 > 8 && b.y1 - b.y0 > 8) { suppressClick = true; const p0 = toData(b.x0, b.y1), p1 = toData(b.x1, b.y0); setZoom(p0.x, p1.x, p0.y, p1.y); }
+    else draw();
+  };
+  fig.addEventListener('pointerup', end); fig.addEventListener('pointercancel', end);
+  fig.addEventListener('dblclick', () => set({ zoom: null }));
+  fig.addEventListener('wheel', (ev) => {
+    // Inside the plot the wheel zooms about the pointer: forward in, backward out. Outside the plot,
+    // or backward at the full view (nothing further to zoom out to), the page scrolls as usual.
+    const p = local(ev); if (!inPlot(p)) return;
+    const dy = ev.deltaMode === 1 ? ev.deltaY * 33 : ev.deltaY;
+    if (dy > 0 && !state.zoom) return;
+    ev.preventDefault();
+    const d = toData(p.x, p.y), f = Math.exp(Math.sign(dy) * Math.min(Math.abs(dy), 300) * 0.002);
+    scaleAbout(f, f, d.x, d.y);
+  }, { passive: false });
+  fig.addEventListener('keydown', (ev) => {
+    const r = geom.rg, c = { x: (r.x[0] + r.x[1]) / 2, y: (r.y[0] + r.y[1]) / 2 };
+    const k = ev.key;
+    if (k === '+' || k === '=') scaleAbout(0.67, 0.67, c.x, c.y);
+    else if (k === '-' || k === '_') scaleAbout(1.5, 1.5, c.x, c.y);
+    else if (k === '0') set({ zoom: null });
+    else if (k === 'p' || k === 'P') setPanMode(!panMode);
+    else if (k === 'ArrowLeft') shift(-0.2, 0); else if (k === 'ArrowRight') shift(0.2, 0);
+    else if (k === 'ArrowUp') shift(0, 0.2); else if (k === 'ArrowDown') shift(0, -0.2);
+    else return;
+    ev.preventDefault();
+  });
+  $('zoom-in').addEventListener('click', () => { const r = geom.rg; scaleAbout(0.67, 0.67, (r.x[0] + r.x[1]) / 2, (r.y[0] + r.y[1]) / 2); });
+  $('zoom-out').addEventListener('click', () => { const r = geom.rg; scaleAbout(1.5, 1.5, (r.x[0] + r.x[1]) / 2, (r.y[0] + r.y[1]) / 2); });
+  $('zoom-reset').addEventListener('click', () => set({ zoom: null }));
+  $('zoom-pan').addEventListener('click', () => setPanMode(!panMode));
 }
