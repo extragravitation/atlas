@@ -10,7 +10,8 @@ A first public release that a working astronomer would find useful and cite, and
 
 **In v0.1**
 - **The map:** ▲ observed-against-baryonic view by default (D-012), excess and radius views; dynamics and lensing channels; filters by the source's class labels; linked object card; shareable view addresses; ▲ **Technical · Plain language** switch, Technical by default (D-008).
-- **System pages:** all measurements, profile chart where available, sources, licence or archival terms, citation, download; ▲ per-measurement flags (stars measured or modelled; named assumptions).
+- **System pages:** ▲ the pull budget (components against g_obs, with uncertainty, assumption ranges and the share g_bar / g_obs), an orbital-speed view, all measurements, per-system assumptions, sources, licence or archival terms, citation, download; per-measurement flags (stars measured or modelled; named assumptions). Structure: `MASTER_PLAN_v2.md` §5.
+- ▲ **Scale strip:** coverage of every system across radius, shaded by the discrepancy, with the empty ranges shown.
 - **Dataset pages:** method, selection, assumptions, licence, citation, checksums, ▲ reproduction-test result, change history.
 - ▲ **Known issues** page and a Validation panel on each dataset page (D-020).
 - **Data:** ECSV downloads with units and column labels, plus generated CSV and Parquet; the data standard; the changelog.

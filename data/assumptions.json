@@ -1,5 +1,5 @@
 {
-  "standard_version": "1.2.1",
+  "standard_version": "1.3.0",
   "rules": "Effects of one assumption are evaluated simultaneously against the row as it was before that assumption; assumptions apply in the order listed here. Formulas use the language of docs/data-standard.md §6.",
   "assumptions": [
     {
@@ -8,6 +8,7 @@
       "name_plain": "How much mass each unit of starlight in the disc stands for",
       "adjustable": true,
       "status": "confirmed",
+      "scope": "dataset",
       "parameter": {
         "unit": "solMass / solLum"
       },
@@ -49,6 +50,7 @@
       "name_plain": "How much mass each unit of starlight in the central bulge stands for",
       "adjustable": true,
       "status": "confirmed",
+      "scope": "dataset",
       "parameter": {
         "unit": "solMass / solLum"
       },
@@ -90,6 +92,7 @@
       "name_plain": "How far away the galaxy is",
       "adjustable": true,
       "status": "confirmed",
+      "scope": "system",
       "parameter": {
         "unit": "published one-sigma errors from the catalogue distance"
       },
@@ -127,6 +130,7 @@
       "name_plain": "How tilted the disc is as we see it",
       "adjustable": true,
       "status": "confirmed",
+      "scope": "system",
       "parameter": {
         "unit": "published one-sigma errors from the catalogue inclination"
       },
@@ -211,6 +215,7 @@
       "name_plain": "How much of the gas's support against the pull is missed by assuming pressure balance from heat alone",
       "adjustable": true,
       "status": "confirmed",
+      "scope": "dataset",
       "parameter": {
         "unit": "dimensionless"
       },
@@ -244,6 +249,7 @@
       "name_plain": "Starlight spread between the galaxies that the star counts leave out",
       "adjustable": true,
       "status": "confirmed",
+      "scope": "dataset",
       "parameter": {
         "unit": "dimensionless"
       },

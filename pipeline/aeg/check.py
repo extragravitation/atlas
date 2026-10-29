@@ -32,7 +32,7 @@ SECRET_PATTERNS = [
     re.compile(r"sk-[A-Za-z0-9_-]{32,}"),               # common API key prefix
 ]
 
-SKIP_DIRS = {".git", "node_modules", "dist", ".venv", "__pycache__", ".pytest_cache"}
+SKIP_DIRS = {".git", "node_modules", "dist", ".astro", ".venv", "__pycache__", ".pytest_cache"}
 TEXT_SUFFIXES = {".md", ".py", ".toml", ".yml", ".yaml", ".json", ".csv", ".cff", ".txt", ".js", ".ts", ".astro", ".html", ".css", ""}
 
 
@@ -57,8 +57,43 @@ def check_no_secrets(root: Path) -> list[str]:
     return problems
 
 
+def check_assumption_registry(path: Path) -> list[str]:
+    """data/assumptions.json follows data standard §6 (1.3.0)."""
+    import json
+    problems = []
+    data = json.loads(path.read_text(encoding="utf-8"))
+    seen = set()
+    for a in data.get("assumptions", []):
+        aid = a.get("id", "?")
+        if aid in seen:
+            problems.append(f"{aid}: duplicate id")
+        seen.add(aid)
+        for key in ("name_technical", "name_plain", "adjustable", "status", "datasets"):
+            if key not in a:
+                problems.append(f"{aid}: missing {key}")
+        if a.get("status") not in ("draft", "confirmed"):
+            problems.append(f"{aid}: status must be draft or confirmed")
+        if a.get("adjustable") and a.get("status") == "confirmed":
+            if a.get("scope") not in ("dataset", "system"):
+                problems.append(f"{aid}: an adjustable assumption needs scope 'dataset' or 'system' (D-014 clarification)")
+            for ds, e in a.get("datasets", {}).items():
+                for key in ("default", "min", "max", "default_ref", "range_ref", "effects"):
+                    if key not in e:
+                        problems.append(f"{aid} {ds}: missing {key}")
+                if all(k in e for k in ("default", "min", "max")) and not (e["min"] <= e["default"] <= e["max"]):
+                    problems.append(f"{aid} {ds}: default outside its range")
+                for eff in e.get("effects", []):
+                    if not {"column", "formula"} <= set(eff):
+                        problems.append(f"{aid} {ds}: an effect needs column and formula")
+        elif "scope" in a and a["scope"] not in ("dataset", "system"):
+            problems.append(f"{aid}: scope must be 'dataset' or 'system'")
+    return problems
+
+
 def run(root: Path = ROOT) -> list[str]:
     problems = check_required_files(root)
+    if (root / "data/assumptions.json").is_file():
+        problems += [f"data/assumptions.json {p}" for p in check_assumption_registry(root / "data/assumptions.json")]
     registry = root / "data/registry/systems.csv"
     if registry.is_file():
         problems += [f"data/registry/systems.csv {p}" for p in check_registry(registry)]
