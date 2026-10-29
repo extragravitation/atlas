@@ -426,6 +426,20 @@ Systems supported by random motions need a ruled method before any of their data
 
 **Data seen at the time of ruling.** As D-028, plus the distance and redshift ranges of the three packages.
 
+## D-034 — Measured, modelled, absent: what each baryon status means
+
+**Ruling (2026-10-29, JvH; on Claude's recommendation, not delegated).** JvH: "agreed". Clarifies D-029 and the status columns of the data standard.
+- **Measured:** the component's distribution is observed in that system: starlight, the 21 cm line, CO or [CI] line emission, X-ray emission. The conversion from what is observed to mass is a registered assumption, adjustable where a published range exists: stellar mass-to-light ratio, the CO-to-molecular-gas conversion factor α_CO or the [CI] abundance, the helium factor, and line ratios when a higher CO transition is observed.
+- **Modelled:** the component is not observed in that system and is inferred from other properties: scaling relations (e.g. gas fraction against stellar mass), fractions taken from simulations, or an assumed profile shape (e.g. X-COP's modelled stars, D-022).
+- **Absent:** not included in g_bar.
+Defaults and ranges for any conversion factor are read at source before a package uses them.
+
+**Reason.** Treating line-derived gas as modelled while starlight with an assumed mass-to-light ratio counts as measured would be inconsistent and would penalise some kinds of galaxy over others. Registering the conversion factor with its published range lets readers see how much a result depends on it.
+
+**Alternative rejected.** Count any component that needs an assumed conversion factor as modelled (inconsistent with stars; would mark almost every gas and stellar component as modelled).
+
+**Data seen at the time of ruling.** As D-033, plus the high-redshift survey (`docs/sources/survey-highz-2026-10-29.md`) and Umetsu et al. 2016 read at source (per-cluster binned convergence profiles shown in figures only; no data release stated).
+
 ---
 
 ## Recorded alongside (not decisions; corrections to the plans)
