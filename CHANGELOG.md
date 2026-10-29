@@ -4,6 +4,7 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
 
 ## Unreleased
 
+- D-039: stellar mass-to-light ratio for star clusters and dwarf galaxies (one model family; per-system defaults; wide asymmetric ranges; counted masses as a cross-check).
 - Selection protocol deposited on Zenodo: DOI 10.5281/zenodo.23780203.
 - Citation metadata: author affiliation and ORCID in `CITATION.cff`; `.zenodo.json` for Zenodo releases.
 - D-025, D-036, D-037: dispersion method for v1.0 (half-light estimator; light-weighted profiles at 80% coverage; published dispersions with a frozen reproduction check); who belongs in the globular-cluster cell. Search logs for A0, A3 and A5 with the ADS step; deviations register (`docs/plans/DEVIATIONS.md`).
