@@ -1,13 +1,13 @@
 # Atlas taxonomy and coverage (draft for ruling, D-028)
 
-**Status: draft, 2026-10-28. Nothing here is ruled.** Proposed with D-028. Once ruled, the list of kinds in §3 is frozen by hash in `data/taxonomy.json` (as tests are) and changes only by a logged decision.
+**Status: draft, 2026-10-28; revised 2026-10-29. Nothing here is ruled.** Proposed with D-028. Once ruled, the list of kinds in §3 is frozen by hash in `data/taxonomy.json` (as tests are) and changes only by a logged decision.
 
 ## 1. Purpose
 
 A field guide is organised by a taxonomy: what kinds of thing exist, how each is recognised, and where each has been seen. For the Atlas the taxonomy does three jobs.
 
 1. **Coverage.** It lists every kind of system in which g_obs and g_bar can be compared, with every way of measuring g_obs. The first public release waits until each cell is either packaged or recorded as a documented gap (D-028).
-2. **Navigation.** Readers move through the Atlas by kind of system and by method, at any scale.
+2. **Navigation.** Readers move through the Atlas by kind of system and by method, at any scale. Kinds are filters and entry points; they never organise the findings (principle 7).
 3. **Neutral selection.** The list is drawn from the literature and fixed before any new data are converted, so the choice of what the Atlas covers cannot follow from what the data show.
 
 ## 2. Principles
@@ -18,25 +18,28 @@ A field guide is organised by a taxonomy: what kinds of thing exist, how each is
 4. **Continuous properties stay continuous.** Size, mass, luminosity, surface brightness, gas fraction and distance to the nearest massive neighbour are axes, never classes. Kinds are coarse and observational; everything finer is a continuous property.
 5. **Gaps are entries.** A kind or method with no obtainable public data appears on the site as an empty cell, with the reason and what would fill it.
 6. **Closed for the first public release.** The list is frozen once ruled. Additions after the release come with a version.
+7. **Kinds never organise the results.** Findings are shown on continuous axes (the map, the scale strip, profiles against radius or acceleration), with kind as a colour, filter or facet. No page states a result per kind ("clusters show…"). A category boundary drawn across a continuous trend would suggest the category explains it.
+8. **Kind and method are entangled, so cross-checks come first.** Most kinds are measured mainly by one method (dwarfs by random motions, discs by rotation, clusters by hot gas and lensing). A difference between kinds can therefore be a difference between methods. Cells where two methods meet on the same systems, or two kinds meet at the same acceleration, are the ones that can separate the two, and they get priority (§5a).
+9. **Every kind states why it is included.** Some kinds are common; some are included because their geometry or composition tests the baseline in a different way. The reason is recorded so the selection is visible.
 
 ## 3. Kinds of system (facet A)
 
 Draft list, from smallest to largest. Scope note: the charter says "from star clusters to galaxy clusters". Wide binaries and the Solar System lie below that range; including them needs JvH's ruling (question 1 in §7).
 
-| # | Kind | Includes | Notes |
-|---|---|---|---|
-| A0 | Planetary system (reference) | the Solar System | Reference points (D-013); g_obs = g_bar is expected at the precision of the ephemerides |
-| A1 | Wide binary stars | pairs separated by about 10³–10⁵ AU | Scope extension |
-| A2 | Open clusters | young and intermediate-age clusters in the disc | |
-| A3 | Globular clusters | Milky Way and nearby-galaxy globular clusters | D-024 |
-| A4 | Rotation-supported galaxies | spirals, dwarf irregulars, low-surface-brightness and rotating ultra-diffuse galaxies | SPARC in hand |
-| A5 | Dispersion-supported dwarf galaxies | dwarf spheroidals, ultra-faint dwarfs, non-rotating ultra-diffuse galaxies | D-024; method D-025 |
-| A6 | Early-type galaxies | ellipticals and lenticulars | |
-| A7 | Galaxies in unusual configurations | tidal dwarf galaxies, polar-ring galaxies | Small samples, but they probe the baseline in different geometries |
-| A8 | Galaxy groups | groups of a few to tens of galaxies | D-024 |
-| A9 | Galaxy clusters, relaxed | | X-COP in hand |
-| A10 | Galaxy clusters, merging | colliding clusters with separate gas and galaxy distributions | Maps, not profiles |
-| — | Beyond clusters | superclusters, cosmological scales | Outside the charter; boundary noted on the site |
+| # | Kind | Includes | Why included | Notes |
+|---|---|---|---|---|
+| A0 | Planetary system (reference) | the Solar System | Newtonian gravity on known masses, tested to high precision: the high-acceleration reference end | Reference points (D-013); g_obs = g_bar is expected at the precision of the ephemerides |
+| A1 | Wide binary stars | pairs separated by about 10³–10⁵ AU | The smallest bound systems reaching low accelerations: G M☉ / (10⁴ AU)² ≈ 6 × 10⁻¹¹ m s⁻², comparable to the outer parts of galaxies; measured without galaxy modelling | Scope extension |
+| A2 | Open clusters | young and intermediate-age clusters in the disc | Small stellar systems of known age and counted stellar mass, without gas | |
+| A3 | Globular clusters | Milky Way and nearby-galaxy globular clusters | Old stellar systems without gas; accelerations from high in the core to low in the outskirts | D-024 |
+| A4 | Rotation-supported galaxies | spirals, dwarf irregulars, low-surface-brightness and rotating ultra-diffuse galaxies | The best-measured kind: profiles over wide ranges of radius and acceleration | SPARC in hand |
+| A5 | Dispersion-supported dwarf galaxies | dwarf spheroidals, ultra-faint dwarfs, non-rotating ultra-diffuse galaxies | Individual systems at the lowest baryonic accelerations measured in single objects | D-024; method D-025 |
+| A6 | Early-type galaxies | ellipticals and lenticulars | The other main galaxy type; measured by tracers other than rotation, and by strong lensing | |
+| A7 | Galaxies in unusual configurations | tidal dwarf galaxies, polar-ring galaxies | Selected for testing power, not frequency: the same ingredients in a different formation history or geometry (tidal debris; two orthogonal planes) | Small samples |
+| A8 | Galaxy groups | groups of a few to tens of galaxies | Between single galaxies and clusters in mass and size | D-024 |
+| A9 | Galaxy clusters, relaxed | | The largest bound systems; hot gas dominates the detected matter; several independent methods on the same systems | X-COP in hand |
+| A10 | Galaxy clusters, merging | colliding clusters with separate gas and galaxy distributions | Gas, galaxies and lensing mass separated on the sky; maps rather than profiles | Maps, not profiles |
+| — | Beyond clusters | superclusters, cosmological scales | Not included | Outside the charter; boundary noted on the site |
 
 "Isolated galaxies" (the KiDS lens sample) is a selection of A4 and A6 galaxies, recorded as an environment selection on a population average, not as a kind.
 
@@ -67,6 +70,21 @@ Status as read at source on 2026-10-28 (three source surveys; URLs and details i
 | A9 Clusters, relaxed | — | — | ○ HeCS caustic profiles 58 | ● X-COP 12 | ○ CLASH 20 (with strong lensing) | ○ CLASH |
 | A10 Clusters, merging | — | — | — | ○ Chandra archive (maps) | ○ Frontier Fields mass maps, 6 | ○ Frontier Fields; El Gordo |
 
+### 5a. Cross-checks (priority cells)
+
+Cells that can separate a difference between kinds from a difference between methods. Overlaps between samples are not yet checked at source.
+
+- **Same systems, two or more methods.**
+  - Relaxed clusters: X-ray hydrostatic (X-COP), lensing (CLASH) and member-galaxy dynamics (HeCS). Which clusters appear in more than one is unverified.
+  - Early-type galaxies: X-ray, strong lensing (SLACS) and globular-cluster orbits (SLUGGS) on the same galaxies, where they overlap (unverified).
+- **Same kind, two methods, different systems.** Rotation-supported galaxies: rotation curves (SPARC) and stacked weak lensing (KiDS) at overlapping g_bar.
+- **Same acceleration, different kinds.** Low g_bar: outer discs (A4), dispersion-supported dwarfs (A5), outskirts of globular clusters (A3), wide binaries (A1) and stacked lensing.
+- **Same kind, two baryon routes.** Clusters with measured and modelled stars (X-COP, D-023).
+
+### 5b. Coverage in continuous space
+
+Complete in kinds is not complete in parameter space. Each release reports how the measurements fill the continuous axes: g_bar, radius, baryonic surface density, and the number of systems and measurements per bin, by method. Empty or thinly covered regions are listed alongside the gaps in §5.
+
 **What the survey shows.**
 - Every kind from A0 to A10 has at least one candidate except open clusters, where the one dispersion study warns against assuming equilibrium.
 - Lensing coverage is thin below clusters: one stacked galaxy dataset (KiDS) and one strong-lensing sample (SLACS). No HSC or DES galaxy-lensing release of g_obs against g_bar was found.
@@ -76,7 +94,7 @@ Status as read at source on 2026-10-28 (three source surveys; URLs and details i
 
 ## 6. Release rule (proposed D-028)
 
-**Proposed ruling.** The first public release covers the taxonomy. It is published when every cell of the ruled coverage matrix is either (a) a shipped package or (b) a documented gap: no public data, data gated with the request on record, or a method not yet ruled, with the reason shown on the site. The taxonomy is frozen by hash before any new dataset is converted. Data packages keep their own versions and land one at a time. The private preview continues and is shown to the outside reader and advisers before release. Amends the charter's "launch v0.1 quickly", D-010 (release rhythm) and the master-plan roadmap; extends D-024.
+**Proposed ruling.** The first public release covers the taxonomy. It is published when every cell of the ruled coverage matrix is either (a) a shipped package or (b) a documented gap: no public data, data gated with the request on record, or a method not yet ruled, with the reason shown on the site. The release also publishes the cross-check status (§5a) and the coverage report on the continuous axes (§5b). Kinds organise coverage and navigation, never the presentation of findings. The taxonomy is frozen by hash before any new dataset is converted. Data packages keep their own versions and land one at a time. The private preview continues and is shown to the outside reader and advisers before release. Amends the charter's "launch v0.1 quickly", D-010 (release rhythm) and the master-plan roadmap; extends D-024.
 
 **Reason.** A first public picture built on some kinds of system answers the Atlas's question before asking it. Fixing the list before converting data keeps the selection independent of the results. A closed list with documented gaps bounds the work.
 
