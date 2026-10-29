@@ -1,10 +1,12 @@
 // Cloudflare Workers configuration (decision D-007, amended 2026-10-28).
-// Static assets only: no server code runs. Cloudflare serves the files in site/public.
+// Static assets only: no server code runs. Cloudflare serves the built site in site/dist.
+// Build command (set in the Cloudflare dashboard, Workers Builds settings):
+//   cd site && npm ci && npm run build
 {
   "name": "extragravitation",
   "compatibility_date": "2026-10-28",
   "assets": {
-    "directory": "./site/public",
+    "directory": "./site/dist",
     "not_found_handling": "404-page"
   },
   // Required by Workers Builds preview builds (one preview per branch and pull request).

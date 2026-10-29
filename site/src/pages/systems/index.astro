@@ -1,0 +1,65 @@
+---
+// Every system in the Atlas, with where it was measured and the range of g_obs / g_bar.
+import Base from '../../layouts/Base.astro';
+import L from '../../components/L.astro';
+import { loadAtlas } from '../../lib/atlas.mjs';
+import { datasetLabel } from '../../lib/labels.mjs';
+
+const atlas = loadAtlas();
+const base = import.meta.env.BASE_URL;
+const items = atlas.systems.map((s) => {
+  const d = atlas.datasets.find((x) => x.key === s.dataset);
+  const rows = s.rows.map((i) => d.measurements.rows[i]);
+  const ratio = rows.filter((r) => r.g_bar > 0).map((r) => r.g_obs / r.g_bar);
+  return { id: s.id, name: s.name, ds: datasetLabel(d.name).t, cls: s.row.class_in_source, n: rows.length,
+    r0: Math.min(...rows.map((r) => r.r_kpc)), r1: Math.max(...rows.map((r) => r.r_kpc)),
+    lo: Math.min(...ratio), hi: Math.max(...ratio), flags: [...new Set(rows.flatMap((r) => (r.flags || '').split(';').filter(Boolean)))].map((f) => f.replace(/_/g, ' ')).join(', ') };
+});
+const fr = (r) => (r < 10 ? r.toFixed(2) : r < 100 ? r.toFixed(1) : Math.round(r).toString());
+const pops = atlas.datasets.filter((d) => !d.systems);
+---
+<Base title="Systems" active="systems">
+  <main class="page-body" style="padding-top:18px">
+    <p class="kicker">Systems · {items.length}</p>
+    <h1><L t="Every system with packaged measurements" p="Every galaxy and cluster in the Atlas" /></h1>
+    <p class="lede"><L t="One row per system, as named in its source. g_obs / g_bar is given as the range over the system’s measured radii, at the source’s default assumptions." p="Each row is one galaxy or cluster. The last columns show how many times stronger the observed pull is than the pull from detected matter, from its lowest to its highest value across the system." /></p>
+    {pops.length > 0 && <p class="small">{pops.map((d) => datasetLabel(d.name).t).join(', ')}: <L t="stacked bins of many galaxies, not single systems; see" p="averages over many galaxies, not single systems; see" /> {pops.map((d) => <a href={`${base}datasets/${d.name}/${d.version}/`}>its dataset page</a>)}.</p>}
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:14px 0 10px">
+      <label class="search" style="width:min(320px,100%)"><span aria-hidden="true">⌕</span><input id="filter" type="search" placeholder="Filter by name, type or dataset" aria-label="Filter systems" /></label>
+      <span class="small" id="count" aria-live="polite"></span>
+    </div>
+    <div tabindex="0" class="tablebox" style="max-height:none">
+      <table id="systems">
+        <thead><tr>
+          <th class="l"><button class="sort" data-k="name" data-t="s">Name</button></th>
+          <th class="l"><button class="sort" data-k="ds" data-t="s">Dataset</button></th>
+          <th class="l"><button class="sort" data-k="cls" data-t="s">Type (source)</button></th>
+          <th><button class="sort" data-k="n" data-t="n">Radii</button></th>
+          <th><button class="sort" data-k="r0" data-t="n">r min (kpc)</button></th>
+          <th><button class="sort" data-k="r1" data-t="n">r max (kpc)</button></th>
+          <th><button class="sort" data-k="lo" data-t="n"><L t="g_obs / g_bar, min" p="Observed ÷ detected, lowest" /></button></th>
+          <th><button class="sort" data-k="hi" data-t="n"><L t="g_obs / g_bar, max" p="Observed ÷ detected, highest" /></button></th>
+          <th class="l">Flags</th>
+        </tr></thead>
+        <tbody>
+          {items.map((s) => <tr data-name={s.name} data-ds={s.ds} data-cls={s.cls} data-n={s.n} data-r0={s.r0} data-r1={s.r1} data-lo={s.lo} data-hi={s.hi}>
+            <td class="l"><a href={`${base}systems/${s.id}/`}>{s.name}</a></td><td class="l">{s.ds}</td><td class="l">{s.cls}</td><td>{s.n}</td><td>{fr(s.r0)}</td><td>{fr(s.r1)}</td><td>{s.lo.toFixed(2)}</td><td>{s.hi.toFixed(2)}</td><td class="l">{s.flags}</td>
+          </tr>)}
+        </tbody>
+      </table>
+    </div>
+  </main>
+  <script>
+    const tb = document.querySelector('#systems tbody'), rows = [...tb.rows], f = document.getElementById('filter'), count = document.getElementById('count');
+    const apply = () => { const q = f.value.trim().toLowerCase(); let n = 0; for (const r of rows) { const show = !q || (r.dataset.name + ' ' + r.dataset.ds + ' ' + r.dataset.cls).toLowerCase().includes(q); r.hidden = !show; n += show; } count.textContent = `${n} of ${rows.length} shown`; };
+    f.addEventListener('input', apply); apply();
+    let last = null, dir = 1;
+    document.querySelectorAll('button.sort').forEach((b) => b.addEventListener('click', () => {
+      const k = b.dataset.k, num = b.dataset.t === 'n'; dir = last === k ? -dir : 1; last = k;
+      rows.sort((a, c) => (num ? (+a.dataset[k] - +c.dataset[k]) : a.dataset[k].localeCompare(c.dataset[k], 'en', { numeric: true })) * dir);
+      rows.forEach((r) => tb.appendChild(r));
+      document.querySelectorAll('th').forEach((th) => th.removeAttribute('aria-sort'));
+      b.closest('th').setAttribute('aria-sort', dir > 0 ? 'ascending' : 'descending');
+    }));
+  </script>
+</Base>

@@ -16,9 +16,27 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: ".node-version"
+          cache: npm
+          cache-dependency-path: site/package-lock.json
       - name: Install pipeline
-        run: pip install -e "pipeline[test]"
+        run: pip install -e "pipeline[test,data]"
       - name: Unit tests
         run: pytest pipeline/tests -q
       - name: Repository checks
         run: python -m aeg.check
+      - name: Install site
+        working-directory: site
+        run: npm ci
+      - name: Site unit tests
+        working-directory: site
+        run: npm test
+      - name: Build site
+        working-directory: site
+        env:
+          AEG_OFFLINE: "1"
+        run: npm run build
+      - name: Site checks (values against the packages, downloads, links, reading layers)
+        run: python -m aeg.site_check site/dist

@@ -121,3 +121,12 @@ export function applyAssumption(row, system, effects, p, p0) {
   for (const eff of effects) out[eff.column] = evaluate(parse(eff.formula), env);
   return out;
 }
+
+// Names a parsed formula refers to (mirrors pipeline/aeg/formula.py names()).
+export function names(n, out = new Set()) {
+  if ("name" in n) out.add(n.name);
+  else if ("neg" in n) names(n.neg, out);
+  else if ("fn" in n) names(n.arg, out);
+  else if ("op" in n) { names(n.l, out); names(n.r, out); }
+  return out;
+}

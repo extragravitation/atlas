@@ -1,0 +1,38 @@
+---
+import Base from '../layouts/Base.astro';
+import L from '../components/L.astro';
+import { loadIssues } from '../lib/issues.mjs';
+import { loadAtlas } from '../lib/atlas.mjs';
+const { items, source, error, at } = await loadIssues();
+const base = import.meta.env.BASE_URL;
+const atlas = loadAtlas();
+const sysOf = {};
+for (const d of atlas.datasets) d.measurements.rows.forEach((r) => { sysOf[r.measurement_id] = r.system_id; });
+const nameOf = Object.fromEntries(atlas.systems.map((s) => [s.id, s.name]));
+const open = items.filter((i) => i.state === 'open'), closed = items.filter((i) => i.state !== 'open');
+---
+<Base title="Known issues" active="issues">
+  <div class="doc">
+    <main>
+      <p class="kicker">Known issues · {open.length} open · {closed.length} resolved</p>
+      <h1><L t="Known issues with the data" p="What we know is wrong or uncertain" /></h1>
+      <p class="lede"><L t="Problems with packaged measurements, shown openly (D-020). Every affected measurement carries a flag and is ringed on the figures; nothing is hidden or removed. Resolved issues move to the corrections log with the release that fixed them." p="When we find a problem with the numbers, it is listed here and the affected points are marked with a ring on every chart. We do not hide them." /></p>
+      <p class="small">{source === 'github' ? `Read from GitHub Issues labelled known-issue at build time (${at}).` : `GitHub could not be reached at build time (${error || 'offline build'}); listed from the package files instead.`} <a href="https://github.com/extragravitation/atlas/issues?q=label%3Aknown-issue">Live list on GitHub</a></p>
+      {items.length === 0 && <p>No known issues.</p>}
+      {items.map((i) => {
+        const systems = [...new Set(i.packages.flatMap((p) => p.measurements.map((m) => sysOf[m]).filter(Boolean)))];
+        const nMeas = i.packages.reduce((s, p) => s + p.measurements.length, 0);
+        return <section class="card" id={`issue-${i.number}`} style="margin-top:18px">
+          <p class="cap">#{i.number} · {i.status}{i.found && ` · found ${i.found}`}{i.closed && ` · resolved ${i.closed}`}</p>
+          <h2 style="font-size:20px"><a href={i.url} style="color:var(--ink)">{i.title}</a></h2>
+          {i.whatHtml && <div class="prose small" set:html={i.whatHtml} />}
+          {i.packages.map((p) => <p class="small" style="margin-top:6px">Dataset <a href={`${base}datasets/${p.name}/${p.version}/`}>{p.dataset}</a> · flag <code>{p.flag}</code> · {p.measurements.length} measurements</p>)}
+          {systems.length > 0 && <p class="small">Systems: {systems.map((s, k) => <>{k > 0 && ', '}<a href={`${base}systems/${s}/`}>{nameOf[s]}</a></>)}</p>}
+          {nMeas > 0 && <details><summary class="small">Measurement IDs ({nMeas})</summary><p class="small" style="font-family:var(--mono);word-break:break-all">{i.packages.flatMap((p) => p.measurements).join(', ')}</p></details>}
+          <p class="small" style="margin-top:6px"><a href={i.url}>Evidence and discussion on GitHub</a></p>
+        </section>;
+      })}
+    </main>
+    <aside class="toc"><p class="cap">Issues</p>{items.map((i) => <a href={`#issue-${i.number}`}>#{i.number}</a>)}<p class="cap" style="margin-top:14px">Report one</p><a href="https://github.com/extragravitation/atlas/issues/new">Open an issue</a></aside>
+  </div>
+</Base>

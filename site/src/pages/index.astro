@@ -1,0 +1,109 @@
+---
+import Base from '../layouts/Base.astro';
+import L from '../components/L.astro';
+import Layer from '../components/Layer.astro';
+import Slider from '../components/Slider.astro';
+import { loadAtlas, ringed } from '../lib/atlas.mjs';
+import { datasetLabel } from '../lib/labels.mjs';
+
+const atlas = loadAtlas();
+const weight = {}, ds = {};
+let flagged = 0;
+for (const d of atlas.datasets) {
+  const lab = datasetLabel(d.name), n = d.measurements.rows.length;
+  flagged += d.measurements.rows.filter((r) => ringed(r.flags)).length;
+  weight[d.key] = d.systems ? `${n.toLocaleString('en')} points from ${d.systems.rows.length} ${lab.units}` : `${n} ${lab.units}`;
+  ds[d.key] = [`${lab.kind_t} (${lab.t})`, `${lab.kind_p} (${lab.p})`];
+}
+const nonPos = atlas.datasets.flatMap((d) => d.measurements.rows.filter((r) => !(r.g_bar > 0)).map((r) => r.measurement_id));
+const labels = {
+  x: ['log g_bar, baryonic acceleration (m s⁻²)', 'Pull from detected matter (log, m s⁻²)'],
+  y: ['log g_obs, observed acceleration (m s⁻²)', 'Observed pull (log, m s⁻²)'],
+  yx: ['log (g_obs / g_bar), acceleration discrepancy', 'Extra pull (log of observed ÷ detected)'],
+  xr: ['log radius (kpc)', 'Distance from the centre (log, kpc)'],
+  xs: ['log g_bar (m s⁻²)', 'Pull from detected matter (log)'], ys: ['log g_obs (m s⁻²)', 'Observed pull (log)'], yxs: ['log (g_obs / g_bar)', 'Extra pull (log)'],
+  line: ['g_obs = g_bar · Newtonian gravity on detected matter', 'No extra pull: Newton’s gravity from the matter we detect'],
+  zero: ['g_obs = g_bar', 'No extra pull'],
+  aria_obs: ['Map of observed against baryonic acceleration for every packaged measurement, log axes, with the line g_obs = g_bar', 'Map of the observed pull against the pull from detected matter for every measurement'],
+  aria_ex: ['Acceleration discrepancy against baryonic acceleration for every packaged measurement', 'Extra pull against the pull from detected matter'],
+  aria_rad: ['Acceleration discrepancy against radius for every packaged measurement with a radius', 'Extra pull against distance from the centre'],
+  ds, weight, flagged: `Ringed: ${flagged} measurements with a reproduction mismatch or the source’s own quality caveat (see Known issues)`, bin: 'Stacked lensing bin',
+};
+const sliders = atlas.datasets.flatMap((d) => d.assumptions.filter((a) => a.adjustable && a.status === 'confirmed' && a.scope === 'dataset').map((a) => ({ a, dataset: d.key })));
+const total = atlas.datasets.reduce((s, d) => s + d.measurements.rows.length, 0);
+---
+<Base title="" active="map" figures={true}>
+  <div class="layout">
+    <aside class="rail" aria-label="Display, filters and assumptions">
+      <div>
+        <p class="cap"><L t="Axes" p="View" /></p>
+        <div class="seg" role="group" aria-label="Axes">
+          <button class="btn" data-view="obs" aria-pressed="true"><L t="Observed" p="Observed pull" /></button>
+          <button class="btn" data-view="ex" aria-pressed="false"><L t="Excess" p="Extra pull" /></button>
+          <button class="btn" data-view="rad" aria-pressed="false"><L t="Radius" p="By distance" /></button>
+        </div>
+      </div>
+      <div>
+        <p class="cap">Datasets</p>
+        {atlas.datasets.map((d) => <label class="check"><input type="checkbox" id={'ds-' + d.short} checked /><span>{datasetLabel(d.name).t} · {weight[d.key]}</span></label>)}
+      </div>
+      <div>
+        <p class="cap"><L t="Marks" p="Show as" /></p>
+        <div class="seg" role="group" aria-label="Marks">
+          <button class="btn" data-marks="points" aria-pressed="true">Points</button>
+          <button class="btn" data-marks="tracks" aria-pressed="false">Tracks</button>
+          <button class="btn" data-marks="both" aria-pressed="false">Both</button>
+        </div>
+        <label class="check" style="margin-top:8px"><input type="checkbox" id="err" /><span><L t="Error bars" p="Uncertainty bars" /></span></label>
+        <p class="cap" style="margin-top:12px">Colour by</p>
+        <div class="seg" role="group" aria-label="Colour by">
+          <button class="btn" data-col="dataset" aria-pressed="true">Dataset</button>
+          <button class="btn" data-col="channel" aria-pressed="false"><L t="Channel" p="Motions or light-bending" /></button>
+        </div>
+      </div>
+      <div class="scope">
+        <p class="cap"><L t="Assumptions · whole datasets" p="Assumptions you can change" /></p>
+        <p class="small"><L t="One value for every system in the dataset, as the sources adopt it. Distance and inclination are set per galaxy, on each galaxy’s own page." p="Each slider changes one assumption for every system in a dataset. Distance and tilt are set one galaxy at a time, on its own page." /></p>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:10px">
+          {sliders.map(({ a, dataset }) => <Slider a={a} dataset={dataset} />)}
+          <label class="check"><input type="checkbox" id="arrows" checked /><span><L t="Movement arrows" p="Show where points move" /></span></label>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+      <p class="kicker">Map · {total.toLocaleString('en')} measurements · three datasets</p>
+      <h1><L t="Observed acceleration against Newtonian gravity on detected matter" p="How much pull we see, against how much the detected matter should give" /></h1>
+      <figure>
+        <div class="figbox" id="figbox">
+          <canvas id="fig" class="cv" role="img" aria-label=""></canvas>
+          <div class="tip" id="tip" hidden></div>
+        </div>
+        <figcaption><b>Figure.</b> <L t="Observed against baryonic acceleration, from the packaged measurements. Dashed: g_obs = g_bar, Newtonian gravity on detected matter. Rings: flagged measurements. No fitted relation is drawn (D-026)." p="Each mark is one measurement. On the dashed line, the detected matter explains all of the pull. Rings mark measurements with a known issue." /> <span id="caption-state"></span></figcaption>
+      </figure>
+      <ul class="legend" id="legend" aria-label="Legend: select a type to show only it"></ul>
+      <p class="hint"><L t="Select a type in the legend to show only it; select it again to show everything. Hover a point for its values; click it to select its system." p="Tap a type in the legend to show only it; tap again for everything. Tap a point to pick its galaxy or cluster." /></p>
+      <p class="hint" id="neg-note"></p>
+      {nonPos.length > 0 && <p class="hint">Not plotted at the defaults: {nonPos.length} measurements with g_bar ≤ 0 (a component pulls outward, so they cannot be placed on log axes): {nonPos.join(', ')}.</p>}
+    </main>
+
+    <aside class="card" aria-label="Selected system">
+      <p class="cap"><L t="Selected system" p="Picked galaxy or cluster" /></p>
+      <div id="card-empty"><h2>None selected</h2><p class="meta"><L t="Click a galaxy or cluster on the map, or search by name. Its measurements are joined in order of radius; its page holds the pull budget." p="Tap any galaxy or cluster on the map, or search for one. Its own page shows how much of its pull the detected matter explains." /></p></div>
+      <div id="card-body" hidden>
+        <h2 id="card-name"></h2>
+        <p class="meta" id="card-meta"></p>
+        <canvas id="card-prof" role="img" aria-label=""></canvas>
+        <p class="small"><span style="color:var(--sel)">●</span> g_obs · <span style="color:var(--bar)">━</span> g_bar</p>
+        <p class="small" id="card-flags"></p>
+        <a class="btn primary" id="card-link" href="#" style="margin-top:10px;min-height:44px"><L t="Open system page · pull budget" p="Open its page" /></a>
+        <button class="btn" type="button" id="card-clear" style="margin-top:6px">Clear selection</button>
+      </div>
+    </aside>
+  </div>
+  <script type="application/json" id="map-labels" set:html={JSON.stringify(labels)}></script>
+  <script>
+    import { start } from '../scripts/map.js';
+    start();
+  </script>
+</Base>

@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+import L from '../components/L.astro';
+import Slider from '../components/Slider.astro';
+import { loadAtlas } from '../lib/atlas.mjs';
+import { datasetLabel } from '../lib/labels.mjs';
+
+const atlas = loadAtlas();
+const withSystems = atlas.datasets.filter((d) => d.systems);
+const pops = atlas.datasets.filter((d) => !d.systems);
+const group = Object.fromEntries(withSystems.map((d) => { const l = datasetLabel(d.name); return [d.key, [`${l.kind_t} · ${l.t}`, `${l.kind_p} · ${l.p}`]]; }));
+const minR = Math.min(...withSystems.flatMap((d) => d.measurements.rows.map((r) => r.r_kpc).filter((r) => r > 0)));
+const labels = {
+  group,
+  empty: [`No packaged measurements\nbelow ${(minR * 1000).toFixed(0)} pc yet.\nStar clusters and dwarf\ngalaxies are being added\n(decision D-024)`, `No measurements\nhere yet.\nStar clusters and\nsmall galaxies\nare coming.`],
+  emptyShort: ['No packaged\ndata yet', 'Nothing\nhere yet'],
+  scale: ['log (g_obs / g_bar), colour scale', 'Extra pull, colour scale (log of observed ÷ detected)'],
+  aria: ['Scale strip: one bar per system across the radii where it was measured, shaded by the acceleration discrepancy', 'One bar per galaxy or cluster, from its centre outward, coloured by how much extra pull was measured'],
+};
+const sliders = atlas.datasets.flatMap((d) => d.assumptions.filter((a) => a.adjustable && a.status === 'confirmed' && a.scope === 'dataset').map((a) => ({ a, dataset: d.key })));
+---
+<Base title="Scale strip" active="strip" figures={true}>
+  <div class="olayout">
+    <main>
+      <p class="kicker">Scale strip · all systems</p>
+      <h1><L t="Where the Atlas has measurements, across scales" p="Where we have measured the pull, from small scales to large" /></h1>
+      <figure>
+        <div class="figbox" id="figbox">
+          <canvas id="fig" class="cv" role="img" aria-label=""></canvas>
+          <div class="tip" id="tip" hidden></div>
+        </div>
+        <figcaption><b>Figure.</b> <L t="One bar per system, spanning the radii where it was measured, shaded by log (g_obs / g_bar) on a continuous scale. Rows sorted by outermost radius. The shaded region on the left has no packaged measurements yet." p="Each bar is one galaxy or cluster, from the innermost to the outermost place it was measured. Brighter colour means more extra pull. The grey area on the left is where the Atlas has no measurements yet." />{pops.length > 0 && <>{' '}{pops.map((d) => datasetLabel(d.name).t).join(', ')}: <L t="stacked bins have no radius and are not shown." p="averages over many galaxies, with no single distance, so not shown here." /></>}</figcaption>
+      </figure>
+      <p class="hint"><L t="Hover a bar for the system; click to open its page. The dataset-wide assumptions recolour the bars." p="Point at a bar to see which system it is; tap to open its page." /></p>
+    </main>
+    <aside class="side">
+      <div>
+        <p class="cap">Datasets</p>
+        {withSystems.map((d) => <label class="check"><input type="checkbox" id={'ds-' + d.short} checked /><span>{datasetLabel(d.name).t} · {d.systems.rows.length} {datasetLabel(d.name).units}</span></label>)}
+      </div>
+      <div class="scope">
+        <p class="cap"><L t="Assumptions · whole datasets" p="Assumptions you can change" /></p>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:10px">
+          {sliders.map(({ a, dataset }) => <Slider a={a} dataset={dataset} />)}
+        </div>
+      </div>
+    </aside>
+  </div>
+  <script type="application/json" id="strip-labels" set:html={JSON.stringify(labels)}></script>
+  <script>
+    import { start } from '../scripts/strip.js';
+    start();
+  </script>
+</Base>

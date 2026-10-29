@@ -1,0 +1,157 @@
+---
+// Methods: definitions, baseline, channels, each dataset's method, assumptions, uncertainties,
+// flags, frozen tests, display choices and known gaps. Facts here are read from the packages'
+// SOURCE.md files and the decision log; dataset-specific numbers are pulled from the registry.
+import Base from '../layouts/Base.astro';
+import L from '../components/L.astro';
+import Layer from '../components/Layer.astro';
+import { loadAtlas } from '../lib/atlas.mjs';
+import { datasetLabel, assumptionLabel, fmtParam } from '../lib/labels.mjs';
+const atlas = loadAtlas();
+const base = import.meta.env.BASE_URL;
+const REPO = 'https://github.com/extragravitation/atlas';
+const D = 'https://github.com/extragravitation/atlas/blob/main/docs/decisions.md';
+const adj = atlas.datasets.flatMap((d) => d.assumptions.filter((a) => a.adjustable && a.status === 'confirmed').map((a) => ({ a, d, e: a.datasets[d.key], k: assumptionLabel(a.id).kind })));
+const nAll = atlas.datasets.reduce((n, d) => n + d.measurements.rows.length, 0), nSparc = atlas.datasets.filter((d) => d.name === 'aeg-d-sparc').reduce((n, d) => n + d.measurements.rows.length, 0);
+const toc = [['quantities', 'What is measured'], ['baseline', 'The baseline'], ['channels', 'Two channels'], ['datasets', 'Each dataset'], ['assumptions', 'Assumptions'], ['uncertainties', 'Uncertainties'], ['flags', 'Flags and known issues'], ['tests', 'Frozen tests'], ['display', 'Display choices'], ['speed', 'Orbital-speed view'], ['gaps', 'Limitations and gaps'], ['vocabulary', 'Vocabulary']];
+---
+<Base title="Methods" active="methods">
+  <div class="doc">
+    <main class="prose">
+      <p class="kicker"><L t="Methods" p="How it works" /></p>
+      <h1><L t="Definitions, baseline and methods" p="How the Atlas works" /></h1>
+      <Layer as="p" class="lede"><Fragment slot="t">The Atlas compares two accelerations at the same place in the same system: the one observed, and the one Newtonian gravity gives from the matter that has been detected. It describes where and by how much they differ. It does not say why.</Fragment><Fragment slot="p">At each place in a galaxy or cluster, the Atlas compares the pull we observe with the pull that the matter we can detect should give. It shows where and by how much they differ. It does not say why.</Fragment></Layer>
+
+      <h2 id="quantities"><L t="What is measured" p="The two numbers" /></h2>
+      <Layer><Fragment slot="t">
+        <ul>
+          <li><b>g_obs</b>, the observed acceleration: inferred from motions (dynamics) or from light-bending (lensing), as the source measured it.</li>
+          <li><b>g_bar</b>, the baryonic acceleration: Newtonian gravity from the baryonic matter the source detected (stars and gas), at the same radius.</li>
+          <li><b>g_obs / g_bar</b>, the acceleration discrepancy. Equal to 1 where Newtonian gravity on detected matter accounts for the observed acceleration.</li>
+        </ul>
+        <p>All accelerations are in m s⁻², radii in kpc. The conventional name for the same comparison is the "mass discrepancy"; the Atlas does not use it, because it presumes the difference is due to mass.</p>
+      </Fragment><Fragment slot="p">
+        <ul>
+          <li><b>Observed pull</b>: how strong gravity is, worked out from how things move or how light bends.</li>
+          <li><b>Pull from detected matter</b>: how strong gravity should be from the stars and gas we can see, using Newton’s law.</li>
+          <li><b>Extra pull</b>: how many times stronger the observed pull is. A value of 1 means no extra pull.</li>
+        </ul>
+      </Fragment></Layer>
+
+      <h2 id="baseline"><L t="The baseline: Newtonian gravity on detected matter" p="What we compare against" /></h2>
+      <Layer><Fragment slot="t">
+        <p>Every comparison is against Newtonian gravity acting on the baryons each source detected, computed by the source or from the source’s published components. Components are kept separate in the tables (stars, disc and bulge where given, cold gas, hot gas) and summed into g_bar. What counts as detected is stated per dataset below; matter a source did not measure is not added. On the map, the dashed line g_obs = g_bar marks this baseline.</p>
+      </Fragment><Fragment slot="p">
+        <p>We always compare with Newton’s gravity from the stars and gas that each study actually measured. We do not add anything they did not measure. On the map, the dashed line shows where the detected matter explains all of the pull.</p>
+      </Fragment></Layer>
+
+      <h2 id="channels"><L t="Two channels: dynamics and lensing" p="Two ways to measure the pull" /></h2>
+      <Layer><Fragment slot="t">
+        <p>Dynamics (rotation curves, hot gas in hydrostatic balance) and gravitational lensing measure g_obs in physically different ways, with different assumptions. They are kept as separate channels in the data and are never combined by default. Marker shape distinguishes them on the map.</p>
+      </Fragment><Fragment slot="p">
+        <p>The pull can be measured from how stars, gas and galaxies move, or from how much the gravity bends light from things behind. These are different methods with different assumptions, so we keep them apart.</p>
+      </Fragment></Layer>
+
+      <h2 id="datasets"><L t="Each dataset" p="Where the numbers come from" /></h2>
+      <p class="small"><L t="As read at source and recorded in each package’s SOURCE.md; full details on the dataset pages." p="Full details are on each dataset’s page." /></p>
+      {atlas.datasets.map((d) => { const lab = datasetLabel(d.name); return <>
+        <h3><a href={`${base}datasets/${d.name}/${d.version}/`}>{lab.t}</a> · <L t={lab.method_t} p={lab.method_p} /></h3>
+        {d.name === 'aeg-d-sparc' && <Layer><Fragment slot="t"><p>{d.systems.rows.length} disc galaxies (Lelli, McGaugh &amp; Schombert 2016). g_obs = V_obs² / R from the rotation curve. g_bar = (|V_gas|V_gas + Υ_disk |V_disk|V_disk + Υ_bul |V_bul|V_bul) / R from the 3.6 μm photometry and the atomic-gas maps (gas mass includes a factor 1.33 for helium). g_bar does not depend on the adopted distance; g_obs does.</p></Fragment><Fragment slot="p"><p>{d.systems.rows.length} spinning disc galaxies. The observed pull comes from how fast stars and gas go round; the pull from detected matter comes from the starlight and the hydrogen gas.</p></Fragment></Layer>}
+        {d.name === 'aeg-d-xcop' && <Layer><Fragment slot="t"><p>{d.systems.rows.length} massive galaxy clusters (X-COP). g_obs = G M_HSE(&lt;r) / r², from the X-ray hydrostatic mass profile (forward method, Ettori et al. 2019). g_bar = G (M_gas + M_★)(&lt;r) / r², from the hot-gas mass (Eckert et al. 2019) and stellar mass (Ghizzardi et al. 2020) profiles. For 5 clusters without measured stellar profiles, the stellar mass is modelled and kept only where the model reproduces the measured clusters (D-023).</p></Fragment><Fragment slot="p"><p>{d.systems.rows.length} big clusters of galaxies. The observed pull comes from how the hot gas between the galaxies is held in place; the pull from detected matter comes from that hot gas plus the stars.</p></Fragment></Layer>}
+        {d.name === 'aeg-d-kids1000-rar' && <Layer><Fragment slot="t"><p>{d.measurements.rows.length} stacked bins of isolated galaxies (Brouwer et al. 2021). g_obs = 4 G ΔΣ from the excess surface density (singular-isothermal-sphere deprojection, validated by the authors against a shape-free method). g_bar from stellar mass plus cold gas treated as a point mass. These are averages over many lens galaxies, not single systems. The authors’ ±0.2 dex stellar-mass systematic is stated in words, not drawn (D-021).</p></Fragment><Fragment slot="p"><p>Averages over many lone galaxies. The pull is measured from how much they bend light from galaxies far behind them. Each point is an average, not one galaxy.</p></Fragment></Layer>}
+      </>; })}
+
+      <h2 id="assumptions"><L t="Assumptions and sliders" p="Assumptions you can change" /></h2>
+      <Layer><Fragment slot="t">
+        <p>Each value rests on assumptions. Those with a published default and a published range are adjustable; the effect of a change is computed from the data by the formulas in the assumption registry (<a href={`${REPO}/blob/main/data/assumptions.json`}>data/assumptions.json</a>), executed identically by the pipeline and in the browser (a build check confirms they agree on every measurement). Nothing is approximated for display.</p>
+        <ul>
+          <li><b>Whole-dataset</b> assumptions take one value for every system in a dataset, as the sources adopt them. Changing one on any page changes it everywhere.</li>
+          <li><b>Per-system</b> assumptions (distance and inclination) move one system within its own published one-sigma error, on that system’s page.</li>
+        </ul>
+        <p>A bar at the top of every page lists any assumption that differs from its default, with a one-click reset. Downloads always hold the source’s defaults.</p>
+      </Fragment><Fragment slot="p">
+        <p>Some numbers depend on choices, such as how much mass a given amount of starlight stands for. Where the published studies give a range, you can move a slider within it and see the effect, computed from the data. Some sliders change a whole dataset; distance and tilt change one galaxy at a time, on its own page.</p>
+      </Fragment></Layer>
+      <div tabindex="0" class="tablebox" style="max-height:none"><table>
+        <thead><tr><th class="l">Assumption</th><th class="l">Dataset</th><th class="l">Scope</th><th>Default</th><th>Range</th></tr></thead>
+        <tbody>{adj.map(({ a, d, e, k }) => <tr><td class="l"><L t={assumptionLabel(a.id).t} p={assumptionLabel(a.id).p} /></td><td class="l">{datasetLabel(d.name).t}</td><td class="l">{a.scope === 'system' ? 'per system' : 'whole dataset'}</td><td>{fmtParam(k, e.default)}</td><td>{k === 'sigma' ? 'published ±1σ' : `${fmtParam(k, e.min)} to ${fmtParam(k, e.max)}`}</td></tr>)}</tbody>
+      </table></div>
+      <p class="small">Sources for every default and range are on the dataset pages and in the registry. Decisions: <a href={`${D}#d-014--v01-assumption-sliders`}>D-014</a>, <a href={`${D}#d-022--x-cop-assumptions-defaults-and-ranges`}>D-022</a>.</p>
+
+      <h2 id="uncertainties"><L t="Uncertainties" p="How sure the numbers are" /></h2>
+      <Layer><Fragment slot="t">
+        <ul>
+          <li><b>SPARC.</b> g_obs: δg_obs = g_obs √[(2δV/V)² + (2δi/tan i)² + (δD/D)²] (arXiv:1610.08981, eq. 2). g_bar: 10 % on the gas and 25 % on the stellar term, combined in quadrature, as recorded in the package.</li>
+          <li><b>X-COP.</b> g_obs: the source’s one-sigma mass errors. g_bar: the source’s gas errors and stellar uncertainty bounds, combined in quadrature separately below and above; modelled stellar masses carry no error.</li>
+          <li><b>KiDS-1000.</b> g_obs: from the source’s one-sigma excess-surface-density error (bias-corrected, as released); the full released covariance is in the download. g_bar: no uncertainty released; the ±0.2 dex systematic is stated on every point.</li>
+        </ul>
+        <p>Error bars are one sigma. The system pages also draw the full published range of each assumption, independent of the current settings.</p>
+      </Fragment><Fragment slot="p">
+        <p>Every number has an uncertainty, shown as a bar or a shaded band. On each system’s page you can also see how far the values could move across the full published range of each assumption.</p>
+      </Fragment></Layer>
+
+      <h2 id="flags"><L t="Flags and known issues" p="Known problems" /></h2>
+      <Layer><Fragment slot="t">
+        <p>Measurements with a reliability question are flagged in the data and ringed on every figure: <code>reproduction_mismatch</code> (the measurement does not reproduce the source’s own published reference) and <code>source_quality_low</code> (the source’s own lowest quality class). Other flags are informational and listed in the tables. Flagged measurements are never removed. Each issue is listed on the <a href={`${base}known-issues/`}>Known issues</a> page (D-020).</p>
+      </Fragment><Fragment slot="p">
+        <p>Points with a known problem stay on the charts, with a ring around them, and each problem is explained on the <a href={`${base}known-issues/`}>Known issues</a> page.</p>
+      </Fragment></Layer>
+
+      <h2 id="tests"><L t="Frozen tests" p="Tests we locked in advance" /></h2>
+      <Layer><Fragment slot="t">
+        <p>Before a dataset is converted, a reproduction test is written that compares the conversion with the source’s own published values, and its file hash is recorded. The test is then run once and its result published, pass or fail (D-005, D-019). A failed test is never re-scored; a package that fails it ships only if its conversion integrity is exact, with the mismatched measurements flagged. The same applies to any test or prediction the Atlas makes. Exploratory work is labelled exploratory.</p>
+      </Fragment><Fragment slot="p">
+        <p>We write each test down and lock it before running it, so the result cannot be bent to fit. Results are published whether they pass or fail.</p>
+      </Fragment></Layer>
+
+      <h2 id="display"><L t="Display choices" p="Why the charts look the way they do" /></h2>
+      <Layer><Fragment slot="t">
+        <ul>
+          <li>The map opens on g_obs against g_bar with the line g_obs = g_bar (D-012): it shows the two measured quantities without transforming either, and the reference line is the Atlas’s own baseline.</li>
+          <li>No fitted relation is drawn (D-026): the data and the Newtonian baseline are shown, nothing else.</li>
+          <li>Points by default; tracks join a system’s points in order of radius on request. The legend states how many points come from how many systems, so densely sampled systems do not read as a population (D-027).</li>
+          <li>Continuous properties are shown with continuous colour scales; no class label carries the result.</li>
+          <li>Measurements with g_bar ≤ 0 (a component pulling outward at that radius, as the source gives it) cannot be placed on logarithmic axes; they are listed under the map and shown on linear axes on their system pages.</li>
+        </ul>
+      </Fragment><Fragment slot="p">
+        <p>The map opens on the simplest picture: observed pull against the pull from detected matter. We do not draw any fitted curve, so you see the data and the Newton line only.</p>
+      </Fragment></Layer>
+
+      <h2 id="speed"><L t="Orbital-speed view" p="Pull as a speed" /></h2>
+      <Layer><Fragment slot="t">
+        <p>System pages can show any acceleration g at radius r as the equivalent circular speed V = √(g r). For rotating discs this is the familiar rotation curve. For clusters it is the speed a circular orbit would need, not a measured speed. Speeds from separate components add in quadrature, so components are drawn as separate lines in this view.</p>
+      </Fragment><Fragment slot="p">
+        <p>Any pull can be turned into the speed something would need to orbit at that distance. For spinning galaxies that is the speed actually measured; for clusters it is only a way of picturing the pull.</p>
+      </Fragment></Layer>
+
+      <h2 id="gaps"><L t="Limitations and gaps" p="What is missing" /></h2>
+      <Layer><Fragment slot="t">
+        <ul>
+          <li>No star clusters, dwarf spheroidal galaxies or galaxy groups yet. They are required before the first public release (D-024), so that the Atlas includes systems where Newtonian gravity on detected matter may suffice and the lowest-acceleration individual systems.</li>
+          <li>Disc galaxies dominate the current measurements ({nSparc.toLocaleString('en')} of {nAll.toLocaleString('en')}).</li>
+          <li>One lensing dataset, of stacked averages; no lensing of individual systems yet.</li>
+          <li>KiDS-bright: the authors state their isolation criterion becomes unreliable for g_bar ≲ 10⁻¹³ m s⁻².</li>
+          <li>X-COP: hydrostatic masses assume the hot gas is in balance; the bias slider spans the published range.</li>
+        </ul>
+      </Fragment><Fragment slot="p">
+        <ul>
+          <li>Star clusters, small round galaxies and groups of galaxies are still being added.</li>
+          <li>Most measurements so far come from spinning disc galaxies.</li>
+        </ul>
+      </Fragment></Layer>
+
+      <h2 id="vocabulary"><L t="Vocabulary" p="Words used" /></h2>
+      <div tabindex="0" class="tablebox" style="max-height:none"><table>
+        <thead><tr><th class="l">Technical</th><th class="l">Plain language</th></tr></thead>
+        <tbody>
+          <tr><td class="l">g_obs, observed acceleration</td><td class="l">observed pull</td></tr>
+          <tr><td class="l">g_bar, baryonic acceleration (Newtonian, detected baryons)</td><td class="l">pull from detected matter</td></tr>
+          <tr><td class="l">g_obs / g_bar, acceleration discrepancy</td><td class="l">extra pull</td></tr>
+          <tr><td class="l">dynamics</td><td class="l">motions</td></tr>
+          <tr><td class="l">gravitational lensing</td><td class="l">light-bending</td></tr>
+        </tbody>
+      </table></div>
+    </main>
+    <aside class="toc"><p class="cap">On this page</p>{toc.map(([id, t]) => <a href={'#' + id}>{t}</a>)}</aside>
+  </div>
+</Base>

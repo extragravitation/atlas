@@ -1,0 +1,60 @@
+---
+import Base from '../layouts/Base.astro';
+import L from '../components/L.astro';
+import Layer from '../components/Layer.astro';
+import { loadAtlas } from '../lib/atlas.mjs';
+import { md } from '../lib/md.mjs';
+const atlas = loadAtlas();
+const base = import.meta.env.BASE_URL;
+const REPO = 'https://github.com/extragravitation/atlas';
+const toc = [['charter', 'Charter'], ['authorship', 'Authorship and AI assistance'], ['interests', 'Competing interests'], ['review', 'Review status'], ['privacy', 'Privacy and analytics'], ['cite', 'How to cite'], ['report', 'Report an error'], ['corrections', 'Corrections'], ['licences', 'Licences']];
+---
+<Base title="About" active="about">
+  <div class="doc">
+    <main class="prose">
+      <p class="kicker">About</p>
+      <h1><L t="About the Atlas" p="About this Atlas" /></h1>
+      <Layer as="p" class="lede"><Fragment slot="t">An open, theory-neutral atlas of the acceleration discrepancy: where and how the observed gravitational acceleration exceeds what Newtonian gravity predicts from detected baryonic matter, from star clusters to galaxy clusters. It describes the observations as carefully as possible, so that they can serve as the test any account of them must pass.</Fragment><Fragment slot="p">Across the universe, things are pulled harder than the matter we can see should pull them. This Atlas maps where, and by how much, as carefully as we can. It does not take sides on why.</Fragment></Layer>
+
+      <h2 id="charter">Charter</h2>
+      <ul>
+        <li><L t="Describe observations; never assume a cause." p="We describe what is measured. We do not say what causes it." /></li>
+        <li><L t="Baseline: Newtonian gravity acting on detected baryonic matter. Dynamics and lensing are separate channels, never merged by default." p="We compare with Newton’s gravity from the matter we detect, and keep motions and light-bending apart." /></li>
+        <li><L t="Every number traces to a published source, with citation, licence, method, assumptions, units and file hash." p="Every number comes from a published study, and you can check it." /></li>
+        <li><L t="Labels never carry the result; continuous properties stay continuous." p="We never sort systems into groups that hide the answer." /></li>
+        <li><L t="Assumptions are shown with their published ranges; their effects are computed from the data." p="We show our assumptions and let you change them within published limits." /></li>
+        <li><L t="Uncertainties and gaps are shown openly; corrections are logged publicly." p="We show what we are unsure of and what is missing, and we log our corrections." /></li>
+        <li><L t="Tests and predictions are frozen by hash before data are seen; results are posted whether they pass or fail." p="Tests are locked before we look, and we publish every result." /></li>
+      </ul>
+      <p class="small"><L t="Decisions that change what the Atlas says or how it measures are recorded, with reasons, in the" p="Every decision is written down, with the reason, in the" /> <a href={`${REPO}/blob/main/docs/decisions.md`}>decision log</a>.</p>
+
+      <h2 id="authorship"><L t="Authorship and AI assistance" p="Who made it" /></h2>
+      <p>The Atlas’s framework, structure and purpose are John van Hemert’s, who rules on every decision. Coding, research and data compilation use AI assistance (Claude, by Anthropic), under his direction and rulings. Every change is a reviewed pull request in the public repository.</p>
+
+      <h2 id="interests"><L t="Competing interests" p="Interests" /></h2>
+      <p class="boxed" data-draft="competing-interests"><b>Draft placeholder.</b> The editor’s competing-interest statement will appear here before release. It is not yet written.</p>
+
+      <h2 id="review"><L t="Review status" p="Has anyone checked it?" /></h2>
+      <p><L t="Not yet externally reviewed. An outside reader is being sought to read the text for neutrality, and advisers from different interpretive positions will be approached after the preview (D-011). Their names and findings will be posted here." p="Not yet. Outside astronomers will be asked to check it, and what they find will be posted here." /></p>
+
+      <h2 id="privacy"><L t="Privacy and analytics" p="Your privacy" /></h2>
+      <p><L t="The site sets no cookies and collects no personal data. Your theme, reading layer and slider settings are kept in your own browser and in the page address only. A cookieless, aggregate page counter (no cookies, no stored IP addresses, no personal data) is planned under D-009; it is not active yet, and this paragraph will say when it is." p="No cookies and no personal data. Your settings stay in your own browser. A simple page counter that stores nothing personal is planned; it is not switched on yet." /></p>
+
+      <h2 id="cite"><L t="How to cite" p="How to cite" /></h2>
+      <p><L t="Please cite the Atlas and the original sources of any data you use (each dataset page lists them). Until the first release has a DOI:" p="Please cite the Atlas, and the original studies of any data you use. Until the first release has a permanent identifier:" /></p>
+      <p class="boxed" style="font-family:var(--mono);font-size:13px">van Hemert, J., Atlas of Extra Gravitation (pre-release), https://extragravitation.org, accessed YYYY-MM-DD.</p>
+      <p class="small">Releases will be archived on Zenodo with a DOI (D-010). A <a href={`${REPO}/blob/main/CITATION.cff`}>CITATION.cff</a> is in the repository. Each system page gives a citation for that system.</p>
+
+      <h2 id="report"><L t="Report an error" p="Found a mistake?" /></h2>
+      <p><L t="Open an issue in the public repository, with the measurement or system identifier if you can. Problems with the data are tracked on the Known issues page." p="Tell us by opening an issue on GitHub. Problems with the data are listed on the Known issues page." /> <a href={`${REPO}/issues/new`}>Open an issue</a> · <a href={`${base}known-issues/`}>Known issues</a></p>
+
+      <h2 id="corrections"><L t="Corrections" p="Corrections" /></h2>
+      <p><L t="No release has been made yet, so there are no corrections to released data. Corrections will be listed here with the release that made them; released data are never overwritten." p="Nothing has been released yet, so nothing has been corrected yet." /></p>
+      <details><summary>Changelog (unreleased work)</summary><div set:html={md(atlas.changelog)} /></details>
+
+      <h2 id="licences"><L t="Licences" p="Reuse" /></h2>
+      <p>Code: MIT. Text, figures and Atlas-produced data tables: CC BY 4.0, except where a source’s terms govern a table; each dataset page states which. See <a href={`${REPO}/blob/main/LICENSE`}>LICENSE</a> and <a href={`${REPO}/blob/main/LICENSE-CONTENT.md`}>LICENSE-CONTENT.md</a>. Fonts: Source Serif 4, Source Sans 3 and Source Code Pro (SIL Open Font License).</p>
+    </main>
+    <aside class="toc"><p class="cap">On this page</p>{toc.map(([id, t]) => <a href={'#' + id}>{t}</a>)}</aside>
+  </div>
+</Base>

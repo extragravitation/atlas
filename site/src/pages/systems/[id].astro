@@ -1,0 +1,164 @@
+---
+// System page (object level): the pull budget of one galaxy or cluster, its facts, its
+// measurements and its citation. All values come from the package tables.
+import Base from '../../layouts/Base.astro';
+import L from '../../components/L.astro';
+import Slider from '../../components/Slider.astro';
+import { loadAtlas, ringed } from '../../lib/atlas.mjs';
+import { datasetLabel, assumptionLabel, sigFig } from '../../lib/labels.mjs';
+
+export function getStaticPaths() {
+  return loadAtlas().systems.map((s) => ({ params: { id: s.id } }));
+}
+
+const atlas = loadAtlas();
+const { id } = Astro.params;
+const sys = atlas.systems.find((s) => s.id === id);
+const d = atlas.datasets.find((x) => x.key === sys.dataset);
+const lab = datasetLabel(d.name);
+const rows = sys.rows.map((i) => d.measurements.rows[i]);
+const base = import.meta.env.BASE_URL;
+const P = sys.props, R = sys.row;
+const applies = (a) => rows.some((r) => (r.adjustable || '').split(';').includes(a.id));
+const adj = d.assumptions.filter((a) => a.adjustable && a.status === 'confirmed' && applies(a));
+const perSys = adj.filter((a) => a.scope === 'system');
+const wide = adj.filter((a) => a.scope === 'dataset');
+const fixed = d.assumptions.filter((a) => !a.adjustable || a.status !== 'confirmed');
+const issues = d.knownIssues.filter((k) => (k.measurements || []).some((m) => rows.some((r) => r.measurement_id === m)) || (k.clusters || []).includes(sys.name));
+const nRinged = rows.filter((r) => ringed(r.flags)).length;
+const otherFlags = [...new Set(rows.flatMap((r) => (r.flags || '').split(';').filter(Boolean)))];
+const rMin = Math.min(...rows.map((r) => r.r_kpc)), rMax = Math.max(...rows.map((r) => r.r_kpc));
+const fmtR = (r) => (r < 10 ? r.toFixed(2) : r < 100 ? r.toFixed(1) : Math.round(r).toString());
+
+// Facts, as the source gives them (names and units from the systems table).
+const facts = [];
+if (d.name === 'aeg-d-sparc') {
+  facts.push(['Type', R.class_in_source]);
+  facts.push(['Distance', `${R.distance_mpc} ± ${R.distance_err_mpc} Mpc`, R.distance_method]);
+  facts.push(['Inclination', `${R.inclination_deg}° ± ${R.inclination_err_deg}°`]);
+  if (P.luminosity_3p6_1e9_solLum !== undefined) facts.push(['Luminosity at 3.6 μm', `${sigFig(P.luminosity_3p6_1e9_solLum * 1e9)} L☉`]);
+  if (P.m_hi_1e9_solMass !== undefined) facts.push(['Atomic hydrogen mass', `${sigFig(P.m_hi_1e9_solMass * 1e9)} M☉`]);
+  if (P.v_flat_km_s) facts.push(['Flat rotation speed (source)', `${P.v_flat_km_s} ± ${P.v_flat_err_km_s} km s⁻¹`]);
+  if (P.quality_flag_Q !== undefined) facts.push(['Source quality flag Q', `${P.quality_flag_Q} (1 high, 2 medium, 3 low)`]);
+  if (P.rotation_curve_refs) facts.push(['Rotation-curve reference code', P.rotation_curve_refs, 'As given in SPARC Table 1']);
+} else if (d.name === 'aeg-d-xcop') {
+  facts.push(['Type', R.class_in_source]);
+  if (P.redshift !== undefined) facts.push(['Redshift', String(P.redshift)]);
+  if (P.r500_kpc !== undefined) facts.push(['R500', `${P.r500_kpc} kpc`, P.r500_mass_ref]);
+  if (P.m500_1e14_solMass !== undefined) facts.push(['M500 (source, hydrostatic)', `${P.m500_1e14_solMass} × 10¹⁴ M☉`, P.r500_mass_ref]);
+  if (P.stars) facts.push(['Stars', P.stars]);
+}
+facts.push(['Radii measured', `${rows.length}, from ${fmtR(rMin)} to ${fmtR(rMax)} kpc`]);
+facts.push(['Method', lab.method_t]);
+
+const names = Object.fromEntries(adj.map((a) => [a.id, assumptionLabel(a.id).short]));
+const cfg = {
+  dataset: d.key, system: sys.id, names,
+  acc: ['Acceleration (10⁻¹⁰ m s⁻²)', 'Pull (10⁻¹⁰ m s⁻²)'],
+  spd: ['Circular speed √(g r) (km s⁻¹)', 'Equivalent orbital speed (km s⁻¹)'],
+  share: ['g_bar / g_obs', 'Share explained'],
+  gbar: ['g_bar, Newtonian gravity on detected matter (total)', 'Pull from all detected matter'],
+  vbar: ['V_bar = √(g_bar r)', 'Orbital speed the detected matter would give'],
+  gobs: ['g_obs, observed', 'Observed pull'],
+  vobs: ['V_obs = √(g_obs r)', 'Observed orbital speed'],
+  rem: ['g_obs − g_bar, the difference', 'Extra pull: observed minus detected'],
+  ebText: 'g_bar uncertainty (one sigma, as the source gives it or as the Atlas propagates it; see Methods)',
+  ariaAcc: [`Pull budget of ${sys.name}: baryonic components stacked against radius, with the observed acceleration as points`, `How much of the pull in ${sys.name} the detected matter explains, at each distance from the centre`],
+  ariaSpeed: [`Speeds of ${sys.name}: circular speed from each baryonic component and from g_obs, against radius`, `Orbital speeds in ${sys.name}: observed, and what the detected matter would give`],
+  ariaShare: [`Share g_bar / g_obs against radius for ${sys.name}`, `Share of the observed pull explained by detected matter in ${sys.name}`],
+  capAcc: ['Baryonic components (Newtonian, from the source) stacked; their sum is g_bar. Points: g_obs. The light band between them is the difference g_obs − g_bar.', 'Coloured layers: the pull from each kind of detected matter, added up. Points: the observed pull. The pale band is the extra pull.'],
+  capSpeed: ['Equivalent circular speed √(g r) for g_obs and for each baryonic component; components add in quadrature, not linearly, so they are drawn as lines.', 'The same accelerations written as orbital speeds. Speeds from the separate kinds of matter do not simply add, so each is drawn as its own line.'],
+};
+const desc = `${sys.name}: ${lab.kind_t.toLowerCase()} in ${lab.t}. Observed acceleration against Newtonian gravity on detected matter at ${rows.length} radii.`;
+const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.name}), dataset ${d.name} ${d.version}. https://extragravitation.org/systems/${sys.id}/. Source: ${d.citation}`;
+---
+<Base title={sys.name} description={desc} active="systems" figures={true}>
+  <div class="olayout">
+    <main class="split">
+      <div class="pre">
+      <p class="kicker"><a href={`${base}systems/`} style="color:inherit">Systems</a> · {lab.t} · {sys.id}</p>
+      <h1>{sys.name}</h1>
+      <p class="lede"><L t={`${R.class_in_source}. ${lab.method_t}. ${rows.length} radii, ${fmtR(rMin)}–${fmtR(rMax)} kpc.`} p={`${lab.one_p || lab.kind_p}. Measured at ${rows.length} distances from the centre, ${fmtR(rMin)} to ${fmtR(rMax)} kpc.`} /></p>
+
+      <h2 id="budget"><L t="Pull budget" p="Where the pull comes from" /></h2>
+      <div class="seg" role="group" aria-label="Units" style="margin-bottom:10px">
+        <button class="btn" data-unit="acc" aria-pressed="true"><L t="Acceleration" p="Pull" /></button>
+        <button class="btn" data-unit="speed" aria-pressed="false"><L t="Circular speed" p="Orbital speed" /></button>
+        <label class="check" style="margin-left:8px"><input type="checkbox" id="show-eb" checked /><span><L t="g_bar uncertainty" p="Uncertainty of detected matter" /></span></label>
+        <label class="check"><input type="checkbox" id="show-rng" checked /><span><L t="Published ranges" p="What the assumptions could do" /></span></label>
+      </div>
+      <figure>
+        <div class="figbox" id="budbox">
+          <canvas id="bud" class="cv" role="img" aria-label=""></canvas>
+          <canvas id="share" role="img" aria-label="" style="margin-top:6px"></canvas>
+          <div class="tip" id="btip" hidden></div>
+        </div>
+        <ul class="legend" id="blegend"></ul>
+        <figcaption id="bcaption"></figcaption>
+      </figure>
+      <p class="hint"><L t="Hover for values at each radius. The ranges show the full published range of each assumption that applies here, whatever the sliders are set to." p="Point at the chart to read the values at each distance." /></p>
+
+      </div>
+      <div class="post">
+      <h2 id="facts"><L t="Facts" p="About this system" /></h2>
+      <dl class="facts">
+        {facts.map(([k, v, note]) => <div><dt>{k}</dt><dd>{v}{note && <span class="small" style="display:block">{note}</span>}</dd></div>)}
+      </dl>
+
+      <h2 id="measurements"><L t="Measurements" p="The numbers" /></h2>
+      <p class="small" id="tnote"></p>
+      <div tabindex="0" class="tablebox" style="margin-top:8px">
+        <table>
+          <thead><tr><th class="l">id</th><th>r (kpc)</th><th>g_obs (m s⁻²)</th><th>−/+ σ</th><th>g_bar (m s⁻²)</th><th>−/+ σ</th><th>g_obs / g_bar</th><th>g_bar / g_obs</th><th class="l">flags</th></tr></thead>
+          <tbody id="tbody">
+            {rows.map((r) => <tr><td class="l">{r.measurement_id.split('/').pop()}</td><td>{r.r_kpc}</td><td>{r.g_obs}</td><td>{r.g_obs_err_lo} / {r.g_obs_err_hi}</td><td>{r.g_bar}</td><td>{r.g_bar_err_lo ?? '–'} / {r.g_bar_err_hi ?? '–'}</td><td>{(r.g_obs / r.g_bar).toFixed(2)}</td><td>{Math.round((r.g_bar / r.g_obs) * 100)}%</td><td class="l">{(r.flags || '').replace(/;/g, ', ')}</td></tr>)}
+          </tbody>
+        </table>
+      </div>
+      <p class="small" style="margin-top:6px"><a href={`${base}downloads/${d.name}/${d.version}/measurements.csv`}>CSV</a> · <a href={`${base}downloads/${d.name}/${d.version}/measurements.ecsv`}>ECSV</a> <L t="(whole dataset, source defaults; filter on system_id)" p="(the whole dataset; this system’s rows have its id)" /> · <a href={`${base}datasets/${d.name}/${d.version}/`}>{d.title}</a></p>
+
+      <h2 id="issues"><L t="Known issues and flags" p="Known problems" /></h2>
+      {issues.length === 0 && otherFlags.length === 0 && <p><L t="No known issues or flags on this system’s measurements." p="Nothing known to be wrong with these measurements." /></p>}
+      {issues.length > 0 && <ul>{issues.map((k) => <li><a href={k.url}>#{k.issue}</a>: {k.title} ({rows.filter((r) => (k.measurements || []).includes(r.measurement_id)).length} of {rows.length} measurements here; ringed on the figures)</li>)}</ul>}
+      {otherFlags.filter((f) => !['reproduction_mismatch', 'source_quality_low'].includes(f)).length > 0 && <p class="small">Other flags: {otherFlags.filter((f) => !['reproduction_mismatch', 'source_quality_low'].includes(f)).join(', ')} (see the dataset page for what each means).</p>}
+
+      <h2 id="cite"><L t="Cite" p="How to cite" /></h2>
+      <p class="boxed" style="font-family:var(--mono);font-size:13px">{cite}</p>
+      {P.rotation_curve_refs && <p class="small"><L t={`Cite also the rotation-curve source, code ${P.rotation_curve_refs} in SPARC Table 1.`} p={`Please also cite the original measurements (code ${P.rotation_curve_refs} in SPARC Table 1).`} /></p>}
+      </div>
+    </main>
+
+    <aside class="side" aria-label="Assumptions for this system">
+      {perSys.length > 0 && <div class="scope sys">
+        <p class="cap"><L t={`Assumptions · this ${lab.unit} only`} p={`Change for this ${lab.unit} only`} /></p>
+        <p class="small"><L t="Moves within the source’s own one-sigma error for this system. Changes nothing elsewhere." p="Each moves within the measured uncertainty for this one system." /></p>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:10px">
+          {perSys.map((a) => <Slider a={a} dataset={d.key} system={sys.id} idPrefix="sys-" />)}
+        </div>
+      </div>}
+      {wide.length > 0 && <div class="scope">
+        <p class="cap"><L t={`Assumptions · all ${lab.t} ${lab.units}`} p={`Change for every ${lab.unit} in ${lab.t}`} /></p>
+        <p class="small"><L t="One value for the whole dataset: moving it here moves it on the map and on every other page." p="These change every system in the dataset, here and on the map." /></p>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:10px">
+          {wide.map((a) => <Slider a={a} dataset={d.key} idPrefix="ds-" />)}
+        </div>
+      </div>}
+      {fixed.length > 0 && <div>
+        <p class="cap"><L t="Fixed assumptions" p="Other assumptions" /></p>
+        <ul class="small" style="padding-left:18px;margin:0">
+          {fixed.map((a) => <li><L t={a.name_technical} p={a.name_plain || a.name_technical} /> · <span class="muted">{a.status === 'confirmed' ? 'fixed at the source’s value' : a.status}</span></li>)}
+        </ul>
+        <p class="small" style="margin-top:6px"><a href={`${base}datasets/${d.name}/${d.version}/#assumptions`}>All assumptions for {lab.t}</a></p>
+      </div>}
+      <div>
+        <p class="cap">On this page</p>
+        <nav class="toc"><a href="#budget"><L t="Pull budget" p="Where the pull comes from" /></a><a href="#facts">Facts</a><a href="#measurements">Measurements</a><a href="#issues">Known issues</a><a href="#cite">Cite</a></nav>
+      </div>
+    </aside>
+  </div>
+  <script type="application/json" id="budget-config" set:html={JSON.stringify(cfg)}></script>
+  <script>
+    import { start } from '../../scripts/budget.js';
+    start();
+  </script>
+</Base>

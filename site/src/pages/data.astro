@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import L from '../components/L.astro';
+import { loadAtlas } from '../lib/atlas.mjs';
+import { datasetLabel } from '../lib/labels.mjs';
+import { md } from '../lib/md.mjs';
+const atlas = loadAtlas();
+const base = import.meta.env.BASE_URL;
+const REPO = 'https://github.com/extragravitation/atlas';
+---
+<Base title="Data and downloads" active="">
+  <div class="doc">
+    <main>
+      <p class="kicker">Data</p>
+      <h1><L t="Data and downloads" p="Get the data" /></h1>
+      <p class="lede"><L t="Every table on this site, as ECSV (with units and column descriptions in the header) and as plain CSV. Values are exactly those in the repository’s packages, at the source’s default assumptions." p="Download every number on this site, in formats that open in a spreadsheet or in analysis code." /></p>
+      <div tabindex="0" class="tablebox" style="max-height:none"><table>
+        <thead><tr><th class="l">Dataset</th><th class="l">Tables</th><th class="l">Package files</th></tr></thead>
+        <tbody>{atlas.datasets.map((d) => { const p = `${base}downloads/${d.name}/${d.version}/`; return <tr>
+          <td class="l"><a href={`${base}datasets/${d.name}/${d.version}/`}>{datasetLabel(d.name).t} {d.version}</a><br><span class="small">{d.measurements.rows.length.toLocaleString('en')} measurements</span></td>
+          <td class="l">{d.files.map((f) => { const s = f.replace(/^tables\//, '').replace(/\.ecsv$/, ''); return <div>{s}: <a href={`${p}${s}.ecsv`}>ECSV</a> · <a href={`${p}${s}.csv`}>CSV</a></div>; })}</td>
+          <td class="l"><a href={`${p}datapackage.json`}>datapackage.json</a><br><a href={`${p}sources.json`}>sources.json</a><br><a href={`${p}checksums.sha256`}>checksums.sha256</a></td>
+        </tr>; })}</tbody>
+      </table></div>
+      <h2><L t="Reproduce everything" p="Rebuild it yourself" /></h2>
+      <p><L t="Every table is rebuilt from the published sources by the conversion scripts in the repository, which check each source file against its recorded hash. Clone the repository and run:" p="Everything can be rebuilt from the original studies with one command:" /></p>
+      <pre class="code">pip install -e "pipeline[test,data]"
+for pkg in data/packages/*/*/; do
+  python -m aeg.fetch "$pkg"      # fetch each source and verify its hash
+  python "$pkg/convert.py"        # rebuild the package tables
+done
+python -m aeg.check               # validate against the data standard
+pytest pipeline/tests data/packages/*/*/tests</pre>
+      <p class="small"><L t="The repository’s automated checks run these steps on every change and fail if any rebuilt table differs from the committed one." p="Our automatic checks do this on every change." /></p>
+      <h2><L t="Data standard" p="How the tables are organised" /></h2>
+      <p><L t="The tables follow the Atlas data standard: identifiers, columns, units, flags and the assumption registry." p="All tables follow one published format." /> <a href={`${REPO}/blob/main/docs/data-standard.md`}>Data standard</a> · <a href={`${REPO}/blob/main/data/assumptions.json`}>Assumption registry</a> · <a href={`${REPO}/blob/main/data/registry/systems.csv`}>System identifiers</a></p>
+      <h2>Changelog</h2>
+      <div class="prose" set:html={md(atlas.changelog)} />
+    </main>
+    <aside class="toc"><p class="cap">Also</p><a href={`${base}datasets/`}>Dataset pages</a><a href={`${base}known-issues/`}>Known issues</a><a href={`${base}about/#cite`}>How to cite</a></aside>
+  </div>
+</Base>

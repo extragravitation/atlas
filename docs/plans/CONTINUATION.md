@@ -6,7 +6,7 @@
 
 **Repository** `github.com/extragravitation/atlas`, `main` protected (pull request plus required checks `checks` and `packages`). Site placeholder live at https://extragravitation.org (Cloudflare Workers static assets, D-007 amended); preview address posted on every pull request.
 
-**Data standard** 1.2.1 (`docs/data-standard.md`). Pipeline package `aeg` (`pipeline/`): `fetch`, `validate`, `check`, `formula`, `formula_check`, `package checksums`.
+**Data standard** 1.3.0 (`docs/data-standard.md`; registry field `scope`, PR #28). Pipeline package `aeg` (`pipeline/`): `fetch`, `validate`, `check`, `formula`, `formula_check`, `site_check`, `package checksums`.
 
 **Three dataset packages merged** (4 297 measurements, 187 systems):
 
@@ -30,7 +30,12 @@ Light theme after the "Journal figure" look (white, serif headings, thin black a
 
 ## Next, in order
 
-1. **Site v0.1 (#14)** on the three datasets: map (default view D-012), SPARC and X-COP object pages, KiDS population page, sliders (formulas executed by `site/src/formula.mjs`), Known issues page (D-020, generated from issues labelled `known-issue`), Validation panels, downloads and citations, Technical · Plain language switch (D-008), dark and light themes, phones. Mockup update (#15) alongside.
+1. **Site v0.1 (#14): first pass built** (branch `site/v0.1-first-pass`, 2026-10-28 evening). Astro static site reading the packages directly; all pages in both layers and themes; `aeg.site_check` verifies served values, downloads, links and layer pairing in CI. Open items:
+   - Cloudflare build command `cd site && npm ci && npm run build` (dashboard; JvH); assets now `site/dist`.
+   - Competing-interest statement on About (placeholder marked as draft; wording is JvH's).
+   - Charts use Canvas 2D; the charter asks for GPU rendering. Benchmark on a phone; switch the renderer (isolated in `site/src/scripts/`) if needed.
+   - Not yet: density layer for the map (D-027), colour by method/class (D-027), Parquet downloads, cookieless counter (D-009), mockup update (#15).
+   - Package text to check: X-COP `datapackage.json` description and `SOURCE.md` cite "D-022" for the modelled-star cut, which D-023 ruled; registry status of `stars_cluster_modelled` is still `draft` (correct under D-022 item 3 until Gonzalez et al. 2013 is read).
 2. **Reading for D-024/D-025**, at source, before any conversion:
    - #21 X-GAP: is there a public release of group profiles, and on what terms?
    - #22 method for dispersion-supported systems: Wolf et al. 2010 (half-light-radius estimator) and alternatives; propose D-025 with options and a recommendation.

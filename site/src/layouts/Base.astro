@@ -1,0 +1,86 @@
+---
+import '@fontsource/source-serif-4/400.css';
+import '@fontsource/source-serif-4/600.css';
+import '@fontsource/source-serif-4/400-italic.css';
+import '@fontsource/source-sans-3/400.css';
+import '@fontsource/source-sans-3/600.css';
+import '@fontsource/source-code-pro/400.css';
+import '../styles/global.css';
+import L from '../components/L.astro';
+import { loadAtlas } from '../lib/atlas.mjs';
+import { assumptionLabel, datasetLabel } from '../lib/labels.mjs';
+
+const { title, description = 'The acceleration discrepancy, from star clusters to galaxy clusters: where the observed acceleration exceeds Newtonian gravity on detected matter.', active = '' } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const atlas = loadAtlas();
+
+// Index of every adjustable assumption, for the changed-assumptions bar on every page.
+const sliderIndex = [];
+for (const d of atlas.datasets) {
+  const lab = datasetLabel(d.name);
+  for (const a of d.assumptions.filter((x) => x.adjustable && x.status === 'confirmed')) {
+    const rowsWith = new Set(d.measurements.rows.filter((r) => (r.adjustable || '').split(';').includes(a.id)).map((r) => r.system_id));
+    const total = d.systems ? d.systems.rows.length : 0;
+    const al = assumptionLabel(a.id);
+    sliderIndex.push({ key: `${d.key}:${a.id}`, id: a.id, dataset: d.key, short: al.short, label_t: al.short, label_p: al.p, scope: a.scope, default: a.datasets[d.key].default, unitKind: al.kind,
+      scopeText: a.scope === 'system' ? 'this system only' : (rowsWith.size === total ? `all ${lab.t} ${lab.units}` : `the ${rowsWith.size} ${lab.t} ${lab.units} it applies to`) });
+  }
+}
+const systemIndex = atlas.systems.map((s) => ({ id: s.id, name: s.name, dataset: s.dataset }));
+const nav = [['map', '', 'Map', 'Map'], ['strip', 'strip/', 'Scale strip', 'Scale strip'], ['systems', 'systems/', 'Systems', 'Systems'], ['datasets', 'datasets/', 'Datasets', 'Datasets'], ['methods', 'methods/', 'Methods', 'How it works'], ['issues', 'known-issues/', 'Known issues', 'Known issues'], ['about', 'about/', 'About', 'About']];
+---
+<!doctype html>
+<html lang="en" data-base={base}>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{title ? `${title} · Atlas of Extra Gravitation` : 'Atlas of Extra Gravitation'}</title>
+  <meta name="description" content={description}>
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml">
+  <script is:inline>
+    try { var t = localStorage.getItem('atlas-theme'); if (t === 'light') document.documentElement.dataset.theme = 'light'; var l = localStorage.getItem('atlas-layer'); if (l === 'plain') document.documentElement.dataset.layer = 'plain'; } catch (e) {}
+  </script>
+</head>
+<body data-figures={Astro.props.figures ? "1" : "0"}>
+  <a class="skip" href="#content">Skip to content</a>
+  <div class="wrap"><div class="page">
+    <header class="site">
+      <a class="brand" href={base}>Atlas of Extra Gravitation</a>
+      <nav class="main" aria-label="Main">
+        {nav.map(([k, href, t, p]) => <a href={base + href} aria-current={active === k ? 'page' : undefined}><L t={t} p={p} /></a>)}
+      </nav>
+      <span class="spacer"></span>
+      <label class="search" for="q">
+        <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="6" cy="6" r="4.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M9.5 9.5L13 13" stroke="currentColor" stroke-width="1.4"/></svg>
+        <span class="skip">Find a system</span>
+        <input id="q" list="systems-list" placeholder="Find a system, e.g. NGC3198 or A1795" autocomplete="off">
+        <datalist id="systems-list">{systemIndex.map((s) => <option value={s.name} />)}</datalist>
+      </label>
+      <div class="seg" role="group" aria-label="Reading layer">
+        <button class="btn" id="lay-t" aria-pressed="true">Technical</button>
+        <button class="btn" id="lay-p" aria-pressed="false">Plain language</button>
+      </div>
+      <div class="seg" role="group" aria-label="Theme">
+        <button class="btn" id="th-d" aria-pressed="true">Dark</button>
+        <button class="btn" id="th-l" aria-pressed="false">Light</button>
+      </div>
+    </header>
+    <div class="changes" id="changes" hidden aria-live="polite"></div>
+    <div id="content"><slot /></div>
+    <footer class="site">
+      <span>Atlas of Extra Gravitation · pre-release, not yet externally reviewed</span>
+      <a href={`${base}data/`}>Data and downloads</a>
+      <a href={`${base}about/#cite`}>How to cite</a>
+      <a href="https://github.com/extragravitation/atlas">Source repository</a>
+      <a href="https://github.com/extragravitation/atlas/issues">Report an error</a>
+    </footer>
+  </div></div>
+  <script type="application/json" id="slider-index" set:html={JSON.stringify(sliderIndex)}></script>
+  <script type="application/json" id="system-index" set:html={JSON.stringify(systemIndex)}></script>
+  <script>
+    import { chrome } from '../scripts/ui.js';
+    chrome();
+  </script>
+</body>
+</html>

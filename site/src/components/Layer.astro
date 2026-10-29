@@ -1,0 +1,7 @@
+---
+// A block in both reading layers (D-008): <Layer><Fragment slot="t">…</Fragment><Fragment slot="p">…</Fragment></Layer>.
+// The build fails if either layer is missing.
+if (!Astro.slots.has('t') || !Astro.slots.has('p')) throw new Error(`Layer: both slots are required on ${Astro.url.pathname}`);
+const Tag = Astro.props.as || 'div';
+---
+<Tag data-l="t" class={Astro.props.class}><slot name="t" /></Tag><Tag data-l="p" class={Astro.props.class}><slot name="p" /></Tag>
