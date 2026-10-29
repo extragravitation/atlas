@@ -440,6 +440,21 @@ Defaults and ranges for any conversion factor are read at source before a packag
 
 **Data seen at the time of ruling.** As D-033, plus the high-redshift survey (`docs/sources/survey-highz-2026-10-29.md`) and Umetsu et al. 2016 read at source (per-cluster binned convergence profiles shown in figures only; no data release stated).
 
+## D-035 — Flexible inclusion with evidence tiers
+
+**Ruling (2026-10-29).** JvH agreed to (a), (b), (d) and (e) as recommended, and delegated (c): "rule on c as to be the most flexible while being scientifically rigorous." His concern: "our criteria might be so restrictive that we'll have trouble finding enough data."
+- (a) **No minimum number of systems** for a cell; N is shown with every dataset.
+- (b) **Tables printed in papers are eligible** (tier 2), transcribed twice independently and reconciled.
+- (c) **Digitised figures are eligible** (tier 3) in any cell where no tier 1 or 2 data exist for the same systems: data points and error bars only; figure hashed with its calibration points; two independent digitisations, their difference added to the uncertainty; authors asked for tables in the next batch, and tier 3 replaced by a new version when they arrive; never in default views, never the sole evidence for a pattern, never scored in a frozen test unless the test says so in advance. Supersedes the earlier practice of not digitising.
+- (d) **A baryon component may be absent** only where the source states it is negligible (quoted) or gives a measured upper limit.
+- (e) **Every measurement carries an evidence tier** (data standard 2.0).
+
+**Reason.** Excluding by format rather than by quality would leave cells empty that published numbers can fill; labelled tiers keep the strength of each measurement visible, and fixing the tier rules before the search keeps flexibility from following the data. Omitting a present component is excluded because it biases the comparison in one direction.
+
+**Alternatives rejected.** Keep minimum N and machine-readable-only (thin coverage for format reasons); allow digitisation without tiers or replacement (blurs evidence strength); allow digitising only for case studies after an unanswered request (requests are on hold, so it would block cells indefinitely).
+
+**Data seen at the time of ruling.** As D-034; no candidate dataset examined or plotted.
+
 ---
 
 ## Recorded alongside (not decisions; corrections to the plans)

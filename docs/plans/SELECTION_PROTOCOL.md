@@ -8,39 +8,48 @@ The general rules are in `docs/plans/TAXONOMY.md` §6. This document adds what �
 
 A dataset is eligible if all of the following hold:
 1. **Both sides.** It gives, per system, per radius or per stacked bin, the observed side (the observables, or a quantity derived from them) and the baryonic side (the observed components, or the quantities they are computed from), or another eligible dataset supplies the missing side for the same systems (recorded as a pairing).
-2. **Machine-readable and public**, or supplied by the authors on request. Values read off figures are never used.
+2. **Published numbers, with an evidence tier** (D-035): tier 1, released machine-readable files (or files supplied by the authors); tier 2, tables printed in a published paper, transcribed twice independently and reconciled; tier 3, values digitised from a published figure, only where no tier 1 or 2 data exist for those systems, on the terms of §1a.
 3. **Not circular.** The observed side does not come from a scaling relation (D-029). Fitted forms are allowed and labelled with `model_dependence`.
 4. **Terms.** Its licence is read per record; it is redistributed only if permitted, otherwise fetched by address and verified by hash (D-004, D-029).
 5. **Independence.** Data independent of datasets already included, or a re-reduction recorded as such, with a precedence rule for default views (D-029).
 6. **Distance or redshift** is given per system or per bin (D-033).
-7. **Statuses.** Each baryon component can be classed measured, modelled or absent (D-034).
+7. **Statuses.** Each baryon component can be classed measured, modelled or absent (D-034). A component may be **absent** only if the source states it is negligible for that kind of system (recorded with the quotation) or gives a measured upper limit; a dataset that simply omits a component that is present is not eligible, because the omission biases the comparison in one direction.
+
+### 1a. Tier 3: digitised figures (D-035)
+
+Allowed in any cell, only where no tier 1 or tier 2 data exist for the same systems, and on these terms:
+- only plotted data points and their error bars, never model curves;
+- the figure's source file is recorded by hash, with its axis calibration points;
+- two independent digitisations with a documented tool; the digitisation uncertainty is taken from their difference and the axis calibration, and added to the published errors;
+- the authors are asked for the tables in the next batch of requests; tier 3 values are replaced by a new dataset version when tables arrive;
+- tier 3 is never shown in default views (it is one filter away), never the sole evidence for a pattern, and never scored in a frozen test unless the test says so in advance.
 
 ## 2. Eligibility per cell
 
-Additions to §1, written before any candidate is examined. "N" is the minimum number of systems for a cell to be filled by a sample; case-study cells take single systems.
+Additions to §1, written before any candidate is examined. There is **no minimum number of systems** (D-035): any eligible dataset fills its cell, and the number of systems and measurements is shown with it.
 
-| Cell | Kind × tracer | Observed side must be | Baryonic side must be | N | Form |
-|---|---|---|---|---|---|
-| A0·orbits | Solar System × planetary orbits | A published bound on an anomalous acceleration from ephemeris fits, with method | Known masses as used in the fit | — | Limit |
-| A1·orbits | Wide binaries × orbits | Per-pair separations and relative velocities (projected or 3D) from Gaia, as released by each team | Per-star photometry or masses, with the mass–magnitude relation named | — | Case study: each team's released sample as a named alternative (D-028) |
-| A2·random | Open clusters × random motions | Internal velocity dispersion (radial-velocity or proper-motion), measured | Stellar mass from counts or photometry | 5 | Single aperture or profile; the source's equilibrium statement recorded |
-| A3·random | Globular clusters × random motions | Velocity-dispersion values or binned profiles measured from stellar velocities; not a dynamical mass alone | Luminosity, or a luminosity profile, with a stellar-population mass-to-light ratio (registered); a dynamical M/L is not a baryonic input | 20 | Profile or single aperture |
-| A4·rotation | Late-type and irregular × rotation | Rotation curves per radius | Stellar (photometric) and gas (HI) components per radius | 10 | Profile |
-| A4/A6·weak lensing | Isolated galaxies, stacked × weak lensing | ΔΣ or g_obs per bin, with covariance | Stellar and gas masses per bin | — | Population average |
-| A5·random | Dwarf spheroidal and ultra-faint × random motions | Velocity dispersion (global, at a stated radius, or a profile); upper limits kept as limits | Luminosity and half-light radius; registered mass-to-light ratio; gas recorded if measured | 10 | Single aperture or profile |
-| A6·rotation | Early-type × HI rings or discs | Ring rotation velocity at stated radius | Stellar photometry | 5 | Single radius or profile |
-| A6·random | Early-type × stellar kinematics | Dispersion or circular-velocity profiles (model-derived allowed, labelled) | Stellar photometry with a named mass-to-light method | 10 | Profile or aperture |
-| A6·orbits | Early-type × globular clusters or planetary nebulae | Released individual or binned tracer velocities | Stellar photometry | 5 | Profile |
-| A6·hot gas | Early-type × X-ray | Hydrostatic mass profiles | Gas and stellar profiles | 5 | Profile |
-| A6·strong lensing | Early-type × strong lensing | Mass within the Einstein radius | Stellar mass from photometry, IMF named | 20 | Single aperture (projected) |
-| A7·any | Unusual configurations | Per-object data, either tracer | Per-object components | 1 | Case study |
-| A8·hot gas | Groups × X-ray | Hydrostatic mass profiles | Gas profiles; stars if available | 5 | Profile |
-| A8·weak lensing | Groups × weak lensing | Per-system or stacked ΔΣ profiles | Gas and stellar masses on comparable radii | 5 | Profile or average |
-| A9·orbits | Clusters × member galaxies | Caustic or Jeans mass profiles from member velocities | Gas (and stars) for the same clusters, possibly from a paired dataset | 5 | Profile |
-| A9·hot gas | Clusters × X-ray | Hydrostatic mass profiles | Gas and stellar profiles | 5 | Profile |
-| A9·lensing | Clusters × weak/strong lensing | Binned profiles, or quantities evaluated from fits (labelled) | Gas profiles for the same clusters; stars if available | 5 | Profile (projected) |
-| A10·maps | Colliding clusters × lensing and X-ray | Lensing mass (κ) maps as files with coordinates | X-ray maps of the same cluster | 1 | Map, case study |
-| Epoch | z ≳ 0.3, any kind | As the kind's cell | As the kind's cell | — | Declared a gap for v1.0 (D-033) |
+| Cell | Kind × tracer | Observed side must be | Baryonic side must be | Form |
+|---|---|---|---|---|
+| A0·orbits | Solar System × planetary orbits | A published bound on an anomalous acceleration from ephemeris fits, with method | Known masses as used in the fit | Limit |
+| A1·orbits | Wide binaries × orbits | Per-pair separations and relative velocities (projected or 3D) from Gaia, as released by each team | Per-star photometry or masses, with the mass–magnitude relation named | Case study: each team's released sample as a named alternative (D-028) |
+| A2·random | Open clusters × random motions | Internal velocity dispersion (radial-velocity or proper-motion), measured | Stellar mass from counts or photometry | Single aperture or profile; the source's equilibrium statement recorded |
+| A3·random | Globular clusters × random motions | Velocity-dispersion values or binned profiles measured from stellar velocities; not a dynamical mass alone | Luminosity, or a luminosity profile, with a stellar-population mass-to-light ratio (registered); a dynamical M/L is not a baryonic input | Profile or single aperture |
+| A4·rotation | Late-type and irregular × rotation | Rotation curves per radius | Stellar (photometric) and gas (HI) components per radius | Profile |
+| A4/A6·weak lensing | Isolated galaxies, stacked × weak lensing | ΔΣ or g_obs per bin, with covariance | Stellar and gas masses per bin | Population average |
+| A5·random | Dwarf spheroidal and ultra-faint × random motions | Velocity dispersion (global, at a stated radius, or a profile); upper limits kept as limits | Luminosity and half-light radius; registered mass-to-light ratio; gas recorded if measured | Single aperture or profile |
+| A6·rotation | Early-type × HI rings or discs | Ring rotation velocity at stated radius | Stellar photometry | Single radius or profile |
+| A6·random | Early-type × stellar kinematics | Dispersion or circular-velocity profiles (model-derived allowed, labelled) | Stellar photometry with a named mass-to-light method | Profile or aperture |
+| A6·orbits | Early-type × globular clusters or planetary nebulae | Released individual or binned tracer velocities | Stellar photometry | Profile |
+| A6·hot gas | Early-type × X-ray | Hydrostatic mass profiles | Gas and stellar profiles | Profile |
+| A6·strong lensing | Early-type × strong lensing | Mass within the Einstein radius | Stellar mass from photometry, IMF named | Single aperture (projected) |
+| A7·any | Unusual configurations | Per-object data, either tracer | Per-object components | Case study |
+| A8·hot gas | Groups × X-ray | Hydrostatic mass profiles | Gas profiles; stars if available | Profile |
+| A8·weak lensing | Groups × weak lensing | Per-system or stacked ΔΣ profiles | Gas and stellar masses on comparable radii | Profile or average |
+| A9·orbits | Clusters × member galaxies | Caustic or Jeans mass profiles from member velocities | Gas (and stars) for the same clusters, possibly from a paired dataset | Profile |
+| A9·hot gas | Clusters × X-ray | Hydrostatic mass profiles | Gas and stellar profiles | Profile |
+| A9·lensing | Clusters × weak/strong lensing | Binned profiles, or quantities evaluated from fits (labelled) | Gas profiles for the same clusters; stars if available | Profile (projected) |
+| A10·maps | Colliding clusters × lensing and X-ray | Lensing mass (κ) maps as files with coordinates | X-ray maps of the same cluster | Map, case study |
+| Epoch | z ≳ 0.3, any kind | As the kind's cell | As the kind's cell | Declared a gap for v1.0 (D-033) |
 
 ## 3. Search procedure (per cell)
 
