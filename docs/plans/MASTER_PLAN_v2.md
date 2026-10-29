@@ -116,7 +116,7 @@ As v1. ▲ The mockup is updated to D-008, D-012 and the plain-language correcti
 | **Packages** | One per eligible dataset, under 2.0.0, each with a blind second reading and a frozen test |
 | **Preview 3** | New kinds as their packages land: case studies, colliding-cluster maps, surface-density lens |
 | **v1.0** | Release gate met (TAXONOMY §7); outside review of the complete v1.0, before publication (D-032); DOI |
-| **After v1.0** | Patterns; accounts pages; v2 of the first three packages under 2.0.0; API and Python package; methods paper (JOSS and arXiv) |
+| **After v1.0** | High-redshift cell if eligible data exist (D-033); general plot builder in the exploration layer (D-033); patterns; accounts pages; v2 of the first three packages under 2.0.0; API and Python package; methods paper (JOSS and arXiv) |
 
 ## 9. Governance
 

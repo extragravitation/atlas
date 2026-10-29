@@ -87,6 +87,10 @@ Each tracer has a fixed ladder of step IDs in the standard, from raw data to g_o
 - A frozen precedence rule sets which dataset the default views show when a system appears in several; cross-checks use independent pairs only; coverage counts unique systems.
 - `data/registry/excluded.csv`: systems excluded by a source or by the Atlas (e.g. as out of equilibrium), with the reason and citation. Shown on the site.
 
+### 2g′. Distance and redshift (D-033)
+
+`tables/systems.ecsv` requires `redshift` or `distance_mpc` (both where the source gives both), with the method as the source states it. Population bins record the lenses' redshift range or distribution as released (in `x_selection`). Values are as the source gives them; no conversion between redshift and distance without a registered assumption (H0, cosmology).
+
 ### 2h. Licences
 
 The licence is recorded per source record, read at source (CDS datasets may be CC BY, an open licence or ODbL; a contributor's own licence appears on the dataset page). Tables derived from share-alike sources follow those terms.

@@ -410,6 +410,22 @@ Systems supported by random motions need a ruled method before any of their data
 
 **Data seen at the time of ruling.** As D-028.
 
+## D-033 — Scope in cosmic time; systematics checks; plot builder deferred
+
+**Ruling (2026-10-29, JvH; on Claude's recommendation, not delegated).** JvH: "record D-033 as recommended and run the high-redshift source survey."
+1. **Lenses stay framings of the comparison** (D-030). Redshift is a property of a system, not a lens.
+2. **Redshift or distance in the record.** Data standard 2.0 requires, for every system, the redshift or distance as the source gives it (with its method), and for every stacked bin the lenses' redshift distribution or range as released.
+3. **Coverage report.** The coverage report on continuous axes (TAXONOMY §5b) includes distance or redshift, and states plainly that the current data describe the nearby universe.
+4. **Systematics checks.** The map can colour every measurement by a property its source gives (inclination, distance method, the source's quality flag, distance, redshift). If the comparison were affected by the property, colours would separate at fixed g_bar. No fit is made and no pass or fail is claimed; measurements without the property are shown faint and counted.
+5. **Cosmic epoch is a documented gap for v1.0.** High-redshift sources (z ≳ 0.3) are surveyed under the same protocol; the cell is declared a gap for v1.0 with the reason, and filled after v1.0 if eligible data exist.
+6. **The general plot builder** (any source property against any other) is deferred until after v1.0 and, when built, lives in the exploration layer.
+
+**Reason.** Honest scope (the Atlas is local) and visible systematics checks are cheap and are what a referee looks for first; evolution with cosmic time is scientifically valuable but expensive to fill, because high-redshift baryon inventories often rely on scaling relations; a general builder invites patterns found by chance.
+
+**Alternatives rejected.** Redshift as a lens (wrong category; with current data it would read as "no evolution" when there is no reach in time); filling the high-redshift cell before v1.0 (likely months of delay).
+
+**Data seen at the time of ruling.** As D-028, plus the distance and redshift ranges of the three packages.
+
 ---
 
 ## Recorded alongside (not decisions; corrections to the plans)
