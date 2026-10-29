@@ -110,11 +110,12 @@ As v1. ▲ The mockup is updated to D-008, D-012 and the plain-language correcti
 | Stage | Contents |
 |---|---|
 | **Preview 1** (built) | Site on the three v1 datasets: map, scale strip, system and dataset pages, known issues, methods, about, downloads (PR #29) |
-| **Protocol** | Per-cell eligibility; search protocol and log; data-freeze date; data standard 2.0 text; outside reader asked to review; deposit on Zenodo; test ledger opened for outside predictions |
+| **Preview 2** (D-032) | The full site on the three v1 datasets, at extragravitation.org marked as a pre-release preview, so its address can go with the data requests |
+| **Protocol** | Per-cell eligibility; search protocol and log; data-freeze date; data standard 2.0 text; deposit on Zenodo; test ledger opened for outside predictions |
 | **Methods** | Rulings each cell needs, with deadlines before the data-freeze date: D-025 (systems supported by random motions), lensing projection, stellar mass-to-light per kind, wide-binary case study |
 | **Packages** | One per eligible dataset, under 2.0.0, each with a blind second reading and a frozen test |
-| **Preview 2** | Lenses, As measured panel, kinds and coverage pages, case studies, colliding-cluster maps |
-| **v1.0** | Release gate met (TAXONOMY §7); outside review status stated; DOI |
+| **Preview 3** | New kinds as their packages land: case studies, colliding-cluster maps, surface-density lens |
+| **v1.0** | Release gate met (TAXONOMY §7); outside review of the complete v1.0, before publication (D-032); DOI |
 | **After v1.0** | Patterns; accounts pages; v2 of the first three packages under 2.0.0; API and Python package; methods paper (JOSS and arXiv) |
 
 ## 9. Governance
@@ -122,7 +123,7 @@ As v1. ▲ The mockup is updated to D-008, D-012 and the plain-language correcti
 - JvH rules on decisions that change what the Atlas says or how it measures; they go in `docs/decisions.md` by pull request.
 - ▲ Outside review (D-011): one outside neutrality reader sought from now; v0.1 ships labelled "not yet externally reviewed" if none is complete. Two or three advisers from different interpretive camps approached after the preview.
 - Corrections: logged publicly; released as patch versions.
-- ◆ **Process safeguards (D-031):** every decision records the data seen when it was ruled, whether it was delegated, and JvH's reason; rules changed after a result apply only to later cases unless the outside reader agrees; every number entering a package gets a blind second reading; for at least one in three method decisions JvH rules before seeing the recommendation; AI reviews are labelled and never presented as outside review. Outside review is brought forward to the selection protocol.
+- ◆ **Process safeguards (D-031):** every decision records the data seen when it was ruled, whether it was delegated, and JvH's reason; rules changed after a result apply only to later cases unless the outside reader agrees; every number entering a package gets a blind second reading; for at least one in three method decisions JvH rules before seeing the recommendation; AI reviews are labelled and never presented as outside review. Outside review takes place when v1.0 is complete, before publication (D-032, at risk).
 
 ## 10. Risks
 

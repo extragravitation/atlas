@@ -395,6 +395,21 @@ Systems supported by random motions need a ruled method before any of their data
 
 **Data seen at the time of ruling.** As D-028.
 
+## D-032 — Outside review when v1.0 is complete; full preview site before data requests
+
+**Ruling (2026-10-29, JvH; not delegated).** In his words: "We will delay (at risk) the outside reader - this will happen when v1 is complete. I also want to fully create the site in the absence of data requests, and this way I can forward the site url WITH the request emails so that respondents can see what we are doing."
+1. The outside review (D-011) takes place when v1.0 is complete, before it is published. Amends D-028 item 4 (the taxonomy and selection protocol are frozen and deposited on Zenodo without outside review; the timestamp still precedes any new conversion) and D-031 item 5. The D-019 note stands until the review.
+2. **Risk accepted.** The protocol and the method rulings are frozen without outside review. A flaw found by the reviewer after conversion is corrected as a logged deviation (TAXONOMY §6.7) and may require the selection to be re-run for the affected cells; the release waits for that.
+3. The site is built out on the three existing datasets before the data requests are sent, and its address goes with the requests.
+
+**Implementation (Claude; JvH may overrule).** Until v1.0, extragravitation.org serves the preview, marked on every page as a pre-release preview, not yet reviewed, and excluded from search engines. The pull-request previews remain for review of changes.
+
+**Reason (JvH).** Respondents can see what the data will be used for; the outside reader reviews a complete v1.0 rather than a plan.
+
+**Alternative rejected.** Outside review of the protocol before it is frozen (D-028 as first ruled; slower, and no reader is yet in place).
+
+**Data seen at the time of ruling.** As D-028.
+
 ---
 
 ## Recorded alongside (not decisions; corrections to the plans)

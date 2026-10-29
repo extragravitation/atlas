@@ -1,6 +1,6 @@
 # Atlas taxonomy, coverage and selection protocol (D-028)
 
-**Status: ruled 2026-10-29 (D-028, with D-029 to D-031).** The selection protocol (§6) is a draft: its per-cell eligibility criteria are written next, the outside reader is asked to review it, and it is then frozen by hash in `data/taxonomy.json` and deposited on Zenodo before any new data are converted. After that the list and the protocol change only by a logged decision, recorded in the deviations register.
+**Status: ruled 2026-10-29 (D-028, with D-029 to D-031).** The selection protocol (§6) is a draft: its per-cell eligibility criteria are written next, and it is then frozen by hash in `data/taxonomy.json` and deposited on Zenodo before any new data are converted. After that the list and the protocol change only by a logged decision, recorded in the deviations register.
 
 ## 1. Purpose
 
@@ -108,7 +108,7 @@ Complete in kinds is not complete in parameter space. Each release reports how t
 5. **Gaps.** A cell is a gap only if the logged search found no eligible public data, or a data request has gone unanswered for 8 weeks. "Method not yet ruled" is never a reason; each method ruling a cell needs has a deadline before the data-freeze date.
 6. **Data-freeze date.** Set in the protocol before deposit. Datasets found or released later go to the next version.
 7. **Deviations register.** Any departure from the protocol is logged publicly with its reason and the data seen at the time (D-031).
-8. **Timestamp and review.** The protocol is reviewed by the outside reader (if one replies within 4 weeks), frozen by hash, and deposited on Zenodo before any new conversion.
+8. **Timestamp.** The protocol is frozen by hash and deposited on Zenodo before any new conversion. The outside review takes place when v1.0 is complete (D-032); a flaw it finds is corrected as a logged deviation.
 
 ## 7. Release gate (D-028)
 
