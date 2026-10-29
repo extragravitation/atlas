@@ -26,7 +26,7 @@ Data the site can render (summary given to JvH 2026-10-28): the g_obs–g_bar ma
 
 ## Design direction (agreed 2026-10-28, not a logged decision)
 
-Light theme after the "Journal figure" look (white, serif headings, thin black axes, numbered figure captions); dark theme after the "Observatory" look (near-black, instrument-like). Both share every encoding: shape for method, colour for dataset, rings for flags, dashed line for Newtonian gravity on detected matter. From the "Data desk" look: system search and the filter rail. Exploratory comps (real data, not wired) on the claude.ai canvas "Atlas look options". D-026 and D-027 govern what the map draws.
+Light theme after the "Journal figure" look (white, serif headings, thin black axes, numbered figure captions); dark theme after the "Observatory" look (near-black, instrument-like). Both share every encoding: shape for method, colour for dataset, rings for flags, dashed line for Newtonian gravity on detected matter. From the "Data desk" look: system search and the filter rail. Exploratory comps (real data, not wired) on the claude.ai canvas "Atlas look options". Working prototype on real data: claude.ai page "Atlas Map Prototype" (dark by default). D-026 and D-027 govern what the map draws.
 
 ## Next, in order
 

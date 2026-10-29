@@ -311,6 +311,9 @@ Systems supported by random motions need a ruled method before any of their data
 - Error bars: **off by default** on the map, one click to show; every uncertainty is shown on hover and on the system page.
 - Colour by dataset by default; by method or source class label on request; continuous properties only with continuous scales.
 - A density layer for when the number of points makes overplotting unreadable.
+- Theme: **dark by default**; light on the reader's choice, remembered in their browser. (JvH, 2026-10-28, after the prototype; supersedes "follow the system setting".)
+- Filter by type in one click: selecting a type in the legend shows only that type; selecting it again shows everything.
+- Selection: no system is selected on arrival; selecting one draws its measurements joined in order of radius, labelled with its name, with a clear-selection control.
 - The legend states the weighting in words (for example "X-COP: 861 points from 12 clusters").
 - Display options never change which measurements appear or their values; flagged points stay visible, with their rings, in every mode.
 - Not a display option: one point per system (needs a rule for the representative radius, which is a method choice for a separate ruling).
