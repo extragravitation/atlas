@@ -405,7 +405,7 @@ Systems supported by random motions need a ruled method before any of their data
 1. From D-028, every decision records the options as proposed, the recommendation, whether the call was delegated, JvH's reason in his own words, and the data seen at the time of ruling.
 2. A rule changed after a result is known applies only to later cases, unless the outside reader agrees in writing. D-019 carries a note to this effect.
 3. **Blind second reading.** Every number entering a package is read a second time at source by an independent session or a person, with a quote and its location; disagreements are logged in the package.
-4. For at least one in three method decisions, JvH rules before seeing Claude's recommendation; the log records which.
+4. ~~For at least one in three method decisions, JvH rules before seeing Claude's recommendation; the log records which.~~ Replaced by D-040 (2026-10-29): every decision records who proposed it and, for proposals not his own, whether JvH adopted, amended or overruled them.
 5. Outside review (D-011) is brought forward: the outside reader is asked to review the D-028 protocol and D-030 before the protocol is deposited.
 6. AI reviews are labelled as such and never presented as outside review.
 
@@ -587,6 +587,24 @@ Defaults and ranges for any conversion factor are read at source before a packag
 **Item 2 confirmed (2026-10-29 16:19 MDT, JvH: "keep").** After the low-mass IMF evidence was read (`docs/sources/stellar-ml-2026-10-29.md`): the dwarf-galaxy evidence is consistent with the default; the cluster evidence for fewer low-mass stars rests partly on fits to the motions and its direction lies inside the ruled range. The Chabrier/Kroupa default stands; the evidence is recorded in the assumption's registry entry. Baumgardt et al. (2023) global masses depend on the motions and are not used as the counted-mass alternative.
 
 **To read before freezing:** the Bruzual & Charlot (2003) model tables; the direct low-mass IMF evidence; the Baumgardt et al. star-count method (independence from the motions).
+
+---
+
+## D-040 — Who proposed each ruling, instead of blind rulings (amends D-031 item 4)
+
+**Ruling (2026-10-29 16:29 MDT, JvH; on Claude's recommendation).** JvH: "go for b." Replaces D-031 item 4 ("for at least one in three method decisions, JvH rules before seeing Claude's recommendation").
+1. **Dropped:** the requirement that some method rulings be made before JvH sees Claude's recommendation. D-039's designation of the lensing-projection ruling as blind is withdrawn.
+2. **Recorded for every decision from D-040 on,** in addition to D-031 item 1 (options, data seen at ruling, delegation, JvH's reason): **who proposed** the ruling (JvH, Claude or another named party) and, where the proposal was not JvH's own, **whether JvH adopted it unchanged, amended it or overruled it**, with what he changed. Earlier entries already show this in their ruling line and are not rewritten.
+3. The project description's line "Claude proposes, builds and checks; JvH rules, sometimes before seeing Claude's recommendation" becomes "JvH and Claude both propose; Claude builds and checks; JvH rules, and the record shows who proposed what and what was changed." (Wording corrected by JvH, 16:33 MDT: "JvH can propose too.")
+4. The frozen selection protocol (§5) still mentions D-031 item 4; it is not edited, and the change is recorded in the deviations register (#17).
+
+**Reason (JvH's question, Claude's analysis).** Asking a collaborator for an opinion before deciding is normal practice; blind rulings are not a standard requirement of science and were added here as an extra safeguard against the perception that the methods were chosen by the AI. Their cost is that JvH would rule on technical questions without the analysis he wants, which can make rulings worse rather than more independent. The checkable protections are already in place: pre-registration with outside timestamps, the decision record (data seen, delegation, reasons, and now who proposed and what changed), disclosure of AI assistance, the outside review before v1.0, and results published whichever way they go.
+
+**Alternatives rejected.** Keep D-031 item 4 (a); one symbolic blind ruling, then drop it (c); a sealed-recommendation procedure (judged overkill by JvH).
+
+**Data seen at the time of ruling.** None relevant (a process decision).
+
+**Proposed by** Claude; **adopted unchanged.**
 
 ---
 

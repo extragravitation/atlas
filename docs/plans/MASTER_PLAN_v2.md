@@ -123,7 +123,7 @@ As v1. ▲ The mockup is updated to D-008, D-012 and the plain-language correcti
 - JvH rules on decisions that change what the Atlas says or how it measures; they go in `docs/decisions.md` by pull request.
 - ▲ Outside review (D-011): one outside neutrality reader sought from now; v0.1 ships labelled "not yet externally reviewed" if none is complete. Two or three advisers from different interpretive camps approached after the preview.
 - Corrections: logged publicly; released as patch versions.
-- ◆ **Process safeguards (D-031):** every decision records the data seen when it was ruled, whether it was delegated, and JvH's reason; rules changed after a result apply only to later cases unless the outside reader agrees; every number entering a package gets a blind second reading; for at least one in three method decisions JvH rules before seeing the recommendation; AI reviews are labelled and never presented as outside review. Outside review takes place when v1.0 is complete, before publication (D-032, at risk).
+- ◆ **Process safeguards (D-031):** every decision records the data seen when it was ruled, whether it was delegated, and JvH's reason; rules changed after a result apply only to later cases unless the outside reader agrees; every number entering a package gets a blind second reading; every decision records who proposed it (JvH or Claude) and what was changed before it was ruled (D-040, replacing blind rulings); AI reviews are labelled and never presented as outside review. Outside review takes place when v1.0 is complete, before publication (D-032, at risk).
 
 ## 10. Risks
 
