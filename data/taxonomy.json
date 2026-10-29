@@ -1,0 +1,67 @@
+{
+  "description": "Freeze record for the v1.0 taxonomy and selection protocol (D-028, D-035). The documents below are frozen at the hashes given; changes go to the deviations register in SELECTION_PROTOCOL.md §9.",
+  "frozen_at": "2026-10-29T11:37:43-06:00",
+  "frozen_commit": "817bc5adc03c7e88175212878ecb7fbf6f74b598",
+  "frozen_by": "merge of pull request #35 to protected main, approved by JvH",
+  "documents": {
+    "docs/plans/SELECTION_PROTOCOL.md": "afe0f74763d9d7dc13a41684c1f72fee7714728a19579f4e999d189b02375502",
+    "docs/plans/TAXONOMY.md": "f21f446cc003eed9200e124faafecfcc95f51fd60cdbad323d251f16a9238efe"
+  },
+  "search_window_opens": "2026-10-29",
+  "data_freeze_date": "2026-12-24",
+  "zenodo_deposit": null,
+  "kinds": [
+    {
+      "id": "A0",
+      "name": "Planetary system (reference)"
+    },
+    {
+      "id": "A1",
+      "name": "Wide binary stars"
+    },
+    {
+      "id": "A2",
+      "name": "Open clusters"
+    },
+    {
+      "id": "A3",
+      "name": "Globular clusters"
+    },
+    {
+      "id": "A4",
+      "name": "Late-type and irregular galaxies"
+    },
+    {
+      "id": "A5",
+      "name": "Dwarf spheroidal and ultra-faint galaxies"
+    },
+    {
+      "id": "A6",
+      "name": "Early-type galaxies"
+    },
+    {
+      "id": "A7",
+      "name": "Galaxies in unusual configurations"
+    },
+    {
+      "id": "A8",
+      "name": "Galaxy groups"
+    },
+    {
+      "id": "A9",
+      "name": "Galaxy clusters"
+    },
+    {
+      "id": "A10",
+      "name": "Colliding clusters with separated components"
+    }
+  ],
+  "tracers": [
+    "rotation",
+    "random_motions",
+    "orbiting_tracers",
+    "hot_gas_pressure",
+    "weak_lensing",
+    "strong_lensing"
+  ]
+}
