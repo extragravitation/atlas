@@ -49,6 +49,7 @@ One row per published value of an observable.
 
 - `model_dependence` (closed list): `none` (no fitted functional form between observable and g_obs); `observable_form` (a functional form fitted to a thermodynamic or projected observable, e.g. X-COP's fitted pressure and temperature profiles, or an isothermal lensing deprojection); `total_mass_form` (a functional form assumed for the total mass, e.g. NFW). All three are included, labelled and filterable. Masses from scaling relations are excluded.
 - `limit` on g_obs (`none`, `upper`, `lower`), drawn as arrows.
+- `evidence_tier` (1 released files; 2 transcribed paper tables; 3 digitised figures), D-035. Default views show tiers 1 and 2.
 
 - `observed_from`: semicolon-separated `observable_id`s used for g_obs.
 - `baryonic_from`: the same for g_bar.
