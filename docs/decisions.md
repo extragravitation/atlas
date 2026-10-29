@@ -550,6 +550,8 @@ Defaults and ranges for any conversion factor are read at source before a packag
 - **5B.** Bounds on a single distant body (Planet Nine-type) are recorded in A0 as a separate "localised extra mass" sub-row, never a default: their implied pull is directional and tidal, not a uniform outward pull.
 - **5C.** A bound from a single asteroid's orbit (Icarus) is recorded, never a default, consistent with R3.
 
+**Addendum (2026-10-29 14:06 MDT, JvH: "apply the rule 2A by analogy").** Where a source gives a dispersion both with and without a fitted velocity gradient (first case: Antlia 2, Ji et al. 2021), the value without the gradient model is used and the gradient-removed value is recorded, by analogy with 2A. Not blind; data seen: search-log metadata and methods only.
+
 **Alternatives rejected.** 1A: plot every whole-sample value; apply the 80% light test (sources rarely state member positions). 1B: Atlas conversion of central to global with a model. 3A: the re-reduction as default everywhere. 4A: placing disputed objects in A3 or A5.
 
 **Data seen at the time of ruling.** The A0, A3 and A5 search logs including §6 (ADS titles and listing metadata) and §7 (full-text screening: abstracts, methods, data statements, table headings); no dispersion, velocity, mass, mass-to-light value or result opened or plotted.
