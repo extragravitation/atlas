@@ -455,6 +455,29 @@ Defaults and ranges for any conversion factor are read at source before a packag
 
 **Data seen at the time of ruling.** As D-034; no candidate dataset examined or plotted.
 
+## D-036 — Globular clusters: profiles, apertures and the coverage rule; protocol clarifications
+
+**Ruling (2026-10-29, JvH).** JvH: "1: (ii) + (iii) labelled + (i) otherwise, with the coverage threshold (I suggest 80%); 2: yes. 3: proceed as recommended." Not blind: ruled after Claude's analysis (D-031 item 4 is so far unmet; the stellar mass-to-light ruling is to be made blind).
+1. **σ for the D-025 estimator**, in order:
+   - **(ii) Registered conversion** where a source gives a line-of-sight dispersion profile: ⟨σ²_los⟩ = Σ wᵢ σᵢ², with weights wᵢ the light in each radial bin from the source's own surface-brightness profile or its cited structural model; errors propagated; only line-of-sight profiles. **Coverage rule:** the binned profile must span radii containing at least **80 %** of the system's light; the covered fraction is recorded and shown; below 80 % the system is recorded but not plotted. The code is written and tested on synthetic profiles, and the test is frozen, before any real profile is opened.
+   - **(iii)** Where a source gives only a central or aperture dispersion: the source's own correction to a global value, or a cited published correction, never one derived by the Atlas; labelled `model_dependence = observable_form`.
+   - **(i)** Otherwise the system is recorded, not plotted.
+2. **ADS and VizieR** steps of the search (protocol §3) are run through the browser on JvH's computer; deviation #2 is remedied when their results are in the logs.
+3. **Clarifications to the frozen protocol** (deviations register #3 to #9), all decided before any candidate data were opened:
+   - stellar mass counted from stars is measured (D-034);
+   - absent gas: system-specific upper limits where they exist, otherwise a cited, quoted statement for the kind, each system marked "absent (literature limit for this kind)";
+   - original datasets are preferred over compilations that repeat them; the compilation fills only systems the originals lack, and both stay in the record;
+   - no input on either side may be derived from the system's own kinematics or acceleration (e.g. a distance from the dispersions);
+   - dwarf galaxy or star cluster: the source's label where sources agree; where they disagree or the label rests on dynamics, "ambiguous: dwarf galaxy or star cluster"; size, luminosity and metallicity spread are continuous properties, never the classifier;
+   - proper-motion-only dispersions are recorded, not plotted, in v1.0;
+   - Solar System: default bounds are those printed as accelerations with a stated confidence level, shown as published (a value with errors shown as an interval), with GM☉ and distances from cited sources; lunar laser ranging is recorded for a possible separate system.
+
+**Reason.** Recording only would leave the control (globular clusters) with one to three Milky Way systems, an omission that reads as selection; the weighted average is a fixed reduction of published numbers with no free parameters, of the same kind as g = V²/r; aperture corrections are model-dependent but labelled under D-029, as for X-COP. The clarifications close circular routes and keep labels from carrying the result.
+
+**Alternatives rejected.** Record only (i) as the rule; aperture corrections derived by the Atlas; metallicity spread as a classifier (it is used in the literature as a proxy for the depth of the potential).
+
+**Data seen at the time of ruling.** The A0, A3 and A5 search logs (metadata, documentation and methods sections); no profile, dispersion table or result opened or plotted.
+
 ---
 
 ## Recorded alongside (not decisions; corrections to the plans)
