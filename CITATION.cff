@@ -6,6 +6,8 @@ type: dataset
 authors:
   - family-names: "van Hemert"
     given-names: "John"
+    affiliation: "Independent researcher, Calgary"
+    orcid: "https://orcid.org/0009-0003-1893-7096"
 license: CC-BY-4.0
 repository-code: "https://github.com/extragravitation/atlas"
 keywords:
