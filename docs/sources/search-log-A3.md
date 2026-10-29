@@ -1,6 +1,6 @@
 # Search log: cell A3·random (globular clusters × random motions)
 
-> Run on 2026-10-29 after the protocol freeze (see `docs/plans/DEVIATIONS.md` #1 and #2). The run calls itself "pre-freeze" or "exploratory" below because the protocol's status line had not been updated; the freeze record is authoritative. ADS and VizieR steps pending (deviation #2). AI-run (Claude); metadata only.
+> Run on 2026-10-29 after the protocol freeze (see `docs/plans/DEVIATIONS.md` #1 and #2). The run calls itself "pre-freeze" or "exploratory" below because the protocol's status line had not been updated; the freeze record is authoritative. ADS and VizieR steps added in §6 (deviation #2). AI-run (Claude); metadata only.
 
 - **Date run:** 2026-10-29
 - **Run by:** Claude (AI), for JvH. The search used literature, metadata, ReadMe and data-documentation pages only. No data table was downloaded. No candidate was compared, computed or plotted for g_obs and g_bar. No result about the acceleration discrepancy was read for this log or is reported in it.
@@ -253,3 +253,133 @@ Baryonic-side pairing sources (they supply no observed side):
     - Scarpa & Falomo 2010
     - Sollima, Baumgardt & Hilker 2019
 12. **Process.** This run predates the protocol freeze, and four of the §3 venues were unreachable. Before the cell is closed, it must be re-run after the freeze with direct ADS, VizieR, Zenodo and GitHub access, or registered as a §9 deviation.
+
+---
+
+## 6. Addendum, 2026-10-29: ADS and VizieR steps (deviation #2 remedy)
+
+Run by Claude (AI) on 2026-10-29 between 11:40 and 12:30 MDT, through the browser on JvH's computer (approved by JvH, D-036 item 2). **Screening at this stage is on title and listing metadata only.** No abstract values, data tables or figures were read; no result about the acceleration discrepancy was seen.
+
+### 6a. Venues
+
+| Protocol step | Outcome |
+|---|---|
+| §3.1 ADS | Run at ui.adsabs.harvard.edu (results pages, 200 per page). Queries below, verbatim. |
+| §3.2 VizieR | **Native keyword search not reachable from JvH's computer either:** vizier.cds.unistra.fr did not load; the CfA mirror (vizier.cfa.harvard.edu) returned an error page for one URL form and timed out for the plain `-words=` search. **Substitute:** ADS's index of VizieR catalogue records (`bibstem:yCat`). Limitation: VizieR tables without an ADS catalogue record are missed. Recorded in `docs/plans/DEVIATIONS.md` #2. |
+
+### 6b. Queries (verbatim), with counts
+
+| # | Query | Sort | Records |
+|---|---|---|---|
+| ADS-A3-0 | `abs:("globular cluster*" AND "velocity dispersion profile*") year:1990-2026 property:refereed` | citations | 0 (ADS does not expand wildcards inside quoted phrases; replaced by ADS-A3-1 and -2) |
+| ADS-A3-1 | `abs:"globular cluster" abs:"velocity dispersion" abs:(catalog OR catalogue OR "data release") property:refereed year:1990-2026` | citations | 90 |
+| ADS-A3-2 | `abs:"globular cluster" abs:("velocity dispersion profile" OR "velocity dispersion profiles" OR "kinematic profiles") property:refereed year:1990-2026` | citations | 170 |
+| ADS-A3-3 | `abs:"globular clusters" abs:("internal velocity dispersion" OR "internal velocity dispersions" OR "integrated-light velocity dispersion" OR "central velocity dispersions") property:refereed year:1990-2026` | citations | 97 |
+| VIZ-1 (shared with A5) | `bibstem:yCat abs:(globular OR "dwarf spheroidal" OR "ultra-faint" OR "ultra faint") abs:("velocity dispersion" OR "velocity dispersions" OR "radial velocities" OR kinematics OR "proper motions")` | date | 286 |
+
+Counts are per query; records overlap between queries. Title-level exclusions are counted, not listed: each query above can be re-run to regenerate them (records added to ADS after 2026-10-29 aside).
+
+### 6c. Title-level screening
+
+Excluded at title level (reasons: other kind of system, e.g. galaxies or globular-cluster *systems* used as tracers of a host galaxy; theory, simulations or methods; no internal kinematics, e.g. abundances, photometry, variable stars, mean motions or orbits; reanalysis of published data or a result paper with no new measurements; not refereed). Records already in this log are marked with their R number. Everything else passes to full-text screening.
+
+**Already in this log:** 2018MNRAS.478.1520B and 2021yCat..74781520B (R3); 2019MNRAS.482.5138B and 2019yCat..74825138B (R4); 2021yCat..75055978V (R7); 2015ApJ...803...29W and 2015yCat..18030029W (R14); 2022ApJ...934..150L (R15); 2018MNRAS.473.5591K (R16); 2018ApJ...860...50F (R17); 2025ApJ...983...95H (R18); 2015AJ....149...53K (R20); 2014yCat..35660058K (R21); 2006yCat..34629009S and 2007A&A...462L...9S (R24); 2011A&A...525A.148S and 2011yCat..35250148S (R25); 2010MNRAS.406.2732L (R26); 2011yCat..35300031L (R27); 2013yCat..74232917F (R29); 2009MNRAS.396.2051B (R30); 2011ApJ...738..186I (R31, now with an ADS record); 2012ApJ...750....9H (R33); 2011AJ....142....8S (R35); 2024yCat..19290147D (R38); 2025yCat..37020059F (R39); 2005ApJS..161..304M and 2006yCat..21610304M (R46); 2022yCat..74854906D (R48); 2016yCat..18240042C (R51); 2015ApJ...812..149W and 2016yCat..18120149W (R52).
+
+**New: pass to full-text screening** (R55–R133; catalogue records grouped with their paper where both were found):
+
+| # | Record(s) | Systems (from title) |
+|---|---|---|
+| R55 | 2010ApJ...710.1032A | ω Cen, HST proper motions |
+| R56 | 2000A&A...360..472V; 2000yCat..33600472V | ω Cen, proper motions |
+| R57 | 2018ApJ...853...86B; 2018yCat..18530086B | ω Cen, HST internal kinematics |
+| R58 | 2015A&A...573A.115L; 2014yCat..35730115L | 7 Galactic GCs, Gaia-ESO |
+| R59 | 2018ApJ...861...99L; 2019yCat..18610099L | NGC 362, HSTPROMO VI |
+| R60 | 2020ApJ...895...15R | NGC 1261 |
+| R61 | 2023ApJ...950..138P; 2025yCat..19500138P | NGC 6569 |
+| R62 | 2024A&A...688A.133L; 2024yCat..36880133L | M75 core, MIKiS |
+| R63 | 2022ApJ...929..186L | NGC 1904, MIKiS |
+| R64 | 2023ApJ...944..162L | NGC 6440, MIKiS |
+| R65 | 2018ApJ...861...16L | M5, MIKiS |
+| R66 | 2018ApJ...865...11L | NGC 5986, MIKiS |
+| R67 | 2020ApJ...889...18C | GCs, Gaia and VLT, three-component kinematics |
+| R68 | 2014ApJ...787L..26F | Milky Way GCs, central rotation |
+| R69 | 2026ApJ...999..140G | 78 Milky Way dwarfs and GCs, Keck/DEIMOS archive (also A5) |
+| R70 | 2018A&A...616A..74K | M75, NGC 6426 |
+| R71 | 2011MNRAS.411.1536H | IC 4499 |
+| R72 | 2002ApJ...574..783C; 2004yCat..34190533B | Palomar 13 |
+| R73 | 2019MNRAS.488.5340B; 2022yCat..74885340B | ω Cen, NGC 6624 |
+| R74 | 2015A&A...581A...1L; 2011yCat..35330036L | NGC 6388 |
+| R75 | 2013ApJ...769..107L | NGC 6388 |
+| R76 | 2002AJ....124.3255V | M15, HST/STIS |
+| R77 | 2016A&A...588A.149K | NGC 6397, MUSE |
+| R78 | 2013A&A...552A..49L; 2013yCat..35520049L | 6 Galactic GCs, IFU |
+| R79 | 2010ApJ...719L..60N | ω Cen, VLT |
+| R80 | 1995A&A...303..761M | ω Cen, central |
+| R81 | 1997ApJ...481..267D; 2003ApJ...585..598D | M15 |
+| R82 | 2009MNRAS.396.2183S; 2009yCat..73962183S | ω Cen |
+| R83 | 2014A&A...567A..69K; 2014yCat..35670069K | NGC 4372 |
+| R84 | 2018MNRAS.479.5005M | 47 Tuc, Gaia |
+| R85 | 2009MNRAS.400..917L | 4 Galactic GCs, AAOmega |
+| R86 | 2010MNRAS.401.2521L; 2010ApJ...711L.122L | 47 Tuc, M55, AAOmega |
+| R87 | 2010A&A...523A..43S | ω Cen, outer |
+| R88 | 2013A&A...554A..63F | NGC 5286 |
+| R89 | 2012A&A...542A.129L; 2012yCat..35420129L | NGC 2808, central |
+| R90 | 1995ApJ...454..788C | NGC 3201 |
+| R91 | 1997AJ....113.1026G | M15, Fabry–Perot |
+| R92 | 2019ApJ...887L..12B | NGC 3201, outskirts |
+| R93 | 2018ApJ...864...33D | NGC 6362 |
+| R94 | 2017ApJ...841..114B | M53 |
+| R95 | 2007AJ....133.1041D | M92 |
+| R96 | 1992A&A...258..302Z | Galactic GCs, high-resolution kinematics I |
+| R97 | 1992AJ....104.2104L | M13 |
+| R98 | 2024MNRAS.528.4941P | ω Cen, MUSE |
+| R99 | 2025A&A...693A.104B | ω Cen, central |
+| R100 | 2015MNRAS.446.3130B; 2015yCat..74463130B | NGC 5694 |
+| R101 | 2023MNRAS.519..192W | 4 Milky Way GCs, outskirts |
+| R102 | 2026A&A...707A.258R | NGC 6749 |
+| R103 | 2026A&A...708A.255D | NGC 5824 |
+| R104 | 2004ChPhL..21.1673C | NGC 6656 |
+| R105 | 2008AJ....136.1147B | M54 (Sagittarius nucleus) |
+| R106 | 1997A&A...321..379D | 9 M31 GCs |
+| R107 | 1997ApJ...474L..19D | M31 GCs |
+| R108 | 2001AJ....122..830M; 2002ApJ...578L..41G | G1 (M31) |
+| R109 | 2007A&A...469..147R | NGC 5128 bright GCs |
+| R110 | 2012A&A...538A..18B | Galactic GCs, FLAMES programme |
+| R111 | 2003AJ....125.2559D | NGC 6752, proper motions |
+| R112 | 1994ApJ...426..192D | M15, core |
+| R113 | 2020MNRAS.494.4548B; 2023yCat..74944548B | M10, M71 |
+| R114 | 2017MNRAS.468.4513M | 2 GCs in the M81 group |
+| R115 | 2019MNRAS.488.5400N | massive star clusters |
+| R116 | 2014ApJ...797..115B; 2015yCat..17970115B | NGC 7078, HSTPROMO I |
+| R117 | 2022ApJ...936..154W; 2024yCat..19360154W | Galactic GCs, HSTPROMO VII (catalogue titled "velocity dispersion profiles") |
+| R118 | 2016ApJ...827...12B; 2016yCat..18270012B | Galactic GCs, HSTPROMO IV (blue stragglers) |
+| R119 | 1997yCat..33240505D | Galactic GCs, core velocity dispersions (Dubath+ 1997) |
+| R120 | 1992ApJ...400..510D | 3 Fornax dSph GCs, core dispersions |
+| R121 | 2015yCat..74431151N | compact stellar systems (AIMSS, Norris+ 2014) |
+| R122 | 2024yCat..36920096L | NGC 6397, Euclid/Gaia internal kinematics |
+| R123 | 2024yCat..36830167G | 5 recently discovered GCs, MUSE |
+| R124 | 2023yCat..36710106M | Galactic GC stars, radial velocities (Martens+ 2023) |
+| R125 | 2021yCat..51610041C | 9 GCs, HST internal kinematics |
+| R126 | 2012yCat..74261137S | NGC 1851, radial velocities |
+| R127 | 2011yCat..35280127M | NGC 2808, radial velocities |
+| R128 | 2008yCat..21660249M | 47 Tuc, proper motions and dynamics |
+| R129 | 2005yCat..34450503R | ω Cen, radial velocities |
+| R130 | 2005yCat..34170597R | 4 GCs, radial velocities |
+| R131 | 1999yCat..61111233S; 2016yCat..74542621M; 2012yCat..51392620N | GC giants RVs; M4 RVs; M81 GCs (grouped: velocity or spectroscopy catalogues, check whether the paper gives σ) |
+| R132 | 2021ApJ...922..104C | Galactic GC outskirts |
+| R133 | 2025MNRAS.539.2485D; 2016MNRAS.460.3384V; 2026yCat..37130301H | UMa3/U1 and Crater/Laevens I (cluster-or-dwarf boundary, D-036 #7); ω Cen rotation profile (companion to R18) |
+
+Catalogues that give only individual velocities (R124, R126, R127, R129–R131) are excluded at full text unless their papers tabulate dispersions (as R21; D-036 does not allow the Atlas to compute σ from individual velocities).
+
+**Leads for other cells** (not A3; recorded so those searches start from them): globular-cluster systems as tracers of host galaxies (A6·orbits, A9): 2011ApJS..197...33S, 2003ApJ...591..850C, 2007AJ....134..494W, 2010AJ....139.1871W, 2014MNRAS.442.2929V, 2017AJ....153..114F, 2013MNRAS.428..389P, 2018MNRAS.481.1744P, 2022A&A...657A..93C, 2008ApJ...674..857L, 2008ApJ...674..869H, 2010ApJ...709..377P, 2010ApJ...709.1083L, 2020MNRAS.492.2775L, 2012MNRAS.421.1485N, 2021MNRAS.504.4923D, 2015MNRAS.450.1962P, 2009AJ....137.4956R, 2007ApJ...658..980B, 2012ApJ...757..184P, 2015A&A...574A..21R, 2017ApJ...835..212K, 2016Ap&SS.361..199S, 2020ApJ...903..110K, 2025A&A...702A..59F. Open clusters (A2): 2019A&A...621L...3M, 2022MNRAS.512.3846E, 2020AJ....159...59R, 2011yCat..74072109V.
+
+### 6d. Counts for this addendum
+
+| Stage | Count |
+|---|---|
+| Records identified (per query, not deduplicated across queries) | 0 + 90 + 170 + 97 + 286 = 643 |
+| Already in this log | 33 records (matching 25 R entries) |
+| Passed to full-text screening (deduplicated) | 79 entries (R55–R133), grouping 104 records |
+| Leads for other cells | 29 |
+| Excluded at title level | the rest (regenerable by re-running the queries) |
+| Full-text screening | **pending** (next step) |

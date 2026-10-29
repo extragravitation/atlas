@@ -1,6 +1,6 @@
 # Search log: A5·random (dwarf spheroidal and ultra-faint dwarf galaxies × random motions)
 
-> Run on 2026-10-29 after the protocol freeze (see `docs/plans/DEVIATIONS.md` #1 and #2). The run calls itself "pre-freeze" or "exploratory" below because the protocol's status line had not been updated; the freeze record is authoritative. ADS and VizieR steps pending (deviation #2). AI-run (Claude); metadata only.
+> Run on 2026-10-29 after the protocol freeze (see `docs/plans/DEVIATIONS.md` #1 and #2). The run calls itself "pre-freeze" or "exploratory" below because the protocol's status line had not been updated; the freeze record is authoritative. ADS and VizieR steps added in §6 (deviation #2). AI-run (Claude); metadata only.
 
 - **Date run:** 2026-10-29
 - **Protocol:** `docs/plans/SELECTION_PROTOCOL.md` (draft, D-028), §1, §1a, §2 (A5·random row), §3, §4. **The protocol was not yet frozen when this search was run** (see Open question 1).
@@ -178,3 +178,90 @@ Decision codes: **E** eligible (or eligible as one side of a pairing); **E-c** c
 8. **Distances inherited from hosts** in E1 are not flagged in the combined tables (paper §4); needs a per-system check against `ref_distance`.
 9. **Licences unread** for all VizieR catalogues (R6, R7, R9, R13, R29, R31, R32) and for author-hosted files (R5, R8: no terms; link, do not redistribute).
 10. **Rulings this cell depends on:** D-025 (estimator at a stated radius versus Jeans profiles, and the r_half convention); stellar M/L for dwarfs (defaults and ranges, read at source); whether to combine proper-motion and line-of-sight dispersions (R15); the dynamical-equilibrium statement for tidally affected systems (not yet collected per system).
+
+---
+
+## 6. Addendum, 2026-10-29: ADS and VizieR steps (deviation #2 remedy)
+
+Run by Claude (AI) on 2026-10-29, through the browser on JvH's computer (approved by JvH, D-036 item 2). **Screening at this stage is on title and listing metadata only.** No abstract values, data tables or figures were read; no result about the acceleration discrepancy was seen.
+
+### 6a. Venues
+
+ADS at ui.adsabs.harvard.edu (results pages, 200 per page). **VizieR native keyword search was not reachable from JvH's computer either** (vizier.cds.unistra.fr did not load; the CfA mirror errored or timed out). Substitute: ADS's index of VizieR catalogue records (`bibstem:yCat`); tables without an ADS catalogue record are missed. See `docs/plans/DEVIATIONS.md` #2.
+
+### 6b. Queries (verbatim), with counts
+
+| # | Query | Sort | Records |
+|---|---|---|---|
+| ADS-A5-1 | `abs:("dwarf spheroidal" OR "ultra-faint" OR "ultrafaint" OR "ultra faint") abs:"velocity dispersion" abs:(catalog OR catalogue OR "data release" OR "spectroscopic survey") property:refereed year:1990-2026` | citations | 33 |
+| ADS-A5-2 | `abs:("dwarf spheroidal" OR "ultra-faint" OR "ultra faint") abs:("velocity dispersion" OR "velocity dispersions") abs:("radial velocities" OR "spectroscopic members" OR "member stars" OR "internal proper motions") property:refereed year:1990-2026` | citations | 112 |
+| VIZ-1 (shared with A3) | `bibstem:yCat abs:(globular OR "dwarf spheroidal" OR "ultra-faint" OR "ultra faint") abs:("velocity dispersion" OR "velocity dispersions" OR "radial velocities" OR kinematics OR "proper motions")` | date | 286 |
+
+Counts are per query; records overlap. Title-level exclusions are counted, not listed; re-running a query regenerates them.
+
+### 6c. Title-level screening
+
+Excluded at title level: other kinds (galaxy groups, early-type galaxies, star clusters, streams), theory, simulations and methods, result or interpretation papers without new measurements (for example papers testing an account against published dispersions), abundance-only or photometry-only records, theses.
+
+**Already in this log:** 2007ApJ...670..313S (R8); 2012ApJ...752...45T (R9); 2013ApJ...768..172C (R10); 2007ApJ...667L..53W (R17); 2002MNRAS.330..792K and 2002yCat..73300792K (R20); 2017AJ....153..254S and 2018AJ....156..257S (R24); 2010MNRAS.407.2411C (R25); 2022MNRAS.514.1706B and 2025yCat..75141706B (R27); 2026ApJ...998..206V (R28); 2024yCat..19200092J (R13); 2024ApJ...970....1V (paper for R15).
+
+**Role of these records.** Most single-system papers below are likely the primary sources behind rows of the Local Volume Database (R1). Under D-036 clarification #5 the original measurement is preferred over the compilation; full-text screening records, per paper, whether it is LVDB's adopted reference for that system.
+
+**New: pass to full-text screening** (R42–R85):
+
+| # | Record(s) | Systems (from title) |
+|---|---|---|
+| R42 | 2011ApJ...733...46S; 2011ApJ...738...55M | Segue 1 |
+| R43 | 2011MNRAS.411.1013B | Sextans (DART) |
+| R44 | 2025yCat..36980053T | Sextans members (Tolstoy+ 2025) |
+| R45 | 2007ApJ...663..960S; 2008ApJ...675..201M; 2007ApJ...657..241K; 1998AJ....116.2315M | Leo I |
+| R46 | 2005ApJ...631L.137M | Ursa Minor, Draco, outer profiles |
+| R47 | 2006ApJ...649..201M; 1993AJ....105..510M | Carina |
+| R48 | 2006ApJ...650L..51M; 2011ApJ...736..146K | Boötes I |
+| R49 | 2020MNRAS.495.3022P | Ursa Minor |
+| R50 | 2023ApJ...942..111C | Pegasus IV |
+| R51 | 2025ApJ...979..164C | Aquarius III |
+| R52 | 2020A&A...633A..36M; 2019yCat..36330036M | Draco, 3D kinematics |
+| R53 | 2017ApJ...836..202S; 2007AJ....134..566K; 1995AJ....109..151V | Leo II |
+| R54 | 2006MNRAS.373L..70I | Canes Venatici I |
+| R55 | 2012ApJ...756...74F; 2010yCat..35130062G | Sagittarius dSph main body |
+| R56 | 2020ApJ...892...20A | Sagittarius dSph nucleus, MUSE |
+| R57 | 2025ApJ...979..171F; 2013ApJ...770...16K | Segue 2 |
+| R58 | 2026ApJ..1010....9L | Crater 2 (S5) |
+| R59 | 2006AJ....131.2114W; 1991AJ....102..914M; 2014A&A...572A..82H | Fornax |
+| R60 | 2015ApJ...808...95S; 2015ApJ...811...62K; 2019MNRAS.487.2961M | Reticulum II, Horologium I |
+| R61 | 2018MNRAS.479.5343K | Hydrus I |
+| R62 | 1995AJ....110.2131A; 1996AJ....111..750O; 1990AJ....100..127P; 2001ApJ...563L.115K | Draco, Ursa Minor |
+| R63 | 2017ApJ...838...11S | Tucana III |
+| R64 | 2017ApJ...838...83K; 2015ApJ...814L...7K; 2017MNRAS.466.3741V | Triangulum II |
+| R65 | 1993ApJ...418..208S; 2004MNRAS.354L..66K | Sextans |
+| R66 | 2009ApJ...690..453K; 2016ApJ...817...41J; 2023ApJ...950..167B | Boötes II, Aquarius II |
+| R67 | 2010ApJ...711..671K; 2009ApJ...705.1043K; 2020AJ....159...46K; 2020yCat..51590046K | M31 dSphs (SPLASH and follow-up) |
+| R68 | 2009A&A...499..121F; 2019MNRAS.485.2010G | Tucana |
+| R69 | 2018ApJ...857..145L | Carina II, Carina III |
+| R70 | 2009A&A...506.1147A; 2024ApJ...966...33O; 2014yCat..35700061F | Hercules |
+| R71 | 1995A&A...300...31Q; 2018ApJ...860...56S | Sculptor |
+| R72 | 2021MNRAS.505.5686C | Andromeda XXI |
+| R73 | 1999ApJ...526..147C | Andromeda II |
+| R74 | 2020A&A...635A.107Z; 2020yCat..36350107Z | Eridanus 2, MUSE-Faint I |
+| R75 | 2016MNRAS.460.3384V | Crater / Laevens I (cluster-or-dwarf boundary; also A3 R133) |
+| R76 | 2025OJAp....8E.112P | Pictor II |
+| R77 | 2012ApJ...751...46K | VV124 |
+| R78 | 2022ApJ...939...41C | Grus I |
+| R79 | 2023MNRAS.521.3527C | Andromeda XXV |
+| R80 | 2024ApJ...961..234H | Eridanus IV, Centaurus I |
+| R81 | 2015A&A...581A..82M | 3 low-surface-brightness dSphs |
+| R82 | 2016ApJ...833...16K | Pegasus III |
+| R83 | 2021A&A...645A..92M | dSphs in the Cen A group |
+| R84 | 2013MNRAS.430...37C | Andromeda XXII |
+| R85 | 2026ApJ...999..140G | 78 Milky Way dwarfs and GCs, Keck/DEIMOS archive (also A3 R69) |
+
+### 6d. Counts for this addendum
+
+| Stage | Count |
+|---|---|
+| Records identified (per query, not deduplicated across queries) | 33 + 112 + 286 = 431 (VIZ-1 is shared with A3) |
+| Already in this log | 14 records (matching 11 R entries) |
+| Passed to full-text screening (deduplicated) | 44 entries (R42–R85), grouping 76 records |
+| Excluded at title level | the rest (regenerable by re-running the queries) |
+| Full-text screening | **pending** (next step) |

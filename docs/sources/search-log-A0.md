@@ -1,6 +1,6 @@
 # Search log: cell A0·orbits (Solar System × planetary and spacecraft orbits)
 
-> Run on 2026-10-29 after the protocol freeze (see `docs/plans/DEVIATIONS.md` #1 and #2). The run calls itself "pre-freeze" or "exploratory" below because the protocol's status line had not been updated; the freeze record is authoritative. ADS and VizieR steps pending (deviation #2). AI-run (Claude); metadata only.
+> Run on 2026-10-29 after the protocol freeze (see `docs/plans/DEVIATIONS.md` #1 and #2). The run calls itself "pre-freeze" or "exploratory" below because the protocol's status line had not been updated; the freeze record is authoritative. ADS and VizieR steps added in §6 (deviation #2). AI-run (Claude); metadata only.
 
 - **Date run:** 2026-10-29
 - **Run by:** Claude (AI), for JvH. Literature and metadata only. No candidate was plotted against any g_obs–g_bar data.
@@ -146,3 +146,56 @@ R12: Q₂ = (1.6 ± 1.8)×10⁻²⁷ s⁻² (1σ), DE440 dataset. R13: (3 ± 3)�
 8. **Terms.** All the bounds are printed values in copyrighted papers. Quoting a few numbers with citation is normal practice, but each record's licence still has to be read (rule 4). No files are redistributed.
 9. **Process.** ADS and VizieR were not reachable from this session. The protocol is not yet frozen, so this is a pilot. The formal run must repeat Q1–Q24 plus ADS full-text queries after the freeze, or record this run in the §9 deviations register.
 10. **Lunar laser ranging** (R2 mentions a Moon-based Rindler bound of ≲5×10⁻¹⁶ m s⁻²) and Earth-orbit tests are geocentric, not heliocentric. JvH should rule whether they belong in A0·orbits or need their own row.
+
+---
+
+## 6. Addendum, 2026-10-29: ADS step (deviation #2 remedy)
+
+Run by Claude (AI) on 2026-10-29, through the browser on JvH's computer (approved by JvH, D-036 item 2). **Screening at this stage is on title and listing metadata only.** No values were read for this addendum.
+
+**VizieR:** not applicable in practice for this cell (bounds are printed values in papers, not catalogues), and the native keyword search was not reachable from JvH's computer (see `docs/plans/DEVIATIONS.md` #2).
+
+**Search vocabulary.** The queries use the literature's own terms, including names of accounts ("dark matter", "Pioneer anomaly", "external field effect"), because published bounds are indexed under them. The Atlas records the bound, not the account.
+
+### 6a. Queries (verbatim), with counts
+
+| # | Query | Sort | Records |
+|---|---|---|---|
+| ADS-A0-1 | `abs:(ephemeris OR ephemerides OR "planetary orbits" OR "perihelion precession" OR "planetary motions") abs:("anomalous acceleration" OR "extra acceleration" OR "additional acceleration" OR "constant acceleration" OR "dark matter" OR "external field effect" OR "Pioneer anomaly") property:refereed year:1990-2026` | citations | 111 |
+| ADS-A0-2 | `abs:("planetary ephemeris" OR "planetary ephemerides" OR INPOP OR EPM OR "DE430" OR "DE440") abs:("gravity test" OR "gravity tests" OR "tests of gravity" OR "test of general relativity" OR "supplementary advance" OR "supplementary precession" OR constraint OR constraints) property:refereed year:1990-2026` | citations | 110 (the acronym "EPM" matched many off-topic records in other fields) |
+
+### 6b. Title-level screening
+
+Excluded at title level: theories or models constrained only through their own parameters (Yukawa, graviton mass, Lorentz violation, dilaton, Brans–Dicke, f(R), braneworld and similar: recorded as model-specific, as R17); spacecraft-only analyses (Pioneer trajectories); theory and reviews without a new bound; off-topic records.
+
+**Already in this log:** 2006MNRAS.371..626S (R1); 2013AstL...39..141P (R8); 2013MNRAS.432.3431P (probably the journal version of R9; to confirm); 2006IJMPD..15..615K (R10); 2008PhRvD..77h3005F (R11); 2026PhRvD.114b4066P (probably R12; title "Improved constraints on modified Newtonian gravity from Cassini radio tracking data", to confirm against doi:10.1103/r7n8-kw38); 2014PhRvD..89j2002H (R13); 2016MNRAS.455..449H (R15); 2024MNRAS.530.1781D (R16); 2009IJMPD..18..947I (R19); 2015IJMPD..2430015I (R20); 2010MNRAS.405.2615I (R21); 2020PhRvD.102b1501B (Yukawa, INPOP19a: R17).
+
+**New: pass to full-text screening** (R27–R41):
+
+| # | Record | Title (short) |
+|---|---|---|
+| R27 | 1991AJ....101.2274H | Dynamical limits on dark mass in the Solar System |
+| R28 | 1995ApJ...448..885A | Improved bounds on nonluminous matter in solar orbit |
+| R29 | 1996ApJ...456..445G | Experimental limits on the density of dark matter in the Solar System |
+| R30 | 2006NewA...11..600I | Orbital motions of the outer planets and the Pioneer anomaly |
+| R31 | 2007JGrPh...1....5I | Jupiter, Saturn and the Pioneer anomaly |
+| R32 | 2009AJ....137.3615I | The anomalous perihelion precession of Saturn |
+| R33 | 2006JCAP...05..002I | Solar system planetary orbital motions and dark matter |
+| R34 | 2010JCAP...05..018I | Sun- and planet-bound dark matter and planet and satellite dynamics |
+| R35 | 2013Galax...1....6I | Pericentre precession from dark matter distributions: constraints |
+| R36 | 2007IJMPD..16.1475K | Density of dark matter in the Solar System and perihelion precession |
+| R37 | 2012MPLA...2750071I | Orbital effects of a time-dependent Pioneer-like anomalous acceleration |
+| R38 | 2013SoSyR..47..386P; 2014CeMDA.119..237P | EPM2011 and EPM ephemerides and their scientific use |
+| R39 | 2014A&A...561A.115V | MESSENGER data, planetary ephemeris and tests of general relativity |
+| R40 | 2016A&A...587L...8F; 2020A&A...640A...6F | Constraints on a possible ninth planet from Cassini data and INPOP19a (residual-based limits on an extra pull) |
+| R41 | 2009MNRAS.400..346I | Constraints on a distant body from inner Solar System dynamics |
+
+### 6c. Counts for this addendum
+
+| Stage | Count |
+|---|---|
+| Records identified (per query, not deduplicated across queries) | 111 + 110 = 221 |
+| Already in this log | 13 records (two to confirm) |
+| Passed to full-text screening | 15 entries (R27–R41), 17 records |
+| Excluded at title level | the rest (regenerable by re-running the queries) |
+| Full-text screening | **pending** (next step) |
