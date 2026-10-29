@@ -564,6 +564,30 @@ Defaults and ranges for any conversion factor are read at source before a packag
 
 ---
 
+## D-039 — Stellar mass-to-light ratio for star clusters and dwarf galaxies
+
+**Ruling (2026-10-29 16:14 MDT, JvH).** Adopted Claude's recommendations on the four choices (protocol §5; issue #45). **Not blind:** JvH asked for the analysis and recommendations before ruling, so D-031 item 4 (at least one method ruling in three made blind) remains unmet; Claude has proposed that the lensing-projection ruling (protocol §5; issue #13) be the blind one, for JvH to confirm. JvH's reasons are those stated with each ruling, resting on the charter: assumptions shown with published ranges and effects computed from the data; observations first; continuous properties stay continuous; symmetry; the control shown as firmly as honest.
+
+1. **Default value per system.** One model family: Bruzual & Charlot (2003) with the Chabrier (2003) IMF, as used by McLaughlin & van der Marel (2005) for clusters and Woo, Courteau & Dekel (2008) for dwarfs.
+   - Milky Way and Magellanic globular clusters: the per-cluster values tabulated by McLaughlin & van der Marel (2005, Table 8); the Atlas computes nothing.
+   - Other old systems: interpolation of the published model tables by metallicity (old age, unless the source gives another), with code frozen before use.
+   - Dwarf galaxies with a cited star-formation-history value: that value, labelled.
+   - Sources' own stellar-population values: recorded as alternatives, not the default.
+   - A single fixed value for all systems was rejected: the ratio depends on metallicity and age, which correlate with kind and size, so a fixed value would build a trend along a continuous property into the comparison.
+2. **IMF default:** Chabrier/Kroupa. Before the assumption is frozen, the direct evidence on the low-mass IMF in old clusters and dwarfs (for example counted mass functions) is read at source and recorded; if it contradicts this default, it returns to JvH.
+3. **Range (slider):**
+   - star clusters: from about 0.5× the model value (loss of low-mass stars through dissolution; Kruijssen & Mieske 2009, range 0.53–1.00) up to the Salpeter value (60–75% above Chabrier, McLaughlin & van der Marel 2005; about 1.5×, Maraston 2005); asymmetric, shown as such. The dissolution correction is a range bound only, never a per-cluster default (it would need masses that may be dynamical; D-036 #6);
+   - dwarf galaxies: model, age and metallicity spread plus the IMF span, plus the published spread between star-formation-history and colour-based values (Woo et al. 2008); no dissolution term.
+4. **Counted stellar mass** (star counts, D-036 #3): the ratio route is the default for every system; counted masses are shown as alternatives wherever the source shows they do not depend on the cluster's motions (verified per source before use). A cross-check (do counted masses fall inside the ratio's range?) is written and frozen before either is compared, and its result is published whichever way it goes.
+
+**Alternatives rejected.** A fixed value for all; sources' own values as default; Salpeter default; a range without the IMF; counted mass as default (possible dependence on the motions, and mixing two routes by which clusters happen to be nearby).
+
+**Data seen at the time of ruling.** The model sources' descriptions and stated ranges (McLaughlin & van der Marel 2005 §3; Maraston 2005; Kruijssen & Mieske 2009 Table 1 and Eq. 5, canonical model values only; Woo et al. 2008 §2.1 and Tables 1–2; Pace 2025 on its mass-to-light ratio). No dynamical mass or dynamical mass-to-light value was shown to JvH. Claude saw some dynamical values in passing in older abstracts during screening (search logs §8a); none was used or recorded.
+
+**To read before freezing:** the Bruzual & Charlot (2003) model tables; the direct low-mass IMF evidence; the Baumgardt et al. star-count method (independence from the motions).
+
+---
+
 ## Recorded alongside (not decisions; corrections to the plans)
 
 - X-ray hydrostatic measurements are not "motions": the method field distinguishes kinematic from hydrostatic, and plain-language labels for X-ray points must say gas pressure balance, not motions.
