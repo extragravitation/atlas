@@ -4,9 +4,10 @@ name: data
 # tables and runs the package tests (including the frozen reproduction tests).
 # Source files are never committed and never uploaded; they are fetched here.
 #
-# The committed tables must equal what the pipeline produces. On a pull
-# request from this repository, if they differ, the regenerated tables are
-# committed back to the branch by the workflow. On main, a difference fails.
+# The committed tables must equal what the pipeline produces; a difference
+# fails the check. The workflow never commits: every change in the repository
+# is authored by the maintainer (converters are bit-deterministic, so tables
+# regenerated locally match CI).
 
 on:
   # Every pull request: "packages" is a required check, and a path filter would leave
@@ -18,7 +19,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   packages:
@@ -86,13 +87,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "::notice title=tables::committed tables match the pipeline output"; exit 0
           fi
-          echo "::warning title=tables::$(git diff --cached --stat | tail -n 20 | tr '\n' '|')"
-          if [ "${{ github.event_name }}" = "pull_request" ] && [ "${{ github.event.pull_request.head.repo.full_name }}" = "${{ github.repository }}" ]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git commit -q -m "Regenerate tables from verified sources (data workflow)"
-            git push -q origin "HEAD:${{ github.head_ref }}"
-            echo "::notice title=tables::regenerated tables committed to ${{ github.head_ref }}"
-          else
-            echo "::error title=tables::committed tables differ from the pipeline output"; exit 1
-          fi
+          # No automatic commits: every change in the repository is authored by the maintainer.
+          # Regenerate locally (python <package>/convert.py) and commit the result in the pull request.
+          echo "::error title=tables::committed tables differ from the pipeline output: $(git diff --cached --stat | tail -n 20 | tr '\n' '|')"
+          exit 1
