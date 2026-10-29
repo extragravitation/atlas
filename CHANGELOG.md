@@ -4,6 +4,7 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
 
 ## Unreleased
 
+- Selection protocol deposited on Zenodo: DOI 10.5281/zenodo.23780203.
 - Citation metadata: author affiliation and ORCID in `CITATION.cff`; `.zenodo.json` for Zenodo releases.
 - D-025, D-036, D-037: dispersion method for v1.0 (half-light estimator; light-weighted profiles at 80% coverage; published dispersions with a frozen reproduction check); who belongs in the globular-cluster cell. Search logs for A0, A3 and A5 with the ADS step; deviations register (`docs/plans/DEVIATIONS.md`).
 - Preview 2 of the site (D-030, D-032): lenses on the map (acceleration, excess, mass, scale, speed; surface density pending standard 2.0), an As measured panel on system pages and the KiDS dataset page, the matter counted in g_bar, Coverage page rendered from the taxonomy, Accounts and tests page with the open test ledger procedure, a page for data providers, methods and about rewritten to the cause-agnostic, reference-explicit stance, a pre-release banner on every page and no search-engine indexing. The site is built by wrangler's custom build step.
