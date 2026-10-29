@@ -55,11 +55,26 @@ As ruled in D-006:
 
 ## 5. Site map
 
-As v1, with:
-- ▲ The map opens on the **observed-against-baryonic view** (g_obs against g_bar with the 1:1 Newtonian line); excess and radius views one click away (D-012).
-- ▲ Reading layer **Technical** by default; switch **Technical · Plain language** on every page, carried in links (D-008).
-- ▲ Plain-language term "pull from **detected** matter" (D-008).
-- ▲ About page includes the cookieless-analytics disclosure (D-009) and the outside-review status (D-011).
+▲ **Rewritten 2026-10-28** after the design prototype (D-026, D-027, D-014 clarification). Two levels, and every page is reachable by its own address.
+
+**Population level: all systems at once**
+- **Map** (`/`): g_obs against g_bar with the line g_obs = g_bar (D-012); excess and radius views one click away. Display controls per D-027: points by default, tracks or both on request, error bars off by default, colour by dataset or channel, filter by type from the legend, the weighting stated in words, flagged points always visible. No fitted relation (D-026). Selecting a point highlights its system and opens a card with a link to its page.
+- **Scale strip** (`/strip`): one bar per system across the radii where it was measured, shaded by log (g_obs / g_bar) on a continuous scale; the ranges with no packaged measurements are shown as empty.
+- **Dataset-wide assumptions** (mass-to-light, hydrostatic bias, intracluster light) are set here and apply everywhere (D-014 clarification). Moved points leave an arrow from their default position.
+
+**Object level: one system**
+- **System page** (`/systems/<system_id>`): source facts (class as the source gives it, distance and inclination with errors, redshift, R500, stellar status); the **pull budget** (the source's baryonic components stacked against g_obs, with the g_bar uncertainty band, the full published ranges of the assumptions as outlines, each point's range within its own errors, and the share g_bar / g_obs underneath); an orbital-speed view (V = √(g r), components as lines because speeds add in quadrature); the measurements table; flags with links to known issues; citation and downloads.
+- **Per-system assumptions** (distance and inclination, within that system's published errors) are set only here and move only that system; the map marks systems changed this way.
+
+**Every page**
+- A **changed-assumptions bar** whenever anything differs from the sources' defaults, listing each change with its scope and a reset.
+- **Technical · Plain language** switch (D-008); **dark theme by default**, light on request (D-027); the view state in the address.
+
+**Reference pages**
+- **Dataset pages** (`/datasets/<dataset>/<version>`): method, selection, assumptions with formulas and ranges, licence or archival terms, citation, checksums, the **Validation panel** with the reproduction result (and the D-023 model test for X-COP), change history, downloads.
+- **Known issues** (`/known-issues`, D-020), **Methods** (definitions, baseline, both vocabularies, every assumption, why the default view is the default, known limitations and gaps), **Data** (downloads, the data standard, changelog), **About** (charter, authorship and AI disclosure, competing interest, analytics D-009, review status D-011, how to cite, how to report an error, corrections log).
+
+Population averages (KiDS lensing bins) appear on the map and on their dataset page; they have no system page, because they belong to no single system.
 
 ## 6. Architecture
 

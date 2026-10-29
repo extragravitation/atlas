@@ -1,6 +1,6 @@
 # Atlas data standard
 
-**Version 1.2.1 — FROZEN 2026-10-28** (1.0.0: D-015; 1.1.0, additive: D-018; 1.2.0, additive: D-019; 1.2.1, clarification). Packages state the version they follow. Changes follow section 0. Nothing enters `data/packages/` that does not follow a frozen version of this standard.
+**Version 1.3.0 — FROZEN 2026-10-28** (1.0.0: D-015; 1.1.0, additive: D-018; 1.2.0, additive: D-019; 1.2.1, clarification; 1.3.0, additive: D-014 clarification). Packages state the version they follow. Changes follow section 0. Nothing enters `data/packages/` that does not follow a frozen version of this standard.
 
 The standard is written so that each of the four v0.1 sources (SPARC, KiDS-1000 RAR, X-COP, CLASH lensing) fits without special cases. The source readings that shaped it are in `docs/sources/`.
 
@@ -24,6 +24,7 @@ A package following an older version stays valid under it. A package is never ed
 | 1.1.0 | 2026-10-28 | D-018 | Added disc/bulge columns, inclination columns, `system.<column>` in formulas |
 | 1.2.0 | 2026-10-28 | D-019 | Added flag `reproduction_mismatch`, optional column `known_issues`, package file `known_issues.json` |
 | 1.2.1 | 2026-10-28 | patch | Clarified: how several assumptions combine (§6); g_bar may be ≤ 0 where a signed component is negative (§7 item 7) |
+| 1.3.0 | 2026-10-28 | D-014 (clarified) | Added registry field `scope` (`dataset` or `system`), required for adjustable confirmed assumptions; the registry is checked automatically |
 
 ## 1. Package layout
 
@@ -147,6 +148,7 @@ One entry per named assumption, shared across datasets.
 | `parameter` | Name, unit, catalogue default per dataset (with reference), published range (with references, each read at source) |
 | `effects` | For each affected column, a **formula** in the expression language below |
 | `adjustable` | true for sliders; false for assumptions shown but fixed |
+| `scope` | (1.3.0) For adjustable assumptions: `dataset` (one value for every system in the dataset, as the source adopts it) or `system` (set per system, within that system's own published error). Required when `adjustable` is true and `status` is `confirmed` |
 | `status` | `draft` until default and range are read at source; only `confirmed` assumptions may drive a slider |
 
 **Formula expression language (D-014).** One formula per effect, written once and executed by both the pipeline (Python) and the site (JavaScript) from the same text. Allowed: numbers; the parameter `p` and its default `p0`; column names of the same row; core columns of the row's system as `system.<column>` (1.1.0); `+ - * /`, `^` for powers; parentheses; functions `sqrt`, `abs`, `sin`, `cos`, `deg2rad`. Nothing else: no loops, no conditionals, no other rows. Example (SPARC distance, g_obs at fixed angle): `g_obs * p0 / p`.
