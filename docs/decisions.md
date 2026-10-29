@@ -500,6 +500,27 @@ Defaults and ranges for any conversion factor are read at source before a packag
 
 ---
 
+## D-037 — Published dispersions with a reproduction check; who belongs in the globular-cluster cell
+
+**Ruling (2026-10-29, JvH).** JvH: "1. Merge PRs #37 and #38. 2. Show the published dispersions. Also run a frozen recomputation from the velocities as a reproduction check … It is never plotted in place of the published value. 3. Old globular clusters go in, wherever they are … Young massive clusters stay out of v1.0 … Ultra-compact dwarfs go in the unusual-configurations cell (A7), labelled 'ambiguous: dwarf galaxy or star cluster' … and stay out of both default cells." Not blind: ruled after Claude's options and recommendation, which JvH adopted. JvH's reason (item 3): "classifying by age and structure doesn't use the dynamics. Mixing in the ultra-compact dwarfs would let a disputed label shape the globular-cluster picture."
+1. **Dispersions from individual velocities** (A3, A5, and any cell where a source releases per-star velocities and its own dispersion):
+   - the **published dispersion** is the value shown, with the source's membership and binary treatment recorded;
+   - the released velocities are kept in the record as observables;
+   - the Atlas runs a **reproduction check**: a recomputation of the dispersion from the released velocities, with the source's own membership, by a method written and frozen by hash before any velocity file is opened, and a pass/fail tolerance frozen with it. The result (pass or fail, with the numbers) is published for every system, whichever way it goes;
+   - the recomputed value is never plotted in place of, or beside, the published value in default views.
+2. **Globular-cluster cell (A3):**
+   - old globular clusters are included wherever they are (Milky Way, Magellanic Clouds, dwarf galaxies, M31, more distant hosts); the host galaxy is recorded as a property and is never used as a filter;
+   - young massive clusters are outside v1.0 and kept as leads for a later cell;
+   - ultra-compact dwarfs go in A7 (unusual configurations), labelled "ambiguous: dwarf galaxy or star cluster" (D-036 clarification on kinds), and stay out of the A3 and A5 default views.
+
+**Reason.** Computing dispersions would put the Atlas's own membership, binary and outlier choices on top of the result, which matter most for the faintest systems; showing only published values and checking them is reproducible and keeps the sources' numbers as the result. Classifying clusters by age and structure does not use the dynamics.
+
+**Alternatives rejected.** Published dispersions only, without a check; Atlas-derived dispersions shown as Atlas values; ultra-compact dwarfs in A3 or A5.
+
+**Data seen at the time of ruling.** The A0, A3 and A5 search logs, including the ADS and VizieR (via ADS) addenda: titles and listing metadata, methods sections from the first run; no velocity file, dispersion table or result opened or plotted.
+
+---
+
 ## Recorded alongside (not decisions; corrections to the plans)
 
 - X-ray hydrostatic measurements are not "motions": the method field distinguishes kinematic from hydrostatic, and plain-language labels for X-ray points must say gas pressure balance, not motions.
