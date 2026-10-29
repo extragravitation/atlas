@@ -584,6 +584,8 @@ Defaults and ranges for any conversion factor are read at source before a packag
 
 **Data seen at the time of ruling.** The model sources' descriptions and stated ranges (McLaughlin & van der Marel 2005 §3; Maraston 2005; Kruijssen & Mieske 2009 Table 1 and Eq. 5, canonical model values only; Woo et al. 2008 §2.1 and Tables 1–2; Pace 2025 on its mass-to-light ratio). No dynamical mass or dynamical mass-to-light value was shown to JvH. Claude saw some dynamical values in passing in older abstracts during screening (search logs §8a); none was used or recorded.
 
+**Item 2 confirmed (2026-10-29 16:19 MDT, JvH: "keep").** After the low-mass IMF evidence was read (`docs/sources/stellar-ml-2026-10-29.md`): the dwarf-galaxy evidence is consistent with the default; the cluster evidence for fewer low-mass stars rests partly on fits to the motions and its direction lies inside the ruled range. The Chabrier/Kroupa default stands; the evidence is recorded in the assumption's registry entry. Baumgardt et al. (2023) global masses depend on the motions and are not used as the counted-mass alternative.
+
 **To read before freezing:** the Bruzual & Charlot (2003) model tables; the direct low-mass IMF evidence; the Baumgardt et al. star-count method (independence from the motions).
 
 ---

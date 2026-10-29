@@ -29,7 +29,7 @@ Read at source by Claude (AI) on 2026-10-29, for issue #45 and D-039. Model valu
 - Dwarf galaxies: the direct star-count evidence read (Filion et al. 2024) is consistent with the default.
 - Globular clusters: the evidence read (Baumgardt et al. 2023) points to fewer low-mass stars than Chabrier, which would lower the ratio. That conclusion rests partly on fits to the motions, so adopting it as the baryonic default would breach D-036 #6. The direction of the effect lies inside the ruled cluster range (down to about 0.5×).
 - Neither source supports a Salpeter-like low-mass IMF in these systems.
-- Returned to JvH under D-039 item 2 (2026-10-29).
+- Returned to JvH under D-039 item 2 (2026-10-29); JvH: keep the default (16:19 MDT).
 
 ## Not yet read
 
