@@ -1,0 +1,38 @@
+---
+// Accounts and tests (D-030, layer 4): the template for accounts and the open test ledger.
+import Base from '../layouts/Base.astro';
+import L from '../components/L.astro';
+import Layer from '../components/Layer.astro';
+import { REPO } from '../lib/md.mjs';
+const base = import.meta.env.BASE_URL;
+---
+<Base title="Accounts and tests" active="tests">
+  <div class="doc">
+    <main class="prose">
+      <p class="kicker"><L t="Accounts and tests" p="Explanations and tests" /></p>
+      <h1><L t="The test to pass" p="Putting explanations to the test" /></h1>
+      <Layer as="p" class="lede"><Fragment slot="t">The Atlas takes no side on what causes the acceleration discrepancy. This section is where accounts of it meet the data: each presented from its proponents’ published claims in one template, and tested by predictions frozen before the data they predict are converted.</Fragment><Fragment slot="p">Several explanations for the extra pull have been proposed. The Atlas does not choose between them. Here they can be tested fairly: predictions are locked in before the new data arrive, and the results are published whether they pass or fail.</Fragment></Layer>
+
+      <h2 id="ledger"><L t="Test ledger" p="Predictions" /></h2>
+      <p><b><L t="No predictions deposited yet." p="No predictions yet." /></b> <L t="The ledger is open to anyone, for any dataset the Atlas has not yet converted." p="Anyone can send one, for any data the Atlas has not yet added." /></p>
+      <h3><L t="How to deposit a prediction (draft procedure)" p="How to send a prediction" /></h3>
+      <ol>
+        <li><L t="Choose a dataset listed as a candidate on the Coverage page (○ or ◐) and the quantities to predict: for example g_obs at given radii from the released g_bar, or a property of the whole sample." p="Pick data that is coming but not yet in (see Coverage), and say what you expect it to show." /></li>
+        <li><L t="Write the prediction as numbers or a function, with uncertainties, and the rule by which agreement will be judged. The Atlas applies your rule as written; it does not choose one." p="Write down the numbers you expect, how uncertain they are, and how to decide whether they were right." /></li>
+        <li><L t="Deposit the document where it gets an outside timestamp and a permanent identifier (Zenodo or arXiv)." p="Publish it somewhere that records the date (Zenodo or arXiv)." /></li>
+        <li><L t="Open an issue in the repository with the identifier before the dataset’s conversion begins. The data-freeze date and conversion order are set in the selection protocol." p="Tell us by opening an issue on GitHub, before the data are added." /></li>
+      </ol>
+      <p><L t="When the dataset is converted, its frozen reproduction test is run first; then each prediction is scored by its own rule and the result is posted here, pass or fail, with the data and code. Predictions are never re-scored after a result." p="When the data arrive, each prediction is checked by its own rule and the result is posted, whatever it is." /> <a href={`${REPO}/issues/new`}>Open an issue</a></p>
+
+      <h2 id="accounts"><L t="Accounts" p="The explanations" /></h2>
+      <Layer><Fragment slot="t"><p>No account pages yet. Which accounts are presented will be decided by a rule published here before any page is written. Every account page will use the same template:</p>
+        <ul><li>the account in its proponents’ words, with citations;</li><li>what it predicts for each kind of system and each lens, as published;</li><li>the Atlas measurements it addresses, and those it does not;</li><li>open problems, as stated in the published literature, both by proponents and by critics;</li><li>predictions in the ledger, and their results.</li></ul>
+        <p>Proponents are invited to review their account’s page before it is published.</p></Fragment>
+        <Fragment slot="p"><p>Pages for each explanation are coming. Each one will be written the same way: what its supporters say, what it predicts, what it explains and what it does not yet explain, using published work only. Its supporters will be asked to check the page first.</p></Fragment></Layer>
+
+      <h2 id="patterns"><L t="Patterns and case studies" p="Patterns and special cases" /></h2>
+      <p><L t="Patterns (regularities in the data, where they hold and where they fail) and case studies (single systems whose interpretation is contested, with each side’s published values) follow as their data are packaged. A pattern’s criteria are fixed before the data it cites are added." p="Descriptions of patterns in the data, and pages on debated objects, come as their data are added." /> <a href={`${base}coverage/`}>Coverage</a></p>
+    </main>
+    <aside class="toc"><p class="cap">On this page</p><a href="#ledger">Test ledger</a><a href="#accounts">Accounts</a><a href="#patterns">Patterns and case studies</a></aside>
+  </div>
+</Base>

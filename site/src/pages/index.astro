@@ -27,6 +27,20 @@ const labels = {
   aria_obs: ['Map of observed against baryonic acceleration for every packaged measurement, log axes, with the line g_obs = g_bar', 'Map of the observed pull against the pull from detected matter for every measurement'],
   aria_ex: ['Acceleration discrepancy against baryonic acceleration for every packaged measurement', 'Extra pull against the pull from detected matter'],
   aria_rad: ['Acceleration discrepancy against radius for every packaged measurement with a radius', 'Extra pull against distance from the centre'],
+  xm: ['log M_bar(<r), baryonic mass within r (M☉)', 'Mass of detected matter within that distance (log, M☉)'], xms: ['log M_bar (M☉)', 'Detected mass (log, M☉)'],
+  ym: ['log M_obs(<r) = g_obs r² / G (M☉)', 'Mass implied by the observed pull (log, M☉)'], yms: ['log M_obs (M☉)', 'Implied mass (log, M☉)'],
+  yv: ['log V = √(g_obs r), equivalent circular speed (km s⁻¹)', 'Orbital speed from the observed pull (log, km s⁻¹)'], yvs: ['log V (km s⁻¹)', 'Orbital speed (log)'],
+  zerom: ['M_obs = M_bar', 'No extra pull'],
+  aria_mass: ['Spherical-equivalent enclosed mass from the observed acceleration against that from detected matter, log axes', 'Mass implied by the observed pull against the detected mass'],
+  aria_speed: ['Equivalent circular speed from the observed acceleration against radius, log axes', 'Orbital speed from the observed pull against distance from the centre'],
+  lens: {
+    obs: ['<b>Acceleration lens.</b> Observed against Newtonian baryonic acceleration, measurement by measurement: the plane used in radial-acceleration-relation studies.', '<b>Pull view.</b> Each mark compares the pull we see with the pull the detected matter gives, at one place.'],
+    ex: ['<b>Acceleration lens, excess form.</b> log (g_obs / g_bar) against g_bar.', '<b>Extra-pull view.</b> How many times stronger the observed pull is, against the pull from detected matter.'],
+    mass: ['<b>Mass lens.</b> Spherical-equivalent enclosed mass, M(&lt;r) = g r² / G, for both sides: the framing of mass-modelling studies. For discs it is a convention, not the true enclosed mass. M_obs / M_bar equals g_obs / g_bar at every point; only the axes change.', '<b>Mass view.</b> The same measurements written as masses: how much mass the observed pull implies within each distance, against the detected mass. The conversion assumes round systems.'],
+    rad: ['<b>Scale lens.</b> log (g_obs / g_bar) against radius, from the smallest to the largest scales measured.', '<b>Distance view.</b> Extra pull against distance from the centre.'],
+    speed: ['<b>Speed lens.</b> Equivalent circular speed V = √(g_obs r) against radius. For disc galaxies these are their rotation curves; for clusters it is the speed a circular orbit would need, not a measured speed.', '<b>Speed view.</b> The observed pull written as the speed of an orbit at each distance. For spinning galaxies this is how fast they turn.'],
+  },
+  noRadius: ['Stacked lensing bins have no single radius and are not shown in this lens.', 'Averages over many galaxies have no single distance and are left out of this view.'],
   ds, weight, flagged: `Ringed: ${flagged} measurements with a reproduction mismatch or the source’s own quality caveat (see Known issues)`, bin: 'Stacked lensing bin',
 };
 const sliders = atlas.datasets.flatMap((d) => d.assumptions.filter((a) => a.adjustable && a.status === 'confirmed' && a.scope === 'dataset').map((a) => ({ a, dataset: d.key })));
@@ -36,12 +50,16 @@ const total = atlas.datasets.reduce((s, d) => s + d.measurements.rows.length, 0)
   <div class="layout">
     <aside class="rail" aria-label="Display, filters and assumptions">
       <div>
-        <p class="cap"><L t="Axes" p="View" /></p>
-        <div class="seg" role="group" aria-label="Axes">
-          <button class="btn" data-view="obs" aria-pressed="true"><L t="Observed" p="Observed pull" /></button>
+        <p class="cap"><L t="Lens" p="View" /></p>
+        <div class="seg" role="group" aria-label="Lens">
+          <button class="btn" data-view="obs" aria-pressed="true"><L t="Acceleration" p="Pull" /></button>
           <button class="btn" data-view="ex" aria-pressed="false"><L t="Excess" p="Extra pull" /></button>
-          <button class="btn" data-view="rad" aria-pressed="false"><L t="Radius" p="By distance" /></button>
+          <button class="btn" data-view="mass" aria-pressed="false">Mass</button>
+          <button class="btn" data-view="rad" aria-pressed="false"><L t="Scale" p="Distance" /></button>
+          <button class="btn" data-view="speed" aria-pressed="false">Speed</button>
+          <button class="btn" disabled aria-disabled="true" title="Needs the observables recorded under data standard 2.0 (D-029)"><L t="Surface density" p="Density" /></button>
         </div>
+        <p class="small" style="margin-top:6px"><L t="Same data, different framings (D-030). Surface density needs the recorded observables of data standard 2.0 and arrives with the next packages." p="The same measurements seen in different ways. One more view arrives with the next datasets." /></p>
       </div>
       <div>
         <p class="cap">Datasets</p>
@@ -73,14 +91,15 @@ const total = atlas.datasets.reduce((s, d) => s + d.measurements.rows.length, 0)
 
     <main>
       <p class="kicker">Map · {total.toLocaleString('en')} measurements · three datasets</p>
-      <h1><L t="Observed acceleration against Newtonian gravity on detected matter" p="How much pull we see, against how much the detected matter should give" /></h1>
+      <h1><L t="Observed gravity compared with Newtonian gravity on detected matter" p="How much pull we see, compared with what the detected matter should give" /></h1>
       <figure>
         <div class="figbox" id="figbox">
           <canvas id="fig" class="cv" role="img" aria-label=""></canvas>
           <div class="tip" id="tip" hidden></div>
         </div>
-        <figcaption><b>Figure.</b> <L t="Observed against baryonic acceleration, from the packaged measurements. Dashed: g_obs = g_bar, Newtonian gravity on detected matter. Rings: flagged measurements. No fitted relation is drawn (D-026)." p="Each mark is one measurement. On the dashed line, the detected matter explains all of the pull. Rings mark measurements with a known issue." /> <span id="caption-state"></span></figcaption>
+        <figcaption><b>Figure.</b> <L t="Each mark is one packaged measurement. Dashed line, where shown: g_obs = g_bar, Newtonian gravity on detected matter accounts for the observed acceleration. Rings: flagged measurements. No fitted relation is drawn (D-026)." p="Each mark is one measurement. On the dashed line, the detected matter explains all of the pull. Rings mark measurements with a known issue." /> <span id="caption-state"></span></figcaption>
       </figure>
+      <p class="hint" id="lens-note"></p>
       <ul class="legend" id="legend" aria-label="Legend: select a type to show only it"></ul>
       <p class="hint"><L t="Select a type in the legend to show only it; select it again to show everything. Hover a point for its values; click it to select its system." p="Tap a type in the legend to show only it; tap again for everything. Tap a point to pick its galaxy or cluster." /></p>
       <p class="hint" id="neg-note"></p>

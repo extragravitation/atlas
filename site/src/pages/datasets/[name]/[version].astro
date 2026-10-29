@@ -23,7 +23,7 @@ const dl = (f) => `${base}downloads/${d.name}/${d.version}/${f}`;
 const counts = {};
 for (const r of d.measurements.rows) for (const f of (r.flags || '').split(';').filter(Boolean)) counts[f] = (counts[f] || 0) + 1;
 const channels = [...new Set(d.measurements.rows.map((r) => r.channel))];
-const toc = [['summary', 'Summary'], ['validation', 'Validation'], ['assumptions', 'Assumptions'], ['issues', 'Known issues and flags'], ['files', 'Files and checksums'], ['columns', 'Columns'], ['source', 'Source and conversion']];
+const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(d.name === 'aeg-d-kids1000-rar' ? [['measured', 'As measured']] : []), ['assumptions', 'Assumptions'], ['issues', 'Known issues and flags'], ['files', 'Files and checksums'], ['columns', 'Columns'], ['source', 'Source and conversion']];
 ---
 <Base title={`${lab.t} ${d.version}`} description={d.title} active="datasets">
   <div class="doc">
@@ -53,6 +53,14 @@ const toc = [['summary', 'Summary'], ['validation', 'Validation'], ['assumptions
       <p class="small"><L t="Each test was written and frozen by hash before it was run; the result is published whether it passed or failed." p="We wrote each test down and locked it before looking at the result, and we show the result either way." /> <a href={`${REPO}/blob/main/${repoDir}/REPRODUCTION.md`}>Frozen test</a>{d.md.modelTest && <> · <a href={`${REPO}/blob/main/${repoDir}/MODEL_TEST.md`}>Frozen modelled-star test</a></>}</p>
       <details><summary>Reproduction result in full</summary><div class="prose" set:html={md(d.md.reproductionResult, repoDir)} /></details>
       {d.md.modelTestResult && <details><summary>Modelled-star test result in full</summary><div class="prose" set:html={md(d.md.modelTestResult, repoDir)} /></details>}
+
+      {d.name === 'aeg-d-kids1000-rar' && <>
+        <h2 id="measured"><L t="As measured" p="What was actually measured" /></h2>
+        <p><L t="The source's own quantities per bin, before the Atlas converts them (D-029): the tangential excess surface density ΔΣ_t with its error, the cross component ΔΣ_× (a null check), and the multiplicative calibration (1+K), as released. The Atlas computes g_obs = 4 G ΔΣ_t / (1+K), the authors' singular-isothermal-sphere conversion. Bins are in g_bar, as released; ΔΣ is in h70 M☉ pc⁻²." p="Before conversion, the source gives the light-bending signal around the galaxies in each group, which the Atlas turns into a pull." /></p>
+        <div class="tablebox" tabindex="0"><table><thead><tr><th class="l">Sample</th><th>g_bar (m s⁻²)</th><th>ΔΣ_t</th><th>error</th><th>ΔΣ_×</th><th>1+K</th><th>g_obs (m s⁻²)</th></tr></thead><tbody>
+          {d.measurements.rows.map((r) => <tr><td class="l">{(r.x_kids1000_rar_sample || '').replace(/_/g, ' ')}</td><td>{r.g_bar.toExponential(3)}</td><td>{r.x_kids1000_rar_esd_t}</td><td>{r.x_kids1000_rar_esd_err}</td><td>{r.x_kids1000_rar_esd_x}</td><td>{r.x_kids1000_rar_bias}</td><td>{r.g_obs.toExponential(3)}</td></tr>)}
+        </tbody></table></div>
+      </>}
 
       <h2 id="assumptions">Assumptions</h2>
       <p class="small"><L t="From the assumption registry (data/assumptions.json). Effects are the formulas the site and the pipeline both execute; nothing is approximated." p="Every assumption behind these numbers, with the published values it can take." /></p>

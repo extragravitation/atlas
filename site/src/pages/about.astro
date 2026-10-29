@@ -7,18 +7,21 @@ import { md } from '../lib/md.mjs';
 const atlas = loadAtlas();
 const base = import.meta.env.BASE_URL;
 const REPO = 'https://github.com/extragravitation/atlas';
-const toc = [['charter', 'Charter'], ['authorship', 'Authorship and AI assistance'], ['interests', 'Competing interests'], ['review', 'Review status'], ['privacy', 'Privacy and analytics'], ['cite', 'How to cite'], ['report', 'Report an error'], ['corrections', 'Corrections'], ['licences', 'Licences']];
+const toc = [['status', 'What this is'], ['charter', 'Charter'], ['authorship', 'Authorship and AI assistance'], ['interests', 'Competing interests'], ['review', 'Review status'], ['privacy', 'Privacy and analytics'], ['cite', 'How to cite'], ['report', 'Report an error'], ['corrections', 'Corrections'], ['licences', 'Licences']];
 ---
 <Base title="About" active="about">
   <div class="doc">
     <main class="prose">
       <p class="kicker">About</p>
       <h1><L t="About the Atlas" p="About this Atlas" /></h1>
-      <Layer as="p" class="lede"><Fragment slot="t">An open, theory-neutral atlas of the acceleration discrepancy: where and how the observed gravitational acceleration exceeds what Newtonian gravity predicts from detected baryonic matter, from star clusters to galaxy clusters. It describes the observations as carefully as possible, so that they can serve as the test any account of them must pass.</Fragment><Fragment slot="p">Across the universe, things are pulled harder than the matter we can see should pull them. This Atlas maps where, and by how much, as carefully as we can. It does not take sides on why.</Fragment></Layer>
+      <Layer as="p" class="lede"><Fragment slot="t">An open atlas of the acceleration discrepancy: where and how the observed gravitational acceleration exceeds what Newtonian gravity predicts from detected baryonic matter, across every kind of system where the two can be compared. It is cause-agnostic and reference-explicit: it takes no side on the cause, and states its reference calculation openly. It describes the observations as carefully as possible, so that they can serve as the test any account of them must pass.</Fragment><Fragment slot="p">Across the universe, things are pulled harder than the matter we can see should pull them. This Atlas maps where, and by how much, as carefully as we can. It does not take sides on why.</Fragment></Layer>
+
+      <h2 id="status"><L t="What this is: a pre-release preview" p="An early preview" /></h2>
+      <p><L t="This preview holds three datasets (SPARC, X-COP and KiDS-1000) and shows how the Atlas presents data. The first public release, v1.0, will cover every kind of system in the taxonomy (D-028). Until then the site is not indexed by search engines, has not been reviewed outside the project, and may change without notice; released data will never be overwritten." p="This early version has three datasets and shows how the Atlas works. The full first release will cover every kind of object. Until then it has not been checked by outside reviewers and may change." /> <a href={`${base}coverage/`}>Coverage</a> · <a href={`${base}for-data-providers/`}><L t="For data providers" p="For data providers" /></a></p>
 
       <h2 id="charter">Charter</h2>
       <ul>
-        <li><L t="Describe observations; never assume a cause." p="We describe what is measured. We do not say what causes it." /></li>
+        <li><L t="Describe observations; never assume a cause. State the reference calculation openly, and keep the observations so any account can be checked against them." p="We describe what is measured, say what we compare it with, and do not say what causes the difference." /></li>
         <li><L t="Baseline: Newtonian gravity acting on detected baryonic matter. Dynamics and lensing are separate channels, never merged by default." p="We compare with Newton’s gravity from the matter we detect, and keep motions and light-bending apart." /></li>
         <li><L t="Every number traces to a published source, with citation, licence, method, assumptions, units and file hash." p="Every number comes from a published study, and you can check it." /></li>
         <li><L t="Labels never carry the result; continuous properties stay continuous." p="We never sort systems into groups that hide the answer." /></li>
@@ -35,7 +38,7 @@ const toc = [['charter', 'Charter'], ['authorship', 'Authorship and AI assistanc
       <p class="boxed" data-draft="competing-interests"><b>Draft placeholder.</b> The editor’s competing-interest statement will appear here before release. It is not yet written.</p>
 
       <h2 id="review"><L t="Review status" p="Has anyone checked it?" /></h2>
-      <p><L t="Not yet externally reviewed. An outside reader is being sought to read the text for neutrality, and advisers from different interpretive positions will be approached after the preview (D-011). Their names and findings will be posted here." p="Not yet. Outside astronomers will be asked to check it, and what they find will be posted here." /></p>
+      <p><L t="Not yet externally reviewed. An outside reader will review the complete v1.0 for neutrality before it is published (D-011, D-032), and advisers from different interpretive positions will be approached. Their names and findings will be posted here. Internal reviews made with AI assistance are labelled as such and are not presented as outside review." p="Not yet. Outside astronomers will check the full first release before it is published, and what they find will be posted here." /></p>
 
       <h2 id="privacy"><L t="Privacy and analytics" p="Your privacy" /></h2>
       <p><L t="The site sets no cookies and collects no personal data. Your theme, reading layer and slider settings are kept in your own browser and in the page address only. A cookieless, aggregate page counter (no cookies, no stored IP addresses, no personal data) is planned under D-009; it is not active yet, and this paragraph will say when it is." p="No cookies and no personal data. Your settings stay in your own browser. A simple page counter that stores nothing personal is planned; it is not switched on yet." /></p>

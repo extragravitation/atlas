@@ -13,7 +13,7 @@ const REPO = 'https://github.com/extragravitation/atlas';
 const D = 'https://github.com/extragravitation/atlas/blob/main/docs/decisions.md';
 const adj = atlas.datasets.flatMap((d) => d.assumptions.filter((a) => a.adjustable && a.status === 'confirmed').map((a) => ({ a, d, e: a.datasets[d.key], k: assumptionLabel(a.id).kind })));
 const nAll = atlas.datasets.reduce((n, d) => n + d.measurements.rows.length, 0), nSparc = atlas.datasets.filter((d) => d.name === 'aeg-d-sparc').reduce((n, d) => n + d.measurements.rows.length, 0);
-const toc = [['quantities', 'What is measured'], ['baseline', 'The baseline'], ['channels', 'Two channels'], ['datasets', 'Each dataset'], ['assumptions', 'Assumptions'], ['uncertainties', 'Uncertainties'], ['flags', 'Flags and known issues'], ['tests', 'Frozen tests'], ['display', 'Display choices'], ['speed', 'Orbital-speed view'], ['gaps', 'Limitations and gaps'], ['vocabulary', 'Vocabulary']];
+const toc = [['stance', 'Stance'], ['quantities', 'What is measured'], ['baseline', 'The baseline'], ['channels', 'Two channels'], ['datasets', 'Each dataset'], ['assumptions', 'Assumptions'], ['uncertainties', 'Uncertainties'], ['flags', 'Flags and known issues'], ['tests', 'Frozen tests'], ['lenses', 'Lenses'], ['display', 'Display choices'], ['speed', 'Orbital-speed view'], ['gaps', 'Limitations and gaps'], ['vocabulary', 'Vocabulary']];
 ---
 <Base title="Methods" active="methods">
   <div class="doc">
@@ -22,6 +22,14 @@ const toc = [['quantities', 'What is measured'], ['baseline', 'The baseline'], [
       <h1><L t="Definitions, baseline and methods" p="How the Atlas works" /></h1>
       <Layer as="p" class="lede"><Fragment slot="t">The Atlas compares two accelerations at the same place in the same system: the one observed, and the one Newtonian gravity gives from the matter that has been detected. It describes where and by how much they differ. It does not say why.</Fragment><Fragment slot="p">At each place in a galaxy or cluster, the Atlas compares the pull we observe with the pull that the matter we can detect should give. It shows where and by how much they differ. It does not say why.</Fragment></Layer>
 
+      <h2 id="stance"><L t="Stance: cause-agnostic and reference-explicit" p="Where we stand" /></h2>
+      <Layer><Fragment slot="t">
+        <p>No comparison of this kind is free of theory. The Atlas compares observed quantities with a <b>declared reference calculation</b>: Newtonian gravity on the baryons each source detected, and General Relativity for turning a lensing signal into an acceleration. Every step from observation to comparison is named, including those that cannot be adjusted, and the observations themselves are kept, so any account can be checked against the data rather than against the Atlas’s conversion (D-029, D-030). The Atlas takes no side on what causes a difference from the reference. Neutrality is sought through rigour in the record and symmetry in presentation: several lenses on the same data, the same template for every account, and where the discrepancy is absent shown as prominently as where it is present.</p>
+        <p>The site has five layers with their own rules: the <b>record</b> (data packages; nothing interpretive), <b>lenses</b> (views of the same data), <b>patterns</b> (descriptive regularities and where they fail), <b>accounts and tests</b> (explanations from their proponents’ published claims; predictions frozen before the data), and <b>exploration</b> (labelled, never cited as a finding).</p>
+      </Fragment><Fragment slot="p">
+        <p>Any comparison needs a yardstick. Ours is stated openly: Newton’s gravity from the matter that was detected. We say exactly how each number was worked out and keep the original measurements, so anyone can check them. We do not say what causes the extra pull.</p>
+      </Fragment></Layer>
+
       <h2 id="quantities"><L t="What is measured" p="The two numbers" /></h2>
       <Layer><Fragment slot="t">
         <ul>
@@ -29,6 +37,7 @@ const toc = [['quantities', 'What is measured'], ['baseline', 'The baseline'], [
           <li><b>g_bar</b>, the baryonic acceleration: Newtonian gravity from the baryonic matter the source detected (stars and gas), at the same radius.</li>
           <li><b>g_obs / g_bar</b>, the acceleration discrepancy. Equal to 1 where Newtonian gravity on detected matter accounts for the observed acceleration.</li>
         </ul>
+        <p>g_obs and g_bar are themselves inferred from what was observed: rotation speeds, velocity dispersions, X-ray temperatures and densities, lensing signals, starlight and gas. System pages show these source quantities in an <b>As measured</b> panel; under data standard 2.0 (D-029) every package records them with the processing steps that led to them.</p>
         <p>All accelerations are in m s⁻², radii in kpc. The conventional name for the same comparison is the "mass discrepancy"; the Atlas does not use it, because it presumes the difference is due to mass.</p>
       </Fragment><Fragment slot="p">
         <ul>
@@ -99,15 +108,29 @@ const toc = [['quantities', 'What is measured'], ['baseline', 'The baseline'], [
 
       <h2 id="tests"><L t="Frozen tests" p="Tests we locked in advance" /></h2>
       <Layer><Fragment slot="t">
-        <p>Before a dataset is converted, a reproduction test is written that compares the conversion with the source’s own published values, and its file hash is recorded. The test is then run once and its result published, pass or fail (D-005, D-019). A failed test is never re-scored; a package that fails it ships only if its conversion integrity is exact, with the mismatched measurements flagged. The same applies to any test or prediction the Atlas makes. Exploratory work is labelled exploratory.</p>
+        <p>Before a dataset is converted, a reproduction test is written that compares the conversion with the source’s own published values, and its file hash is recorded. The test is then run once and its result published, pass or fail (D-005, D-019). A failed test is never re-scored; a package that fails it ships only if its conversion integrity is exact, with the mismatched measurements flagged. The same applies to any test or prediction the Atlas makes, and to predictions deposited by others in the <a href={`${base}tests/`}>test ledger</a>. The choice of datasets follows a selection protocol fixed before new data are converted (D-028). Exploratory work is labelled exploratory.</p>
       </Fragment><Fragment slot="p">
-        <p>We write each test down and lock it before running it, so the result cannot be bent to fit. Results are published whether they pass or fail.</p>
+        <p>We write each test down and lock it before running it, so the result cannot be bent to fit. Results are published whether they pass or fail. Anyone can lock in a prediction for data not yet added: see <a href={`${base}tests/`}>Tests</a>.</p>
+      </Fragment></Layer>
+
+      <h2 id="lenses"><L t="Lenses" p="Different views of the same data" /></h2>
+      <Layer><Fragment slot="t">
+        <p>Each lens is a different framing of the same measurements (D-030); none is privileged as the true picture, and each comes from a research tradition.</p>
+        <ul>
+          <li><b>Acceleration</b>: g_obs against g_bar. This plane is standard in studies of the radial acceleration relation, a line of work that grew out of modified Newtonian dynamics (MOND).</li>
+          <li><b>Mass</b>: spherical-equivalent enclosed mass M(&lt;r) = g r² / G, observed against baryonic. Enclosed-mass profiles and dynamical-to-baryonic mass ratios are standard in mass modelling, including models of dark-matter halos. For flattened systems the spherical-equivalent mass is a convention, not the true enclosed mass; the ratio at each point equals g_obs / g_bar.</li>
+          <li><b>Scale</b>: log (g_obs / g_bar) against radius, across all scales.</li>
+          <li><b>Speed</b>: equivalent circular speed √(g_obs r) against radius; for disc galaxies, their rotation curves.</li>
+          <li><b>Surface density</b>: needs the observables recorded under data standard 2.0 and arrives with the next packages.</li>
+        </ul>
+      </Fragment><Fragment slot="p">
+        <p>Different research traditions look at the same measurements in different ways: as pulls, as masses, against distance, or as orbital speeds. The Atlas shows them all, side by side, and says where each view comes from.</p>
       </Fragment></Layer>
 
       <h2 id="display"><L t="Display choices" p="Why the charts look the way they do" /></h2>
       <Layer><Fragment slot="t">
         <ul>
-          <li>The map opens on g_obs against g_bar with the line g_obs = g_bar (D-012): it shows the two measured quantities without transforming either, and the reference line is the Atlas’s own baseline.</li>
+          <li>Several lenses show the same measurements (below). The map opens on g_obs against g_bar with the line g_obs = g_bar (D-012): it shows the two measured quantities without transforming either, and the reference line is the Atlas’s own baseline.</li>
           <li>No fitted relation is drawn (D-026): the data and the Newtonian baseline are shown, nothing else.</li>
           <li>Points by default; tracks join a system’s points in order of radius on request. The legend states how many points come from how many systems, so densely sampled systems do not read as a population (D-027).</li>
           <li>Continuous properties are shown with continuous colour scales; no class label carries the result.</li>
@@ -127,7 +150,7 @@ const toc = [['quantities', 'What is measured'], ['baseline', 'The baseline'], [
       <h2 id="gaps"><L t="Limitations and gaps" p="What is missing" /></h2>
       <Layer><Fragment slot="t">
         <ul>
-          <li>No star clusters, dwarf spheroidal galaxies or galaxy groups yet. They are required before the first public release (D-024), so that the Atlas includes systems where Newtonian gravity on detected matter may suffice and the lowest-acceleration individual systems.</li>
+          <li>Three datasets so far. The first public release (v1.0) covers every kind of system in the taxonomy, each packaged or shown as a documented gap, including controls where Newtonian gravity on detected matter is expected to suffice and the lowest-acceleration individual systems (D-028; see <a href={`${base}coverage/`}>Coverage</a>).</li>
           <li>Disc galaxies dominate the current measurements ({nSparc.toLocaleString('en')} of {nAll.toLocaleString('en')}).</li>
           <li>One lensing dataset, of stacked averages; no lensing of individual systems yet.</li>
           <li>KiDS-bright: the authors state their isolation criterion becomes unreliable for g_bar ≲ 10⁻¹³ m s⁻².</li>
