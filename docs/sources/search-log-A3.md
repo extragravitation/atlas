@@ -537,3 +537,40 @@ Screened 2026-10-29 under BRIEF.md. Everything below was read at the URLs given.
 5. **R133b.** Is a global member-star σ from fields covering only the inner ~r_h "global", or an aperture value that needs a correction under rule (iii)?
 6. **R115, R119, R131a, R133c (NS).** These need ADS or a working VizieR ReadMe route to identify or read. cdsarc resets and dc.g-vo.org pages open only when surfaced by search.
 
+---
+
+## 8. Re-coding under D-038 (2026-10-29)
+
+Applies JvH's rulings D-038 (and D-036, D-037) to the rows coded **P** in §7. No values were opened. New code **E-rec**: eligible and recorded, not plotted in v1.0 (the reason is given). "Plot" decisions remain subject to the conversion, coverage and pairing checks at packaging.
+
+| Row | Was | Now | Rule applied |
+|---|---|---|---|
+| R55 | P | X | PM catalogue with no tabulated dispersion: velocities only (D-036; D-037 §1). Kept as a lead for a later version. |
+| R56 | P | X (ReadMe to confirm) | As R55; re-check the VizieR ReadMe for a dispersion table when it can be opened. |
+| R59 | P | X | PM only and profiles in figures only, with tier 1/2 data for NGC 362 elsewhere (§1a). |
+| R69 | P | E (observables only) | Paper I releases per-star velocities: kept as observables for the D-037 reproduction check. The dispersions are in Paper II, added as new record R134. Default for any system follows D-038 §3A (originals first). |
+| R71 | P | E | Text value is tier 2, flagged "text" (D-038 5A). Plotted only if the source states members beyond r_h (D-038 1A): to confirm at packaging. |
+| R72 | P | E (Côté 2002 default; Blecha 2004 alternative) | Text values tier 2 (5A). Both release per-star velocities; Côté has more members (D-038 3B). |
+| R83 | P | P | Tier 3 (figure only): X if R1 holds tier 1/2 data for NGC 4372 (§1a); check R1 coverage. |
+| R95 | P | E (fitted form) | Model 'mean points' used as the fallback profile (D-038 2D), labelled observable_form; coverage judged from the data range. |
+| R101 | P | E | Whole-sample σ with members beyond r_h: plotted (D-038 1A), star-count weighting assumption shown. |
+| R104 | P | NS | Abstract only; read through ADS. PM only in any case (recorded, not plotted). |
+| R106 | P | E-rec | Aperture value corrected to central only (D-038 1B). |
+| R107 | P | NS | Abstract only; read through ADS; then 1B applies. |
+| R108 | P | E-rec (A7, ambiguous) | Central aperture value corrected to central only (1B); G1's kind is disputed in the literature (D-038 4A). |
+| R109 | P | E-rec | Aperture corrected to central only (1B). |
+| R110 | P | E-rec | New σ₀ values are King-model central values from outer samples: no correction to global given (D-036 iii, D-038 1B). |
+| R120 | P | NS | Full text not read; read through ADS; central integrated light, so 1B or iii applies. |
+| R121 | P | E-rec (kinds per D-038 4D) | No aperture correction (iii). Kinds: the source's own labels where given, otherwise A7 ambiguous. |
+| R124 | P | E (fitted form) | Binned profiles are figure-only, so the tabulated parametric fits are the fallback (2D), labelled; coverage from the data range, to confirm. |
+| R133b | P | E-rec (A7, ambiguous) | Crater/Laevens I: disputed kind (4A); members within about r_h, so an aperture value (1A). |
+| R57 | E (PM only) | E-rec | PM only (D-036). |
+| R117 | E (PM only) | E-rec | PM only (D-036). |
+| R125 | E (PM only) | E-rec | PM only (D-036). |
+| R79, R89 | E (central only) | E-rec | Central only, no correction to global (iii). |
+
+**Re-check of earlier extragalactic sets (D-038 1B).** R35 (Strader et al. 2011, M31), R36 and R37 (Taylor et al. 2010, 2015, NGC 5128), R38 (Dumont et al. 2022) and R39 (Fahrion et al. 2025) were coded E with aperture corrections. Each is re-read for whether the correction is to a global value or to a central one; until then they are **P (1B re-check)**.
+
+**Distances from the system's own kinematics** (D-036 #6): R73 (NGC 6624), R78 (NGC 6266) and possibly R79 (ω Cen, via van de Ven et al. 2006) need an independent published distance at packaging.
+
+**New records** (found during screening): R134, Geha et al. 2026 Paper II (arXiv:2602.10202; global LOS σ, machine-readable Table A1; also A5); R135, Lützgendorf et al. 2011, A&A 533, A36 (NGC 6388 central IFU and surface-brightness profile; the original data behind R74); R136, Lanzoni et al. 2013 (NGC 6388, SINFONI). To be screened. Leads not yet records: Gerssen et al. 2002 (M15), Côté et al. 1994 (NGC 3201), Mayor et al. 1997 (ω Cen), Husser et al. 2016 (NGC 6397), Fabricius et al. 2014b (arXiv:1404.2272).

@@ -370,3 +370,28 @@ Per-paper decisions are given in the Decision cell when an entry groups several 
 6. **Pre-arXiv originals (R65a, R71a).** Full text was not reachable. Re-screen with ADS full-text access, or accept as superseded for Sextans/Sculptor by R6/R12/R43?
 7. **Licences.** Pictor II Zenodo (R76) and the KOA dataset (R85: none stated) need a check before any redistribution; link only meanwhile.
 
+---
+
+## 8. Re-coding under D-038 (2026-10-29)
+
+Applies JvH's rulings D-038 (and D-036, D-037) to the rows coded **P** in §7. No values were opened. New code **E-rec**: eligible and recorded, not plotted in v1.0 (the reason is given). "Plot" decisions remain subject to the conversion, coverage and pairing checks at packaging.
+
+| Row | Was | Now | Rule applied |
+|---|---|---|---|
+| R45.1 | P | P | Whether the profile is tabulated is unverified; read through ADS. |
+| R47.1 | P | P | As R45.1. |
+| R48.2 | P | E-rec | Members within about r_h: aperture value with no correction (D-038 1A); whole-sample single-Gaussian value is the one recorded, components recorded (2B). |
+| R54 | P | X | Per-population values in figures only, and tier 1/2 data for CVn I exist (R8) (§1a; D-038 2B). |
+| R58 | P | E-rec | Crater 2 body value uses members within R½: aperture (1A). New record R86: Ji et al. 2021 (S5, Crater 2 and Antlia 2; arXiv:2106.12656), to screen. |
+| R67a | P | E-rec | Whole-sample value, but the source does not state member coverage relative to r_h (1A requires it); re-check the text. |
+| R74 | P | E-rec | Eridanus 2: single central field within r_h: aperture value (1A). |
+| R75 | P | E-rec (A7, ambiguous) | Crater/Laevens I: disputed kind (D-038 4A); coverage about 1 r_h. |
+| R77 | P | P | VV124 belongs in A5 with measured gas (D-038 4C); plotting needs the source's statement of member coverage vs r_h (1A). |
+| R81 | P | E-rec | Integrated-light aperture values, no correction (D-036 iii). |
+| R83 | P | X | Tracers are globular clusters and planetary nebulae, not member stars: lead for A6·orbits. |
+| R42.2, R60.3 | X (duplicate) | E-rec (alternative) | Binary-corrected re-analyses are recorded as alternatives, never default (D-038 2C). |
+| R85 | E | E (alternative; default only where unique) | Geha et al. 2026: originals are the default; Geha is the default only for systems it alone covers; frozen consistency check (D-038 3A). Its Type column is not used to assign kinds. No licence on KOA: link, do not redistribute. |
+| R56 | X (rule iii) | E-rec (A5: Sagittarius nucleus stars) | D-038 4B: nucleus stars count as part of Sagittarius; M54 stays A3; metallicity-cut membership noted on both pages. Central aperture value without a correction to global (D-036 iii), so recorded. |
+| R63 | E | E (A7, ambiguous) | Tucana III: disputed kind (D-038 4A); out of the A5 default view. |
+
+**Rows already E** in §7 that give a whole-sample σ are plotted only where the source states members beyond r_h (D-038 1A); this is checked per system at packaging.

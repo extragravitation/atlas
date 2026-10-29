@@ -239,3 +239,15 @@ Screened 2026-10-29 by Claude (AI). Every statement was read at the URL given. A
 3. **Non-ephemeris orbit data (R29, asteroid Icarus).** Excluded here because it is not a planetary ephemeris fit. Confirm, or rule that asteroid perihelia count (R3, the TNO astrometry case, was admitted with a note).
 4. **Still to read in full:** R27 (AJ 1991, no open text found), R38b (CeMDA 2014), and R39 Sec. 4.2 / Table 5. The R32 author attribution should be confirmed against the AJ page.
 
+---
+
+## 8. Re-coding under D-038 (2026-10-29)
+
+Applies JvH's rulings D-038 (and D-036, D-037) to the rows coded **P** in §7. No values were opened. New code **E-rec**: eligible and recorded, not plotted in v1.0 (the reason is given). "Plot" decisions remain subject to the conversion, coverage and pairing checks at packaging.
+
+| Row | Was | Now | Rule applied |
+|---|---|---|---|
+| R27 | P | P | Full text not reached; read through ADS (scanned article). |
+| R38b | P | P | Full text not reached; read through ADS. |
+| R40a, R40b, R41 | E-conv | E-conv, sub-row 'localised extra mass' | Single distant body: separate A0 sub-row, never default (D-038 5B). |
+| R29 | X | E-conv (recorded, not default) | Single-asteroid (Icarus) bound recorded, consistent with R3 (D-038 5C). |
