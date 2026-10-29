@@ -8,6 +8,8 @@ export function setup(c, w, h) {
   const g = c.getContext('2d'); g.setTransform(r, 0, 0, r, 0, 0); g.clearRect(0, 0, w, h); return g;
 }
 
+export function decimals(step) { return Math.max(0, Math.ceil(-Math.log10(step) - 1e-9)); }
+
 export function niceStep(span) { const r = span / 5, e = Math.pow(10, Math.floor(Math.log10(r))), m = r / e; return (m < 1.5 ? 1 : m < 3.5 ? 2 : m < 7.5 ? 5 : 10) * e; }
 
 export function axes(g, W, L, T, pw, ph, rg, xlab, ylab, xstep, ystep, ydec, xfmt) {
@@ -16,12 +18,12 @@ export function axes(g, W, L, T, pw, ph, rg, xlab, ylab, xstep, ystep, ydec, xfm
   g.font = '12px ' + css('--mono'); g.fillStyle = css('--muted'); g.lineWidth = 1; g.textAlign = 'center';
   for (let a = Math.ceil(rg.x[0] / xstep - 1e-9) * xstep; a <= rg.x[1] + 1e-9; a += xstep) {
     g.strokeStyle = css('--grid'); g.beginPath(); g.moveTo(X(a), T); g.lineTo(X(a), T + ph); g.stroke();
-    g.fillText(xfmt ? xfmt(a) : (xstep < 1 ? a.toFixed(1) : String(Math.round(a))), X(a), T + ph + 16);
+    g.fillText(xfmt ? xfmt(a) : a.toFixed(decimals(xstep)), X(a), T + ph + 16);
   }
   g.textAlign = 'right';
   for (let b = Math.ceil(rg.y[0] / ystep - 1e-9) * ystep; b <= rg.y[1] + 1e-9; b += ystep) {
     g.strokeStyle = css('--grid'); g.beginPath(); g.moveTo(L, Y(b)); g.lineTo(L + pw, Y(b)); g.stroke();
-    g.fillText(b.toFixed(ydec), L - 6, Y(b) + 4);
+    g.fillText(b.toFixed(ydec === undefined || ydec === null ? decimals(ystep) : ydec), L - 6, Y(b) + 4);
   }
   g.strokeStyle = css('--ink'); g.strokeRect(L, T, pw, ph);
   g.font = (W < 560 ? '12px ' : '14px ') + css('--sans'); g.fillStyle = css('--ink'); g.textAlign = 'center';

@@ -149,3 +149,7 @@ th[aria-sort="descending"] button.sort::after { content: ' ↓'; }
 .preview-band .page { padding-block: 6px; display: flex; flex-wrap: wrap; gap: 4px 10px; }
 .preview-band a { color: var(--kicker); }
 .prose.wide { max-width: none; }
+.zoombar { display: flex; justify-content: flex-end; gap: 4px; margin-bottom: 4px; }
+.zoombar .zb { min-height: 32px; min-width: 32px; padding: 0 8px; background: var(--panel); font-size: 15px; }
+canvas.zoomable { touch-action: pan-x pan-y; }
+canvas.zoomable:focus-visible { outline: 2px solid var(--sel); outline-offset: 2px; }
