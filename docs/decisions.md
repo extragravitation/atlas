@@ -611,7 +611,7 @@ Defaults and ranges for any conversion factor are read at source before a packag
 ## D-041 — Data standard 2.0.0 frozen
 
 **Ruling (2026-10-29 17:08 MDT, JvH).** "approve 2.0.0, merge 54." **Proposed by** Claude (PR #54); **adopted unchanged.**
-- `docs/data-standard.md` version 2.0.0 is frozen with the validator that implements it (`data/frozen/data-standard-2.0.0.json`). Version 1.3.0 is kept unchanged in `docs/data-standard-1.3.0.md`; the three 1.x packages stay valid under it and are re-issued under 2.0 after v1.0 (D-029).
+- `docs/data-standard.md` version 2.0.0 is frozen (`data/frozen/data-standard-2.0.0.json`). The validator that implements it is not frozen, so bugs can be fixed through tested pull requests; it must keep implementing the frozen text. Version 1.3.0 is kept unchanged in `docs/data-standard-1.3.0.md`; the three 1.x packages stay valid under it and are re-issued under 2.0 after v1.0 (D-029).
 - Content: D-029's specification (observables first, selection, baryon inventory, precedence) with the rulings since: D-033 (distance or redshift required), D-034 (statuses), D-035 (evidence tiers), D-036 (light weighting, coverage, aperture corrections, no kinematic inputs, kinds), D-037 (published values; reproduction check; host), D-038 (plotting rules, which number counts, defaults and alternatives, boundary objects in A7), D-039 (stellar mass-to-light registry fields).
 
 **Reason.** Every v1.0 package must be built to one fixed format, written before any of them is converted.
