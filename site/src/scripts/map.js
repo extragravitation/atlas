@@ -98,6 +98,15 @@ function computePick() {
   });
 }
 
+// Error on g_obs for a row: 'point' (default) keeps only what varies point to point. For SPARC that is
+// the rotation-speed error, 2 e_V / V in relative terms (the package's own convention, Lelli et al.
+// 2017); distance and inclination errors move a whole galaxy together and are adjusted per galaxy on its
+// page. 'full' is the package's full uncertainty. Other datasets have no such split: their errors as given.
+function errOf(r, q) {
+  if (state.errk !== 'full' && r.x_sparc_e_v_obs != null && r.x_sparc_v_obs > 0) { const rel = 2 * r.x_sparc_e_v_obs / r.x_sparc_v_obs; return [q.g_obs * rel, q.g_obs * rel]; }
+  return [q.g_obs_err_lo ?? 0, q.g_obs_err_hi ?? 0];
+}
+
 let cacheKey = null;
 function compute() {
   // Adjusted values for every row, recomputed only when an assumption changes (not on zoom or pan).
@@ -107,7 +116,35 @@ function compute() {
   cache = D.datasets.map((d) => d.rows.map((r) => adjusted(d, r)));
 }
 
+// Data coordinates of a row in a view (before mapping to pixels); null if it cannot be placed.
+function dataXY(v, q) {
+  if (v === 'mass') { const mb = lg(massOf(q.g_bar, q.r_kpc)), mo = lg(massOf(q.g_obs, q.r_kpc)); return mb === null || mo === null ? null : [mb, mo]; }
+  if (v === 'speed') { const x = lg(q.r_kpc), y = lg(speedOf(q.g_obs, q.r_kpc)); return x === null || y === null ? null : [x, y]; }
+  const x = v === 'rad' ? lg(q.r_kpc) : lg(q.g_bar), yo = lg(q.g_obs), yb = lg(q.g_bar);
+  if (x === null || yo === null || yb === null) return null;
+  return [x, v === 'obs' ? yo : yo - yb];
+}
+
+// The default window of each view contains every placeable measurement at the sources' defaults
+// (issue #61): the fixed frames below are widened to the data's extent, never narrowed.
+let dataRange = null;
+function computeDataRange() {
+  dataRange = {};
+  for (const v of VIEWS) {
+    let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+    D.datasets.forEach((d) => { if (RADIAL.includes(v) && !d.systems) return; d.rows.forEach((r) => { const p = dataXY(v, r); if (!p) return; x0 = Math.min(x0, p[0]); x1 = Math.max(x1, p[0]); y0 = Math.min(y0, p[1]); y1 = Math.max(y1, p[1]); }); });
+    dataRange[v] = { x: [x0, x1], y: [y0, y1] };
+  }
+}
 function ranges() {
+  const b = baseRanges(), e = dataRange && dataRange[state.view];
+  if (!e || !isFinite(e.x[0])) return b;
+  const pad = 0.15, lo = (a, m) => Math.min(a, Math.floor((m - pad) * 2) / 2), hi = (a, m) => Math.max(a, Math.ceil((m + pad) * 2) / 2);
+  const out = { ...b, x: [lo(b.x[0], e.x[0]), hi(b.x[1], e.x[1])], y: [lo(b.y[0], e.y[0]), hi(b.y[1], e.y[1])] };
+  if (b.equal) { const l = Math.min(out.x[0], out.y[0]), h = Math.max(out.x[1], out.y[1]); out.x = [l, h]; out.y = [l, h]; }
+  return out;
+}
+function baseRanges() {
   if (state.view === 'obs') return { x: [-15, -7.5], y: [-13.5, -7.5], equal: true };
   if (state.view === 'ex') return { x: [-15, -7.5], y: [-0.5, 2.0] };
   if (state.view === 'mass') return { x: [5, 15.5], y: [5, 15.5], equal: true };
@@ -124,6 +161,10 @@ function view() {
   const cl = (a, lo, hi) => Math.min(hi, Math.max(lo, a));
   const x0 = cl(z[0], base.x[0], base.x[1]), x1 = cl(z[1], base.x[0], base.x[1]), y0 = cl(z[2], base.y[0], base.y[1]), y1 = cl(z[3], base.y[0], base.y[1]);
   if (x1 - x0 < 1e-3 || y1 - y0 < 1e-3) return { base, rg: base, zoomed: false };
+  if (base.equal) { // keep one unit the same length on both axes, so slopes read true
+    const w = Math.max(x1 - x0, y1 - y0), cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
+    return { base, rg: { x: [cx - w / 2, cx + w / 2], y: [cy - w / 2, cy + w / 2] }, zoomed: true };
+  }
   return { base, rg: { x: [x0, x1], y: [y0, y1] }, zoomed: true };
 }
 
@@ -153,12 +194,9 @@ function draw() {
   else if (v === 'obs') { const lx = narrow ? -12.4 : -12.7; g.save(); g.translate(X(lx), Y(lx) + 14); g.rotate(Math.atan2(Y(-10) - Y(-11), X(-10) - X(-11))); g.textAlign = 'center'; g.fillText(narrow ? LBL.zero[+P] : LBL.line[+P], 0, 0); g.restore(); }
   else if (v === 'mass') { const lx = 7.2; g.save(); g.translate(X(lx), Y(lx) + 14); g.rotate(Math.atan2(Y(9) - Y(8), X(9) - X(8))); g.textAlign = 'center'; g.fillText(LBL.zerom[+P], 0, 0); g.restore(); }
   else if (v !== 'speed') { g.textAlign = 'left'; g.fillText(LBL.zero[+P], L + 8, Y(0) + 16); }
-  hits = []; let nNeg = 0;
-  const pos = (q) => {
-    if (v === 'mass') { const mb = lg(massOf(q.g_bar, q.r_kpc)), mo = lg(massOf(q.g_obs, q.r_kpc)); return mb === null || mo === null ? null : [X(mb), Y(mo)]; }
-    if (v === 'speed') { const x = lg(q.r_kpc), y = lg(speedOf(q.g_obs, q.r_kpc)); return x === null || y === null ? null : [X(x), Y(y)]; }
-    const x = v === 'rad' ? lg(q.r_kpc) : lg(q.g_bar); const yo = lg(q.g_obs), yb = lg(q.g_bar); if (x === null || yo === null || yb === null) return null; return [X(x), Y(v === 'obs' ? yo : yo - yb)];
-  };
+  hits = []; let nNeg = 0, nOpen = 0;
+  const pos = (q) => { const p = dataXY(v, q); return p ? [X(p[0]), Y(p[1])] : null; };
+  let nOut = 0;
   const posDef = (r) => pos(r);
   D.datasets.forEach((d, di) => {
     if (state.hide.includes(d.key)) return;
@@ -176,14 +214,25 @@ function draw() {
       if (only && !only.has(i)) return;
       const q = cache[di][i], xy = pos(q);
       if (!xy) { if (!(q.g_bar > 0) && v !== 'speed') nNeg++; return; }
-      const [x, y] = xy, c = col(r), shape = r.method_class;
+      const c = col(r), shape = r.method_class;
+      if (xy[0] < L - 0.5 || xy[0] > L + pw + 0.5 || xy[1] < T - 0.5 || xy[1] > T + ph + 0.5) {
+        // Outside the window (zoomed, or moved by an assumption): a small marker on the edge, counted.
+        nOut++; if (zoomed) return; // zoomed: counted only (the reader chose the window)
+        const ex = Math.min(L + pw - 3, Math.max(L + 3, xy[0])), ey = Math.min(T + ph - 3, Math.max(T + 3, xy[1]));
+        g.fillStyle = c; g.globalAlpha = 0.55; g.beginPath(); g.moveTo(ex, ey - 3); g.lineTo(ex + 3, ey); g.lineTo(ex, ey + 3); g.lineTo(ex - 3, ey); g.closePath(); g.fill(); g.globalAlpha = 1;
+        return;
+      }
+      const [x, y] = xy;
       if (moved && state.arrows !== false && q !== r) {
         const xy0 = posDef(r);
         if (xy0) { const dx = x - xy0[0], dy = y - xy0[1], len = Math.hypot(dx, dy); if (len > 1.2) { g.strokeStyle = css('--range'); g.globalAlpha = 0.3; g.lineWidth = 0.6; g.beginPath(); g.moveTo(xy0[0], xy0[1]); g.lineTo(x, y); const a = Math.atan2(dy, dx), h = Math.min(4, len * 0.5); g.lineTo(x - h * Math.cos(a - 0.5), y - h * Math.sin(a - 0.5)); g.moveTo(x, y); g.lineTo(x - h * Math.cos(a + 0.5), y - h * Math.sin(a + 0.5)); g.stroke(); g.globalAlpha = 1; } }
       }
       if (state.err && state.view === 'obs') {
-        const lo = q.g_obs - (q.g_obs_err_lo ?? 0), hi = q.g_obs + (q.g_obs_err_hi ?? 0);
-        g.strokeStyle = c; g.globalAlpha = pop ? 0.9 : 0.45; g.lineWidth = pop ? 0.9 : 0.6; g.beginPath(); g.moveTo(x, lo > 0 ? Y(lg(lo)) : T + ph); g.lineTo(x, Y(lg(hi))); g.stroke(); g.globalAlpha = 1;
+        const [elo, ehi] = errOf(r, q), lo = q.g_obs - elo, hi = q.g_obs + ehi, open = !(lo > 0);
+        const yb = open ? T + ph : Y(lg(lo)), yt = Y(lg(hi));
+        g.strokeStyle = c; g.globalAlpha = pop ? 0.9 : 0.45; g.lineWidth = pop ? 0.9 : 0.6; g.beginPath(); g.moveTo(x, yb); g.lineTo(x, yt); g.stroke();
+        if (open) { g.globalAlpha = 0.8; g.beginPath(); g.moveTo(x - 3, T + ph - 5); g.lineTo(x, T + ph); g.lineTo(x + 3, T + ph - 5); g.stroke(); nOpen++; } // reaches zero: no lower end on a log axis
+        g.globalAlpha = 1;
       }
       const faint = PROPS[state.col] && (propValue(d, r) === null || propValue(d, r) === undefined);
       if (faint) { g.globalAlpha = 0.18; }
@@ -218,6 +267,9 @@ function draw() {
   g.restore();
   $('zoom-reset').disabled = !zoomed; $('zoom-out').disabled = !zoomed;
   $('zoom-state').textContent = zoomed ? (P ? 'Zoomed in.' : 'Zoomed: ' + rg.x.map((a) => a.toFixed(2)).join(' to ') + ' by ' + rg.y.map((a) => a.toFixed(2)).join(' to ') + '.') : '';
+  const outNote = nOut ? (P ? (zoomed ? ` ${nOut.toLocaleString('en')} points are outside this zoomed view.` : ` ${nOut} points are outside this window, marked on its edge.`) : (zoomed ? ` ${nOut.toLocaleString('en')} measurements lie outside this zoomed window.` : ` ${nOut} measurements lie outside this window; they are marked as small diamonds on its edge.`)) : '';
+  const openNote = state.err && state.view === 'obs' ? (P ? ' Bars show the uncertainty of the observed pull only; an arrow at the bottom means the uncertainty reaches zero.' : ` Error bars: g_obs only, ${state.errk === 'full' ? 'full uncertainty including distance and inclination (these shift a whole galaxy together)' : 'per-point uncertainty (rotation-speed error); distance and inclination are set per galaxy on its page'}. ${nOpen ? nOpen + ' bars reach zero (arrow at the bottom: no lower end on a log axis).' : ''}`) : '';
+  $('zoom-state').textContent += outNote + openNote;
   $('neg-note').textContent = nNeg ? `${nNeg} measurements have g_bar ≤ 0 at these settings (a component pulls outward) and cannot be placed on log axes; they are listed in the downloads.` : '';
   $('fig').setAttribute('aria-label', LBL['aria_' + v][+P]);
   const pn = $('pick-note');
@@ -284,6 +336,7 @@ function syncControls() {
   document.querySelectorAll('[data-pick]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.pick === state.pick)));
   $('colsel').value = state.col in PROPS || state.col === 'channel' ? state.col : 'dataset';
   $('err').checked = state.err;
+  document.querySelectorAll('[data-errk]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.errk === (state.errk || 'point'))));
 }
 
 function nearest(ev) {
@@ -293,11 +346,13 @@ function nearest(ev) {
 
 export async function start() {
   D = await loadData();
+  computeDataRange();
   document.querySelectorAll('[data-view]').forEach((b) => b.addEventListener('click', () => set({ view: b.dataset.view, zoom: null })));
   document.querySelectorAll('[data-marks]').forEach((b) => b.addEventListener('click', () => set({ marks: b.dataset.marks })));
   document.querySelectorAll('[data-pick]').forEach((b) => b.addEventListener('click', () => set({ pick: b.dataset.pick })));
   $('colsel').addEventListener('change', (e) => set({ col: e.target.value }));
   $('err').addEventListener('change', (e) => set({ err: e.target.checked }));
+  document.querySelectorAll('[data-errk]').forEach((b) => b.addEventListener('click', () => set({ errk: b.dataset.errk, err: true })));
   $('arrows').addEventListener('change', (e) => { state.arrows = e.target.checked; render(); });
   D.datasets.forEach((d) => { const cb = $('ds-' + d.short); if (cb) cb.addEventListener('change', () => set({ hide: cb.checked ? state.hide.filter((k) => k !== d.key) : [...state.hide, d.key] })); });
   $('card-clear').addEventListener('click', () => set({ sel: null }));
