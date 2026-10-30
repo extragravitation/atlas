@@ -61,8 +61,8 @@ function colorKey() {
   let html = `<b>${P.label}.</b> `;
   if (P.kind === 'cat') { const counts = prepareCats(); html += Object.keys(catIndex).map((k) => `<span style="white-space:nowrap"><span class="sw" style="display:inline-block;background:var(${CATS[catIndex[k] % CATS.length]})"></span> ${k} (${counts[k]})</span>`).join(' · '); }
   else { const stops = [0, 0.5, 1].map((t) => P.lo + t * (P.hi - P.lo)).map((x) => P.fmt(P.log ? Math.pow(10, x) : x)); html += `<span class="ramp" aria-hidden="true"></span> ${stops[0]} → ${stops[1]} → ${stops[2]}`; }
-  html += `. ${have.toLocaleString('en')} measurements coloured; ${miss.toLocaleString('en')} without this property drawn faint grey.`;
-  el.innerHTML = html; el.hidden = false;
+  el.innerHTML = `<p style="margin:0">${html}</p><details class="more" data-more ${document.body.classList.contains('phone-map') ? '' : 'open'}><summary>${have.toLocaleString('en')} coloured · ${miss.toLocaleString('en')} grey (no value)</summary>${have.toLocaleString('en')} measurements are coloured by this property; ${miss.toLocaleString('en')} whose source does not give it are drawn faint grey.</details>`;
+  el.hidden = false;
 }
 
 // One point per system (D-043). Every point is an existing measured row, chosen by a rule; nothing is
@@ -255,7 +255,7 @@ function card() {
   $('card-meta').textContent = `${s.class_in_source} · ${d.title.split(':')[0]} · ${rows.length} radii` + (state.pick !== 'all' ? ' · the map shows one of them (' + (state.pick === 'outer' ? 'the outermost' : 'the first at ≥ ' + LIGHT_K + ' × half-light radius') + ')' : '');
   $('card-link').href = BASE + 'systems/' + s.system_id + '/';
   $('card-flags').textContent = s.rows.some((i) => ringed(d.rows[i].flags)) ? 'Some measurements are flagged; see Known issues.' : 'No flags on this system.';
-  const prof = $('card-prof'), W = prof.parentElement.clientWidth - 34, H = Math.round(W * 0.62), g = setup(prof, W, H);
+  const prof = $('card-prof'), W = Math.max(220, prof.parentElement.clientWidth - 34), H = Math.round(W * 0.62), g = setup(prof, W, H);
   const isLog = d.name === 'aeg-d-xcop';
   let lo = Infinity, hi = -Infinity; rows.forEach((q) => { lo = Math.min(lo, lg(q.g_bar), lg(q.g_obs)); hi = Math.max(hi, lg(q.g_bar), lg(q.g_obs)); });
   lo = Math.floor(lo * 2) / 2; hi = Math.ceil(hi * 2) / 2;

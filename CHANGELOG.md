@@ -4,6 +4,7 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
 
 ## Unreleased
 
+- Map on phones: chart pinned at the top with a control sheet below it (Lens, Points, Data, Marks, Colours, Assumptions, Selected); long notes shortened to one line with a tap to expand.
 - Map: one point per system (outermost measured radius, or 2 × half-light radius) and an outermost-radius colour check (D-043).
 - D-042: Baumgardt database as a re-analysis; plotting rules before precedence; Harris 2010 distances for Milky Way globular clusters.
 - D-041: data standard 2.0.0 frozen (the validator stays editable through tested pull requests).

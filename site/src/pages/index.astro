@@ -52,7 +52,7 @@ const total = atlas.datasets.reduce((s, d) => s + d.measurements.rows.length, 0)
 <Base title="" active="map" figures={true}>
   <div class="layout">
     <aside class="rail" aria-label="Display, filters and assumptions">
-      <div>
+      <div data-tab="lens">
         <p class="cap"><L t="Lens" p="View" /></p>
         <div class="seg" role="group" aria-label="Lens">
           <button class="btn" data-view="obs" aria-pressed="true"><L t="Acceleration" p="Pull" /></button>
@@ -64,7 +64,7 @@ const total = atlas.datasets.reduce((s, d) => s + d.measurements.rows.length, 0)
         </div>
         <p class="small" style="margin-top:6px"><L t="Same data, different framings (D-030). Surface density needs the recorded observables of data standard 2.0 and arrives with the next packages." p="The same measurements seen in different ways. One more view arrives with the next datasets." /></p>
       </div>
-      <div>
+      <div data-tab="points">
         <p class="cap"><L t="Points" p="Marks" /></p>
         <div class="seg" role="group" aria-label="Points per system">
           <button class="btn" data-pick="all" aria-pressed="true"><L t="Every measurement" p="Every point" /></button>
@@ -73,11 +73,11 @@ const total = atlas.datasets.reduce((s, d) => s + d.measurements.rows.length, 0)
         </div>
         <p class="small" style="margin-top:6px"><L t="One point per system selects an existing measurement by a fixed rule; nothing is recomputed (D-043). Values are always within a radius, never a total." p="A simpler picture: one mark per galaxy or cluster. Each is a real measurement, picked by a fixed rule." /></p>
       </div>
-      <div>
+      <div data-tab="data">
         <p class="cap">Datasets</p>
         {atlas.datasets.map((d) => <label class="check"><input type="checkbox" id={'ds-' + d.short} checked /><span>{datasetLabel(d.name).t} · {weight[d.key]}</span></label>)}
       </div>
-      <div>
+      <div data-tab="marks">
         <p class="cap"><L t="Marks" p="Show as" /></p>
         <div class="seg" role="group" aria-label="Marks">
           <button class="btn" data-marks="points" aria-pressed="true">Points</button>
@@ -85,7 +85,9 @@ const total = atlas.datasets.reduce((s, d) => s + d.measurements.rows.length, 0)
           <button class="btn" data-marks="both" aria-pressed="false">Both</button>
         </div>
         <label class="check" style="margin-top:8px"><input type="checkbox" id="err" /><span><L t="Error bars" p="Uncertainty bars" /></span></label>
-        <p class="cap" style="margin-top:12px">Colour by</p>
+      </div>
+      <div data-tab="colours">
+        <p class="cap">Colour by</p>
         <label class="sr-only" for="colsel">Colour by</label>
         <select id="colsel" class="sel">
           <option value="dataset">Dataset</option>
@@ -101,7 +103,7 @@ const total = atlas.datasets.reduce((s, d) => s + d.measurements.rows.length, 0)
         </select>
         <p class="small" style="margin-top:6px"><L t="Systematics checks colour each measurement by a property its source gives. If the comparison were affected by that property, the colours would separate at fixed g_bar. No fit is made (D-033)." p="Colour the points by something about how they were measured. If that affected the results, the colours would separate." /></p>
       </div>
-      <div class="scope">
+      <div class="scope" data-tab="sliders">
         <p class="cap"><L t="Assumptions · whole datasets" p="Assumptions you can change" /></p>
         <p class="small"><L t="One value for every system in the dataset, as the sources adopt it. Distance and inclination are set per galaxy, on each galaxy’s own page." p="Each slider changes one assumption for every system in a dataset. Distance and tilt are set one galaxy at a time, on its own page." /></p>
         <div style="display:flex;flex-direction:column;gap:12px;margin-top:10px">
@@ -131,10 +133,11 @@ const total = atlas.datasets.reduce((s, d) => s + d.measurements.rows.length, 0)
       <p class="hint" id="lens-note"></p>
       <ul class="legend" id="legend" aria-label="Legend: select a type to show only it"></ul>
       <div id="colkey" class="hint" hidden></div>
-      <p class="hint"><L t="Zoom: drag a box over the chart, scroll the wheel over the chart (forward to zoom in, back to zoom out), or pinch on a touch screen; double-click or Reset to see everything. Pan: hold the middle mouse button and drag, or switch on Pan and drag. With the chart focused, + and − zoom, the arrow keys move, P toggles Pan, 0 resets. Zooming changes only the window, never the data." p="To zoom, scroll over the chart, drag a box over it, or pinch with two fingers. To move around, press Pan and drag, or hold down the mouse wheel and drag. Double-click or press Reset to see everything again." /> <span id="zoom-state"></span></p>
-      <p class="hint"><L t="Select a type in the legend to show only it; select it again to show everything. Hover a point for its values; click it to select its system." p="Tap a type in the legend to show only it; tap again for everything. Tap a point to pick its galaxy or cluster." /></p>
+      <details class="more hint" data-more><summary><span class="touch-only"><L t="Zoom: pinch or drag a box · Reset to see everything" p="Pinch or drag a box to zoom · Reset to see everything" /></span><span class="mouse-only"><L t="Zoom: wheel or drag a box · Pan: middle button · double-click resets" p="Scroll or drag a box to zoom · double-click to see everything" /></span></summary><L t="Zoom: drag a box over the chart, scroll the wheel over the chart (forward to zoom in, back to zoom out), or pinch on a touch screen; double-click or Reset to see everything. Pan: hold the middle mouse button and drag, or switch on Pan and drag. With the chart focused, + and − zoom, the arrow keys move, P toggles Pan, 0 resets. Zooming changes only the window, never the data." p="To zoom, scroll over the chart, drag a box over it, or pinch with two fingers. To move around, press Pan and drag, or hold down the mouse wheel and drag. Double-click or press Reset to see everything again." /></details>
+      <p class="hint" id="zoom-state-line"><span id="zoom-state"></span></p>
+      <details class="more hint" data-more><summary><L t="Tap a point to select its system" p="Tap a point to pick its galaxy or cluster" /></summary><L t="Select a type in the legend to show only it; select it again to show everything. Hover a point for its values; click it to select its system." p="Tap a type in the legend to show only it; tap again for everything. Tap a point to pick its galaxy or cluster." /></details>
       <p class="hint" id="neg-note"></p>
-      {nonPos.length > 0 && <p class="hint">Not plotted at the defaults: {nonPos.length} measurements with g_bar ≤ 0 (a component pulls outward, so they cannot be placed on log axes): {nonPos.join(', ')}.</p>}
+      {nonPos.length > 0 && <details class="more hint" data-more><summary><L t={`${nonPos.length} measurements not plotted (g_bar ≤ 0)`} p={`${nonPos.length} measurements can’t be placed on this chart`} /></summary><L t={`At the defaults, ${nonPos.length} measurements have g_bar ≤ 0 (a component pulls outward), so they cannot be placed on log axes: ${nonPos.join(', ')}.`} p={`For ${nonPos.length} measurements the detected matter pulls outward overall, which a log scale cannot show: ${nonPos.join(', ')}.`} /></details>}
     </main>
 
     <aside class="card" aria-label="Selected system">
@@ -151,9 +154,24 @@ const total = atlas.datasets.reduce((s, d) => s + d.measurements.rows.length, 0)
       </div>
     </aside>
   </div>
+  <div class="msheet" id="msheet" data-state="peek" hidden>
+    <button type="button" class="mhandle" id="mhandle" aria-label="Show or hide the controls"><span aria-hidden="true"></span></button>
+    <p class="msum" id="msum"></p>
+    <div class="mtabs" role="tablist" aria-label="Chart controls">
+      <button role="tab" type="button" data-mtab="lens" aria-selected="true"><L t="Lens" p="View" /></button>
+      <button role="tab" type="button" data-mtab="points"><L t="Points" p="Marks" /></button>
+      <button role="tab" type="button" data-mtab="data">Data</button>
+      <button role="tab" type="button" data-mtab="marks"><L t="Marks" p="Show as" /></button>
+      <button role="tab" type="button" data-mtab="colours">Colours</button>
+      <button role="tab" type="button" data-mtab="sliders"><L t="Assumptions" p="Adjust" /></button>
+      <button role="tab" type="button" data-mtab="system"><L t="Selected" p="Picked" /></button>
+    </div>
+    <div class="mpanels" id="mpanels"></div>
+  </div>
   <script type="application/json" id="map-labels" set:html={JSON.stringify(labels)}></script>
   <script>
     import { start } from '../scripts/map.js';
-    start();
+    import { mobilePanel } from '../scripts/mobile.js';
+    start().then(mobilePanel);
   </script>
 </Base>

@@ -158,3 +158,45 @@ canvas.zoomable.grabbing { cursor: grabbing; }
 .sel { font: inherit; min-height: 38px; padding: 0 10px; border-radius: 7px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); max-width: 100%; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .ramp { display: inline-block; width: 90px; height: 9px; vertical-align: -1px; background: linear-gradient(90deg, var(--c0), var(--c1), var(--c2), var(--c3), var(--c4)); border-radius: 2px; }
+
+/* Expandable notes: one line, more on request (phone); always open on wide screens. */
+details.more > summary { cursor: pointer; list-style: none; color: var(--muted); }
+details.more > summary::-webkit-details-marker { display: none; }
+details.more > summary::after { content: " ▸"; color: var(--accent, var(--sel)); }
+details.more[open] > summary::after { content: " ▾"; }
+body:not(.phone-map) details[data-more] > summary { display: none; }
+body.touch .mouse-only, body:not(.touch) .touch-only { display: none; }
+
+/* Phone map: chart pinned at the top, controls in a sheet below it. */
+.msheet { display: none; }
+@media (max-width: 760px) {
+  body.phone-map .layout > main figure { position: sticky; top: 0; z-index: 3; background: var(--bg); margin: 0; padding-top: 4px; }
+  body.phone-map .layout > main figure figcaption { display: none; }
+  body.phone-map #content main h1 { font-size: 20px !important; line-height: 1.25; margin: 4px 0 6px; }
+  body.phone-map .layout > main .kicker { display: none; }
+  body.phone-map #content { padding-bottom: calc(var(--sheet-h, 112px) + 16px); }
+  body.phone-map .msheet { display: flex; flex-direction: column; position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+    height: var(--sheet-h, 112px); background: var(--panel); border-top: 1px solid var(--line); border-radius: 16px 16px 0 0;
+    box-shadow: 0 -8px 24px rgba(0,0,0,0.35); transition: height 0.18s ease-out; padding-bottom: env(safe-area-inset-bottom); }
+  .mhandle { align-self: stretch; min-height: 26px; border: 0; background: transparent; cursor: grab; display: flex; align-items: center; justify-content: center; touch-action: none; }
+  .mhandle span { width: 44px; height: 5px; border-radius: 3px; background: var(--muted); opacity: 0.6; }
+  .msum { margin: 0 16px 6px; font-size: 13px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .mtabs { display: flex; gap: 6px; overflow-x: auto; padding: 0 12px 8px; scrollbar-width: none; flex: none; }
+  .mtabs::-webkit-scrollbar { display: none; }
+  .mtabs [role=tab] { flex: none; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--ink); font: inherit; font-size: 14px; }
+  .mtabs [role=tab][aria-selected=true] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .mpanels { flex: 1; overflow-y: auto; padding: 4px 16px 16px; overscroll-behavior: contain; }
+  .msheet[data-state=peek] .mpanels { visibility: hidden; }
+  .mpanel > [data-tab] > .cap { display: none; }
+  .mpanel .seg { display: flex; flex-wrap: wrap; gap: 8px; }
+  .mpanel .seg .btn { min-height: 44px; padding: 0 14px; border-radius: 999px; }
+  .mpanel .check { min-height: 44px; display: flex; align-items: center; gap: 10px; }
+  .mpanel .sel { width: 100%; min-height: 44px; }
+  .mpanel .scope { border: 0; padding: 0; }
+  .mpanel .card { border: 0; padding: 0; background: transparent; }
+  .mpanel .hint { max-width: none; }
+  body.phone-map .layout > .rail { display: none; }
+  .mpanel p.clamp { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; cursor: pointer; }
+  .mpanel p.clamp.open { display: block; }
+  .mpanel p.clamp:not(.open)::after { content: ""; }
+}
