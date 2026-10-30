@@ -18,7 +18,7 @@ A7: Carina III, Draco II, Horologium I, Phoenix II, Reticulum II, Reticulum III,
 Changed from v1: 29 systems (Canes Venatici II A7→A5, Carina II A7→A5, Centaurus I A7→A5, Columba I A7→A5, Coma Berenices A7→A5, Draco A7→A5, Eridanus II A7→A5, Fornax A7→A5, Grus II A7→A5, Hercules A7→A5, Leo I A7→A5, Leo II A7→A5, Leo IV A7→A5, LMC A7→A5, Pictor II A7→A5, Sculptor A7→A5, Sextans A7→A5, SMC A7→A5, Tucana II A7→A5, Tucana III A7→A5, Tucana IV A7→A5, Tucana V A7→A5, Ursa Minor A7→A5, Willman 1 A7→A5, Andromeda VII A7→A5, Andromeda XV A5→A7, Cassiopeia II A7→A5, IC 1613 A7→A5, Phoenix A7→A5).
 
 ## Limits
-- **Who read what.** Pre-arXiv papers were read as ADS scans by the main session, which also runs the conversion. The second-reader check by JvH (D-049a item 6) is pending.
+- **Who read what.** Pre-arXiv papers were read as ADS scans by the main session, which also runs the conversion. JvH, as second reader, checked three of them (Shapley 1938, Baade & Hubble 1939 and Baade 1929) and agreed on all three (`second_reader_scans_JvH.md`).
 - **First naming (arXiv era).** It was searched without citation databases, which were unreachable: `first_naming_search_log.md`. The pre-arXiv searches are in `first_naming_search_log_scans.md`.
 - **Uncertain first namings.** Horologium I, Phoenix II, Segue 1, Segue 2, Draco II and IC 1613. Under the rule, none of the alternatives found would change a placement.
 - **Same-year supersession.** A first naming with L in the same year as the X does not supersede it (item 2: strictly later). This applies to Carina III, Draco II and Ursa Major II.
