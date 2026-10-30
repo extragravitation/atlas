@@ -1,0 +1,10 @@
+{
+  "description": "D-049 and D-049a: kind-basis rule version 2 with first naming, and its mechanical application, frozen before any A5 dispersion, structural value or luminosity was opened. No version 3 (item 7).",
+  "frozen_on": "2026-10-30",
+  "decision": "D-049, D-049a",
+  "spec": "docs/methods/D049_KIND_BASIS_V2.md",
+  "files": {
+    "docs/methods/D049_KIND_BASIS_V2.md": "0891f502ca725c8e0065a14c599f2d0340733fa80bc338bddb9dba202ae834c8",
+    "data/packages/aeg-d-dwarfs/v1/reproduction/apply_kind_rule_v2.py": "68a96f5eb12ed658b36dea578320cff553924962a7a152d23ebb41f1e37e6c6d"
+  }
+}

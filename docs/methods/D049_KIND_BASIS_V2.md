@@ -33,3 +33,14 @@ The sheets are re-coded under items 1–3 by the same rule, and the 20% sample (
 1. **A7** if an X stands after supersession.
 2. Otherwise **A5** if any paper read gives L, P or G.
 3. Otherwise **A7** ("galaxy label rests on dynamics or metallicity spread only", or "no stated ground").
+
+## D-049a: first naming, and freeze
+
+**Ruled 2026-10-30 13:47 MDT (after the version 2 result; before any acceleration).**
+
+5. **First naming.** For every system that items 1–4 place in A7, the evidence set adds one more paper: **the earliest paper that calls the system a galaxy** (any wording: galaxy, dwarf galaxy, dSph, dE, dIrr, Sculptor-type system, extragalactic system or nebula). It is coded by the grounds it gives, like any other paper, and it supersedes an earlier X if it gives L, P or G (item 2).
+   - The reader looks for the first naming only, not for favourable grounds. The search is logged: queries, the candidates found and why the earliest was chosen.
+   - If the first naming rests on D or M, the system stays A7.
+   - If no paper calls it a galaxy, the system stays A7.
+6. **Readers.** arXiv-era papers are read by an independent agent. Pre-arXiv papers are read as ADS scans in JvH's browser by the main session, which also runs the conversion. This is disclosed, and a second reader checks a sample of the scan readings. Systems already in A5 are not re-examined: adding a first-naming paper cannot remove an L, P or G ground.
+7. **No version 3.** This rule is frozen with this section. Whatever it produces is published with its reasons. Later disagreement with a placement is recorded as a known issue and returned to the outside reader; it never triggers a change applied to this package.

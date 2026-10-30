@@ -803,3 +803,15 @@ The coders also disagreed on whether "provisional" means X: 2 of 21 double-coded
 **Alternative rejected.** Apply the version 1 result as written.
 
 **Data seen at the time of ruling.** The version 1 coding sheets and their result (kinds and reasons); the coders' reports. No dispersion, mass, structural value, luminosity or acceleration of any A5 candidate.
+
+**D-049a (2026-10-30 13:47 MDT, JvH: "D-049a as recommended").** **Proposed by** Claude after JvH asked for a review "as a good scientist"; **adopted unchanged**.
+- For systems version 2 places in A7, the evidence set adds the **earliest paper that calls the system a galaxy**, coded by its grounds. This replaces Claude's first proposal, which searched for the earliest paper arguing on light grounds. That proposal was withdrawn as a search for favourable evidence: unequal in effort and not reproducible.
+- arXiv-era papers are read by an independent agent and pre-arXiv papers as ADS scans by the main session (disclosed), with a second reader checking a sample of scan readings.
+- **The rule is then frozen with no version 3.** Whatever it produces is published with its reasons. Both D-049 and D-049a go to the outside reader.
+
+**Reason (Claude, adopted).**
+- The rule's purpose (D-036 #7) is to prevent circular selection by dynamics. The deciding fact is therefore historical: was the system named a galaxy before or without its dynamics?
+- Three revisions after seeing outputs risk tuning the list toward expectations. A fixed, reproducible target and a commitment to stop are the safeguards.
+- An A7 system is still shown, in its own view.
+
+**Data seen.** The version 1 and version 2 coding results; no dispersion, structural value, luminosity or acceleration.
