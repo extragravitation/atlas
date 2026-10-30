@@ -21,7 +21,8 @@ def norm_name(name: str) -> str:
     n = re.sub(r"[\s\-_]", "", n)
     n = re.sub(r"^TERZAN(\d+)$", r"TER\1", n)
     aliases = {"2MSGC01": "2MASSGC01", "2MSGC02": "2MASSGC02", "2MS1": "2MASSGC01", "2MS2": "2MASSGC02",
-               "DJORG1": "DJOR1", "DJORG2": "DJOR2", "TERZAN1": "TER1", "1636283": "ESO452SC11", "ESOSC06": "ESO280SC06"}
+               "DJORG1": "DJOR1", "DJORG2": "DJOR2", "TERZAN1": "TER1", "1636283": "ESO452SC11", "ESOSC06": "ESO280SC06",
+               "GRAN3PATCHICK125": "GRAN3", "PATCHICK126": "PAT126", "SAGITTARIUSII": "SGR2", "GRAN1ESO456SC29": "GRAN1"}
     return aliases.get(n, n)
 
 
@@ -157,4 +158,22 @@ def read_rv(path: Path) -> list[dict]:
         if layout_b:
             rec["PMEM_PM"] = pm_pm
         out.append(rec)
+    return out
+
+
+# ------------------------------------------------------------- parameter.html
+
+def read_parameter(path: Path) -> dict[str, dict]:
+    """Cluster name -> {RA, DEC, R_Sun, R_Sun_err} as printed in the Baumgardt parameter table."""
+    s = path.read_text(encoding="latin1")
+    i = s.index("id='sort'")
+    t = s[i:s.lower().index("</table>", i)]
+    out = {}
+    for r in re.findall(r"<tr[^>]*>(.*?)(?=<tr|$)", t, re.S | re.I)[1:]:
+        c = [html.unescape(re.sub(r"<[^>]+>", "", x)).replace("\xa0", " ").strip()
+             for x in re.findall(r"<t[dh][^>]*>(.*?)(?=<t[dh]|</tr|$)", r, re.S | re.I)]
+        if len(c) < 4:
+            continue
+        d, _, e = c[3].partition("±")
+        out[norm_name(c[0])] = {"name": c[0], "RA": c[1], "DEC": c[2], "R_Sun": d.strip(), "R_Sun_err": e.strip()}
     return out

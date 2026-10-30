@@ -5,6 +5,7 @@ import Base from '../../layouts/Base.astro';
 import L from '../../components/L.astro';
 import Layer from '../../components/Layer.astro';
 import Slider from '../../components/Slider.astro';
+import DispersionSystem from '../../components/DispersionSystem.astro';
 import { loadAtlas, ringed } from '../../lib/atlas.mjs';
 import { datasetLabel, assumptionLabel, sigFig } from '../../lib/labels.mjs';
 
@@ -19,6 +20,7 @@ const d = atlas.datasets.find((x) => x.key === sys.dataset);
 const lab = datasetLabel(d.name);
 const rows = sys.rows.map((i) => d.measurements.rows[i]);
 const base = import.meta.env.BASE_URL;
+const isDisp = !!d.observables && d.measurements.rows.every((r) => r.kind === 'system_value');
 const P = sys.props, R = sys.row;
 const applies = (a) => rows.some((r) => (r.adjustable || '').split(';').includes(a.id));
 const adj = d.assumptions.filter((a) => a.adjustable && a.status === 'confirmed' && applies(a));
@@ -80,7 +82,24 @@ const cfg = {
 const desc = `${sys.name}: ${lab.kind_t.toLowerCase()} in ${lab.t}. Observed acceleration against Newtonian gravity on detected matter at ${rows.length} radii.`;
 const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.name}), dataset ${d.name} ${d.version}. https://extragravitation.org/systems/${sys.id}/. Source: ${d.citation}`;
 ---
-<Base title={sys.name} description={desc} active="systems" figures={true}>
+<Base title={sys.name} description={isDisp ? `${sys.name}: ${lab.kind_t.toLowerCase()} in ${lab.t}. Observed acceleration against Newtonian gravity on detected matter at the half-light radius.` : desc} active="systems" figures={true}>
+  {isDisp ? (
+  <div class="olayout"><main class="split"><div class="pre">
+    <p class="kicker"><a href={`${base}systems/`} style="color:inherit">Systems</a> · {lab.t} · {sys.id}</p>
+    <h1>{sys.name}</h1>
+    <DispersionSystem sys={sys} d={d} lab={lab} />
+    <h2 id="cite"><L t="Cite" p="How to cite" /></h2>
+    <p class="boxed" style="font-family:var(--mono);font-size:13px">{cite}</p>
+    <p class="small"><a href={`${base}datasets/${d.name}/${d.version}/`}>{d.title}</a> · <a href={`${base}downloads/${d.name}/${d.version}/measurements.csv`}>CSV</a></p>
+  </div></main>
+  <aside class="side" aria-label="Assumptions for this system"><div>
+    <p class="cap"><L t="Fixed assumptions" p="Assumptions" /></p>
+    <ul class="small" style="padding-left:18px;margin:0">{d.assumptions.map((a) => <li><L t={a.name_technical} p={a.name_plain || a.name_technical} /> · <span class="muted">{a.status}</span></li>)}</ul>
+    <p class="small" style="margin-top:6px"><L t="No sliders yet for this dataset: the stellar mass-to-light range (D-039) is added with its formulas in a later pull request." p="Sliders for this dataset come later." /></p>
+    <p class="cap" style="margin-top:14px">On this page</p>
+    <nav class="toc"><a href="#status">Status</a><a href="#measured"><L t="Profile" p="Profile" /></a><a href="#inputs">Inputs</a><a href="#repro"><L t="Reproduction" p="Re-derived?" /></a><a href="#cite">Cite</a></nav>
+  </div></aside></div>
+  ) : (
   <div class="olayout">
     <main class="split">
       <div class="pre">
@@ -179,9 +198,9 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
       </div>
     </aside>
   </div>
-  <script type="application/json" id="budget-config" set:html={JSON.stringify(cfg)}></script>
+  )}
+  {!isDisp && <script type="application/json" id="budget-config" set:html={JSON.stringify(cfg)}></script>}
   <script>
-    import { start } from '../../scripts/budget.js';
-    start();
+    if (document.getElementById('budget-config')) import('../../scripts/budget.js').then((m) => m.start());
   </script>
 </Base>

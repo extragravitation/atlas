@@ -1,0 +1,97 @@
+{
+  "name": "aeg-d-gc-baumgardt",
+  "version": "v1",
+  "title": "Milky Way globular clusters: light-weighted line-of-sight dispersions from the Baumgardt database, with King-model light and population mass-to-light ratios",
+  "description": "Atlas conversion of the binned velocity-dispersion profiles of the Baumgardt Galactic Globular Cluster Database (v4, treated as a re-analysis, D-042) into one g_obs and g_bar per cluster at the 3D half-light radius (D-025): light-weighted dispersion with King (1966) weights from McLaughlin & van der Marel (2005) (D-036 ii, D-045), Harris (1996, 2010 edition) distances and luminosities, and population M/L_V from McLaughlin & van der Marel (2005) (D-039). Proper-motion profiles are recorded, not plotted. See REPRODUCTION.md, REPRODUCTION_RESULT.md and checks/.",
+  "standard_version": "2.0.0",
+  "x_standard_version": "2.0.0",
+  "x_licence_status": "No licence stated by the database ('If you use these profiles for your research, please give reference to the papers'); Harris catalogue free with citation; McLaughlin & van der Marel via VizieR (CDS terms). Atlas tables intended CC BY 4.0 under D-004, citing the sources. Source files not redistributed.",
+  "licenses": [],
+  "sources": [
+    {
+      "title": "Baumgardt et al., Galactic Globular Cluster Database v4",
+      "path": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/"
+    },
+    {
+      "title": "Harris 1996 (2010 edition)",
+      "path": "https://physics.mcmaster.ca/~harris/mwgc.dat"
+    },
+    {
+      "title": "McLaughlin & van der Marel 2005, ApJS 161, 304 (VizieR J/ApJS/161/304, IDIA mirror; deviation #19)",
+      "path": "https://vizier.idia.ac.za/viz-bin/VizieR?-source=J/ApJS/161/304"
+    }
+  ],
+  "x_citation": "Profiles: Baumgardt (2017, MNRAS 464, 2174); Baumgardt & Hilker (2018, MNRAS 478, 1520) and the papers listed on veldis.html for each dataset code (F13, L13, L15, K18, D21, C22, G22; proper motions W15, C21, H21, VB21, LI22, T22, P22). Distances and luminosities: Harris 1996, AJ 112, 1487 (2010 edition). Structure and population M/L: McLaughlin & van der Marel 2005, ApJS 161, 304.",
+  "x_selection": [
+    {
+      "quantity": "kind",
+      "condition": "==",
+      "value": "old globular cluster (A3); disputed objects to A7 (D-037, D-038 4A)",
+      "citation": "D-037, D-038"
+    },
+    {
+      "quantity": "line-of-sight dispersion profile",
+      "condition": "light coverage >=",
+      "value": 0.8,
+      "citation": "D-036 (ii)"
+    },
+    {
+      "quantity": "bins per dataset",
+      "condition": ">=",
+      "value": 2,
+      "citation": "D-036 (ii): edges inferred from mean radii"
+    },
+    {
+      "quantity": "structural model",
+      "condition": "==",
+      "value": "McLaughlin & van der Marel (2005) King (1966) fit; Harris-only clusters recorded (D-047)",
+      "citation": "D-045, D-047"
+    },
+    {
+      "quantity": "distance",
+      "condition": "==",
+      "value": "Harris (2010) horizontal branch; never kinematic",
+      "citation": "D-042, D-036 #6"
+    }
+  ],
+  "x_baryon_inventory": [
+    {
+      "component": "stars",
+      "status": "measured",
+      "citation": "Harris (2010) integrated V; McLaughlin & van der Marel (2005) population M/L_V (D-034, D-039)"
+    },
+    {
+      "component": "atomic gas",
+      "status": "absent_literature_limit",
+      "citation": "Chantereau et al. 2020 (arXiv:2002.02401), read at source: search-log-A3.md §1.7"
+    },
+    {
+      "component": "molecular gas",
+      "status": "absent_literature_limit",
+      "citation": "Chantereau et al. 2020 (arXiv:2002.02401), read at source: search-log-A3.md §1.7"
+    },
+    {
+      "component": "ionised gas",
+      "status": "absent_literature_limit",
+      "citation": "Chantereau et al. 2020 (arXiv:2002.02401), read at source: search-log-A3.md §1.7"
+    },
+    {
+      "component": "stellar remnants",
+      "status": "modelled",
+      "citation": "Included in the population-synthesis M/L_V (Bruzual & Charlot 2003, Chabrier IMF; McLaughlin & van der Marel 2005)"
+    }
+  ],
+  "x_search_log": "docs/sources/search-log-A3.md (A3-1, R46, R49)",
+  "x_second_reading": {
+    "by": "independent agent session (Claude), without access to the package's conversion code; own parsers, read at source",
+    "date": "2026-10-30",
+    "result": "3535 of 3535 numbers agree; arithmetic checks pass; control (two altered values) detected",
+    "file": "SECOND_READING.md",
+    "scripts": "reproduction/second_reading/"
+  },
+  "x_reproduction": {
+    "test_2": "FAIL (152 of 153; MW-PAL1), D-046",
+    "test_4": "D-045 reading rejected; Harris-only recorded (D-047)",
+    "d037_check": "checks/d037_rv_clusters.csv"
+  }
+}

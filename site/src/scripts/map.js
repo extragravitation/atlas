@@ -9,7 +9,7 @@ import { wireSliders } from './sliders.js';
 
 const BASE = document.documentElement.dataset.base || '/';
 const $ = (id) => document.getElementById(id);
-const COLOR = { 'aeg-d-sparc': '--sparc', 'aeg-d-xcop': '--xcop', 'aeg-d-kids1000-rar': '--kids' };
+const COLOR = { 'aeg-d-sparc': '--sparc', 'aeg-d-gc-baumgardt': '--gc', 'aeg-d-xcop': '--xcop', 'aeg-d-kids1000-rar': '--kids' };
 const LBL = JSON.parse($('map-labels').textContent);
 let D = null, hits = [], hover = null, cache = null, geom = null, brush = null;
 
@@ -237,7 +237,7 @@ function draw() {
       const faint = PROPS[state.col] && (propValue(d, r) === null || propValue(d, r) === undefined);
       if (faint) { g.globalAlpha = 0.18; }
       if (shape === 'lensing') { g.save(); g.translate(x, y); g.rotate(Math.PI / 4); g.fillStyle = css('--bg'); g.fillRect(-3, -3, 6, 6); g.strokeStyle = c; g.lineWidth = 1.3; g.strokeRect(-3, -3, 6, 6); g.restore(); }
-      else if (state.marks !== 'tracks' || state.pick !== 'all') { g.fillStyle = c; g.globalAlpha = faint ? 0.15 : shape === 'hydrostatic' ? 0.8 : alpha; const rr = state.pick === 'all' ? 1.7 : 3; if (shape === 'kinematic') { g.beginPath(); g.arc(x, y, rr, 0, 6.2832); g.fill(); } else g.fillRect(x - rr - 0.1, y - rr - 0.1, 2 * rr + 0.2, 2 * rr + 0.2); g.globalAlpha = 1; }
+      else if (state.marks !== 'tracks' || state.pick !== 'all') { g.fillStyle = c; g.globalAlpha = faint ? 0.15 : shape === 'hydrostatic' ? 0.8 : alpha; const rr = state.pick === 'all' ? 1.7 : 3; if (r.kind === 'system_value') { g.globalAlpha = faint ? 0.15 : 0.35; g.beginPath(); g.arc(x, y, 3.6, 0, 6.2832); g.fill(); g.globalAlpha = faint ? 0.3 : 1; g.strokeStyle = c; g.lineWidth = 1.5; g.stroke(); } else if (shape === 'kinematic') { g.beginPath(); g.arc(x, y, rr, 0, 6.2832); g.fill(); } else g.fillRect(x - rr - 0.1, y - rr - 0.1, 2 * rr + 0.2, 2 * rr + 0.2); g.globalAlpha = 1; }
       g.globalAlpha = faint ? 0.25 : 1;
       if (ringed(r.flags)) { g.strokeStyle = css('--flag'); g.lineWidth = 0.7; g.beginPath(); g.arc(x, y, 3.6, 0, 6.2832); g.stroke(); }
       g.globalAlpha = 1;
@@ -284,8 +284,8 @@ function draw() {
 function legend() {
   const P = plain();
   const items = D.datasets.map((d) => {
-    const shape = d.rows[0].method_class, c = PROPS[state.col] ? '--muted' : COLOR[d.name] || '--sparc';
-    const sw = shape === 'lensing' ? `width:8px;height:8px;border:1.5px solid var(${state.col === 'channel' ? '--kids' : c});transform:rotate(45deg)` : `${shape === 'kinematic' ? 'border-radius:50%;' : ''}background:var(${state.col === 'channel' ? '--sparc' : c})`;
+    const shape = d.rows[0].method_class, single = d.rows[0].kind === 'system_value', c = PROPS[state.col] ? '--muted' : COLOR[d.name] || '--sparc';
+    const sw = shape === 'lensing' ? `width:8px;height:8px;border:1.5px solid var(${state.col === 'channel' ? '--kids' : c});transform:rotate(45deg)` : (single ? `width:9px;height:9px;border-radius:50%;border:1.5px solid var(${state.col === 'channel' ? '--sparc' : c});background:transparent` : `${shape === 'kinematic' ? 'border-radius:50%;' : ''}background:var(${state.col === 'channel' ? '--sparc' : c})`);
     const on = !state.hide.includes(d.key);
     return `<li><button type="button" class="item" data-leg="${d.key}" aria-pressed="${on}"><span class="sw" style="${sw}" aria-hidden="true"></span><span>${LBL.ds[d.key][+P]}: ${LBL.weight[d.key]}</span></button></li>`;
   });
@@ -308,7 +308,7 @@ function card() {
   if (!d) return;
   const s = d.sysById[state.sel], di = D.datasets.indexOf(d), rows = s.rows.map((i) => cache[di][i]).filter((q) => q.g_bar > 0);
   $('card-name').textContent = s.name_in_source;
-  $('card-meta').textContent = `${s.class_in_source} · ${d.title.split(':')[0]} · ${rows.length} radii` + (state.pick !== 'all' ? ' · the map shows one of them (' + (state.pick === 'outer' ? 'the outermost' : 'the first at ≥ ' + LIGHT_K + ' × half-light radius') + ')' : '');
+  $('card-meta').textContent = `${s.class_in_source} · ${d.title.split(':')[0]} · ${s.rows.length && s.rows.every((i) => d.rows[i].kind === 'system_value') ? 'one value, at the 3D half-light radius' : rows.length + ' radii'}` + (state.pick !== 'all' ? ' · the map shows one of them (' + (state.pick === 'outer' ? 'the outermost' : 'the first at ≥ ' + LIGHT_K + ' × half-light radius') + ')' : '');
   $('card-link').href = BASE + 'systems/' + s.system_id + '/';
   $('card-flags').textContent = s.rows.some((i) => ringed(d.rows[i].flags)) ? 'Some measurements are flagged; see Known issues.' : 'No flags on this system.';
   const prof = $('card-prof'), W = Math.max(220, prof.parentElement.clientWidth - 34), H = Math.round(W * 0.62), g = setup(prof, W, H);

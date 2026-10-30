@@ -306,6 +306,110 @@
           "effects": []
         }
       }
+    },
+    {
+      "id": "gc_equilibrium",
+      "name_technical": "Spherical symmetry and dynamical equilibrium; half-light-radius mass estimator M(<r½) = 3 σ²_los r½ / G (Wolf et al. 2010)",
+      "name_plain": "The cluster is treated as round and settled, and its stars' motions as balancing its pull",
+      "adjustable": false,
+      "status": "draft",
+      "parameter": {
+        "unit": "method"
+      },
+      "datasets": {
+        "aeg-d-gc-baumgardt/v1": {
+          "default": "wolf2010",
+          "default_ref": "D-025; Wolf et al. 2010 (arXiv:0908.2995)",
+          "effects": []
+        }
+      }
+    },
+    {
+      "id": "gc_rhalf_wolf",
+      "name_technical": "3D half-light radius r½ = 4/3 × projected half-light radius R_h",
+      "name_plain": "Turning the half-light size seen on the sky into a size in space",
+      "adjustable": false,
+      "status": "draft",
+      "parameter": {
+        "unit": "method"
+      },
+      "datasets": {
+        "aeg-d-gc-baumgardt/v1": {
+          "default": "4/3",
+          "default_ref": "D-025; Wolf et al. 2010 (arXiv:0908.2995)",
+          "effects": []
+        }
+      }
+    },
+    {
+      "id": "gc_light_model",
+      "name_technical": "Light weights and R_h from the King (1966) model fitted by McLaughlin & van der Marel (2005); bin edges inferred from mean radii",
+      "name_plain": "How the cluster's light is spread out, used to weight the motions",
+      "adjustable": false,
+      "status": "draft",
+      "parameter": {
+        "unit": "method"
+      },
+      "datasets": {
+        "aeg-d-gc-baumgardt/v1": {
+          "default": "mvdm2005_king",
+          "default_ref": "D-036 (ii), D-045, D-047; McLaughlin & van der Marel 2005 (ApJS 161, 304) Table 10 (VizieR models)",
+          "effects": []
+        }
+      }
+    },
+    {
+      "id": "gc_distance_hb",
+      "name_technical": "Distance from horizontal-branch photometry, Harris (1996, 2010 edition)",
+      "name_plain": "How far away the cluster is, from the brightness of a type of star",
+      "adjustable": false,
+      "status": "draft",
+      "parameter": {
+        "unit": "method"
+      },
+      "datasets": {
+        "aeg-d-gc-baumgardt/v1": {
+          "default": "harris2010",
+          "default_ref": "D-042; Harris 1996, AJ 112, 1487 (2010 edition)",
+          "effects": [],
+          "note": "No slider yet: Harris gives no per-cluster distance error."
+        }
+      }
+    },
+    {
+      "id": "gc_stellar_ml",
+      "name_technical": "Stellar mass-to-light ratio Υ_V from population synthesis (Bruzual & Charlot 2003, Chabrier disk IMF), per cluster",
+      "name_plain": "How much mass each unit of starlight stands for",
+      "adjustable": false,
+      "status": "draft",
+      "parameter": {
+        "unit": "method"
+      },
+      "datasets": {
+        "aeg-d-gc-baumgardt/v1": {
+          "default": "mvdm2005_(M/L)1",
+          "default_ref": "D-039; McLaughlin & van der Marel 2005 §3 and Table 8 (VizieR clusters, (M/L)1); M_V,sun = 4.85 (their §4.2)",
+          "effects": [],
+          "note": "Range per D-039 (0.5× to the Salpeter value) to be added as a slider with its formulas in a later pull request."
+        }
+      }
+    },
+    {
+      "id": "gc_gas_absent",
+      "name_technical": "Gas absent from g_bar: literature limit for the kind",
+      "name_plain": "Gas in globular clusters is too little to count",
+      "adjustable": false,
+      "status": "draft",
+      "parameter": {
+        "unit": "method"
+      },
+      "datasets": {
+        "aeg-d-gc-baumgardt/v1": {
+          "default": "absent",
+          "default_ref": "D-036 #4; Chantereau et al. 2020 (arXiv:2002.02401), search-log-A3.md §1.7",
+          "effects": []
+        }
+      }
     }
   ]
 }
