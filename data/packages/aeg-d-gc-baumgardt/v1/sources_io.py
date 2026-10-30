@@ -19,8 +19,9 @@ def norm_name(name: str) -> str:
     """Key for matching cluster names across sources."""
     n = name.upper().replace("MW-", "", 1) if name.upper().startswith("MW-") else name.upper()
     n = re.sub(r"[\s\-_]", "", n)
+    n = re.sub(r"^TERZAN(\d+)$", r"TER\1", n)
     aliases = {"2MSGC01": "2MASSGC01", "2MSGC02": "2MASSGC02", "2MS1": "2MASSGC01", "2MS2": "2MASSGC02",
-               "DJORG1": "DJOR1", "DJORG2": "DJOR2", "TERZAN1": "TER1", "1636283": "ESO452SC11"}
+               "DJORG1": "DJOR1", "DJORG2": "DJOR2", "TERZAN1": "TER1", "1636283": "ESO452SC11", "ESOSC06": "ESO280SC06"}
     return aliases.get(n, n)
 
 

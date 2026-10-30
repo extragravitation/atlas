@@ -27,3 +27,47 @@ The package does not ship on this result. Whether and how it proceeds is for JvH
 - The conversion and the remaining tests run as frozen.
 - MW-PAL1 is recorded, not plotted.
 - The decision goes to the outside reader at the v1.0 review. If the reader does not confirm it, the package stays out of v1.0.
+
+## Test 4 (pre-registered decision on Harris r_c), run 2026-10-30: D-045 reading rejected
+
+Run by `reproduction/test4_harris_rc.py` on the 85 clusters with both a McLaughlin & van der Marel King fit and Harris c and r_c (per cluster: `checks/test4_harris_rc.csv`).
+
+| Comparison | Median \|Δ log\| |
+|---|---|
+| (a) Harris r_c against King scale radius r₀ | 0.030 dex |
+| (b) Harris r_c against half-power radius R_c | 0.003 dex |
+
+Since (a) > (b), Harris r_c is the half-power (observed) core radius, not r₀. As pre-registered, clusters whose only structural model would come from Harris are **recorded, not plotted**, and the question returns to JvH. Also reported: c_Harris − Conc has median +0.000 and standard deviation 0.162.
+
+## Conversion run (no acceleration value looked at)
+
+Under D-045 and D-046 with the test 4 outcome, 64 of 155 clusters have a plottable value. For all 64 the default is the Baumgardt RV profile, which ranks first because the per-star velocities are released (D-038 3B). The rest are recorded with these reasons (a cluster can have several):
+
+- 90: no line-of-sight candidate passing the plotting rules. Of the converted candidates, 15 had coverage below 0.80; 70 had no structural model; 13 had one bin only.
+- 36: Harris-only structure (test 4).
+- 24: Harris core-collapse flag (`c` or `c:`) with no McLaughlin & van der Marel fit.
+- 13: no tabulated population M/L_V.
+- 11: no structural model at all.
+- 10: no Harris distance (D-042).
+- 10: no Harris integrated magnitude.
+- 1: A7 (Crater).
+- 1: MW-PAL1 (D-046).
+- 1: proper motions only.
+
+Integral-field datasets (MUSE, ARGUS) give no star counts. In the precedence ranking they count as 0 stars; this decided no default.
+
+Tests 1 (transcription) and 3 (arithmetic) run when the tables are written. The g_obs and g_bar values have been computed in memory but not looked at, and will not be until JvH rules on the Harris-only clusters.
+
+## D-037 reproduction check (reported, not pass/fail), reconstructed binning
+
+Run by `reproduction/d037_check.py`. Per bin: `checks/d037_rv_bins.csv`; per cluster: `checks/d037_rv_clusters.csv`.
+
+| Clusters | |
+|---|---|
+| pass | 3 (Crater, Laevens 3, Pal 8) |
+| fail | 1 (NGC 6638) |
+| not testable | 148 |
+
+**Not testable (148):** membership is not reproduced. Across all clusters, the published RV bins contain 116 544 stars, but the released RV files give 54 067 members (probability > 0.5) and 42 412 after the binary rule. The profiles therefore use velocities that are not in the released files; the database page notes that most VLT/MUSE data are not included. One cluster has no RV file in the release.
+
+**Fail (NGC 6638, one bin of 12 stars):** the published value is 4.40 (−0.88, +1.24) km s⁻¹; the recomputed value is 3.25 [2.57, 4.21] km s⁻¹. The rebuilt mean radius is 69.9″ against 78.7″ published, so the star set probably differs.
