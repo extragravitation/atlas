@@ -7,6 +7,7 @@ const $ = (id) => document.getElementById(id);
 export function fmtParam(item, v) {
   if (item.unitKind === 'sigma') return (v >= 0 ? '+' : '−') + Math.abs(v).toFixed(1) + 'σ';
   if (item.unitKind === 'percent') return Math.round(v * 100) + '%';
+  if (item.unitKind === 'span') { if (Math.abs(v) < 1e-9) return 'default'; if (v < 0) return (1 - 0.47 * Math.abs(v)).toFixed(2) + ' × default'; return v >= 1 ? 'Salpeter value' : Math.round(v * 100) + '% to Salpeter'; }
   return v.toFixed(2);
 }
 

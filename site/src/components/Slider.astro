@@ -14,6 +14,6 @@ const unit = a.parameter?.unit || '';
 <div class="slider" data-key={key} data-id={a.id} data-dataset={dataset} data-scope={a.scope} data-def={e.default} data-kind={al.kind} data-system={system}>
   <label for={id}><span><L t={al.t} p={al.p} /></span><output id={id + '-o'}>{fmtParam(al.kind, e.default)}</output></label>
   <input type="range" id={id} min={e.min} max={e.max} step={step} value={e.default}>
-  <p>{al.kind === 'sigma' ? 'Within the published one-sigma error' : `${fmtParam(al.kind, e.min)} to ${fmtParam(al.kind, e.max)}${al.kind === 'value' && unit && unit !== 'dimensionless' ? ' ' + unit.replace('solMass / solLum', 'M☉/L☉') : ''} · default ${fmtParam(al.kind, e.default)}`}</p>
+  <p>{al.kind === 'sigma' ? 'Within the published one-sigma error' : al.kind === 'span' ? 'From 0.53 × the population value (dissolution) to each cluster’s Salpeter value · default: population synthesis, Chabrier IMF' : `${fmtParam(al.kind, e.min)} to ${fmtParam(al.kind, e.max)}${al.kind === 'value' && unit && unit !== 'dimensionless' ? ' ' + unit.replace('solMass / solLum', 'M☉/L☉') : ''} · default ${fmtParam(al.kind, e.default)}`}</p>
   <details class="small"><summary>Sources</summary><p>Default: {e.default_ref}</p><p>Range: {e.range_ref}</p></details>
 </div>
