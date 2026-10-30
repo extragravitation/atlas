@@ -639,7 +639,7 @@ Defaults and ranges for any conversion factor are read at source before a packag
 
 ## D-043 — One point per system on the map
 
-**Ruling (2026-10-29 20:55 MDT, JvH).** "Yes I like your recommendations for the build." **Proposed by** Claude; **adopted unchanged**, with the light-radius multiple (2 × the source's half-light radius) set by Claude in the build and put to JvH in the pull request.
+**Ruling (2026-10-29 20:55 MDT, JvH).** "Yes I like your recommendations for the build." **Proposed by** Claude; **adopted unchanged**, with the light-radius multiple (2 × the source's half-light radius) proposed by Claude in the build and confirmed by JvH before merge (21:02 MDT: "Do twice the half light").
 1. The map gains a reader's choice of points: **every measurement** (the default view, unchanged under D-012 and D-027), **one per system at the outermost measured radius**, or **one per system at a radius set by the light** (the first measured radius at or beyond 2 × the source's effective radius).
 2. Each point is an existing packaged measurement chosen by the rule; nothing is interpolated, extrapolated or recomputed. Values are labelled as within a radius, never as totals.
 3. Systems whose data do not reach the light-defined radius, or whose source gives no half-light radius (the X-COP clusters, whose usual size R500 is defined from total mass and is not used), are left out and counted on the page.
