@@ -662,3 +662,16 @@ Defaults and ranges for any conversion factor are read at source before a packag
 - The mockup's illustrative points are generated from a published fitting function for the radial acceleration relation; that code is not reused, and mockup screenshots are not circulated.
 - Schedule: the four-week estimate is replaced by milestones (decisions; repository; data packages passing reproduction tests; site; reviews; release). Estimated 8–12 weeks with one maintainer.
 - JvH to register an ORCID before the first Zenodo release.
+
+---
+
+## D-044 — Map windows set by the data; per-point error bars by default
+
+**Ruling (2026-10-30, JvH).** "Yes, please fix the issues" (audit issue #61). **Proposed by** Claude; **adopted unchanged**.
+1. **No hidden points.** Each lens's default window is widened from its fixed frame to the full extent of the packaged data (padding 0.15 dex, rounded to 0.5 dex). If a point still falls outside the window (zoomed or not), it is never silently dropped: unzoomed, it is drawn as a small diamond on the frame edge; zoomed, the page states how many measurements lie outside the window. Lenses with equal axes keep equal spans when zoomed.
+2. **Error bars say what they are.** Only g_obs error bars are drawn, and the control says so ("Error bars on g_obs"). The default is **per point**: for SPARC rotation curves, the velocity uncertainty only (2 e_V / V), because distance and inclination errors move a whole galaxy together and are not independent per point. A **Full** switch shows the packaged total (velocity, distance, inclination). Other datasets show their packaged errors in both settings.
+3. Error bars whose lower end reaches zero or below are drawn open-ended (an arrowhead) and counted on the page, never clipped silently.
+
+**Reason.** The audit found 26 measurements (17 SPARC points with ratio 0.07–0.30; 9 KiDS bins with ratio 103–307) outside the fixed windows and therefore invisible, which lets the frame carry the result; and full per-point error bars double-count distance and inclination, which are correlated within a galaxy. Showing everything, and labelling what the bars include, follows the standards that labels never carry the result and that uncertainties are shown openly.
+
+**Data seen at the time of ruling.** The packaged SPARC, KiDS-1000 and X-COP v1 tables as plotted on the map (already public); the audit counts above. No new data.

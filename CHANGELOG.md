@@ -4,6 +4,7 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
 
 ## Unreleased
 
+- Map (D-044, issue #61): view windows set from the data so no measurement is hidden; points outside a zoomed window are counted; error bars labelled as g_obs only, per point by default (SPARC: velocity only) with a Full switch (distance and inclination included); open-ended bars marked and counted; equal-aspect zoom.
 - Map on phones: Explore, a full-screen view with the chart on top and the controls (Lens, Points, Data, Marks, Colours, Assumptions, Selected) in a fixed area below it; long notes shortened to one line with a tap to expand.
 - Map: one point per system (outermost measured radius, or 2 × half-light radius) and an outermost-radius colour check (D-043).
 - D-042: Baumgardt database as a re-analysis; plotting rules before precedence; Harris 2010 distances for Milky Way globular clusters.

@@ -84,7 +84,12 @@ const total = atlas.datasets.reduce((s, d) => s + d.measurements.rows.length, 0)
           <button class="btn" data-marks="tracks" aria-pressed="false">Tracks</button>
           <button class="btn" data-marks="both" aria-pressed="false">Both</button>
         </div>
-        <label class="check" style="margin-top:8px"><input type="checkbox" id="err" /><span><L t="Error bars" p="Uncertainty bars" /></span></label>
+        <label class="check" style="margin-top:8px"><input type="checkbox" id="err" /><span><L t="Error bars on g_obs" p="Uncertainty bars" /></span></label>
+        <div class="seg" role="group" aria-label="Which uncertainty" style="margin-top:6px">
+          <button class="btn" data-errk="point" aria-pressed="true"><L t="Per point" p="Point by point" /></button>
+          <button class="btn" data-errk="full" aria-pressed="false"><L t="Full (incl. distance, tilt)" p="Including distance and tilt" /></button>
+        </div>
+        <p class="small" style="margin-top:6px"><L t="Per point: what varies from one measurement to the next (for SPARC, the rotation-speed error). Distance and inclination shift a whole galaxy together; set them on each galaxy’s page, or choose Full to include them in every bar." p="Point by point shows how much each measurement could vary on its own. Distance and tilt move a whole galaxy at once; you can change them on each galaxy’s page." /></p>
       </div>
       <div data-tab="colours">
         <p class="cap">Colour by</p>
