@@ -675,3 +675,33 @@ Defaults and ranges for any conversion factor are read at source before a packag
 **Reason.** The audit found 26 measurements (17 SPARC points with ratio 0.07–0.30; 9 KiDS bins with ratio 103–307) outside the fixed windows and therefore invisible, which lets the frame carry the result; and full per-point error bars double-count distance and inclination, which are correlated within a galaxy. Showing everything, and labelling what the bars include, follows the standards that labels never carry the result and that uncertainties are shown openly.
 
 **Data seen at the time of ruling.** The packaged SPARC, KiDS-1000 and X-COP v1 tables as plotted on the map (already public); the audit counts above. No new data.
+
+---
+
+## D-045 — Globular clusters: bins, light model, radius, luminosity and the reproduction check for the Baumgardt profiles
+
+**Ruling (2026-10-30 10:03 MDT, JvH).** "do 1-5 as recommended." **Proposed by** Claude; **adopted unchanged**.
+1. **Bins.** Proper-motion bins are recorded, not plotted (D-036 #8). Each line-of-sight dataset within a Baumgardt profile is a separate candidate value, converted on its own (bin edges inferred from the mean radii, flagged `edges_inferred`). The plotting rules are applied first, then precedence (D-042). Datasets are never merged.
+2. **Light model.** The D-036 (ii) conversion gains King (1966) as version 2 (`aeg.king66`), written, tested and frozen before use. Parameters come from McLaughlin & van der Marel (2005), King fit; otherwise from Harris (2010) c and r_c, read as log₁₀(r_t/r₀) and r₀. That reading is a registered assumption, decided by a pre-registered test in the package's REPRODUCTION.md.
+3. **Half-light radius.** McLaughlin & van der Marel's projected half-light radius from the same King fit, rescaled to the Harris distance; otherwise Harris r_h. r½ = 4/3 R_h (D-025). Harris r_h is shown as a cross-check.
+4. **Luminosity.** Harris integrated V with the Harris distance (consistent with D-042); McLaughlin & van der Marel's model luminosity as a cross-check.
+5. **Reproduction check (D-037) without published bin edges.** Bins are rebuilt as consecutive groups of the published star counts, in order of radius. Members have RV membership probability > 0.5; stars with single-star probability < 0.5 are excluded. The rule is frozen (`aeg.repro_bins`) and every result is labelled "reconstructed binning".
+
+**Reason.** These were Claude's reasons, adopted by JvH.
+- Datasets in one profile can overlap, and merging them would be an Atlas analysis choice.
+- King (1966) is the model both structural sources fit. Without it, the conversion would substitute a model family neither source used.
+- Taking the radius and the light model from the same fit keeps the weights and r½ consistent.
+- Harris distances and magnitudes keep one distance scale (D-042).
+- Rebuilding bins by a frozen rule tests something real. Marking every system "not testable" would be honest, but it would test nothing; the label says where a fail may come from.
+
+**Alternatives rejected.**
+- Merged or first-listed datasets (1).
+- King 1962 with Harris parameters, or Plummer with the Baumgardt radius, which rests on fits that use the motions (2).
+- Harris r_h as default (3).
+- McLaughlin & van der Marel luminosity as default (4).
+- All systems not testable (5).
+
+**Data seen at the time of ruling.**
+- Column definitions and documentation of the Baumgardt pages, RV files, Harris (2010) and McLaughlin & van der Marel (2005).
+- The values disclosed in deviation #19: part of one RV-file row (no velocity), six rows of McLaughlin & van der Marel Table 13, and ten rows of Harris Part II.
+- No dispersion profile or structural value.

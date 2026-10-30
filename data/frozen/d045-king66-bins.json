@@ -1,0 +1,13 @@
+{
+  "description": "D-045: King (1966) structural model for the D-036 (ii) conversion (version 2) and the reconstructed-binning D-037 reproduction check, frozen before any globular-cluster profile, velocity or structural value was used.",
+  "frozen_on": "2026-10-30",
+  "decision": "D-045",
+  "spec": "docs/methods/D045_KING66_AND_BINS.md",
+  "files": {
+    "pipeline/aeg/king66.py": "ca9bc1c7debc61a64918a2230a6dcad4dbe8915a1666d1403612ac3664f781c1",
+    "pipeline/tests/test_king66.py": "1443412d38cb32c831259295e3db91ad0cf18f5df94538e6030f4b3a03bab171",
+    "pipeline/aeg/repro_bins.py": "74a238cfcc4ab64fb19f568febd07e455b3890ce207f19e31cfd6a8d9a691cf2",
+    "pipeline/tests/test_repro_bins.py": "dc3091c0418823c5cae99ec7528e0bcf87c320f2cf88e0badba2213309bca2df",
+    "docs/methods/D045_KING66_AND_BINS.md": "8b3da7269d4cc60ae87078469faa17159c8f48184217a3d7c28e8582f261e755"
+  }
+}

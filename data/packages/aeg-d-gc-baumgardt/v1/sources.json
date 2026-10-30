@@ -2,7 +2,13 @@
  "standard_version": "2.0.0",
  "dataset": "aeg-d-gc-baumgardt",
  "version": "v1",
- "status": "sources recorded; REPRODUCTION.md not yet frozen; no table opened for values",
+ "reproduction_file": {
+  "path": "REPRODUCTION.md",
+  "sha256": "19f04cc83dc36efe59ee7b6481b69ac40c8fc3be25eaab3c0f5b64ca47b37391",
+  "frozen": "2026-10-30",
+  "decision": "D-045"
+ },
+ "status": "sources recorded; REPRODUCTION.md frozen; conversion not yet written",
  "sources": [
   {
    "role": "Baumgardt et al. globular cluster database (v4): line-of-sight velocity dispersion profiles; a re-analysis under D-042",
