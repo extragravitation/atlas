@@ -1,6 +1,6 @@
 # Continuation guide
 
-**State at end of session, 2026-10-29 (20:17 MDT).** Read this first in the next session, then `docs/decisions.md` (D-001 to D-042). Superseded by the next session's update; the git history keeps every version.
+**State at end of session, 2026-10-29 (20:17 MDT).** Read this first in the next session, then `docs/decisions.md` (D-001 to D-043). Superseded by the next session's update; the git history keeps every version.
 
 ## Start here tomorrow: globular-cluster package (A3, issue #23)
 
@@ -30,7 +30,8 @@ Next steps, in order:
 - **Data standard** 2.0.0 (`docs/data-standard.md`, D-041); 1.3.0 kept in `docs/data-standard-1.3.0.md`. Validator implements both.
 - **Packages:** SPARC, KiDS-1000, X-COP v1 (standard 1.x); re-issued under 2.0 after v1.0.
 - **Searches done:** A0, A3, A5 (ADS via JvH's browser; VizieR via ADS `bibstem:yCat`; full-text screening; re-coding under D-038). Logs in `docs/sources/search-log-*.md`. Remaining cells in issue #48.
-- **Rulings today:** D-025, D-036 to D-042. D-040 replaced blind rulings: every decision records who proposed it and what was changed.
+- **Map:** one point per system (outermost measured radius, or first measured radius ≥ 2 × half-light radius), plus an outermost-radius colour check (D-043, PR #58, live).
+- **Rulings today:** D-025, D-036 to D-043. D-040 replaced blind rulings: every decision records who proposed it and what was changed.
 - **Open issues:** #8, #19 (known issues); #9 (SPARC licence, release blocker); #13 (CLASH; projection ruling); #14 (site); #16 (release v1.0); #21 (X-GAP); #23 (A3); #24 (A5); #48 (remaining searches).
 
 ## Working notes
