@@ -1,0 +1,287 @@
+sheet,key,name,paper,role
+1,andromeda_01,Andromeda I,Martin2016ApJ...833..167M,structure
+1,andromeda_01,Andromeda I,Martin2016ApJ...833..167M,magnitude
+1,andromeda_02,Andromeda II,Martin2016ApJ...833..167M,structure
+1,andromeda_02,Andromeda II,Martin2016ApJ...833..167M,magnitude
+1,andromeda_03,Andromeda III,Martin2016ApJ...833..167M,structure
+1,andromeda_03,Andromeda III,Martin2016ApJ...833..167M,magnitude
+1,andromeda_05,Andromeda V,Martin2016ApJ...833..167M,structure
+1,andromeda_05,Andromeda V,Martin2016ApJ...833..167M,magnitude
+1,andromeda_09,Andromeda IX,Martin2016ApJ...833..167M,structure
+1,andromeda_09,Andromeda IX,Martin2016ApJ...833..167M,magnitude
+1,andromeda_10,Andromeda X,Martin2016ApJ...833..167M,structure
+1,andromeda_10,Andromeda X,Martin2016ApJ...833..167M,magnitude
+1,andromeda_11,Andromeda XI,Martin2016ApJ...833..167M,structure
+1,andromeda_11,Andromeda XI,Martin2016ApJ...833..167M,magnitude
+1,andromeda_12,Andromeda XII,Martin2016ApJ...833..167M,structure
+1,andromeda_12,Andromeda XII,Martin2016ApJ...833..167M,magnitude
+1,andromeda_13,Andromeda XIII,Martin2016ApJ...833..167M,structure
+1,andromeda_13,Andromeda XIII,Martin2016ApJ...833..167M,magnitude
+1,andromeda_14,Andromeda XIV,Martin2016ApJ...833..167M,structure
+1,andromeda_14,Andromeda XIV,Martin2016ApJ...833..167M,magnitude
+1,andromeda_15,Andromeda XV,Martin2016ApJ...833..167M,structure
+1,andromeda_15,Andromeda XV,Martin2016ApJ...833..167M,magnitude
+1,andromeda_16,Andromeda XVI,Martin2016ApJ...833..167M,structure
+1,andromeda_16,Andromeda XVI,Martin2016ApJ...833..167M,magnitude
+1,andromeda_17,Andromeda XVII,Martin2016ApJ...833..167M,structure
+1,andromeda_17,Andromeda XVII,Martin2016ApJ...833..167M,magnitude
+1,andromeda_18,Andromeda XVIII,Martin2016ApJ...833..167M,magnitude
+1,andromeda_19,Andromeda XIX,Martin2016ApJ...833..167M,structure
+1,andromeda_19,Andromeda XIX,Martin2016ApJ...833..167M,magnitude
+1,andromeda_20,Andromeda XX,Martin2016ApJ...833..167M,structure
+1,andromeda_20,Andromeda XX,Martin2016ApJ...833..167M,magnitude
+1,andromeda_21,Andromeda XXI,Martin2016ApJ...833..167M,structure
+1,andromeda_21,Andromeda XXI,Martin2016ApJ...833..167M,magnitude
+1,andromeda_22,Andromeda XXII,Martin2016ApJ...833..167M,structure
+1,andromeda_22,Andromeda XXII,Martin2016ApJ...833..167M,magnitude
+1,andromeda_23,Andromeda XXIII,Martin2016ApJ...833..167M,structure
+1,andromeda_23,Andromeda XXIII,Martin2016ApJ...833..167M,magnitude
+1,andromeda_24,Andromeda XXIV,Martin2016ApJ...833..167M,structure
+1,andromeda_24,Andromeda XXIV,Martin2016ApJ...833..167M,magnitude
+1,andromeda_25,Andromeda XXV,Martin2016ApJ...833..167M,structure
+1,andromeda_25,Andromeda XXV,Martin2016ApJ...833..167M,magnitude
+1,andromeda_26,Andromeda XXVI,Martin2016ApJ...833..167M,structure
+1,andromeda_26,Andromeda XXVI,Martin2016ApJ...833..167M,magnitude
+1,cassiopeia_2,Cassiopeia II,Martin2016ApJ...833..167M,structure
+1,cassiopeia_2,Cassiopeia II,Martin2016ApJ...833..167M,magnitude
+1,horologium_1,Horologium I,Richstein2024ApJ...967...72R,structure
+1,horologium_1,Horologium I,Richstein2024ApJ...967...72R,magnitude
+1,hydra_2,Hydra II,Richstein2024ApJ...967...72R,magnitude
+1,phoenix_2,Phoenix II,Richstein2024ApJ...967...72R,structure
+1,phoenix_2,Phoenix II,Richstein2024ApJ...967...72R,magnitude
+1,triangulum_2,Triangulum II,Richstein2024ApJ...967...72R,magnitude
+1,centaurus_1,Centaurus I,Casey2025ApJ...984..148C,structure
+1,centaurus_1,Centaurus I,Casey2025ApJ...984..148C,magnitude
+1,eridanus_4,Eridanus IV,Casey2025ApJ...984..148C,structure
+1,eridanus_4,Eridanus IV,Casey2025ApJ...984..148C,magnitude
+1,aquarius_2,Aquarius II,Torrealba2016MNRAS.463..712T,structure
+1,aquarius_2,Aquarius II,Torrealba2016MNRAS.463..712T,distance
+1,aquarius_2,Aquarius II,Torrealba2016MNRAS.463..712T,magnitude
+1,hydrus_1,Hydrus I,Koposov2018MNRAS.479.5343K,structure
+1,hydrus_1,Hydrus I,Koposov2018MNRAS.479.5343K,distance
+1,hydrus_1,Hydrus I,Koposov2018MNRAS.479.5343K,magnitude
+1,reticulum_3,Reticulum III,DrlicaWagner2015ApJ...813..109D,structure
+1,reticulum_3,Reticulum III,DrlicaWagner2015ApJ...813..109D,distance
+1,reticulum_3,Reticulum III,DrlicaWagner2015ApJ...813..109D,magnitude
+1,crater_2,Crater II,Torrealba2016MNRAS.459.2370T,structure
+1,crater_2,Crater II,Torrealba2016MNRAS.459.2370T,magnitude
+1,leo_4,Leo IV,Medina2018ApJ...855...43M,distance
+1,leo_5,Leo V,Medina2018ApJ...855...43M,distance
+1,andromeda_16,Andromeda XVI,MartinezVazquez2017ApJ...850..137M,distance
+1,bootes_3,Bootes III,Moskowitz2020ApJ...892...27M,structure
+1,canes_venatici_2,Canes Venatici II,Greco2008ApJ...675L..73G,distance
+1,crater_2,Crater II,Vivas2020MNRAS.492.1061V,distance
+1,fornax_1,Fornax,Wang2019ApJ...881..118W,structure
+1,hydra_2,Hydra II,Vivas2016AJ....151..118V,distance
+1,pegasus_3,Pegasus III,Kim2016ApJ...833...16K,distance
+1,segue_2,Segue 2,Boettcher2013AJ....146...94B,distance
+1,tucana_2,Tucana II,Vivas2020ApJS..247...35V,distance
+1,willman_1,Willman 1,Willman2006astro.ph..3486W,distance
+2,bootes_1,Bootes I,Munoz2018ApJ...860...66M,structure
+2,bootes_1,Bootes I,Munoz2018ApJ...860...66M,magnitude
+2,bootes_2,Bootes II,Munoz2018ApJ...860...66M,structure
+2,bootes_2,Bootes II,Munoz2018ApJ...860...66M,magnitude
+2,canes_venatici_1,Canes Venatici I,Munoz2018ApJ...860...66M,structure
+2,canes_venatici_1,Canes Venatici I,Munoz2018ApJ...860...66M,magnitude
+2,canes_venatici_2,Canes Venatici II,Munoz2018ApJ...860...66M,structure
+2,canes_venatici_2,Canes Venatici II,Munoz2018ApJ...860...66M,magnitude
+2,carina_1,Carina,Munoz2018ApJ...860...66M,structure
+2,carina_1,Carina,Munoz2018ApJ...860...66M,magnitude
+2,coma_berenices_1,Coma Berenices,Munoz2018ApJ...860...66M,structure
+2,coma_berenices_1,Coma Berenices,Munoz2018ApJ...860...66M,magnitude
+2,draco_1,Draco,Munoz2018ApJ...860...66M,structure
+2,draco_1,Draco,Munoz2018ApJ...860...66M,magnitude
+2,fornax_1,Fornax,Munoz2018ApJ...860...66M,magnitude
+2,hercules_1,Hercules,Munoz2018ApJ...860...66M,structure
+2,hercules_1,Hercules,Munoz2018ApJ...860...66M,magnitude
+2,hydra_2,Hydra II,Munoz2018ApJ...860...66M,structure
+2,leo_1,Leo I,Munoz2018ApJ...860...66M,structure
+2,leo_1,Leo I,Munoz2018ApJ...860...66M,magnitude
+2,leo_2,Leo II,Munoz2018ApJ...860...66M,structure
+2,leo_2,Leo II,Munoz2018ApJ...860...66M,magnitude
+2,leo_4,Leo IV,Munoz2018ApJ...860...66M,structure
+2,leo_4,Leo IV,Munoz2018ApJ...860...66M,magnitude
+2,leo_5,Leo V,Munoz2018ApJ...860...66M,structure
+2,leo_5,Leo V,Munoz2018ApJ...860...66M,magnitude
+2,sculptor_1,Sculptor,Munoz2018ApJ...860...66M,structure
+2,sculptor_1,Sculptor,Munoz2018ApJ...860...66M,magnitude
+2,segue_1,Segue 1,Munoz2018ApJ...860...66M,structure
+2,segue_1,Segue 1,Munoz2018ApJ...860...66M,magnitude
+2,segue_2,Segue 2,Munoz2018ApJ...860...66M,structure
+2,segue_2,Segue 2,Munoz2018ApJ...860...66M,magnitude
+2,sextans_1,Sextans,Munoz2018ApJ...860...66M,magnitude
+2,smc,SMC,Munoz2018ApJ...860...66M,structure
+2,ursa_major_1,Ursa Major I,Munoz2018ApJ...860...66M,structure
+2,ursa_major_1,Ursa Major I,Munoz2018ApJ...860...66M,magnitude
+2,ursa_major_2,Ursa Major II,Munoz2018ApJ...860...66M,structure
+2,ursa_major_2,Ursa Major II,Munoz2018ApJ...860...66M,magnitude
+2,ursa_minor_1,Ursa Minor,Munoz2018ApJ...860...66M,structure
+2,ursa_minor_1,Ursa Minor,Munoz2018ApJ...860...66M,magnitude
+2,willman_1,Willman 1,Munoz2018ApJ...860...66M,structure
+2,willman_1,Willman 1,Munoz2018ApJ...860...66M,magnitude
+2,phoenix_2,Phoenix II,MutluPakdil2018ApJ...863...25M,distance
+2,reticulum_2,Reticulum II,MutluPakdil2018ApJ...863...25M,structure
+2,reticulum_2,Reticulum II,MutluPakdil2018ApJ...863...25M,distance
+2,reticulum_2,Reticulum II,MutluPakdil2018ApJ...863...25M,magnitude
+2,tucana_3,Tucana III,MutluPakdil2018ApJ...863...25M,structure
+2,tucana_3,Tucana III,MutluPakdil2018ApJ...863...25M,distance
+2,tucana_3,Tucana III,MutluPakdil2018ApJ...863...25M,magnitude
+2,columba_1,Columba I,Carlin2017AJ....154..267C,structure
+2,columba_1,Columba I,Carlin2017AJ....154..267C,distance
+2,columba_1,Columba I,Carlin2017AJ....154..267C,magnitude
+2,triangulum_2,Triangulum II,Carlin2017AJ....154..267C,structure
+2,triangulum_2,Triangulum II,Carlin2017AJ....154..267C,distance
+2,andromeda_27,Andromeda XXVII,Richardson2011ApJ...732...76R,structure
+2,andromeda_27,Andromeda XXVII,Richardson2011ApJ...732...76R,distance
+2,andromeda_27,Andromeda XXVII,Richardson2011ApJ...732...76R,magnitude
+2,aquarius_3,Aquarius III,Cerny2025ApJ...979..164C,structure
+2,aquarius_3,Aquarius III,Cerny2025ApJ...979..164C,distance
+2,aquarius_3,Aquarius III,Cerny2025ApJ...979..164C,magnitude
+2,leo_6,Leo VI,Tan2025ApJ...979..176T,structure
+2,leo_6,Leo VI,Tan2025ApJ...979..176T,distance
+2,leo_6,Leo VI,Tan2025ApJ...979..176T,magnitude
+2,antlia_b,Antlia B,Sand2015ApJ...812L..13S,structure
+2,antlia_b,Antlia B,Sand2015ApJ...812L..13S,magnitude
+2,eridanus_2,Eridanus II,Crnojevic2016ApJ...824L..14C,structure
+2,eridanus_2,Eridanus II,Crnojevic2016ApJ...824L..14C,magnitude
+2,antlia_b,Antlia B,Hargis2020ApJ...888...31H,distance
+2,antlia_2,Antlia II,Vivas2022ApJ...926...78V,distance
+2,bootes_3,Bootes III,Li2026arXiv260707803L,distance
+2,carina_1,Carina,Karczmarek2015AJ....150...90K,distance
+2,draco_1,Draco,Bhardwaj2024AJ....167..247B,distance
+2,fornax_1,Fornax,Oakes2022ApJ...929..116O,distance
+2,leo_1,Leo I,Stetson2014PASP..126..616S,distance
+2,pisces_2,Pisces II,Sand2012ApJ...756...79S,distance
+2,sextans_1,Sextans,Cicuendez2018A&A...609A..53C,structure
+2,ursa_major_1,Ursa Major I,Garofalo2013ApJ...767...62G,distance
+3,ic_1613,IC 1613,Savino2022ApJ...938..101S,distance
+3,pegasus_dirr,Pegasus dIrr,Savino2022ApJ...938..101S,distance
+3,andromeda_01,Andromeda I,Savino2022ApJ...938..101S,distance
+3,andromeda_02,Andromeda II,Savino2022ApJ...938..101S,distance
+3,andromeda_03,Andromeda III,Savino2022ApJ...938..101S,distance
+3,andromeda_05,Andromeda V,Savino2022ApJ...938..101S,distance
+3,andromeda_06,Andromeda VI,Savino2022ApJ...938..101S,distance
+3,andromeda_07,Andromeda VII,Savino2022ApJ...938..101S,distance
+3,andromeda_09,Andromeda IX,Savino2022ApJ...938..101S,distance
+3,andromeda_10,Andromeda X,Savino2022ApJ...938..101S,distance
+3,andromeda_11,Andromeda XI,Savino2022ApJ...938..101S,distance
+3,andromeda_12,Andromeda XII,Savino2022ApJ...938..101S,distance
+3,andromeda_13,Andromeda XIII,Savino2022ApJ...938..101S,distance
+3,andromeda_14,Andromeda XIV,Savino2022ApJ...938..101S,distance
+3,andromeda_15,Andromeda XV,Savino2022ApJ...938..101S,distance
+3,andromeda_17,Andromeda XVII,Savino2022ApJ...938..101S,distance
+3,andromeda_19,Andromeda XIX,Savino2022ApJ...938..101S,distance
+3,andromeda_20,Andromeda XX,Savino2022ApJ...938..101S,distance
+3,andromeda_21,Andromeda XXI,Savino2022ApJ...938..101S,distance
+3,andromeda_22,Andromeda XXII,Savino2022ApJ...938..101S,distance
+3,andromeda_23,Andromeda XXIII,Savino2022ApJ...938..101S,distance
+3,andromeda_24,Andromeda XXIV,Savino2022ApJ...938..101S,distance
+3,andromeda_25,Andromeda XXV,Savino2022ApJ...938..101S,distance
+3,andromeda_26,Andromeda XXVI,Savino2022ApJ...938..101S,distance
+3,andromeda_28,Andromeda XXVIII,Savino2022ApJ...938..101S,distance
+3,andromeda_29,Andromeda XXIX,Savino2022ApJ...938..101S,distance
+3,cassiopeia_2,Cassiopeia II,Savino2022ApJ...938..101S,distance
+3,cassiopeia_3,Cassiopeia III,Savino2022ApJ...938..101S,distance
+3,lacerta_1,Lacerta I,Savino2022ApJ...938..101S,distance
+3,lgs_3,LGS 3,Savino2022ApJ...938..101S,distance
+3,m_032,M 32,Savino2022ApJ...938..101S,distance
+3,ngc_0147,NGC 147,Savino2022ApJ...938..101S,distance
+3,ngc_0185,NGC 185,Savino2022ApJ...938..101S,distance
+3,ngc_0205,NGC 205,Savino2022ApJ...938..101S,distance
+3,perseus_1,Perseus I,Savino2022ApJ...938..101S,distance
+3,grus_2,Grus II,Simon2020ApJ...892..137S,magnitude
+3,tucana_4,Tucana IV,Simon2020ApJ...892..137S,structure
+3,tucana_4,Tucana IV,Simon2020ApJ...892..137S,distance
+3,tucana_4,Tucana IV,Simon2020ApJ...892..137S,magnitude
+3,tucana_5,Tucana V,Simon2020ApJ...892..137S,structure
+3,tucana_5,Tucana V,Simon2020ApJ...892..137S,distance
+3,tucana_5,Tucana V,Simon2020ApJ...892..137S,magnitude
+3,carina_2,Carina II,Torrealba2018MNRAS.475.5085T,structure
+3,carina_2,Carina II,Torrealba2018MNRAS.475.5085T,distance
+3,carina_2,Carina II,Torrealba2018MNRAS.475.5085T,magnitude
+3,carina_3,Carina III,Torrealba2018MNRAS.475.5085T,structure
+3,carina_3,Carina III,Torrealba2018MNRAS.475.5085T,distance
+3,carina_3,Carina III,Torrealba2018MNRAS.475.5085T,magnitude
+3,ngc_0147,NGC 147,Crnojevic2014MNRAS.445.3862C,structure
+3,ngc_0147,NGC 147,Crnojevic2014MNRAS.445.3862C,magnitude
+3,ngc_0185,NGC 185,Crnojevic2014MNRAS.445.3862C,structure
+3,ngc_0185,NGC 185,Crnojevic2014MNRAS.445.3862C,magnitude
+3,andromeda_28,Andromeda XXVIII,Slater2015ApJ...806..230S,magnitude
+3,andromeda_29,Andromeda XXIX,Slater2015ApJ...806..230S,structure
+3,andromeda_29,Andromeda XXIX,Slater2015ApJ...806..230S,magnitude
+3,draco_2,Draco II,Longeard2018MNRAS.480.2609L,structure
+3,draco_2,Draco II,Longeard2018MNRAS.480.2609L,distance
+3,draco_2,Draco II,Longeard2018MNRAS.480.2609L,magnitude
+3,pegasus_4,Pegasus IV,Cerny2023ApJ...942..111C,structure
+3,pegasus_4,Pegasus IV,Cerny2023ApJ...942..111C,distance
+3,pegasus_4,Pegasus IV,Cerny2023ApJ...942..111C,magnitude
+3,phoenix_1,Phoenix,Battaglia2012MNRAS.424.1113B,structure
+3,phoenix_1,Phoenix,Battaglia2012MNRAS.424.1113B,distance
+3,grus_1,Grus I,Cantu2021ApJ...916...81C,structure
+3,grus_1,Grus I,Cantu2021ApJ...916...81C,magnitude
+3,leo_a,Leo A,Dolphin2002AJ....123.3154D,distance
+3,bootes_1,Bootes I,DallOra2006ApJ...653L.109D,distance
+3,bootes_3,Bootes III,Correnti2009MNRAS.397L..26C,magnitude
+3,centaurus_1,Centaurus I,MartinezVazquez2021AJ....162..253M,distance
+3,eridanus_2,Eridanus II,MartinezVazquez2021MNRAS.508.1064M,distance
+3,grus_2,Grus II,Prabhu2026arXiv260625058P,structure
+3,lmc,LMC,Choi2018ApJ...869..125C,structure
+3,sculptor_1,Sculptor,MartinezVazquez2015MNRAS.454.1509M,distance
+3,sextans_1,Sextans,Lee2009ApJ...703..692L,distance
+3,ursa_major_2,Ursa Major II,DallOra2012ApJ...752...42D,distance
+4,aquarius_1,Aquarius,McConnachie2012AJ....144....4M,magnitude
+4,cetus_1,Cetus,McConnachie2012AJ....144....4M,structure
+4,cetus_1,Cetus,McConnachie2012AJ....144....4M,distance
+4,cetus_1,Cetus,McConnachie2012AJ....144....4M,magnitude
+4,ic_1613,IC 1613,McConnachie2012AJ....144....4M,magnitude
+4,leo_a,Leo A,McConnachie2012AJ....144....4M,magnitude
+4,leo_t,Leo T,McConnachie2012AJ....144....4M,magnitude
+4,ngc_6822,NGC 6822,McConnachie2012AJ....144....4M,magnitude
+4,pegasus_dirr,Pegasus dIrr,McConnachie2012AJ....144....4M,magnitude
+4,sagittarius_dirr,Sagittarius dIrr,McConnachie2012AJ....144....4M,magnitude
+4,tucana_1,Tucana,McConnachie2012AJ....144....4M,structure
+4,tucana_1,Tucana,McConnachie2012AJ....144....4M,distance
+4,tucana_1,Tucana,McConnachie2012AJ....144....4M,magnitude
+4,ugc_04879,UGC 4879,McConnachie2012AJ....144....4M,magnitude
+4,wlm,WLM,McConnachie2012AJ....144....4M,magnitude
+4,lgs_3,LGS 3,McConnachie2012AJ....144....4M,structure
+4,lgs_3,LGS 3,McConnachie2012AJ....144....4M,magnitude
+4,m_032,M 32,McConnachie2012AJ....144....4M,structure
+4,m_032,M 32,McConnachie2012AJ....144....4M,magnitude
+4,ngc_0205,NGC 205,McConnachie2012AJ....144....4M,structure
+4,ngc_0205,NGC 205,McConnachie2012AJ....144....4M,magnitude
+4,sagittarius_1,Sagittarius,McConnachie2012AJ....144....4M,structure
+4,sagittarius_1,Sagittarius,McConnachie2012AJ....144....4M,distance
+4,sagittarius_1,Sagittarius,McConnachie2012AJ....144....4M,magnitude
+4,aquarius_1,Aquarius,Higgs2021MNRAS.503..176H,structure
+4,aquarius_1,Aquarius,Higgs2021MNRAS.503..176H,distance
+4,ic_1613,IC 1613,Higgs2021MNRAS.503..176H,structure
+4,leo_a,Leo A,Higgs2021MNRAS.503..176H,structure
+4,leo_t,Leo T,Higgs2021MNRAS.503..176H,structure
+4,leo_t,Leo T,Higgs2021MNRAS.503..176H,distance
+4,ngc_6822,NGC 6822,Higgs2021MNRAS.503..176H,structure
+4,ngc_6822,NGC 6822,Higgs2021MNRAS.503..176H,distance
+4,pegasus_dirr,Pegasus dIrr,Higgs2021MNRAS.503..176H,structure
+4,sagittarius_dirr,Sagittarius dIrr,Higgs2021MNRAS.503..176H,structure
+4,sagittarius_dirr,Sagittarius dIrr,Higgs2021MNRAS.503..176H,distance
+4,ugc_04879,UGC 4879,Higgs2021MNRAS.503..176H,structure
+4,ugc_04879,UGC 4879,Higgs2021MNRAS.503..176H,distance
+4,wlm,WLM,Higgs2021MNRAS.503..176H,structure
+4,andromeda_18,Andromeda XVIII,Higgs2021MNRAS.503..176H,structure
+4,andromeda_18,Andromeda XVIII,Higgs2021MNRAS.503..176H,distance
+4,andromeda_28,Andromeda XXVIII,Higgs2021MNRAS.503..176H,structure
+4,cassiopeia_3,Cassiopeia III,Rhode2023AJ....166..180R,structure
+4,cassiopeia_3,Cassiopeia III,Rhode2023AJ....166..180R,magnitude
+4,lacerta_1,Lacerta I,Rhode2023AJ....166..180R,structure
+4,lacerta_1,Lacerta I,Rhode2023AJ....166..180R,magnitude
+4,perseus_1,Perseus I,Rhode2023AJ....166..180R,structure
+4,perseus_1,Perseus I,Rhode2023AJ....166..180R,magnitude
+4,andromeda_06,Andromeda VI,McConnachie2006MNRAS.365.1263M,structure
+4,andromeda_06,Andromeda VI,McConnachie2006MNRAS.365.1263M,magnitude
+4,andromeda_07,Andromeda VII,McConnachie2006MNRAS.365.1263M,structure
+4,andromeda_07,Andromeda VII,McConnachie2006MNRAS.365.1263M,magnitude
+4,pegasus_3,Pegasus III,Richstein2022ApJ...933..217R,structure
+browser,phoenix_1,Phoenix,vandeRydt1991AJ....102..130V,magnitude
+browser,leo_2,Leo II,Monelli2025A&A...700A.201M,distance
+browser,lmc,LMC,deVaucouleurs1991rc3..book.....D,magnitude
+browser,smc,SMC,deVaucouleurs1991rc3..book.....D,magnitude
