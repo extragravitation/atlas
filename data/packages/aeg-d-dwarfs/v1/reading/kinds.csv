@@ -1,0 +1,104 @@
+key,name,host,kind,reason,papers,unread
+antlia_2,Antlia II,mw,A5,"label supported by light/structure, population or gas: L",2,0
+aquarius_2,Aquarius II,mw,A5,"label supported by light/structure, population or gas: L",2,0
+aquarius_3,Aquarius III,mw,A5,"label supported by light/structure, population or gas: L",2,0
+bootes_1,Bootes I,mw,A5,"label supported by light/structure, population or gas: L",2,0
+bootes_2,Bootes II,mw,A5,"label supported by light/structure, population or gas: L",2,0
+bootes_3,Bootes III,mw,A5,"label supported by light/structure, population or gas: L",2,0
+canes_venatici_1,Canes Venatici I,mw,A5,"label supported by light/structure, population or gas: L",2,0
+canes_venatici_2,Canes Venatici II,mw,A5,"label supported by light/structure, population or gas: L",3,0
+carina_1,Carina,mw,A5,"label supported by light/structure, population or gas: L",2,0
+carina_2,Carina II,lmc,A5,"label supported by light/structure, population or gas: L",2,0
+carina_3,Carina III,lmc,A7,"a paper concludes the kind is undetermined or calls it a star cluster, not superseded on light, population or gas grounds",3,0
+centaurus_1,Centaurus I,mw,A5,"label supported by light/structure, population or gas: L",2,0
+columba_1,Columba I,mw,A5,"label supported by light/structure, population or gas: L",2,0
+coma_berenices_1,Coma Berenices,mw,A5,"label supported by light/structure, population or gas: L",2,0
+crater_2,Crater II,mw,A5,"label supported by light/structure, population or gas: L",2,0
+draco_1,Draco,mw,A5,"label supported by light/structure, population or gas: L,P",2,0
+draco_2,Draco II,mw,A7,"a paper concludes the kind is undetermined or calls it a star cluster, not superseded on light, population or gas grounds",3,0
+eridanus_2,Eridanus II,mw,A5,"label supported by light/structure, population or gas: L",3,0
+eridanus_4,Eridanus IV,mw,A5,"label supported by light/structure, population or gas: L",2,0
+fornax_1,Fornax,mw,A5,"label supported by light/structure, population or gas: L",3,0
+grus_1,Grus I,mw,A5,"label supported by light/structure, population or gas: L",2,0
+grus_2,Grus II,mw,A5,"label supported by light/structure, population or gas: L",2,0
+hercules_1,Hercules,mw,A5,"label supported by light/structure, population or gas: L",2,0
+horologium_1,Horologium I,lmc,A7,"a paper concludes the kind is undetermined or calls it a star cluster, not superseded on light, population or gas grounds",4,0
+hydra_2,Hydra II,mw,A5,"label supported by light/structure, population or gas: L",2,0
+hydrus_1,Hydrus I,lmc,A5,"label supported by light/structure, population or gas: L",2,0
+leo_1,Leo I,mw,A5,"label supported by light/structure, population or gas: L,P",2,0
+leo_2,Leo II,mw,A5,"label supported by light/structure, population or gas: L,P",2,0
+leo_4,Leo IV,mw,A5,"label supported by light/structure, population or gas: L",2,0
+leo_5,Leo V,mw,A5,"label supported by light/structure, population or gas: L",2,0
+leo_6,Leo VI,mw,A5,"label supported by light/structure, population or gas: L",2,0
+lmc,LMC,mw,A5,"label supported by light/structure, population or gas: L",3,0
+pegasus_3,Pegasus III,mw,A5,"label supported by light/structure, population or gas: L",2,0
+pegasus_4,Pegasus IV,mw,A5,"label supported by light/structure, population or gas: L",2,0
+phoenix_2,Phoenix II,lmc,A7,"a paper concludes the kind is undetermined or calls it a star cluster, not superseded on light, population or gas grounds",4,0
+pictor_2,Pictor II,lmc,A5,"label supported by light/structure, population or gas: L",2,0
+pisces_2,Pisces II,mw,A5,"label supported by light/structure, population or gas: L",2,0
+reticulum_2,Reticulum II,lmc,A7,"a paper concludes the kind is undetermined or calls it a star cluster, not superseded on light, population or gas grounds",4,0
+reticulum_3,Reticulum III,mw,A7,"a paper concludes the kind is undetermined or calls it a star cluster, not superseded on light, population or gas grounds",3,0
+sagittarius_1,Sagittarius,mw,A5,"label supported by light/structure, population or gas: L",2,0
+sculptor_1,Sculptor,mw,A5,"label supported by light/structure, population or gas: L",3,0
+segue_1,Segue 1,mw,A7,"a paper concludes the kind is undetermined or calls it a star cluster, not superseded on light, population or gas grounds",3,0
+segue_2,Segue 2,mw,A7,"a paper concludes the kind is undetermined or calls it a star cluster, not superseded on light, population or gas grounds",3,0
+sextans_1,Sextans,mw,A5,"label supported by light/structure, population or gas: L,P",2,0
+smc,SMC,lmc,A5,"label supported by light/structure, population or gas: L",3,0
+triangulum_2,Triangulum II,mw,A7,"a paper concludes the kind is undetermined or calls it a star cluster, not superseded on light, population or gas grounds",3,0
+tucana_2,Tucana II,mw,A5,"label supported by light/structure, population or gas: L",3,0
+tucana_3,Tucana III,mw,A5,"label supported by light/structure, population or gas: L",2,0
+tucana_4,Tucana IV,mw,A5,"label supported by light/structure, population or gas: L",2,0
+tucana_5,Tucana V,mw,A5,"label supported by light/structure, population or gas: L",2,0
+ursa_major_1,Ursa Major I,mw,A5,"label supported by light/structure, population or gas: L",2,0
+ursa_major_2,Ursa Major II,mw,A7,"a paper concludes the kind is undetermined or calls it a star cluster, not superseded on light, population or gas grounds",4,0
+ursa_minor_1,Ursa Minor,mw,A5,"label supported by light/structure, population or gas: L,P",2,0
+willman_1,Willman 1,mw,A5,"label supported by light/structure, population or gas: L",2,0
+andromeda_01,Andromeda I,m_031,A5,"label supported by light/structure, population or gas: L",2,0
+andromeda_02,Andromeda II,m_031,A5,"label supported by light/structure, population or gas: L",2,0
+andromeda_03,Andromeda III,m_031,A5,"label supported by light/structure, population or gas: L",2,0
+andromeda_05,Andromeda V,m_031,A5,"label supported by light/structure, population or gas: L",2,0
+andromeda_06,Andromeda VI,m_031,A5,"label supported by light/structure, population or gas: L,P",3,0
+andromeda_07,Andromeda VII,m_031,A5,"label supported by light/structure, population or gas: L",2,0
+andromeda_09,Andromeda IX,m_031,A5,"label supported by light/structure, population or gas: L",2,0
+andromeda_10,Andromeda X,m_031,A5,"label supported by light/structure, population or gas: L",2,0
+andromeda_11,Andromeda XI,m_031,A5,"label supported by light/structure, population or gas: L",2,0
+andromeda_12,Andromeda XII,m_031,A5,"label supported by light/structure, population or gas: L",2,0
+andromeda_13,Andromeda XIII,m_031,A5,"label supported by light/structure, population or gas: L",2,0
+andromeda_14,Andromeda XIV,m_031,A5,"label supported by light/structure, population or gas: L",2,0
+andromeda_15,Andromeda XV,m_031,A7,galaxy label rests on dynamics or metallicity spread only,3,0
+andromeda_16,Andromeda XVI,m_031,A5,"label supported by light/structure, population or gas: L",2,0
+andromeda_17,Andromeda XVII,m_031,A5,"label supported by light/structure, population or gas: L",2,0
+andromeda_18,Andromeda XVIII,,A5,"label supported by light/structure, population or gas: L,P",2,0
+andromeda_19,Andromeda XIX,m_031,A5,"label supported by light/structure, population or gas: L",2,0
+andromeda_20,Andromeda XX,m_031,A5,"label supported by light/structure, population or gas: L",2,0
+andromeda_21,Andromeda XXI,m_031,A5,"label supported by light/structure, population or gas: L,P",2,0
+andromeda_22,Andromeda XXII,m_033,A5,"label supported by light/structure, population or gas: L",2,0
+andromeda_23,Andromeda XXIII,m_031,A5,"label supported by light/structure, population or gas: L,P",2,0
+andromeda_24,Andromeda XXIV,m_031,A5,"label supported by light/structure, population or gas: L",2,0
+andromeda_25,Andromeda XXV,m_031,A5,"label supported by light/structure, population or gas: L,P",2,0
+andromeda_26,Andromeda XXVI,m_031,A5,"label supported by light/structure, population or gas: L",2,0
+andromeda_27,Andromeda XXVII,m_031,A5,"label supported by light/structure, population or gas: L",2,0
+andromeda_28,Andromeda XXVIII,m_031,A5,"label supported by light/structure, population or gas: L",2,0
+andromeda_29,Andromeda XXIX,m_031,A5,"label supported by light/structure, population or gas: L",2,0
+cassiopeia_2,Cassiopeia II,m_031,A5,"label supported by light/structure, population or gas: L",3,1
+cassiopeia_3,Cassiopeia III,m_031,A5,"label supported by light/structure, population or gas: L",2,0
+lacerta_1,Lacerta I,m_031,A5,"label supported by light/structure, population or gas: L",2,0
+lgs_3,LGS 3,m_031,A5,"label supported by light/structure, population or gas: L",3,2
+m_032,M 32,m_031,A5,"label supported by light/structure, population or gas: L",3,1
+ngc_0147,NGC 147,m_031,A5,"label supported by light/structure, population or gas: L",3,2
+ngc_0185,NGC 185,m_031,A5,"label supported by light/structure, population or gas: L",3,2
+ngc_0205,NGC 205,m_031,A5,"label supported by light/structure, population or gas: L",3,1
+perseus_1,Perseus I,m_031,A5,"label supported by light/structure, population or gas: L",2,0
+antlia_b,Antlia B,ngc_3109,A5,"label supported by light/structure, population or gas: G,L,P",2,0
+aquarius_1,Aquarius,,A5,"label supported by light/structure, population or gas: G,L,P",2,0
+cetus_1,Cetus,,A5,"label supported by light/structure, population or gas: L",2,0
+ic_1613,IC 1613,,A5,"label supported by light/structure, population or gas: L",3,1
+leo_a,Leo A,,A5,"label supported by light/structure, population or gas: G,P",2,1
+leo_t,Leo T,,A5,"label supported by light/structure, population or gas: G,L,P",2,0
+ngc_6822,NGC 6822,,A5,"label supported by light/structure, population or gas: G",2,1
+pegasus_dirr,Pegasus dIrr,,A5,"label supported by light/structure, population or gas: G",2,1
+phoenix_1,Phoenix,,A5,"label supported by light/structure, population or gas: L,P",3,0
+sagittarius_dirr,Sagittarius dIrr,,A5,"label supported by light/structure, population or gas: G,P",3,1
+tucana_1,Tucana,,A5,"label supported by light/structure, population or gas: L,P",4,1
+ugc_04879,UGC 4879,,A5,"label supported by light/structure, population or gas: G,L,P",3,1
+wlm,WLM,,A5,"label supported by light/structure, population or gas: G,P",3,1

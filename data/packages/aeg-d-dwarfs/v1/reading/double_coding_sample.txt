@@ -1,0 +1,22 @@
+# D-048 rule 6: 20% double-coding sample, random.Random(20261030).sample, drawn 2026-10-30 before any coding
+andromeda_15
+andromeda_18
+andromeda_20
+andromeda_24
+bootes_1
+bootes_2
+carina_3
+cassiopeia_2
+draco_1
+eridanus_4
+grus_1
+ic_1613
+leo_4
+lgs_3
+pegasus_4
+phoenix_2
+pisces_2
+segue_2
+sextans_1
+ugc_04879
+ursa_minor_1
