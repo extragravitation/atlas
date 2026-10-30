@@ -705,3 +705,30 @@ Defaults and ranges for any conversion factor are read at source before a packag
 - Column definitions and documentation of the Baumgardt pages, RV files, Harris (2010) and McLaughlin & van der Marel (2005).
 - The values disclosed in deviation #19: part of one RV-file row (no velocity), six rows of McLaughlin & van der Marel Table 13, and ten rows of Harris Part II.
 - No dispersion profile or structural value.
+
+---
+
+## D-046 — Globular-cluster package proceeds after reproduction test 2 failed (after-result decision)
+
+**Ruling (2026-10-30 10:25 MDT, JvH).** "Go for B." **Proposed by** Claude (option B of three); **adopted unchanged**. **This decision was made after a frozen test result was known** (D-031 item 2). It therefore goes to the outside reader at the v1.0 review (D-032). If the reader does not confirm it in writing, `aeg-d-gc-baumgardt` stays out of v1.0.
+1. Reproduction test 2 of `aeg-d-gc-baumgardt/v1` stays recorded as **FAIL** (152 of 153 King fits reproduced; `REPRODUCTION_RESULT.md`). It is shown on the dataset page and never re-scored.
+2. Despite REPRODUCTION.md's clause that a failed test stops the package, the conversion and tests 1, 3 and 4 and the D-037 check run as frozen. Each is published whichever way it goes, and any further fail stops the package.
+3. MW-PAL1 is recorded, not plotted. The reason given is: "source structural parameters internally inconsistent (scale radius in pc vs angular radius × distance; reproduction test 2)". Its parameters are not repaired, and Harris is not substituted.
+
+**Reason.** These were Claude's reasons, adopted by JvH.
+- The test did its job: it confirmed the King (1966) code on 152 fits to a median of 0.0006 dex. It found a defect in one row of the source table, which is documented.
+- The cause is independent of any acceleration: none had been computed.
+- Pal 1 could not be plotted in any case, since its profile has one bin.
+- Holding the whole control cell until the outside review would delay a v1.0 gate item by months and change no plotted value.
+
+**Alternatives rejected.**
+- (A) Hold the package until the outside review. This was the strictest option, and was rejected for its cost.
+- (C) Re-run test 2 with the angular radius. This would be re-scoring after the result, which is forbidden.
+
+**Data seen at the time of ruling.**
+- The structural tables of McLaughlin & van der Marel (2005), as test 2 read them, and test 2's per-row results.
+- The Baumgardt profile rows for Pal 1 (one bin).
+- The values disclosed in deviation #19.
+- No converted dispersion, g_obs or g_bar.
+
+**For the outside reader (v1.0 review):** confirm or reverse D-046.
