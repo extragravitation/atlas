@@ -750,3 +750,34 @@ The 36 clusters whose structural model would come only from Harris (2010) are re
 - The conversion counts.
 - The D-037 check results.
 - No g_obs or g_bar.
+
+---
+
+## D-048 — Dwarf galaxies (A5): LVDB as an index, the half-light radius, and kinds whose label rests on dynamics
+
+**Ruling (2026-10-30 12:23 MDT, JvH).** "As recommended." **Proposed by** Claude; **adopted unchanged**. Ruled before any LVDB value was opened: column headers and documentation only.
+1. **The Local Volume Database (Pace 2025; v1.1.1, CC0) is an index; the originals are the record.** Each default value is the original paper's published value, located through LVDB's reference column. An independent agent reads every value at source in the original and records:
+   - the value with its quote and location;
+   - whether the members reach beyond the half-light radius as the source states it (D-038 1A);
+   - the binary treatment.
+
+   Disagreements with LVDB are logged. This applies D-036 #5 (originals before compilations) and D-031 item 3.
+2. **Half-light radius:** the azimuthally averaged (circularised) projected half-light radius, consistent with the spherical estimator of D-025. The semi-major value is recorded as a cross-check.
+3. **Kinds:** D-036 #7 is applied as written.
+   - A system whose galaxy label rests only on its velocity dispersion or its metallicity spread goes to A7, labelled "ambiguous: dwarf galaxy or star cluster".
+   - The basis of each label is read in its reference by a rule frozen before any dispersion is opened.
+   - A7 gets its own view on the map, so these systems are shown, labelled, and kept out of the A3 and A5 default views.
+
+   **Amends D-028 item 5:** the gate item "the lowest-g_bar individual systems (dwarf spheroidals and ultra-faint dwarfs)" is met when those systems are live in A5, or in the A7 view where their kind is disputed.
+
+**Reason.** These were Claude's reasons, adopted by JvH.
+- LVDB carries the originals' numbers, but only the originals state member coverage (1A) and binary treatment.
+- The estimator assumes sphericity.
+- "Confirmed galaxy based on spectroscopy" often means the dispersion or metallicity spread, which D-036 forbids as a classifier. An A7 view keeps the faintest systems visible without letting dynamics decide their kind.
+
+**Alternatives rejected.**
+- (1) LVDB values used directly as a compilation: this skips 1A.
+- (2) The semi-major radius as default.
+- (3) LVDB's "confirmed galaxy" label accepted for A5: dynamics would decide the kind.
+
+**Data seen at the time of ruling.** LVDB column headers, row counts and documentation (definitions of `confirmed_real` and `confirmed_galaxy`). The A5 search log. No dispersion, structural or luminosity value.
