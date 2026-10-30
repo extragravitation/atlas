@@ -57,8 +57,8 @@ andromeda_01,Andromeda I,m_031,A5,"label supported by light/structure, populatio
 andromeda_02,Andromeda II,m_031,A5,"label supported by light/structure, population or gas: L",2,0
 andromeda_03,Andromeda III,m_031,A5,"label supported by light/structure, population or gas: L",2,0
 andromeda_05,Andromeda V,m_031,A5,"label supported by light/structure, population or gas: L",2,0
-andromeda_06,Andromeda VI,m_031,A5,"label supported by light/structure, population or gas: L,P",3,1
-andromeda_07,Andromeda VII,m_031,A7,galaxy label rests on dynamics or metallicity spread only,2,1
+andromeda_06,Andromeda VI,m_031,A5,"label supported by light/structure, population or gas: L,P",3,0
+andromeda_07,Andromeda VII,m_031,A5,"label supported by light/structure, population or gas: L",2,0
 andromeda_09,Andromeda IX,m_031,A5,"label supported by light/structure, population or gas: L",2,0
 andromeda_10,Andromeda X,m_031,A5,"label supported by light/structure, population or gas: L",2,0
 andromeda_11,Andromeda XI,m_031,A5,"label supported by light/structure, population or gas: L",2,0
