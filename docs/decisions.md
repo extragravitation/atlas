@@ -815,3 +815,30 @@ The coders also disagreed on whether "provisional" means X: 2 of 21 double-coded
 - An A7 system is still shown, in its own view.
 
 **Data seen.** The version 1 and version 2 coding results; no dispersion, structural value, luminosity or acceleration.
+
+---
+
+## D-050 — Which copy of a paper is "the original"
+
+**Ruling (2026-10-30 15:28 MDT, JvH).** "Let's go with B." **Proposed by** Claude (option B, recommended); **adopted unchanged**. Made before any value of an A5 candidate was opened. Applies to the second reading of every package converted after this date; the second readings already published are not reopened.
+
+1. **The version of record is read wherever it can be read.** Otherwise the latest arXiv version is read.
+2. **Each packaged value records the copy it was read from:** version of record, or arXiv identifier and version.
+3. **Where both are readable,** the second reader checks the arXiv value against the version of record. On any difference the version of record wins, and the difference is logged.
+4. **Errata:** an erratum is searched for every paper used. An erratum overrides the printed value, and the override is logged.
+5. **Papers whose arXiv record shows no sign of acceptance** (no journal-ref and no "accepted" or "published" in the comments) must be read in the version of record.
+
+**Reason (Claude, adopted).**
+- D-048 makes the original papers the record but did not say which copy. arXiv versions can differ from the published text, and errata can correct printed numbers.
+- The version of record is what is cited, so it should decide.
+- Allowing the arXiv version where the version of record cannot be read, labelled per value, keeps the work possible without hiding where a number came from.
+- In `aeg-d-dwarfs/v1`, 24 of the 109 arXiv versions show no sign of acceptance, 12 of them dispersion papers. Item 5 covers them.
+
+**Alternatives rejected.**
+- (A) Version of record only: some older papers may not be readable by JvH.
+- (C) arXiv only: this fails D-048 wherever the versions differ.
+
+**Data seen at the time of ruling.**
+- LVDB reference columns and bibliography.
+- arXiv abstract pages (versions, journal-ref, comments).
+- No value of any A5 candidate.
