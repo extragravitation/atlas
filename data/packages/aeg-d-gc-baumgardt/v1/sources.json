@@ -55,6 +55,10 @@
   {
    "role": "McLaughlin & van der Marel 2005, ApJS 161, 304 (VizieR J/ApJS/161/304/clusters): cluster list and basic data",
    "url": "https://vizier.idia.ac.za/viz-bin/votable?-source=J/ApJS/161/304/clusters&-out.all&-out.max=unlimited",
+   "mirrors": [
+     "https://vizier.cds.unistra.fr/viz-bin/votable?-source=J/ApJS/161/304/clusters&-out.all&-out.max=unlimited",
+     "https://vizier.cfa.harvard.edu/viz-bin/votable?-source=J/ApJS/161/304/clusters&-out.all&-out.max=unlimited"
+   ],
    "file": "mvdm05/J_ApJS_161_304_clusters.vot",
    "bytes": 119148,
    "sha256": "282ea6daaaa9da0b690c3efd1384a12e83da9e664e939649896aea8d006dc7ec",
@@ -68,6 +72,10 @@
   {
    "role": "McLaughlin & van der Marel 2005, ApJS 161, 304 (VizieR J/ApJS/161/304/table5): surface-brightness profiles",
    "url": "https://vizier.idia.ac.za/viz-bin/votable?-source=J/ApJS/161/304/table5&-out.all&-out.max=unlimited",
+   "mirrors": [
+     "https://vizier.cds.unistra.fr/viz-bin/votable?-source=J/ApJS/161/304/table5&-out.all&-out.max=unlimited",
+     "https://vizier.cfa.harvard.edu/viz-bin/votable?-source=J/ApJS/161/304/table5&-out.all&-out.max=unlimited"
+   ],
    "file": "mvdm05/J_ApJS_161_304_table5.vot",
    "bytes": 690615,
    "sha256": "3cbd17d7eea2f7ada1722fd7c7ec152639efcff23b664b027281df72628d14d7",
@@ -81,6 +89,10 @@
   {
    "role": "McLaughlin & van der Marel 2005, ApJS 161, 304 (VizieR J/ApJS/161/304/models): structural model fits and derived parameters",
    "url": "https://vizier.idia.ac.za/viz-bin/votable?-source=J/ApJS/161/304/models&-out.all&-out.max=unlimited",
+   "mirrors": [
+     "https://vizier.cds.unistra.fr/viz-bin/votable?-source=J/ApJS/161/304/models&-out.all&-out.max=unlimited",
+     "https://vizier.cfa.harvard.edu/viz-bin/votable?-source=J/ApJS/161/304/models&-out.all&-out.max=unlimited"
+   ],
    "file": "mvdm05/J_ApJS_161_304_models.vot",
    "bytes": 628298,
    "sha256": "84647d34642e32734368961fa6a940d25b1f4db81fd797825a734e63c04e4e16",
@@ -94,6 +106,10 @@
   {
    "role": "McLaughlin & van der Marel 2005, ApJS 161, 304 (VizieR J/ApJS/161/304/table13): population-synthesis mass-to-light ratios and related quantities (D-039)",
    "url": "https://vizier.idia.ac.za/viz-bin/votable?-source=J/ApJS/161/304/table13&-out.all&-out.max=unlimited",
+   "mirrors": [
+     "https://vizier.cds.unistra.fr/viz-bin/votable?-source=J/ApJS/161/304/table13&-out.all&-out.max=unlimited",
+     "https://vizier.cfa.harvard.edu/viz-bin/votable?-source=J/ApJS/161/304/table13&-out.all&-out.max=unlimited"
+   ],
    "file": "mvdm05/J_ApJS_161_304_table13.vot",
    "bytes": 36866,
    "sha256": "42a6f2521bc5562b5e615a4c463cb6753fdc2b1f1a1f4831e31c71f3a2957b96",
