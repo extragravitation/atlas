@@ -37,7 +37,18 @@ jobs:
           node-version: "22"
       - name: Install pipeline
         run: pip install -e "pipeline[test,data]"
+      # Source files already fetched by an earlier run are restored from the Actions cache, so
+      # one slow or down server does not block every pull request. The cache is only a copy:
+      # aeg.fetch checks every restored file against its hash in sources.json and re-fetches
+      # any that do not match. The cache is private to the repository's Actions and never published.
+      - name: Restore source cache
+        uses: actions/cache/restore@v4
+        with:
+          path: data/packages/*/*/source
+          key: sources-${{ hashFiles('data/packages/*/*/sources.json') }}
+          restore-keys: sources-
       - name: Fetch and verify sources
+        id: fetch
         run: |
           set -uo pipefail
           for pkg in data/packages/*/*/; do
@@ -47,6 +58,12 @@ jobs:
             fi
             cat fetch.log
           done
+      - name: Save source cache
+        if: always() && steps.fetch.outcome == 'success'
+        uses: actions/cache/save@v4
+        with:
+          path: data/packages/*/*/source
+          key: sources-${{ hashFiles('data/packages/*/*/sources.json') }}
       - name: Build packages
         run: |
           set -uo pipefail
