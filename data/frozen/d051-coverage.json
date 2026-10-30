@@ -1,0 +1,12 @@
+{
+  "description": "D-051: member coverage from the source's own per-star table (D-038 1A evidence), duplicate printings, lower limits; frozen before any per-star table or structural value of an A5/A7 candidate was opened.",
+  "frozen_on": "2026-10-30",
+  "decision": "D-051",
+  "spec": "docs/methods/D051_COVERAGE.md",
+  "files": {
+    "docs/methods/D051_COVERAGE.md": "b1a4014c9faf07497145a4c8eef506c8402c77e602025ad53b1572f268ed116e",
+    "pipeline/aeg/coverage.py": "c29f7b072c10e5cecbe3df5db59669a9d72fd6e5bdb01256d773d1eebe84130f",
+    "data/packages/aeg-d-dwarfs/v1/reproduction/coverage_from_tables.py": "1a1b048df0aa15088c695355a4a40c36e765d6fdf799f09e2eb6715cf761995c",
+    "data/packages/aeg-d-dwarfs/v1/reproduction/apply_sigma_rules_v2.py": "7b74ffc44f75786c259562aa28267ae71c73473429d01b1017e94ea89c083556"
+  }
+}
