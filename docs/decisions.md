@@ -815,3 +815,71 @@ The coders also disagreed on whether "provisional" means X: 2 of 21 double-coded
 - An A7 system is still shown, in its own view.
 
 **Data seen.** The version 1 and version 2 coding results; no dispersion, structural value, luminosity or acceleration.
+
+---
+
+## D-050 — Which copy of a paper is "the original"
+
+**Ruling (2026-10-30 15:28 MDT, JvH).** "Let's go with B." **Proposed by** Claude (option B, recommended); **adopted unchanged**. Made before any value of an A5 candidate was opened. Applies to the second reading of every package converted after this date; the second readings already published are not reopened.
+
+1. **The version of record is read wherever it can be read.** Otherwise the latest arXiv version is read.
+2. **Each packaged value records the copy it was read from:** version of record, or arXiv identifier and version.
+3. **Where both are readable,** the second reader checks the arXiv value against the version of record. On any difference the version of record wins, and the difference is logged.
+4. **Errata:** an erratum is searched for every paper used. An erratum overrides the printed value, and the override is logged.
+5. **Papers whose arXiv record shows no sign of acceptance** (no journal-ref and no "accepted" or "published" in the comments) must be read in the version of record.
+
+**Reason (Claude, adopted).**
+- D-048 makes the original papers the record but did not say which copy. arXiv versions can differ from the published text, and errata can correct printed numbers.
+- The version of record is what is cited, so it should decide.
+- Allowing the arXiv version where the version of record cannot be read, labelled per value, keeps the work possible without hiding where a number came from.
+- In `aeg-d-dwarfs/v1`, 24 of the 109 arXiv versions show no sign of acceptance, 12 of them dispersion papers. Item 5 covers them.
+
+**Alternatives rejected.**
+- (A) Version of record only: some older papers may not be readable by JvH.
+- (C) arXiv only: this fails D-048 wherever the versions differ.
+
+**Data seen at the time of ruling.**
+- LVDB reference columns and bibliography.
+- arXiv abstract pages (versions, journal-ref, comments).
+- No value of any A5 candidate.
+
+---
+
+## D-051 — Member coverage from the source's own table (after-result decision)
+
+**Ruling (2026-10-30 16:59 MDT, JvH).** "Proceed with B and its refinements." **Proposed by** Claude after JvH asked "what would a good scientist do?". **Adopted unchanged.**
+
+**Made after seeing results.** Under D-038 1A, with evidence from the papers' prose only, 16 of 103 A5/A7 systems had a plotted default. Claude had seen that count, and dispersion values had appeared in the readers' reports. No value entered the choice. **Goes to the outside reader** at the v1.0 review (D-031 item 2), with D-046, D-049 and D-049a.
+
+Specification: `docs/methods/D051_COVERAGE.md`, frozen with `pipeline/aeg/coverage.py`, `reproduction/coverage_from_tables.py` and `reproduction/apply_sigma_rules_v2.py`.
+
+1. **D-038 1A is unchanged.** Member stars used for the dispersion must reach beyond the half-light radius.
+2. **Evidence admitted:** the source's prose (in half-light-radius units), or the source's own per-star member table.
+   - Members are those the source states it used for the value.
+   - Each member's elliptical radius is computed against the **same R_h the plotted point uses**: the structural original's centre, ellipticity, position angle and semi-major half-light radius.
+   - The value passes if at least one member lies beyond the half-light ellipse: 1A's literal threshold.
+3. **Published for every system checked:** members, members beyond R_h, the fraction, and the largest r/R_h. These are not a second threshold.
+4. **Safeguards.**
+   - Specification and code are frozen before any table is opened.
+   - Unreachable tables leave the value as "coverage not checkable", never guessed.
+   - The prose-only result stays on record and is published beside this one.
+5. **Duplicate printings** of a paper's adopted estimate: the table printing, otherwise the most significant digits. A tie, or genuinely different estimates with no stated preference, go to JvH.
+6. **Lower limits:** recorded, never plotted.
+
+**Reason (Claude, adopted).**
+- 1A exists because g_obs = 3σ²/r½ needs a dispersion that represents the whole system.
+- Testing only the prose measures how papers are written, not where their members are. A paper whose released table reaches several R_h failed while a vaguely worded one passed.
+- The alternative rejected in D-038 (an 80%-of-light test) was set aside because sources "rarely state member positions". That reason does not apply where the source releases its table.
+- Option B keeps the rule's wording and threshold, and admits only the source's own data. It is reproducible and adds no model.
+- Judging coverage against the plotted point's own R_h keeps the test consistent with the estimator.
+
+**Alternatives rejected.**
+- (A) Prose only: tests writing style, not coverage.
+- (C) Read "within N r_h" (N > 1) as "beyond": an outer bound is not evidence that members reach there.
+- (D) Relax 1A: this changes a ruled standard after seeing the count.
+- A stricter threshold than one member (e.g. a minimum fraction): inventing it after seeing counts would itself be after-result tuning.
+
+**Data seen at the time of ruling.**
+- The two codings, the adjudication and the counts from the version 1 rule script: plotted 16, aperture 75, flagged 16, lower limits 3.
+- The readers' and coders' reports, which mention some dispersion values.
+- No per-star table and no structural value.

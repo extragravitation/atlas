@@ -8,7 +8,7 @@
   "frozen": "2026-10-30",
   "decision": "D-048"
  },
- "status": "index pinned; REPRODUCTION.md frozen; originals not yet fetched; no value opened",
+ "status": "index pinned; REPRODUCTION.md frozen; originals located (reading/originals.csv, 109 of 112 on arXiv); no value opened",
  "sources": [
   {
    "role": "Local Volume Database (Pace 2025, OJAp 8, 142) v1.1.1, combined table dwarf_mw.csv: the index to the original papers (D-048 item 1)",
@@ -42,6 +42,17 @@
    "redistributable": true,
    "evidence_tier": 1,
    "note": "CC0-1.0 (repository LICENSE). Pinned to commit c9fb49c620adab3df32c7d206e8599f4bb624a3a (2026-10-28). Index only: values come from the originals."
+  },
+  {
+   "role": "Local Volume Database v1.1.1 bibliography (ADS export, table/lvdb.bib): bibcode to title, DOI and arXiv identifier for the originals (reading/originals.csv)",
+   "url": "https://raw.githubusercontent.com/apace7/local_volume_database/c9fb49c620adab3df32c7d206e8599f4bb624a3a/table/lvdb.bib",
+   "file": "lvdb/lvdb.bib",
+   "bytes": 894380,
+   "sha256": "bdd643270c133a6ee6e1664645f030074da1f68a0a1cd0f496152c00467af8e3",
+   "retrieved": "2026-10-30",
+   "redistributable": true,
+   "evidence_tier": 1,
+   "note": "CC0-1.0 (repository LICENSE). Pinned to commit c9fb49c620adab3df32c7d206e8599f4bb624a3a. Locator only."
   }
  ]
 }
