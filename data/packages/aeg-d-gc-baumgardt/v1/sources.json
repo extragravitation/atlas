@@ -1,0 +1,1703 @@
+{
+ "standard_version": "2.0.0",
+ "dataset": "aeg-d-gc-baumgardt",
+ "version": "v1",
+ "status": "sources recorded; REPRODUCTION.md not yet frozen; no table opened for values",
+ "sources": [
+  {
+   "role": "Baumgardt et al. globular cluster database (v4): line-of-sight velocity dispersion profiles; a re-analysis under D-042",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/veldis.html",
+   "file": "veldis.html",
+   "bytes": 506494,
+   "sha256": "b1bf703280a33bf4988bbe94e291da1896611623860315e7e71e6c240e5b05de",
+   "retrieved": "2026-10-29",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database (v4): cluster parameters",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/parameter.html",
+   "file": "parameter.html",
+   "bytes": 188768,
+   "sha256": "c2e231374ba447d5153307c1018c1ea982f03706b813814a24209a32027bd225",
+   "retrieved": "2026-10-29",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: index of the individual radial-velocity files (D-037 reproduction check)",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "file": "appendix.html",
+   "bytes": 12609,
+   "sha256": "d6262d46887bd7385861a0b4c94e6017b2498ca3520bb0401e9ffe00ba68bd58",
+   "retrieved": "2026-10-29",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "Re-fetched from the source in JvH's browser on 2026-10-30: same bytes and SHA-256."
+  },
+  {
+   "role": "Harris 1996 catalogue, 2010 edition: horizontal-branch distances and integrated magnitudes (D-042)",
+   "url": "https://physics.mcmaster.ca/~harris/mwgc.dat",
+   "file": "mwgc.dat",
+   "bytes": 49364,
+   "sha256": "b457a690adc422fb2e8e05a23e1de50b62d1d5ac10dce99963c956c1b17ca658",
+   "retrieved": "2026-10-29",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "Re-fetched from the source in JvH's browser on 2026-10-30: same bytes and SHA-256."
+  },
+  {
+   "role": "McLaughlin & van der Marel 2005, ApJS 161, 304 (VizieR J/ApJS/161/304/clusters): cluster list and basic data",
+   "url": "https://vizier.idia.ac.za/viz-bin/votable?-source=J/ApJS/161/304/clusters&-out.all&-out.max=unlimited",
+   "file": "mvdm05/J_ApJS_161_304_clusters.vot",
+   "bytes": 119148,
+   "sha256": "282ea6daaaa9da0b690c3efd1384a12e83da9e664e939649896aea8d006dc7ec",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "VOTable export from the VizieR mirror at IDIA (South Africa), not the CDS original archive, which could not be reached (deviation #19). The file records its own request URL and date (2026-10-30T15:20 UTC); a new export will differ in those lines.",
+   "content_from": "<RESOURCE",
+   "content_sha256": "619b71cf61b537983574ee73f9b81e1e9733043b2a51d8b7cb482f2ed566d3dd"
+  },
+  {
+   "role": "McLaughlin & van der Marel 2005, ApJS 161, 304 (VizieR J/ApJS/161/304/table5): surface-brightness profiles",
+   "url": "https://vizier.idia.ac.za/viz-bin/votable?-source=J/ApJS/161/304/table5&-out.all&-out.max=unlimited",
+   "file": "mvdm05/J_ApJS_161_304_table5.vot",
+   "bytes": 690615,
+   "sha256": "3cbd17d7eea2f7ada1722fd7c7ec152639efcff23b664b027281df72628d14d7",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "VOTable export from the VizieR mirror at IDIA (South Africa), not the CDS original archive, which could not be reached (deviation #19). The file records its own request URL and date (2026-10-30T15:20 UTC); a new export will differ in those lines.",
+   "content_from": "<RESOURCE",
+   "content_sha256": "5b91c33196afce004141a99af8e2dc9945bc252d310258456dbea694aeabf738"
+  },
+  {
+   "role": "McLaughlin & van der Marel 2005, ApJS 161, 304 (VizieR J/ApJS/161/304/models): structural model fits and derived parameters",
+   "url": "https://vizier.idia.ac.za/viz-bin/votable?-source=J/ApJS/161/304/models&-out.all&-out.max=unlimited",
+   "file": "mvdm05/J_ApJS_161_304_models.vot",
+   "bytes": 628298,
+   "sha256": "84647d34642e32734368961fa6a940d25b1f4db81fd797825a734e63c04e4e16",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "VOTable export from the VizieR mirror at IDIA (South Africa), not the CDS original archive, which could not be reached (deviation #19). The file records its own request URL and date (2026-10-30T15:20 UTC); a new export will differ in those lines.",
+   "content_from": "<RESOURCE",
+   "content_sha256": "3109d33ffef04c036fe604e19efd5d033ae22b3a96f316dfa584d85714fc2c1f"
+  },
+  {
+   "role": "McLaughlin & van der Marel 2005, ApJS 161, 304 (VizieR J/ApJS/161/304/table13): population-synthesis mass-to-light ratios and related quantities (D-039)",
+   "url": "https://vizier.idia.ac.za/viz-bin/votable?-source=J/ApJS/161/304/table13&-out.all&-out.max=unlimited",
+   "file": "mvdm05/J_ApJS_161_304_table13.vot",
+   "bytes": 36866,
+   "sha256": "42a6f2521bc5562b5e615a4c463cb6753fdc2b1f1a1f4831e31c71f3a2957b96",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "VOTable export from the VizieR mirror at IDIA (South Africa), not the CDS original archive, which could not be reached (deviation #19). The file records its own request URL and date (2026-10-30T15:20 UTC); a new export will differ in those lines.",
+   "content_from": "<RESOURCE",
+   "content_sha256": "e5bc65069a02098a0ff297b535c8d54b4139d0c6df68be1218e04efd68dd3a3a"
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/2ms1.txt",
+   "file": "rv/2ms1.txt",
+   "bytes": 5552,
+   "sha256": "5f1762d6e9ea38ed37271b21939fca490bfd479a9b6b8ec71739bb96a67ad1d0",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "Verified 2026-10-30: the SHA-256 manifest of all 160 files fetched from the source matched the Dropbox copies."
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/2ms2.txt",
+   "file": "rv/2ms2.txt",
+   "bytes": 4581,
+   "sha256": "b97e1da08ad2f965381127252e27f03fe8917a1a85eb9823e539637eb15ef94c",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/am1.txt",
+   "file": "rv/am1.txt",
+   "bytes": 948,
+   "sha256": "2ecbcce7950c3390390bd23524a8decd1c796269d0d1c43f724493931e29d3cf",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/am4.txt",
+   "file": "rv/am4.txt",
+   "bytes": 1907,
+   "sha256": "983d5e2473dd392fbafb88d26c7371acad091bb63b9fce8d298f79a45ca986aa",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/arp2.txt",
+   "file": "rv/arp2.txt",
+   "bytes": 19734,
+   "sha256": "a83d770dc058648f7f9891434aa821cef80e40dcfee01bac8e4b744ac50a9d7e",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/bh140.txt",
+   "file": "rv/bh140.txt",
+   "bytes": 56713,
+   "sha256": "fb599483a5c61e18a80d4b8b9e332f10d778c149155d60afa46469872a01168f",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/bh261.txt",
+   "file": "rv/bh261.txt",
+   "bytes": 51084,
+   "sha256": "11d917302a5807b970d6834c3f3d9609eed3bc4d2f0abcdc45a3157af44fa2d8",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities (all clusters combined)",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/combined_table.txt",
+   "file": "rv/combined_table.txt",
+   "bytes": 23971443,
+   "sha256": "9ffc25a8b5555e81ccb0be9007638034cb1cabfdd73e140bc566fb604ef53aaf",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/crater.txt",
+   "file": "rv/crater.txt",
+   "bytes": 4884,
+   "sha256": "64968c6a0a1694dbb2d3d4e3ad6aa4bdd34f31d6fe7a99b6904a2655c49ad474",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/djo1.txt",
+   "file": "rv/djo1.txt",
+   "bytes": 78347,
+   "sha256": "cb0c1173be87bcc4f2c449182d83d9fcd6e1091d55e5bd6ad407c21965df4198",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/djo2.txt",
+   "file": "rv/djo2.txt",
+   "bytes": 45753,
+   "sha256": "4f222987f8c6926d2106611148bfcd7a1ef22995b6bc1ba6205f5e2d4b94608c",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/e3.txt",
+   "file": "rv/e3.txt",
+   "bytes": 9019,
+   "sha256": "9b0b216e541b4748d7cade8ff174680ce55fec578bc99cd172caed73afcbc834",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/eridanus.txt",
+   "file": "rv/eridanus.txt",
+   "bytes": 3342,
+   "sha256": "56957e89387a92fc0fe745520fc0409ac47c8779d1a60f3ac222a04f78214c6b",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/eso280.txt",
+   "file": "rv/eso280.txt",
+   "bytes": 6428,
+   "sha256": "215fde7129c359ebabec88955d17c48bde120c72bc2bf3ab0c4c8eac38595716",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/eso452.txt",
+   "file": "rv/eso452.txt",
+   "bytes": 3557,
+   "sha256": "c81c00d6a0a1027161b4e4bcb17b93540445a99b7d8382cc11ab88848334dc75",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/fsr1716.txt",
+   "file": "rv/fsr1716.txt",
+   "bytes": 96169,
+   "sha256": "c6f52925c6f80aa6b4495f32dc46a4d1276dc8c0e5ef0cf3ecdf62b29dce21d6",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/fsr1735.txt",
+   "file": "rv/fsr1735.txt",
+   "bytes": 42328,
+   "sha256": "228405b8b9a9b4e6e58e0614afb8a6c2eaba62dbf6c8f99959e196765dd8e852",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/fsr1758.txt",
+   "file": "rv/fsr1758.txt",
+   "bytes": 327389,
+   "sha256": "dd19a2569bc7981b769bdbc49a70173b5ad9aa1f72304b0fe6f833e9125624a1",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/hp1.txt",
+   "file": "rv/hp1.txt",
+   "bytes": 77346,
+   "sha256": "e7fbbe76594be5d18b95d215206ac42834e2fd0afe8f44e8cdef0032bffb622b",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ic1257.txt",
+   "file": "rv/ic1257.txt",
+   "bytes": 7530,
+   "sha256": "116f7822a29bdf592de02014250e2f81b38502d114ca8ff3482306dd678c6219",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ic1276.txt",
+   "file": "rv/ic1276.txt",
+   "bytes": 35204,
+   "sha256": "722a028b6616a83197fcc971a97b5580a11958163d3b6b7988bff15d2b5ba25c",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ic4499.txt",
+   "file": "rv/ic4499.txt",
+   "bytes": 50446,
+   "sha256": "7f9f634980f20188332239a24e77999c6ba16b7fe87c9cc962c2ab7302e579f2",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/lae3.txt",
+   "file": "rv/lae3.txt",
+   "bytes": 4599,
+   "sha256": "920b7238c61ee79a4e3c4333749b5b5102924675a7cc6cca99213d2039d5ee81",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/lil1.txt",
+   "file": "rv/lil1.txt",
+   "bytes": 25282,
+   "sha256": "f68a50952f67ce635460aa6ae4f3e8494e4f0b050e80561ffbb10b89bb156328",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/lyn7.txt",
+   "file": "rv/lyn7.txt",
+   "bytes": 96580,
+   "sha256": "6480718827d30b3274eb10b4814d19c52acfc5d5875fcdfd534f982f784626dc",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc104.txt",
+   "file": "rv/ngc104.txt",
+   "bytes": 942162,
+   "sha256": "a6f89dee8b2b3c2537c11bd1e7617f844a1761c90e2414d770c6a9878e8e1c1a",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc1261.txt",
+   "file": "rv/ngc1261.txt",
+   "bytes": 115377,
+   "sha256": "277a7b368ee027046a78832447816ff72af21f62a224eb5d4b46068a1aa222eb",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc1851.txt",
+   "file": "rv/ngc1851.txt",
+   "bytes": 235690,
+   "sha256": "20f934fdf49d221e3e9f1052cc42625fc887490bca12424747a5f07000e3e98b",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc1904.txt",
+   "file": "rv/ngc1904.txt",
+   "bytes": 166482,
+   "sha256": "6b93f3e1f795327f6ef0be5a8ca19ad52a4b6082ed05d6d29f8468d75f00fa95",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc2298.txt",
+   "file": "rv/ngc2298.txt",
+   "bytes": 150808,
+   "sha256": "cff5f752bb94a3ac428933329e17056141b0e33b75a2761154e964c76d584b5c",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc2419.txt",
+   "file": "rv/ngc2419.txt",
+   "bytes": 31767,
+   "sha256": "c7a36b5a7680f36ddcb7a5e4f417c1d441b254cd4c76cd702f809761a8a522d0",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc2808.txt",
+   "file": "rv/ngc2808.txt",
+   "bytes": 504331,
+   "sha256": "210c05bf3baa1dc760071dae845ca05ca8902057b0e853994a389184d5e048c6",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc288.txt",
+   "file": "rv/ngc288.txt",
+   "bytes": 159840,
+   "sha256": "7b02b61389f34160ba9336c339c6fc09347e58b245e1a093a8a5d7e60e2dc0ca",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc3201.txt",
+   "file": "rv/ngc3201.txt",
+   "bytes": 804214,
+   "sha256": "1132f9b2df2292b5f5ee913a0d3dfd81632bb3f5d14dc67fb67de3259189c82a",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc362.txt",
+   "file": "rv/ngc362.txt",
+   "bytes": 188296,
+   "sha256": "fd8a0e8820929d1481102da694bfc78a8c4d2f177337fa3f8658d80775255e81",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc4147.txt",
+   "file": "rv/ngc4147.txt",
+   "bytes": 36502,
+   "sha256": "836f5e7ca517b681c39ebe56465ed1a088c4e28031d2f23a95a3ad90cb096d43",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc4372.txt",
+   "file": "rv/ngc4372.txt",
+   "bytes": 308906,
+   "sha256": "5b06042ad57acd99fcb81f391e76086aa82cc7dfce1932c07619fc8dc734ae4c",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc4590.txt",
+   "file": "rv/ngc4590.txt",
+   "bytes": 181821,
+   "sha256": "f625d52ea0d01d5b8b1af58794674c51d7d977cfa9e60918f459736a34fa59f6",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc4833.txt",
+   "file": "rv/ngc4833.txt",
+   "bytes": 474819,
+   "sha256": "4a2e01442b9d8c90577103b611ca8bba001e76c464626e77479a3b9602f3b7da",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc5024.txt",
+   "file": "rv/ngc5024.txt",
+   "bytes": 114395,
+   "sha256": "0863a5fea05866a56c8e1b82e37b2155d16874afb60bd3a5df6591c7367fd013",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc5053.txt",
+   "file": "rv/ngc5053.txt",
+   "bytes": 40100,
+   "sha256": "7c7faca4d084f849ac572fd839ac40e57f251c2201ba58dfc171f3bd5807d107",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc5139.txt",
+   "file": "rv/ngc5139.txt",
+   "bytes": 1310302,
+   "sha256": "f1a04a70a7d684853dd66dc878aeb68d97809048bb19bbc5b7b6e8b9f4b64926",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc5272.txt",
+   "file": "rv/ngc5272.txt",
+   "bytes": 143828,
+   "sha256": "a86a596ea9811a2cf693441a054ebd4bea6f98ca8a8c2e299577e18b58c5558a",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc5286.txt",
+   "file": "rv/ngc5286.txt",
+   "bytes": 432031,
+   "sha256": "e0b1505ebbb4d37e22504d42f228a94b3ea59c6d5c6732cca227af3f82f3eb7c",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc5466.txt",
+   "file": "rv/ngc5466.txt",
+   "bytes": 39141,
+   "sha256": "bda2eb2af7cf302574058946bcf51ed5ac2ea0acfe85675ac8a4e581cf2d81cc",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc5634.txt",
+   "file": "rv/ngc5634.txt",
+   "bytes": 48052,
+   "sha256": "3fe19f17db821079196a5368fe4eb3afb646108f2e4e6b0f1bd339814362911c",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc5694.txt",
+   "file": "rv/ngc5694.txt",
+   "bytes": 117481,
+   "sha256": "80f8eca9f27734fa1e642f81799690dfd78fbadff6793cd0bf989fd0a703c129",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc5824.txt",
+   "file": "rv/ngc5824.txt",
+   "bytes": 141974,
+   "sha256": "9d18d1d513846e0ab621b2e50e4c822b29abc351da4e6509df28ae117e968af8",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc5897.txt",
+   "file": "rv/ngc5897.txt",
+   "bytes": 107659,
+   "sha256": "56cab6ece3f006623761f619da3619be460dd0f34734fbfb50899d37a836aeed",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc5904.txt",
+   "file": "rv/ngc5904.txt",
+   "bytes": 196296,
+   "sha256": "cfafc0e5518ee598241dfe9ce688b9e798d7744ac6795c517740c7d0f4f004dc",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc5927.txt",
+   "file": "rv/ngc5927.txt",
+   "bytes": 338110,
+   "sha256": "6d196628034f250b568a9db11f12b82e4674e4e827e3f93586e0e2c29ef813c7",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc5946.txt",
+   "file": "rv/ngc5946.txt",
+   "bytes": 283859,
+   "sha256": "1aa8df3c8ed636c1e61fffb068d496a463490af3f99810dd524bbb18ad2b4e40",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc5986.txt",
+   "file": "rv/ngc5986.txt",
+   "bytes": 119631,
+   "sha256": "7f7792dae72662849e6969d683ac90ee6a3a8f4872c48aeeafa2c25713f89acc",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6093.txt",
+   "file": "rv/ngc6093.txt",
+   "bytes": 372176,
+   "sha256": "5c31da2d6a7af979b06070aa52de241bcc4933d133de8ffa4b86ae48232f72b6",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6101.txt",
+   "file": "rv/ngc6101.txt",
+   "bytes": 71920,
+   "sha256": "ac02e031be23bb36d216da387f91f7a961cd2b015d345a00bb4e93d5f1048be1",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6121.txt",
+   "file": "rv/ngc6121.txt",
+   "bytes": 859608,
+   "sha256": "07bdc0a0305e206444aefb8bebe942b1ce3c322dd87822bc28c303bb222c66a5",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6139.txt",
+   "file": "rv/ngc6139.txt",
+   "bytes": 121853,
+   "sha256": "379652174967ecb0fdd083d9a6c645088b8ef7c9dca3896aabfa9bb6d7537a14",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6144.txt",
+   "file": "rv/ngc6144.txt",
+   "bytes": 17912,
+   "sha256": "ddf6ee8ac4763f12779369c2c6463228b6c37272277c4d6f4e9b397550bdbef9",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6171.txt",
+   "file": "rv/ngc6171.txt",
+   "bytes": 103100,
+   "sha256": "eeed76fe281bda536f13c25de7e80cdbfb18a2b8970f4c0ca3549c3c99825644",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6205.txt",
+   "file": "rv/ngc6205.txt",
+   "bytes": 124514,
+   "sha256": "baa27de45224fbabf63b464885c76bf3d8dbc6e25983c979a947e39a647c5db0",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6218.txt",
+   "file": "rv/ngc6218.txt",
+   "bytes": 252264,
+   "sha256": "8161eeb09611e8c5ab49450a2218557de82c7f7d7df346358978c9665b12ba29",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6229.txt",
+   "file": "rv/ngc6229.txt",
+   "bytes": 5482,
+   "sha256": "3a8a83c296da1f494c0390191b6afebee9dc4b46f37b5d737b88c57e99fb8aa5",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6235.txt",
+   "file": "rv/ngc6235.txt",
+   "bytes": 23696,
+   "sha256": "b987a7291b1ac761c0bb4d1d6adc30d1569ae167263c6f509f16caac20e7bdb7",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6254.txt",
+   "file": "rv/ngc6254.txt",
+   "bytes": 97991,
+   "sha256": "7bedf6a0633403d88072bbad926db870de0fa5e39a6f97a8166711c2998f48b8",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6256.txt",
+   "file": "rv/ngc6256.txt",
+   "bytes": 43150,
+   "sha256": "85bd036b324f11f7019b88bd1da712ac11d3c27fdd6b40b13972a6017206bafd",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6266.txt",
+   "file": "rv/ngc6266.txt",
+   "bytes": 313432,
+   "sha256": "c3ef90966a23993b81aaab8a046de217a2e8cbee4ed8576d9d3ab784cc0b427f",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6273.txt",
+   "file": "rv/ngc6273.txt",
+   "bytes": 222679,
+   "sha256": "f682d273a5806ed11ac59a5345086e53a70d085887dbbb7ed2b003205a237bf0",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6284.txt",
+   "file": "rv/ngc6284.txt",
+   "bytes": 74374,
+   "sha256": "527ac8aeca355887b16755b7902ac778d11a93c94b77cc0282c04f674b578a8b",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6287.txt",
+   "file": "rv/ngc6287.txt",
+   "bytes": 24655,
+   "sha256": "a867c24e19a356d640d87be3bd7459be78b34e3d5ee4c4d24972e5531d32b858",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6293.txt",
+   "file": "rv/ngc6293.txt",
+   "bytes": 67911,
+   "sha256": "7fc17119d65d03f8f2b297fc2ac96139535163fa2bdd74c4c7ed290fe31e9640",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6304.txt",
+   "file": "rv/ngc6304.txt",
+   "bytes": 187120,
+   "sha256": "a8ae5fe7f022274886b0e7037be8273dc22c8b668620cee59bb91dc53c136159",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6316.txt",
+   "file": "rv/ngc6316.txt",
+   "bytes": 134716,
+   "sha256": "dbb6d381562f91cccb3f1917f0f47f3ec221cd2fcb1434a46a88b71e9bea11de",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6325.txt",
+   "file": "rv/ngc6325.txt",
+   "bytes": 38331,
+   "sha256": "9c90392787d631c41611d6691935f2a8418cd2673d16fed7dfa3a5477c62e89f",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6333.txt",
+   "file": "rv/ngc6333.txt",
+   "bytes": 43150,
+   "sha256": "01dd3dcc4460f8bde105b80daa11ee474c505fda056e7eb6b990f71e394ce61e",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6341.txt",
+   "file": "rv/ngc6341.txt",
+   "bytes": 126936,
+   "sha256": "5042fc9f8865c3fcec555ad50498e2c1aac36ea347b5b17b4f97b620bfdcd981",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6342.txt",
+   "file": "rv/ngc6342.txt",
+   "bytes": 46152,
+   "sha256": "9bba474f304d64e3161dd628093a3eaeb23b41ea61948c9025a67d4846cb58df",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6352.txt",
+   "file": "rv/ngc6352.txt",
+   "bytes": 284210,
+   "sha256": "f028982d65650b1893ad843b032828ee8a9d14c694910409eda185bbd9ada140",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6355.txt",
+   "file": "rv/ngc6355.txt",
+   "bytes": 96627,
+   "sha256": "17791d0274c430d91b50024a26fa15a75b448814903e4446e44726c6a8d2407c",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6356.txt",
+   "file": "rv/ngc6356.txt",
+   "bytes": 49029,
+   "sha256": "96a336724b33704a44aa792b35c9844066214ed0f668f104628dce74f90b8cca",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6362.txt",
+   "file": "rv/ngc6362.txt",
+   "bytes": 129131,
+   "sha256": "5b61e82c062c0f756d37680177e9322bd3fb982228886dcec3d36fa65a194b48",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6366.txt",
+   "file": "rv/ngc6366.txt",
+   "bytes": 80747,
+   "sha256": "58c0a32338efd9df4af92a6bebabeb7530760add5cb097c4aae135cfa01c3953",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6380.txt",
+   "file": "rv/ngc6380.txt",
+   "bytes": 60656,
+   "sha256": "c2cc5c72a7e32320cbdc333b98b93a6195ee14b01a17b1cff0b59ba5990c1c15",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6388.txt",
+   "file": "rv/ngc6388.txt",
+   "bytes": 335256,
+   "sha256": "3fc46e563045e2c51e23e8ab6f4cfb0f45cd086f1afd1c0b1a3b88b47f4c9762",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6397.txt",
+   "file": "rv/ngc6397.txt",
+   "bytes": 912350,
+   "sha256": "c58e8e5dd33f8ee0ee57124b9468df587345fbcf310029aff73dc0a9de630f5c",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6401.txt",
+   "file": "rv/ngc6401.txt",
+   "bytes": 140394,
+   "sha256": "06671ddd61d2c2a17a695782580e444bc4494bb91de17df23be2544010a314c7",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6402.txt",
+   "file": "rv/ngc6402.txt",
+   "bytes": 57999,
+   "sha256": "ec8ce31625e61be5d05676da2532f755bcf7886fca4d4cb6c9ee650e0c4fcde3",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6426.txt",
+   "file": "rv/ngc6426.txt",
+   "bytes": 14243,
+   "sha256": "bbd4a5f1c950d94d6a9c34e022702466a963d40dc091735ac2f0b3dfa7f539ff",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6440.txt",
+   "file": "rv/ngc6440.txt",
+   "bytes": 120191,
+   "sha256": "96c6e73b02e3af37d3111a67e3b09fc7b4cd30af9f23d7abfa34dfcd7b744b43",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6441.txt",
+   "file": "rv/ngc6441.txt",
+   "bytes": 182388,
+   "sha256": "8cfbf07da10d6d0a1b4a25d69d1c7186865b9b8de38e7f46fd8922a76372cbf3",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6453.txt",
+   "file": "rv/ngc6453.txt",
+   "bytes": 13653,
+   "sha256": "9ae2e388961082cf0b676c50ed5f1ecb7e442bde1e2e6dff22c8f37203879ef8",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6496.txt",
+   "file": "rv/ngc6496.txt",
+   "bytes": 89384,
+   "sha256": "e75049272af01dfb4b2a909547bc6da69762d34fbf6c754e547b3edb766e958d",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6517.txt",
+   "file": "rv/ngc6517.txt",
+   "bytes": 28354,
+   "sha256": "5dd98e1f7bc0eca0b1fbb2447caca12fbf832622e897503faac4c8d059ac78fd",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6522.txt",
+   "file": "rv/ngc6522.txt",
+   "bytes": 153867,
+   "sha256": "b6c6fe42b960db83877d49c84645f404b6b2b7037155f552d0d811e8f337e238",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6528.txt",
+   "file": "rv/ngc6528.txt",
+   "bytes": 53310,
+   "sha256": "cf711dd1f8dfcd1c10a5852bddce0402ff648de17014380798aaa9baaf47be12",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6535.txt",
+   "file": "rv/ngc6535.txt",
+   "bytes": 22302,
+   "sha256": "1027e93e0c2ddd64c5b222263bda2e4eba136e571311a287bbdcfa4220be9de0",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6539.txt",
+   "file": "rv/ngc6539.txt",
+   "bytes": 46289,
+   "sha256": "25270e31c19200e008778ebee161cc4bbf6ee90465e0068e59d5ab5c49caa4aa",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6540.txt",
+   "file": "rv/ngc6540.txt",
+   "bytes": 22850,
+   "sha256": "d32b7f0585dbb8ed3770d5abe2482be5aa9415da508eb0de9ba5832c74f2587f",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6541.txt",
+   "file": "rv/ngc6541.txt",
+   "bytes": 186189,
+   "sha256": "948252ffa01cfd00e0c8f5489962e39264fb5f9a600e27660e3c1d2bdc70aa19",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6544.txt",
+   "file": "rv/ngc6544.txt",
+   "bytes": 1060559,
+   "sha256": "4b8f6937445ae0bbd210fb17fb58163d48e7ec135311480296240b181d0f0dac",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6553.txt",
+   "file": "rv/ngc6553.txt",
+   "bytes": 318543,
+   "sha256": "8715c11af74ae9e9881101898b1b4a0fbbc4e98c25ec296f7fbdae968854f2ea",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6558.txt",
+   "file": "rv/ngc6558.txt",
+   "bytes": 107236,
+   "sha256": "bcc8da05e6f7ef8ce45936e67ce8f7b86451a80bb31bca704eb5ce1f3f945292",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6569.txt",
+   "file": "rv/ngc6569.txt",
+   "bytes": 468248,
+   "sha256": "3f0b35a7f3d1d1fb934cd7689aa5e6119ff5db6b0ba1aa92a10f07633032e129",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6584.txt",
+   "file": "rv/ngc6584.txt",
+   "bytes": 71640,
+   "sha256": "175574c81458b56e6a2cde1e2b389091334986b448399f108ab8dddfb1b4539f",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6624.txt",
+   "file": "rv/ngc6624.txt",
+   "bytes": 418775,
+   "sha256": "ae8aed5012b01da9f0316ae54fed8d3fdea92dbc74a90c5dbfcc93853633562d",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6626.txt",
+   "file": "rv/ngc6626.txt",
+   "bytes": 448788,
+   "sha256": "59203ef15b456bb8911f66e507e858db579a5d7b1fd57379435d6cac400482ad",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6637.txt",
+   "file": "rv/ngc6637.txt",
+   "bytes": 60787,
+   "sha256": "9674b6af324d043427ef7c6a0cf3f9ad6fa57d81b7640b17e9081fef5ded42bf",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6638.txt",
+   "file": "rv/ngc6638.txt",
+   "bytes": 87669,
+   "sha256": "991dc7dc7e0f3ebe111bd1cd08635603377808a21f3412fee327a661999386e0",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6642.txt",
+   "file": "rv/ngc6642.txt",
+   "bytes": 100541,
+   "sha256": "8b5f251a331aa4c76bd548d4cd61821825c73b45a3810121e90eca5cdb24b757",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6652.txt",
+   "file": "rv/ngc6652.txt",
+   "bytes": 43954,
+   "sha256": "d08e9b1d7655a1beba66f6c44343892b7f179208cff2f78b92d09642d0d7d591",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6656.txt",
+   "file": "rv/ngc6656.txt",
+   "bytes": 1258466,
+   "sha256": "e01ac4cf7402f805f22c703ad8f0df3b613c7aaecad846e04b838f30828913e2",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6681.txt",
+   "file": "rv/ngc6681.txt",
+   "bytes": 143702,
+   "sha256": "b5f170228fe34c349fd95b97f3b4777fe31cc34ec26dcb4a1d75d02562ab52e4",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6712.txt",
+   "file": "rv/ngc6712.txt",
+   "bytes": 409588,
+   "sha256": "995d8db2e44729256576be6d7ba0bf1b0c6b1c2becfd576f1fb68b7272f254c9",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6715.txt",
+   "file": "rv/ngc6715.txt",
+   "bytes": 225096,
+   "sha256": "16ad4defacba11fed6e918ce3db88932b1b53a96a1b43d67bf188d6b7dcd7b07",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6717.txt",
+   "file": "rv/ngc6717.txt",
+   "bytes": 134255,
+   "sha256": "7f8d0423bf54b877437dc963a7807a9043e2d45d241f177c02938ce47ba75ad2",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6723.txt",
+   "file": "rv/ngc6723.txt",
+   "bytes": 146107,
+   "sha256": "d36813339cab6d09eaef3f4356d174a8cfbb9f2b93e141fd279a6a21353907e2",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6749.txt",
+   "file": "rv/ngc6749.txt",
+   "bytes": 46575,
+   "sha256": "7bdf7e2d6d45ff79a2a357af761c28e16e3ce91a78e5854f351d127ead65f40a",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6752.txt",
+   "file": "rv/ngc6752.txt",
+   "bytes": 439714,
+   "sha256": "08b283e3725b5c37695138f06f031e9dd73cb2af04f0747d190f6efee787eac8",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6760.txt",
+   "file": "rv/ngc6760.txt",
+   "bytes": 67369,
+   "sha256": "dbdc98c084c233799abe6f1cd13fba0316d8bdf4097d2125f89ea1e147f33789",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6779.txt",
+   "file": "rv/ngc6779.txt",
+   "bytes": 120986,
+   "sha256": "2c4b8583946c9c9bcebafa69f186f9f193f8a49e878445933435501d80df9e3f",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6809.txt",
+   "file": "rv/ngc6809.txt",
+   "bytes": 487301,
+   "sha256": "9a57fdd6f7171c7e5b04033ee204382800b7466ad52af4489cfebf505f00ffcb",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6838.txt",
+   "file": "rv/ngc6838.txt",
+   "bytes": 278047,
+   "sha256": "c7ded5072c6c99eb92c4a1938c81c9a66cece5c81945d183cbd34a2663625f05",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6864.txt",
+   "file": "rv/ngc6864.txt",
+   "bytes": 35829,
+   "sha256": "0e95c187906a637042407cab73ecd9f38b9d4c6ffcfc194bdf10dbb9a0c8c863",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6934.txt",
+   "file": "rv/ngc6934.txt",
+   "bytes": 65874,
+   "sha256": "70b99a1b7fbc9246bf5a740c70b9857486c758fbbf596a58fac2c37030ff30fa",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6981.txt",
+   "file": "rv/ngc6981.txt",
+   "bytes": 16554,
+   "sha256": "b1a64d5e5f07458c90278421f097d3ef3cf5d692350e38d9750914efc2af9434",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc7006.txt",
+   "file": "rv/ngc7006.txt",
+   "bytes": 164252,
+   "sha256": "7ab30c404d08cd1697405a5b9ceab3ea884685be926acd563a3b4fae84cd380a",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc7078.txt",
+   "file": "rv/ngc7078.txt",
+   "bytes": 391898,
+   "sha256": "9de95a10087ab1d144fb24911ec7d3449d3e1d0fbef03a556273d8007a868618",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc7089.txt",
+   "file": "rv/ngc7089.txt",
+   "bytes": 158105,
+   "sha256": "8310434f3a33dee49ab2b20e123d7afad2f9cae8ce7519f7169f4a588d783bdc",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc7099.txt",
+   "file": "rv/ngc7099.txt",
+   "bytes": 238280,
+   "sha256": "26b5f74249cf4a3b4a192d8c713539d063b45bdffb9fedf23d21e5c9fa42b65c",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc7492.txt",
+   "file": "rv/ngc7492.txt",
+   "bytes": 5183,
+   "sha256": "6db88035c0ae4dd1d0ff0e3cd27eb783ee7d52c11ab96cbf50bb9e6b92ad8374",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pal1.txt",
+   "file": "rv/pal1.txt",
+   "bytes": 1639,
+   "sha256": "ae1af0e62cea78e6ee65749473243436bad569435298df72be14fdf9c0181424",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pal10.txt",
+   "file": "rv/pal10.txt",
+   "bytes": 8489,
+   "sha256": "576f9315ba897ee3e39c63690ff8831c70dc067aa740fa8ad5cd0647dc86df3e",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pal11.txt",
+   "file": "rv/pal11.txt",
+   "bytes": 3676,
+   "sha256": "c1f393a7d2e31807ee79c20571ccc7cc448ddc53e407af576e6075fa2ab83847",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pal12.txt",
+   "file": "rv/pal12.txt",
+   "bytes": 4373,
+   "sha256": "23fc11c00fc2d8128b49327e0672c966cf99958260f062b73baf46eb861b737d",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pal13.txt",
+   "file": "rv/pal13.txt",
+   "bytes": 7512,
+   "sha256": "ffd8cfcfee5dff43e35550635d559629f1785d0dfea796ab52073eb4f080d2c6",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pal14.txt",
+   "file": "rv/pal14.txt",
+   "bytes": 3128,
+   "sha256": "6f477fe22a7753faecb346e80d7cf14e2dae2719a345be438b846c8b48370311",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pal15.txt",
+   "file": "rv/pal15.txt",
+   "bytes": 1502,
+   "sha256": "8d1fa6a87a0e3b2622b836e3e93fb7d75a43a2ad3bb6883549f2f9309c33395c",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pal2.txt",
+   "file": "rv/pal2.txt",
+   "bytes": 3932,
+   "sha256": "1ffae50e7e2be629b0101fa11487d0f8763b34aa528afe1453ab1c32018d9319",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pal3.txt",
+   "file": "rv/pal3.txt",
+   "bytes": 6034,
+   "sha256": "687fae397b3feac4d6e6e1789a3b5faf55ece8b011afaa8b97a31b2d67924f96",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pal4.txt",
+   "file": "rv/pal4.txt",
+   "bytes": 3694,
+   "sha256": "b848d97f63d8ff8f00c38611e6b1bca91cbcab42e6d8b0d09a6e03eebd2a9d55",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pal5.txt",
+   "file": "rv/pal5.txt",
+   "bytes": 101845,
+   "sha256": "7f6b9aea8ae156a106e8f122f67e9f5df44bfc6b2ba971b59c55ea447dca2042",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pal6.txt",
+   "file": "rv/pal6.txt",
+   "bytes": 29688,
+   "sha256": "d8a24e010b6c131ea1b79064c1e7689bbe2cbe74dd9cb5ea945df9f9336402a2",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pal8.txt",
+   "file": "rv/pal8.txt",
+   "bytes": 17668,
+   "sha256": "a5d9f15d97951df00175d6655516057df0c9c7ead03bcf4b5907f97edf096bb2",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pat126.txt",
+   "file": "rv/pat126.txt",
+   "bytes": 12325,
+   "sha256": "a9161d766e8b678f085f75d99c79fd8a7959e033515fcea1d021f210398ce286",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pyxis.txt",
+   "file": "rv/pyxis.txt",
+   "bytes": 16869,
+   "sha256": "a43f644f83385cde2139712ac685b6c7721c8636f141ec48c1c07ee9fbcb7e0a",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/rup106.txt",
+   "file": "rv/rup106.txt",
+   "bytes": 9424,
+   "sha256": "32cf28501e4844cb383e6bf6bf5fa02be36a178af005fe35ea916d8268b8e33e",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ter1.txt",
+   "file": "rv/ter1.txt",
+   "bytes": 17531,
+   "sha256": "f4eae00e3ec0d0c3c8642d2142c947ec45d08024f08780d1f6f68d62a533a4e3",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ter10.txt",
+   "file": "rv/ter10.txt",
+   "bytes": 19699,
+   "sha256": "7db69ed95c4d292514eac2ebbdb8df5b97bcb2cf37da783ff85c4573c6ac080d",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ter12.txt",
+   "file": "rv/ter12.txt",
+   "bytes": 12599,
+   "sha256": "74a9188a6606d6cb777443c09fb08e4b1bf51503f793156103701480d421529f",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ter2.txt",
+   "file": "rv/ter2.txt",
+   "bytes": 22540,
+   "sha256": "5572e683b4f96a50c7e525256b917e0cd9cb9afd945fc7d14cc54067f0d0c626",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ter3.txt",
+   "file": "rv/ter3.txt",
+   "bytes": 6821,
+   "sha256": "170382a0cb4a8bfe0e670a158fd1c7eed5ee91e7e7dd5e8a136535ff78d64220",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ter4.txt",
+   "file": "rv/ter4.txt",
+   "bytes": 25036,
+   "sha256": "ad3aba7f88910e803a9e84626585da54f571dca46b40ecf45e9c1a2cd42c8244",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ter5.txt",
+   "file": "rv/ter5.txt",
+   "bytes": 316101,
+   "sha256": "1e94215816991ef174134d42ed70c4498b4ddd8468bb0472f84bca0994ce24eb",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ter6.txt",
+   "file": "rv/ter6.txt",
+   "bytes": 15887,
+   "sha256": "6596ef3dacd4151e4ac788e148995ec1968d0e8caa93380ef9c1c27d5d33df19",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ter7.txt",
+   "file": "rv/ter7.txt",
+   "bytes": 18871,
+   "sha256": "70ad8b618488cf9163642fee593bf4a28ef847cd02790ef380ec05068d793fbf",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ter8.txt",
+   "file": "rv/ter8.txt",
+   "bytes": 39855,
+   "sha256": "cd75fbc116269fec75d1a88bc0f956b43f6eef3e434164f3323dc621bbcaee39",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ter9.txt",
+   "file": "rv/ter9.txt",
+   "bytes": 68800,
+   "sha256": "1fe7905d9e1320c040b4c807818662d58e264d9a53b2c9aff3fefb78aa27bbb8",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ton2.txt",
+   "file": "rv/ton2.txt",
+   "bytes": 58268,
+   "sha256": "d981a5763bff028809a8d9036db51608ab40ece3501c17352ace318ff0bc2971",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/uks1.txt",
+   "file": "rv/uks1.txt",
+   "bytes": 5320,
+   "sha256": "22743804c1d6d3388a50f03a9b8a1358d5fa5731c52119fffa36ff09895ab918",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/vvv1.txt",
+   "file": "rv/vvv1.txt",
+   "bytes": 12315,
+   "sha256": "9b71ddc87177b5a9377c180ed9af0d367df49db5e37360d53529faf44a64c4e5",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  },
+  {
+   "role": "Baumgardt et al. globular cluster database: individual stellar radial velocities",
+   "url": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/vvv160.txt",
+   "file": "rv/vvv160.txt",
+   "bytes": 6982,
+   "sha256": "8d2ece0facaa91c071a69c4396001668aea684d9cc46e8a218bf79b729acba11",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1
+  }
+ ]
+}
