@@ -14,15 +14,25 @@ export const ASSUMPTION = {
   distance: { short: 'distance', t: 'Distance', p: 'How far away the galaxy is', kind: 'sigma' },
   inclination: { short: 'inclination', t: 'Inclination', p: 'How tilted the disc is as we see it', kind: 'sigma' },
   xray_hse_bias: { short: 'hydrostatic bias b', t: 'X-ray hydrostatic bias, b', p: 'Support of the hot gas not counted by assuming pressure balance from heat alone', kind: 'value' },
+  gc_stellar_ml: { short: 'Υ_V (clusters)', t: 'Cluster stellar mass-to-light, Υ_V', p: 'How much mass each unit of cluster starlight stands for', kind: 'span' },
   icl_fraction: { short: 'intracluster light', t: 'Intracluster light', p: 'Starlight between the galaxies that the star counts leave out', kind: 'percent' },
 };
 
 export function assumptionLabel(id) { return ASSUMPTION[id] || { short: id, t: id, p: id, kind: 'value' }; }
 export function datasetLabel(name) { return DATASET[name] || { t: name, p: name, kind_t: name, kind_p: name, unit: 'system', units: 'systems', method_t: name, method_p: name }; }
 
+// Position in an asymmetric published range (D-039): −1 = 0.53 × the default, 0 = default, +1 = Salpeter value.
+export function spanText(v) {
+  v = Number(v);
+  if (Math.abs(v) < 1e-9) return 'default';
+  if (v < 0) return `${(1 - 0.47 * Math.abs(v)).toFixed(2)} × default`;
+  return v >= 1 ? 'Salpeter value' : `${Math.round(v * 100)}% to Salpeter`;
+}
+
 export function fmtParam(kind, v) {
   if (kind === 'sigma') return (v >= 0 ? '+' : '−') + Math.abs(v).toFixed(1) + 'σ';
   if (kind === 'percent') return Math.round(v * 100) + '%';
+  if (kind === 'span') return spanText(v);
   return Number(v).toFixed(2);
 }
 

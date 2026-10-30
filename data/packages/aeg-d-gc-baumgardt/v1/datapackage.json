@@ -375,6 +375,13 @@
             "unit": "solMass / solLum"
           },
           {
+            "name": "x_gc_baumgardt_ml_v_salpeter",
+            "type": "number",
+            "description": "Population M/L_V with a Salpeter IMF (BC03), the D-039 upper bound",
+            "ucd": "phys.composition.massLightRatio",
+            "unit": "solMass / solLum"
+          },
+          {
             "name": "x_gc_baumgardt_distance_kpc",
             "type": "number",
             "description": "Harris distance",

@@ -380,19 +380,45 @@
       "id": "gc_stellar_ml",
       "name_technical": "Stellar mass-to-light ratio Υ_V from population synthesis (Bruzual & Charlot 2003, Chabrier disk IMF), per cluster",
       "name_plain": "How much mass each unit of starlight stands for",
-      "adjustable": false,
-      "status": "draft",
+      "adjustable": true,
+      "status": "confirmed",
       "parameter": {
-        "unit": "method"
+        "unit": "position in the published range: −1 = 0.53 × default, 0 = default, +1 = Salpeter value"
       },
       "datasets": {
         "aeg-d-gc-baumgardt/v1": {
-          "default": "mvdm2005_(M/L)1",
+          "default": 0,
+          "min": -1,
+          "max": 1,
           "default_ref": "D-039; McLaughlin & van der Marel 2005 §3 and Table 8 (VizieR clusters, (M/L)1); M_V,sun = 4.85 (their §4.2)",
-          "effects": [],
-          "note": "Range per D-039 (0.5× to the Salpeter value) to be added as a slider with its formulas in a later pull request."
+          "range_ref": "D-039 item 3. Lower end: 0.53 × the population value, the smallest dissolution factor Q in Kruijssen & Mieske 2009 (arXiv:0903.4683) §2, Table 1 (Q = 0.53–1.00), a range bound only, never a per-cluster default. Upper end: each cluster's BC03 + Salpeter value, McLaughlin & van der Marel 2005 (M/L)2 (Salpeter 60–75% above Chabrier, their §3). Asymmetric by construction; read at source: docs/sources/stellar-ml-2026-10-29.md.",
+          "range_basis": {
+            "min": "Kruijssen & Mieske 2009, smallest Q = 0.53 (loss of low-mass stars by dissolution)",
+            "max": "McLaughlin & van der Marel 2005, (M/L)_V with a Salpeter IMF, per cluster"
+          },
+          "evidence": "Direct low-mass IMF evidence read at source (D-039 item 2, docs/sources/stellar-ml-2026-10-29.md): consistent with the Chabrier/Kroupa default; neither source supports a Salpeter-like low-mass IMF in these systems.",
+          "effects": [
+            {
+              "column": "g_bar",
+              "formula": "g_bar * (1 + ((x_gc_baumgardt_ml_v_salpeter / x_gc_baumgardt_ml_v - 1 + 0.47) / 2) * p + ((x_gc_baumgardt_ml_v_salpeter / x_gc_baumgardt_ml_v - 1 - 0.47) / 2) * abs(p))"
+            },
+            {
+              "column": "g_bar_stars",
+              "formula": "g_bar_stars * (1 + ((x_gc_baumgardt_ml_v_salpeter / x_gc_baumgardt_ml_v - 1 + 0.47) / 2) * p + ((x_gc_baumgardt_ml_v_salpeter / x_gc_baumgardt_ml_v - 1 - 0.47) / 2) * abs(p))"
+            },
+            {
+              "column": "g_bar_err_lo",
+              "formula": "g_bar_err_lo * (1 + ((x_gc_baumgardt_ml_v_salpeter / x_gc_baumgardt_ml_v - 1 + 0.47) / 2) * p + ((x_gc_baumgardt_ml_v_salpeter / x_gc_baumgardt_ml_v - 1 - 0.47) / 2) * abs(p))"
+            },
+            {
+              "column": "g_bar_err_hi",
+              "formula": "g_bar_err_hi * (1 + ((x_gc_baumgardt_ml_v_salpeter / x_gc_baumgardt_ml_v - 1 + 0.47) / 2) * p + ((x_gc_baumgardt_ml_v_salpeter / x_gc_baumgardt_ml_v - 1 - 0.47) / 2) * abs(p))"
+            }
+          ]
         }
-      }
+      },
+      "scope": "dataset",
+      "role": "baryonic_inference"
     },
     {
       "id": "gc_gas_absent",

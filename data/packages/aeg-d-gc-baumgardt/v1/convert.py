@@ -132,6 +132,8 @@ def transcription_test(sys_t) -> None:
                 exp = float(harris[key]["III:" + param.split()[2]])
             elif param == "BC03 + Chabrier disk IMF":
                 exp = float(pop[key]["(M/L)1"])
+            elif param == "BC03 + Salpeter IMF (D-039 upper bound)":
+                exp = float(pop[key]["(M/L)2"])
             else:
                 continue
             n += 1
@@ -170,7 +172,8 @@ def main() -> int:
                          "baryonic_from", "model_dependence", "evidence_tier", "role", "alternative_of", "plotted",
                          "not_plotted_reason", "assumptions", "adjustable", "flags", "source_ref", "notes",
                          "x_gc_baumgardt_dataset", "x_gc_baumgardt_sigma", "x_gc_baumgardt_sigma_err_lo", "x_gc_baumgardt_sigma_err_hi", "x_gc_baumgardt_coverage",
-                         "x_gc_baumgardt_n_bins", "x_gc_baumgardt_r_h_pc", "x_gc_baumgardt_l_v", "x_gc_baumgardt_ml_v", "x_gc_baumgardt_distance_kpc")}
+                         "x_gc_baumgardt_n_bins", "x_gc_baumgardt_r_h_pc", "x_gc_baumgardt_l_v", "x_gc_baumgardt_ml_v",
+                         "x_gc_baumgardt_ml_v_salpeter", "x_gc_baumgardt_distance_kpc")}
     from sources_io import read_parameter
     param = read_parameter(HERE / "source/parameter.html")
     s_rows = {k: [] for k in ("system_id", "name_in_source", "class_in_source", "taxonomy_kind", "kind_label", "host",
@@ -224,6 +227,11 @@ def main() -> int:
             bar.append(add_obs(sid, "baryonic", "stellar_ml_population", s.ml_v, "solMass / solLum", "stellar_ml",
                                f"J/ApJS/161/304/clusters {s.pop_row['Cluster']}, (M/L)1", err_lo=e, err_hi=e, band="V",
                                parameter="BC03 + Chabrier disk IMF"))
+            e2 = A.num(s.pop_row.get("e_(M/L)2"))
+            if A.num(s.pop_row.get("(M/L)2")) is not None:
+                bar.append(add_obs(sid, "baryonic", "stellar_ml_population", float(s.pop_row["(M/L)2"]), "solMass / solLum",
+                                   "stellar_ml", f"J/ApJS/161/304/clusters {s.pop_row['Cluster']}, (M/L)2", err_lo=e2,
+                                   err_hi=e2, band="V", parameter="BC03 + Salpeter IMF (D-039 upper bound)"))
 
         # measurements: every converted line-of-sight candidate with complete inputs
         default_mid = None
@@ -260,11 +268,11 @@ def main() -> int:
                 "model_dependence": "observable_form", "evidence_tier": 1,
                 "role": "default" if is_default else "alternative", "alternative_of": None,
                 "plotted": "true" if is_default else "false", "not_plotted_reason": reason or None,
-                "assumptions": ASSUMPTIONS, "adjustable": "", "flags": "edges_inferred",
+                "assumptions": ASSUMPTIONS, "adjustable": "gc_stellar_ml", "flags": "edges_inferred",
                 "source_ref": f"veldis.html {s.name} ({c.dataset}); mwgc.dat; J/ApJS/161/304 models, clusters",
                 "notes": " | ".join(notes) or None, "x_gc_baumgardt_dataset": c.dataset, "x_gc_baumgardt_sigma": sig,
                 "x_gc_baumgardt_sigma_err_lo": lo, "x_gc_baumgardt_sigma_err_hi": hi, "x_gc_baumgardt_coverage": c.result.coverage,
-                "x_gc_baumgardt_n_bins": c.result.n_bins, "x_gc_baumgardt_r_h_pc": s.r_h_pc, "x_gc_baumgardt_l_v": s.l_v, "x_gc_baumgardt_ml_v": s.ml_v,
+                "x_gc_baumgardt_n_bins": c.result.n_bins, "x_gc_baumgardt_r_h_pc": s.r_h_pc, "x_gc_baumgardt_l_v": s.l_v, "x_gc_baumgardt_ml_v": s.ml_v, "x_gc_baumgardt_ml_v_salpeter": A.num(s.pop_row.get("(M/L)2")),
                 "x_gc_baumgardt_distance_kpc": D,
             }
             for k, v in row.items():
@@ -350,6 +358,7 @@ def main() -> int:
         col("x_gc_baumgardt_r_h_pc", m["x_gc_baumgardt_r_h_pc"], u.pc, "phys.size.radius", "Projected half-light radius at the Harris distance", True),
         col("x_gc_baumgardt_l_v", m["x_gc_baumgardt_l_v"], u.solLum, "phys.luminosity", "V-band luminosity from Harris M_V,t, M_V,sun = 4.85", True),
         col("x_gc_baumgardt_ml_v", m["x_gc_baumgardt_ml_v"], u.solMass / u.solLum, "phys.composition.massLightRatio", "Population M/L_V (BC03, Chabrier disk IMF)", True),
+        col("x_gc_baumgardt_ml_v_salpeter", m["x_gc_baumgardt_ml_v_salpeter"], u.solMass / u.solLum, "phys.composition.massLightRatio", "Population M/L_V with a Salpeter IMF (BC03), the D-039 upper bound", True),
         col("x_gc_baumgardt_distance_kpc", m["x_gc_baumgardt_distance_kpc"], u.kpc, "pos.distance", "Harris distance", True),
     ])
     meas.meta = {"dataset": DATASET, "version": VERSION, "standard_version": STANDARD}
