@@ -116,6 +116,7 @@ const total = atlas.datasets.reduce((s, d) => s + d.measurements.rows.length, 0)
     <main>
       <p class="kicker">Map · {total.toLocaleString('en')} measurements · three datasets</p>
       <h1><L t="Observed gravity compared with Newtonian gravity on detected matter" p="How much pull we see, compared with what the detected matter should give" /></h1>
+      <button type="button" class="btn primary explore-btn" id="explore-open"><L t="Explore the chart ▸" p="Explore the chart ▸" /></button>
       <figure>
         <div class="figbox" id="figbox">
           <div class="zoombar" role="group" aria-label="Zoom">
@@ -154,9 +155,11 @@ const total = atlas.datasets.reduce((s, d) => s + d.measurements.rows.length, 0)
       </div>
     </aside>
   </div>
-  <div class="msheet" id="msheet" data-state="peek" hidden>
-    <button type="button" class="mhandle" id="mhandle" aria-label="Show or hide the controls"><span aria-hidden="true"></span></button>
-    <p class="msum" id="msum"></p>
+  <div class="xbar" id="xbar" hidden>
+    <button type="button" class="btn" id="explore-close" aria-label="Close Explore">✕</button>
+    <p class="msum" id="msum" aria-live="polite"></p>
+  </div>
+  <div class="msheet" id="msheet" hidden>
     <div class="mtabs" role="tablist" aria-label="Chart controls">
       <button role="tab" type="button" data-mtab="lens" aria-selected="true"><L t="Lens" p="View" /></button>
       <button role="tab" type="button" data-mtab="points"><L t="Points" p="Marks" /></button>

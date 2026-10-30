@@ -61,7 +61,7 @@ function colorKey() {
   let html = `<b>${P.label}.</b> `;
   if (P.kind === 'cat') { const counts = prepareCats(); html += Object.keys(catIndex).map((k) => `<span style="white-space:nowrap"><span class="sw" style="display:inline-block;background:var(${CATS[catIndex[k] % CATS.length]})"></span> ${k} (${counts[k]})</span>`).join(' · '); }
   else { const stops = [0, 0.5, 1].map((t) => P.lo + t * (P.hi - P.lo)).map((x) => P.fmt(P.log ? Math.pow(10, x) : x)); html += `<span class="ramp" aria-hidden="true"></span> ${stops[0]} → ${stops[1]} → ${stops[2]}`; }
-  el.innerHTML = `<p style="margin:0">${html}</p><details class="more" data-more ${document.body.classList.contains('phone-map') ? '' : 'open'}><summary>${have.toLocaleString('en')} coloured · ${miss.toLocaleString('en')} grey (no value)</summary>${have.toLocaleString('en')} measurements are coloured by this property; ${miss.toLocaleString('en')} whose source does not give it are drawn faint grey.</details>`;
+  el.innerHTML = `<p style="margin:0">${html}</p><details class="more" data-more ${window.matchMedia('(max-width: 760px)').matches ? '' : 'open'}><summary>${have.toLocaleString('en')} coloured · ${miss.toLocaleString('en')} grey (no value)</summary>${have.toLocaleString('en')} measurements are coloured by this property; ${miss.toLocaleString('en')} whose source does not give it are drawn faint grey.</details>`;
   el.hidden = false;
 }
 
@@ -129,7 +129,11 @@ function view() {
 
 function draw() {
   const box = $('figbox'), fig = $('fig'), W = box.clientWidth, narrow = W < 560, { base, rg, zoomed } = view();
-  const L = 58, R = 14, T = 12, B = 46, pw = W - L - R, ph = base.equal ? pw * (base.y[1] - base.y[0]) / (base.x[1] - base.x[0]) : pw * 0.62;
+  // In Explore (phone), the chart must fit a fixed height: the plot is scaled down to fit, keeping its aspect.
+  const maxH = parseFloat(box.dataset.maxh) || Infinity;
+  let L = 58; const R = 14, T = 12, B = 46, aspect = base.equal ? (base.y[1] - base.y[0]) / (base.x[1] - base.x[0]) : 0.62;
+  let pw = W - L - R, ph = pw * aspect;
+  if (ph + T + B > maxH) { ph = Math.max(120, maxH - T - B); pw = ph / aspect; L = 58 + Math.max(0, (W - 58 - R - pw) / 2); }
   geom = { L, T, pw, ph, rg, base };
   const g = setup(fig, W, Math.round(ph + T + B));
   const P = plain();

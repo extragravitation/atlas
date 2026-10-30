@@ -1,76 +1,25 @@
-// Phone layout for the map: the chart stays pinned at the top and the controls live in a sheet
-// below it (peek · half · full), so every change is seen as it is made. The rail's own sections
-// (and their event handlers) are moved into the sheet, never copied; on a wide screen they go back.
-import { state, onChange } from './state.js';
+// Phone "Explore" screen for the map: a full-screen view that does not scroll. The chart fills the
+// top of the screen and the controls sit in a fixed area below it, so every change is seen as it is
+// made. The rail's own sections (and their handlers) are moved in, never copied, and go back on close.
+// Opened from the Explore button on the phone page, or with #explore in the address; the phone's Back
+// button closes it.
+import { state, onChange, save } from './state.js';
 import { plain } from './ui.js';
 
 const $ = (id) => document.getElementById(id);
 const PHONE = '(max-width: 760px)';
-const STATES = ['peek', 'half', 'full'];
 const NOTES = { lens: 'lens-note', points: 'pick-note', colours: 'colkey' };
 
-let homes = [];   // [node, parent, nextSibling] to restore on a wide screen
+let homes = [];
 let active = 'lens';
+let open = false;
 
 function moveInto(node, target) {
+  if (!node) return;
   homes.push([node, node.parentNode, node.nextSibling]);
   target.appendChild(node);
 }
 
-function enter() {
-  const sheet = $('msheet'), panels = $('mpanels');
-  document.body.classList.add('phone-map');
-  sheet.hidden = false;
-  panels.innerHTML = '';
-  for (const b of sheet.querySelectorAll('[data-mtab]')) {
-    const key = b.dataset.mtab, panel = document.createElement('div');
-    panel.className = 'mpanel'; panel.dataset.panel = key; panel.setAttribute('role', 'tabpanel');
-    panels.appendChild(panel);
-    const sec = document.querySelector(`.rail [data-tab="${key}"]`);
-    if (sec) moveInto(sec, panel);
-    if (NOTES[key] && $(NOTES[key])) moveInto($(NOTES[key]), panel);
-    if (key === 'system') moveInto(document.querySelector('.layout > .card'), panel);
-  }
-  clampNotes(panels);
-  select(active);
-  setState(sheet.dataset.state || 'peek');
-  document.querySelectorAll('details[data-more]').forEach((d) => { d.open = false; });
-}
-
-function leave() {
-  const sheet = $('msheet');
-  for (const [node, parent, next] of homes.reverse()) parent.insertBefore(node, next && next.parentNode === parent ? next : null);
-  homes = [];
-  sheet.hidden = true;
-  document.body.classList.remove('phone-map');
-  document.documentElement.style.removeProperty('--sheet-h');
-  document.querySelectorAll('details[data-more]').forEach((d) => { d.open = true; });
-}
-
-function select(key) {
-  active = key;
-  document.querySelectorAll('[data-mtab]').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.mtab === key)));
-  document.querySelectorAll('.mpanel').forEach((p) => { p.hidden = p.dataset.panel !== key; });
-  if (key === 'system') window.dispatchEvent(new Event('atlas-theme')); // redraw the profile at its new width
-}
-
-function setState(s) {
-  const sheet = $('msheet');
-  sheet.dataset.state = s;
-  const fig = document.querySelector('#figbox');
-  const chartBottom = fig ? Math.min(fig.getBoundingClientRect().bottom, window.innerHeight * 0.62) : window.innerHeight * 0.5;
-  const h = s === 'peek' ? 112 : s === 'half' ? Math.max(220, window.innerHeight - chartBottom - 8) : Math.round(window.innerHeight * 0.86);
-  document.documentElement.style.setProperty('--sheet-h', h + 'px');
-}
-
-// Bring the chart to the top of the screen, then open the sheet to fill the space below it.
-function openHalf() {
-  const fig = document.querySelector('.layout > main figure');
-  if (fig) { const top = fig.getBoundingClientRect().top + window.scrollY; window.scrollTo({ top, behavior: 'instant' }); }
-  requestAnimationFrame(() => setState('half'));
-}
-
-// Long notes inside the sheet show two lines; a tap opens the rest.
 function clampNotes(root) {
   root.querySelectorAll('p.small').forEach((p) => {
     if (p.dataset.clamp) return;
@@ -80,58 +29,84 @@ function clampNotes(root) {
   });
 }
 
+function fit() {
+  // Size the chart to the space between the top bar and the controls.
+  if (!open) return;
+  const box = $('figbox'), bar = $('xbar'), zoom = document.querySelector('#figbox .zoombar');
+  const avail = window.innerHeight * 0.58 - (bar ? bar.offsetHeight : 44) - (zoom ? zoom.offsetHeight + 4 : 0);
+  box.dataset.maxh = String(Math.max(160, Math.round(avail)));
+  window.dispatchEvent(new Event('atlas-theme')); // redraw at the new size
+}
+
+function enter() {
+  if (open) return;
+  open = true;
+  const sheet = $('msheet'), panels = $('mpanels');
+  panels.innerHTML = '';
+  for (const b of sheet.querySelectorAll('[data-mtab]')) {
+    const key = b.dataset.mtab, panel = document.createElement('div');
+    panel.className = 'mpanel'; panel.dataset.panel = key; panel.setAttribute('role', 'tabpanel');
+    panels.appendChild(panel);
+    moveInto(document.querySelector(`.rail [data-tab="${key}"]`), panel);
+    if (NOTES[key]) moveInto($(NOTES[key]), panel);
+    if (key === 'system') moveInto(document.querySelector('.layout > .card'), panel);
+  }
+  clampNotes(panels);
+  document.body.classList.add('explore');
+  sheet.hidden = false; $('xbar').hidden = false;
+  select(active);
+  summary();
+  requestAnimationFrame(fit);
+}
+
+function leave() {
+  if (!open) return;
+  open = false;
+  for (const [node, parent, next] of homes.reverse()) parent.insertBefore(node, next && next.parentNode === parent ? next : null);
+  homes = [];
+  document.body.classList.remove('explore');
+  $('msheet').hidden = true; $('xbar').hidden = true;
+  delete $('figbox').dataset.maxh;
+  save(); // keep the address in step with the settings chosen in Explore
+  window.dispatchEvent(new Event('atlas-theme'));
+}
+
+function select(key) {
+  active = key;
+  document.querySelectorAll('[data-mtab]').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.mtab === key)));
+  document.querySelectorAll('.mpanel').forEach((p) => { p.hidden = p.dataset.panel !== key; });
+  const panels = $('mpanels'); if (panels) panels.scrollTop = 0;
+  if (key === 'system') window.dispatchEvent(new Event('atlas-theme'));
+}
+
 function summary() {
   const el = $('msum'); if (!el) return;
   const P = plain();
   const lens = { obs: P ? 'Pull' : 'Acceleration', ex: P ? 'Extra pull' : 'Excess', mass: 'Mass', rad: P ? 'Distance' : 'Scale', speed: 'Speed' }[state.view] || state.view;
-  const pick = { all: P ? 'every point' : 'every measurement', outer: P ? 'one per galaxy, farthest' : 'one per system, outermost', light: P ? 'one per galaxy, same relative size' : 'one per system, 2 × half-light' }[state.pick];
-  const col = (document.querySelector('#colsel option:checked') || {}).textContent || 'Dataset';
-  const hidden = state.hide.length ? ` · ${state.hide.length} dataset${state.hide.length > 1 ? 's' : ''} off` : '';
+  const pick = { all: P ? 'every point' : 'every measurement', outer: P ? 'one per galaxy' : 'one per system (outermost)', light: P ? 'one per galaxy (same size)' : 'one per system (2 × half-light)' }[state.pick];
+  const col = ((document.querySelector('#colsel option:checked') || {}).textContent || 'Dataset').replace(/ \(.*\)$/, '');
   const changed = Object.keys(state.global).length + Object.keys(state.per).length;
-  el.textContent = `${lens} · ${pick} · colours: ${col}${hidden}${changed ? ` · ${changed} assumption${changed > 1 ? 's' : ''} changed` : ''}`;
-}
-
-function wireDrag() {
-  const handle = $('mhandle'), sheet = $('msheet');
-  let y0 = null, h0 = 0, moved = false;
-  handle.addEventListener('pointerdown', (e) => { y0 = e.clientY; h0 = sheet.getBoundingClientRect().height; moved = false; handle.setPointerCapture(e.pointerId); });
-  handle.addEventListener('pointermove', (e) => {
-    if (y0 === null) return;
-    const dy = y0 - e.clientY; if (Math.abs(dy) > 6) moved = true;
-    if (moved) document.documentElement.style.setProperty('--sheet-h', Math.max(80, Math.min(window.innerHeight * 0.9, h0 + dy)) + 'px');
-  });
-  const end = (e) => {
-    if (y0 === null) return;
-    if (!moved) { const i = STATES.indexOf(sheet.dataset.state); setState(STATES[(i + 1) % STATES.length]); }
-    else {
-      const h = sheet.getBoundingClientRect().height, vh = window.innerHeight;
-      setState(h < vh * 0.25 ? 'peek' : h < vh * 0.65 ? 'half' : 'full');
-    }
-    y0 = null;
-  };
-  handle.addEventListener('pointerup', end); handle.addEventListener('pointercancel', end);
+  el.textContent = `${lens} · ${pick} · ${col}${state.hide.length ? ` · ${state.hide.length} off` : ''}${changed ? ` · ${changed} changed` : ''}`;
 }
 
 export function mobilePanel() {
   const sheet = $('msheet'); if (!sheet) return;
   const mq = window.matchMedia(PHONE);
-  const touch = window.matchMedia('(pointer: coarse)').matches;
-  document.body.classList.toggle('touch', touch);
-  sheet.querySelectorAll('[data-mtab]').forEach((b) => b.addEventListener('click', () => {
-    select(b.dataset.mtab);
-    if (sheet.dataset.state === 'peek') openHalf();
-  }));
-  wireDrag();
-  // Selecting a point opens the Selected tab; the chart stays in view.
+  document.body.classList.toggle('touch', window.matchMedia('(pointer: coarse)').matches);
+  sheet.querySelectorAll('[data-mtab]').forEach((b) => b.addEventListener('click', () => select(b.dataset.mtab)));
+  $('explore-open').addEventListener('click', () => { if (location.hash !== '#explore') location.hash = 'explore'; else enter(); });
+  $('explore-close').addEventListener('click', () => { if (location.hash === '#explore') history.back(); else leave(); });
+  const sync = () => { if (mq.matches && location.hash === '#explore') enter(); else leave(); };
+  window.addEventListener('hashchange', sync);
+  window.addEventListener('popstate', sync); // Back can change the query as well as the hash
+
+  mq.addEventListener('change', sync);
   let lastSel = state.sel;
-  onChange(() => {
-    summary();
-    if (mq.matches && state.sel && state.sel !== lastSel) { select('system'); if (sheet.dataset.state === 'peek') openHalf(); }
-    lastSel = state.sel;
-  });
+  onChange(() => { summary(); if (open && state.sel && state.sel !== lastSel) select('system'); lastSel = state.sel; });
   window.addEventListener('atlas-layer', summary);
-  const apply = () => { if (mq.matches) { if (!homes.length) enter(); } else if (homes.length) leave(); else document.querySelectorAll('details[data-more]').forEach((d) => { d.open = true; }); summary(); };
-  mq.addEventListener('change', apply);
-  window.addEventListener('resize', () => { if (mq.matches) setState(sheet.dataset.state); });
-  apply();
+  window.addEventListener('resize', () => { if (open) fit(); });
+  // Expandable notes: closed on phones, open on wide screens.
+  const notes = () => document.querySelectorAll('details[data-more]').forEach((d) => { d.open = !mq.matches; });
+  mq.addEventListener('change', notes); notes();
+  sync();
 }
