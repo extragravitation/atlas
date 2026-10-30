@@ -4,7 +4,7 @@
 // Opened from the Explore button on the phone page, or with #explore in the address; the phone's Back
 // button closes it.
 import { state, onChange, save } from './state.js';
-import { plain } from './ui.js';
+import { plain, sliderIndex, fmtParam } from './ui.js';
 
 const $ = (id) => document.getElementById(id);
 const PHONE = '(max-width: 760px)';
@@ -79,14 +79,27 @@ function select(key) {
   if (key === 'system') window.dispatchEvent(new Event('atlas-theme'));
 }
 
+// What the chart is based on, in words: lens, points, datasets, colours and assumptions (changed
+// ones named with their values). Shown above the chart and in the Explore top bar.
+export function describe() {
+  const P = plain(), idx = sliderIndex();
+  const lens = { obs: P ? 'pull view' : 'Acceleration lens', ex: P ? 'extra-pull view' : 'Excess lens', mass: P ? 'mass view' : 'Mass lens', rad: P ? 'distance view' : 'Scale lens', speed: P ? 'speed view' : 'Speed lens' }[state.view] || state.view;
+  const pick = { all: P ? 'every point' : 'every measurement', outer: P ? 'one per galaxy, farthest point' : 'one per system, outermost radius', light: P ? 'one per galaxy, same relative size' : 'one per system, 2 × half-light radius' }[state.pick];
+  const total = document.querySelectorAll('.rail [id^="ds-"], .mpanel [id^="ds-"]').length || 3, on = total - state.hide.length;
+  const data = on === total ? (P ? 'all datasets' : `${total} of ${total} datasets`) : `${on} of ${total} datasets`;
+  const col = ((document.querySelector('#colsel option:checked') || {}).textContent || 'Dataset').replace(/ \(.*\)$/, '').toLowerCase();
+  const changed = Object.entries(state.global).map(([k, v]) => { const it = idx.find((x) => x.key === k); return it ? `${P ? it.label_p : it.label_t} ${fmtParam(it, v)} (changed)` : null; }).filter(Boolean);
+  const per = Object.keys(state.per).length;
+  if (per) changed.push(`${per} system${per > 1 ? 's' : ''} adjusted on ${per > 1 ? 'their' : 'its'} own page`);
+  const assum = changed.length ? changed.join(', ') : (P ? 'assumptions as published' : 'assumptions at the sources’ defaults');
+  return `${lens} · ${pick} · ${data} · ${P ? 'coloured by' : 'colours by'} ${col} · ${assum}${state.zoom ? (P ? ' · zoomed in' : ' · zoomed') : ''}`;
+}
+
 function summary() {
-  const el = $('msum'); if (!el) return;
-  const P = plain();
-  const lens = { obs: P ? 'Pull' : 'Acceleration', ex: P ? 'Extra pull' : 'Excess', mass: 'Mass', rad: P ? 'Distance' : 'Scale', speed: 'Speed' }[state.view] || state.view;
-  const pick = { all: P ? 'every point' : 'every measurement', outer: P ? 'one per galaxy' : 'one per system (outermost)', light: P ? 'one per galaxy (same size)' : 'one per system (2 × half-light)' }[state.pick];
-  const col = ((document.querySelector('#colsel option:checked') || {}).textContent || 'Dataset').replace(/ \(.*\)$/, '');
-  const changed = Object.keys(state.global).length + Object.keys(state.per).length;
-  el.textContent = `${lens} · ${pick} · ${col}${state.hide.length ? ` · ${state.hide.length} off` : ''}${changed ? ` · ${changed} changed` : ''}`;
+  const text = describe();
+  const a = $('msum'), b = $('showing-text');
+  if (a) a.textContent = text;
+  if (b) b.textContent = text;
 }
 
 export function mobilePanel() {
@@ -94,7 +107,9 @@ export function mobilePanel() {
   const mq = window.matchMedia(PHONE);
   document.body.classList.toggle('touch', window.matchMedia('(pointer: coarse)').matches);
   sheet.querySelectorAll('[data-mtab]').forEach((b) => b.addEventListener('click', () => select(b.dataset.mtab)));
-  $('explore-open').addEventListener('click', () => { if (location.hash !== '#explore') location.hash = 'explore'; else enter(); });
+  const openX = () => { if (!mq.matches) return; if (location.hash !== '#explore') location.hash = 'explore'; else enter(); };
+  $('explore-open').addEventListener('click', (e) => { e.stopPropagation(); openX(); });
+  $('showing').addEventListener('click', openX);
   $('explore-close').addEventListener('click', () => { if (location.hash === '#explore') history.back(); else leave(); });
   const sync = () => { if (mq.matches && location.hash === '#explore') enter(); else leave(); };
   window.addEventListener('hashchange', sync);
@@ -109,4 +124,5 @@ export function mobilePanel() {
   const notes = () => document.querySelectorAll('details[data-more]').forEach((d) => { d.open = !mq.matches; });
   mq.addEventListener('change', notes); notes();
   sync();
+  summary();
 }

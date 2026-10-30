@@ -116,7 +116,10 @@ const total = atlas.datasets.reduce((s, d) => s + d.measurements.rows.length, 0)
     <main>
       <p class="kicker">Map · {total.toLocaleString('en')} measurements · three datasets</p>
       <h1><L t="Observed gravity compared with Newtonian gravity on detected matter" p="How much pull we see, compared with what the detected matter should give" /></h1>
-      <button type="button" class="btn primary explore-btn" id="explore-open"><L t="Explore the chart ▸" p="Explore the chart ▸" /></button>
+      <div class="showing" id="showing">
+        <p class="showing-text"><b><L t="Showing:" p="Showing:" /></b> <span id="showing-text"></span></p>
+        <button type="button" class="btn primary showing-change" id="explore-open" aria-label="Change what the chart shows">Change ▸</button>
+      </div>
       <figure>
         <div class="figbox" id="figbox">
           <div class="zoombar" role="group" aria-label="Zoom">
