@@ -21,3 +21,9 @@ No dispersion profile has been converted, and no g_obs or g_bar has been compute
 ## Status
 
 The package does not ship on this result. Whether and how it proceeds is for JvH to rule, as a logged decision made after the result (D-031 item 2).
+
+**Ruled 2026-10-30 (D-046, after the result):**
+- The FAIL stands, permanently.
+- The conversion and the remaining tests run as frozen.
+- MW-PAL1 is recorded, not plotted.
+- The decision goes to the outside reader at the v1.0 review. If the reader does not confirm it, the package stays out of v1.0.
