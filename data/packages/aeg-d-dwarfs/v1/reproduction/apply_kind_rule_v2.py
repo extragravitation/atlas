@@ -33,7 +33,7 @@ def effective(row: dict, sheet: str) -> set[str]:
     cs = {c.strip().upper() for c in (row["codes"] or "").replace(",", ";").split(";") if c.strip()}
     cs = {c for c in cs if c in {"L", "P", "G", "D", "M", "N", "X"}}
     note = (row.get("reader_note") or "").lower()
-    if "X" in cs and sheet == "mw" and "provisional" in note and "open" not in note and "cluster" not in note:
+    if "X" in cs and sheet == "mw" and "x(provisional)" in note and "x(open)" not in note and "x(cluster)" not in note:
         cs.discard("X")
     return cs
 
@@ -59,14 +59,16 @@ def kind(papers):
 
 def main() -> int:
     first = load("kind_coding_mw.csv", "mw") + load("kind_coding_m31_field.csv", "m31")
+    # one entry per (system, paper, role): a scan reading replaces the same paper in the same role;
+    # a structural-reference row is added beside any row for the same paper in another role.
     table = {}
     for r, s in first:
-        table[(r["key"], r["ref"].split("|")[0])] = (r, s)
+        table[(r["key"], r["ref"].split("|")[0], r["role"])] = (r, s)
     for name in ("kind_coding_v2_scans.csv", "kind_coding_v2_agent.csv"):
         for r, s in load(name, "v2"):
-            table[(r["key"], r["ref"].split("|")[0])] = (r, s)
+            table[(r["key"], r["ref"].split("|")[0], r["role"])] = (r, s)
     per = {}
-    for (k, ref), (r, s) in table.items():
+    for (k, ref, _role), (r, s) in table.items():
         per.setdefault(k, []).append((year(ref), effective(r, s)))
     second = {}
     for r, s in load("kind_coding_second.csv", "second"):
@@ -79,17 +81,22 @@ def main() -> int:
         rows.append({"key": k, "name": sy["name"], "host": sy["host"], "kind": kd, "reason": why,
                      "papers": len(per.get(k, [])), "unread": sum(1 for _, c in per.get(k, []) if not c)})
         if k in second:
-            refs2 = {ref for _, _, ref in second[k]}
-            first_same = [(y, c) for (kk, ref), (r, s) in table.items() if kk == k and ref in refs2
-                          for y, c in [(year(ref), effective(r, s))]]
-            k1, _ = kind(first_same)
-            k2, _ = kind([(y, c) for y, c, _ in second[k]])
-            agree.append({"key": k, "kind_first_same_papers": k1, "kind_second": k2, "agree": k1 == k2})
+            # compare on the papers both coders could read (a paper unread by either is left out)
+            read2 = {ref for _, c, ref in second[k] if c}
+            first_rows = [(ref, year(ref), effective(r, s)) for (kk, ref, role), (r, s) in table.items()
+                          if kk == k and role in ("discovery", "vlos")]
+            both = {ref for ref, _, c in first_rows if c} & read2
+            k1, _ = kind([(y, c) for ref, y, c in first_rows if ref in both])
+            k2, _ = kind([(y, c) for y, c, ref in second[k] if ref in both])
+            agree.append({"key": k, "papers_both_read": len(both), "kind_first": k1, "kind_second": k2,
+                          "agree": (k1 == k2) if both else "not comparable (no paper read by both)"})
     for name, data in (("kinds.csv", rows), ("double_coding_agreement.csv", agree)):
         with (R / name).open("w", newline="", encoding="utf-8") as f:
             w = csv.DictWriter(f, fieldnames=list(data[0])); w.writeheader(); w.writerows(data)
     n5 = sum(r["kind"] == "A5" for r in rows)
-    print(f"v2: A5 {n5}, A7 {len(rows) - n5}; double-coded {len(agree)}, agreement {sum(a['agree'] for a in agree)}/{len(agree)}")
+    comp = [a for a in agree if a["agree"] in (True, False)]
+    print(f"v2: A5 {n5}, A7 {len(rows) - n5}; double-coded {len(agree)}, comparable {len(comp)}, "
+          f"agreement {sum(a['agree'] is True for a in comp)}/{len(comp)}")
     return 0
 
 
