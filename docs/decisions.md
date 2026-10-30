@@ -732,3 +732,21 @@ Defaults and ranges for any conversion factor are read at source before a packag
 - No converted dispersion, g_obs or g_bar.
 
 **For the outside reader (v1.0 review):** confirm or reverse D-046.
+
+---
+
+## D-047 — Harris-only globular clusters stay recorded only
+
+**Ruling (2026-10-30 10:48 MDT, JvH).** "Ruling: keep recorded only." **Proposed by** Claude (option A of two); **adopted unchanged**. Ruled after reproduction test 4's result and before any g_obs or g_bar of the package was looked at.
+
+The 36 clusters whose structural model would come only from Harris (2010) are recorded, not plotted, in `aeg-d-gc-baumgardt/v1`, as test 4 pre-registered. They may return in a later version under a reading frozen before use, or through packages of the original papers.
+
+**Reason.** This was Claude's reason, adopted by JvH. Test 4 showed that Harris r_c is the half-power radius, while Harris c behaves as log(r_t/r₀) (median difference 0.000 against McLaughlin & van der Marel) despite the catalogue key defining c = log(r_t/r_c). Any new reading would be built after the result, on an internally ambiguous source.
+
+**Alternative rejected.** (B) Read r_c as the half-power radius and c as log(r_t/r₀) now. That would be a rule changed after a test result (D-031 item 2) and would rest on a guess about which definition is the misprint.
+
+**Data seen at the time of ruling.**
+- Test 4's per-cluster comparison (`checks/test4_harris_rc.csv`).
+- The conversion counts.
+- The D-037 check results.
+- No g_obs or g_bar.
