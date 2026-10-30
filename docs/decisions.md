@@ -781,3 +781,25 @@ The 36 clusters whose structural model would come only from Harris (2010) are re
 - (3) LVDB's "confirmed galaxy" label accepted for A5: dynamics would decide the kind.
 
 **Data seen at the time of ruling.** LVDB column headers, row counts and documentation (definitions of `confirmed_real` and `confirmed_galaxy`). The A5 search log. No dispersion, structural or luminosity value.
+
+---
+
+## D-049 — Kind-basis rule, version 2 (after-result decision)
+
+**Ruling (2026-10-30 13:35 MDT, JvH).** "Fix D 049 as proposed." **Proposed by** Claude; **adopted unchanged**. **Made after the version 1 coding result was seen, and before any velocity dispersion, structural value or luminosity of an A5 candidate was opened.** It goes to the outside reader at the v1.0 review (D-031 item 2).
+
+`docs/methods/D049_KIND_BASIS_V2.md` replaces version 1. Version 1 stays frozen, and its literal result stays on record (`aeg-d-dwarfs/v1/reading/kinds_v1.csv`).
+1. **X narrowed:** only "calls it a star cluster" or "concludes the kind is undetermined". A hedged or provisional galaxy label is coded by its stated grounds.
+2. **Supersession:** an X counts unless a later paper in the evidence set gives the kind on light, population or gas grounds. A later settlement by dynamics or metallicity spread leaves the X standing.
+3. **Evidence:** pre-arXiv papers are read as ADS scans through JvH's browser. Systems with no discovery reference add their structural reference.
+4. **Re-coding:** the sheets are re-coded and the 20% double coding is re-compared. Both agreement rates are published.
+
+**Reason.** These were Claude's reasons, adopted by JvH. Applied literally, version 1 put the classical dwarf spheroidals and the Magellanic Clouds in A7 for two reasons unconnected with their evidence:
+- their discovery papers are not on arXiv, and the LMC and SMC have none;
+- one 1938 paper's uncertainty counted even though it was settled later.
+
+The coders also disagreed on whether "provisional" means X: 2 of 21 double-coded systems differed for that reason. Version 2 keeps the intended effect: systems whose galaxy label was settled only by dynamics stay in A7.
+
+**Alternative rejected.** Apply the version 1 result as written.
+
+**Data seen at the time of ruling.** The version 1 coding sheets and their result (kinds and reasons); the coders' reports. No dispersion, mass, structural value, luminosity or acceleration of any A5 candidate.
