@@ -1,0 +1,11 @@
+{
+  "description": "D-048 item 3 kind-basis rule and the D-039 item 1b M/L-by-metallicity interpolation, frozen with aeg-d-dwarfs/v1 REPRODUCTION.md before any dwarf value was opened.",
+  "frozen_on": "2026-10-30",
+  "decision": "D-048",
+  "spec": "docs/methods/D048_KIND_BASIS.md",
+  "files": {
+    "docs/methods/D048_KIND_BASIS.md": "c927a70462db1bd7c806a89c3da7f5604bb36a311a53a5ececd17262d0b362c0",
+    "pipeline/aeg/ml_interp.py": "d8dd0acf9c8dab644f8020a38469ff2810fad84cd1c8846a3632fce4cdc8a882",
+    "pipeline/tests/test_ml_interp.py": "636ff0b8b9d5cdc74f9e79d70afe5cfa6343b33109dbc989952b38a8ab613e08"
+  }
+}
