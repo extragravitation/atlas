@@ -622,6 +622,21 @@ Defaults and ranges for any conversion factor are read at source before a packag
 
 ---
 
+## D-042 — Globular clusters: the Baumgardt database, precedence after the plotting rules, distances
+
+**Ruling (2026-10-29 18:52–18:53 MDT, JvH).** **Proposed by** Claude; **adopted unchanged** on all three questions.
+1. **The Baumgardt Galactic Globular Cluster Database** (v4, 2023; Baumgardt & Hilker 2018 and later) pools stellar velocities from many teams with its own, applies its own membership and binary rules, and computes profiles. It is treated as a **re-analysis**, like Geha et al. 2026 (D-038 3A): an alternative to the original papers, and the default only for clusters it alone covers.
+2. **Plotting rules first, then precedence.** For each system, the plotting rules (D-036 ii coverage ≥ 80%, D-036 iii, D-038 1A and 1B, D-035 tiers, D-036 #6) are applied to every candidate value first; the default is then chosen by precedence (D-038 3A, 3B; item 1 above) among the values that pass. A value that fails a plotting rule is recorded, never the default, and never hides a value that passes. Applies to every kind.
+3. **Distances for Milky Way globular clusters:** Harris (1996, 2010 edition) horizontal-branch distances are the default. Distances derived from a cluster's own motions are never used (D-036 #6). Baumgardt & Vasiliev (2021) distances are shown as a cross-check only, and only with any motion-based method removed if their table lists methods separately.
+
+**Reason.** Treating every pooled re-analysis the same way keeps one rule; choosing the default only among values that pass the plotting rules prevents a valid measurement from being hidden because a higher-ranked one covers too little of the system, which would read as selection; horizontal-branch distances come from starlight only. Ruled before any profile, coverage value or distance table was opened. Claude stated in advance that, with items 1 and 2 together, the Baumgardt profiles will probably supply most plotted Milky Way clusters.
+
+**Alternatives rejected.** Item 1: Baumgardt as an original (it would be the default almost everywhere by D-038 3B) or as a compilation under D-036 #5. Item 2: precedence first, then plotting rules. Item 3: Baumgardt & Vasiliev (2021) averages as default (they include motion-based distances).
+
+**Data seen at the time of ruling.** The A3 search log (metadata and methods), the Baumgardt database index page (list of files and terms only); no profile, coverage value or distance opened.
+
+---
+
 ## Recorded alongside (not decisions; corrections to the plans)
 
 - X-ray hydrostatic measurements are not "motions": the method field distinguishes kinematic from hydrostatic, and plain-language labels for X-ray points must say gas pressure balance, not motions.
