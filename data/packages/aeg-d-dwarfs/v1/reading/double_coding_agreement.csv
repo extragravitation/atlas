@@ -1,0 +1,22 @@
+key,kind_first,kind_second,agree,codes_first,codes_second
+bootes_1,A5,A5,True,discovery:L | vlos:N,"discovery:L | vlos:D,M"
+bootes_2,A5,A5,True,discovery:L | vlos:N,discovery:L | vlos:N
+carina_3,A7,A7,True,"discovery:L,X | vlos:X","discovery:L,X | vlos:D,X"
+draco_1,A7,A7,True,discovery:UNREAD | vlos:N,discovery:UNREAD | vlos:N
+eridanus_4,A5,A5,True,"discovery:L | vlos:D,L,M","discovery:L | vlos:D,L"
+grus_1,A5,A5,True,discovery:L | vlos:D,discovery:L | vlos:D
+leo_4,A7,A5,False,"discovery:L,X | vlos:N",discovery:L | vlos:N
+pegasus_4,A5,A5,True,"discovery:D,L,M | vlos:N","discovery:D,L,M | vlos:N"
+phoenix_2,A7,A7,True,"discovery:L,X | discovery:L,X | vlos:D,M","discovery:L,X | discovery:X | vlos:D,M"
+pisces_2,A5,A5,True,discovery:L | vlos:N,discovery:L | vlos:N
+segue_2,A7,A7,True,"discovery:D,X | vlos:N",discovery:X | vlos:N
+sextans_1,A7,A7,True,discovery:UNREAD | vlos:N,discovery:UNREAD | vlos:N
+ursa_minor_1,A7,A7,True,discovery:UNREAD | vlos:N,discovery:UNREAD | vlos:N
+andromeda_15,A5,A7,False,discovery:L | vlos:D,discovery:N | vlos:N
+andromeda_18,A5,A5,True,"discovery:L | vlos:D,M,P",discovery:P | vlos:N
+andromeda_20,A5,A5,True,discovery:L | vlos:D,discovery:P | vlos:N
+andromeda_24,A5,A5,True,discovery:L | vlos:N,discovery:L | vlos:N
+cassiopeia_2,A7,A7,True,discovery:UNREAD | vlos:D,discovery:UNREAD | vlos:N
+lgs_3,A5,A5,True,discovery:UNREAD | discovery:UNREAD | vlos:L,"discovery:UNREAD | discovery:UNREAD | vlos:G,L"
+ic_1613,A7,A7,True,discovery:UNREAD | vlos:D,discovery:UNREAD | vlos:N
+ugc_04879,A5,A5,True,"discovery:G,L,P | discovery:UNREAD | vlos:D","discovery:G,P | discovery:UNREAD | vlos:N"
