@@ -195,10 +195,19 @@ function draw() {
   // selected system as a highlighted track
   const sel = state.sel && D.datasets.find((d) => d.sysById && d.sysById[state.sel]);
   if (sel) {
-    const di = D.datasets.indexOf(sel), s = sel.sysById[state.sel], pts = s.rows.map((i) => pos(cache[di][i])).filter(Boolean);
+    const di = D.datasets.indexOf(sel), s = sel.sysById[state.sel];
+    const only = picked && picked[di];
+    // One-per-system view: highlight only the chosen point; the full profile is in the side card.
+    const rowsShown = only ? s.rows.filter((i) => only.has(i)) : s.rows;
+    const pts = rowsShown.map((i) => pos(cache[di][i])).filter(Boolean);
+    if (only) {
+      pts.forEach((xy) => { g.strokeStyle = css('--sel'); g.lineWidth = 2; g.beginPath(); g.arc(xy[0], xy[1], 6, 0, 6.2832); g.stroke(); g.fillStyle = css('--sel'); g.beginPath(); g.arc(xy[0], xy[1], 3, 0, 6.2832); g.fill(); });
+      if (pts.length) { const l = pts[0]; g.font = '600 13px ' + css('--sans'); g.textAlign = 'left'; g.fillText(s.name_in_source, l[0] + 10, l[1] + 4); }
+    } else {
     g.strokeStyle = css('--sel'); g.lineWidth = 2.2; g.beginPath(); pts.forEach((xy, i) => (i ? g.lineTo(xy[0], xy[1]) : g.moveTo(xy[0], xy[1]))); g.stroke();
     g.fillStyle = css('--sel'); pts.forEach((xy) => { g.beginPath(); g.arc(xy[0], xy[1], 2.6, 0, 6.2832); g.fill(); });
     if (pts.length) { const l = pts[pts.length - 1]; g.font = '600 13px ' + css('--sans'); g.textAlign = 'left'; g.fillText(s.name_in_source, l[0] + 8, l[1] + 4); }
+    }
   }
   if (hover) { g.strokeStyle = ink; g.lineWidth = 1.5; g.beginPath(); g.arc(hover.x, hover.y, 6, 0, 6.2832); g.stroke(); }
   if (brush) { g.fillStyle = css('--sel'); g.globalAlpha = 0.08; g.fillRect(brush.x0, brush.y0, brush.x1 - brush.x0, brush.y1 - brush.y0); g.globalAlpha = 1; g.strokeStyle = css('--sel'); g.lineWidth = 1; g.setLineDash([4, 3]); g.strokeRect(brush.x0, brush.y0, brush.x1 - brush.x0, brush.y1 - brush.y0); g.setLineDash([]); }
@@ -243,7 +252,7 @@ function card() {
   if (!d) return;
   const s = d.sysById[state.sel], di = D.datasets.indexOf(d), rows = s.rows.map((i) => cache[di][i]).filter((q) => q.g_bar > 0);
   $('card-name').textContent = s.name_in_source;
-  $('card-meta').textContent = `${s.class_in_source} · ${d.title.split(':')[0]} · ${rows.length} radii`;
+  $('card-meta').textContent = `${s.class_in_source} · ${d.title.split(':')[0]} · ${rows.length} radii` + (state.pick !== 'all' ? ' · the map shows one of them (' + (state.pick === 'outer' ? 'the outermost' : 'the first at ≥ ' + LIGHT_K + ' × half-light radius') + ')' : '');
   $('card-link').href = BASE + 'systems/' + s.system_id + '/';
   $('card-flags').textContent = s.rows.some((i) => ringed(d.rows[i].flags)) ? 'Some measurements are flagged; see Known issues.' : 'No flags on this system.';
   const prof = $('card-prof'), W = prof.parentElement.clientWidth - 34, H = Math.round(W * 0.62), g = setup(prof, W, H);
