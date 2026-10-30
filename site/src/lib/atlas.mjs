@@ -15,9 +15,18 @@ const readIf = (p) => (fs.existsSync(p) ? read(p) : null);
 // Columns the site needs from every measurement row (when present).
 const CORE = ['measurement_id', 'system_id', 'kind', 'channel', 'method_class', 'method', 'r_kpc', 'r_kind', 'g_obs', 'g_obs_err_lo', 'g_obs_err_hi',
   'g_bar', 'g_bar_err_lo', 'g_bar_err_hi', 'g_bar_stars', 'g_bar_stars_disk', 'g_bar_stars_bulge', 'g_bar_gas_cold', 'g_bar_gas_hot',
-  'stars_status', 'gas_cold_status', 'gas_hot_status', 'assumptions', 'adjustable', 'quality_source', 'source_ref', 'flags', 'known_issues'];
+  'stars_status', 'gas_cold_status', 'gas_hot_status', 'assumptions', 'adjustable', 'quality_source', 'source_ref', 'flags', 'known_issues',
+  'plotted', 'role', 'not_plotted_reason'];
 
 let cache = null;
+
+// Minimal CSV reader for the packages' checks/ files (no embedded newlines; quotes allowed).
+function parseCSV(text) {
+  const lines = text.split(/\r?\n/).filter((l) => l.length);
+  const split = (l) => { const out = []; let cur = '', q = false; for (const ch of l) { if (ch === '"') q = !q; else if (ch === ',' && !q) { out.push(cur); cur = ''; } else cur += ch; } out.push(cur); return out; };
+  const head = split(lines[0]);
+  return lines.slice(1).map((l) => Object.fromEntries(split(l).map((v, i) => [head[i], v])));
+}
 
 export function loadAtlas() {
   if (cache) return cache;
@@ -34,22 +43,26 @@ export function loadAtlas() {
       const sysText = readIf(path.join(dir, 'tables/systems.ecsv'));
       const systems = sysText ? parseECSV(sysText) : null;
       const covText = readIf(path.join(dir, 'tables/covariance.ecsv'));
+      const obsText = readIf(path.join(dir, 'tables/observables.ecsv'));
+      const checks = {};
+      const cdir = path.join(dir, 'checks');
+      if (fs.existsSync(cdir)) for (const f of fs.readdirSync(cdir).filter((x) => x.endsWith('.csv')).sort()) checks[f] = parseCSV(read(path.join(cdir, f)));
       const assumptions = registry.assumptions.filter((a) => a.datasets[key]);
       datasets.push({
         key, name, version, dir, dp,
         short: name.replace(/^aeg-d-/, ''),
         title: dp.title, citation: dp.x_citation || '', licence: dp.x_licence_status || '',
-        measurements: meas, systems, hasCovariance: !!covText,
+        measurements: meas, systems, hasCovariance: !!covText, observables: obsText ? parseECSV(obsText) : null, checks,
         knownIssues: JSON.parse(readIf(path.join(dir, 'known_issues.json')) || '{"issues": []}').issues,
         md: { source: readIf(path.join(dir, 'SOURCE.md')), reproduction: readIf(path.join(dir, 'REPRODUCTION.md')), reproductionResult: readIf(path.join(dir, 'REPRODUCTION_RESULT.md')), modelTest: readIf(path.join(dir, 'MODEL_TEST.md')), modelTestResult: readIf(path.join(dir, 'MODEL_TEST_RESULT.md')) },
         checksums: readIf(path.join(dir, 'checksums.sha256')) || '',
         sources: JSON.parse(read(path.join(dir, 'sources.json'))),
         assumptions,
-        files: ['tables/measurements.ecsv', sysText ? 'tables/systems.ecsv' : null, covText ? 'tables/covariance.ecsv' : null].filter(Boolean),
+        files: ['tables/measurements.ecsv', sysText ? 'tables/systems.ecsv' : null, covText ? 'tables/covariance.ecsv' : null, fs.existsSync(path.join(dir, 'tables/observables.ecsv')) ? 'tables/observables.ecsv' : null].filter(Boolean),
       });
     }
   }
-  const ORDER = ['aeg-d-sparc', 'aeg-d-xcop', 'aeg-d-kids1000-rar'];
+  const ORDER = ['aeg-d-sparc', 'aeg-d-gc-baumgardt', 'aeg-d-xcop', 'aeg-d-kids1000-rar'];
   datasets.sort((a, b) => (ORDER.indexOf(a.name) + 1 || 99) - (ORDER.indexOf(b.name) + 1 || 99) || a.key.localeCompare(b.key));
   const systems = [];
   for (const d of datasets) {

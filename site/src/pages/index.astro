@@ -10,9 +10,11 @@ const atlas = loadAtlas();
 const weight = {}, ds = {};
 let flagged = 0;
 for (const d of atlas.datasets) {
-  const lab = datasetLabel(d.name), n = d.measurements.rows.length;
+  const plotted = d.measurements.rows.filter((r) => r.plotted !== 'false');
+  const lab = datasetLabel(d.name), n = plotted.length;
+  const nSys = d.systems ? new Set(plotted.map((r) => r.system_id)).size : 0;
   flagged += d.measurements.rows.filter((r) => ringed(r.flags)).length;
-  weight[d.key] = d.systems ? `${n.toLocaleString('en')} points from ${d.systems.rows.length} ${lab.units}` : `${n} ${lab.units}`;
+  weight[d.key] = d.systems ? (n === nSys ? `${n} ${lab.units}, one point each` : `${n.toLocaleString('en')} points from ${nSys} ${lab.units}`) : `${n} ${lab.units}`;
   ds[d.key] = [`${lab.kind_t} (${lab.t})`, `${lab.kind_p} (${lab.p})`];
 }
 const nonPos = atlas.datasets.flatMap((d) => d.measurements.rows.filter((r) => !(r.g_bar > 0)).map((r) => r.measurement_id));
@@ -47,7 +49,8 @@ const labels = {
   ds, weight, flagged: `Ringed: ${flagged} measurements with a reproduction mismatch or the source’s own quality caveat (see Known issues)`, bin: 'Stacked lensing bin',
 };
 const sliders = atlas.datasets.flatMap((d) => d.assumptions.filter((a) => a.adjustable && a.status === 'confirmed' && a.scope === 'dataset').map((a) => ({ a, dataset: d.key })));
-const total = atlas.datasets.reduce((s, d) => s + d.measurements.rows.length, 0);
+const total = atlas.datasets.reduce((s, d) => s + d.measurements.rows.filter((r) => r.plotted !== 'false').length, 0);
+const nWords = ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'][atlas.datasets.length] || String(atlas.datasets.length);
 ---
 <Base title="" active="map" figures={true}>
   <div class="layout">
@@ -119,7 +122,7 @@ const total = atlas.datasets.reduce((s, d) => s + d.measurements.rows.length, 0)
     </aside>
 
     <main>
-      <p class="kicker">Map · {total.toLocaleString('en')} measurements · three datasets</p>
+      <p class="kicker">Map · {total.toLocaleString('en')} measurements · {nWords} datasets</p>
       <h1><L t="Observed gravity compared with Newtonian gravity on detected matter" p="How much pull we see, compared with what the detected matter should give" /></h1>
       <div class="showing" id="showing">
         <p class="showing-text"><b><L t="Showing:" p="Showing:" /></b> <span id="showing-text"></span></p>

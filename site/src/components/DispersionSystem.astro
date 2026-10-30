@@ -1,0 +1,113 @@
+---
+// System page for a dispersion-supported system with one value per system (data standard 2.0;
+// first case: globular clusters, D-025, D-036 ii, D-045). Everything shown is read from the
+// package tables and checks/; nothing is computed here except unit conversions for display.
+import L from './L.astro';
+import { sigFig } from '../lib/labels.mjs';
+
+const { sys, d, lab } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const P = sys.props, R = sys.row;
+const meas = d.measurements.rows.filter((r) => r.system_id === sys.id);
+const def = meas.find((r) => r.plotted === 'true');
+const alts = meas.filter((r) => r !== def);
+const obs = (d.observables?.rows || []).filter((o) => o.system_id === sys.id);
+const bins = obs.filter((o) => o.quantity === 'sigma_los' || o.quantity === 'sigma_pm');
+const inputs = obs.filter((o) => o.side === 'baryonic');
+const byDs = {};
+for (const b of bins) (byDs[b.x_gc_baumgardt_dataset] = byDs[b.x_gc_baumgardt_dataset] || []).push(b);
+const dsNames = Object.keys(byDs).sort((a, b) => (a === 'RV' ? -1 : b === 'RV' ? 1 : a.localeCompare(b)));
+const repro = (d.checks['d037_rv_clusters.csv'] || []).find((c) => c.cluster === sys.name);
+const reproBins = (d.checks['d037_rv_bins.csv'] || []).filter((c) => c.cluster === sys.name);
+const plotted = P.status === 'plotted';
+const fmt = (v, n = 3) => (v === null || v === undefined || v === '' ? '–' : Number(v).toPrecision(n));
+const e10 = (v) => (v === null || v === undefined ? '–' : (v / 1e-10).toPrecision(3));
+
+// Profile figure: sigma against projected radius (arcsec, log), one series per dataset. Static SVG.
+const W = 640, H = 300, m = { l: 52, r: 14, t: 12, b: 40 };
+const rs = bins.map((b) => b.x_gc_baumgardt_r_arcsec).filter((x) => x > 0);
+const sMax = Math.max(1, ...bins.map((b) => b.value + (b.err_hi || 0)));
+const lx0 = rs.length ? Math.floor(Math.log10(Math.min(...rs)) * 2) / 2 : 0, lx1 = rs.length ? Math.ceil(Math.log10(Math.max(...rs)) * 2) / 2 + 0.001 : 1;
+const X = (r) => m.l + ((Math.log10(r) - lx0) / (lx1 - lx0)) * (W - m.l - m.r);
+const Y = (s) => H - m.b - (s / (sMax * 1.08)) * (H - m.t - m.b);
+const COL = ['--gc', '--sparc', '--xcop', '--kids', '--bulge', '--flag', '--c3', '--gas'];
+const xt = []; for (let k = Math.ceil(lx0); k <= lx1; k++) xt.push(10 ** k);
+const yt = []; const step = sMax > 20 ? 5 : sMax > 8 ? 2 : 1; for (let v = 0; v <= sMax * 1.05; v += step) yt.push(v);
+const halfR = R.distance_mpc && P.r_h_pc ? (P.r_h_pc / (R.distance_mpc * 1e6)) * 206264.806 : null;
+---
+<p class="lede"><L t={`${R.class_in_source}, ${R.host}. ${lab.method_t}. ${plotted ? 'Plotted: one value at the 3D half-light radius.' : 'Recorded, not plotted.'}`} p={`${lab.one_p}. ${plotted ? 'Shown on the map as one point.' : 'Kept in the record but not shown on the map, for the reasons below.'}`} /></p>
+
+<h2 id="status"><L t="Status" p="On the map?" /></h2>
+{plotted ? (
+  <dl class="facts">
+    <div><dt>g_obs at r½</dt><dd>{e10(def.g_obs)} × 10⁻¹⁰ m s⁻² <span class="small">(−{e10(def.g_obs_err_lo)} / +{e10(def.g_obs_err_hi)})</span></dd></div>
+    <div><dt>g_bar at r½</dt><dd>{e10(def.g_bar)} × 10⁻¹⁰ m s⁻² <span class="small">(± {e10(def.g_bar_err_lo)}, from Υ_V only)</span></dd></div>
+    <div><dt>g_obs / g_bar</dt><dd>{(def.g_obs / def.g_bar).toFixed(2)}</dd></div>
+    <div><dt>r½ (3D half-light)</dt><dd>{(def.r_kpc * 1000).toFixed(2)} pc</dd></div>
+    <div><dt>Light-weighted σ</dt><dd>{fmt(def.x_gc_baumgardt_sigma)} km s⁻¹ <span class="small">(−{fmt(def.x_gc_baumgardt_sigma_err_lo, 2)} / +{fmt(def.x_gc_baumgardt_sigma_err_hi, 2)}), dataset {def.x_gc_baumgardt_dataset}, {def.x_gc_baumgardt_n_bins} bins, light coverage {(def.x_gc_baumgardt_coverage * 100).toFixed(0)}%</span></dd></div>
+  </dl>
+) : (
+  <div class="boxed">
+    <p><b><L t="Not plotted." p="Not on the map." /></b> <L t="Reasons, as recorded in the package:" p="Why:" /></p>
+    <ul class="small">{(P.reasons_not_plotted || []).map((r) => <li>{r}</li>)}</ul>
+  </div>
+)}
+{alts.length > 0 && (
+  <>
+    <h3><L t="Other values (not plotted)" p="Other values kept in the record" /></h3>
+    <div tabindex="0" class="tablebox"><table>
+      <thead><tr><th class="l">Dataset</th><th>σ (km s⁻¹)</th><th>Light coverage</th><th>g_obs (10⁻¹⁰ m s⁻²)</th><th>g_bar</th><th class="l">Why not plotted</th></tr></thead>
+      <tbody>{alts.map((r) => <tr><td class="l">{r.x_gc_baumgardt_dataset}</td><td>{fmt(r.x_gc_baumgardt_sigma)}</td><td>{(r.x_gc_baumgardt_coverage * 100).toFixed(0)}%</td><td>{e10(r.g_obs)}</td><td>{e10(r.g_bar)}</td><td class="l">{r.not_plotted_reason}{r.notes ? ` · ${r.notes}` : ''}</td></tr>)}</tbody>
+    </table></div>
+  </>
+)}
+
+<h2 id="measured"><L t="As measured: dispersion profile" p="How fast the stars swarm, at each distance from the centre" /></h2>
+{bins.length > 0 ? (
+  <figure>
+    <div class="figbox">
+      <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`Velocity dispersion against projected radius for ${sys.name}, by dataset`} style="width:100%;max-width:720px;height:auto">
+        {xt.map((v) => <g><line x1={X(v)} x2={X(v)} y1={m.t} y2={H - m.b} stroke="var(--rule)" /><text x={X(v)} y={H - m.b + 16} font-size="11" text-anchor="middle" fill="var(--muted)">{v >= 1 ? v : v.toString()}</text></g>)}
+        {yt.map((v) => <g><line x1={m.l} x2={W - m.r} y1={Y(v)} y2={Y(v)} stroke="var(--rule)" /><text x={m.l - 6} y={Y(v) + 4} font-size="11" text-anchor="end" fill="var(--muted)">{v}</text></g>)}
+        {halfR && halfR > 10 ** lx0 && halfR < 10 ** lx1 && <g><line x1={X(halfR)} x2={X(halfR)} y1={m.t} y2={H - m.b} stroke="var(--muted)" stroke-dasharray="4 3" /><text x={X(halfR) + 4} y={m.t + 12} font-size="11" fill="var(--muted)">R_h</text></g>}
+        {dsNames.map((k, i) => byDs[k].map((b) => (
+          <g>
+            <line x1={X(b.x_gc_baumgardt_r_arcsec)} x2={X(b.x_gc_baumgardt_r_arcsec)} y1={Y(Math.max(0, b.value - b.err_lo))} y2={Y(b.value + b.err_hi)} stroke={`var(${COL[i % COL.length]})`} />
+            {b.quantity === 'sigma_los'
+              ? <circle cx={X(b.x_gc_baumgardt_r_arcsec)} cy={Y(b.value)} r="3.5" fill={`var(${COL[i % COL.length]})`}><title>{k}: σ = {b.value} km/s at {b.x_gc_baumgardt_r_arcsec}″</title></circle>
+              : <rect x={X(b.x_gc_baumgardt_r_arcsec) - 3} y={Y(b.value) - 3} width="6" height="6" fill="none" stroke={`var(${COL[i % COL.length]})`}><title>{k} (proper motion): σ = {b.value} km/s at {b.x_gc_baumgardt_r_arcsec}″</title></rect>}
+          </g>
+        )))}
+        <text x={(W + m.l) / 2} y={H - 6} font-size="12" text-anchor="middle" fill="var(--ink)">projected radius (arcsec, log)</text>
+        <text x={14} y={(H - m.b) / 2} font-size="12" text-anchor="middle" fill="var(--ink)" transform={`rotate(-90 14 ${(H - m.b) / 2})`}>σ (km s⁻¹)</text>
+      </svg>
+    </div>
+    <ul class="legend">{dsNames.map((k, i) => <li><span class="sw" style={`display:inline-block;background:var(${COL[i % COL.length]})`}></span> {k} · {byDs[k][0].quantity === 'sigma_los' ? 'line of sight' : 'proper motion (recorded, not used)'} · {byDs[k].length} bins{k === def?.x_gc_baumgardt_dataset ? ' · used' : ''}</li>)}</ul>
+    <figcaption><b>Figure.</b> <L t="Binned dispersions exactly as published in the Baumgardt database (veldis.html), with their one-sigma errors. Circles: line of sight; open squares: proper motions (converted to km/s by the database; recorded, not used, D-036 #8). The dashed line is the projected half-light radius." p="Each mark is how fast the stars move at that distance, as published. Circles are motions towards or away from us; squares are motions across the sky (kept, not used)." /></figcaption>
+  </figure>
+) : <p>No profile.</p>}
+
+<h2 id="inputs"><L t="Inputs" p="What went into the numbers" /></h2>
+<div tabindex="0" class="tablebox"><table>
+  <thead><tr><th class="l">Quantity</th><th>Value</th><th>Error</th><th class="l">Unit</th><th class="l">Source</th></tr></thead>
+  <tbody>{inputs.map((o) => <tr><td class="l">{o.x_gc_baumgardt_parameter}</td><td>{o.value}</td><td>{o.err_lo == null ? '–' : o.err_lo === o.err_hi ? `± ${o.err_lo}` : `−${o.err_lo} / +${o.err_hi}`}</td><td class="l">{o.unit}</td><td class="l small">{o.source_ref}</td></tr>)}</tbody>
+</table></div>
+<dl class="facts" style="margin-top:12px">
+  <div><dt>Distance</dt><dd>{R.distance_mpc ? `${(R.distance_mpc * 1000).toFixed(1)} kpc` : '–'}<span class="small" style="display:block">{R.distance_method}</span></dd></div>
+  <div><dt>Structural model</dt><dd>{P.structural_model || '–'}</dd></div>
+  <div><dt>Half-light radius</dt><dd>{P.r_h_pc ? `${P.r_h_pc.toFixed(2)} pc` : '–'}<span class="small" style="display:block">{P.r_h_source}</span></dd></div>
+  <div><dt>[Fe/H]</dt><dd>{R.metallicity_feh ?? '–'}</dd></div>
+  <div><dt>Gas</dt><dd><L t="Absent: literature limit for the kind (D-036 #4)" p="Too little to count" /></dd></div>
+</dl>
+
+<h2 id="repro"><L t="Reproduction check (D-037)" p="Can the published numbers be re-derived?" /></h2>
+{repro ? (
+  <>
+    <p><b>{repro.outcome.replace('_', ' ')}</b> · {repro.label}. {repro.reason || `${repro.n_pass} of ${repro.n_bins} bins pass.`}</p>
+    {reproBins.length > 0 && reproBins.some((b) => b.sigma_recomputed) && <div tabindex="0" class="tablebox"><table>
+      <thead><tr><th>Published &lt;r&gt; (″)</th><th>Rebuilt &lt;r&gt;</th><th>N</th><th>σ published</th><th>σ recomputed [68%]</th><th class="l">Outcome</th></tr></thead>
+      <tbody>{reproBins.map((b) => <tr><td>{b.r_mean_published_arcsec}</td><td>{b.r_mean_rebuilt_arcsec || '–'}</td><td>{b.n_star}</td><td>{b.sigma_published} (−{b.err_lo_published} / +{b.err_hi_published})</td><td>{b.sigma_recomputed ? `${b.sigma_recomputed} ${b.interval_recomputed}` : '–'}</td><td class="l">{b.outcome.replace('_', ' ')}</td></tr>)}</tbody>
+    </table></div>}
+    <p class="small"><L t="A recomputation from the released per-star velocities, by a method frozen before any velocity file was opened. Bins are rebuilt by a frozen rule because the database does not publish bin edges, so a fail may come from the binning. Never plotted." p="We try to re-derive each published number from the star-by-star data. The result is shown whichever way it goes; it never replaces the published number." /></p>
+  </>
+) : <p class="small">No RV-type bins for this cluster.</p>}

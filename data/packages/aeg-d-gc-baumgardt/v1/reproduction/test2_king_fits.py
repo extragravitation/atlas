@@ -13,7 +13,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(HERE))
-sys.path.insert(0, str(HERE.parents[2] / "pipeline"))
+sys.path.insert(0, str(HERE.parents[3] / "pipeline"))
 
 from aeg.king66 import King66  # noqa: E402
 from sources_io import read_votable  # noqa: E402

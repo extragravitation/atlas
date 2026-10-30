@@ -13,7 +13,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(HERE))
-sys.path.insert(0, str(HERE.parents[2] / "pipeline"))
+sys.path.insert(0, str(HERE.parents[3] / "pipeline"))
 from aeg.repro_bins import LABEL, PublishedBin, RVStar, check_profile  # noqa: E402
 from sources_io import norm_name, read_rv, read_veldis  # noqa: E402
 

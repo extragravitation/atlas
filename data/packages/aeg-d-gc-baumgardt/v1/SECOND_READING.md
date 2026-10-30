@@ -1,0 +1,3835 @@
+# Second reading: aeg-d-gc-baumgardt v1
+
+**Reader.** An independent agent session (Claude) with no access to the package's conversion code: `convert.py`, `analysis.py`, `sources_io.py`, `reproduction/*.py` and the pipeline directory were not imported or read. All parsers were written from scratch for this reading.  
+**Date.** 2026-10-30  
+**Scope.** Every input number entering the 64 plotted measurements (`plotted == "true"` in `tables/measurements.ecsv`).
+
+## Method
+
+- `source/veldis.html`: every `<td>` cell was read with a regular expression, line by line; cells were grouped seven at a time (Cluster, <r>, NStar, sigma, dsigma_Up, dsigma_Low, Type), skipping the `&nbsp;` separator rows; a blank name cell inherits the cluster name from the start of its block. Result: 2095 rows, 765 of Type RV, 155 clusters.
+- `source/mwgc.dat`: the three "ID" header lines delimit the parts. In Parts I and II the data lines (starting with a space and a non-space character) up to the `____` rule were read; the cluster ID is characters 1-12; `R_Sun` and `M_V,t` were cut as fixed-width fields aligned to their header labels, with an assertion that the character on each side of the field is a space. 157 clusters per part.
+- `source/mvdm05/*.vot`: raw XML read with regular expressions (FIELD names in order, then one `<TR>` per line). King row = `Mod == "K"` and `Cluster == "MW-" + name without spaces, upper case` ("Ter N" -> "MW-TERZANN", Harris "Terzan N").
+- Package tables were read with `astropy.table.Table.read(..., format="ascii.ecsv")`. For each plotted measurement, each `observed_from` bin was matched to the source RV row of the same cluster with the same `<r>`; every source RV row of the cluster was then required to be matched (completeness in both directions). Baryonic inputs were identified by `x_gc_baumgardt_parameter`.
+- Comparison: `float(source string) == float(package value)` (exact). Units were checked for sigma (km / s) and R_Sun (kpc).
+- Beyond the brief, the King-fit upper and lower errors (`E_`/`e_` columns, VizieR convention: `E_` = upper, `e_` = lower) were compared with the package's `err_hi`/`err_lo` for W0/gamma, r0 and Rh; `e_(M/L)1` was compared with both `err_lo` and `err_hi`.
+- Arithmetic, from this reading's own source values: L_V = 10^(-0.4 (M_V,t - 4.85)); R_h = 10^Rh x R_Sun(Harris) / Dist(MvdM); compared with `x_gc_baumgardt_l_v`, `x_gc_baumgardt_r_h_pc` (relative tolerance 1e-9) and `x_gc_baumgardt_ml_v` vs (M/L)1 (exact).
+- Negative control: two values were perturbed in memory (an err_hi of 0.72 -> 0.73, an M_V,t of -6.67 -> -6.68); both were reported as DISAGREE, so the comparison can fail.
+- Source file SHA-256 (first 16 hex) as read: veldis.html `b1bf703280a33bf4`, mwgc.dat `b457a690adc422fb`, models.vot `84647d34642e3273`, clusters.vot `282ea6daaaa9da0b`.
+
+## Summary
+
+| Source file | Numbers checked | Agree | Disagree |
+|---|---:|---:|---:|
+| veldis.html | 2575 | 2575 | 0 |
+| mwgc.dat | 128 | 128 | 0 |
+| J_ApJS_161_304_models.vot | 640 | 640 | 0 |
+| J_ApJS_161_304_clusters.vot | 192 | 192 | 0 |
+| **Total** | **3535** | **3535** | **0** |
+
+- Clusters: 64 plotted, all matched by name in all four source files. Dispersion bins: 515 (5 numbers each). Every package bin is in the source; every source RV bin of these 64 clusters is in the package.
+- Of the 3535 numbers, 384 are the extra King-fit error columns and 64 are the repeat comparison of e_(M/L)1 with err_hi; the numbers named in the brief are 3087.
+- Arithmetic: PASS for all 64 (largest relative difference: L_V 0.0e+00, R_h 0.0e+00; M/L exact in all 64).
+- Result: **PASS**.
+
+## Per cluster
+
+Format: quantity | quoted source text | location | package value | result. Veldis quotes are `Cluster | <r> | NStar | sigma | dsigma_Up | dsigma_Low | Type`; a blank Cluster cell is shown as `(blank; NAME block)`.
+
+### IC 1276
+
+- bin 103.26" <r> [arcsec] | `(blank; IC 1276 block) | 103.26 | 16 | 2.83 | 0.72 | 0.55 | RV` | veldis.html line 289 | 103.26 | agree
+- bin 103.26" NStar | `(blank; IC 1276 block) | 103.26 | 16 | 2.83 | 0.72 | 0.55 | RV` | veldis.html line 289 | 16.0 | agree
+- bin 103.26" sigma [km/s] | `(blank; IC 1276 block) | 103.26 | 16 | 2.83 | 0.72 | 0.55 | RV` | veldis.html line 289 | 2.83 | agree
+- bin 103.26" dsigma_Up -> err_hi | `(blank; IC 1276 block) | 103.26 | 16 | 2.83 | 0.72 | 0.55 | RV` | veldis.html line 289 | 0.72 | agree
+- bin 103.26" dsigma_Low -> err_lo | `(blank; IC 1276 block) | 103.26 | 16 | 2.83 | 0.72 | 0.55 | RV` | veldis.html line 289 | 0.55 | agree
+- bin 256.84" <r> [arcsec] | `(blank; IC 1276 block) | 256.84 | 17 | 2.55 | 1.03 | 0.88 | RV` | veldis.html line 301 | 256.84 | agree
+- bin 256.84" NStar | `(blank; IC 1276 block) | 256.84 | 17 | 2.55 | 1.03 | 0.88 | RV` | veldis.html line 301 | 17.0 | agree
+- bin 256.84" sigma [km/s] | `(blank; IC 1276 block) | 256.84 | 17 | 2.55 | 1.03 | 0.88 | RV` | veldis.html line 301 | 2.55 | agree
+- bin 256.84" dsigma_Up -> err_hi | `(blank; IC 1276 block) | 256.84 | 17 | 2.55 | 1.03 | 0.88 | RV` | veldis.html line 301 | 1.03 | agree
+- bin 256.84" dsigma_Low -> err_lo | `(blank; IC 1276 block) | 256.84 | 17 | 2.55 | 1.03 | 0.88 | RV` | veldis.html line 301 | 0.88 | agree
+- R_Sun [kpc] | `IC 1276 ...   5.4   3.7  [R_Sun field: '5.4']` | mwgc.dat line 189 (Part I) | 5.4 | agree
+- M_V,t [mag] | `IC 1276 ...10.34  -6.67  [M_V,t field: '-6.67']` | mwgc.dat line 369 (Part II) | -6.67 | agree
+- W0/gamma | `<TD>6.30</TD>` | J_ApJS_161_304_models.vot models.vot line 521 (recno 181, MW-IC1276, Mod K) | 6.3 | agree
+- E_W0/gamma -> err_hi | `<TD>0.40</TD>` | J_ApJS_161_304_models.vot models.vot line 521 (recno 181, MW-IC1276, Mod K) | 0.4 | agree
+- e_W0/gamma -> err_lo | `<TD>0.40</TD>` | J_ApJS_161_304_models.vot models.vot line 521 (recno 181, MW-IC1276, Mod K) | 0.4 | agree
+- r0 | `<TD>64.820</TD>` | J_ApJS_161_304_models.vot models.vot line 521 (recno 181, MW-IC1276, Mod K) | 64.82 | agree
+- E_r0 -> err_hi | `<TD>4.580</TD>` | J_ApJS_161_304_models.vot models.vot line 521 (recno 181, MW-IC1276, Mod K) | 4.58 | agree
+- e_r0 -> err_lo | `<TD>4.010</TD>` | J_ApJS_161_304_models.vot models.vot line 521 (recno 181, MW-IC1276, Mod K) | 4.01 | agree
+- Rh | `<TD>0.572</TD>` | J_ApJS_161_304_models.vot models.vot line 521 (recno 181, MW-IC1276, Mod K) | 0.572 | agree
+- E_Rh -> err_hi | `<TD>0.038</TD>` | J_ApJS_161_304_models.vot models.vot line 521 (recno 181, MW-IC1276, Mod K) | 0.038 | agree
+- e_Rh -> err_lo | `<TD>0.027</TD>` | J_ApJS_161_304_models.vot models.vot line 521 (recno 181, MW-IC1276, Mod K) | 0.027 | agree
+- Dist | `<TD>5.4</TD>` | J_ApJS_161_304_models.vot models.vot line 521 (recno 181, MW-IC1276, Mod K) | 5.4 | agree
+- (M/L)1 | `<TD>2.383</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 231 (recno 71, MW-IC1276) | 2.383 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.247</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 231 (recno 71, MW-IC1276) | 0.247 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.247</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 231 (recno 71, MW-IC1276) | 0.247 | agree
+- arithmetic L_V = 40550.85354 vs 40550.85354 | agree; R_h = 10^0.572 x 5.4 / 5.4 = 3.732501578 pc vs 3.732501578 | agree; M/L 2.383 vs 2.383 | agree
+
+### IC 4499
+
+- bin 80.73" <r> [arcsec] | `(blank; IC 4499 block) | 80.73 | 37 | 2.54 | 0.38 | 0.31 | RV` | veldis.html line 315 | 80.73 | agree
+- bin 80.73" NStar | `(blank; IC 4499 block) | 80.73 | 37 | 2.54 | 0.38 | 0.31 | RV` | veldis.html line 315 | 37.0 | agree
+- bin 80.73" sigma [km/s] | `(blank; IC 4499 block) | 80.73 | 37 | 2.54 | 0.38 | 0.31 | RV` | veldis.html line 315 | 2.54 | agree
+- bin 80.73" dsigma_Up -> err_hi | `(blank; IC 4499 block) | 80.73 | 37 | 2.54 | 0.38 | 0.31 | RV` | veldis.html line 315 | 0.38 | agree
+- bin 80.73" dsigma_Low -> err_lo | `(blank; IC 4499 block) | 80.73 | 37 | 2.54 | 0.38 | 0.31 | RV` | veldis.html line 315 | 0.31 | agree
+- bin 242.98" <r> [arcsec] | `(blank; IC 4499 block) | 242.98 | 31 | 1.95 | 0.33 | 0.28 | RV` | veldis.html line 327 | 242.98 | agree
+- bin 242.98" NStar | `(blank; IC 4499 block) | 242.98 | 31 | 1.95 | 0.33 | 0.28 | RV` | veldis.html line 327 | 31.0 | agree
+- bin 242.98" sigma [km/s] | `(blank; IC 4499 block) | 242.98 | 31 | 1.95 | 0.33 | 0.28 | RV` | veldis.html line 327 | 1.95 | agree
+- bin 242.98" dsigma_Up -> err_hi | `(blank; IC 4499 block) | 242.98 | 31 | 1.95 | 0.33 | 0.28 | RV` | veldis.html line 327 | 0.33 | agree
+- bin 242.98" dsigma_Low -> err_lo | `(blank; IC 4499 block) | 242.98 | 31 | 1.95 | 0.33 | 0.28 | RV` | veldis.html line 327 | 0.28 | agree
+- R_Sun [kpc] | `IC 4499 ...  18.8  15.7  [R_Sun field: '18.8']` | mwgc.dat line 108 (Part I) | 18.8 | agree
+- M_V,t [mag] | `IC 4499 ... 9.76  -7.32  [M_V,t field: '-7.32']` | mwgc.dat line 288 (Part II) | -7.32 | agree
+- W0/gamma | `<TD>5.80</TD>` | J_ApJS_161_304_models.vot models.vot line 524 (recno 184, MW-IC4499, Mod K) | 5.8 | agree
+- E_W0/gamma -> err_hi | `<TD>0.30</TD>` | J_ApJS_161_304_models.vot models.vot line 524 (recno 184, MW-IC4499, Mod K) | 0.3 | agree
+- e_W0/gamma -> err_lo | `<TD>0.40</TD>` | J_ApJS_161_304_models.vot models.vot line 524 (recno 184, MW-IC4499, Mod K) | 0.4 | agree
+- r0 | `<TD>54.900</TD>` | J_ApJS_161_304_models.vot models.vot line 524 (recno 184, MW-IC4499, Mod K) | 54.9 | agree
+- E_r0 -> err_hi | `<TD>6.620</TD>` | J_ApJS_161_304_models.vot models.vot line 524 (recno 184, MW-IC4499, Mod K) | 6.62 | agree
+- e_r0 -> err_lo | `<TD>4.470</TD>` | J_ApJS_161_304_models.vot models.vot line 524 (recno 184, MW-IC4499, Mod K) | 4.47 | agree
+- Rh | `<TD>0.974</TD>` | J_ApJS_161_304_models.vot models.vot line 524 (recno 184, MW-IC4499, Mod K) | 0.974 | agree
+- E_Rh -> err_hi | `<TD>0.004</TD>` | J_ApJS_161_304_models.vot models.vot line 524 (recno 184, MW-IC4499, Mod K) | 0.004 | agree
+- e_Rh -> err_lo | `<TD>0.000</TD>` | J_ApJS_161_304_models.vot models.vot line 524 (recno 184, MW-IC4499, Mod K) | 0.0 | agree
+- Dist | `<TD>18.9</TD>` | J_ApJS_161_304_models.vot models.vot line 524 (recno 184, MW-IC4499, Mod K) | 18.9 | agree
+- (M/L)1 | `<TD>1.874</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 232 (recno 72, MW-IC4499) | 1.874 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.154</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 232 (recno 72, MW-IC4499) | 0.154 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.154</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 232 (recno 72, MW-IC4499) | 0.154 | agree
+- arithmetic L_V = 73790.42301 vs 73790.42301 | agree; R_h = 10^0.974 x 18.8 / 18.9 = 9.369060537 pc vs 9.369060537 | agree; M/L 1.874 vs 1.874 | agree
+
+### NGC 104
+
+- bin 6.45" <r> [arcsec] | `NGC 104 | 6.45 | 200 | 11.54 | 0.61 | 0.57 | RV` | veldis.html line 388 | 6.45 | agree
+- bin 6.45" NStar | `NGC 104 | 6.45 | 200 | 11.54 | 0.61 | 0.57 | RV` | veldis.html line 388 | 200.0 | agree
+- bin 6.45" sigma [km/s] | `NGC 104 | 6.45 | 200 | 11.54 | 0.61 | 0.57 | RV` | veldis.html line 388 | 11.54 | agree
+- bin 6.45" dsigma_Up -> err_hi | `NGC 104 | 6.45 | 200 | 11.54 | 0.61 | 0.57 | RV` | veldis.html line 388 | 0.61 | agree
+- bin 6.45" dsigma_Low -> err_lo | `NGC 104 | 6.45 | 200 | 11.54 | 0.61 | 0.57 | RV` | veldis.html line 388 | 0.57 | agree
+- bin 11.67" <r> [arcsec] | `(blank; NGC 104 block) | 11.67 | 200 | 12.57 | 0.67 | 0.61 | RV` | veldis.html line 401 | 11.67 | agree
+- bin 11.67" NStar | `(blank; NGC 104 block) | 11.67 | 200 | 12.57 | 0.67 | 0.61 | RV` | veldis.html line 401 | 200.0 | agree
+- bin 11.67" sigma [km/s] | `(blank; NGC 104 block) | 11.67 | 200 | 12.57 | 0.67 | 0.61 | RV` | veldis.html line 401 | 12.57 | agree
+- bin 11.67" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 11.67 | 200 | 12.57 | 0.67 | 0.61 | RV` | veldis.html line 401 | 0.67 | agree
+- bin 11.67" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 11.67 | 200 | 12.57 | 0.67 | 0.61 | RV` | veldis.html line 401 | 0.61 | agree
+- bin 21.42" <r> [arcsec] | `(blank; NGC 104 block) | 21.42 | 400 | 11.61 | 0.44 | 0.41 | RV` | veldis.html line 413 | 21.42 | agree
+- bin 21.42" NStar | `(blank; NGC 104 block) | 21.42 | 400 | 11.61 | 0.44 | 0.41 | RV` | veldis.html line 413 | 400.0 | agree
+- bin 21.42" sigma [km/s] | `(blank; NGC 104 block) | 21.42 | 400 | 11.61 | 0.44 | 0.41 | RV` | veldis.html line 413 | 11.61 | agree
+- bin 21.42" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 21.42 | 400 | 11.61 | 0.44 | 0.41 | RV` | veldis.html line 413 | 0.44 | agree
+- bin 21.42" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 21.42 | 400 | 11.61 | 0.44 | 0.41 | RV` | veldis.html line 413 | 0.41 | agree
+- bin 25.61" <r> [arcsec] | `(blank; NGC 104 block) | 25.61 | 400 | 11.23 | 0.42 | 0.40 | RV` | veldis.html line 425 | 25.61 | agree
+- bin 25.61" NStar | `(blank; NGC 104 block) | 25.61 | 400 | 11.23 | 0.42 | 0.40 | RV` | veldis.html line 425 | 400.0 | agree
+- bin 25.61" sigma [km/s] | `(blank; NGC 104 block) | 25.61 | 400 | 11.23 | 0.42 | 0.40 | RV` | veldis.html line 425 | 11.23 | agree
+- bin 25.61" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 25.61 | 400 | 11.23 | 0.42 | 0.40 | RV` | veldis.html line 425 | 0.42 | agree
+- bin 25.61" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 25.61 | 400 | 11.23 | 0.42 | 0.40 | RV` | veldis.html line 425 | 0.4 | agree
+- bin 30.99" <r> [arcsec] | `(blank; NGC 104 block) | 30.99 | 800 | 11.19 | 0.29 | 0.28 | RV` | veldis.html line 443 | 30.99 | agree
+- bin 30.99" NStar | `(blank; NGC 104 block) | 30.99 | 800 | 11.19 | 0.29 | 0.28 | RV` | veldis.html line 443 | 800.0 | agree
+- bin 30.99" sigma [km/s] | `(blank; NGC 104 block) | 30.99 | 800 | 11.19 | 0.29 | 0.28 | RV` | veldis.html line 443 | 11.19 | agree
+- bin 30.99" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 30.99 | 800 | 11.19 | 0.29 | 0.28 | RV` | veldis.html line 443 | 0.29 | agree
+- bin 30.99" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 30.99 | 800 | 11.19 | 0.29 | 0.28 | RV` | veldis.html line 443 | 0.28 | agree
+- bin 37.17" <r> [arcsec] | `(blank; NGC 104 block) | 37.17 | 800 | 11.68 | 0.31 | 0.29 | RV` | veldis.html line 455 | 37.17 | agree
+- bin 37.17" NStar | `(blank; NGC 104 block) | 37.17 | 800 | 11.68 | 0.31 | 0.29 | RV` | veldis.html line 455 | 800.0 | agree
+- bin 37.17" sigma [km/s] | `(blank; NGC 104 block) | 37.17 | 800 | 11.68 | 0.31 | 0.29 | RV` | veldis.html line 455 | 11.68 | agree
+- bin 37.17" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 37.17 | 800 | 11.68 | 0.31 | 0.29 | RV` | veldis.html line 455 | 0.31 | agree
+- bin 37.17" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 37.17 | 800 | 11.68 | 0.31 | 0.29 | RV` | veldis.html line 455 | 0.29 | agree
+- bin 42.75" <r> [arcsec] | `(blank; NGC 104 block) | 42.75 | 800 | 11.06 | 0.29 | 0.28 | RV` | veldis.html line 473 | 42.75 | agree
+- bin 42.75" NStar | `(blank; NGC 104 block) | 42.75 | 800 | 11.06 | 0.29 | 0.28 | RV` | veldis.html line 473 | 800.0 | agree
+- bin 42.75" sigma [km/s] | `(blank; NGC 104 block) | 42.75 | 800 | 11.06 | 0.29 | 0.28 | RV` | veldis.html line 473 | 11.06 | agree
+- bin 42.75" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 42.75 | 800 | 11.06 | 0.29 | 0.28 | RV` | veldis.html line 473 | 0.29 | agree
+- bin 42.75" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 42.75 | 800 | 11.06 | 0.29 | 0.28 | RV` | veldis.html line 473 | 0.28 | agree
+- bin 47.91" <r> [arcsec] | `(blank; NGC 104 block) | 47.91 | 800 | 11.64 | 0.30 | 0.30 | RV` | veldis.html line 485 | 47.91 | agree
+- bin 47.91" NStar | `(blank; NGC 104 block) | 47.91 | 800 | 11.64 | 0.30 | 0.30 | RV` | veldis.html line 485 | 800.0 | agree
+- bin 47.91" sigma [km/s] | `(blank; NGC 104 block) | 47.91 | 800 | 11.64 | 0.30 | 0.30 | RV` | veldis.html line 485 | 11.64 | agree
+- bin 47.91" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 47.91 | 800 | 11.64 | 0.30 | 0.30 | RV` | veldis.html line 485 | 0.3 | agree
+- bin 47.91" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 47.91 | 800 | 11.64 | 0.30 | 0.30 | RV` | veldis.html line 485 | 0.3 | agree
+- bin 53.01" <r> [arcsec] | `(blank; NGC 104 block) | 53.01 | 800 | 11.20 | 0.30 | 0.28 | RV` | veldis.html line 503 | 53.01 | agree
+- bin 53.01" NStar | `(blank; NGC 104 block) | 53.01 | 800 | 11.20 | 0.30 | 0.28 | RV` | veldis.html line 503 | 800.0 | agree
+- bin 53.01" sigma [km/s] | `(blank; NGC 104 block) | 53.01 | 800 | 11.20 | 0.30 | 0.28 | RV` | veldis.html line 503 | 11.2 | agree
+- bin 53.01" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 53.01 | 800 | 11.20 | 0.30 | 0.28 | RV` | veldis.html line 503 | 0.3 | agree
+- bin 53.01" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 53.01 | 800 | 11.20 | 0.30 | 0.28 | RV` | veldis.html line 503 | 0.28 | agree
+- bin 58.69" <r> [arcsec] | `(blank; NGC 104 block) | 58.69 | 800 | 11.02 | 0.29 | 0.28 | RV` | veldis.html line 515 | 58.69 | agree
+- bin 58.69" NStar | `(blank; NGC 104 block) | 58.69 | 800 | 11.02 | 0.29 | 0.28 | RV` | veldis.html line 515 | 800.0 | agree
+- bin 58.69" sigma [km/s] | `(blank; NGC 104 block) | 58.69 | 800 | 11.02 | 0.29 | 0.28 | RV` | veldis.html line 515 | 11.02 | agree
+- bin 58.69" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 58.69 | 800 | 11.02 | 0.29 | 0.28 | RV` | veldis.html line 515 | 0.29 | agree
+- bin 58.69" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 58.69 | 800 | 11.02 | 0.29 | 0.28 | RV` | veldis.html line 515 | 0.28 | agree
+- bin 65.22" <r> [arcsec] | `(blank; NGC 104 block) | 65.22 | 800 | 10.81 | 0.28 | 0.27 | RV` | veldis.html line 533 | 65.22 | agree
+- bin 65.22" NStar | `(blank; NGC 104 block) | 65.22 | 800 | 10.81 | 0.28 | 0.27 | RV` | veldis.html line 533 | 800.0 | agree
+- bin 65.22" sigma [km/s] | `(blank; NGC 104 block) | 65.22 | 800 | 10.81 | 0.28 | 0.27 | RV` | veldis.html line 533 | 10.81 | agree
+- bin 65.22" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 65.22 | 800 | 10.81 | 0.28 | 0.27 | RV` | veldis.html line 533 | 0.28 | agree
+- bin 65.22" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 65.22 | 800 | 10.81 | 0.28 | 0.27 | RV` | veldis.html line 533 | 0.27 | agree
+- bin 74.41" <r> [arcsec] | `(blank; NGC 104 block) | 74.41 | 800 | 11.14 | 0.29 | 0.28 | RV` | veldis.html line 551 | 74.41 | agree
+- bin 74.41" NStar | `(blank; NGC 104 block) | 74.41 | 800 | 11.14 | 0.29 | 0.28 | RV` | veldis.html line 551 | 800.0 | agree
+- bin 74.41" sigma [km/s] | `(blank; NGC 104 block) | 74.41 | 800 | 11.14 | 0.29 | 0.28 | RV` | veldis.html line 551 | 11.14 | agree
+- bin 74.41" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 74.41 | 800 | 11.14 | 0.29 | 0.28 | RV` | veldis.html line 551 | 0.29 | agree
+- bin 74.41" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 74.41 | 800 | 11.14 | 0.29 | 0.28 | RV` | veldis.html line 551 | 0.28 | agree
+- bin 79.14" <r> [arcsec] | `(blank; NGC 104 block) | 79.14 | 200 | 10.66 | 0.57 | 0.53 | RV` | veldis.html line 569 | 79.14 | agree
+- bin 79.14" NStar | `(blank; NGC 104 block) | 79.14 | 200 | 10.66 | 0.57 | 0.53 | RV` | veldis.html line 569 | 200.0 | agree
+- bin 79.14" sigma [km/s] | `(blank; NGC 104 block) | 79.14 | 200 | 10.66 | 0.57 | 0.53 | RV` | veldis.html line 569 | 10.66 | agree
+- bin 79.14" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 79.14 | 200 | 10.66 | 0.57 | 0.53 | RV` | veldis.html line 569 | 0.57 | agree
+- bin 79.14" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 79.14 | 200 | 10.66 | 0.57 | 0.53 | RV` | veldis.html line 569 | 0.53 | agree
+- bin 82.17" <r> [arcsec] | `(blank; NGC 104 block) | 82.17 | 200 | 11.00 | 0.59 | 0.54 | RV` | veldis.html line 575 | 82.17 | agree
+- bin 82.17" NStar | `(blank; NGC 104 block) | 82.17 | 200 | 11.00 | 0.59 | 0.54 | RV` | veldis.html line 575 | 200.0 | agree
+- bin 82.17" sigma [km/s] | `(blank; NGC 104 block) | 82.17 | 200 | 11.00 | 0.59 | 0.54 | RV` | veldis.html line 575 | 11.0 | agree
+- bin 82.17" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 82.17 | 200 | 11.00 | 0.59 | 0.54 | RV` | veldis.html line 575 | 0.59 | agree
+- bin 82.17" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 82.17 | 200 | 11.00 | 0.59 | 0.54 | RV` | veldis.html line 575 | 0.54 | agree
+- bin 85.38" <r> [arcsec] | `(blank; NGC 104 block) | 85.38 | 200 | 10.25 | 0.55 | 0.51 | RV` | veldis.html line 587 | 85.38 | agree
+- bin 85.38" NStar | `(blank; NGC 104 block) | 85.38 | 200 | 10.25 | 0.55 | 0.51 | RV` | veldis.html line 587 | 200.0 | agree
+- bin 85.38" sigma [km/s] | `(blank; NGC 104 block) | 85.38 | 200 | 10.25 | 0.55 | 0.51 | RV` | veldis.html line 587 | 10.25 | agree
+- bin 85.38" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 85.38 | 200 | 10.25 | 0.55 | 0.51 | RV` | veldis.html line 587 | 0.55 | agree
+- bin 85.38" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 85.38 | 200 | 10.25 | 0.55 | 0.51 | RV` | veldis.html line 587 | 0.51 | agree
+- bin 109.85" <r> [arcsec] | `(blank; NGC 104 block) | 109.85 | 200 | 9.38 | 0.50 | 0.46 | RV` | veldis.html line 617 | 109.85 | agree
+- bin 109.85" NStar | `(blank; NGC 104 block) | 109.85 | 200 | 9.38 | 0.50 | 0.46 | RV` | veldis.html line 617 | 200.0 | agree
+- bin 109.85" sigma [km/s] | `(blank; NGC 104 block) | 109.85 | 200 | 9.38 | 0.50 | 0.46 | RV` | veldis.html line 617 | 9.38 | agree
+- bin 109.85" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 109.85 | 200 | 9.38 | 0.50 | 0.46 | RV` | veldis.html line 617 | 0.5 | agree
+- bin 109.85" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 109.85 | 200 | 9.38 | 0.50 | 0.46 | RV` | veldis.html line 617 | 0.46 | agree
+- bin 151.14" <r> [arcsec] | `(blank; NGC 104 block) | 151.14 | 200 | 9.54 | 0.50 | 0.47 | RV` | veldis.html line 647 | 151.14 | agree
+- bin 151.14" NStar | `(blank; NGC 104 block) | 151.14 | 200 | 9.54 | 0.50 | 0.47 | RV` | veldis.html line 647 | 200.0 | agree
+- bin 151.14" sigma [km/s] | `(blank; NGC 104 block) | 151.14 | 200 | 9.54 | 0.50 | 0.47 | RV` | veldis.html line 647 | 9.54 | agree
+- bin 151.14" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 151.14 | 200 | 9.54 | 0.50 | 0.47 | RV` | veldis.html line 647 | 0.5 | agree
+- bin 151.14" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 151.14 | 200 | 9.54 | 0.50 | 0.47 | RV` | veldis.html line 647 | 0.47 | agree
+- bin 194.71" <r> [arcsec] | `(blank; NGC 104 block) | 194.71 | 200 | 9.05 | 0.48 | 0.44 | RV` | veldis.html line 665 | 194.71 | agree
+- bin 194.71" NStar | `(blank; NGC 104 block) | 194.71 | 200 | 9.05 | 0.48 | 0.44 | RV` | veldis.html line 665 | 200.0 | agree
+- bin 194.71" sigma [km/s] | `(blank; NGC 104 block) | 194.71 | 200 | 9.05 | 0.48 | 0.44 | RV` | veldis.html line 665 | 9.05 | agree
+- bin 194.71" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 194.71 | 200 | 9.05 | 0.48 | 0.44 | RV` | veldis.html line 665 | 0.48 | agree
+- bin 194.71" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 194.71 | 200 | 9.05 | 0.48 | 0.44 | RV` | veldis.html line 665 | 0.44 | agree
+- bin 244.11" <r> [arcsec] | `(blank; NGC 104 block) | 244.11 | 200 | 8.19 | 0.44 | 0.41 | RV` | veldis.html line 677 | 244.11 | agree
+- bin 244.11" NStar | `(blank; NGC 104 block) | 244.11 | 200 | 8.19 | 0.44 | 0.41 | RV` | veldis.html line 677 | 200.0 | agree
+- bin 244.11" sigma [km/s] | `(blank; NGC 104 block) | 244.11 | 200 | 8.19 | 0.44 | 0.41 | RV` | veldis.html line 677 | 8.19 | agree
+- bin 244.11" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 244.11 | 200 | 8.19 | 0.44 | 0.41 | RV` | veldis.html line 677 | 0.44 | agree
+- bin 244.11" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 244.11 | 200 | 8.19 | 0.44 | 0.41 | RV` | veldis.html line 677 | 0.41 | agree
+- bin 292.48" <r> [arcsec] | `(blank; NGC 104 block) | 292.48 | 200 | 8.62 | 0.46 | 0.43 | RV` | veldis.html line 689 | 292.48 | agree
+- bin 292.48" NStar | `(blank; NGC 104 block) | 292.48 | 200 | 8.62 | 0.46 | 0.43 | RV` | veldis.html line 689 | 200.0 | agree
+- bin 292.48" sigma [km/s] | `(blank; NGC 104 block) | 292.48 | 200 | 8.62 | 0.46 | 0.43 | RV` | veldis.html line 689 | 8.62 | agree
+- bin 292.48" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 292.48 | 200 | 8.62 | 0.46 | 0.43 | RV` | veldis.html line 689 | 0.46 | agree
+- bin 292.48" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 292.48 | 200 | 8.62 | 0.46 | 0.43 | RV` | veldis.html line 689 | 0.43 | agree
+- bin 334.58" <r> [arcsec] | `(blank; NGC 104 block) | 334.58 | 200 | 8.12 | 0.44 | 0.40 | RV` | veldis.html line 707 | 334.58 | agree
+- bin 334.58" NStar | `(blank; NGC 104 block) | 334.58 | 200 | 8.12 | 0.44 | 0.40 | RV` | veldis.html line 707 | 200.0 | agree
+- bin 334.58" sigma [km/s] | `(blank; NGC 104 block) | 334.58 | 200 | 8.12 | 0.44 | 0.40 | RV` | veldis.html line 707 | 8.12 | agree
+- bin 334.58" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 334.58 | 200 | 8.12 | 0.44 | 0.40 | RV` | veldis.html line 707 | 0.44 | agree
+- bin 334.58" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 334.58 | 200 | 8.12 | 0.44 | 0.40 | RV` | veldis.html line 707 | 0.4 | agree
+- bin 377.02" <r> [arcsec] | `(blank; NGC 104 block) | 377.02 | 200 | 8.01 | 0.43 | 0.39 | RV` | veldis.html line 719 | 377.02 | agree
+- bin 377.02" NStar | `(blank; NGC 104 block) | 377.02 | 200 | 8.01 | 0.43 | 0.39 | RV` | veldis.html line 719 | 200.0 | agree
+- bin 377.02" sigma [km/s] | `(blank; NGC 104 block) | 377.02 | 200 | 8.01 | 0.43 | 0.39 | RV` | veldis.html line 719 | 8.01 | agree
+- bin 377.02" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 377.02 | 200 | 8.01 | 0.43 | 0.39 | RV` | veldis.html line 719 | 0.43 | agree
+- bin 377.02" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 377.02 | 200 | 8.01 | 0.43 | 0.39 | RV` | veldis.html line 719 | 0.39 | agree
+- bin 422.41" <r> [arcsec] | `(blank; NGC 104 block) | 422.41 | 200 | 7.74 | 0.41 | 0.38 | RV` | veldis.html line 737 | 422.41 | agree
+- bin 422.41" NStar | `(blank; NGC 104 block) | 422.41 | 200 | 7.74 | 0.41 | 0.38 | RV` | veldis.html line 737 | 200.0 | agree
+- bin 422.41" sigma [km/s] | `(blank; NGC 104 block) | 422.41 | 200 | 7.74 | 0.41 | 0.38 | RV` | veldis.html line 737 | 7.74 | agree
+- bin 422.41" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 422.41 | 200 | 7.74 | 0.41 | 0.38 | RV` | veldis.html line 737 | 0.41 | agree
+- bin 422.41" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 422.41 | 200 | 7.74 | 0.41 | 0.38 | RV` | veldis.html line 737 | 0.38 | agree
+- bin 467.44" <r> [arcsec] | `(blank; NGC 104 block) | 467.44 | 200 | 7.29 | 0.40 | 0.35 | RV` | veldis.html line 755 | 467.44 | agree
+- bin 467.44" NStar | `(blank; NGC 104 block) | 467.44 | 200 | 7.29 | 0.40 | 0.35 | RV` | veldis.html line 755 | 200.0 | agree
+- bin 467.44" sigma [km/s] | `(blank; NGC 104 block) | 467.44 | 200 | 7.29 | 0.40 | 0.35 | RV` | veldis.html line 755 | 7.29 | agree
+- bin 467.44" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 467.44 | 200 | 7.29 | 0.40 | 0.35 | RV` | veldis.html line 755 | 0.4 | agree
+- bin 467.44" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 467.44 | 200 | 7.29 | 0.40 | 0.35 | RV` | veldis.html line 755 | 0.35 | agree
+- bin 517.71" <r> [arcsec] | `(blank; NGC 104 block) | 517.71 | 200 | 7.34 | 0.39 | 0.36 | RV` | veldis.html line 773 | 517.71 | agree
+- bin 517.71" NStar | `(blank; NGC 104 block) | 517.71 | 200 | 7.34 | 0.39 | 0.36 | RV` | veldis.html line 773 | 200.0 | agree
+- bin 517.71" sigma [km/s] | `(blank; NGC 104 block) | 517.71 | 200 | 7.34 | 0.39 | 0.36 | RV` | veldis.html line 773 | 7.34 | agree
+- bin 517.71" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 517.71 | 200 | 7.34 | 0.39 | 0.36 | RV` | veldis.html line 773 | 0.39 | agree
+- bin 517.71" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 517.71 | 200 | 7.34 | 0.39 | 0.36 | RV` | veldis.html line 773 | 0.36 | agree
+- bin 573.74" <r> [arcsec] | `(blank; NGC 104 block) | 573.74 | 200 | 6.29 | 0.34 | 0.31 | RV` | veldis.html line 791 | 573.74 | agree
+- bin 573.74" NStar | `(blank; NGC 104 block) | 573.74 | 200 | 6.29 | 0.34 | 0.31 | RV` | veldis.html line 791 | 200.0 | agree
+- bin 573.74" sigma [km/s] | `(blank; NGC 104 block) | 573.74 | 200 | 6.29 | 0.34 | 0.31 | RV` | veldis.html line 791 | 6.29 | agree
+- bin 573.74" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 573.74 | 200 | 6.29 | 0.34 | 0.31 | RV` | veldis.html line 791 | 0.34 | agree
+- bin 573.74" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 573.74 | 200 | 6.29 | 0.34 | 0.31 | RV` | veldis.html line 791 | 0.31 | agree
+- bin 642.08" <r> [arcsec] | `(blank; NGC 104 block) | 642.08 | 200 | 6.61 | 0.35 | 0.33 | RV` | veldis.html line 809 | 642.08 | agree
+- bin 642.08" NStar | `(blank; NGC 104 block) | 642.08 | 200 | 6.61 | 0.35 | 0.33 | RV` | veldis.html line 809 | 200.0 | agree
+- bin 642.08" sigma [km/s] | `(blank; NGC 104 block) | 642.08 | 200 | 6.61 | 0.35 | 0.33 | RV` | veldis.html line 809 | 6.61 | agree
+- bin 642.08" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 642.08 | 200 | 6.61 | 0.35 | 0.33 | RV` | veldis.html line 809 | 0.35 | agree
+- bin 642.08" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 642.08 | 200 | 6.61 | 0.35 | 0.33 | RV` | veldis.html line 809 | 0.33 | agree
+- bin 726.12" <r> [arcsec] | `(blank; NGC 104 block) | 726.12 | 200 | 5.59 | 0.31 | 0.28 | RV` | veldis.html line 827 | 726.12 | agree
+- bin 726.12" NStar | `(blank; NGC 104 block) | 726.12 | 200 | 5.59 | 0.31 | 0.28 | RV` | veldis.html line 827 | 200.0 | agree
+- bin 726.12" sigma [km/s] | `(blank; NGC 104 block) | 726.12 | 200 | 5.59 | 0.31 | 0.28 | RV` | veldis.html line 827 | 5.59 | agree
+- bin 726.12" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 726.12 | 200 | 5.59 | 0.31 | 0.28 | RV` | veldis.html line 827 | 0.31 | agree
+- bin 726.12" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 726.12 | 200 | 5.59 | 0.31 | 0.28 | RV` | veldis.html line 827 | 0.28 | agree
+- bin 831.35" <r> [arcsec] | `(blank; NGC 104 block) | 831.35 | 200 | 5.44 | 0.31 | 0.28 | RV` | veldis.html line 845 | 831.35 | agree
+- bin 831.35" NStar | `(blank; NGC 104 block) | 831.35 | 200 | 5.44 | 0.31 | 0.28 | RV` | veldis.html line 845 | 200.0 | agree
+- bin 831.35" sigma [km/s] | `(blank; NGC 104 block) | 831.35 | 200 | 5.44 | 0.31 | 0.28 | RV` | veldis.html line 845 | 5.44 | agree
+- bin 831.35" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 831.35 | 200 | 5.44 | 0.31 | 0.28 | RV` | veldis.html line 845 | 0.31 | agree
+- bin 831.35" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 831.35 | 200 | 5.44 | 0.31 | 0.28 | RV` | veldis.html line 845 | 0.28 | agree
+- bin 971.75" <r> [arcsec] | `(blank; NGC 104 block) | 971.75 | 200 | 5.16 | 0.29 | 0.27 | RV` | veldis.html line 863 | 971.75 | agree
+- bin 971.75" NStar | `(blank; NGC 104 block) | 971.75 | 200 | 5.16 | 0.29 | 0.27 | RV` | veldis.html line 863 | 200.0 | agree
+- bin 971.75" sigma [km/s] | `(blank; NGC 104 block) | 971.75 | 200 | 5.16 | 0.29 | 0.27 | RV` | veldis.html line 863 | 5.16 | agree
+- bin 971.75" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 971.75 | 200 | 5.16 | 0.29 | 0.27 | RV` | veldis.html line 863 | 0.29 | agree
+- bin 971.75" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 971.75 | 200 | 5.16 | 0.29 | 0.27 | RV` | veldis.html line 863 | 0.27 | agree
+- bin 1180.70" <r> [arcsec] | `(blank; NGC 104 block) | 1180.70 | 200 | 4.24 | 0.25 | 0.24 | RV` | veldis.html line 887 | 1180.7 | agree
+- bin 1180.70" NStar | `(blank; NGC 104 block) | 1180.70 | 200 | 4.24 | 0.25 | 0.24 | RV` | veldis.html line 887 | 200.0 | agree
+- bin 1180.70" sigma [km/s] | `(blank; NGC 104 block) | 1180.70 | 200 | 4.24 | 0.25 | 0.24 | RV` | veldis.html line 887 | 4.24 | agree
+- bin 1180.70" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 1180.70 | 200 | 4.24 | 0.25 | 0.24 | RV` | veldis.html line 887 | 0.25 | agree
+- bin 1180.70" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 1180.70 | 200 | 4.24 | 0.25 | 0.24 | RV` | veldis.html line 887 | 0.24 | agree
+- bin 1705.71" <r> [arcsec] | `(blank; NGC 104 block) | 1705.71 | 168 | 3.87 | 0.25 | 0.23 | RV` | veldis.html line 899 | 1705.71 | agree
+- bin 1705.71" NStar | `(blank; NGC 104 block) | 1705.71 | 168 | 3.87 | 0.25 | 0.23 | RV` | veldis.html line 899 | 168.0 | agree
+- bin 1705.71" sigma [km/s] | `(blank; NGC 104 block) | 1705.71 | 168 | 3.87 | 0.25 | 0.23 | RV` | veldis.html line 899 | 3.87 | agree
+- bin 1705.71" dsigma_Up -> err_hi | `(blank; NGC 104 block) | 1705.71 | 168 | 3.87 | 0.25 | 0.23 | RV` | veldis.html line 899 | 0.25 | agree
+- bin 1705.71" dsigma_Low -> err_lo | `(blank; NGC 104 block) | 1705.71 | 168 | 3.87 | 0.25 | 0.23 | RV` | veldis.html line 899 | 0.23 | agree
+- R_Sun [kpc] | `NGC 104 ...   4.5   7.4  [R_Sun field: '4.5']` | mwgc.dat line 73 (Part I) | 4.5 | agree
+- M_V,t [mag] | `NGC 104 ... 3.95  -9.42  [M_V,t field: '-9.42']` | mwgc.dat line 253 (Part II) | -9.42 | agree
+- W0/gamma | `<TD>8.60</TD>` | J_ApJS_161_304_models.vot models.vot line 527 (recno 187, MW-NGC104, Mod K) | 8.6 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 527 (recno 187, MW-NGC104, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 527 (recno 187, MW-NGC104, Mod K) | 0.1 | agree
+- r0 | `<TD>23.190</TD>` | J_ApJS_161_304_models.vot models.vot line 527 (recno 187, MW-NGC104, Mod K) | 23.19 | agree
+- E_r0 -> err_hi | `<TD>1.510</TD>` | J_ApJS_161_304_models.vot models.vot line 527 (recno 187, MW-NGC104, Mod K) | 1.51 | agree
+- e_r0 -> err_lo | `<TD>1.420</TD>` | J_ApJS_161_304_models.vot models.vot line 527 (recno 187, MW-NGC104, Mod K) | 1.42 | agree
+- Rh | `<TD>0.618</TD>` | J_ApJS_161_304_models.vot models.vot line 527 (recno 187, MW-NGC104, Mod K) | 0.618 | agree
+- E_Rh -> err_hi | `<TD>0.007</TD>` | J_ApJS_161_304_models.vot models.vot line 527 (recno 187, MW-NGC104, Mod K) | 0.007 | agree
+- e_Rh -> err_lo | `<TD>0.007</TD>` | J_ApJS_161_304_models.vot models.vot line 527 (recno 187, MW-NGC104, Mod K) | 0.007 | agree
+- Dist | `<TD>4.5</TD>` | J_ApJS_161_304_models.vot models.vot line 527 (recno 187, MW-NGC104, Mod K) | 4.5 | agree
+- (M/L)1 | `<TD>2.348</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 235 (recno 75, MW-NGC104) | 2.348 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.239</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 235 (recno 75, MW-NGC104) | 0.239 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.239</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 235 (recno 75, MW-NGC104) | 0.239 | agree
+- arithmetic L_V = 510505 vs 510505 | agree; R_h = 10^0.618 x 4.5 / 4.5 = 4.149540426 pc vs 4.149540426 | agree; M/L 2.348 vs 2.348 | agree
+
+### NGC 1261
+
+- bin 15.38" <r> [arcsec] | `(blank; NGC 1261 block) | 15.38 | 52 | 4.50 | 0.52 | 0.45 | RV` | veldis.html line 1277 | 15.38 | agree
+- bin 15.38" NStar | `(blank; NGC 1261 block) | 15.38 | 52 | 4.50 | 0.52 | 0.45 | RV` | veldis.html line 1277 | 52.0 | agree
+- bin 15.38" sigma [km/s] | `(blank; NGC 1261 block) | 15.38 | 52 | 4.50 | 0.52 | 0.45 | RV` | veldis.html line 1277 | 4.5 | agree
+- bin 15.38" dsigma_Up -> err_hi | `(blank; NGC 1261 block) | 15.38 | 52 | 4.50 | 0.52 | 0.45 | RV` | veldis.html line 1277 | 0.52 | agree
+- bin 15.38" dsigma_Low -> err_lo | `(blank; NGC 1261 block) | 15.38 | 52 | 4.50 | 0.52 | 0.45 | RV` | veldis.html line 1277 | 0.45 | agree
+- bin 42.34" <r> [arcsec] | `(blank; NGC 1261 block) | 42.34 | 52 | 3.79 | 0.41 | 0.35 | RV` | veldis.html line 1337 | 42.34 | agree
+- bin 42.34" NStar | `(blank; NGC 1261 block) | 42.34 | 52 | 3.79 | 0.41 | 0.35 | RV` | veldis.html line 1337 | 52.0 | agree
+- bin 42.34" sigma [km/s] | `(blank; NGC 1261 block) | 42.34 | 52 | 3.79 | 0.41 | 0.35 | RV` | veldis.html line 1337 | 3.79 | agree
+- bin 42.34" dsigma_Up -> err_hi | `(blank; NGC 1261 block) | 42.34 | 52 | 3.79 | 0.41 | 0.35 | RV` | veldis.html line 1337 | 0.41 | agree
+- bin 42.34" dsigma_Low -> err_lo | `(blank; NGC 1261 block) | 42.34 | 52 | 3.79 | 0.41 | 0.35 | RV` | veldis.html line 1337 | 0.35 | agree
+- bin 68.68" <r> [arcsec] | `(blank; NGC 1261 block) | 68.68 | 52 | 3.96 | 0.44 | 0.37 | RV` | veldis.html line 1373 | 68.68 | agree
+- bin 68.68" NStar | `(blank; NGC 1261 block) | 68.68 | 52 | 3.96 | 0.44 | 0.37 | RV` | veldis.html line 1373 | 52.0 | agree
+- bin 68.68" sigma [km/s] | `(blank; NGC 1261 block) | 68.68 | 52 | 3.96 | 0.44 | 0.37 | RV` | veldis.html line 1373 | 3.96 | agree
+- bin 68.68" dsigma_Up -> err_hi | `(blank; NGC 1261 block) | 68.68 | 52 | 3.96 | 0.44 | 0.37 | RV` | veldis.html line 1373 | 0.44 | agree
+- bin 68.68" dsigma_Low -> err_lo | `(blank; NGC 1261 block) | 68.68 | 52 | 3.96 | 0.44 | 0.37 | RV` | veldis.html line 1373 | 0.37 | agree
+- bin 93.22" <r> [arcsec] | `(blank; NGC 1261 block) | 93.22 | 52 | 3.83 | 0.42 | 0.36 | RV` | veldis.html line 1391 | 93.22 | agree
+- bin 93.22" NStar | `(blank; NGC 1261 block) | 93.22 | 52 | 3.83 | 0.42 | 0.36 | RV` | veldis.html line 1391 | 52.0 | agree
+- bin 93.22" sigma [km/s] | `(blank; NGC 1261 block) | 93.22 | 52 | 3.83 | 0.42 | 0.36 | RV` | veldis.html line 1391 | 3.83 | agree
+- bin 93.22" dsigma_Up -> err_hi | `(blank; NGC 1261 block) | 93.22 | 52 | 3.83 | 0.42 | 0.36 | RV` | veldis.html line 1391 | 0.42 | agree
+- bin 93.22" dsigma_Low -> err_lo | `(blank; NGC 1261 block) | 93.22 | 52 | 3.83 | 0.42 | 0.36 | RV` | veldis.html line 1391 | 0.36 | agree
+- bin 136.58" <r> [arcsec] | `(blank; NGC 1261 block) | 136.58 | 52 | 3.29 | 0.36 | 0.31 | RV` | veldis.html line 1409 | 136.58 | agree
+- bin 136.58" NStar | `(blank; NGC 1261 block) | 136.58 | 52 | 3.29 | 0.36 | 0.31 | RV` | veldis.html line 1409 | 52.0 | agree
+- bin 136.58" sigma [km/s] | `(blank; NGC 1261 block) | 136.58 | 52 | 3.29 | 0.36 | 0.31 | RV` | veldis.html line 1409 | 3.29 | agree
+- bin 136.58" dsigma_Up -> err_hi | `(blank; NGC 1261 block) | 136.58 | 52 | 3.29 | 0.36 | 0.31 | RV` | veldis.html line 1409 | 0.36 | agree
+- bin 136.58" dsigma_Low -> err_lo | `(blank; NGC 1261 block) | 136.58 | 52 | 3.29 | 0.36 | 0.31 | RV` | veldis.html line 1409 | 0.31 | agree
+- bin 213.83" <r> [arcsec] | `(blank; NGC 1261 block) | 213.83 | 52 | 2.71 | 0.30 | 0.26 | RV` | veldis.html line 1415 | 213.83 | agree
+- bin 213.83" NStar | `(blank; NGC 1261 block) | 213.83 | 52 | 2.71 | 0.30 | 0.26 | RV` | veldis.html line 1415 | 52.0 | agree
+- bin 213.83" sigma [km/s] | `(blank; NGC 1261 block) | 213.83 | 52 | 2.71 | 0.30 | 0.26 | RV` | veldis.html line 1415 | 2.71 | agree
+- bin 213.83" dsigma_Up -> err_hi | `(blank; NGC 1261 block) | 213.83 | 52 | 2.71 | 0.30 | 0.26 | RV` | veldis.html line 1415 | 0.3 | agree
+- bin 213.83" dsigma_Low -> err_lo | `(blank; NGC 1261 block) | 213.83 | 52 | 2.71 | 0.30 | 0.26 | RV` | veldis.html line 1415 | 0.26 | agree
+- bin 445.77" <r> [arcsec] | `(blank; NGC 1261 block) | 445.77 | 33 | 2.25 | 0.34 | 0.28 | RV` | veldis.html line 1427 | 445.77 | agree
+- bin 445.77" NStar | `(blank; NGC 1261 block) | 445.77 | 33 | 2.25 | 0.34 | 0.28 | RV` | veldis.html line 1427 | 33.0 | agree
+- bin 445.77" sigma [km/s] | `(blank; NGC 1261 block) | 445.77 | 33 | 2.25 | 0.34 | 0.28 | RV` | veldis.html line 1427 | 2.25 | agree
+- bin 445.77" dsigma_Up -> err_hi | `(blank; NGC 1261 block) | 445.77 | 33 | 2.25 | 0.34 | 0.28 | RV` | veldis.html line 1427 | 0.34 | agree
+- bin 445.77" dsigma_Low -> err_lo | `(blank; NGC 1261 block) | 445.77 | 33 | 2.25 | 0.34 | 0.28 | RV` | veldis.html line 1427 | 0.28 | agree
+- R_Sun [kpc] | `NGC 1261 ...  16.3  18.1  [R_Sun field: '16.3']` | mwgc.dat line 77 (Part I) | 16.3 | agree
+- M_V,t [mag] | `NGC 1261 ... 8.29  -7.80  [M_V,t field: '-7.80']` | mwgc.dat line 257 (Part II) | -7.8 | agree
+- W0/gamma | `<TD>5.60</TD>` | J_ApJS_161_304_models.vot models.vot line 530 (recno 190, MW-NGC1261, Mod K) | 5.6 | agree
+- E_W0/gamma -> err_hi | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 530 (recno 190, MW-NGC1261, Mod K) | 0.2 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 530 (recno 190, MW-NGC1261, Mod K) | 0.1 | agree
+- r0 | `<TD>23.130</TD>` | J_ApJS_161_304_models.vot models.vot line 530 (recno 190, MW-NGC1261, Mod K) | 23.13 | agree
+- E_r0 -> err_hi | `<TD>0.570</TD>` | J_ApJS_161_304_models.vot models.vot line 530 (recno 190, MW-NGC1261, Mod K) | 0.57 | agree
+- e_r0 -> err_lo | `<TD>1.090</TD>` | J_ApJS_161_304_models.vot models.vot line 530 (recno 190, MW-NGC1261, Mod K) | 1.09 | agree
+- Rh | `<TD>0.512</TD>` | J_ApJS_161_304_models.vot models.vot line 530 (recno 190, MW-NGC1261, Mod K) | 0.512 | agree
+- E_Rh -> err_hi | `<TD>0.004</TD>` | J_ApJS_161_304_models.vot models.vot line 530 (recno 190, MW-NGC1261, Mod K) | 0.004 | agree
+- e_Rh -> err_lo | `<TD>0.002</TD>` | J_ApJS_161_304_models.vot models.vot line 530 (recno 190, MW-NGC1261, Mod K) | 0.002 | agree
+- Dist | `<TD>16.4</TD>` | J_ApJS_161_304_models.vot models.vot line 530 (recno 190, MW-NGC1261, Mod K) | 16.4 | agree
+- (M/L)1 | `<TD>1.928</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 236 (recno 76, MW-NGC1261) | 1.928 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.158</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 236 (recno 76, MW-NGC1261) | 0.158 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.158</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 236 (recno 76, MW-NGC1261) | 0.158 | agree
+- arithmetic L_V = 114815.3621 vs 114815.3621 | agree; R_h = 10^0.512 x 16.3 / 16.4 = 3.231050578 pc vs 3.231050578 | agree; M/L 1.928 vs 1.928 | agree
+
+### NGC 1851
+
+- bin 9.43" <r> [arcsec] | `(blank; NGC 1851 block) | 9.43 | 200 | 10.21 | 0.55 | 0.51 | RV` | veldis.html line 1447 | 9.43 | agree
+- bin 9.43" NStar | `(blank; NGC 1851 block) | 9.43 | 200 | 10.21 | 0.55 | 0.51 | RV` | veldis.html line 1447 | 200.0 | agree
+- bin 9.43" sigma [km/s] | `(blank; NGC 1851 block) | 9.43 | 200 | 10.21 | 0.55 | 0.51 | RV` | veldis.html line 1447 | 10.21 | agree
+- bin 9.43" dsigma_Up -> err_hi | `(blank; NGC 1851 block) | 9.43 | 200 | 10.21 | 0.55 | 0.51 | RV` | veldis.html line 1447 | 0.55 | agree
+- bin 9.43" dsigma_Low -> err_lo | `(blank; NGC 1851 block) | 9.43 | 200 | 10.21 | 0.55 | 0.51 | RV` | veldis.html line 1447 | 0.51 | agree
+- bin 11.08" <r> [arcsec] | `(blank; NGC 1851 block) | 11.08 | 400 | 9.11 | 0.35 | 0.32 | RV` | veldis.html line 1453 | 11.08 | agree
+- bin 11.08" NStar | `(blank; NGC 1851 block) | 11.08 | 400 | 9.11 | 0.35 | 0.32 | RV` | veldis.html line 1453 | 400.0 | agree
+- bin 11.08" sigma [km/s] | `(blank; NGC 1851 block) | 11.08 | 400 | 9.11 | 0.35 | 0.32 | RV` | veldis.html line 1453 | 9.11 | agree
+- bin 11.08" dsigma_Up -> err_hi | `(blank; NGC 1851 block) | 11.08 | 400 | 9.11 | 0.35 | 0.32 | RV` | veldis.html line 1453 | 0.35 | agree
+- bin 11.08" dsigma_Low -> err_lo | `(blank; NGC 1851 block) | 11.08 | 400 | 9.11 | 0.35 | 0.32 | RV` | veldis.html line 1453 | 0.32 | agree
+- bin 12.70" <r> [arcsec] | `(blank; NGC 1851 block) | 12.70 | 200 | 8.37 | 0.46 | 0.42 | RV` | veldis.html line 1465 | 12.7 | agree
+- bin 12.70" NStar | `(blank; NGC 1851 block) | 12.70 | 200 | 8.37 | 0.46 | 0.42 | RV` | veldis.html line 1465 | 200.0 | agree
+- bin 12.70" sigma [km/s] | `(blank; NGC 1851 block) | 12.70 | 200 | 8.37 | 0.46 | 0.42 | RV` | veldis.html line 1465 | 8.37 | agree
+- bin 12.70" dsigma_Up -> err_hi | `(blank; NGC 1851 block) | 12.70 | 200 | 8.37 | 0.46 | 0.42 | RV` | veldis.html line 1465 | 0.46 | agree
+- bin 12.70" dsigma_Low -> err_lo | `(blank; NGC 1851 block) | 12.70 | 200 | 8.37 | 0.46 | 0.42 | RV` | veldis.html line 1465 | 0.42 | agree
+- bin 16.11" <r> [arcsec] | `(blank; NGC 1851 block) | 16.11 | 400 | 8.11 | 0.32 | 0.30 | RV` | veldis.html line 1477 | 16.11 | agree
+- bin 16.11" NStar | `(blank; NGC 1851 block) | 16.11 | 400 | 8.11 | 0.32 | 0.30 | RV` | veldis.html line 1477 | 400.0 | agree
+- bin 16.11" sigma [km/s] | `(blank; NGC 1851 block) | 16.11 | 400 | 8.11 | 0.32 | 0.30 | RV` | veldis.html line 1477 | 8.11 | agree
+- bin 16.11" dsigma_Up -> err_hi | `(blank; NGC 1851 block) | 16.11 | 400 | 8.11 | 0.32 | 0.30 | RV` | veldis.html line 1477 | 0.32 | agree
+- bin 16.11" dsigma_Low -> err_lo | `(blank; NGC 1851 block) | 16.11 | 400 | 8.11 | 0.32 | 0.30 | RV` | veldis.html line 1477 | 0.3 | agree
+- bin 20.10" <r> [arcsec] | `(blank; NGC 1851 block) | 20.10 | 400 | 8.12 | 0.31 | 0.30 | RV` | veldis.html line 1489 | 20.1 | agree
+- bin 20.10" NStar | `(blank; NGC 1851 block) | 20.10 | 400 | 8.12 | 0.31 | 0.30 | RV` | veldis.html line 1489 | 400.0 | agree
+- bin 20.10" sigma [km/s] | `(blank; NGC 1851 block) | 20.10 | 400 | 8.12 | 0.31 | 0.30 | RV` | veldis.html line 1489 | 8.12 | agree
+- bin 20.10" dsigma_Up -> err_hi | `(blank; NGC 1851 block) | 20.10 | 400 | 8.12 | 0.31 | 0.30 | RV` | veldis.html line 1489 | 0.31 | agree
+- bin 20.10" dsigma_Low -> err_lo | `(blank; NGC 1851 block) | 20.10 | 400 | 8.12 | 0.31 | 0.30 | RV` | veldis.html line 1489 | 0.3 | agree
+- bin 23.85" <r> [arcsec] | `(blank; NGC 1851 block) | 23.85 | 400 | 7.61 | 0.30 | 0.28 | RV` | veldis.html line 1501 | 23.85 | agree
+- bin 23.85" NStar | `(blank; NGC 1851 block) | 23.85 | 400 | 7.61 | 0.30 | 0.28 | RV` | veldis.html line 1501 | 400.0 | agree
+- bin 23.85" sigma [km/s] | `(blank; NGC 1851 block) | 23.85 | 400 | 7.61 | 0.30 | 0.28 | RV` | veldis.html line 1501 | 7.61 | agree
+- bin 23.85" dsigma_Up -> err_hi | `(blank; NGC 1851 block) | 23.85 | 400 | 7.61 | 0.30 | 0.28 | RV` | veldis.html line 1501 | 0.3 | agree
+- bin 23.85" dsigma_Low -> err_lo | `(blank; NGC 1851 block) | 23.85 | 400 | 7.61 | 0.30 | 0.28 | RV` | veldis.html line 1501 | 0.28 | agree
+- bin 27.60" <r> [arcsec] | `(blank; NGC 1851 block) | 27.60 | 400 | 8.04 | 0.31 | 0.29 | RV` | veldis.html line 1513 | 27.6 | agree
+- bin 27.60" NStar | `(blank; NGC 1851 block) | 27.60 | 400 | 8.04 | 0.31 | 0.29 | RV` | veldis.html line 1513 | 400.0 | agree
+- bin 27.60" sigma [km/s] | `(blank; NGC 1851 block) | 27.60 | 400 | 8.04 | 0.31 | 0.29 | RV` | veldis.html line 1513 | 8.04 | agree
+- bin 27.60" dsigma_Up -> err_hi | `(blank; NGC 1851 block) | 27.60 | 400 | 8.04 | 0.31 | 0.29 | RV` | veldis.html line 1513 | 0.31 | agree
+- bin 27.60" dsigma_Low -> err_lo | `(blank; NGC 1851 block) | 27.60 | 400 | 8.04 | 0.31 | 0.29 | RV` | veldis.html line 1513 | 0.29 | agree
+- bin 30.91" <r> [arcsec] | `(blank; NGC 1851 block) | 30.91 | 400 | 7.23 | 0.29 | 0.28 | RV` | veldis.html line 1525 | 30.91 | agree
+- bin 30.91" NStar | `(blank; NGC 1851 block) | 30.91 | 400 | 7.23 | 0.29 | 0.28 | RV` | veldis.html line 1525 | 400.0 | agree
+- bin 30.91" sigma [km/s] | `(blank; NGC 1851 block) | 30.91 | 400 | 7.23 | 0.29 | 0.28 | RV` | veldis.html line 1525 | 7.23 | agree
+- bin 30.91" dsigma_Up -> err_hi | `(blank; NGC 1851 block) | 30.91 | 400 | 7.23 | 0.29 | 0.28 | RV` | veldis.html line 1525 | 0.29 | agree
+- bin 30.91" dsigma_Low -> err_lo | `(blank; NGC 1851 block) | 30.91 | 400 | 7.23 | 0.29 | 0.28 | RV` | veldis.html line 1525 | 0.28 | agree
+- bin 34.06" <r> [arcsec] | `(blank; NGC 1851 block) | 34.06 | 400 | 7.45 | 0.29 | 0.28 | RV` | veldis.html line 1537 | 34.06 | agree
+- bin 34.06" NStar | `(blank; NGC 1851 block) | 34.06 | 400 | 7.45 | 0.29 | 0.28 | RV` | veldis.html line 1537 | 400.0 | agree
+- bin 34.06" sigma [km/s] | `(blank; NGC 1851 block) | 34.06 | 400 | 7.45 | 0.29 | 0.28 | RV` | veldis.html line 1537 | 7.45 | agree
+- bin 34.06" dsigma_Up -> err_hi | `(blank; NGC 1851 block) | 34.06 | 400 | 7.45 | 0.29 | 0.28 | RV` | veldis.html line 1537 | 0.29 | agree
+- bin 34.06" dsigma_Low -> err_lo | `(blank; NGC 1851 block) | 34.06 | 400 | 7.45 | 0.29 | 0.28 | RV` | veldis.html line 1537 | 0.28 | agree
+- bin 37.28" <r> [arcsec] | `(blank; NGC 1851 block) | 37.28 | 400 | 7.49 | 0.30 | 0.28 | RV` | veldis.html line 1549 | 37.28 | agree
+- bin 37.28" NStar | `(blank; NGC 1851 block) | 37.28 | 400 | 7.49 | 0.30 | 0.28 | RV` | veldis.html line 1549 | 400.0 | agree
+- bin 37.28" sigma [km/s] | `(blank; NGC 1851 block) | 37.28 | 400 | 7.49 | 0.30 | 0.28 | RV` | veldis.html line 1549 | 7.49 | agree
+- bin 37.28" dsigma_Up -> err_hi | `(blank; NGC 1851 block) | 37.28 | 400 | 7.49 | 0.30 | 0.28 | RV` | veldis.html line 1549 | 0.3 | agree
+- bin 37.28" dsigma_Low -> err_lo | `(blank; NGC 1851 block) | 37.28 | 400 | 7.49 | 0.30 | 0.28 | RV` | veldis.html line 1549 | 0.28 | agree
+- bin 40.50" <r> [arcsec] | `(blank; NGC 1851 block) | 40.50 | 400 | 7.25 | 0.29 | 0.27 | RV` | veldis.html line 1561 | 40.5 | agree
+- bin 40.50" NStar | `(blank; NGC 1851 block) | 40.50 | 400 | 7.25 | 0.29 | 0.27 | RV` | veldis.html line 1561 | 400.0 | agree
+- bin 40.50" sigma [km/s] | `(blank; NGC 1851 block) | 40.50 | 400 | 7.25 | 0.29 | 0.27 | RV` | veldis.html line 1561 | 7.25 | agree
+- bin 40.50" dsigma_Up -> err_hi | `(blank; NGC 1851 block) | 40.50 | 400 | 7.25 | 0.29 | 0.27 | RV` | veldis.html line 1561 | 0.29 | agree
+- bin 40.50" dsigma_Low -> err_lo | `(blank; NGC 1851 block) | 40.50 | 400 | 7.25 | 0.29 | 0.27 | RV` | veldis.html line 1561 | 0.27 | agree
+- bin 43.62" <r> [arcsec] | `(blank; NGC 1851 block) | 43.62 | 400 | 6.47 | 0.27 | 0.25 | RV` | veldis.html line 1573 | 43.62 | agree
+- bin 43.62" NStar | `(blank; NGC 1851 block) | 43.62 | 400 | 6.47 | 0.27 | 0.25 | RV` | veldis.html line 1573 | 400.0 | agree
+- bin 43.62" sigma [km/s] | `(blank; NGC 1851 block) | 43.62 | 400 | 6.47 | 0.27 | 0.25 | RV` | veldis.html line 1573 | 6.47 | agree
+- bin 43.62" dsigma_Up -> err_hi | `(blank; NGC 1851 block) | 43.62 | 400 | 6.47 | 0.27 | 0.25 | RV` | veldis.html line 1573 | 0.27 | agree
+- bin 43.62" dsigma_Low -> err_lo | `(blank; NGC 1851 block) | 43.62 | 400 | 6.47 | 0.27 | 0.25 | RV` | veldis.html line 1573 | 0.25 | agree
+- bin 46.90" <r> [arcsec] | `(blank; NGC 1851 block) | 46.90 | 400 | 6.92 | 0.28 | 0.26 | RV` | veldis.html line 1585 | 46.9 | agree
+- bin 46.90" NStar | `(blank; NGC 1851 block) | 46.90 | 400 | 6.92 | 0.28 | 0.26 | RV` | veldis.html line 1585 | 400.0 | agree
+- bin 46.90" sigma [km/s] | `(blank; NGC 1851 block) | 46.90 | 400 | 6.92 | 0.28 | 0.26 | RV` | veldis.html line 1585 | 6.92 | agree
+- bin 46.90" dsigma_Up -> err_hi | `(blank; NGC 1851 block) | 46.90 | 400 | 6.92 | 0.28 | 0.26 | RV` | veldis.html line 1585 | 0.28 | agree
+- bin 46.90" dsigma_Low -> err_lo | `(blank; NGC 1851 block) | 46.90 | 400 | 6.92 | 0.28 | 0.26 | RV` | veldis.html line 1585 | 0.26 | agree
+- bin 50.31" <r> [arcsec] | `(blank; NGC 1851 block) | 50.31 | 400 | 7.21 | 0.29 | 0.27 | RV` | veldis.html line 1597 | 50.31 | agree
+- bin 50.31" NStar | `(blank; NGC 1851 block) | 50.31 | 400 | 7.21 | 0.29 | 0.27 | RV` | veldis.html line 1597 | 400.0 | agree
+- bin 50.31" sigma [km/s] | `(blank; NGC 1851 block) | 50.31 | 400 | 7.21 | 0.29 | 0.27 | RV` | veldis.html line 1597 | 7.21 | agree
+- bin 50.31" dsigma_Up -> err_hi | `(blank; NGC 1851 block) | 50.31 | 400 | 7.21 | 0.29 | 0.27 | RV` | veldis.html line 1597 | 0.29 | agree
+- bin 50.31" dsigma_Low -> err_lo | `(blank; NGC 1851 block) | 50.31 | 400 | 7.21 | 0.29 | 0.27 | RV` | veldis.html line 1597 | 0.27 | agree
+- bin 54.47" <r> [arcsec] | `(blank; NGC 1851 block) | 54.47 | 400 | 6.94 | 0.29 | 0.27 | RV` | veldis.html line 1609 | 54.47 | agree
+- bin 54.47" NStar | `(blank; NGC 1851 block) | 54.47 | 400 | 6.94 | 0.29 | 0.27 | RV` | veldis.html line 1609 | 400.0 | agree
+- bin 54.47" sigma [km/s] | `(blank; NGC 1851 block) | 54.47 | 400 | 6.94 | 0.29 | 0.27 | RV` | veldis.html line 1609 | 6.94 | agree
+- bin 54.47" dsigma_Up -> err_hi | `(blank; NGC 1851 block) | 54.47 | 400 | 6.94 | 0.29 | 0.27 | RV` | veldis.html line 1609 | 0.29 | agree
+- bin 54.47" dsigma_Low -> err_lo | `(blank; NGC 1851 block) | 54.47 | 400 | 6.94 | 0.29 | 0.27 | RV` | veldis.html line 1609 | 0.27 | agree
+- bin 65.90" <r> [arcsec] | `(blank; NGC 1851 block) | 65.90 | 400 | 6.56 | 0.26 | 0.25 | RV` | veldis.html line 1621 | 65.9 | agree
+- bin 65.90" NStar | `(blank; NGC 1851 block) | 65.90 | 400 | 6.56 | 0.26 | 0.25 | RV` | veldis.html line 1621 | 400.0 | agree
+- bin 65.90" sigma [km/s] | `(blank; NGC 1851 block) | 65.90 | 400 | 6.56 | 0.26 | 0.25 | RV` | veldis.html line 1621 | 6.56 | agree
+- bin 65.90" dsigma_Up -> err_hi | `(blank; NGC 1851 block) | 65.90 | 400 | 6.56 | 0.26 | 0.25 | RV` | veldis.html line 1621 | 0.26 | agree
+- bin 65.90" dsigma_Low -> err_lo | `(blank; NGC 1851 block) | 65.90 | 400 | 6.56 | 0.26 | 0.25 | RV` | veldis.html line 1621 | 0.25 | agree
+- bin 113.17" <r> [arcsec] | `(blank; NGC 1851 block) | 113.17 | 100 | 5.36 | 0.42 | 0.37 | RV` | veldis.html line 1657 | 113.17 | agree
+- bin 113.17" NStar | `(blank; NGC 1851 block) | 113.17 | 100 | 5.36 | 0.42 | 0.37 | RV` | veldis.html line 1657 | 100.0 | agree
+- bin 113.17" sigma [km/s] | `(blank; NGC 1851 block) | 113.17 | 100 | 5.36 | 0.42 | 0.37 | RV` | veldis.html line 1657 | 5.36 | agree
+- bin 113.17" dsigma_Up -> err_hi | `(blank; NGC 1851 block) | 113.17 | 100 | 5.36 | 0.42 | 0.37 | RV` | veldis.html line 1657 | 0.42 | agree
+- bin 113.17" dsigma_Low -> err_lo | `(blank; NGC 1851 block) | 113.17 | 100 | 5.36 | 0.42 | 0.37 | RV` | veldis.html line 1657 | 0.37 | agree
+- bin 158.66" <r> [arcsec] | `(blank; NGC 1851 block) | 158.66 | 100 | 5.08 | 0.40 | 0.35 | RV` | veldis.html line 1669 | 158.66 | agree
+- bin 158.66" NStar | `(blank; NGC 1851 block) | 158.66 | 100 | 5.08 | 0.40 | 0.35 | RV` | veldis.html line 1669 | 100.0 | agree
+- bin 158.66" sigma [km/s] | `(blank; NGC 1851 block) | 158.66 | 100 | 5.08 | 0.40 | 0.35 | RV` | veldis.html line 1669 | 5.08 | agree
+- bin 158.66" dsigma_Up -> err_hi | `(blank; NGC 1851 block) | 158.66 | 100 | 5.08 | 0.40 | 0.35 | RV` | veldis.html line 1669 | 0.4 | agree
+- bin 158.66" dsigma_Low -> err_lo | `(blank; NGC 1851 block) | 158.66 | 100 | 5.08 | 0.40 | 0.35 | RV` | veldis.html line 1669 | 0.35 | agree
+- bin 218.72" <r> [arcsec] | `(blank; NGC 1851 block) | 218.72 | 100 | 4.17 | 0.33 | 0.29 | RV` | veldis.html line 1687 | 218.72 | agree
+- bin 218.72" NStar | `(blank; NGC 1851 block) | 218.72 | 100 | 4.17 | 0.33 | 0.29 | RV` | veldis.html line 1687 | 100.0 | agree
+- bin 218.72" sigma [km/s] | `(blank; NGC 1851 block) | 218.72 | 100 | 4.17 | 0.33 | 0.29 | RV` | veldis.html line 1687 | 4.17 | agree
+- bin 218.72" dsigma_Up -> err_hi | `(blank; NGC 1851 block) | 218.72 | 100 | 4.17 | 0.33 | 0.29 | RV` | veldis.html line 1687 | 0.33 | agree
+- bin 218.72" dsigma_Low -> err_lo | `(blank; NGC 1851 block) | 218.72 | 100 | 4.17 | 0.33 | 0.29 | RV` | veldis.html line 1687 | 0.29 | agree
+- bin 309.04" <r> [arcsec] | `(blank; NGC 1851 block) | 309.04 | 100 | 3.73 | 0.31 | 0.27 | RV` | veldis.html line 1699 | 309.04 | agree
+- bin 309.04" NStar | `(blank; NGC 1851 block) | 309.04 | 100 | 3.73 | 0.31 | 0.27 | RV` | veldis.html line 1699 | 100.0 | agree
+- bin 309.04" sigma [km/s] | `(blank; NGC 1851 block) | 309.04 | 100 | 3.73 | 0.31 | 0.27 | RV` | veldis.html line 1699 | 3.73 | agree
+- bin 309.04" dsigma_Up -> err_hi | `(blank; NGC 1851 block) | 309.04 | 100 | 3.73 | 0.31 | 0.27 | RV` | veldis.html line 1699 | 0.31 | agree
+- bin 309.04" dsigma_Low -> err_lo | `(blank; NGC 1851 block) | 309.04 | 100 | 3.73 | 0.31 | 0.27 | RV` | veldis.html line 1699 | 0.27 | agree
+- bin 535.07" <r> [arcsec] | `(blank; NGC 1851 block) | 535.07 | 100 | 2.88 | 0.26 | 0.23 | RV` | veldis.html line 1711 | 535.07 | agree
+- bin 535.07" NStar | `(blank; NGC 1851 block) | 535.07 | 100 | 2.88 | 0.26 | 0.23 | RV` | veldis.html line 1711 | 100.0 | agree
+- bin 535.07" sigma [km/s] | `(blank; NGC 1851 block) | 535.07 | 100 | 2.88 | 0.26 | 0.23 | RV` | veldis.html line 1711 | 2.88 | agree
+- bin 535.07" dsigma_Up -> err_hi | `(blank; NGC 1851 block) | 535.07 | 100 | 2.88 | 0.26 | 0.23 | RV` | veldis.html line 1711 | 0.26 | agree
+- bin 535.07" dsigma_Low -> err_lo | `(blank; NGC 1851 block) | 535.07 | 100 | 2.88 | 0.26 | 0.23 | RV` | veldis.html line 1711 | 0.23 | agree
+- bin 1283.92" <r> [arcsec] | `(blank; NGC 1851 block) | 1283.92 | 20 | 2.35 | 0.60 | 0.49 | RV` | veldis.html line 1717 | 1283.92 | agree
+- bin 1283.92" NStar | `(blank; NGC 1851 block) | 1283.92 | 20 | 2.35 | 0.60 | 0.49 | RV` | veldis.html line 1717 | 20.0 | agree
+- bin 1283.92" sigma [km/s] | `(blank; NGC 1851 block) | 1283.92 | 20 | 2.35 | 0.60 | 0.49 | RV` | veldis.html line 1717 | 2.35 | agree
+- bin 1283.92" dsigma_Up -> err_hi | `(blank; NGC 1851 block) | 1283.92 | 20 | 2.35 | 0.60 | 0.49 | RV` | veldis.html line 1717 | 0.6 | agree
+- bin 1283.92" dsigma_Low -> err_lo | `(blank; NGC 1851 block) | 1283.92 | 20 | 2.35 | 0.60 | 0.49 | RV` | veldis.html line 1717 | 0.49 | agree
+- R_Sun [kpc] | `NGC 1851 ...  12.1  16.6  [R_Sun field: '12.1']` | mwgc.dat line 82 (Part I) | 12.1 | agree
+- M_V,t [mag] | `NGC 1851 ... 7.14  -8.33  [M_V,t field: '-8.33']` | mwgc.dat line 262 (Part II) | -8.33 | agree
+- W0/gamma | `<TD>8.10</TD>` | J_ApJS_161_304_models.vot models.vot line 533 (recno 193, MW-NGC1851, Mod K) | 8.1 | agree
+- E_W0/gamma -> err_hi | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 533 (recno 193, MW-NGC1851, Mod K) | 0.2 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 533 (recno 193, MW-NGC1851, Mod K) | 0.1 | agree
+- r0 | `<TD>5.400</TD>` | J_ApJS_161_304_models.vot models.vot line 533 (recno 193, MW-NGC1851, Mod K) | 5.4 | agree
+- E_r0 -> err_hi | `<TD>0.290</TD>` | J_ApJS_161_304_models.vot models.vot line 533 (recno 193, MW-NGC1851, Mod K) | 0.29 | agree
+- e_r0 -> err_lo | `<TD>0.600</TD>` | J_ApJS_161_304_models.vot models.vot line 533 (recno 193, MW-NGC1851, Mod K) | 0.6 | agree
+- Rh | `<TD>0.251</TD>` | J_ApJS_161_304_models.vot models.vot line 533 (recno 193, MW-NGC1851, Mod K) | 0.251 | agree
+- E_Rh -> err_hi | `<TD>0.013</TD>` | J_ApJS_161_304_models.vot models.vot line 533 (recno 193, MW-NGC1851, Mod K) | 0.013 | agree
+- e_Rh -> err_lo | `<TD>0.008</TD>` | J_ApJS_161_304_models.vot models.vot line 533 (recno 193, MW-NGC1851, Mod K) | 0.008 | agree
+- Dist | `<TD>12.1</TD>` | J_ApJS_161_304_models.vot models.vot line 533 (recno 193, MW-NGC1851, Mod K) | 12.1 | agree
+- (M/L)1 | `<TD>1.981</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 237 (recno 77, MW-NGC1851) | 1.981 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.166</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 237 (recno 77, MW-NGC1851) | 0.166 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.166</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 237 (recno 77, MW-NGC1851) | 0.166 | agree
+- arithmetic L_V = 187068.214 vs 187068.214 | agree; R_h = 10^0.251 x 12.1 / 12.1 = 1.782378767 pc vs 1.782378767 | agree; M/L 1.981 vs 1.981 | agree
+
+### NGC 1904
+
+- bin 3.29" <r> [arcsec] | `(blank; NGC 1904 block) | 3.29 | 50 | 6.89 | 0.80 | 0.68 | RV` | veldis.html line 1737 | 3.29 | agree
+- bin 3.29" NStar | `(blank; NGC 1904 block) | 3.29 | 50 | 6.89 | 0.80 | 0.68 | RV` | veldis.html line 1737 | 50.0 | agree
+- bin 3.29" sigma [km/s] | `(blank; NGC 1904 block) | 3.29 | 50 | 6.89 | 0.80 | 0.68 | RV` | veldis.html line 1737 | 6.89 | agree
+- bin 3.29" dsigma_Up -> err_hi | `(blank; NGC 1904 block) | 3.29 | 50 | 6.89 | 0.80 | 0.68 | RV` | veldis.html line 1737 | 0.8 | agree
+- bin 3.29" dsigma_Low -> err_lo | `(blank; NGC 1904 block) | 3.29 | 50 | 6.89 | 0.80 | 0.68 | RV` | veldis.html line 1737 | 0.68 | agree
+- bin 6.53" <r> [arcsec] | `(blank; NGC 1904 block) | 6.53 | 50 | 5.17 | 0.61 | 0.52 | RV` | veldis.html line 1749 | 6.53 | agree
+- bin 6.53" NStar | `(blank; NGC 1904 block) | 6.53 | 50 | 5.17 | 0.61 | 0.52 | RV` | veldis.html line 1749 | 50.0 | agree
+- bin 6.53" sigma [km/s] | `(blank; NGC 1904 block) | 6.53 | 50 | 5.17 | 0.61 | 0.52 | RV` | veldis.html line 1749 | 5.17 | agree
+- bin 6.53" dsigma_Up -> err_hi | `(blank; NGC 1904 block) | 6.53 | 50 | 5.17 | 0.61 | 0.52 | RV` | veldis.html line 1749 | 0.61 | agree
+- bin 6.53" dsigma_Low -> err_lo | `(blank; NGC 1904 block) | 6.53 | 50 | 5.17 | 0.61 | 0.52 | RV` | veldis.html line 1749 | 0.52 | agree
+- bin 8.90" <r> [arcsec] | `(blank; NGC 1904 block) | 8.90 | 50 | 5.42 | 0.65 | 0.55 | RV` | veldis.html line 1755 | 8.9 | agree
+- bin 8.90" NStar | `(blank; NGC 1904 block) | 8.90 | 50 | 5.42 | 0.65 | 0.55 | RV` | veldis.html line 1755 | 50.0 | agree
+- bin 8.90" sigma [km/s] | `(blank; NGC 1904 block) | 8.90 | 50 | 5.42 | 0.65 | 0.55 | RV` | veldis.html line 1755 | 5.42 | agree
+- bin 8.90" dsigma_Up -> err_hi | `(blank; NGC 1904 block) | 8.90 | 50 | 5.42 | 0.65 | 0.55 | RV` | veldis.html line 1755 | 0.65 | agree
+- bin 8.90" dsigma_Low -> err_lo | `(blank; NGC 1904 block) | 8.90 | 50 | 5.42 | 0.65 | 0.55 | RV` | veldis.html line 1755 | 0.55 | agree
+- bin 13.58" <r> [arcsec] | `(blank; NGC 1904 block) | 13.58 | 150 | 5.51 | 0.38 | 0.34 | RV` | veldis.html line 1767 | 13.58 | agree
+- bin 13.58" NStar | `(blank; NGC 1904 block) | 13.58 | 150 | 5.51 | 0.38 | 0.34 | RV` | veldis.html line 1767 | 150.0 | agree
+- bin 13.58" sigma [km/s] | `(blank; NGC 1904 block) | 13.58 | 150 | 5.51 | 0.38 | 0.34 | RV` | veldis.html line 1767 | 5.51 | agree
+- bin 13.58" dsigma_Up -> err_hi | `(blank; NGC 1904 block) | 13.58 | 150 | 5.51 | 0.38 | 0.34 | RV` | veldis.html line 1767 | 0.38 | agree
+- bin 13.58" dsigma_Low -> err_lo | `(blank; NGC 1904 block) | 13.58 | 150 | 5.51 | 0.38 | 0.34 | RV` | veldis.html line 1767 | 0.34 | agree
+- bin 20.27" <r> [arcsec] | `(blank; NGC 1904 block) | 20.27 | 150 | 5.88 | 0.40 | 0.36 | RV` | veldis.html line 1773 | 20.27 | agree
+- bin 20.27" NStar | `(blank; NGC 1904 block) | 20.27 | 150 | 5.88 | 0.40 | 0.36 | RV` | veldis.html line 1773 | 150.0 | agree
+- bin 20.27" sigma [km/s] | `(blank; NGC 1904 block) | 20.27 | 150 | 5.88 | 0.40 | 0.36 | RV` | veldis.html line 1773 | 5.88 | agree
+- bin 20.27" dsigma_Up -> err_hi | `(blank; NGC 1904 block) | 20.27 | 150 | 5.88 | 0.40 | 0.36 | RV` | veldis.html line 1773 | 0.4 | agree
+- bin 20.27" dsigma_Low -> err_lo | `(blank; NGC 1904 block) | 20.27 | 150 | 5.88 | 0.40 | 0.36 | RV` | veldis.html line 1773 | 0.36 | agree
+- bin 26.99" <r> [arcsec] | `(blank; NGC 1904 block) | 26.99 | 150 | 5.71 | 0.38 | 0.34 | RV` | veldis.html line 1779 | 26.99 | agree
+- bin 26.99" NStar | `(blank; NGC 1904 block) | 26.99 | 150 | 5.71 | 0.38 | 0.34 | RV` | veldis.html line 1779 | 150.0 | agree
+- bin 26.99" sigma [km/s] | `(blank; NGC 1904 block) | 26.99 | 150 | 5.71 | 0.38 | 0.34 | RV` | veldis.html line 1779 | 5.71 | agree
+- bin 26.99" dsigma_Up -> err_hi | `(blank; NGC 1904 block) | 26.99 | 150 | 5.71 | 0.38 | 0.34 | RV` | veldis.html line 1779 | 0.38 | agree
+- bin 26.99" dsigma_Low -> err_lo | `(blank; NGC 1904 block) | 26.99 | 150 | 5.71 | 0.38 | 0.34 | RV` | veldis.html line 1779 | 0.34 | agree
+- bin 33.82" <r> [arcsec] | `(blank; NGC 1904 block) | 33.82 | 150 | 4.57 | 0.32 | 0.29 | RV` | veldis.html line 1791 | 33.82 | agree
+- bin 33.82" NStar | `(blank; NGC 1904 block) | 33.82 | 150 | 4.57 | 0.32 | 0.29 | RV` | veldis.html line 1791 | 150.0 | agree
+- bin 33.82" sigma [km/s] | `(blank; NGC 1904 block) | 33.82 | 150 | 4.57 | 0.32 | 0.29 | RV` | veldis.html line 1791 | 4.57 | agree
+- bin 33.82" dsigma_Up -> err_hi | `(blank; NGC 1904 block) | 33.82 | 150 | 4.57 | 0.32 | 0.29 | RV` | veldis.html line 1791 | 0.32 | agree
+- bin 33.82" dsigma_Low -> err_lo | `(blank; NGC 1904 block) | 33.82 | 150 | 4.57 | 0.32 | 0.29 | RV` | veldis.html line 1791 | 0.29 | agree
+- bin 41.24" <r> [arcsec] | `(blank; NGC 1904 block) | 41.24 | 150 | 4.92 | 0.34 | 0.31 | RV` | veldis.html line 1797 | 41.24 | agree
+- bin 41.24" NStar | `(blank; NGC 1904 block) | 41.24 | 150 | 4.92 | 0.34 | 0.31 | RV` | veldis.html line 1797 | 150.0 | agree
+- bin 41.24" sigma [km/s] | `(blank; NGC 1904 block) | 41.24 | 150 | 4.92 | 0.34 | 0.31 | RV` | veldis.html line 1797 | 4.92 | agree
+- bin 41.24" dsigma_Up -> err_hi | `(blank; NGC 1904 block) | 41.24 | 150 | 4.92 | 0.34 | 0.31 | RV` | veldis.html line 1797 | 0.34 | agree
+- bin 41.24" dsigma_Low -> err_lo | `(blank; NGC 1904 block) | 41.24 | 150 | 4.92 | 0.34 | 0.31 | RV` | veldis.html line 1797 | 0.31 | agree
+- bin 50.97" <r> [arcsec] | `(blank; NGC 1904 block) | 50.97 | 150 | 5.24 | 0.36 | 0.33 | RV` | veldis.html line 1803 | 50.97 | agree
+- bin 50.97" NStar | `(blank; NGC 1904 block) | 50.97 | 150 | 5.24 | 0.36 | 0.33 | RV` | veldis.html line 1803 | 150.0 | agree
+- bin 50.97" sigma [km/s] | `(blank; NGC 1904 block) | 50.97 | 150 | 5.24 | 0.36 | 0.33 | RV` | veldis.html line 1803 | 5.24 | agree
+- bin 50.97" dsigma_Up -> err_hi | `(blank; NGC 1904 block) | 50.97 | 150 | 5.24 | 0.36 | 0.33 | RV` | veldis.html line 1803 | 0.36 | agree
+- bin 50.97" dsigma_Low -> err_lo | `(blank; NGC 1904 block) | 50.97 | 150 | 5.24 | 0.36 | 0.33 | RV` | veldis.html line 1803 | 0.33 | agree
+- bin 105.43" <r> [arcsec] | `(blank; NGC 1904 block) | 105.43 | 150 | 3.83 | 0.25 | 0.23 | RV` | veldis.html line 1821 | 105.43 | agree
+- bin 105.43" NStar | `(blank; NGC 1904 block) | 105.43 | 150 | 3.83 | 0.25 | 0.23 | RV` | veldis.html line 1821 | 150.0 | agree
+- bin 105.43" sigma [km/s] | `(blank; NGC 1904 block) | 105.43 | 150 | 3.83 | 0.25 | 0.23 | RV` | veldis.html line 1821 | 3.83 | agree
+- bin 105.43" dsigma_Up -> err_hi | `(blank; NGC 1904 block) | 105.43 | 150 | 3.83 | 0.25 | 0.23 | RV` | veldis.html line 1821 | 0.25 | agree
+- bin 105.43" dsigma_Low -> err_lo | `(blank; NGC 1904 block) | 105.43 | 150 | 3.83 | 0.25 | 0.23 | RV` | veldis.html line 1821 | 0.23 | agree
+- bin 179.58" <r> [arcsec] | `(blank; NGC 1904 block) | 179.58 | 50 | 2.62 | 0.32 | 0.27 | RV` | veldis.html line 1839 | 179.58 | agree
+- bin 179.58" NStar | `(blank; NGC 1904 block) | 179.58 | 50 | 2.62 | 0.32 | 0.27 | RV` | veldis.html line 1839 | 50.0 | agree
+- bin 179.58" sigma [km/s] | `(blank; NGC 1904 block) | 179.58 | 50 | 2.62 | 0.32 | 0.27 | RV` | veldis.html line 1839 | 2.62 | agree
+- bin 179.58" dsigma_Up -> err_hi | `(blank; NGC 1904 block) | 179.58 | 50 | 2.62 | 0.32 | 0.27 | RV` | veldis.html line 1839 | 0.32 | agree
+- bin 179.58" dsigma_Low -> err_lo | `(blank; NGC 1904 block) | 179.58 | 50 | 2.62 | 0.32 | 0.27 | RV` | veldis.html line 1839 | 0.27 | agree
+- bin 232.15" <r> [arcsec] | `(blank; NGC 1904 block) | 232.15 | 50 | 2.52 | 0.31 | 0.26 | RV` | veldis.html line 1845 | 232.15 | agree
+- bin 232.15" NStar | `(blank; NGC 1904 block) | 232.15 | 50 | 2.52 | 0.31 | 0.26 | RV` | veldis.html line 1845 | 50.0 | agree
+- bin 232.15" sigma [km/s] | `(blank; NGC 1904 block) | 232.15 | 50 | 2.52 | 0.31 | 0.26 | RV` | veldis.html line 1845 | 2.52 | agree
+- bin 232.15" dsigma_Up -> err_hi | `(blank; NGC 1904 block) | 232.15 | 50 | 2.52 | 0.31 | 0.26 | RV` | veldis.html line 1845 | 0.31 | agree
+- bin 232.15" dsigma_Low -> err_lo | `(blank; NGC 1904 block) | 232.15 | 50 | 2.52 | 0.31 | 0.26 | RV` | veldis.html line 1845 | 0.26 | agree
+- bin 480.85" <r> [arcsec] | `(blank; NGC 1904 block) | 480.85 | 47 | 2.50 | 0.33 | 0.28 | RV` | veldis.html line 1857 | 480.85 | agree
+- bin 480.85" NStar | `(blank; NGC 1904 block) | 480.85 | 47 | 2.50 | 0.33 | 0.28 | RV` | veldis.html line 1857 | 47.0 | agree
+- bin 480.85" sigma [km/s] | `(blank; NGC 1904 block) | 480.85 | 47 | 2.50 | 0.33 | 0.28 | RV` | veldis.html line 1857 | 2.5 | agree
+- bin 480.85" dsigma_Up -> err_hi | `(blank; NGC 1904 block) | 480.85 | 47 | 2.50 | 0.33 | 0.28 | RV` | veldis.html line 1857 | 0.33 | agree
+- bin 480.85" dsigma_Low -> err_lo | `(blank; NGC 1904 block) | 480.85 | 47 | 2.50 | 0.33 | 0.28 | RV` | veldis.html line 1857 | 0.28 | agree
+- R_Sun [kpc] | `NGC 1904 ...  12.9  18.8  [R_Sun field: '12.9']` | mwgc.dat line 83 (Part I) | 12.9 | agree
+- M_V,t [mag] | `NGC 1904 ... 7.73  -7.86  [M_V,t field: '-7.86']` | mwgc.dat line 263 (Part II) | -7.86 | agree
+- W0/gamma | `<TD>7.50</TD>` | J_ApJS_161_304_models.vot models.vot line 536 (recno 196, MW-NGC1904, Mod K) | 7.5 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 536 (recno 196, MW-NGC1904, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 536 (recno 196, MW-NGC1904, Mod K) | 0.1 | agree
+- r0 | `<TD>10.310</TD>` | J_ApJS_161_304_models.vot models.vot line 536 (recno 196, MW-NGC1904, Mod K) | 10.31 | agree
+- E_r0 -> err_hi | `<TD>0.190</TD>` | J_ApJS_161_304_models.vot models.vot line 536 (recno 196, MW-NGC1904, Mod K) | 0.19 | agree
+- e_r0 -> err_lo | `<TD>0.190</TD>` | J_ApJS_161_304_models.vot models.vot line 536 (recno 196, MW-NGC1904, Mod K) | 0.19 | agree
+- Rh | `<TD>0.389</TD>` | J_ApJS_161_304_models.vot models.vot line 536 (recno 196, MW-NGC1904, Mod K) | 0.389 | agree
+- E_Rh -> err_hi | `<TD>0.018</TD>` | J_ApJS_161_304_models.vot models.vot line 536 (recno 196, MW-NGC1904, Mod K) | 0.018 | agree
+- e_Rh -> err_lo | `<TD>0.017</TD>` | J_ApJS_161_304_models.vot models.vot line 536 (recno 196, MW-NGC1904, Mod K) | 0.017 | agree
+- Dist | `<TD>12.9</TD>` | J_ApJS_161_304_models.vot models.vot line 536 (recno 196, MW-NGC1904, Mod K) | 12.9 | agree
+- (M/L)1 | `<TD>1.877</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 238 (recno 78, MW-NGC1904) | 1.877 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.154</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 238 (recno 78, MW-NGC1904) | 0.154 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.154</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 238 (recno 78, MW-NGC1904) | 0.154 | agree
+- arithmetic L_V = 121338.885 vs 121338.885 | agree; R_h = 10^0.389 x 12.9 / 12.9 = 2.449063242 pc vs 2.449063242 | agree; M/L 1.877 vs 1.877 | agree
+
+### NGC 2298
+
+- bin 23.12" <r> [arcsec] | `(blank; NGC 2298 block) | 23.12 | 21 | 3.52 | 0.68 | 0.53 | RV` | veldis.html line 1877 | 23.12 | agree
+- bin 23.12" NStar | `(blank; NGC 2298 block) | 23.12 | 21 | 3.52 | 0.68 | 0.53 | RV` | veldis.html line 1877 | 21.0 | agree
+- bin 23.12" sigma [km/s] | `(blank; NGC 2298 block) | 23.12 | 21 | 3.52 | 0.68 | 0.53 | RV` | veldis.html line 1877 | 3.52 | agree
+- bin 23.12" dsigma_Up -> err_hi | `(blank; NGC 2298 block) | 23.12 | 21 | 3.52 | 0.68 | 0.53 | RV` | veldis.html line 1877 | 0.68 | agree
+- bin 23.12" dsigma_Low -> err_lo | `(blank; NGC 2298 block) | 23.12 | 21 | 3.52 | 0.68 | 0.53 | RV` | veldis.html line 1877 | 0.53 | agree
+- bin 101.86" <r> [arcsec] | `(blank; NGC 2298 block) | 101.86 | 21 | 2.92 | 0.59 | 0.46 | RV` | veldis.html line 1913 | 101.86 | agree
+- bin 101.86" NStar | `(blank; NGC 2298 block) | 101.86 | 21 | 2.92 | 0.59 | 0.46 | RV` | veldis.html line 1913 | 21.0 | agree
+- bin 101.86" sigma [km/s] | `(blank; NGC 2298 block) | 101.86 | 21 | 2.92 | 0.59 | 0.46 | RV` | veldis.html line 1913 | 2.92 | agree
+- bin 101.86" dsigma_Up -> err_hi | `(blank; NGC 2298 block) | 101.86 | 21 | 2.92 | 0.59 | 0.46 | RV` | veldis.html line 1913 | 0.59 | agree
+- bin 101.86" dsigma_Low -> err_lo | `(blank; NGC 2298 block) | 101.86 | 21 | 2.92 | 0.59 | 0.46 | RV` | veldis.html line 1913 | 0.46 | agree
+- R_Sun [kpc] | `NGC 2298 ...  10.8  15.8  [R_Sun field: '10.8']` | mwgc.dat line 84 (Part I) | 10.8 | agree
+- M_V,t [mag] | `NGC 2298 ... 9.29  -6.31  [M_V,t field: '-6.31']` | mwgc.dat line 264 (Part II) | -6.31 | agree
+- W0/gamma | `<TD>6.20</TD>` | J_ApJS_161_304_models.vot models.vot line 539 (recno 199, MW-NGC2298, Mod K) | 6.2 | agree
+- E_W0/gamma -> err_hi | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 539 (recno 199, MW-NGC2298, Mod K) | 0.2 | agree
+- e_W0/gamma -> err_lo | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 539 (recno 199, MW-NGC2298, Mod K) | 0.2 | agree
+- r0 | `<TD>21.400</TD>` | J_ApJS_161_304_models.vot models.vot line 539 (recno 199, MW-NGC2298, Mod K) | 21.4 | agree
+- E_r0 -> err_hi | `<TD>0.690</TD>` | J_ApJS_161_304_models.vot models.vot line 539 (recno 199, MW-NGC2298, Mod K) | 0.69 | agree
+- e_r0 -> err_lo | `<TD>0.620</TD>` | J_ApJS_161_304_models.vot models.vot line 539 (recno 199, MW-NGC2298, Mod K) | 0.62 | agree
+- Rh | `<TD>0.372</TD>` | J_ApJS_161_304_models.vot models.vot line 539 (recno 199, MW-NGC2298, Mod K) | 0.372 | agree
+- E_Rh -> err_hi | `<TD>0.018</TD>` | J_ApJS_161_304_models.vot models.vot line 539 (recno 199, MW-NGC2298, Mod K) | 0.018 | agree
+- e_Rh -> err_lo | `<TD>0.014</TD>` | J_ApJS_161_304_models.vot models.vot line 539 (recno 199, MW-NGC2298, Mod K) | 0.014 | agree
+- Dist | `<TD>10.7</TD>` | J_ApJS_161_304_models.vot models.vot line 539 (recno 199, MW-NGC2298, Mod K) | 10.7 | agree
+- (M/L)1 | `<TD>1.870</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 239 (recno 79, MW-NGC2298) | 1.87 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.157</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 239 (recno 79, MW-NGC2298) | 0.157 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.157</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 239 (recno 79, MW-NGC2298) | 0.157 | agree
+- arithmetic L_V = 29107.17118 vs 29107.17118 | agree; R_h = 10^0.372 x 10.8 / 10.7 = 2.37705909 pc vs 2.37705909 | agree; M/L 1.87 vs 1.87 | agree
+
+### NGC 2419
+
+- bin 38.20" <r> [arcsec] | `NGC 2419 | 38.20 | 62 | 5.51 | 0.57 | 0.49 | RV` | veldis.html line 1932 | 38.2 | agree
+- bin 38.20" NStar | `NGC 2419 | 38.20 | 62 | 5.51 | 0.57 | 0.49 | RV` | veldis.html line 1932 | 62.0 | agree
+- bin 38.20" sigma [km/s] | `NGC 2419 | 38.20 | 62 | 5.51 | 0.57 | 0.49 | RV` | veldis.html line 1932 | 5.51 | agree
+- bin 38.20" dsigma_Up -> err_hi | `NGC 2419 | 38.20 | 62 | 5.51 | 0.57 | 0.49 | RV` | veldis.html line 1932 | 0.57 | agree
+- bin 38.20" dsigma_Low -> err_lo | `NGC 2419 | 38.20 | 62 | 5.51 | 0.57 | 0.49 | RV` | veldis.html line 1932 | 0.49 | agree
+- bin 99.96" <r> [arcsec] | `(blank; NGC 2419 block) | 99.96 | 62 | 2.63 | 0.34 | 0.29 | RV` | veldis.html line 1939 | 99.96 | agree
+- bin 99.96" NStar | `(blank; NGC 2419 block) | 99.96 | 62 | 2.63 | 0.34 | 0.29 | RV` | veldis.html line 1939 | 62.0 | agree
+- bin 99.96" sigma [km/s] | `(blank; NGC 2419 block) | 99.96 | 62 | 2.63 | 0.34 | 0.29 | RV` | veldis.html line 1939 | 2.63 | agree
+- bin 99.96" dsigma_Up -> err_hi | `(blank; NGC 2419 block) | 99.96 | 62 | 2.63 | 0.34 | 0.29 | RV` | veldis.html line 1939 | 0.34 | agree
+- bin 99.96" dsigma_Low -> err_lo | `(blank; NGC 2419 block) | 99.96 | 62 | 2.63 | 0.34 | 0.29 | RV` | veldis.html line 1939 | 0.29 | agree
+- bin 213.57" <r> [arcsec] | `(blank; NGC 2419 block) | 213.57 | 59 | 1.64 | 0.22 | 0.20 | RV` | veldis.html line 1945 | 213.57 | agree
+- bin 213.57" NStar | `(blank; NGC 2419 block) | 213.57 | 59 | 1.64 | 0.22 | 0.20 | RV` | veldis.html line 1945 | 59.0 | agree
+- bin 213.57" sigma [km/s] | `(blank; NGC 2419 block) | 213.57 | 59 | 1.64 | 0.22 | 0.20 | RV` | veldis.html line 1945 | 1.64 | agree
+- bin 213.57" dsigma_Up -> err_hi | `(blank; NGC 2419 block) | 213.57 | 59 | 1.64 | 0.22 | 0.20 | RV` | veldis.html line 1945 | 0.22 | agree
+- bin 213.57" dsigma_Low -> err_lo | `(blank; NGC 2419 block) | 213.57 | 59 | 1.64 | 0.22 | 0.20 | RV` | veldis.html line 1945 | 0.2 | agree
+- R_Sun [kpc] | `NGC 2419 ...  82.6  89.9  [R_Sun field: '82.6']` | mwgc.dat line 85 (Part I) | 82.6 | agree
+- M_V,t [mag] | `NGC 2419 ...10.41  -9.42  [M_V,t field: '-9.42']` | mwgc.dat line 265 (Part II) | -9.42 | agree
+- W0/gamma | `<TD>6.50</TD>` | J_ApJS_161_304_models.vot models.vot line 542 (recno 202, MW-NGC2419, Mod K) | 6.5 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 542 (recno 202, MW-NGC2419, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 542 (recno 202, MW-NGC2419, Mod K) | 0.1 | agree
+- r0 | `<TD>20.600</TD>` | J_ApJS_161_304_models.vot models.vot line 542 (recno 202, MW-NGC2419, Mod K) | 20.6 | agree
+- E_r0 -> err_hi | `<TD>0.640</TD>` | J_ApJS_161_304_models.vot models.vot line 542 (recno 202, MW-NGC2419, Mod K) | 0.64 | agree
+- e_r0 -> err_lo | `<TD>0.650</TD>` | J_ApJS_161_304_models.vot models.vot line 542 (recno 202, MW-NGC2419, Mod K) | 0.65 | agree
+- Rh | `<TD>1.299</TD>` | J_ApJS_161_304_models.vot models.vot line 542 (recno 202, MW-NGC2419, Mod K) | 1.299 | agree
+- E_Rh -> err_hi | `<TD>0.003</TD>` | J_ApJS_161_304_models.vot models.vot line 542 (recno 202, MW-NGC2419, Mod K) | 0.003 | agree
+- e_Rh -> err_lo | `<TD>0.003</TD>` | J_ApJS_161_304_models.vot models.vot line 542 (recno 202, MW-NGC2419, Mod K) | 0.003 | agree
+- Dist | `<TD>84.2</TD>` | J_ApJS_161_304_models.vot models.vot line 542 (recno 202, MW-NGC2419, Mod K) | 84.2 | agree
+- (M/L)1 | `<TD>1.903</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 240 (recno 80, MW-NGC2419) | 1.903 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.161</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 240 (recno 80, MW-NGC2419) | 0.161 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.161</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 240 (recno 80, MW-NGC2419) | 0.161 | agree
+- arithmetic L_V = 510505 vs 510505 | agree; R_h = 10^1.299 x 82.6 / 84.2 = 19.52845817 pc vs 19.52845817 | agree; M/L 1.903 vs 1.903 | agree
+
+### NGC 2808
+
+- bin 5.78" <r> [arcsec] | `(blank; NGC 2808 block) | 5.78 | 200 | 13.33 | 0.70 | 0.65 | RV` | veldis.html line 1959 | 5.78 | agree
+- bin 5.78" NStar | `(blank; NGC 2808 block) | 5.78 | 200 | 13.33 | 0.70 | 0.65 | RV` | veldis.html line 1959 | 200.0 | agree
+- bin 5.78" sigma [km/s] | `(blank; NGC 2808 block) | 5.78 | 200 | 13.33 | 0.70 | 0.65 | RV` | veldis.html line 1959 | 13.33 | agree
+- bin 5.78" dsigma_Up -> err_hi | `(blank; NGC 2808 block) | 5.78 | 200 | 13.33 | 0.70 | 0.65 | RV` | veldis.html line 1959 | 0.7 | agree
+- bin 5.78" dsigma_Low -> err_lo | `(blank; NGC 2808 block) | 5.78 | 200 | 13.33 | 0.70 | 0.65 | RV` | veldis.html line 1959 | 0.65 | agree
+- bin 11.05" <r> [arcsec] | `(blank; NGC 2808 block) | 11.05 | 200 | 12.59 | 0.67 | 0.61 | RV` | veldis.html line 1971 | 11.05 | agree
+- bin 11.05" NStar | `(blank; NGC 2808 block) | 11.05 | 200 | 12.59 | 0.67 | 0.61 | RV` | veldis.html line 1971 | 200.0 | agree
+- bin 11.05" sigma [km/s] | `(blank; NGC 2808 block) | 11.05 | 200 | 12.59 | 0.67 | 0.61 | RV` | veldis.html line 1971 | 12.59 | agree
+- bin 11.05" dsigma_Up -> err_hi | `(blank; NGC 2808 block) | 11.05 | 200 | 12.59 | 0.67 | 0.61 | RV` | veldis.html line 1971 | 0.67 | agree
+- bin 11.05" dsigma_Low -> err_lo | `(blank; NGC 2808 block) | 11.05 | 200 | 12.59 | 0.67 | 0.61 | RV` | veldis.html line 1971 | 0.61 | agree
+- bin 16.72" <r> [arcsec] | `(blank; NGC 2808 block) | 16.72 | 400 | 12.39 | 0.47 | 0.44 | RV` | veldis.html line 1983 | 16.72 | agree
+- bin 16.72" NStar | `(blank; NGC 2808 block) | 16.72 | 400 | 12.39 | 0.47 | 0.44 | RV` | veldis.html line 1983 | 400.0 | agree
+- bin 16.72" sigma [km/s] | `(blank; NGC 2808 block) | 16.72 | 400 | 12.39 | 0.47 | 0.44 | RV` | veldis.html line 1983 | 12.39 | agree
+- bin 16.72" dsigma_Up -> err_hi | `(blank; NGC 2808 block) | 16.72 | 400 | 12.39 | 0.47 | 0.44 | RV` | veldis.html line 1983 | 0.47 | agree
+- bin 16.72" dsigma_Low -> err_lo | `(blank; NGC 2808 block) | 16.72 | 400 | 12.39 | 0.47 | 0.44 | RV` | veldis.html line 1983 | 0.44 | agree
+- bin 22.48" <r> [arcsec] | `(blank; NGC 2808 block) | 22.48 | 400 | 13.38 | 0.50 | 0.47 | RV` | veldis.html line 1995 | 22.48 | agree
+- bin 22.48" NStar | `(blank; NGC 2808 block) | 22.48 | 400 | 13.38 | 0.50 | 0.47 | RV` | veldis.html line 1995 | 400.0 | agree
+- bin 22.48" sigma [km/s] | `(blank; NGC 2808 block) | 22.48 | 400 | 13.38 | 0.50 | 0.47 | RV` | veldis.html line 1995 | 13.38 | agree
+- bin 22.48" dsigma_Up -> err_hi | `(blank; NGC 2808 block) | 22.48 | 400 | 13.38 | 0.50 | 0.47 | RV` | veldis.html line 1995 | 0.5 | agree
+- bin 22.48" dsigma_Low -> err_lo | `(blank; NGC 2808 block) | 22.48 | 400 | 13.38 | 0.50 | 0.47 | RV` | veldis.html line 1995 | 0.47 | agree
+- bin 28.19" <r> [arcsec] | `(blank; NGC 2808 block) | 28.19 | 400 | 12.71 | 0.48 | 0.45 | RV` | veldis.html line 2007 | 28.19 | agree
+- bin 28.19" NStar | `(blank; NGC 2808 block) | 28.19 | 400 | 12.71 | 0.48 | 0.45 | RV` | veldis.html line 2007 | 400.0 | agree
+- bin 28.19" sigma [km/s] | `(blank; NGC 2808 block) | 28.19 | 400 | 12.71 | 0.48 | 0.45 | RV` | veldis.html line 2007 | 12.71 | agree
+- bin 28.19" dsigma_Up -> err_hi | `(blank; NGC 2808 block) | 28.19 | 400 | 12.71 | 0.48 | 0.45 | RV` | veldis.html line 2007 | 0.48 | agree
+- bin 28.19" dsigma_Low -> err_lo | `(blank; NGC 2808 block) | 28.19 | 400 | 12.71 | 0.48 | 0.45 | RV` | veldis.html line 2007 | 0.45 | agree
+- bin 33.44" <r> [arcsec] | `(blank; NGC 2808 block) | 33.44 | 400 | 13.16 | 0.49 | 0.47 | RV` | veldis.html line 2025 | 33.44 | agree
+- bin 33.44" NStar | `(blank; NGC 2808 block) | 33.44 | 400 | 13.16 | 0.49 | 0.47 | RV` | veldis.html line 2025 | 400.0 | agree
+- bin 33.44" sigma [km/s] | `(blank; NGC 2808 block) | 33.44 | 400 | 13.16 | 0.49 | 0.47 | RV` | veldis.html line 2025 | 13.16 | agree
+- bin 33.44" dsigma_Up -> err_hi | `(blank; NGC 2808 block) | 33.44 | 400 | 13.16 | 0.49 | 0.47 | RV` | veldis.html line 2025 | 0.49 | agree
+- bin 33.44" dsigma_Low -> err_lo | `(blank; NGC 2808 block) | 33.44 | 400 | 13.16 | 0.49 | 0.47 | RV` | veldis.html line 2025 | 0.47 | agree
+- bin 38.91" <r> [arcsec] | `(blank; NGC 2808 block) | 38.91 | 400 | 12.44 | 0.47 | 0.44 | RV` | veldis.html line 2037 | 38.91 | agree
+- bin 38.91" NStar | `(blank; NGC 2808 block) | 38.91 | 400 | 12.44 | 0.47 | 0.44 | RV` | veldis.html line 2037 | 400.0 | agree
+- bin 38.91" sigma [km/s] | `(blank; NGC 2808 block) | 38.91 | 400 | 12.44 | 0.47 | 0.44 | RV` | veldis.html line 2037 | 12.44 | agree
+- bin 38.91" dsigma_Up -> err_hi | `(blank; NGC 2808 block) | 38.91 | 400 | 12.44 | 0.47 | 0.44 | RV` | veldis.html line 2037 | 0.47 | agree
+- bin 38.91" dsigma_Low -> err_lo | `(blank; NGC 2808 block) | 38.91 | 400 | 12.44 | 0.47 | 0.44 | RV` | veldis.html line 2037 | 0.44 | agree
+- bin 43.92" <r> [arcsec] | `(blank; NGC 2808 block) | 43.92 | 400 | 11.17 | 0.42 | 0.40 | RV` | veldis.html line 2055 | 43.92 | agree
+- bin 43.92" NStar | `(blank; NGC 2808 block) | 43.92 | 400 | 11.17 | 0.42 | 0.40 | RV` | veldis.html line 2055 | 400.0 | agree
+- bin 43.92" sigma [km/s] | `(blank; NGC 2808 block) | 43.92 | 400 | 11.17 | 0.42 | 0.40 | RV` | veldis.html line 2055 | 11.17 | agree
+- bin 43.92" dsigma_Up -> err_hi | `(blank; NGC 2808 block) | 43.92 | 400 | 11.17 | 0.42 | 0.40 | RV` | veldis.html line 2055 | 0.42 | agree
+- bin 43.92" dsigma_Low -> err_lo | `(blank; NGC 2808 block) | 43.92 | 400 | 11.17 | 0.42 | 0.40 | RV` | veldis.html line 2055 | 0.4 | agree
+- bin 48.74" <r> [arcsec] | `(blank; NGC 2808 block) | 48.74 | 400 | 12.16 | 0.46 | 0.43 | RV` | veldis.html line 2067 | 48.74 | agree
+- bin 48.74" NStar | `(blank; NGC 2808 block) | 48.74 | 400 | 12.16 | 0.46 | 0.43 | RV` | veldis.html line 2067 | 400.0 | agree
+- bin 48.74" sigma [km/s] | `(blank; NGC 2808 block) | 48.74 | 400 | 12.16 | 0.46 | 0.43 | RV` | veldis.html line 2067 | 12.16 | agree
+- bin 48.74" dsigma_Up -> err_hi | `(blank; NGC 2808 block) | 48.74 | 400 | 12.16 | 0.46 | 0.43 | RV` | veldis.html line 2067 | 0.46 | agree
+- bin 48.74" dsigma_Low -> err_lo | `(blank; NGC 2808 block) | 48.74 | 400 | 12.16 | 0.46 | 0.43 | RV` | veldis.html line 2067 | 0.43 | agree
+- bin 54.63" <r> [arcsec] | `(blank; NGC 2808 block) | 54.63 | 400 | 11.86 | 0.45 | 0.42 | RV` | veldis.html line 2085 | 54.63 | agree
+- bin 54.63" NStar | `(blank; NGC 2808 block) | 54.63 | 400 | 11.86 | 0.45 | 0.42 | RV` | veldis.html line 2085 | 400.0 | agree
+- bin 54.63" sigma [km/s] | `(blank; NGC 2808 block) | 54.63 | 400 | 11.86 | 0.45 | 0.42 | RV` | veldis.html line 2085 | 11.86 | agree
+- bin 54.63" dsigma_Up -> err_hi | `(blank; NGC 2808 block) | 54.63 | 400 | 11.86 | 0.45 | 0.42 | RV` | veldis.html line 2085 | 0.45 | agree
+- bin 54.63" dsigma_Low -> err_lo | `(blank; NGC 2808 block) | 54.63 | 400 | 11.86 | 0.45 | 0.42 | RV` | veldis.html line 2085 | 0.42 | agree
+- bin 65.49" <r> [arcsec] | `(blank; NGC 2808 block) | 65.49 | 200 | 10.87 | 0.58 | 0.54 | RV` | veldis.html line 2115 | 65.49 | agree
+- bin 65.49" NStar | `(blank; NGC 2808 block) | 65.49 | 200 | 10.87 | 0.58 | 0.54 | RV` | veldis.html line 2115 | 200.0 | agree
+- bin 65.49" sigma [km/s] | `(blank; NGC 2808 block) | 65.49 | 200 | 10.87 | 0.58 | 0.54 | RV` | veldis.html line 2115 | 10.87 | agree
+- bin 65.49" dsigma_Up -> err_hi | `(blank; NGC 2808 block) | 65.49 | 200 | 10.87 | 0.58 | 0.54 | RV` | veldis.html line 2115 | 0.58 | agree
+- bin 65.49" dsigma_Low -> err_lo | `(blank; NGC 2808 block) | 65.49 | 200 | 10.87 | 0.58 | 0.54 | RV` | veldis.html line 2115 | 0.54 | agree
+- bin 96.21" <r> [arcsec] | `(blank; NGC 2808 block) | 96.21 | 200 | 9.42 | 0.50 | 0.46 | RV` | veldis.html line 2157 | 96.21 | agree
+- bin 96.21" NStar | `(blank; NGC 2808 block) | 96.21 | 200 | 9.42 | 0.50 | 0.46 | RV` | veldis.html line 2157 | 200.0 | agree
+- bin 96.21" sigma [km/s] | `(blank; NGC 2808 block) | 96.21 | 200 | 9.42 | 0.50 | 0.46 | RV` | veldis.html line 2157 | 9.42 | agree
+- bin 96.21" dsigma_Up -> err_hi | `(blank; NGC 2808 block) | 96.21 | 200 | 9.42 | 0.50 | 0.46 | RV` | veldis.html line 2157 | 0.5 | agree
+- bin 96.21" dsigma_Low -> err_lo | `(blank; NGC 2808 block) | 96.21 | 200 | 9.42 | 0.50 | 0.46 | RV` | veldis.html line 2157 | 0.46 | agree
+- bin 142.52" <r> [arcsec] | `(blank; NGC 2808 block) | 142.52 | 200 | 8.48 | 0.45 | 0.42 | RV` | veldis.html line 2169 | 142.52 | agree
+- bin 142.52" NStar | `(blank; NGC 2808 block) | 142.52 | 200 | 8.48 | 0.45 | 0.42 | RV` | veldis.html line 2169 | 200.0 | agree
+- bin 142.52" sigma [km/s] | `(blank; NGC 2808 block) | 142.52 | 200 | 8.48 | 0.45 | 0.42 | RV` | veldis.html line 2169 | 8.48 | agree
+- bin 142.52" dsigma_Up -> err_hi | `(blank; NGC 2808 block) | 142.52 | 200 | 8.48 | 0.45 | 0.42 | RV` | veldis.html line 2169 | 0.45 | agree
+- bin 142.52" dsigma_Low -> err_lo | `(blank; NGC 2808 block) | 142.52 | 200 | 8.48 | 0.45 | 0.42 | RV` | veldis.html line 2169 | 0.42 | agree
+- bin 189.20" <r> [arcsec] | `(blank; NGC 2808 block) | 189.20 | 100 | 7.55 | 0.58 | 0.51 | RV` | veldis.html line 2181 | 189.2 | agree
+- bin 189.20" NStar | `(blank; NGC 2808 block) | 189.20 | 100 | 7.55 | 0.58 | 0.51 | RV` | veldis.html line 2181 | 100.0 | agree
+- bin 189.20" sigma [km/s] | `(blank; NGC 2808 block) | 189.20 | 100 | 7.55 | 0.58 | 0.51 | RV` | veldis.html line 2181 | 7.55 | agree
+- bin 189.20" dsigma_Up -> err_hi | `(blank; NGC 2808 block) | 189.20 | 100 | 7.55 | 0.58 | 0.51 | RV` | veldis.html line 2181 | 0.58 | agree
+- bin 189.20" dsigma_Low -> err_lo | `(blank; NGC 2808 block) | 189.20 | 100 | 7.55 | 0.58 | 0.51 | RV` | veldis.html line 2181 | 0.51 | agree
+- bin 226.31" <r> [arcsec] | `(blank; NGC 2808 block) | 226.31 | 100 | 8.06 | 0.61 | 0.55 | RV` | veldis.html line 2193 | 226.31 | agree
+- bin 226.31" NStar | `(blank; NGC 2808 block) | 226.31 | 100 | 8.06 | 0.61 | 0.55 | RV` | veldis.html line 2193 | 100.0 | agree
+- bin 226.31" sigma [km/s] | `(blank; NGC 2808 block) | 226.31 | 100 | 8.06 | 0.61 | 0.55 | RV` | veldis.html line 2193 | 8.06 | agree
+- bin 226.31" dsigma_Up -> err_hi | `(blank; NGC 2808 block) | 226.31 | 100 | 8.06 | 0.61 | 0.55 | RV` | veldis.html line 2193 | 0.61 | agree
+- bin 226.31" dsigma_Low -> err_lo | `(blank; NGC 2808 block) | 226.31 | 100 | 8.06 | 0.61 | 0.55 | RV` | veldis.html line 2193 | 0.55 | agree
+- bin 272.93" <r> [arcsec] | `(blank; NGC 2808 block) | 272.93 | 100 | 7.81 | 0.60 | 0.53 | RV` | veldis.html line 2205 | 272.93 | agree
+- bin 272.93" NStar | `(blank; NGC 2808 block) | 272.93 | 100 | 7.81 | 0.60 | 0.53 | RV` | veldis.html line 2205 | 100.0 | agree
+- bin 272.93" sigma [km/s] | `(blank; NGC 2808 block) | 272.93 | 100 | 7.81 | 0.60 | 0.53 | RV` | veldis.html line 2205 | 7.81 | agree
+- bin 272.93" dsigma_Up -> err_hi | `(blank; NGC 2808 block) | 272.93 | 100 | 7.81 | 0.60 | 0.53 | RV` | veldis.html line 2205 | 0.6 | agree
+- bin 272.93" dsigma_Low -> err_lo | `(blank; NGC 2808 block) | 272.93 | 100 | 7.81 | 0.60 | 0.53 | RV` | veldis.html line 2205 | 0.53 | agree
+- bin 339.21" <r> [arcsec] | `(blank; NGC 2808 block) | 339.21 | 100 | 6.82 | 0.53 | 0.47 | RV` | veldis.html line 2211 | 339.21 | agree
+- bin 339.21" NStar | `(blank; NGC 2808 block) | 339.21 | 100 | 6.82 | 0.53 | 0.47 | RV` | veldis.html line 2211 | 100.0 | agree
+- bin 339.21" sigma [km/s] | `(blank; NGC 2808 block) | 339.21 | 100 | 6.82 | 0.53 | 0.47 | RV` | veldis.html line 2211 | 6.82 | agree
+- bin 339.21" dsigma_Up -> err_hi | `(blank; NGC 2808 block) | 339.21 | 100 | 6.82 | 0.53 | 0.47 | RV` | veldis.html line 2211 | 0.53 | agree
+- bin 339.21" dsigma_Low -> err_lo | `(blank; NGC 2808 block) | 339.21 | 100 | 6.82 | 0.53 | 0.47 | RV` | veldis.html line 2211 | 0.47 | agree
+- bin 491.25" <r> [arcsec] | `(blank; NGC 2808 block) | 491.25 | 52 | 5.32 | 0.58 | 0.49 | RV` | veldis.html line 2223 | 491.25 | agree
+- bin 491.25" NStar | `(blank; NGC 2808 block) | 491.25 | 52 | 5.32 | 0.58 | 0.49 | RV` | veldis.html line 2223 | 52.0 | agree
+- bin 491.25" sigma [km/s] | `(blank; NGC 2808 block) | 491.25 | 52 | 5.32 | 0.58 | 0.49 | RV` | veldis.html line 2223 | 5.32 | agree
+- bin 491.25" dsigma_Up -> err_hi | `(blank; NGC 2808 block) | 491.25 | 52 | 5.32 | 0.58 | 0.49 | RV` | veldis.html line 2223 | 0.58 | agree
+- bin 491.25" dsigma_Low -> err_lo | `(blank; NGC 2808 block) | 491.25 | 52 | 5.32 | 0.58 | 0.49 | RV` | veldis.html line 2223 | 0.49 | agree
+- R_Sun [kpc] | `NGC 2808 ...   9.6  11.1  [R_Sun field: '9.6']` | mwgc.dat line 88 (Part I) | 9.6 | agree
+- M_V,t [mag] | `NGC 2808 ... 6.20  -9.39  [M_V,t field: '-9.39']` | mwgc.dat line 268 (Part II) | -9.39 | agree
+- W0/gamma | `<TD>7.10</TD>` | J_ApJS_161_304_models.vot models.vot line 545 (recno 205, MW-NGC2808, Mod K) | 7.1 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 545 (recno 205, MW-NGC2808, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 545 (recno 205, MW-NGC2808, Mod K) | 0.1 | agree
+- r0 | `<TD>15.640</TD>` | J_ApJS_161_304_models.vot models.vot line 545 (recno 205, MW-NGC2808, Mod K) | 15.64 | agree
+- E_r0 -> err_hi | `<TD>0.430</TD>` | J_ApJS_161_304_models.vot models.vot line 545 (recno 205, MW-NGC2808, Mod K) | 0.43 | agree
+- e_r0 -> err_lo | `<TD>0.450</TD>` | J_ApJS_161_304_models.vot models.vot line 545 (recno 205, MW-NGC2808, Mod K) | 0.45 | agree
+- Rh | `<TD>0.348</TD>` | J_ApJS_161_304_models.vot models.vot line 545 (recno 205, MW-NGC2808, Mod K) | 0.348 | agree
+- E_Rh -> err_hi | `<TD>0.009</TD>` | J_ApJS_161_304_models.vot models.vot line 545 (recno 205, MW-NGC2808, Mod K) | 0.009 | agree
+- e_Rh -> err_lo | `<TD>0.009</TD>` | J_ApJS_161_304_models.vot models.vot line 545 (recno 205, MW-NGC2808, Mod K) | 0.009 | agree
+- Dist | `<TD>9.6</TD>` | J_ApJS_161_304_models.vot models.vot line 545 (recno 205, MW-NGC2808, Mod K) | 9.6 | agree
+- (M/L)1 | `<TD>2.018</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 241 (recno 81, MW-NGC2808) | 2.018 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.172</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 241 (recno 81, MW-NGC2808) | 0.172 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.172</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 241 (recno 81, MW-NGC2808) | 0.172 | agree
+- arithmetic L_V = 496592.3215 vs 496592.3215 | agree; R_h = 10^0.348 x 9.6 / 9.6 = 2.228435149 pc vs 2.228435149 | agree; M/L 2.018 vs 2.018 | agree
+
+### NGC 288
+
+- bin 49.25" <r> [arcsec] | `(blank; NGC 288 block) | 49.25 | 85 | 2.86 | 0.25 | 0.22 | RV` | veldis.html line 925 | 49.25 | agree
+- bin 49.25" NStar | `(blank; NGC 288 block) | 49.25 | 85 | 2.86 | 0.25 | 0.22 | RV` | veldis.html line 925 | 85.0 | agree
+- bin 49.25" sigma [km/s] | `(blank; NGC 288 block) | 49.25 | 85 | 2.86 | 0.25 | 0.22 | RV` | veldis.html line 925 | 2.86 | agree
+- bin 49.25" dsigma_Up -> err_hi | `(blank; NGC 288 block) | 49.25 | 85 | 2.86 | 0.25 | 0.22 | RV` | veldis.html line 925 | 0.25 | agree
+- bin 49.25" dsigma_Low -> err_lo | `(blank; NGC 288 block) | 49.25 | 85 | 2.86 | 0.25 | 0.22 | RV` | veldis.html line 925 | 0.22 | agree
+- bin 94.10" <r> [arcsec] | `(blank; NGC 288 block) | 94.10 | 85 | 2.65 | 0.23 | 0.20 | RV` | veldis.html line 949 | 94.1 | agree
+- bin 94.10" NStar | `(blank; NGC 288 block) | 94.10 | 85 | 2.65 | 0.23 | 0.20 | RV` | veldis.html line 949 | 85.0 | agree
+- bin 94.10" sigma [km/s] | `(blank; NGC 288 block) | 94.10 | 85 | 2.65 | 0.23 | 0.20 | RV` | veldis.html line 949 | 2.65 | agree
+- bin 94.10" dsigma_Up -> err_hi | `(blank; NGC 288 block) | 94.10 | 85 | 2.65 | 0.23 | 0.20 | RV` | veldis.html line 949 | 0.23 | agree
+- bin 94.10" dsigma_Low -> err_lo | `(blank; NGC 288 block) | 94.10 | 85 | 2.65 | 0.23 | 0.20 | RV` | veldis.html line 949 | 0.2 | agree
+- bin 137.21" <r> [arcsec] | `(blank; NGC 288 block) | 137.21 | 85 | 2.74 | 0.24 | 0.21 | RV` | veldis.html line 961 | 137.21 | agree
+- bin 137.21" NStar | `(blank; NGC 288 block) | 137.21 | 85 | 2.74 | 0.24 | 0.21 | RV` | veldis.html line 961 | 85.0 | agree
+- bin 137.21" sigma [km/s] | `(blank; NGC 288 block) | 137.21 | 85 | 2.74 | 0.24 | 0.21 | RV` | veldis.html line 961 | 2.74 | agree
+- bin 137.21" dsigma_Up -> err_hi | `(blank; NGC 288 block) | 137.21 | 85 | 2.74 | 0.24 | 0.21 | RV` | veldis.html line 961 | 0.24 | agree
+- bin 137.21" dsigma_Low -> err_lo | `(blank; NGC 288 block) | 137.21 | 85 | 2.74 | 0.24 | 0.21 | RV` | veldis.html line 961 | 0.21 | agree
+- bin 188.51" <r> [arcsec] | `(blank; NGC 288 block) | 188.51 | 85 | 2.49 | 0.22 | 0.20 | RV` | veldis.html line 973 | 188.51 | agree
+- bin 188.51" NStar | `(blank; NGC 288 block) | 188.51 | 85 | 2.49 | 0.22 | 0.20 | RV` | veldis.html line 973 | 85.0 | agree
+- bin 188.51" sigma [km/s] | `(blank; NGC 288 block) | 188.51 | 85 | 2.49 | 0.22 | 0.20 | RV` | veldis.html line 973 | 2.49 | agree
+- bin 188.51" dsigma_Up -> err_hi | `(blank; NGC 288 block) | 188.51 | 85 | 2.49 | 0.22 | 0.20 | RV` | veldis.html line 973 | 0.22 | agree
+- bin 188.51" dsigma_Low -> err_lo | `(blank; NGC 288 block) | 188.51 | 85 | 2.49 | 0.22 | 0.20 | RV` | veldis.html line 973 | 0.2 | agree
+- bin 246.57" <r> [arcsec] | `(blank; NGC 288 block) | 246.57 | 85 | 2.57 | 0.24 | 0.21 | RV` | veldis.html line 985 | 246.57 | agree
+- bin 246.57" NStar | `(blank; NGC 288 block) | 246.57 | 85 | 2.57 | 0.24 | 0.21 | RV` | veldis.html line 985 | 85.0 | agree
+- bin 246.57" sigma [km/s] | `(blank; NGC 288 block) | 246.57 | 85 | 2.57 | 0.24 | 0.21 | RV` | veldis.html line 985 | 2.57 | agree
+- bin 246.57" dsigma_Up -> err_hi | `(blank; NGC 288 block) | 246.57 | 85 | 2.57 | 0.24 | 0.21 | RV` | veldis.html line 985 | 0.24 | agree
+- bin 246.57" dsigma_Low -> err_lo | `(blank; NGC 288 block) | 246.57 | 85 | 2.57 | 0.24 | 0.21 | RV` | veldis.html line 985 | 0.21 | agree
+- bin 350.01" <r> [arcsec] | `(blank; NGC 288 block) | 350.01 | 85 | 1.88 | 0.19 | 0.16 | RV` | veldis.html line 997 | 350.01 | agree
+- bin 350.01" NStar | `(blank; NGC 288 block) | 350.01 | 85 | 1.88 | 0.19 | 0.16 | RV` | veldis.html line 997 | 85.0 | agree
+- bin 350.01" sigma [km/s] | `(blank; NGC 288 block) | 350.01 | 85 | 1.88 | 0.19 | 0.16 | RV` | veldis.html line 997 | 1.88 | agree
+- bin 350.01" dsigma_Up -> err_hi | `(blank; NGC 288 block) | 350.01 | 85 | 1.88 | 0.19 | 0.16 | RV` | veldis.html line 997 | 0.19 | agree
+- bin 350.01" dsigma_Low -> err_lo | `(blank; NGC 288 block) | 350.01 | 85 | 1.88 | 0.19 | 0.16 | RV` | veldis.html line 997 | 0.16 | agree
+- bin 639.10" <r> [arcsec] | `(blank; NGC 288 block) | 639.10 | 39 | 1.45 | 0.26 | 0.22 | RV` | veldis.html line 1009 | 639.1 | agree
+- bin 639.10" NStar | `(blank; NGC 288 block) | 639.10 | 39 | 1.45 | 0.26 | 0.22 | RV` | veldis.html line 1009 | 39.0 | agree
+- bin 639.10" sigma [km/s] | `(blank; NGC 288 block) | 639.10 | 39 | 1.45 | 0.26 | 0.22 | RV` | veldis.html line 1009 | 1.45 | agree
+- bin 639.10" dsigma_Up -> err_hi | `(blank; NGC 288 block) | 639.10 | 39 | 1.45 | 0.26 | 0.22 | RV` | veldis.html line 1009 | 0.26 | agree
+- bin 639.10" dsigma_Low -> err_lo | `(blank; NGC 288 block) | 639.10 | 39 | 1.45 | 0.26 | 0.22 | RV` | veldis.html line 1009 | 0.22 | agree
+- R_Sun [kpc] | `NGC 288 ...   8.9  12.0  [R_Sun field: '8.9']` | mwgc.dat line 74 (Part I) | 8.9 | agree
+- M_V,t [mag] | `NGC 288 ... 8.09  -6.75  [M_V,t field: '-6.75']` | mwgc.dat line 254 (Part II) | -6.75 | agree
+- W0/gamma | `<TD>4.80</TD>` | J_ApJS_161_304_models.vot models.vot line 548 (recno 208, MW-NGC288, Mod K) | 4.8 | agree
+- E_W0/gamma -> err_hi | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 548 (recno 208, MW-NGC288, Mod K) | 0.2 | agree
+- e_W0/gamma -> err_lo | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 548 (recno 208, MW-NGC288, Mod K) | 0.2 | agree
+- r0 | `<TD>92.870</TD>` | J_ApJS_161_304_models.vot models.vot line 548 (recno 208, MW-NGC288, Mod K) | 92.87 | agree
+- E_r0 -> err_hi | `<TD>4.850</TD>` | J_ApJS_161_304_models.vot models.vot line 548 (recno 208, MW-NGC288, Mod K) | 4.85 | agree
+- e_r0 -> err_lo | `<TD>4.710</TD>` | J_ApJS_161_304_models.vot models.vot line 548 (recno 208, MW-NGC288, Mod K) | 4.71 | agree
+- Rh | `<TD>0.756</TD>` | J_ApJS_161_304_models.vot models.vot line 548 (recno 208, MW-NGC288, Mod K) | 0.756 | agree
+- E_Rh -> err_hi | `<TD>0.002</TD>` | J_ApJS_161_304_models.vot models.vot line 548 (recno 208, MW-NGC288, Mod K) | 0.002 | agree
+- e_Rh -> err_lo | `<TD>0.001</TD>` | J_ApJS_161_304_models.vot models.vot line 548 (recno 208, MW-NGC288, Mod K) | 0.001 | agree
+- Dist | `<TD>8.8</TD>` | J_ApJS_161_304_models.vot models.vot line 548 (recno 208, MW-NGC288, Mod K) | 8.8 | agree
+- (M/L)1 | `<TD>1.972</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 242 (recno 82, MW-NGC288) | 1.972 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.165</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 242 (recno 82, MW-NGC288) | 0.165 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.165</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 242 (recno 82, MW-NGC288) | 0.165 | agree
+- arithmetic L_V = 43651.58322 vs 43651.58322 | agree; R_h = 10^0.756 x 8.9 / 8.8 = 5.766434117 pc vs 5.766434117 | agree; M/L 1.972 vs 1.972 | agree
+
+### NGC 3201
+
+- bin 9.22" <r> [arcsec] | `NGC 3201 | 9.22 | 200 | 4.53 | 0.27 | 0.25 | RV` | veldis.html line 2236 | 9.22 | agree
+- bin 9.22" NStar | `NGC 3201 | 9.22 | 200 | 4.53 | 0.27 | 0.25 | RV` | veldis.html line 2236 | 200.0 | agree
+- bin 9.22" sigma [km/s] | `NGC 3201 | 9.22 | 200 | 4.53 | 0.27 | 0.25 | RV` | veldis.html line 2236 | 4.53 | agree
+- bin 9.22" dsigma_Up -> err_hi | `NGC 3201 | 9.22 | 200 | 4.53 | 0.27 | 0.25 | RV` | veldis.html line 2236 | 0.27 | agree
+- bin 9.22" dsigma_Low -> err_lo | `NGC 3201 | 9.22 | 200 | 4.53 | 0.27 | 0.25 | RV` | veldis.html line 2236 | 0.25 | agree
+- bin 16.81" <r> [arcsec] | `(blank; NGC 3201 block) | 16.81 | 200 | 4.38 | 0.25 | 0.24 | RV` | veldis.html line 2249 | 16.81 | agree
+- bin 16.81" NStar | `(blank; NGC 3201 block) | 16.81 | 200 | 4.38 | 0.25 | 0.24 | RV` | veldis.html line 2249 | 200.0 | agree
+- bin 16.81" sigma [km/s] | `(blank; NGC 3201 block) | 16.81 | 200 | 4.38 | 0.25 | 0.24 | RV` | veldis.html line 2249 | 4.38 | agree
+- bin 16.81" dsigma_Up -> err_hi | `(blank; NGC 3201 block) | 16.81 | 200 | 4.38 | 0.25 | 0.24 | RV` | veldis.html line 2249 | 0.25 | agree
+- bin 16.81" dsigma_Low -> err_lo | `(blank; NGC 3201 block) | 16.81 | 200 | 4.38 | 0.25 | 0.24 | RV` | veldis.html line 2249 | 0.24 | agree
+- bin 23.71" <r> [arcsec] | `(blank; NGC 3201 block) | 23.71 | 400 | 4.32 | 0.18 | 0.17 | RV` | veldis.html line 2255 | 23.71 | agree
+- bin 23.71" NStar | `(blank; NGC 3201 block) | 23.71 | 400 | 4.32 | 0.18 | 0.17 | RV` | veldis.html line 2255 | 400.0 | agree
+- bin 23.71" sigma [km/s] | `(blank; NGC 3201 block) | 23.71 | 400 | 4.32 | 0.18 | 0.17 | RV` | veldis.html line 2255 | 4.32 | agree
+- bin 23.71" dsigma_Up -> err_hi | `(blank; NGC 3201 block) | 23.71 | 400 | 4.32 | 0.18 | 0.17 | RV` | veldis.html line 2255 | 0.18 | agree
+- bin 23.71" dsigma_Low -> err_lo | `(blank; NGC 3201 block) | 23.71 | 400 | 4.32 | 0.18 | 0.17 | RV` | veldis.html line 2255 | 0.17 | agree
+- bin 30.92" <r> [arcsec] | `(blank; NGC 3201 block) | 30.92 | 400 | 4.24 | 0.18 | 0.16 | RV` | veldis.html line 2261 | 30.92 | agree
+- bin 30.92" NStar | `(blank; NGC 3201 block) | 30.92 | 400 | 4.24 | 0.18 | 0.16 | RV` | veldis.html line 2261 | 400.0 | agree
+- bin 30.92" sigma [km/s] | `(blank; NGC 3201 block) | 30.92 | 400 | 4.24 | 0.18 | 0.16 | RV` | veldis.html line 2261 | 4.24 | agree
+- bin 30.92" dsigma_Up -> err_hi | `(blank; NGC 3201 block) | 30.92 | 400 | 4.24 | 0.18 | 0.16 | RV` | veldis.html line 2261 | 0.18 | agree
+- bin 30.92" dsigma_Low -> err_lo | `(blank; NGC 3201 block) | 30.92 | 400 | 4.24 | 0.18 | 0.16 | RV` | veldis.html line 2261 | 0.16 | agree
+- bin 37.42" <r> [arcsec] | `(blank; NGC 3201 block) | 37.42 | 400 | 4.25 | 0.17 | 0.17 | RV` | veldis.html line 2273 | 37.42 | agree
+- bin 37.42" NStar | `(blank; NGC 3201 block) | 37.42 | 400 | 4.25 | 0.17 | 0.17 | RV` | veldis.html line 2273 | 400.0 | agree
+- bin 37.42" sigma [km/s] | `(blank; NGC 3201 block) | 37.42 | 400 | 4.25 | 0.17 | 0.17 | RV` | veldis.html line 2273 | 4.25 | agree
+- bin 37.42" dsigma_Up -> err_hi | `(blank; NGC 3201 block) | 37.42 | 400 | 4.25 | 0.17 | 0.17 | RV` | veldis.html line 2273 | 0.17 | agree
+- bin 37.42" dsigma_Low -> err_lo | `(blank; NGC 3201 block) | 37.42 | 400 | 4.25 | 0.17 | 0.17 | RV` | veldis.html line 2273 | 0.17 | agree
+- bin 43.40" <r> [arcsec] | `(blank; NGC 3201 block) | 43.40 | 400 | 4.23 | 0.18 | 0.17 | RV` | veldis.html line 2279 | 43.4 | agree
+- bin 43.40" NStar | `(blank; NGC 3201 block) | 43.40 | 400 | 4.23 | 0.18 | 0.17 | RV` | veldis.html line 2279 | 400.0 | agree
+- bin 43.40" sigma [km/s] | `(blank; NGC 3201 block) | 43.40 | 400 | 4.23 | 0.18 | 0.17 | RV` | veldis.html line 2279 | 4.23 | agree
+- bin 43.40" dsigma_Up -> err_hi | `(blank; NGC 3201 block) | 43.40 | 400 | 4.23 | 0.18 | 0.17 | RV` | veldis.html line 2279 | 0.18 | agree
+- bin 43.40" dsigma_Low -> err_lo | `(blank; NGC 3201 block) | 43.40 | 400 | 4.23 | 0.18 | 0.17 | RV` | veldis.html line 2279 | 0.17 | agree
+- bin 48.97" <r> [arcsec] | `(blank; NGC 3201 block) | 48.97 | 400 | 4.26 | 0.18 | 0.17 | RV` | veldis.html line 2291 | 48.97 | agree
+- bin 48.97" NStar | `(blank; NGC 3201 block) | 48.97 | 400 | 4.26 | 0.18 | 0.17 | RV` | veldis.html line 2291 | 400.0 | agree
+- bin 48.97" sigma [km/s] | `(blank; NGC 3201 block) | 48.97 | 400 | 4.26 | 0.18 | 0.17 | RV` | veldis.html line 2291 | 4.26 | agree
+- bin 48.97" dsigma_Up -> err_hi | `(blank; NGC 3201 block) | 48.97 | 400 | 4.26 | 0.18 | 0.17 | RV` | veldis.html line 2291 | 0.18 | agree
+- bin 48.97" dsigma_Low -> err_lo | `(blank; NGC 3201 block) | 48.97 | 400 | 4.26 | 0.18 | 0.17 | RV` | veldis.html line 2291 | 0.17 | agree
+- bin 54.80" <r> [arcsec] | `(blank; NGC 3201 block) | 54.80 | 400 | 4.55 | 0.19 | 0.18 | RV` | veldis.html line 2303 | 54.8 | agree
+- bin 54.80" NStar | `(blank; NGC 3201 block) | 54.80 | 400 | 4.55 | 0.19 | 0.18 | RV` | veldis.html line 2303 | 400.0 | agree
+- bin 54.80" sigma [km/s] | `(blank; NGC 3201 block) | 54.80 | 400 | 4.55 | 0.19 | 0.18 | RV` | veldis.html line 2303 | 4.55 | agree
+- bin 54.80" dsigma_Up -> err_hi | `(blank; NGC 3201 block) | 54.80 | 400 | 4.55 | 0.19 | 0.18 | RV` | veldis.html line 2303 | 0.19 | agree
+- bin 54.80" dsigma_Low -> err_lo | `(blank; NGC 3201 block) | 54.80 | 400 | 4.55 | 0.19 | 0.18 | RV` | veldis.html line 2303 | 0.18 | agree
+- bin 72.95" <r> [arcsec] | `(blank; NGC 3201 block) | 72.95 | 400 | 4.13 | 0.18 | 0.17 | RV` | veldis.html line 2315 | 72.95 | agree
+- bin 72.95" NStar | `(blank; NGC 3201 block) | 72.95 | 400 | 4.13 | 0.18 | 0.17 | RV` | veldis.html line 2315 | 400.0 | agree
+- bin 72.95" sigma [km/s] | `(blank; NGC 3201 block) | 72.95 | 400 | 4.13 | 0.18 | 0.17 | RV` | veldis.html line 2315 | 4.13 | agree
+- bin 72.95" dsigma_Up -> err_hi | `(blank; NGC 3201 block) | 72.95 | 400 | 4.13 | 0.18 | 0.17 | RV` | veldis.html line 2315 | 0.18 | agree
+- bin 72.95" dsigma_Low -> err_lo | `(blank; NGC 3201 block) | 72.95 | 400 | 4.13 | 0.18 | 0.17 | RV` | veldis.html line 2315 | 0.17 | agree
+- bin 149.37" <r> [arcsec] | `(blank; NGC 3201 block) | 149.37 | 100 | 4.36 | 0.35 | 0.31 | RV` | veldis.html line 2345 | 149.37 | agree
+- bin 149.37" NStar | `(blank; NGC 3201 block) | 149.37 | 100 | 4.36 | 0.35 | 0.31 | RV` | veldis.html line 2345 | 100.0 | agree
+- bin 149.37" sigma [km/s] | `(blank; NGC 3201 block) | 149.37 | 100 | 4.36 | 0.35 | 0.31 | RV` | veldis.html line 2345 | 4.36 | agree
+- bin 149.37" dsigma_Up -> err_hi | `(blank; NGC 3201 block) | 149.37 | 100 | 4.36 | 0.35 | 0.31 | RV` | veldis.html line 2345 | 0.35 | agree
+- bin 149.37" dsigma_Low -> err_lo | `(blank; NGC 3201 block) | 149.37 | 100 | 4.36 | 0.35 | 0.31 | RV` | veldis.html line 2345 | 0.31 | agree
+- bin 211.74" <r> [arcsec] | `(blank; NGC 3201 block) | 211.74 | 100 | 3.80 | 0.29 | 0.26 | RV` | veldis.html line 2363 | 211.74 | agree
+- bin 211.74" NStar | `(blank; NGC 3201 block) | 211.74 | 100 | 3.80 | 0.29 | 0.26 | RV` | veldis.html line 2363 | 100.0 | agree
+- bin 211.74" sigma [km/s] | `(blank; NGC 3201 block) | 211.74 | 100 | 3.80 | 0.29 | 0.26 | RV` | veldis.html line 2363 | 3.8 | agree
+- bin 211.74" dsigma_Up -> err_hi | `(blank; NGC 3201 block) | 211.74 | 100 | 3.80 | 0.29 | 0.26 | RV` | veldis.html line 2363 | 0.29 | agree
+- bin 211.74" dsigma_Low -> err_lo | `(blank; NGC 3201 block) | 211.74 | 100 | 3.80 | 0.29 | 0.26 | RV` | veldis.html line 2363 | 0.26 | agree
+- bin 288.03" <r> [arcsec] | `(blank; NGC 3201 block) | 288.03 | 100 | 3.09 | 0.25 | 0.22 | RV` | veldis.html line 2381 | 288.03 | agree
+- bin 288.03" NStar | `(blank; NGC 3201 block) | 288.03 | 100 | 3.09 | 0.25 | 0.22 | RV` | veldis.html line 2381 | 100.0 | agree
+- bin 288.03" sigma [km/s] | `(blank; NGC 3201 block) | 288.03 | 100 | 3.09 | 0.25 | 0.22 | RV` | veldis.html line 2381 | 3.09 | agree
+- bin 288.03" dsigma_Up -> err_hi | `(blank; NGC 3201 block) | 288.03 | 100 | 3.09 | 0.25 | 0.22 | RV` | veldis.html line 2381 | 0.25 | agree
+- bin 288.03" dsigma_Low -> err_lo | `(blank; NGC 3201 block) | 288.03 | 100 | 3.09 | 0.25 | 0.22 | RV` | veldis.html line 2381 | 0.22 | agree
+- bin 378.91" <r> [arcsec] | `(blank; NGC 3201 block) | 378.91 | 100 | 3.29 | 0.28 | 0.25 | RV` | veldis.html line 2393 | 378.91 | agree
+- bin 378.91" NStar | `(blank; NGC 3201 block) | 378.91 | 100 | 3.29 | 0.28 | 0.25 | RV` | veldis.html line 2393 | 100.0 | agree
+- bin 378.91" sigma [km/s] | `(blank; NGC 3201 block) | 378.91 | 100 | 3.29 | 0.28 | 0.25 | RV` | veldis.html line 2393 | 3.29 | agree
+- bin 378.91" dsigma_Up -> err_hi | `(blank; NGC 3201 block) | 378.91 | 100 | 3.29 | 0.28 | 0.25 | RV` | veldis.html line 2393 | 0.28 | agree
+- bin 378.91" dsigma_Low -> err_lo | `(blank; NGC 3201 block) | 378.91 | 100 | 3.29 | 0.28 | 0.25 | RV` | veldis.html line 2393 | 0.25 | agree
+- bin 479.09" <r> [arcsec] | `(blank; NGC 3201 block) | 479.09 | 100 | 3.08 | 0.25 | 0.23 | RV` | veldis.html line 2411 | 479.09 | agree
+- bin 479.09" NStar | `(blank; NGC 3201 block) | 479.09 | 100 | 3.08 | 0.25 | 0.23 | RV` | veldis.html line 2411 | 100.0 | agree
+- bin 479.09" sigma [km/s] | `(blank; NGC 3201 block) | 479.09 | 100 | 3.08 | 0.25 | 0.23 | RV` | veldis.html line 2411 | 3.08 | agree
+- bin 479.09" dsigma_Up -> err_hi | `(blank; NGC 3201 block) | 479.09 | 100 | 3.08 | 0.25 | 0.23 | RV` | veldis.html line 2411 | 0.25 | agree
+- bin 479.09" dsigma_Low -> err_lo | `(blank; NGC 3201 block) | 479.09 | 100 | 3.08 | 0.25 | 0.23 | RV` | veldis.html line 2411 | 0.23 | agree
+- bin 612.25" <r> [arcsec] | `(blank; NGC 3201 block) | 612.25 | 100 | 2.70 | 0.22 | 0.20 | RV` | veldis.html line 2423 | 612.25 | agree
+- bin 612.25" NStar | `(blank; NGC 3201 block) | 612.25 | 100 | 2.70 | 0.22 | 0.20 | RV` | veldis.html line 2423 | 100.0 | agree
+- bin 612.25" sigma [km/s] | `(blank; NGC 3201 block) | 612.25 | 100 | 2.70 | 0.22 | 0.20 | RV` | veldis.html line 2423 | 2.7 | agree
+- bin 612.25" dsigma_Up -> err_hi | `(blank; NGC 3201 block) | 612.25 | 100 | 2.70 | 0.22 | 0.20 | RV` | veldis.html line 2423 | 0.22 | agree
+- bin 612.25" dsigma_Low -> err_lo | `(blank; NGC 3201 block) | 612.25 | 100 | 2.70 | 0.22 | 0.20 | RV` | veldis.html line 2423 | 0.2 | agree
+- bin 784.96" <r> [arcsec] | `(blank; NGC 3201 block) | 784.96 | 100 | 2.32 | 0.20 | 0.18 | RV` | veldis.html line 2435 | 784.96 | agree
+- bin 784.96" NStar | `(blank; NGC 3201 block) | 784.96 | 100 | 2.32 | 0.20 | 0.18 | RV` | veldis.html line 2435 | 100.0 | agree
+- bin 784.96" sigma [km/s] | `(blank; NGC 3201 block) | 784.96 | 100 | 2.32 | 0.20 | 0.18 | RV` | veldis.html line 2435 | 2.32 | agree
+- bin 784.96" dsigma_Up -> err_hi | `(blank; NGC 3201 block) | 784.96 | 100 | 2.32 | 0.20 | 0.18 | RV` | veldis.html line 2435 | 0.2 | agree
+- bin 784.96" dsigma_Low -> err_lo | `(blank; NGC 3201 block) | 784.96 | 100 | 2.32 | 0.20 | 0.18 | RV` | veldis.html line 2435 | 0.18 | agree
+- bin 1013.85" <r> [arcsec] | `(blank; NGC 3201 block) | 1013.85 | 100 | 2.16 | 0.19 | 0.17 | RV` | veldis.html line 2447 | 1013.85 | agree
+- bin 1013.85" NStar | `(blank; NGC 3201 block) | 1013.85 | 100 | 2.16 | 0.19 | 0.17 | RV` | veldis.html line 2447 | 100.0 | agree
+- bin 1013.85" sigma [km/s] | `(blank; NGC 3201 block) | 1013.85 | 100 | 2.16 | 0.19 | 0.17 | RV` | veldis.html line 2447 | 2.16 | agree
+- bin 1013.85" dsigma_Up -> err_hi | `(blank; NGC 3201 block) | 1013.85 | 100 | 2.16 | 0.19 | 0.17 | RV` | veldis.html line 2447 | 0.19 | agree
+- bin 1013.85" dsigma_Low -> err_lo | `(blank; NGC 3201 block) | 1013.85 | 100 | 2.16 | 0.19 | 0.17 | RV` | veldis.html line 2447 | 0.17 | agree
+- bin 1356.85" <r> [arcsec] | `(blank; NGC 3201 block) | 1356.85 | 100 | 2.29 | 0.20 | 0.18 | RV` | veldis.html line 2453 | 1356.85 | agree
+- bin 1356.85" NStar | `(blank; NGC 3201 block) | 1356.85 | 100 | 2.29 | 0.20 | 0.18 | RV` | veldis.html line 2453 | 100.0 | agree
+- bin 1356.85" sigma [km/s] | `(blank; NGC 3201 block) | 1356.85 | 100 | 2.29 | 0.20 | 0.18 | RV` | veldis.html line 2453 | 2.29 | agree
+- bin 1356.85" dsigma_Up -> err_hi | `(blank; NGC 3201 block) | 1356.85 | 100 | 2.29 | 0.20 | 0.18 | RV` | veldis.html line 2453 | 0.2 | agree
+- bin 1356.85" dsigma_Low -> err_lo | `(blank; NGC 3201 block) | 1356.85 | 100 | 2.29 | 0.20 | 0.18 | RV` | veldis.html line 2453 | 0.18 | agree
+- bin 1976.14" <r> [arcsec] | `(blank; NGC 3201 block) | 1976.14 | 80 | 2.35 | 0.23 | 0.21 | RV` | veldis.html line 2459 | 1976.14 | agree
+- bin 1976.14" NStar | `(blank; NGC 3201 block) | 1976.14 | 80 | 2.35 | 0.23 | 0.21 | RV` | veldis.html line 2459 | 80.0 | agree
+- bin 1976.14" sigma [km/s] | `(blank; NGC 3201 block) | 1976.14 | 80 | 2.35 | 0.23 | 0.21 | RV` | veldis.html line 2459 | 2.35 | agree
+- bin 1976.14" dsigma_Up -> err_hi | `(blank; NGC 3201 block) | 1976.14 | 80 | 2.35 | 0.23 | 0.21 | RV` | veldis.html line 2459 | 0.23 | agree
+- bin 1976.14" dsigma_Low -> err_lo | `(blank; NGC 3201 block) | 1976.14 | 80 | 2.35 | 0.23 | 0.21 | RV` | veldis.html line 2459 | 0.21 | agree
+- R_Sun [kpc] | `NGC 3201 ...   4.9   8.8  [R_Sun field: '4.9']` | mwgc.dat line 91 (Part I) | 4.9 | agree
+- M_V,t [mag] | `NGC 3201 ... 6.75  -7.45  [M_V,t field: '-7.45']` | mwgc.dat line 271 (Part II) | -7.45 | agree
+- W0/gamma | `<TD>6.10</TD>` | J_ApJS_161_304_models.vot models.vot line 551 (recno 211, MW-NGC3201, Mod K) | 6.1 | agree
+- E_W0/gamma -> err_hi | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 551 (recno 211, MW-NGC3201, Mod K) | 0.2 | agree
+- e_W0/gamma -> err_lo | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 551 (recno 211, MW-NGC3201, Mod K) | 0.2 | agree
+- r0 | `<TD>77.680</TD>` | J_ApJS_161_304_models.vot models.vot line 551 (recno 211, MW-NGC3201, Mod K) | 77.68 | agree
+- E_r0 -> err_hi | `<TD>4.700</TD>` | J_ApJS_161_304_models.vot models.vot line 551 (recno 211, MW-NGC3201, Mod K) | 4.7 | agree
+- e_r0 -> err_lo | `<TD>4.500</TD>` | J_ApJS_161_304_models.vot models.vot line 551 (recno 211, MW-NGC3201, Mod K) | 4.5 | agree
+- Rh | `<TD>0.588</TD>` | J_ApJS_161_304_models.vot models.vot line 551 (recno 211, MW-NGC3201, Mod K) | 0.588 | agree
+- E_Rh -> err_hi | `<TD>0.003</TD>` | J_ApJS_161_304_models.vot models.vot line 551 (recno 211, MW-NGC3201, Mod K) | 0.003 | agree
+- e_Rh -> err_lo | `<TD>0.002</TD>` | J_ApJS_161_304_models.vot models.vot line 551 (recno 211, MW-NGC3201, Mod K) | 0.002 | agree
+- Dist | `<TD>5.0</TD>` | J_ApJS_161_304_models.vot models.vot line 551 (recno 211, MW-NGC3201, Mod K) | 5.0 | agree
+- (M/L)1 | `<TD>1.876</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 243 (recno 83, MW-NGC3201) | 1.876 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.154</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 243 (recno 83, MW-NGC3201) | 0.154 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.154</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 243 (recno 83, MW-NGC3201) | 0.154 | agree
+- arithmetic L_V = 83176.37711 vs 83176.37711 | agree; R_h = 10^0.588 x 4.9 / 5.0 = 3.79512492 pc vs 3.79512492 | agree; M/L 1.876 vs 1.876 | agree
+
+### NGC 362
+
+- bin 6.30" <r> [arcsec] | `NGC 362 | 6.30 | 200 | 7.49 | 0.41 | 0.38 | RV` | veldis.html line 1016 | 6.3 | agree
+- bin 6.30" NStar | `NGC 362 | 6.30 | 200 | 7.49 | 0.41 | 0.38 | RV` | veldis.html line 1016 | 200.0 | agree
+- bin 6.30" sigma [km/s] | `NGC 362 | 6.30 | 200 | 7.49 | 0.41 | 0.38 | RV` | veldis.html line 1016 | 7.49 | agree
+- bin 6.30" dsigma_Up -> err_hi | `NGC 362 | 6.30 | 200 | 7.49 | 0.41 | 0.38 | RV` | veldis.html line 1016 | 0.41 | agree
+- bin 6.30" dsigma_Low -> err_lo | `NGC 362 | 6.30 | 200 | 7.49 | 0.41 | 0.38 | RV` | veldis.html line 1016 | 0.38 | agree
+- bin 12.92" <r> [arcsec] | `(blank; NGC 362 block) | 12.92 | 200 | 7.96 | 0.43 | 0.41 | RV` | veldis.html line 1035 | 12.92 | agree
+- bin 12.92" NStar | `(blank; NGC 362 block) | 12.92 | 200 | 7.96 | 0.43 | 0.41 | RV` | veldis.html line 1035 | 200.0 | agree
+- bin 12.92" sigma [km/s] | `(blank; NGC 362 block) | 12.92 | 200 | 7.96 | 0.43 | 0.41 | RV` | veldis.html line 1035 | 7.96 | agree
+- bin 12.92" dsigma_Up -> err_hi | `(blank; NGC 362 block) | 12.92 | 200 | 7.96 | 0.43 | 0.41 | RV` | veldis.html line 1035 | 0.43 | agree
+- bin 12.92" dsigma_Low -> err_lo | `(blank; NGC 362 block) | 12.92 | 200 | 7.96 | 0.43 | 0.41 | RV` | veldis.html line 1035 | 0.41 | agree
+- bin 17.54" <r> [arcsec] | `(blank; NGC 362 block) | 17.54 | 200 | 7.46 | 0.42 | 0.38 | RV` | veldis.html line 1047 | 17.54 | agree
+- bin 17.54" NStar | `(blank; NGC 362 block) | 17.54 | 200 | 7.46 | 0.42 | 0.38 | RV` | veldis.html line 1047 | 200.0 | agree
+- bin 17.54" sigma [km/s] | `(blank; NGC 362 block) | 17.54 | 200 | 7.46 | 0.42 | 0.38 | RV` | veldis.html line 1047 | 7.46 | agree
+- bin 17.54" dsigma_Up -> err_hi | `(blank; NGC 362 block) | 17.54 | 200 | 7.46 | 0.42 | 0.38 | RV` | veldis.html line 1047 | 0.42 | agree
+- bin 17.54" dsigma_Low -> err_lo | `(blank; NGC 362 block) | 17.54 | 200 | 7.46 | 0.42 | 0.38 | RV` | veldis.html line 1047 | 0.38 | agree
+- bin 21.48" <r> [arcsec] | `(blank; NGC 362 block) | 21.48 | 200 | 7.65 | 0.42 | 0.39 | RV` | veldis.html line 1059 | 21.48 | agree
+- bin 21.48" NStar | `(blank; NGC 362 block) | 21.48 | 200 | 7.65 | 0.42 | 0.39 | RV` | veldis.html line 1059 | 200.0 | agree
+- bin 21.48" sigma [km/s] | `(blank; NGC 362 block) | 21.48 | 200 | 7.65 | 0.42 | 0.39 | RV` | veldis.html line 1059 | 7.65 | agree
+- bin 21.48" dsigma_Up -> err_hi | `(blank; NGC 362 block) | 21.48 | 200 | 7.65 | 0.42 | 0.39 | RV` | veldis.html line 1059 | 0.42 | agree
+- bin 21.48" dsigma_Low -> err_lo | `(blank; NGC 362 block) | 21.48 | 200 | 7.65 | 0.42 | 0.39 | RV` | veldis.html line 1059 | 0.39 | agree
+- bin 26.19" <r> [arcsec] | `(blank; NGC 362 block) | 26.19 | 200 | 7.22 | 0.39 | 0.36 | RV` | veldis.html line 1077 | 26.19 | agree
+- bin 26.19" NStar | `(blank; NGC 362 block) | 26.19 | 200 | 7.22 | 0.39 | 0.36 | RV` | veldis.html line 1077 | 200.0 | agree
+- bin 26.19" sigma [km/s] | `(blank; NGC 362 block) | 26.19 | 200 | 7.22 | 0.39 | 0.36 | RV` | veldis.html line 1077 | 7.22 | agree
+- bin 26.19" dsigma_Up -> err_hi | `(blank; NGC 362 block) | 26.19 | 200 | 7.22 | 0.39 | 0.36 | RV` | veldis.html line 1077 | 0.39 | agree
+- bin 26.19" dsigma_Low -> err_lo | `(blank; NGC 362 block) | 26.19 | 200 | 7.22 | 0.39 | 0.36 | RV` | veldis.html line 1077 | 0.36 | agree
+- bin 30.75" <r> [arcsec] | `(blank; NGC 362 block) | 30.75 | 200 | 7.65 | 0.42 | 0.40 | RV` | veldis.html line 1089 | 30.75 | agree
+- bin 30.75" NStar | `(blank; NGC 362 block) | 30.75 | 200 | 7.65 | 0.42 | 0.40 | RV` | veldis.html line 1089 | 200.0 | agree
+- bin 30.75" sigma [km/s] | `(blank; NGC 362 block) | 30.75 | 200 | 7.65 | 0.42 | 0.40 | RV` | veldis.html line 1089 | 7.65 | agree
+- bin 30.75" dsigma_Up -> err_hi | `(blank; NGC 362 block) | 30.75 | 200 | 7.65 | 0.42 | 0.40 | RV` | veldis.html line 1089 | 0.42 | agree
+- bin 30.75" dsigma_Low -> err_lo | `(blank; NGC 362 block) | 30.75 | 200 | 7.65 | 0.42 | 0.40 | RV` | veldis.html line 1089 | 0.4 | agree
+- bin 35.97" <r> [arcsec] | `(blank; NGC 362 block) | 35.97 | 200 | 6.73 | 0.38 | 0.36 | RV` | veldis.html line 1107 | 35.97 | agree
+- bin 35.97" NStar | `(blank; NGC 362 block) | 35.97 | 200 | 6.73 | 0.38 | 0.36 | RV` | veldis.html line 1107 | 200.0 | agree
+- bin 35.97" sigma [km/s] | `(blank; NGC 362 block) | 35.97 | 200 | 6.73 | 0.38 | 0.36 | RV` | veldis.html line 1107 | 6.73 | agree
+- bin 35.97" dsigma_Up -> err_hi | `(blank; NGC 362 block) | 35.97 | 200 | 6.73 | 0.38 | 0.36 | RV` | veldis.html line 1107 | 0.38 | agree
+- bin 35.97" dsigma_Low -> err_lo | `(blank; NGC 362 block) | 35.97 | 200 | 6.73 | 0.38 | 0.36 | RV` | veldis.html line 1107 | 0.36 | agree
+- bin 42.11" <r> [arcsec] | `(blank; NGC 362 block) | 42.11 | 200 | 7.05 | 0.40 | 0.38 | RV` | veldis.html line 1119 | 42.11 | agree
+- bin 42.11" NStar | `(blank; NGC 362 block) | 42.11 | 200 | 7.05 | 0.40 | 0.38 | RV` | veldis.html line 1119 | 200.0 | agree
+- bin 42.11" sigma [km/s] | `(blank; NGC 362 block) | 42.11 | 200 | 7.05 | 0.40 | 0.38 | RV` | veldis.html line 1119 | 7.05 | agree
+- bin 42.11" dsigma_Up -> err_hi | `(blank; NGC 362 block) | 42.11 | 200 | 7.05 | 0.40 | 0.38 | RV` | veldis.html line 1119 | 0.4 | agree
+- bin 42.11" dsigma_Low -> err_lo | `(blank; NGC 362 block) | 42.11 | 200 | 7.05 | 0.40 | 0.38 | RV` | veldis.html line 1119 | 0.38 | agree
+- bin 48.78" <r> [arcsec] | `(blank; NGC 362 block) | 48.78 | 200 | 6.31 | 0.38 | 0.34 | RV` | veldis.html line 1137 | 48.78 | agree
+- bin 48.78" NStar | `(blank; NGC 362 block) | 48.78 | 200 | 6.31 | 0.38 | 0.34 | RV` | veldis.html line 1137 | 200.0 | agree
+- bin 48.78" sigma [km/s] | `(blank; NGC 362 block) | 48.78 | 200 | 6.31 | 0.38 | 0.34 | RV` | veldis.html line 1137 | 6.31 | agree
+- bin 48.78" dsigma_Up -> err_hi | `(blank; NGC 362 block) | 48.78 | 200 | 6.31 | 0.38 | 0.34 | RV` | veldis.html line 1137 | 0.38 | agree
+- bin 48.78" dsigma_Low -> err_lo | `(blank; NGC 362 block) | 48.78 | 200 | 6.31 | 0.38 | 0.34 | RV` | veldis.html line 1137 | 0.34 | agree
+- bin 59.16" <r> [arcsec] | `(blank; NGC 362 block) | 59.16 | 200 | 6.34 | 0.37 | 0.33 | RV` | veldis.html line 1161 | 59.16 | agree
+- bin 59.16" NStar | `(blank; NGC 362 block) | 59.16 | 200 | 6.34 | 0.37 | 0.33 | RV` | veldis.html line 1161 | 200.0 | agree
+- bin 59.16" sigma [km/s] | `(blank; NGC 362 block) | 59.16 | 200 | 6.34 | 0.37 | 0.33 | RV` | veldis.html line 1161 | 6.34 | agree
+- bin 59.16" dsigma_Up -> err_hi | `(blank; NGC 362 block) | 59.16 | 200 | 6.34 | 0.37 | 0.33 | RV` | veldis.html line 1161 | 0.37 | agree
+- bin 59.16" dsigma_Low -> err_lo | `(blank; NGC 362 block) | 59.16 | 200 | 6.34 | 0.37 | 0.33 | RV` | veldis.html line 1161 | 0.33 | agree
+- bin 80.20" <r> [arcsec] | `(blank; NGC 362 block) | 80.20 | 100 | 6.79 | 0.56 | 0.50 | RV` | veldis.html line 1191 | 80.2 | agree
+- bin 80.20" NStar | `(blank; NGC 362 block) | 80.20 | 100 | 6.79 | 0.56 | 0.50 | RV` | veldis.html line 1191 | 100.0 | agree
+- bin 80.20" sigma [km/s] | `(blank; NGC 362 block) | 80.20 | 100 | 6.79 | 0.56 | 0.50 | RV` | veldis.html line 1191 | 6.79 | agree
+- bin 80.20" dsigma_Up -> err_hi | `(blank; NGC 362 block) | 80.20 | 100 | 6.79 | 0.56 | 0.50 | RV` | veldis.html line 1191 | 0.56 | agree
+- bin 80.20" dsigma_Low -> err_lo | `(blank; NGC 362 block) | 80.20 | 100 | 6.79 | 0.56 | 0.50 | RV` | veldis.html line 1191 | 0.5 | agree
+- bin 127.51" <r> [arcsec] | `(blank; NGC 362 block) | 127.51 | 100 | 6.30 | 0.49 | 0.43 | RV` | veldis.html line 1209 | 127.51 | agree
+- bin 127.51" NStar | `(blank; NGC 362 block) | 127.51 | 100 | 6.30 | 0.49 | 0.43 | RV` | veldis.html line 1209 | 100.0 | agree
+- bin 127.51" sigma [km/s] | `(blank; NGC 362 block) | 127.51 | 100 | 6.30 | 0.49 | 0.43 | RV` | veldis.html line 1209 | 6.3 | agree
+- bin 127.51" dsigma_Up -> err_hi | `(blank; NGC 362 block) | 127.51 | 100 | 6.30 | 0.49 | 0.43 | RV` | veldis.html line 1209 | 0.49 | agree
+- bin 127.51" dsigma_Low -> err_lo | `(blank; NGC 362 block) | 127.51 | 100 | 6.30 | 0.49 | 0.43 | RV` | veldis.html line 1209 | 0.43 | agree
+- bin 177.21" <r> [arcsec] | `(blank; NGC 362 block) | 177.21 | 50 | 4.84 | 0.54 | 0.46 | RV` | veldis.html line 1221 | 177.21 | agree
+- bin 177.21" NStar | `(blank; NGC 362 block) | 177.21 | 50 | 4.84 | 0.54 | 0.46 | RV` | veldis.html line 1221 | 50.0 | agree
+- bin 177.21" sigma [km/s] | `(blank; NGC 362 block) | 177.21 | 50 | 4.84 | 0.54 | 0.46 | RV` | veldis.html line 1221 | 4.84 | agree
+- bin 177.21" dsigma_Up -> err_hi | `(blank; NGC 362 block) | 177.21 | 50 | 4.84 | 0.54 | 0.46 | RV` | veldis.html line 1221 | 0.54 | agree
+- bin 177.21" dsigma_Low -> err_lo | `(blank; NGC 362 block) | 177.21 | 50 | 4.84 | 0.54 | 0.46 | RV` | veldis.html line 1221 | 0.46 | agree
+- bin 231.35" <r> [arcsec] | `(blank; NGC 362 block) | 231.35 | 50 | 4.16 | 0.46 | 0.40 | RV` | veldis.html line 1233 | 231.35 | agree
+- bin 231.35" NStar | `(blank; NGC 362 block) | 231.35 | 50 | 4.16 | 0.46 | 0.40 | RV` | veldis.html line 1233 | 50.0 | agree
+- bin 231.35" sigma [km/s] | `(blank; NGC 362 block) | 231.35 | 50 | 4.16 | 0.46 | 0.40 | RV` | veldis.html line 1233 | 4.16 | agree
+- bin 231.35" dsigma_Up -> err_hi | `(blank; NGC 362 block) | 231.35 | 50 | 4.16 | 0.46 | 0.40 | RV` | veldis.html line 1233 | 0.46 | agree
+- bin 231.35" dsigma_Low -> err_lo | `(blank; NGC 362 block) | 231.35 | 50 | 4.16 | 0.46 | 0.40 | RV` | veldis.html line 1233 | 0.4 | agree
+- bin 304.85" <r> [arcsec] | `(blank; NGC 362 block) | 304.85 | 50 | 3.52 | 0.40 | 0.33 | RV` | veldis.html line 1239 | 304.85 | agree
+- bin 304.85" NStar | `(blank; NGC 362 block) | 304.85 | 50 | 3.52 | 0.40 | 0.33 | RV` | veldis.html line 1239 | 50.0 | agree
+- bin 304.85" sigma [km/s] | `(blank; NGC 362 block) | 304.85 | 50 | 3.52 | 0.40 | 0.33 | RV` | veldis.html line 1239 | 3.52 | agree
+- bin 304.85" dsigma_Up -> err_hi | `(blank; NGC 362 block) | 304.85 | 50 | 3.52 | 0.40 | 0.33 | RV` | veldis.html line 1239 | 0.4 | agree
+- bin 304.85" dsigma_Low -> err_lo | `(blank; NGC 362 block) | 304.85 | 50 | 3.52 | 0.40 | 0.33 | RV` | veldis.html line 1239 | 0.33 | agree
+- bin 518.44" <r> [arcsec] | `(blank; NGC 362 block) | 518.44 | 31 | 3.29 | 0.48 | 0.40 | RV` | veldis.html line 1251 | 518.44 | agree
+- bin 518.44" NStar | `(blank; NGC 362 block) | 518.44 | 31 | 3.29 | 0.48 | 0.40 | RV` | veldis.html line 1251 | 31.0 | agree
+- bin 518.44" sigma [km/s] | `(blank; NGC 362 block) | 518.44 | 31 | 3.29 | 0.48 | 0.40 | RV` | veldis.html line 1251 | 3.29 | agree
+- bin 518.44" dsigma_Up -> err_hi | `(blank; NGC 362 block) | 518.44 | 31 | 3.29 | 0.48 | 0.40 | RV` | veldis.html line 1251 | 0.48 | agree
+- bin 518.44" dsigma_Low -> err_lo | `(blank; NGC 362 block) | 518.44 | 31 | 3.29 | 0.48 | 0.40 | RV` | veldis.html line 1251 | 0.4 | agree
+- R_Sun [kpc] | `NGC 362 ...   8.6   9.4  [R_Sun field: '8.6']` | mwgc.dat line 75 (Part I) | 8.6 | agree
+- M_V,t [mag] | `NGC 362 ... 6.40  -8.43  [M_V,t field: '-8.43']` | mwgc.dat line 255 (Part II) | -8.43 | agree
+- W0/gamma | `<TD>7.90</TD>` | J_ApJS_161_304_models.vot models.vot line 554 (recno 214, MW-NGC362, Mod K) | 7.9 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 554 (recno 214, MW-NGC362, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 554 (recno 214, MW-NGC362, Mod K) | 0.1 | agree
+- r0 | `<TD>10.050</TD>` | J_ApJS_161_304_models.vot models.vot line 554 (recno 214, MW-NGC362, Mod K) | 10.05 | agree
+- E_r0 -> err_hi | `<TD>0.290</TD>` | J_ApJS_161_304_models.vot models.vot line 554 (recno 214, MW-NGC362, Mod K) | 0.29 | agree
+- e_r0 -> err_lo | `<TD>0.320</TD>` | J_ApJS_161_304_models.vot models.vot line 554 (recno 214, MW-NGC362, Mod K) | 0.32 | agree
+- Rh | `<TD>0.306</TD>` | J_ApJS_161_304_models.vot models.vot line 554 (recno 214, MW-NGC362, Mod K) | 0.306 | agree
+- E_Rh -> err_hi | `<TD>0.016</TD>` | J_ApJS_161_304_models.vot models.vot line 554 (recno 214, MW-NGC362, Mod K) | 0.016 | agree
+- e_Rh -> err_lo | `<TD>0.017</TD>` | J_ApJS_161_304_models.vot models.vot line 554 (recno 214, MW-NGC362, Mod K) | 0.017 | agree
+- Dist | `<TD>8.5</TD>` | J_ApJS_161_304_models.vot models.vot line 554 (recno 214, MW-NGC362, Mod K) | 8.5 | agree
+- (M/L)1 | `<TD>2.013</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 244 (recno 84, MW-NGC362) | 2.013 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.171</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 244 (recno 84, MW-NGC362) | 0.171 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.171</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 244 (recno 84, MW-NGC362) | 0.171 | agree
+- arithmetic L_V = 205116.2179 vs 205116.2179 | agree; R_h = 10^0.306 x 8.6 / 8.5 = 2.046819404 pc vs 2.046819404 | agree; M/L 2.013 vs 2.013 | agree
+
+### NGC 4147
+
+- bin 41.05" <r> [arcsec] | `NGC 4147 | 41.05 | 25 | 2.08 | 0.38 | 0.29 | RV` | veldis.html line 2466 | 41.05 | agree
+- bin 41.05" NStar | `NGC 4147 | 41.05 | 25 | 2.08 | 0.38 | 0.29 | RV` | veldis.html line 2466 | 25.0 | agree
+- bin 41.05" sigma [km/s] | `NGC 4147 | 41.05 | 25 | 2.08 | 0.38 | 0.29 | RV` | veldis.html line 2466 | 2.08 | agree
+- bin 41.05" dsigma_Up -> err_hi | `NGC 4147 | 41.05 | 25 | 2.08 | 0.38 | 0.29 | RV` | veldis.html line 2466 | 0.38 | agree
+- bin 41.05" dsigma_Low -> err_lo | `NGC 4147 | 41.05 | 25 | 2.08 | 0.38 | 0.29 | RV` | veldis.html line 2466 | 0.29 | agree
+- bin 174.98" <r> [arcsec] | `(blank; NGC 4147 block) | 174.98 | 16 | 1.46 | 0.33 | 0.25 | RV` | veldis.html line 2473 | 174.98 | agree
+- bin 174.98" NStar | `(blank; NGC 4147 block) | 174.98 | 16 | 1.46 | 0.33 | 0.25 | RV` | veldis.html line 2473 | 16.0 | agree
+- bin 174.98" sigma [km/s] | `(blank; NGC 4147 block) | 174.98 | 16 | 1.46 | 0.33 | 0.25 | RV` | veldis.html line 2473 | 1.46 | agree
+- bin 174.98" dsigma_Up -> err_hi | `(blank; NGC 4147 block) | 174.98 | 16 | 1.46 | 0.33 | 0.25 | RV` | veldis.html line 2473 | 0.33 | agree
+- bin 174.98" dsigma_Low -> err_lo | `(blank; NGC 4147 block) | 174.98 | 16 | 1.46 | 0.33 | 0.25 | RV` | veldis.html line 2473 | 0.25 | agree
+- R_Sun [kpc] | `NGC 4147 ...  19.3  21.4  [R_Sun field: '19.3']` | mwgc.dat line 94 (Part I) | 19.3 | agree
+- M_V,t [mag] | `NGC 4147 ...10.32  -6.17  [M_V,t field: '-6.17']` | mwgc.dat line 274 (Part II) | -6.17 | agree
+- W0/gamma | `<TD>8.00</TD>` | J_ApJS_161_304_models.vot models.vot line 557 (recno 217, MW-NGC4147, Mod K) | 8.0 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 557 (recno 217, MW-NGC4147, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 557 (recno 217, MW-NGC4147, Mod K) | 0.2 | agree
+- r0 | `<TD>5.530</TD>` | J_ApJS_161_304_models.vot models.vot line 557 (recno 217, MW-NGC4147, Mod K) | 5.53 | agree
+- E_r0 -> err_hi | `<TD>0.710</TD>` | J_ApJS_161_304_models.vot models.vot line 557 (recno 217, MW-NGC4147, Mod K) | 0.71 | agree
+- e_r0 -> err_lo | `<TD>0.310</TD>` | J_ApJS_161_304_models.vot models.vot line 557 (recno 217, MW-NGC4147, Mod K) | 0.31 | agree
+- Rh | `<TD>0.433</TD>` | J_ApJS_161_304_models.vot models.vot line 557 (recno 217, MW-NGC4147, Mod K) | 0.433 | agree
+- E_Rh -> err_hi | `<TD>0.006</TD>` | J_ApJS_161_304_models.vot models.vot line 557 (recno 217, MW-NGC4147, Mod K) | 0.006 | agree
+- e_Rh -> err_lo | `<TD>0.007</TD>` | J_ApJS_161_304_models.vot models.vot line 557 (recno 217, MW-NGC4147, Mod K) | 0.007 | agree
+- Dist | `<TD>19.3</TD>` | J_ApJS_161_304_models.vot models.vot line 557 (recno 217, MW-NGC4147, Mod K) | 19.3 | agree
+- (M/L)1 | `<TD>1.869</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 245 (recno 85, MW-NGC4147) | 1.869 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.157</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 245 (recno 85, MW-NGC4147) | 0.157 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.157</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 245 (recno 85, MW-NGC4147) | 0.157 | agree
+- arithmetic L_V = 25585.85887 vs 25585.85887 | agree; R_h = 10^0.433 x 19.3 / 19.3 = 2.710191632 pc vs 2.710191632 | agree; M/L 1.869 vs 1.869 | agree
+
+### NGC 4590
+
+- bin 47.19" <r> [arcsec] | `(blank; NGC 4590 block) | 47.19 | 70 | 3.50 | 0.33 | 0.29 | RV` | veldis.html line 2555 | 47.19 | agree
+- bin 47.19" NStar | `(blank; NGC 4590 block) | 47.19 | 70 | 3.50 | 0.33 | 0.29 | RV` | veldis.html line 2555 | 70.0 | agree
+- bin 47.19" sigma [km/s] | `(blank; NGC 4590 block) | 47.19 | 70 | 3.50 | 0.33 | 0.29 | RV` | veldis.html line 2555 | 3.5 | agree
+- bin 47.19" dsigma_Up -> err_hi | `(blank; NGC 4590 block) | 47.19 | 70 | 3.50 | 0.33 | 0.29 | RV` | veldis.html line 2555 | 0.33 | agree
+- bin 47.19" dsigma_Low -> err_lo | `(blank; NGC 4590 block) | 47.19 | 70 | 3.50 | 0.33 | 0.29 | RV` | veldis.html line 2555 | 0.29 | agree
+- bin 125.97" <r> [arcsec] | `(blank; NGC 4590 block) | 125.97 | 70 | 2.82 | 0.27 | 0.23 | RV` | veldis.html line 2579 | 125.97 | agree
+- bin 125.97" NStar | `(blank; NGC 4590 block) | 125.97 | 70 | 2.82 | 0.27 | 0.23 | RV` | veldis.html line 2579 | 70.0 | agree
+- bin 125.97" sigma [km/s] | `(blank; NGC 4590 block) | 125.97 | 70 | 2.82 | 0.27 | 0.23 | RV` | veldis.html line 2579 | 2.82 | agree
+- bin 125.97" dsigma_Up -> err_hi | `(blank; NGC 4590 block) | 125.97 | 70 | 2.82 | 0.27 | 0.23 | RV` | veldis.html line 2579 | 0.27 | agree
+- bin 125.97" dsigma_Low -> err_lo | `(blank; NGC 4590 block) | 125.97 | 70 | 2.82 | 0.27 | 0.23 | RV` | veldis.html line 2579 | 0.23 | agree
+- bin 240.14" <r> [arcsec] | `(blank; NGC 4590 block) | 240.14 | 70 | 2.35 | 0.23 | 0.20 | RV` | veldis.html line 2591 | 240.14 | agree
+- bin 240.14" NStar | `(blank; NGC 4590 block) | 240.14 | 70 | 2.35 | 0.23 | 0.20 | RV` | veldis.html line 2591 | 70.0 | agree
+- bin 240.14" sigma [km/s] | `(blank; NGC 4590 block) | 240.14 | 70 | 2.35 | 0.23 | 0.20 | RV` | veldis.html line 2591 | 2.35 | agree
+- bin 240.14" dsigma_Up -> err_hi | `(blank; NGC 4590 block) | 240.14 | 70 | 2.35 | 0.23 | 0.20 | RV` | veldis.html line 2591 | 0.23 | agree
+- bin 240.14" dsigma_Low -> err_lo | `(blank; NGC 4590 block) | 240.14 | 70 | 2.35 | 0.23 | 0.20 | RV` | veldis.html line 2591 | 0.2 | agree
+- bin 534.44" <r> [arcsec] | `(blank; NGC 4590 block) | 534.44 | 52 | 1.89 | 0.23 | 0.20 | RV` | veldis.html line 2603 | 534.44 | agree
+- bin 534.44" NStar | `(blank; NGC 4590 block) | 534.44 | 52 | 1.89 | 0.23 | 0.20 | RV` | veldis.html line 2603 | 52.0 | agree
+- bin 534.44" sigma [km/s] | `(blank; NGC 4590 block) | 534.44 | 52 | 1.89 | 0.23 | 0.20 | RV` | veldis.html line 2603 | 1.89 | agree
+- bin 534.44" dsigma_Up -> err_hi | `(blank; NGC 4590 block) | 534.44 | 52 | 1.89 | 0.23 | 0.20 | RV` | veldis.html line 2603 | 0.23 | agree
+- bin 534.44" dsigma_Low -> err_lo | `(blank; NGC 4590 block) | 534.44 | 52 | 1.89 | 0.23 | 0.20 | RV` | veldis.html line 2603 | 0.2 | agree
+- R_Sun [kpc] | `NGC 4590 ...  10.3  10.2  [R_Sun field: '10.3']` | mwgc.dat line 97 (Part I) | 10.3 | agree
+- M_V,t [mag] | `NGC 4590 ... 7.84  -7.37  [M_V,t field: '-7.37']` | mwgc.dat line 277 (Part II) | -7.37 | agree
+- W0/gamma | `<TD>6.60</TD>` | J_ApJS_161_304_models.vot models.vot line 560 (recno 220, MW-NGC4590, Mod K) | 6.6 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 560 (recno 220, MW-NGC4590, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 560 (recno 220, MW-NGC4590, Mod K) | 0.1 | agree
+- r0 | `<TD>36.780</TD>` | J_ApJS_161_304_models.vot models.vot line 560 (recno 220, MW-NGC4590, Mod K) | 36.78 | agree
+- E_r0 -> err_hi | `<TD>0.790</TD>` | J_ApJS_161_304_models.vot models.vot line 560 (recno 220, MW-NGC4590, Mod K) | 0.79 | agree
+- e_r0 -> err_lo | `<TD>0.770</TD>` | J_ApJS_161_304_models.vot models.vot line 560 (recno 220, MW-NGC4590, Mod K) | 0.77 | agree
+- Rh | `<TD>0.651</TD>` | J_ApJS_161_304_models.vot models.vot line 560 (recno 220, MW-NGC4590, Mod K) | 0.651 | agree
+- E_Rh -> err_hi | `<TD>0.009</TD>` | J_ApJS_161_304_models.vot models.vot line 560 (recno 220, MW-NGC4590, Mod K) | 0.009 | agree
+- e_Rh -> err_lo | `<TD>0.008</TD>` | J_ApJS_161_304_models.vot models.vot line 560 (recno 220, MW-NGC4590, Mod K) | 0.008 | agree
+- Dist | `<TD>10.2</TD>` | J_ApJS_161_304_models.vot models.vot line 560 (recno 220, MW-NGC4590, Mod K) | 10.2 | agree
+- (M/L)1 | `<TD>1.893</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 247 (recno 87, MW-NGC4590) | 1.893 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.160</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 247 (recno 87, MW-NGC4590) | 0.16 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.160</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 247 (recno 87, MW-NGC4590) | 0.16 | agree
+- arithmetic L_V = 77268.05851 vs 77268.05851 | agree; R_h = 10^0.651 x 10.3 / 10.2 = 4.521026503 pc vs 4.521026503 | agree; M/L 1.893 vs 1.893 | agree
+
+### NGC 5024
+
+- bin 43.30" <r> [arcsec] | `(blank; NGC 5024 block) | 43.30 | 70 | 5.73 | 0.55 | 0.48 | RV` | veldis.html line 2793 | 43.3 | agree
+- bin 43.30" NStar | `(blank; NGC 5024 block) | 43.30 | 70 | 5.73 | 0.55 | 0.48 | RV` | veldis.html line 2793 | 70.0 | agree
+- bin 43.30" sigma [km/s] | `(blank; NGC 5024 block) | 43.30 | 70 | 5.73 | 0.55 | 0.48 | RV` | veldis.html line 2793 | 5.73 | agree
+- bin 43.30" dsigma_Up -> err_hi | `(blank; NGC 5024 block) | 43.30 | 70 | 5.73 | 0.55 | 0.48 | RV` | veldis.html line 2793 | 0.55 | agree
+- bin 43.30" dsigma_Low -> err_lo | `(blank; NGC 5024 block) | 43.30 | 70 | 5.73 | 0.55 | 0.48 | RV` | veldis.html line 2793 | 0.48 | agree
+- bin 117.70" <r> [arcsec] | `(blank; NGC 5024 block) | 117.70 | 70 | 4.06 | 0.41 | 0.35 | RV` | veldis.html line 2871 | 117.7 | agree
+- bin 117.70" NStar | `(blank; NGC 5024 block) | 117.70 | 70 | 4.06 | 0.41 | 0.35 | RV` | veldis.html line 2871 | 70.0 | agree
+- bin 117.70" sigma [km/s] | `(blank; NGC 5024 block) | 117.70 | 70 | 4.06 | 0.41 | 0.35 | RV` | veldis.html line 2871 | 4.06 | agree
+- bin 117.70" dsigma_Up -> err_hi | `(blank; NGC 5024 block) | 117.70 | 70 | 4.06 | 0.41 | 0.35 | RV` | veldis.html line 2871 | 0.41 | agree
+- bin 117.70" dsigma_Low -> err_lo | `(blank; NGC 5024 block) | 117.70 | 70 | 4.06 | 0.41 | 0.35 | RV` | veldis.html line 2871 | 0.35 | agree
+- bin 216.19" <r> [arcsec] | `(blank; NGC 5024 block) | 216.19 | 70 | 3.46 | 0.35 | 0.30 | RV` | veldis.html line 2883 | 216.19 | agree
+- bin 216.19" NStar | `(blank; NGC 5024 block) | 216.19 | 70 | 3.46 | 0.35 | 0.30 | RV` | veldis.html line 2883 | 70.0 | agree
+- bin 216.19" sigma [km/s] | `(blank; NGC 5024 block) | 216.19 | 70 | 3.46 | 0.35 | 0.30 | RV` | veldis.html line 2883 | 3.46 | agree
+- bin 216.19" dsigma_Up -> err_hi | `(blank; NGC 5024 block) | 216.19 | 70 | 3.46 | 0.35 | 0.30 | RV` | veldis.html line 2883 | 0.35 | agree
+- bin 216.19" dsigma_Low -> err_lo | `(blank; NGC 5024 block) | 216.19 | 70 | 3.46 | 0.35 | 0.30 | RV` | veldis.html line 2883 | 0.3 | agree
+- bin 328.41" <r> [arcsec] | `(blank; NGC 5024 block) | 328.41 | 70 | 3.81 | 0.38 | 0.33 | RV` | veldis.html line 2895 | 328.41 | agree
+- bin 328.41" NStar | `(blank; NGC 5024 block) | 328.41 | 70 | 3.81 | 0.38 | 0.33 | RV` | veldis.html line 2895 | 70.0 | agree
+- bin 328.41" sigma [km/s] | `(blank; NGC 5024 block) | 328.41 | 70 | 3.81 | 0.38 | 0.33 | RV` | veldis.html line 2895 | 3.81 | agree
+- bin 328.41" dsigma_Up -> err_hi | `(blank; NGC 5024 block) | 328.41 | 70 | 3.81 | 0.38 | 0.33 | RV` | veldis.html line 2895 | 0.38 | agree
+- bin 328.41" dsigma_Low -> err_lo | `(blank; NGC 5024 block) | 328.41 | 70 | 3.81 | 0.38 | 0.33 | RV` | veldis.html line 2895 | 0.33 | agree
+- bin 614.24" <r> [arcsec] | `(blank; NGC 5024 block) | 614.24 | 58 | 2.24 | 0.25 | 0.21 | RV` | veldis.html line 2907 | 614.24 | agree
+- bin 614.24" NStar | `(blank; NGC 5024 block) | 614.24 | 58 | 2.24 | 0.25 | 0.21 | RV` | veldis.html line 2907 | 58.0 | agree
+- bin 614.24" sigma [km/s] | `(blank; NGC 5024 block) | 614.24 | 58 | 2.24 | 0.25 | 0.21 | RV` | veldis.html line 2907 | 2.24 | agree
+- bin 614.24" dsigma_Up -> err_hi | `(blank; NGC 5024 block) | 614.24 | 58 | 2.24 | 0.25 | 0.21 | RV` | veldis.html line 2907 | 0.25 | agree
+- bin 614.24" dsigma_Low -> err_lo | `(blank; NGC 5024 block) | 614.24 | 58 | 2.24 | 0.25 | 0.21 | RV` | veldis.html line 2907 | 0.21 | agree
+- R_Sun [kpc] | `NGC 5024 ...  17.9  18.4  [R_Sun field: '17.9']` | mwgc.dat line 99 (Part I) | 17.9 | agree
+- M_V,t [mag] | `NGC 5024 ... 7.61  -8.71  [M_V,t field: '-8.71']` | mwgc.dat line 279 (Part II) | -8.71 | agree
+- W0/gamma | `<TD>7.40</TD>` | J_ApJS_161_304_models.vot models.vot line 563 (recno 223, MW-NGC5024, Mod K) | 7.4 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 563 (recno 223, MW-NGC5024, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 563 (recno 223, MW-NGC5024, Mod K) | 0.1 | agree
+- r0 | `<TD>21.830</TD>` | J_ApJS_161_304_models.vot models.vot line 563 (recno 223, MW-NGC5024, Mod K) | 21.83 | agree
+- E_r0 -> err_hi | `<TD>0.890</TD>` | J_ApJS_161_304_models.vot models.vot line 563 (recno 223, MW-NGC5024, Mod K) | 0.89 | agree
+- e_r0 -> err_lo | `<TD>0.880</TD>` | J_ApJS_161_304_models.vot models.vot line 563 (recno 223, MW-NGC5024, Mod K) | 0.88 | agree
+- Rh | `<TD>0.830</TD>` | J_ApJS_161_304_models.vot models.vot line 563 (recno 223, MW-NGC5024, Mod K) | 0.83 | agree
+- E_Rh -> err_hi | `<TD>0.007</TD>` | J_ApJS_161_304_models.vot models.vot line 563 (recno 223, MW-NGC5024, Mod K) | 0.007 | agree
+- e_Rh -> err_lo | `<TD>0.006</TD>` | J_ApJS_161_304_models.vot models.vot line 563 (recno 223, MW-NGC5024, Mod K) | 0.006 | agree
+- Dist | `<TD>17.8</TD>` | J_ApJS_161_304_models.vot models.vot line 563 (recno 223, MW-NGC5024, Mod K) | 17.8 | agree
+- (M/L)1 | `<TD>1.884</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 249 (recno 89, MW-NGC5024) | 1.884 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.159</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 249 (recno 89, MW-NGC5024) | 0.159 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.159</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 249 (recno 89, MW-NGC5024) | 0.159 | agree
+- arithmetic L_V = 265460.5562 vs 265460.5562 | agree; R_h = 10^0.830 x 17.9 / 17.8 = 6.798811944 pc vs 6.798811944 | agree; M/L 1.884 vs 1.884 | agree
+
+### NGC 5053
+
+- bin 118.92" <r> [arcsec] | `(blank; NGC 5053 block) | 118.92 | 28 | 1.47 | 0.25 | 0.19 | RV` | veldis.html line 2921 | 118.92 | agree
+- bin 118.92" NStar | `(blank; NGC 5053 block) | 118.92 | 28 | 1.47 | 0.25 | 0.19 | RV` | veldis.html line 2921 | 28.0 | agree
+- bin 118.92" sigma [km/s] | `(blank; NGC 5053 block) | 118.92 | 28 | 1.47 | 0.25 | 0.19 | RV` | veldis.html line 2921 | 1.47 | agree
+- bin 118.92" dsigma_Up -> err_hi | `(blank; NGC 5053 block) | 118.92 | 28 | 1.47 | 0.25 | 0.19 | RV` | veldis.html line 2921 | 0.25 | agree
+- bin 118.92" dsigma_Low -> err_lo | `(blank; NGC 5053 block) | 118.92 | 28 | 1.47 | 0.25 | 0.19 | RV` | veldis.html line 2921 | 0.19 | agree
+- bin 307.27" <r> [arcsec] | `(blank; NGC 5053 block) | 307.27 | 27 | 1.12 | 0.21 | 0.17 | RV` | veldis.html line 2927 | 307.27 | agree
+- bin 307.27" NStar | `(blank; NGC 5053 block) | 307.27 | 27 | 1.12 | 0.21 | 0.17 | RV` | veldis.html line 2927 | 27.0 | agree
+- bin 307.27" sigma [km/s] | `(blank; NGC 5053 block) | 307.27 | 27 | 1.12 | 0.21 | 0.17 | RV` | veldis.html line 2927 | 1.12 | agree
+- bin 307.27" dsigma_Up -> err_hi | `(blank; NGC 5053 block) | 307.27 | 27 | 1.12 | 0.21 | 0.17 | RV` | veldis.html line 2927 | 0.21 | agree
+- bin 307.27" dsigma_Low -> err_lo | `(blank; NGC 5053 block) | 307.27 | 27 | 1.12 | 0.21 | 0.17 | RV` | veldis.html line 2927 | 0.17 | agree
+- R_Sun [kpc] | `NGC 5053 ...  17.4  17.8  [R_Sun field: '17.4']` | mwgc.dat line 100 (Part I) | 17.4 | agree
+- M_V,t [mag] | `NGC 5053 ... 9.47  -6.76  [M_V,t field: '-6.76']` | mwgc.dat line 280 (Part II) | -6.76 | agree
+- W0/gamma | `<TD>3.50</TD>` | J_ApJS_161_304_models.vot models.vot line 566 (recno 226, MW-NGC5053, Mod K) | 3.5 | agree
+- E_W0/gamma -> err_hi | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 566 (recno 226, MW-NGC5053, Mod K) | 0.2 | agree
+- e_W0/gamma -> err_lo | `<TD>0.30</TD>` | J_ApJS_161_304_models.vot models.vot line 566 (recno 226, MW-NGC5053, Mod K) | 0.3 | agree
+- r0 | `<TD>146.100</TD>` | J_ApJS_161_304_models.vot models.vot line 566 (recno 226, MW-NGC5053, Mod K) | 146.1 | agree
+- E_r0 -> err_hi | `<TD>10.800</TD>` | J_ApJS_161_304_models.vot models.vot line 566 (recno 226, MW-NGC5053, Mod K) | 10.8 | agree
+- e_r0 -> err_lo | `<TD>6.800</TD>` | J_ApJS_161_304_models.vot models.vot line 566 (recno 226, MW-NGC5053, Mod K) | 6.8 | agree
+- Rh | `<TD>1.095</TD>` | J_ApJS_161_304_models.vot models.vot line 566 (recno 226, MW-NGC5053, Mod K) | 1.095 | agree
+- E_Rh -> err_hi | `<TD>0.002</TD>` | J_ApJS_161_304_models.vot models.vot line 566 (recno 226, MW-NGC5053, Mod K) | 0.002 | agree
+- e_Rh -> err_lo | `<TD>0.001</TD>` | J_ApJS_161_304_models.vot models.vot line 566 (recno 226, MW-NGC5053, Mod K) | 0.001 | agree
+- Dist | `<TD>16.4</TD>` | J_ApJS_161_304_models.vot models.vot line 566 (recno 226, MW-NGC5053, Mod K) | 16.4 | agree
+- (M/L)1 | `<TD>1.931</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 250 (recno 90, MW-NGC5053) | 1.931 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.164</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 250 (recno 90, MW-NGC5053) | 0.164 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.164</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 250 (recno 90, MW-NGC5053) | 0.164 | agree
+- arithmetic L_V = 44055.48635 vs 44055.48635 | agree; R_h = 10^1.095 x 17.4 / 16.4 = 13.20399649 pc vs 13.20399649 | agree; M/L 1.931 vs 1.931 | agree
+
+### NGC 5139
+
+- bin 40.23" <r> [arcsec] | `(blank; NGC 5139 block) | 40.23 | 200 | 19.54 | 1.02 | 0.94 | RV` | veldis.html line 3019 | 40.23 | agree
+- bin 40.23" NStar | `(blank; NGC 5139 block) | 40.23 | 200 | 19.54 | 1.02 | 0.94 | RV` | veldis.html line 3019 | 200.0 | agree
+- bin 40.23" sigma [km/s] | `(blank; NGC 5139 block) | 40.23 | 200 | 19.54 | 1.02 | 0.94 | RV` | veldis.html line 3019 | 19.54 | agree
+- bin 40.23" dsigma_Up -> err_hi | `(blank; NGC 5139 block) | 40.23 | 200 | 19.54 | 1.02 | 0.94 | RV` | veldis.html line 3019 | 1.02 | agree
+- bin 40.23" dsigma_Low -> err_lo | `(blank; NGC 5139 block) | 40.23 | 200 | 19.54 | 1.02 | 0.94 | RV` | veldis.html line 3019 | 0.94 | agree
+- bin 76.20" <r> [arcsec] | `(blank; NGC 5139 block) | 76.20 | 200 | 17.65 | 0.93 | 0.85 | RV` | veldis.html line 3061 | 76.2 | agree
+- bin 76.20" NStar | `(blank; NGC 5139 block) | 76.20 | 200 | 17.65 | 0.93 | 0.85 | RV` | veldis.html line 3061 | 200.0 | agree
+- bin 76.20" sigma [km/s] | `(blank; NGC 5139 block) | 76.20 | 200 | 17.65 | 0.93 | 0.85 | RV` | veldis.html line 3061 | 17.65 | agree
+- bin 76.20" dsigma_Up -> err_hi | `(blank; NGC 5139 block) | 76.20 | 200 | 17.65 | 0.93 | 0.85 | RV` | veldis.html line 3061 | 0.93 | agree
+- bin 76.20" dsigma_Low -> err_lo | `(blank; NGC 5139 block) | 76.20 | 200 | 17.65 | 0.93 | 0.85 | RV` | veldis.html line 3061 | 0.85 | agree
+- bin 100.22" <r> [arcsec] | `(blank; NGC 5139 block) | 100.22 | 200 | 15.97 | 0.84 | 0.77 | RV` | veldis.html line 3091 | 100.22 | agree
+- bin 100.22" NStar | `(blank; NGC 5139 block) | 100.22 | 200 | 15.97 | 0.84 | 0.77 | RV` | veldis.html line 3091 | 200.0 | agree
+- bin 100.22" sigma [km/s] | `(blank; NGC 5139 block) | 100.22 | 200 | 15.97 | 0.84 | 0.77 | RV` | veldis.html line 3091 | 15.97 | agree
+- bin 100.22" dsigma_Up -> err_hi | `(blank; NGC 5139 block) | 100.22 | 200 | 15.97 | 0.84 | 0.77 | RV` | veldis.html line 3091 | 0.84 | agree
+- bin 100.22" dsigma_Low -> err_lo | `(blank; NGC 5139 block) | 100.22 | 200 | 15.97 | 0.84 | 0.77 | RV` | veldis.html line 3091 | 0.77 | agree
+- bin 121.02" <r> [arcsec] | `(blank; NGC 5139 block) | 121.02 | 200 | 15.07 | 0.79 | 0.73 | RV` | veldis.html line 3127 | 121.02 | agree
+- bin 121.02" NStar | `(blank; NGC 5139 block) | 121.02 | 200 | 15.07 | 0.79 | 0.73 | RV` | veldis.html line 3127 | 200.0 | agree
+- bin 121.02" sigma [km/s] | `(blank; NGC 5139 block) | 121.02 | 200 | 15.07 | 0.79 | 0.73 | RV` | veldis.html line 3127 | 15.07 | agree
+- bin 121.02" dsigma_Up -> err_hi | `(blank; NGC 5139 block) | 121.02 | 200 | 15.07 | 0.79 | 0.73 | RV` | veldis.html line 3127 | 0.79 | agree
+- bin 121.02" dsigma_Low -> err_lo | `(blank; NGC 5139 block) | 121.02 | 200 | 15.07 | 0.79 | 0.73 | RV` | veldis.html line 3127 | 0.73 | agree
+- bin 137.77" <r> [arcsec] | `(blank; NGC 5139 block) | 137.77 | 200 | 15.14 | 0.80 | 0.73 | RV` | veldis.html line 3151 | 137.77 | agree
+- bin 137.77" NStar | `(blank; NGC 5139 block) | 137.77 | 200 | 15.14 | 0.80 | 0.73 | RV` | veldis.html line 3151 | 200.0 | agree
+- bin 137.77" sigma [km/s] | `(blank; NGC 5139 block) | 137.77 | 200 | 15.14 | 0.80 | 0.73 | RV` | veldis.html line 3151 | 15.14 | agree
+- bin 137.77" dsigma_Up -> err_hi | `(blank; NGC 5139 block) | 137.77 | 200 | 15.14 | 0.80 | 0.73 | RV` | veldis.html line 3151 | 0.8 | agree
+- bin 137.77" dsigma_Low -> err_lo | `(blank; NGC 5139 block) | 137.77 | 200 | 15.14 | 0.80 | 0.73 | RV` | veldis.html line 3151 | 0.73 | agree
+- bin 156.41" <r> [arcsec] | `(blank; NGC 5139 block) | 156.41 | 200 | 15.14 | 0.80 | 0.73 | RV` | veldis.html line 3175 | 156.41 | agree
+- bin 156.41" NStar | `(blank; NGC 5139 block) | 156.41 | 200 | 15.14 | 0.80 | 0.73 | RV` | veldis.html line 3175 | 200.0 | agree
+- bin 156.41" sigma [km/s] | `(blank; NGC 5139 block) | 156.41 | 200 | 15.14 | 0.80 | 0.73 | RV` | veldis.html line 3175 | 15.14 | agree
+- bin 156.41" dsigma_Up -> err_hi | `(blank; NGC 5139 block) | 156.41 | 200 | 15.14 | 0.80 | 0.73 | RV` | veldis.html line 3175 | 0.8 | agree
+- bin 156.41" dsigma_Low -> err_lo | `(blank; NGC 5139 block) | 156.41 | 200 | 15.14 | 0.80 | 0.73 | RV` | veldis.html line 3175 | 0.73 | agree
+- bin 177.90" <r> [arcsec] | `(blank; NGC 5139 block) | 177.90 | 200 | 14.85 | 0.78 | 0.72 | RV` | veldis.html line 3187 | 177.9 | agree
+- bin 177.90" NStar | `(blank; NGC 5139 block) | 177.90 | 200 | 14.85 | 0.78 | 0.72 | RV` | veldis.html line 3187 | 200.0 | agree
+- bin 177.90" sigma [km/s] | `(blank; NGC 5139 block) | 177.90 | 200 | 14.85 | 0.78 | 0.72 | RV` | veldis.html line 3187 | 14.85 | agree
+- bin 177.90" dsigma_Up -> err_hi | `(blank; NGC 5139 block) | 177.90 | 200 | 14.85 | 0.78 | 0.72 | RV` | veldis.html line 3187 | 0.78 | agree
+- bin 177.90" dsigma_Low -> err_lo | `(blank; NGC 5139 block) | 177.90 | 200 | 14.85 | 0.78 | 0.72 | RV` | veldis.html line 3187 | 0.72 | agree
+- bin 204.99" <r> [arcsec] | `(blank; NGC 5139 block) | 204.99 | 200 | 14.25 | 0.75 | 0.69 | RV` | veldis.html line 3193 | 204.99 | agree
+- bin 204.99" NStar | `(blank; NGC 5139 block) | 204.99 | 200 | 14.25 | 0.75 | 0.69 | RV` | veldis.html line 3193 | 200.0 | agree
+- bin 204.99" sigma [km/s] | `(blank; NGC 5139 block) | 204.99 | 200 | 14.25 | 0.75 | 0.69 | RV` | veldis.html line 3193 | 14.25 | agree
+- bin 204.99" dsigma_Up -> err_hi | `(blank; NGC 5139 block) | 204.99 | 200 | 14.25 | 0.75 | 0.69 | RV` | veldis.html line 3193 | 0.75 | agree
+- bin 204.99" dsigma_Low -> err_lo | `(blank; NGC 5139 block) | 204.99 | 200 | 14.25 | 0.75 | 0.69 | RV` | veldis.html line 3193 | 0.69 | agree
+- bin 234.30" <r> [arcsec] | `(blank; NGC 5139 block) | 234.30 | 200 | 14.32 | 0.75 | 0.69 | RV` | veldis.html line 3205 | 234.3 | agree
+- bin 234.30" NStar | `(blank; NGC 5139 block) | 234.30 | 200 | 14.32 | 0.75 | 0.69 | RV` | veldis.html line 3205 | 200.0 | agree
+- bin 234.30" sigma [km/s] | `(blank; NGC 5139 block) | 234.30 | 200 | 14.32 | 0.75 | 0.69 | RV` | veldis.html line 3205 | 14.32 | agree
+- bin 234.30" dsigma_Up -> err_hi | `(blank; NGC 5139 block) | 234.30 | 200 | 14.32 | 0.75 | 0.69 | RV` | veldis.html line 3205 | 0.75 | agree
+- bin 234.30" dsigma_Low -> err_lo | `(blank; NGC 5139 block) | 234.30 | 200 | 14.32 | 0.75 | 0.69 | RV` | veldis.html line 3205 | 0.69 | agree
+- bin 262.10" <r> [arcsec] | `(blank; NGC 5139 block) | 262.10 | 200 | 12.88 | 0.68 | 0.62 | RV` | veldis.html line 3217 | 262.1 | agree
+- bin 262.10" NStar | `(blank; NGC 5139 block) | 262.10 | 200 | 12.88 | 0.68 | 0.62 | RV` | veldis.html line 3217 | 200.0 | agree
+- bin 262.10" sigma [km/s] | `(blank; NGC 5139 block) | 262.10 | 200 | 12.88 | 0.68 | 0.62 | RV` | veldis.html line 3217 | 12.88 | agree
+- bin 262.10" dsigma_Up -> err_hi | `(blank; NGC 5139 block) | 262.10 | 200 | 12.88 | 0.68 | 0.62 | RV` | veldis.html line 3217 | 0.68 | agree
+- bin 262.10" dsigma_Low -> err_lo | `(blank; NGC 5139 block) | 262.10 | 200 | 12.88 | 0.68 | 0.62 | RV` | veldis.html line 3217 | 0.62 | agree
+- bin 289.06" <r> [arcsec] | `(blank; NGC 5139 block) | 289.06 | 200 | 14.02 | 0.73 | 0.68 | RV` | veldis.html line 3229 | 289.06 | agree
+- bin 289.06" NStar | `(blank; NGC 5139 block) | 289.06 | 200 | 14.02 | 0.73 | 0.68 | RV` | veldis.html line 3229 | 200.0 | agree
+- bin 289.06" sigma [km/s] | `(blank; NGC 5139 block) | 289.06 | 200 | 14.02 | 0.73 | 0.68 | RV` | veldis.html line 3229 | 14.02 | agree
+- bin 289.06" dsigma_Up -> err_hi | `(blank; NGC 5139 block) | 289.06 | 200 | 14.02 | 0.73 | 0.68 | RV` | veldis.html line 3229 | 0.73 | agree
+- bin 289.06" dsigma_Low -> err_lo | `(blank; NGC 5139 block) | 289.06 | 200 | 14.02 | 0.73 | 0.68 | RV` | veldis.html line 3229 | 0.68 | agree
+- bin 318.30" <r> [arcsec] | `(blank; NGC 5139 block) | 318.30 | 200 | 12.53 | 0.66 | 0.61 | RV` | veldis.html line 3241 | 318.3 | agree
+- bin 318.30" NStar | `(blank; NGC 5139 block) | 318.30 | 200 | 12.53 | 0.66 | 0.61 | RV` | veldis.html line 3241 | 200.0 | agree
+- bin 318.30" sigma [km/s] | `(blank; NGC 5139 block) | 318.30 | 200 | 12.53 | 0.66 | 0.61 | RV` | veldis.html line 3241 | 12.53 | agree
+- bin 318.30" dsigma_Up -> err_hi | `(blank; NGC 5139 block) | 318.30 | 200 | 12.53 | 0.66 | 0.61 | RV` | veldis.html line 3241 | 0.66 | agree
+- bin 318.30" dsigma_Low -> err_lo | `(blank; NGC 5139 block) | 318.30 | 200 | 12.53 | 0.66 | 0.61 | RV` | veldis.html line 3241 | 0.61 | agree
+- bin 351.90" <r> [arcsec] | `(blank; NGC 5139 block) | 351.90 | 200 | 13.26 | 0.70 | 0.64 | RV` | veldis.html line 3253 | 351.9 | agree
+- bin 351.90" NStar | `(blank; NGC 5139 block) | 351.90 | 200 | 13.26 | 0.70 | 0.64 | RV` | veldis.html line 3253 | 200.0 | agree
+- bin 351.90" sigma [km/s] | `(blank; NGC 5139 block) | 351.90 | 200 | 13.26 | 0.70 | 0.64 | RV` | veldis.html line 3253 | 13.26 | agree
+- bin 351.90" dsigma_Up -> err_hi | `(blank; NGC 5139 block) | 351.90 | 200 | 13.26 | 0.70 | 0.64 | RV` | veldis.html line 3253 | 0.7 | agree
+- bin 351.90" dsigma_Low -> err_lo | `(blank; NGC 5139 block) | 351.90 | 200 | 13.26 | 0.70 | 0.64 | RV` | veldis.html line 3253 | 0.64 | agree
+- bin 393.38" <r> [arcsec] | `(blank; NGC 5139 block) | 393.38 | 200 | 11.49 | 0.60 | 0.56 | RV` | veldis.html line 3265 | 393.38 | agree
+- bin 393.38" NStar | `(blank; NGC 5139 block) | 393.38 | 200 | 11.49 | 0.60 | 0.56 | RV` | veldis.html line 3265 | 200.0 | agree
+- bin 393.38" sigma [km/s] | `(blank; NGC 5139 block) | 393.38 | 200 | 11.49 | 0.60 | 0.56 | RV` | veldis.html line 3265 | 11.49 | agree
+- bin 393.38" dsigma_Up -> err_hi | `(blank; NGC 5139 block) | 393.38 | 200 | 11.49 | 0.60 | 0.56 | RV` | veldis.html line 3265 | 0.6 | agree
+- bin 393.38" dsigma_Low -> err_lo | `(blank; NGC 5139 block) | 393.38 | 200 | 11.49 | 0.60 | 0.56 | RV` | veldis.html line 3265 | 0.56 | agree
+- bin 440.61" <r> [arcsec] | `(blank; NGC 5139 block) | 440.61 | 200 | 12.48 | 0.66 | 0.60 | RV` | veldis.html line 3283 | 440.61 | agree
+- bin 440.61" NStar | `(blank; NGC 5139 block) | 440.61 | 200 | 12.48 | 0.66 | 0.60 | RV` | veldis.html line 3283 | 200.0 | agree
+- bin 440.61" sigma [km/s] | `(blank; NGC 5139 block) | 440.61 | 200 | 12.48 | 0.66 | 0.60 | RV` | veldis.html line 3283 | 12.48 | agree
+- bin 440.61" dsigma_Up -> err_hi | `(blank; NGC 5139 block) | 440.61 | 200 | 12.48 | 0.66 | 0.60 | RV` | veldis.html line 3283 | 0.66 | agree
+- bin 440.61" dsigma_Low -> err_lo | `(blank; NGC 5139 block) | 440.61 | 200 | 12.48 | 0.66 | 0.60 | RV` | veldis.html line 3283 | 0.6 | agree
+- bin 491.58" <r> [arcsec] | `(blank; NGC 5139 block) | 491.58 | 200 | 11.81 | 0.62 | 0.57 | RV` | veldis.html line 3295 | 491.58 | agree
+- bin 491.58" NStar | `(blank; NGC 5139 block) | 491.58 | 200 | 11.81 | 0.62 | 0.57 | RV` | veldis.html line 3295 | 200.0 | agree
+- bin 491.58" sigma [km/s] | `(blank; NGC 5139 block) | 491.58 | 200 | 11.81 | 0.62 | 0.57 | RV` | veldis.html line 3295 | 11.81 | agree
+- bin 491.58" dsigma_Up -> err_hi | `(blank; NGC 5139 block) | 491.58 | 200 | 11.81 | 0.62 | 0.57 | RV` | veldis.html line 3295 | 0.62 | agree
+- bin 491.58" dsigma_Low -> err_lo | `(blank; NGC 5139 block) | 491.58 | 200 | 11.81 | 0.62 | 0.57 | RV` | veldis.html line 3295 | 0.57 | agree
+- bin 549.46" <r> [arcsec] | `(blank; NGC 5139 block) | 549.46 | 200 | 11.29 | 0.59 | 0.55 | RV` | veldis.html line 3313 | 549.46 | agree
+- bin 549.46" NStar | `(blank; NGC 5139 block) | 549.46 | 200 | 11.29 | 0.59 | 0.55 | RV` | veldis.html line 3313 | 200.0 | agree
+- bin 549.46" sigma [km/s] | `(blank; NGC 5139 block) | 549.46 | 200 | 11.29 | 0.59 | 0.55 | RV` | veldis.html line 3313 | 11.29 | agree
+- bin 549.46" dsigma_Up -> err_hi | `(blank; NGC 5139 block) | 549.46 | 200 | 11.29 | 0.59 | 0.55 | RV` | veldis.html line 3313 | 0.59 | agree
+- bin 549.46" dsigma_Low -> err_lo | `(blank; NGC 5139 block) | 549.46 | 200 | 11.29 | 0.59 | 0.55 | RV` | veldis.html line 3313 | 0.55 | agree
+- bin 614.34" <r> [arcsec] | `(blank; NGC 5139 block) | 614.34 | 200 | 10.66 | 0.56 | 0.52 | RV` | veldis.html line 3331 | 614.34 | agree
+- bin 614.34" NStar | `(blank; NGC 5139 block) | 614.34 | 200 | 10.66 | 0.56 | 0.52 | RV` | veldis.html line 3331 | 200.0 | agree
+- bin 614.34" sigma [km/s] | `(blank; NGC 5139 block) | 614.34 | 200 | 10.66 | 0.56 | 0.52 | RV` | veldis.html line 3331 | 10.66 | agree
+- bin 614.34" dsigma_Up -> err_hi | `(blank; NGC 5139 block) | 614.34 | 200 | 10.66 | 0.56 | 0.52 | RV` | veldis.html line 3331 | 0.56 | agree
+- bin 614.34" dsigma_Low -> err_lo | `(blank; NGC 5139 block) | 614.34 | 200 | 10.66 | 0.56 | 0.52 | RV` | veldis.html line 3331 | 0.52 | agree
+- bin 698.61" <r> [arcsec] | `(blank; NGC 5139 block) | 698.61 | 200 | 9.88 | 0.52 | 0.48 | RV` | veldis.html line 3349 | 698.61 | agree
+- bin 698.61" NStar | `(blank; NGC 5139 block) | 698.61 | 200 | 9.88 | 0.52 | 0.48 | RV` | veldis.html line 3349 | 200.0 | agree
+- bin 698.61" sigma [km/s] | `(blank; NGC 5139 block) | 698.61 | 200 | 9.88 | 0.52 | 0.48 | RV` | veldis.html line 3349 | 9.88 | agree
+- bin 698.61" dsigma_Up -> err_hi | `(blank; NGC 5139 block) | 698.61 | 200 | 9.88 | 0.52 | 0.48 | RV` | veldis.html line 3349 | 0.52 | agree
+- bin 698.61" dsigma_Low -> err_lo | `(blank; NGC 5139 block) | 698.61 | 200 | 9.88 | 0.52 | 0.48 | RV` | veldis.html line 3349 | 0.48 | agree
+- bin 804.83" <r> [arcsec] | `(blank; NGC 5139 block) | 804.83 | 200 | 9.88 | 0.52 | 0.48 | RV` | veldis.html line 3367 | 804.83 | agree
+- bin 804.83" NStar | `(blank; NGC 5139 block) | 804.83 | 200 | 9.88 | 0.52 | 0.48 | RV` | veldis.html line 3367 | 200.0 | agree
+- bin 804.83" sigma [km/s] | `(blank; NGC 5139 block) | 804.83 | 200 | 9.88 | 0.52 | 0.48 | RV` | veldis.html line 3367 | 9.88 | agree
+- bin 804.83" dsigma_Up -> err_hi | `(blank; NGC 5139 block) | 804.83 | 200 | 9.88 | 0.52 | 0.48 | RV` | veldis.html line 3367 | 0.52 | agree
+- bin 804.83" dsigma_Low -> err_lo | `(blank; NGC 5139 block) | 804.83 | 200 | 9.88 | 0.52 | 0.48 | RV` | veldis.html line 3367 | 0.48 | agree
+- bin 938.01" <r> [arcsec] | `(blank; NGC 5139 block) | 938.01 | 200 | 9.41 | 0.50 | 0.46 | RV` | veldis.html line 3385 | 938.01 | agree
+- bin 938.01" NStar | `(blank; NGC 5139 block) | 938.01 | 200 | 9.41 | 0.50 | 0.46 | RV` | veldis.html line 3385 | 200.0 | agree
+- bin 938.01" sigma [km/s] | `(blank; NGC 5139 block) | 938.01 | 200 | 9.41 | 0.50 | 0.46 | RV` | veldis.html line 3385 | 9.41 | agree
+- bin 938.01" dsigma_Up -> err_hi | `(blank; NGC 5139 block) | 938.01 | 200 | 9.41 | 0.50 | 0.46 | RV` | veldis.html line 3385 | 0.5 | agree
+- bin 938.01" dsigma_Low -> err_lo | `(blank; NGC 5139 block) | 938.01 | 200 | 9.41 | 0.50 | 0.46 | RV` | veldis.html line 3385 | 0.46 | agree
+- bin 1173.57" <r> [arcsec] | `(blank; NGC 5139 block) | 1173.57 | 200 | 8.04 | 0.43 | 0.39 | RV` | veldis.html line 3397 | 1173.57 | agree
+- bin 1173.57" NStar | `(blank; NGC 5139 block) | 1173.57 | 200 | 8.04 | 0.43 | 0.39 | RV` | veldis.html line 3397 | 200.0 | agree
+- bin 1173.57" sigma [km/s] | `(blank; NGC 5139 block) | 1173.57 | 200 | 8.04 | 0.43 | 0.39 | RV` | veldis.html line 3397 | 8.04 | agree
+- bin 1173.57" dsigma_Up -> err_hi | `(blank; NGC 5139 block) | 1173.57 | 200 | 8.04 | 0.43 | 0.39 | RV` | veldis.html line 3397 | 0.43 | agree
+- bin 1173.57" dsigma_Low -> err_lo | `(blank; NGC 5139 block) | 1173.57 | 200 | 8.04 | 0.43 | 0.39 | RV` | veldis.html line 3397 | 0.39 | agree
+- bin 1747.28" <r> [arcsec] | `(blank; NGC 5139 block) | 1747.28 | 193 | 7.42 | 0.40 | 0.38 | RV` | veldis.html line 3403 | 1747.28 | agree
+- bin 1747.28" NStar | `(blank; NGC 5139 block) | 1747.28 | 193 | 7.42 | 0.40 | 0.38 | RV` | veldis.html line 3403 | 193.0 | agree
+- bin 1747.28" sigma [km/s] | `(blank; NGC 5139 block) | 1747.28 | 193 | 7.42 | 0.40 | 0.38 | RV` | veldis.html line 3403 | 7.42 | agree
+- bin 1747.28" dsigma_Up -> err_hi | `(blank; NGC 5139 block) | 1747.28 | 193 | 7.42 | 0.40 | 0.38 | RV` | veldis.html line 3403 | 0.4 | agree
+- bin 1747.28" dsigma_Low -> err_lo | `(blank; NGC 5139 block) | 1747.28 | 193 | 7.42 | 0.40 | 0.38 | RV` | veldis.html line 3403 | 0.38 | agree
+- R_Sun [kpc] | `NGC 5139 ...   5.2   6.4  [R_Sun field: '5.2']` | mwgc.dat line 101 (Part I) | 5.2 | agree
+- M_V,t [mag] | `NGC 5139 ... 3.68 -10.26  [M_V,t field: '-10.26']` | mwgc.dat line 281 (Part II) | -10.26 | agree
+- W0/gamma | `<TD>6.20</TD>` | J_ApJS_161_304_models.vot models.vot line 569 (recno 229, MW-NGC5139, Mod K) | 6.2 | agree
+- E_W0/gamma -> err_hi | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 569 (recno 229, MW-NGC5139, Mod K) | 0.2 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 569 (recno 229, MW-NGC5139, Mod K) | 0.1 | agree
+- r0 | `<TD>141.200</TD>` | J_ApJS_161_304_models.vot models.vot line 569 (recno 229, MW-NGC5139, Mod K) | 141.2 | agree
+- E_r0 -> err_hi | `<TD>6.500</TD>` | J_ApJS_161_304_models.vot models.vot line 569 (recno 229, MW-NGC5139, Mod K) | 6.5 | agree
+- e_r0 -> err_lo | `<TD>12.690</TD>` | J_ApJS_161_304_models.vot models.vot line 569 (recno 229, MW-NGC5139, Mod K) | 12.69 | agree
+- Rh | `<TD>0.887</TD>` | J_ApJS_161_304_models.vot models.vot line 569 (recno 229, MW-NGC5139, Mod K) | 0.887 | agree
+- E_Rh -> err_hi | `<TD>0.005</TD>` | J_ApJS_161_304_models.vot models.vot line 569 (recno 229, MW-NGC5139, Mod K) | 0.005 | agree
+- e_Rh -> err_lo | `<TD>0.010</TD>` | J_ApJS_161_304_models.vot models.vot line 569 (recno 229, MW-NGC5139, Mod K) | 0.01 | agree
+- Dist | `<TD>5.3</TD>` | J_ApJS_161_304_models.vot models.vot line 569 (recno 229, MW-NGC5139, Mod K) | 5.3 | agree
+- (M/L)1 | `<TD>1.872</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 251 (recno 91, MW-NGC5139) | 1.872 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.154</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 251 (recno 91, MW-NGC5139) | 0.154 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.154</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 251 (recno 91, MW-NGC5139) | 0.154 | agree
+- arithmetic L_V = 1106623.784 vs 1106623.784 | agree; R_h = 10^0.887 x 5.2 / 5.3 = 7.563581206 pc vs 7.563581206 | agree; M/L 1.872 vs 1.872 | agree
+
+### NGC 5272
+
+- bin 12.86" <r> [arcsec] | `(blank; NGC 5272 block) | 12.86 | 70 | 7.26 | 0.68 | 0.59 | RV` | veldis.html line 3423 | 12.86 | agree
+- bin 12.86" NStar | `(blank; NGC 5272 block) | 12.86 | 70 | 7.26 | 0.68 | 0.59 | RV` | veldis.html line 3423 | 70.0 | agree
+- bin 12.86" sigma [km/s] | `(blank; NGC 5272 block) | 12.86 | 70 | 7.26 | 0.68 | 0.59 | RV` | veldis.html line 3423 | 7.26 | agree
+- bin 12.86" dsigma_Up -> err_hi | `(blank; NGC 5272 block) | 12.86 | 70 | 7.26 | 0.68 | 0.59 | RV` | veldis.html line 3423 | 0.68 | agree
+- bin 12.86" dsigma_Low -> err_lo | `(blank; NGC 5272 block) | 12.86 | 70 | 7.26 | 0.68 | 0.59 | RV` | veldis.html line 3423 | 0.59 | agree
+- bin 39.55" <r> [arcsec] | `(blank; NGC 5272 block) | 39.55 | 70 | 8.30 | 0.77 | 0.66 | RV` | veldis.html line 3465 | 39.55 | agree
+- bin 39.55" NStar | `(blank; NGC 5272 block) | 39.55 | 70 | 8.30 | 0.77 | 0.66 | RV` | veldis.html line 3465 | 70.0 | agree
+- bin 39.55" sigma [km/s] | `(blank; NGC 5272 block) | 39.55 | 70 | 8.30 | 0.77 | 0.66 | RV` | veldis.html line 3465 | 8.3 | agree
+- bin 39.55" dsigma_Up -> err_hi | `(blank; NGC 5272 block) | 39.55 | 70 | 8.30 | 0.77 | 0.66 | RV` | veldis.html line 3465 | 0.77 | agree
+- bin 39.55" dsigma_Low -> err_lo | `(blank; NGC 5272 block) | 39.55 | 70 | 8.30 | 0.77 | 0.66 | RV` | veldis.html line 3465 | 0.66 | agree
+- bin 70.89" <r> [arcsec] | `(blank; NGC 5272 block) | 70.89 | 70 | 6.22 | 0.58 | 0.50 | RV` | veldis.html line 3513 | 70.89 | agree
+- bin 70.89" NStar | `(blank; NGC 5272 block) | 70.89 | 70 | 6.22 | 0.58 | 0.50 | RV` | veldis.html line 3513 | 70.0 | agree
+- bin 70.89" sigma [km/s] | `(blank; NGC 5272 block) | 70.89 | 70 | 6.22 | 0.58 | 0.50 | RV` | veldis.html line 3513 | 6.22 | agree
+- bin 70.89" dsigma_Up -> err_hi | `(blank; NGC 5272 block) | 70.89 | 70 | 6.22 | 0.58 | 0.50 | RV` | veldis.html line 3513 | 0.58 | agree
+- bin 70.89" dsigma_Low -> err_lo | `(blank; NGC 5272 block) | 70.89 | 70 | 6.22 | 0.58 | 0.50 | RV` | veldis.html line 3513 | 0.5 | agree
+- bin 103.24" <r> [arcsec] | `(blank; NGC 5272 block) | 103.24 | 70 | 6.32 | 0.59 | 0.52 | RV` | veldis.html line 3537 | 103.24 | agree
+- bin 103.24" NStar | `(blank; NGC 5272 block) | 103.24 | 70 | 6.32 | 0.59 | 0.52 | RV` | veldis.html line 3537 | 70.0 | agree
+- bin 103.24" sigma [km/s] | `(blank; NGC 5272 block) | 103.24 | 70 | 6.32 | 0.59 | 0.52 | RV` | veldis.html line 3537 | 6.32 | agree
+- bin 103.24" dsigma_Up -> err_hi | `(blank; NGC 5272 block) | 103.24 | 70 | 6.32 | 0.59 | 0.52 | RV` | veldis.html line 3537 | 0.59 | agree
+- bin 103.24" dsigma_Low -> err_lo | `(blank; NGC 5272 block) | 103.24 | 70 | 6.32 | 0.59 | 0.52 | RV` | veldis.html line 3537 | 0.52 | agree
+- bin 141.58" <r> [arcsec] | `(blank; NGC 5272 block) | 141.58 | 70 | 5.44 | 0.51 | 0.44 | RV` | veldis.html line 3549 | 141.58 | agree
+- bin 141.58" NStar | `(blank; NGC 5272 block) | 141.58 | 70 | 5.44 | 0.51 | 0.44 | RV` | veldis.html line 3549 | 70.0 | agree
+- bin 141.58" sigma [km/s] | `(blank; NGC 5272 block) | 141.58 | 70 | 5.44 | 0.51 | 0.44 | RV` | veldis.html line 3549 | 5.44 | agree
+- bin 141.58" dsigma_Up -> err_hi | `(blank; NGC 5272 block) | 141.58 | 70 | 5.44 | 0.51 | 0.44 | RV` | veldis.html line 3549 | 0.51 | agree
+- bin 141.58" dsigma_Low -> err_lo | `(blank; NGC 5272 block) | 141.58 | 70 | 5.44 | 0.51 | 0.44 | RV` | veldis.html line 3549 | 0.44 | agree
+- bin 185.91" <r> [arcsec] | `(blank; NGC 5272 block) | 185.91 | 70 | 4.68 | 0.46 | 0.39 | RV` | veldis.html line 3561 | 185.91 | agree
+- bin 185.91" NStar | `(blank; NGC 5272 block) | 185.91 | 70 | 4.68 | 0.46 | 0.39 | RV` | veldis.html line 3561 | 70.0 | agree
+- bin 185.91" sigma [km/s] | `(blank; NGC 5272 block) | 185.91 | 70 | 4.68 | 0.46 | 0.39 | RV` | veldis.html line 3561 | 4.68 | agree
+- bin 185.91" dsigma_Up -> err_hi | `(blank; NGC 5272 block) | 185.91 | 70 | 4.68 | 0.46 | 0.39 | RV` | veldis.html line 3561 | 0.46 | agree
+- bin 185.91" dsigma_Low -> err_lo | `(blank; NGC 5272 block) | 185.91 | 70 | 4.68 | 0.46 | 0.39 | RV` | veldis.html line 3561 | 0.39 | agree
+- bin 250.96" <r> [arcsec] | `(blank; NGC 5272 block) | 250.96 | 70 | 4.29 | 0.42 | 0.36 | RV` | veldis.html line 3573 | 250.96 | agree
+- bin 250.96" NStar | `(blank; NGC 5272 block) | 250.96 | 70 | 4.29 | 0.42 | 0.36 | RV` | veldis.html line 3573 | 70.0 | agree
+- bin 250.96" sigma [km/s] | `(blank; NGC 5272 block) | 250.96 | 70 | 4.29 | 0.42 | 0.36 | RV` | veldis.html line 3573 | 4.29 | agree
+- bin 250.96" dsigma_Up -> err_hi | `(blank; NGC 5272 block) | 250.96 | 70 | 4.29 | 0.42 | 0.36 | RV` | veldis.html line 3573 | 0.42 | agree
+- bin 250.96" dsigma_Low -> err_lo | `(blank; NGC 5272 block) | 250.96 | 70 | 4.29 | 0.42 | 0.36 | RV` | veldis.html line 3573 | 0.36 | agree
+- bin 337.43" <r> [arcsec] | `(blank; NGC 5272 block) | 337.43 | 70 | 4.92 | 0.47 | 0.41 | RV` | veldis.html line 3585 | 337.43 | agree
+- bin 337.43" NStar | `(blank; NGC 5272 block) | 337.43 | 70 | 4.92 | 0.47 | 0.41 | RV` | veldis.html line 3585 | 70.0 | agree
+- bin 337.43" sigma [km/s] | `(blank; NGC 5272 block) | 337.43 | 70 | 4.92 | 0.47 | 0.41 | RV` | veldis.html line 3585 | 4.92 | agree
+- bin 337.43" dsigma_Up -> err_hi | `(blank; NGC 5272 block) | 337.43 | 70 | 4.92 | 0.47 | 0.41 | RV` | veldis.html line 3585 | 0.47 | agree
+- bin 337.43" dsigma_Low -> err_lo | `(blank; NGC 5272 block) | 337.43 | 70 | 4.92 | 0.47 | 0.41 | RV` | veldis.html line 3585 | 0.41 | agree
+- bin 475.27" <r> [arcsec] | `(blank; NGC 5272 block) | 475.27 | 70 | 3.65 | 0.36 | 0.32 | RV` | veldis.html line 3603 | 475.27 | agree
+- bin 475.27" NStar | `(blank; NGC 5272 block) | 475.27 | 70 | 3.65 | 0.36 | 0.32 | RV` | veldis.html line 3603 | 70.0 | agree
+- bin 475.27" sigma [km/s] | `(blank; NGC 5272 block) | 475.27 | 70 | 3.65 | 0.36 | 0.32 | RV` | veldis.html line 3603 | 3.65 | agree
+- bin 475.27" dsigma_Up -> err_hi | `(blank; NGC 5272 block) | 475.27 | 70 | 3.65 | 0.36 | 0.32 | RV` | veldis.html line 3603 | 0.36 | agree
+- bin 475.27" dsigma_Low -> err_lo | `(blank; NGC 5272 block) | 475.27 | 70 | 3.65 | 0.36 | 0.32 | RV` | veldis.html line 3603 | 0.32 | agree
+- bin 670.45" <r> [arcsec] | `(blank; NGC 5272 block) | 670.45 | 70 | 2.98 | 0.29 | 0.24 | RV` | veldis.html line 3615 | 670.45 | agree
+- bin 670.45" NStar | `(blank; NGC 5272 block) | 670.45 | 70 | 2.98 | 0.29 | 0.24 | RV` | veldis.html line 3615 | 70.0 | agree
+- bin 670.45" sigma [km/s] | `(blank; NGC 5272 block) | 670.45 | 70 | 2.98 | 0.29 | 0.24 | RV` | veldis.html line 3615 | 2.98 | agree
+- bin 670.45" dsigma_Up -> err_hi | `(blank; NGC 5272 block) | 670.45 | 70 | 2.98 | 0.29 | 0.24 | RV` | veldis.html line 3615 | 0.29 | agree
+- bin 670.45" dsigma_Low -> err_lo | `(blank; NGC 5272 block) | 670.45 | 70 | 2.98 | 0.29 | 0.24 | RV` | veldis.html line 3615 | 0.24 | agree
+- bin 1119.10" <r> [arcsec] | `(blank; NGC 5272 block) | 1119.10 | 27 | 2.36 | 0.40 | 0.32 | RV` | veldis.html line 3621 | 1119.1 | agree
+- bin 1119.10" NStar | `(blank; NGC 5272 block) | 1119.10 | 27 | 2.36 | 0.40 | 0.32 | RV` | veldis.html line 3621 | 27.0 | agree
+- bin 1119.10" sigma [km/s] | `(blank; NGC 5272 block) | 1119.10 | 27 | 2.36 | 0.40 | 0.32 | RV` | veldis.html line 3621 | 2.36 | agree
+- bin 1119.10" dsigma_Up -> err_hi | `(blank; NGC 5272 block) | 1119.10 | 27 | 2.36 | 0.40 | 0.32 | RV` | veldis.html line 3621 | 0.4 | agree
+- bin 1119.10" dsigma_Low -> err_lo | `(blank; NGC 5272 block) | 1119.10 | 27 | 2.36 | 0.40 | 0.32 | RV` | veldis.html line 3621 | 0.32 | agree
+- R_Sun [kpc] | `NGC 5272 ...  10.2  12.0  [R_Sun field: '10.2']` | mwgc.dat line 102 (Part I) | 10.2 | agree
+- M_V,t [mag] | `NGC 5272 ... 6.19  -8.88  [M_V,t field: '-8.88']` | mwgc.dat line 282 (Part II) | -8.88 | agree
+- W0/gamma | `<TD>8.20</TD>` | J_ApJS_161_304_models.vot models.vot line 572 (recno 232, MW-NGC5272, Mod K) | 8.2 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 572 (recno 232, MW-NGC5272, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 572 (recno 232, MW-NGC5272, Mod K) | 0.1 | agree
+- r0 | `<TD>22.910</TD>` | J_ApJS_161_304_models.vot models.vot line 572 (recno 232, MW-NGC5272, Mod K) | 22.91 | agree
+- E_r0 -> err_hi | `<TD>1.610</TD>` | J_ApJS_161_304_models.vot models.vot line 572 (recno 232, MW-NGC5272, Mod K) | 1.61 | agree
+- e_r0 -> err_lo | `<TD>1.510</TD>` | J_ApJS_161_304_models.vot models.vot line 572 (recno 232, MW-NGC5272, Mod K) | 1.51 | agree
+- Rh | `<TD>0.844</TD>` | J_ApJS_161_304_models.vot models.vot line 572 (recno 232, MW-NGC5272, Mod K) | 0.844 | agree
+- E_Rh -> err_hi | `<TD>0.003</TD>` | J_ApJS_161_304_models.vot models.vot line 572 (recno 232, MW-NGC5272, Mod K) | 0.003 | agree
+- e_Rh -> err_lo | `<TD>0.002</TD>` | J_ApJS_161_304_models.vot models.vot line 572 (recno 232, MW-NGC5272, Mod K) | 0.002 | agree
+- Dist | `<TD>10.4</TD>` | J_ApJS_161_304_models.vot models.vot line 572 (recno 232, MW-NGC5272, Mod K) | 10.4 | agree
+- (M/L)1 | `<TD>1.877</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 252 (recno 92, MW-NGC5272) | 1.877 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.154</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 252 (recno 92, MW-NGC5272) | 0.154 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.154</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 252 (recno 92, MW-NGC5272) | 0.154 | agree
+- arithmetic L_V = 310455.9588 vs 310455.9588 | agree; R_h = 10^0.844 x 10.2 / 10.4 = 6.848048578 pc vs 6.848048578 | agree; M/L 1.877 vs 1.877 | agree
+
+### NGC 5286
+
+- bin 6.42" <r> [arcsec] | `(blank; NGC 5286 block) | 6.42 | 200 | 9.69 | 0.53 | 0.49 | RV` | veldis.html line 3653 | 6.42 | agree
+- bin 6.42" NStar | `(blank; NGC 5286 block) | 6.42 | 200 | 9.69 | 0.53 | 0.49 | RV` | veldis.html line 3653 | 200.0 | agree
+- bin 6.42" sigma [km/s] | `(blank; NGC 5286 block) | 6.42 | 200 | 9.69 | 0.53 | 0.49 | RV` | veldis.html line 3653 | 9.69 | agree
+- bin 6.42" dsigma_Up -> err_hi | `(blank; NGC 5286 block) | 6.42 | 200 | 9.69 | 0.53 | 0.49 | RV` | veldis.html line 3653 | 0.53 | agree
+- bin 6.42" dsigma_Low -> err_lo | `(blank; NGC 5286 block) | 6.42 | 200 | 9.69 | 0.53 | 0.49 | RV` | veldis.html line 3653 | 0.49 | agree
+- bin 11.89" <r> [arcsec] | `(blank; NGC 5286 block) | 11.89 | 200 | 9.21 | 0.51 | 0.47 | RV` | veldis.html line 3665 | 11.89 | agree
+- bin 11.89" NStar | `(blank; NGC 5286 block) | 11.89 | 200 | 9.21 | 0.51 | 0.47 | RV` | veldis.html line 3665 | 200.0 | agree
+- bin 11.89" sigma [km/s] | `(blank; NGC 5286 block) | 11.89 | 200 | 9.21 | 0.51 | 0.47 | RV` | veldis.html line 3665 | 9.21 | agree
+- bin 11.89" dsigma_Up -> err_hi | `(blank; NGC 5286 block) | 11.89 | 200 | 9.21 | 0.51 | 0.47 | RV` | veldis.html line 3665 | 0.51 | agree
+- bin 11.89" dsigma_Low -> err_lo | `(blank; NGC 5286 block) | 11.89 | 200 | 9.21 | 0.51 | 0.47 | RV` | veldis.html line 3665 | 0.47 | agree
+- bin 16.06" <r> [arcsec] | `(blank; NGC 5286 block) | 16.06 | 200 | 9.68 | 0.53 | 0.49 | RV` | veldis.html line 3677 | 16.06 | agree
+- bin 16.06" NStar | `(blank; NGC 5286 block) | 16.06 | 200 | 9.68 | 0.53 | 0.49 | RV` | veldis.html line 3677 | 200.0 | agree
+- bin 16.06" sigma [km/s] | `(blank; NGC 5286 block) | 16.06 | 200 | 9.68 | 0.53 | 0.49 | RV` | veldis.html line 3677 | 9.68 | agree
+- bin 16.06" dsigma_Up -> err_hi | `(blank; NGC 5286 block) | 16.06 | 200 | 9.68 | 0.53 | 0.49 | RV` | veldis.html line 3677 | 0.53 | agree
+- bin 16.06" dsigma_Low -> err_lo | `(blank; NGC 5286 block) | 16.06 | 200 | 9.68 | 0.53 | 0.49 | RV` | veldis.html line 3677 | 0.49 | agree
+- bin 19.78" <r> [arcsec] | `(blank; NGC 5286 block) | 19.78 | 200 | 8.73 | 0.48 | 0.44 | RV` | veldis.html line 3683 | 19.78 | agree
+- bin 19.78" NStar | `(blank; NGC 5286 block) | 19.78 | 200 | 8.73 | 0.48 | 0.44 | RV` | veldis.html line 3683 | 200.0 | agree
+- bin 19.78" sigma [km/s] | `(blank; NGC 5286 block) | 19.78 | 200 | 8.73 | 0.48 | 0.44 | RV` | veldis.html line 3683 | 8.73 | agree
+- bin 19.78" dsigma_Up -> err_hi | `(blank; NGC 5286 block) | 19.78 | 200 | 8.73 | 0.48 | 0.44 | RV` | veldis.html line 3683 | 0.48 | agree
+- bin 19.78" dsigma_Low -> err_lo | `(blank; NGC 5286 block) | 19.78 | 200 | 8.73 | 0.48 | 0.44 | RV` | veldis.html line 3683 | 0.44 | agree
+- bin 23.14" <r> [arcsec] | `(blank; NGC 5286 block) | 23.14 | 200 | 8.90 | 0.54 | 0.49 | RV` | veldis.html line 3689 | 23.14 | agree
+- bin 23.14" NStar | `(blank; NGC 5286 block) | 23.14 | 200 | 8.90 | 0.54 | 0.49 | RV` | veldis.html line 3689 | 200.0 | agree
+- bin 23.14" sigma [km/s] | `(blank; NGC 5286 block) | 23.14 | 200 | 8.90 | 0.54 | 0.49 | RV` | veldis.html line 3689 | 8.9 | agree
+- bin 23.14" dsigma_Up -> err_hi | `(blank; NGC 5286 block) | 23.14 | 200 | 8.90 | 0.54 | 0.49 | RV` | veldis.html line 3689 | 0.54 | agree
+- bin 23.14" dsigma_Low -> err_lo | `(blank; NGC 5286 block) | 23.14 | 200 | 8.90 | 0.54 | 0.49 | RV` | veldis.html line 3689 | 0.49 | agree
+- bin 26.57" <r> [arcsec] | `(blank; NGC 5286 block) | 26.57 | 200 | 8.66 | 0.48 | 0.44 | RV` | veldis.html line 3695 | 26.57 | agree
+- bin 26.57" NStar | `(blank; NGC 5286 block) | 26.57 | 200 | 8.66 | 0.48 | 0.44 | RV` | veldis.html line 3695 | 200.0 | agree
+- bin 26.57" sigma [km/s] | `(blank; NGC 5286 block) | 26.57 | 200 | 8.66 | 0.48 | 0.44 | RV` | veldis.html line 3695 | 8.66 | agree
+- bin 26.57" dsigma_Up -> err_hi | `(blank; NGC 5286 block) | 26.57 | 200 | 8.66 | 0.48 | 0.44 | RV` | veldis.html line 3695 | 0.48 | agree
+- bin 26.57" dsigma_Low -> err_lo | `(blank; NGC 5286 block) | 26.57 | 200 | 8.66 | 0.48 | 0.44 | RV` | veldis.html line 3695 | 0.44 | agree
+- bin 30.79" <r> [arcsec] | `(blank; NGC 5286 block) | 30.79 | 200 | 9.25 | 0.50 | 0.47 | RV` | veldis.html line 3701 | 30.79 | agree
+- bin 30.79" NStar | `(blank; NGC 5286 block) | 30.79 | 200 | 9.25 | 0.50 | 0.47 | RV` | veldis.html line 3701 | 200.0 | agree
+- bin 30.79" sigma [km/s] | `(blank; NGC 5286 block) | 30.79 | 200 | 9.25 | 0.50 | 0.47 | RV` | veldis.html line 3701 | 9.25 | agree
+- bin 30.79" dsigma_Up -> err_hi | `(blank; NGC 5286 block) | 30.79 | 200 | 9.25 | 0.50 | 0.47 | RV` | veldis.html line 3701 | 0.5 | agree
+- bin 30.79" dsigma_Low -> err_lo | `(blank; NGC 5286 block) | 30.79 | 200 | 9.25 | 0.50 | 0.47 | RV` | veldis.html line 3701 | 0.47 | agree
+- bin 40.19" <r> [arcsec] | `(blank; NGC 5286 block) | 40.19 | 200 | 7.87 | 0.45 | 0.41 | RV` | veldis.html line 3707 | 40.19 | agree
+- bin 40.19" NStar | `(blank; NGC 5286 block) | 40.19 | 200 | 7.87 | 0.45 | 0.41 | RV` | veldis.html line 3707 | 200.0 | agree
+- bin 40.19" sigma [km/s] | `(blank; NGC 5286 block) | 40.19 | 200 | 7.87 | 0.45 | 0.41 | RV` | veldis.html line 3707 | 7.87 | agree
+- bin 40.19" dsigma_Up -> err_hi | `(blank; NGC 5286 block) | 40.19 | 200 | 7.87 | 0.45 | 0.41 | RV` | veldis.html line 3707 | 0.45 | agree
+- bin 40.19" dsigma_Low -> err_lo | `(blank; NGC 5286 block) | 40.19 | 200 | 7.87 | 0.45 | 0.41 | RV` | veldis.html line 3707 | 0.41 | agree
+- bin 56.37" <r> [arcsec] | `(blank; NGC 5286 block) | 56.37 | 100 | 7.56 | 0.62 | 0.56 | RV` | veldis.html line 3713 | 56.37 | agree
+- bin 56.37" NStar | `(blank; NGC 5286 block) | 56.37 | 100 | 7.56 | 0.62 | 0.56 | RV` | veldis.html line 3713 | 100.0 | agree
+- bin 56.37" sigma [km/s] | `(blank; NGC 5286 block) | 56.37 | 100 | 7.56 | 0.62 | 0.56 | RV` | veldis.html line 3713 | 7.56 | agree
+- bin 56.37" dsigma_Up -> err_hi | `(blank; NGC 5286 block) | 56.37 | 100 | 7.56 | 0.62 | 0.56 | RV` | veldis.html line 3713 | 0.62 | agree
+- bin 56.37" dsigma_Low -> err_lo | `(blank; NGC 5286 block) | 56.37 | 100 | 7.56 | 0.62 | 0.56 | RV` | veldis.html line 3713 | 0.56 | agree
+- bin 160.25" <r> [arcsec] | `(blank; NGC 5286 block) | 160.25 | 69 | 5.77 | 0.55 | 0.48 | RV` | veldis.html line 3731 | 160.25 | agree
+- bin 160.25" NStar | `(blank; NGC 5286 block) | 160.25 | 69 | 5.77 | 0.55 | 0.48 | RV` | veldis.html line 3731 | 69.0 | agree
+- bin 160.25" sigma [km/s] | `(blank; NGC 5286 block) | 160.25 | 69 | 5.77 | 0.55 | 0.48 | RV` | veldis.html line 3731 | 5.77 | agree
+- bin 160.25" dsigma_Up -> err_hi | `(blank; NGC 5286 block) | 160.25 | 69 | 5.77 | 0.55 | 0.48 | RV` | veldis.html line 3731 | 0.55 | agree
+- bin 160.25" dsigma_Low -> err_lo | `(blank; NGC 5286 block) | 160.25 | 69 | 5.77 | 0.55 | 0.48 | RV` | veldis.html line 3731 | 0.48 | agree
+- R_Sun [kpc] | `NGC 5286 ...  11.7   8.9  [R_Sun field: '11.7']` | mwgc.dat line 103 (Part I) | 11.7 | agree
+- M_V,t [mag] | `NGC 5286 ... 7.34  -8.74  [M_V,t field: '-8.74']` | mwgc.dat line 283 (Part II) | -8.74 | agree
+- W0/gamma | `<TD>6.60</TD>` | J_ApJS_161_304_models.vot models.vot line 575 (recno 235, MW-NGC5286, Mod K) | 6.6 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 575 (recno 235, MW-NGC5286, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 575 (recno 235, MW-NGC5286, Mod K) | 0.2 | agree
+- r0 | `<TD>17.930</TD>` | J_ApJS_161_304_models.vot models.vot line 575 (recno 235, MW-NGC5286, Mod K) | 17.93 | agree
+- E_r0 -> err_hi | `<TD>0.710</TD>` | J_ApJS_161_304_models.vot models.vot line 575 (recno 235, MW-NGC5286, Mod K) | 0.71 | agree
+- e_r0 -> err_lo | `<TD>0.380</TD>` | J_ApJS_161_304_models.vot models.vot line 575 (recno 235, MW-NGC5286, Mod K) | 0.38 | agree
+- Rh | `<TD>0.371</TD>` | J_ApJS_161_304_models.vot models.vot line 575 (recno 235, MW-NGC5286, Mod K) | 0.371 | agree
+- E_Rh -> err_hi | `<TD>0.008</TD>` | J_ApJS_161_304_models.vot models.vot line 575 (recno 235, MW-NGC5286, Mod K) | 0.008 | agree
+- e_Rh -> err_lo | `<TD>0.016</TD>` | J_ApJS_161_304_models.vot models.vot line 575 (recno 235, MW-NGC5286, Mod K) | 0.016 | agree
+- Dist | `<TD>11.0</TD>` | J_ApJS_161_304_models.vot models.vot line 575 (recno 235, MW-NGC5286, Mod K) | 11.0 | agree
+- (M/L)1 | `<TD>1.868</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 253 (recno 93, MW-NGC5286) | 1.868 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.155</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 253 (recno 93, MW-NGC5286) | 0.155 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.155</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 253 (recno 93, MW-NGC5286) | 0.155 | agree
+- arithmetic L_V = 272897.7783 vs 272897.7783 | agree; R_h = 10^0.371 x 11.7 / 11.0 = 2.499154909 pc vs 2.499154909 | agree; M/L 1.868 vs 1.868 | agree
+
+### NGC 5466
+
+- bin 104.47" <r> [arcsec] | `(blank; NGC 5466 block) | 104.47 | 33 | 1.41 | 0.22 | 0.18 | RV` | veldis.html line 3775 | 104.47 | agree
+- bin 104.47" NStar | `(blank; NGC 5466 block) | 104.47 | 33 | 1.41 | 0.22 | 0.18 | RV` | veldis.html line 3775 | 33.0 | agree
+- bin 104.47" sigma [km/s] | `(blank; NGC 5466 block) | 104.47 | 33 | 1.41 | 0.22 | 0.18 | RV` | veldis.html line 3775 | 1.41 | agree
+- bin 104.47" dsigma_Up -> err_hi | `(blank; NGC 5466 block) | 104.47 | 33 | 1.41 | 0.22 | 0.18 | RV` | veldis.html line 3775 | 0.22 | agree
+- bin 104.47" dsigma_Low -> err_lo | `(blank; NGC 5466 block) | 104.47 | 33 | 1.41 | 0.22 | 0.18 | RV` | veldis.html line 3775 | 0.18 | agree
+- bin 413.26" <r> [arcsec] | `(blank; NGC 5466 block) | 413.26 | 35 | 1.07 | 0.18 | 0.15 | RV` | veldis.html line 3787 | 413.26 | agree
+- bin 413.26" NStar | `(blank; NGC 5466 block) | 413.26 | 35 | 1.07 | 0.18 | 0.15 | RV` | veldis.html line 3787 | 35.0 | agree
+- bin 413.26" sigma [km/s] | `(blank; NGC 5466 block) | 413.26 | 35 | 1.07 | 0.18 | 0.15 | RV` | veldis.html line 3787 | 1.07 | agree
+- bin 413.26" dsigma_Up -> err_hi | `(blank; NGC 5466 block) | 413.26 | 35 | 1.07 | 0.18 | 0.15 | RV` | veldis.html line 3787 | 0.18 | agree
+- bin 413.26" dsigma_Low -> err_lo | `(blank; NGC 5466 block) | 413.26 | 35 | 1.07 | 0.18 | 0.15 | RV` | veldis.html line 3787 | 0.15 | agree
+- R_Sun [kpc] | `NGC 5466 ...  16.0  16.3  [R_Sun field: '16.0']` | mwgc.dat line 105 (Part I) | 16.0 | agree
+- M_V,t [mag] | `NGC 5466 ... 9.04  -6.98  [M_V,t field: '-6.98']` | mwgc.dat line 285 (Part II) | -6.98 | agree
+- W0/gamma | `<TD>4.20</TD>` | J_ApJS_161_304_models.vot models.vot line 578 (recno 238, MW-NGC5466, Mod K) | 4.2 | agree
+- E_W0/gamma -> err_hi | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 578 (recno 238, MW-NGC5466, Mod K) | 0.2 | agree
+- e_W0/gamma -> err_lo | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 578 (recno 238, MW-NGC5466, Mod K) | 0.2 | agree
+- r0 | `<TD>109.890</TD>` | J_ApJS_161_304_models.vot models.vot line 578 (recno 238, MW-NGC5466, Mod K) | 109.89 | agree
+- E_r0 -> err_hi | `<TD>5.200</TD>` | J_ApJS_161_304_models.vot models.vot line 578 (recno 238, MW-NGC5466, Mod K) | 5.2 | agree
+- e_r0 -> err_lo | `<TD>4.900</TD>` | J_ApJS_161_304_models.vot models.vot line 578 (recno 238, MW-NGC5466, Mod K) | 4.9 | agree
+- Rh | `<TD>1.026</TD>` | J_ApJS_161_304_models.vot models.vot line 578 (recno 238, MW-NGC5466, Mod K) | 1.026 | agree
+- E_Rh -> err_hi | `<TD>0.001</TD>` | J_ApJS_161_304_models.vot models.vot line 578 (recno 238, MW-NGC5466, Mod K) | 0.001 | agree
+- e_Rh -> err_lo | `<TD>0.000</TD>` | J_ApJS_161_304_models.vot models.vot line 578 (recno 238, MW-NGC5466, Mod K) | 0.0 | agree
+- Dist | `<TD>15.9</TD>` | J_ApJS_161_304_models.vot models.vot line 578 (recno 238, MW-NGC5466, Mod K) | 15.9 | agree
+- (M/L)1 | `<TD>1.919</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 254 (recno 94, MW-NGC5466) | 1.919 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.163</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 254 (recno 94, MW-NGC5466) | 0.163 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.163</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 254 (recno 94, MW-NGC5466) | 0.163 | agree
+- arithmetic L_V = 53951.06225 vs 53951.06225 | agree; R_h = 10^1.026 x 16.0 / 15.9 = 10.68372888 pc vs 10.68372888 | agree; M/L 1.919 vs 1.919 | agree
+
+### NGC 5634
+
+- bin 43.41" <r> [arcsec] | `NGC 5634 | 43.41 | 25 | 3.62 | 0.64 | 0.51 | RV` | veldis.html line 3794 | 43.41 | agree
+- bin 43.41" NStar | `NGC 5634 | 43.41 | 25 | 3.62 | 0.64 | 0.51 | RV` | veldis.html line 3794 | 25.0 | agree
+- bin 43.41" sigma [km/s] | `NGC 5634 | 43.41 | 25 | 3.62 | 0.64 | 0.51 | RV` | veldis.html line 3794 | 3.62 | agree
+- bin 43.41" dsigma_Up -> err_hi | `NGC 5634 | 43.41 | 25 | 3.62 | 0.64 | 0.51 | RV` | veldis.html line 3794 | 0.64 | agree
+- bin 43.41" dsigma_Low -> err_lo | `NGC 5634 | 43.41 | 25 | 3.62 | 0.64 | 0.51 | RV` | veldis.html line 3794 | 0.51 | agree
+- bin 112.39" <r> [arcsec] | `(blank; NGC 5634 block) | 112.39 | 25 | 3.43 | 0.59 | 0.46 | RV` | veldis.html line 3807 | 112.39 | agree
+- bin 112.39" NStar | `(blank; NGC 5634 block) | 112.39 | 25 | 3.43 | 0.59 | 0.46 | RV` | veldis.html line 3807 | 25.0 | agree
+- bin 112.39" sigma [km/s] | `(blank; NGC 5634 block) | 112.39 | 25 | 3.43 | 0.59 | 0.46 | RV` | veldis.html line 3807 | 3.43 | agree
+- bin 112.39" dsigma_Up -> err_hi | `(blank; NGC 5634 block) | 112.39 | 25 | 3.43 | 0.59 | 0.46 | RV` | veldis.html line 3807 | 0.59 | agree
+- bin 112.39" dsigma_Low -> err_lo | `(blank; NGC 5634 block) | 112.39 | 25 | 3.43 | 0.59 | 0.46 | RV` | veldis.html line 3807 | 0.46 | agree
+- R_Sun [kpc] | `NGC 5634 ...  25.2  21.2  [R_Sun field: '25.2']` | mwgc.dat line 106 (Part I) | 25.2 | agree
+- M_V,t [mag] | `NGC 5634 ... 9.47  -7.69  [M_V,t field: '-7.69']` | mwgc.dat line 286 (Part II) | -7.69 | agree
+- W0/gamma | `<TD>8.80</TD>` | J_ApJS_161_304_models.vot models.vot line 581 (recno 241, MW-NGC5634, Mod K) | 8.8 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 581 (recno 241, MW-NGC5634, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 581 (recno 241, MW-NGC5634, Mod K) | 0.2 | agree
+- r0 | `<TD>5.350</TD>` | J_ApJS_161_304_models.vot models.vot line 581 (recno 241, MW-NGC5634, Mod K) | 5.35 | agree
+- E_r0 -> err_hi | `<TD>0.560</TD>` | J_ApJS_161_304_models.vot models.vot line 581 (recno 241, MW-NGC5634, Mod K) | 0.56 | agree
+- e_r0 -> err_lo | `<TD>0.250</TD>` | J_ApJS_161_304_models.vot models.vot line 581 (recno 241, MW-NGC5634, Mod K) | 0.25 | agree
+- Rh | `<TD>0.798</TD>` | J_ApJS_161_304_models.vot models.vot line 581 (recno 241, MW-NGC5634, Mod K) | 0.798 | agree
+- E_Rh -> err_hi | `<TD>0.013</TD>` | J_ApJS_161_304_models.vot models.vot line 581 (recno 241, MW-NGC5634, Mod K) | 0.013 | agree
+- e_Rh -> err_lo | `<TD>0.024</TD>` | J_ApJS_161_304_models.vot models.vot line 581 (recno 241, MW-NGC5634, Mod K) | 0.024 | agree
+- Dist | `<TD>25.2</TD>` | J_ApJS_161_304_models.vot models.vot line 581 (recno 241, MW-NGC5634, Mod K) | 25.2 | agree
+- (M/L)1 | `<TD>1.873</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 255 (recno 95, MW-NGC5634) | 1.873 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.157</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 255 (recno 95, MW-NGC5634) | 0.157 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.157</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 255 (recno 95, MW-NGC5634) | 0.157 | agree
+- arithmetic L_V = 103752.8416 vs 103752.8416 | agree; R_h = 10^0.798 x 25.2 / 25.2 = 6.280583588 pc vs 6.280583588 | agree; M/L 1.873 vs 1.873 | agree
+
+### NGC 5694
+
+- bin 9.61" <r> [arcsec] | `(blank; NGC 5694 block) | 9.61 | 35 | 7.03 | 0.96 | 0.80 | RV` | veldis.html line 3839 | 9.61 | agree
+- bin 9.61" NStar | `(blank; NGC 5694 block) | 9.61 | 35 | 7.03 | 0.96 | 0.80 | RV` | veldis.html line 3839 | 35.0 | agree
+- bin 9.61" sigma [km/s] | `(blank; NGC 5694 block) | 9.61 | 35 | 7.03 | 0.96 | 0.80 | RV` | veldis.html line 3839 | 7.03 | agree
+- bin 9.61" dsigma_Up -> err_hi | `(blank; NGC 5694 block) | 9.61 | 35 | 7.03 | 0.96 | 0.80 | RV` | veldis.html line 3839 | 0.96 | agree
+- bin 9.61" dsigma_Low -> err_lo | `(blank; NGC 5694 block) | 9.61 | 35 | 7.03 | 0.96 | 0.80 | RV` | veldis.html line 3839 | 0.8 | agree
+- bin 42.29" <r> [arcsec] | `(blank; NGC 5694 block) | 42.29 | 35 | 4.58 | 0.65 | 0.54 | RV` | veldis.html line 3845 | 42.29 | agree
+- bin 42.29" NStar | `(blank; NGC 5694 block) | 42.29 | 35 | 4.58 | 0.65 | 0.54 | RV` | veldis.html line 3845 | 35.0 | agree
+- bin 42.29" sigma [km/s] | `(blank; NGC 5694 block) | 42.29 | 35 | 4.58 | 0.65 | 0.54 | RV` | veldis.html line 3845 | 4.58 | agree
+- bin 42.29" dsigma_Up -> err_hi | `(blank; NGC 5694 block) | 42.29 | 35 | 4.58 | 0.65 | 0.54 | RV` | veldis.html line 3845 | 0.65 | agree
+- bin 42.29" dsigma_Low -> err_lo | `(blank; NGC 5694 block) | 42.29 | 35 | 4.58 | 0.65 | 0.54 | RV` | veldis.html line 3845 | 0.54 | agree
+- bin 101.00" <r> [arcsec] | `(blank; NGC 5694 block) | 101.00 | 35 | 3.46 | 0.49 | 0.39 | RV` | veldis.html line 3851 | 101.0 | agree
+- bin 101.00" NStar | `(blank; NGC 5694 block) | 101.00 | 35 | 3.46 | 0.49 | 0.39 | RV` | veldis.html line 3851 | 35.0 | agree
+- bin 101.00" sigma [km/s] | `(blank; NGC 5694 block) | 101.00 | 35 | 3.46 | 0.49 | 0.39 | RV` | veldis.html line 3851 | 3.46 | agree
+- bin 101.00" dsigma_Up -> err_hi | `(blank; NGC 5694 block) | 101.00 | 35 | 3.46 | 0.49 | 0.39 | RV` | veldis.html line 3851 | 0.49 | agree
+- bin 101.00" dsigma_Low -> err_lo | `(blank; NGC 5694 block) | 101.00 | 35 | 3.46 | 0.49 | 0.39 | RV` | veldis.html line 3851 | 0.39 | agree
+- bin 230.56" <r> [arcsec] | `(blank; NGC 5694 block) | 230.56 | 31 | 2.52 | 0.41 | 0.33 | RV` | veldis.html line 3857 | 230.56 | agree
+- bin 230.56" NStar | `(blank; NGC 5694 block) | 230.56 | 31 | 2.52 | 0.41 | 0.33 | RV` | veldis.html line 3857 | 31.0 | agree
+- bin 230.56" sigma [km/s] | `(blank; NGC 5694 block) | 230.56 | 31 | 2.52 | 0.41 | 0.33 | RV` | veldis.html line 3857 | 2.52 | agree
+- bin 230.56" dsigma_Up -> err_hi | `(blank; NGC 5694 block) | 230.56 | 31 | 2.52 | 0.41 | 0.33 | RV` | veldis.html line 3857 | 0.41 | agree
+- bin 230.56" dsigma_Low -> err_lo | `(blank; NGC 5694 block) | 230.56 | 31 | 2.52 | 0.41 | 0.33 | RV` | veldis.html line 3857 | 0.33 | agree
+- R_Sun [kpc] | `NGC 5694 ...  35.0  29.4  [R_Sun field: '35.0']` | mwgc.dat line 107 (Part I) | 35.0 | agree
+- M_V,t [mag] | `NGC 5694 ...10.17  -7.83  [M_V,t field: '-7.83']` | mwgc.dat line 287 (Part II) | -7.83 | agree
+- W0/gamma | `<TD>8.20</TD>` | J_ApJS_161_304_models.vot models.vot line 584 (recno 244, MW-NGC5694, Mod K) | 8.2 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 584 (recno 244, MW-NGC5694, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 584 (recno 244, MW-NGC5694, Mod K) | 0.1 | agree
+- r0 | `<TD>3.940</TD>` | J_ApJS_161_304_models.vot models.vot line 584 (recno 244, MW-NGC5694, Mod K) | 3.94 | agree
+- E_r0 -> err_hi | `<TD>0.180</TD>` | J_ApJS_161_304_models.vot models.vot line 584 (recno 244, MW-NGC5694, Mod K) | 0.18 | agree
+- e_r0 -> err_lo | `<TD>0.170</TD>` | J_ApJS_161_304_models.vot models.vot line 584 (recno 244, MW-NGC5694, Mod K) | 0.17 | agree
+- Rh | `<TD>0.602</TD>` | J_ApJS_161_304_models.vot models.vot line 584 (recno 244, MW-NGC5694, Mod K) | 0.602 | agree
+- E_Rh -> err_hi | `<TD>0.013</TD>` | J_ApJS_161_304_models.vot models.vot line 584 (recno 244, MW-NGC5694, Mod K) | 0.013 | agree
+- e_Rh -> err_lo | `<TD>0.012</TD>` | J_ApJS_161_304_models.vot models.vot line 584 (recno 244, MW-NGC5694, Mod K) | 0.012 | agree
+- Dist | `<TD>34.7</TD>` | J_ApJS_161_304_models.vot models.vot line 584 (recno 244, MW-NGC5694, Mod K) | 34.7 | agree
+- (M/L)1 | `<TD>1.871</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 256 (recno 96, MW-NGC5694) | 1.871 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.157</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 256 (recno 96, MW-NGC5694) | 0.157 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.157</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 256 (recno 96, MW-NGC5694) | 0.157 | agree
+- arithmetic L_V = 118032.0636 vs 118032.0636 | agree; R_h = 10^0.602 x 35.0 / 34.7 = 4.034024853 pc vs 4.034024853 | agree; M/L 1.871 vs 1.871 | agree
+
+### NGC 5824
+
+- bin 48.95" <r> [arcsec] | `(blank; NGC 5824 block) | 48.95 | 41 | 7.68 | 0.96 | 0.79 | RV` | veldis.html line 3895 | 48.95 | agree
+- bin 48.95" NStar | `(blank; NGC 5824 block) | 48.95 | 41 | 7.68 | 0.96 | 0.79 | RV` | veldis.html line 3895 | 41.0 | agree
+- bin 48.95" sigma [km/s] | `(blank; NGC 5824 block) | 48.95 | 41 | 7.68 | 0.96 | 0.79 | RV` | veldis.html line 3895 | 7.68 | agree
+- bin 48.95" dsigma_Up -> err_hi | `(blank; NGC 5824 block) | 48.95 | 41 | 7.68 | 0.96 | 0.79 | RV` | veldis.html line 3895 | 0.96 | agree
+- bin 48.95" dsigma_Low -> err_lo | `(blank; NGC 5824 block) | 48.95 | 41 | 7.68 | 0.96 | 0.79 | RV` | veldis.html line 3895 | 0.79 | agree
+- bin 106.66" <r> [arcsec] | `(blank; NGC 5824 block) | 106.66 | 41 | 5.08 | 0.62 | 0.53 | RV` | veldis.html line 3907 | 106.66 | agree
+- bin 106.66" NStar | `(blank; NGC 5824 block) | 106.66 | 41 | 5.08 | 0.62 | 0.53 | RV` | veldis.html line 3907 | 41.0 | agree
+- bin 106.66" sigma [km/s] | `(blank; NGC 5824 block) | 106.66 | 41 | 5.08 | 0.62 | 0.53 | RV` | veldis.html line 3907 | 5.08 | agree
+- bin 106.66" dsigma_Up -> err_hi | `(blank; NGC 5824 block) | 106.66 | 41 | 5.08 | 0.62 | 0.53 | RV` | veldis.html line 3907 | 0.62 | agree
+- bin 106.66" dsigma_Low -> err_lo | `(blank; NGC 5824 block) | 106.66 | 41 | 5.08 | 0.62 | 0.53 | RV` | veldis.html line 3907 | 0.53 | agree
+- bin 206.13" <r> [arcsec] | `(blank; NGC 5824 block) | 206.13 | 41 | 3.89 | 0.48 | 0.41 | RV` | veldis.html line 3913 | 206.13 | agree
+- bin 206.13" NStar | `(blank; NGC 5824 block) | 206.13 | 41 | 3.89 | 0.48 | 0.41 | RV` | veldis.html line 3913 | 41.0 | agree
+- bin 206.13" sigma [km/s] | `(blank; NGC 5824 block) | 206.13 | 41 | 3.89 | 0.48 | 0.41 | RV` | veldis.html line 3913 | 3.89 | agree
+- bin 206.13" dsigma_Up -> err_hi | `(blank; NGC 5824 block) | 206.13 | 41 | 3.89 | 0.48 | 0.41 | RV` | veldis.html line 3913 | 0.48 | agree
+- bin 206.13" dsigma_Low -> err_lo | `(blank; NGC 5824 block) | 206.13 | 41 | 3.89 | 0.48 | 0.41 | RV` | veldis.html line 3913 | 0.41 | agree
+- bin 325.65" <r> [arcsec] | `(blank; NGC 5824 block) | 325.65 | 17 | 2.96 | 0.62 | 0.46 | RV` | veldis.html line 3925 | 325.65 | agree
+- bin 325.65" NStar | `(blank; NGC 5824 block) | 325.65 | 17 | 2.96 | 0.62 | 0.46 | RV` | veldis.html line 3925 | 17.0 | agree
+- bin 325.65" sigma [km/s] | `(blank; NGC 5824 block) | 325.65 | 17 | 2.96 | 0.62 | 0.46 | RV` | veldis.html line 3925 | 2.96 | agree
+- bin 325.65" dsigma_Up -> err_hi | `(blank; NGC 5824 block) | 325.65 | 17 | 2.96 | 0.62 | 0.46 | RV` | veldis.html line 3925 | 0.62 | agree
+- bin 325.65" dsigma_Low -> err_lo | `(blank; NGC 5824 block) | 325.65 | 17 | 2.96 | 0.62 | 0.46 | RV` | veldis.html line 3925 | 0.46 | agree
+- R_Sun [kpc] | `NGC 5824 ...  32.1  25.9  [R_Sun field: '32.1']` | mwgc.dat line 109 (Part I) | 32.1 | agree
+- M_V,t [mag] | `NGC 5824 ... 9.09  -8.85  [M_V,t field: '-8.85']` | mwgc.dat line 289 (Part II) | -8.85 | agree
+- W0/gamma | `<TD>8.50</TD>` | J_ApJS_161_304_models.vot models.vot line 587 (recno 247, MW-NGC5824, Mod K) | 8.5 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 587 (recno 247, MW-NGC5824, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 587 (recno 247, MW-NGC5824, Mod K) | 0.2 | agree
+- r0 | `<TD>3.550</TD>` | J_ApJS_161_304_models.vot models.vot line 587 (recno 247, MW-NGC5824, Mod K) | 3.55 | agree
+- E_r0 -> err_hi | `<TD>0.430</TD>` | J_ApJS_161_304_models.vot models.vot line 587 (recno 247, MW-NGC5824, Mod K) | 0.43 | agree
+- e_r0 -> err_lo | `<TD>0.190</TD>` | J_ApJS_161_304_models.vot models.vot line 587 (recno 247, MW-NGC5824, Mod K) | 0.19 | agree
+- Rh | `<TD>0.622</TD>` | J_ApJS_161_304_models.vot models.vot line 587 (recno 247, MW-NGC5824, Mod K) | 0.622 | agree
+- E_Rh -> err_hi | `<TD>0.010</TD>` | J_ApJS_161_304_models.vot models.vot line 587 (recno 247, MW-NGC5824, Mod K) | 0.01 | agree
+- e_Rh -> err_lo | `<TD>0.017</TD>` | J_ApJS_161_304_models.vot models.vot line 587 (recno 247, MW-NGC5824, Mod K) | 0.017 | agree
+- Dist | `<TD>32.0</TD>` | J_ApJS_161_304_models.vot models.vot line 587 (recno 247, MW-NGC5824, Mod K) | 32.0 | agree
+- (M/L)1 | `<TD>1.870</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 257 (recno 97, MW-NGC5824) | 1.87 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.157</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 257 (recno 97, MW-NGC5824) | 0.157 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.157</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 257 (recno 97, MW-NGC5824) | 0.157 | agree
+- arithmetic L_V = 301995.172 vs 301995.172 | agree; R_h = 10^0.622 x 32.1 / 32.0 = 4.20102295 pc vs 4.20102295 | agree; M/L 1.87 vs 1.87 | agree
+
+### NGC 5897
+
+- bin 86.79" <r> [arcsec] | `(blank; NGC 5897 block) | 86.79 | 50 | 3.31 | 0.38 | 0.32 | RV` | veldis.html line 3969 | 86.79 | agree
+- bin 86.79" NStar | `(blank; NGC 5897 block) | 86.79 | 50 | 3.31 | 0.38 | 0.32 | RV` | veldis.html line 3969 | 50.0 | agree
+- bin 86.79" sigma [km/s] | `(blank; NGC 5897 block) | 86.79 | 50 | 3.31 | 0.38 | 0.32 | RV` | veldis.html line 3969 | 3.31 | agree
+- bin 86.79" dsigma_Up -> err_hi | `(blank; NGC 5897 block) | 86.79 | 50 | 3.31 | 0.38 | 0.32 | RV` | veldis.html line 3969 | 0.38 | agree
+- bin 86.79" dsigma_Low -> err_lo | `(blank; NGC 5897 block) | 86.79 | 50 | 3.31 | 0.38 | 0.32 | RV` | veldis.html line 3969 | 0.32 | agree
+- bin 165.40" <r> [arcsec] | `(blank; NGC 5897 block) | 165.40 | 50 | 2.76 | 0.32 | 0.27 | RV` | veldis.html line 3981 | 165.4 | agree
+- bin 165.40" NStar | `(blank; NGC 5897 block) | 165.40 | 50 | 2.76 | 0.32 | 0.27 | RV` | veldis.html line 3981 | 50.0 | agree
+- bin 165.40" sigma [km/s] | `(blank; NGC 5897 block) | 165.40 | 50 | 2.76 | 0.32 | 0.27 | RV` | veldis.html line 3981 | 2.76 | agree
+- bin 165.40" dsigma_Up -> err_hi | `(blank; NGC 5897 block) | 165.40 | 50 | 2.76 | 0.32 | 0.27 | RV` | veldis.html line 3981 | 0.32 | agree
+- bin 165.40" dsigma_Low -> err_lo | `(blank; NGC 5897 block) | 165.40 | 50 | 2.76 | 0.32 | 0.27 | RV` | veldis.html line 3981 | 0.27 | agree
+- bin 264.05" <r> [arcsec] | `(blank; NGC 5897 block) | 264.05 | 50 | 2.16 | 0.26 | 0.23 | RV` | veldis.html line 3987 | 264.05 | agree
+- bin 264.05" NStar | `(blank; NGC 5897 block) | 264.05 | 50 | 2.16 | 0.26 | 0.23 | RV` | veldis.html line 3987 | 50.0 | agree
+- bin 264.05" sigma [km/s] | `(blank; NGC 5897 block) | 264.05 | 50 | 2.16 | 0.26 | 0.23 | RV` | veldis.html line 3987 | 2.16 | agree
+- bin 264.05" dsigma_Up -> err_hi | `(blank; NGC 5897 block) | 264.05 | 50 | 2.16 | 0.26 | 0.23 | RV` | veldis.html line 3987 | 0.26 | agree
+- bin 264.05" dsigma_Low -> err_lo | `(blank; NGC 5897 block) | 264.05 | 50 | 2.16 | 0.26 | 0.23 | RV` | veldis.html line 3987 | 0.23 | agree
+- bin 418.96" <r> [arcsec] | `(blank; NGC 5897 block) | 418.96 | 10 | 1.52 | 0.51 | 0.36 | RV` | veldis.html line 3999 | 418.96 | agree
+- bin 418.96" NStar | `(blank; NGC 5897 block) | 418.96 | 10 | 1.52 | 0.51 | 0.36 | RV` | veldis.html line 3999 | 10.0 | agree
+- bin 418.96" sigma [km/s] | `(blank; NGC 5897 block) | 418.96 | 10 | 1.52 | 0.51 | 0.36 | RV` | veldis.html line 3999 | 1.52 | agree
+- bin 418.96" dsigma_Up -> err_hi | `(blank; NGC 5897 block) | 418.96 | 10 | 1.52 | 0.51 | 0.36 | RV` | veldis.html line 3999 | 0.51 | agree
+- bin 418.96" dsigma_Low -> err_lo | `(blank; NGC 5897 block) | 418.96 | 10 | 1.52 | 0.51 | 0.36 | RV` | veldis.html line 3999 | 0.36 | agree
+- R_Sun [kpc] | `NGC 5897 ...  12.5   7.4  [R_Sun field: '12.5']` | mwgc.dat line 111 (Part I) | 12.5 | agree
+- M_V,t [mag] | `NGC 5897 ... 8.53  -7.23  [M_V,t field: '-7.23']` | mwgc.dat line 291 (Part II) | -7.23 | agree
+- W0/gamma | `<TD>4.10</TD>` | J_ApJS_161_304_models.vot models.vot line 590 (recno 250, MW-NGC5897, Mod K) | 4.1 | agree
+- E_W0/gamma -> err_hi | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 590 (recno 250, MW-NGC5897, Mod K) | 0.2 | agree
+- e_W0/gamma -> err_lo | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 590 (recno 250, MW-NGC5897, Mod K) | 0.2 | agree
+- r0 | `<TD>100.810</TD>` | J_ApJS_161_304_models.vot models.vot line 590 (recno 250, MW-NGC5897, Mod K) | 100.81 | agree
+- E_r0 -> err_hi | `<TD>4.290</TD>` | J_ApJS_161_304_models.vot models.vot line 590 (recno 250, MW-NGC5897, Mod K) | 4.29 | agree
+- e_r0 -> err_lo | `<TD>4.080</TD>` | J_ApJS_161_304_models.vot models.vot line 590 (recno 250, MW-NGC5897, Mod K) | 4.08 | agree
+- Rh | `<TD>0.871</TD>` | J_ApJS_161_304_models.vot models.vot line 590 (recno 250, MW-NGC5897, Mod K) | 0.871 | agree
+- E_Rh -> err_hi | `<TD>0.001</TD>` | J_ApJS_161_304_models.vot models.vot line 590 (recno 250, MW-NGC5897, Mod K) | 0.001 | agree
+- e_Rh -> err_lo | `<TD>0.001</TD>` | J_ApJS_161_304_models.vot models.vot line 590 (recno 250, MW-NGC5897, Mod K) | 0.001 | agree
+- Dist | `<TD>12.4</TD>` | J_ApJS_161_304_models.vot models.vot line 590 (recno 250, MW-NGC5897, Mod K) | 12.4 | agree
+- (M/L)1 | `<TD>1.868</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 258 (recno 98, MW-NGC5897) | 1.868 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.156</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 258 (recno 98, MW-NGC5897) | 0.156 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.156</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 258 (recno 98, MW-NGC5897) | 0.156 | agree
+- arithmetic L_V = 67920.36326 vs 67920.36326 | agree; R_h = 10^0.871 x 12.5 / 12.4 = 7.490112277 pc vs 7.490112277 | agree; M/L 1.868 vs 1.868 | agree
+
+### NGC 5904
+
+- bin 7.60" <r> [arcsec] | `(blank; NGC 5904 block) | 7.60 | 400 | 7.66 | 0.30 | 0.29 | RV` | veldis.html line 4013 | 7.6 | agree
+- bin 7.60" NStar | `(blank; NGC 5904 block) | 7.60 | 400 | 7.66 | 0.30 | 0.29 | RV` | veldis.html line 4013 | 400.0 | agree
+- bin 7.60" sigma [km/s] | `(blank; NGC 5904 block) | 7.60 | 400 | 7.66 | 0.30 | 0.29 | RV` | veldis.html line 4013 | 7.66 | agree
+- bin 7.60" dsigma_Up -> err_hi | `(blank; NGC 5904 block) | 7.60 | 400 | 7.66 | 0.30 | 0.29 | RV` | veldis.html line 4013 | 0.3 | agree
+- bin 7.60" dsigma_Low -> err_lo | `(blank; NGC 5904 block) | 7.60 | 400 | 7.66 | 0.30 | 0.29 | RV` | veldis.html line 4013 | 0.29 | agree
+- bin 15.54" <r> [arcsec] | `(blank; NGC 5904 block) | 15.54 | 400 | 7.29 | 0.29 | 0.27 | RV` | veldis.html line 4031 | 15.54 | agree
+- bin 15.54" NStar | `(blank; NGC 5904 block) | 15.54 | 400 | 7.29 | 0.29 | 0.27 | RV` | veldis.html line 4031 | 400.0 | agree
+- bin 15.54" sigma [km/s] | `(blank; NGC 5904 block) | 15.54 | 400 | 7.29 | 0.29 | 0.27 | RV` | veldis.html line 4031 | 7.29 | agree
+- bin 15.54" dsigma_Up -> err_hi | `(blank; NGC 5904 block) | 15.54 | 400 | 7.29 | 0.29 | 0.27 | RV` | veldis.html line 4031 | 0.29 | agree
+- bin 15.54" dsigma_Low -> err_lo | `(blank; NGC 5904 block) | 15.54 | 400 | 7.29 | 0.29 | 0.27 | RV` | veldis.html line 4031 | 0.27 | agree
+- bin 21.35" <r> [arcsec] | `(blank; NGC 5904 block) | 21.35 | 400 | 6.61 | 0.26 | 0.25 | RV` | veldis.html line 4043 | 21.35 | agree
+- bin 21.35" NStar | `(blank; NGC 5904 block) | 21.35 | 400 | 6.61 | 0.26 | 0.25 | RV` | veldis.html line 4043 | 400.0 | agree
+- bin 21.35" sigma [km/s] | `(blank; NGC 5904 block) | 21.35 | 400 | 6.61 | 0.26 | 0.25 | RV` | veldis.html line 4043 | 6.61 | agree
+- bin 21.35" dsigma_Up -> err_hi | `(blank; NGC 5904 block) | 21.35 | 400 | 6.61 | 0.26 | 0.25 | RV` | veldis.html line 4043 | 0.26 | agree
+- bin 21.35" dsigma_Low -> err_lo | `(blank; NGC 5904 block) | 21.35 | 400 | 6.61 | 0.26 | 0.25 | RV` | veldis.html line 4043 | 0.25 | agree
+- bin 26.08" <r> [arcsec] | `(blank; NGC 5904 block) | 26.08 | 400 | 6.86 | 0.27 | 0.27 | RV` | veldis.html line 4061 | 26.08 | agree
+- bin 26.08" NStar | `(blank; NGC 5904 block) | 26.08 | 400 | 6.86 | 0.27 | 0.27 | RV` | veldis.html line 4061 | 400.0 | agree
+- bin 26.08" sigma [km/s] | `(blank; NGC 5904 block) | 26.08 | 400 | 6.86 | 0.27 | 0.27 | RV` | veldis.html line 4061 | 6.86 | agree
+- bin 26.08" dsigma_Up -> err_hi | `(blank; NGC 5904 block) | 26.08 | 400 | 6.86 | 0.27 | 0.27 | RV` | veldis.html line 4061 | 0.27 | agree
+- bin 26.08" dsigma_Low -> err_lo | `(blank; NGC 5904 block) | 26.08 | 400 | 6.86 | 0.27 | 0.27 | RV` | veldis.html line 4061 | 0.27 | agree
+- bin 30.35" <r> [arcsec] | `(blank; NGC 5904 block) | 30.35 | 400 | 6.83 | 0.28 | 0.26 | RV` | veldis.html line 4073 | 30.35 | agree
+- bin 30.35" NStar | `(blank; NGC 5904 block) | 30.35 | 400 | 6.83 | 0.28 | 0.26 | RV` | veldis.html line 4073 | 400.0 | agree
+- bin 30.35" sigma [km/s] | `(blank; NGC 5904 block) | 30.35 | 400 | 6.83 | 0.28 | 0.26 | RV` | veldis.html line 4073 | 6.83 | agree
+- bin 30.35" dsigma_Up -> err_hi | `(blank; NGC 5904 block) | 30.35 | 400 | 6.83 | 0.28 | 0.26 | RV` | veldis.html line 4073 | 0.28 | agree
+- bin 30.35" dsigma_Low -> err_lo | `(blank; NGC 5904 block) | 30.35 | 400 | 6.83 | 0.28 | 0.26 | RV` | veldis.html line 4073 | 0.26 | agree
+- bin 34.53" <r> [arcsec] | `(blank; NGC 5904 block) | 34.53 | 400 | 7.42 | 0.30 | 0.29 | RV` | veldis.html line 4085 | 34.53 | agree
+- bin 34.53" NStar | `(blank; NGC 5904 block) | 34.53 | 400 | 7.42 | 0.30 | 0.29 | RV` | veldis.html line 4085 | 400.0 | agree
+- bin 34.53" sigma [km/s] | `(blank; NGC 5904 block) | 34.53 | 400 | 7.42 | 0.30 | 0.29 | RV` | veldis.html line 4085 | 7.42 | agree
+- bin 34.53" dsigma_Up -> err_hi | `(blank; NGC 5904 block) | 34.53 | 400 | 7.42 | 0.30 | 0.29 | RV` | veldis.html line 4085 | 0.3 | agree
+- bin 34.53" dsigma_Low -> err_lo | `(blank; NGC 5904 block) | 34.53 | 400 | 7.42 | 0.30 | 0.29 | RV` | veldis.html line 4085 | 0.29 | agree
+- bin 38.70" <r> [arcsec] | `(blank; NGC 5904 block) | 38.70 | 400 | 7.47 | 0.31 | 0.29 | RV` | veldis.html line 4097 | 38.7 | agree
+- bin 38.70" NStar | `(blank; NGC 5904 block) | 38.70 | 400 | 7.47 | 0.31 | 0.29 | RV` | veldis.html line 4097 | 400.0 | agree
+- bin 38.70" sigma [km/s] | `(blank; NGC 5904 block) | 38.70 | 400 | 7.47 | 0.31 | 0.29 | RV` | veldis.html line 4097 | 7.47 | agree
+- bin 38.70" dsigma_Up -> err_hi | `(blank; NGC 5904 block) | 38.70 | 400 | 7.47 | 0.31 | 0.29 | RV` | veldis.html line 4097 | 0.31 | agree
+- bin 38.70" dsigma_Low -> err_lo | `(blank; NGC 5904 block) | 38.70 | 400 | 7.47 | 0.31 | 0.29 | RV` | veldis.html line 4097 | 0.29 | agree
+- bin 43.53" <r> [arcsec] | `(blank; NGC 5904 block) | 43.53 | 400 | 6.87 | 0.28 | 0.27 | RV` | veldis.html line 4109 | 43.53 | agree
+- bin 43.53" NStar | `(blank; NGC 5904 block) | 43.53 | 400 | 6.87 | 0.28 | 0.27 | RV` | veldis.html line 4109 | 400.0 | agree
+- bin 43.53" sigma [km/s] | `(blank; NGC 5904 block) | 43.53 | 400 | 6.87 | 0.28 | 0.27 | RV` | veldis.html line 4109 | 6.87 | agree
+- bin 43.53" dsigma_Up -> err_hi | `(blank; NGC 5904 block) | 43.53 | 400 | 6.87 | 0.28 | 0.27 | RV` | veldis.html line 4109 | 0.28 | agree
+- bin 43.53" dsigma_Low -> err_lo | `(blank; NGC 5904 block) | 43.53 | 400 | 6.87 | 0.28 | 0.27 | RV` | veldis.html line 4109 | 0.27 | agree
+- bin 48.67" <r> [arcsec] | `(blank; NGC 5904 block) | 48.67 | 400 | 7.07 | 0.29 | 0.27 | RV` | veldis.html line 4121 | 48.67 | agree
+- bin 48.67" NStar | `(blank; NGC 5904 block) | 48.67 | 400 | 7.07 | 0.29 | 0.27 | RV` | veldis.html line 4121 | 400.0 | agree
+- bin 48.67" sigma [km/s] | `(blank; NGC 5904 block) | 48.67 | 400 | 7.07 | 0.29 | 0.27 | RV` | veldis.html line 4121 | 7.07 | agree
+- bin 48.67" dsigma_Up -> err_hi | `(blank; NGC 5904 block) | 48.67 | 400 | 7.07 | 0.29 | 0.27 | RV` | veldis.html line 4121 | 0.29 | agree
+- bin 48.67" dsigma_Low -> err_lo | `(blank; NGC 5904 block) | 48.67 | 400 | 7.07 | 0.29 | 0.27 | RV` | veldis.html line 4121 | 0.27 | agree
+- bin 54.49" <r> [arcsec] | `(blank; NGC 5904 block) | 54.49 | 400 | 6.75 | 0.28 | 0.26 | RV` | veldis.html line 4133 | 54.49 | agree
+- bin 54.49" NStar | `(blank; NGC 5904 block) | 54.49 | 400 | 6.75 | 0.28 | 0.26 | RV` | veldis.html line 4133 | 400.0 | agree
+- bin 54.49" sigma [km/s] | `(blank; NGC 5904 block) | 54.49 | 400 | 6.75 | 0.28 | 0.26 | RV` | veldis.html line 4133 | 6.75 | agree
+- bin 54.49" dsigma_Up -> err_hi | `(blank; NGC 5904 block) | 54.49 | 400 | 6.75 | 0.28 | 0.26 | RV` | veldis.html line 4133 | 0.28 | agree
+- bin 54.49" dsigma_Low -> err_lo | `(blank; NGC 5904 block) | 54.49 | 400 | 6.75 | 0.28 | 0.26 | RV` | veldis.html line 4133 | 0.26 | agree
+- bin 66.60" <r> [arcsec] | `(blank; NGC 5904 block) | 66.60 | 400 | 6.73 | 0.27 | 0.26 | RV` | veldis.html line 4151 | 66.6 | agree
+- bin 66.60" NStar | `(blank; NGC 5904 block) | 66.60 | 400 | 6.73 | 0.27 | 0.26 | RV` | veldis.html line 4151 | 400.0 | agree
+- bin 66.60" sigma [km/s] | `(blank; NGC 5904 block) | 66.60 | 400 | 6.73 | 0.27 | 0.26 | RV` | veldis.html line 4151 | 6.73 | agree
+- bin 66.60" dsigma_Up -> err_hi | `(blank; NGC 5904 block) | 66.60 | 400 | 6.73 | 0.27 | 0.26 | RV` | veldis.html line 4151 | 0.27 | agree
+- bin 66.60" dsigma_Low -> err_lo | `(blank; NGC 5904 block) | 66.60 | 400 | 6.73 | 0.27 | 0.26 | RV` | veldis.html line 4151 | 0.26 | agree
+- bin 89.91" <r> [arcsec] | `(blank; NGC 5904 block) | 89.91 | 400 | 6.82 | 0.27 | 0.27 | RV` | veldis.html line 4175 | 89.91 | agree
+- bin 89.91" NStar | `(blank; NGC 5904 block) | 89.91 | 400 | 6.82 | 0.27 | 0.27 | RV` | veldis.html line 4175 | 400.0 | agree
+- bin 89.91" sigma [km/s] | `(blank; NGC 5904 block) | 89.91 | 400 | 6.82 | 0.27 | 0.27 | RV` | veldis.html line 4175 | 6.82 | agree
+- bin 89.91" dsigma_Up -> err_hi | `(blank; NGC 5904 block) | 89.91 | 400 | 6.82 | 0.27 | 0.27 | RV` | veldis.html line 4175 | 0.27 | agree
+- bin 89.91" dsigma_Low -> err_lo | `(blank; NGC 5904 block) | 89.91 | 400 | 6.82 | 0.27 | 0.27 | RV` | veldis.html line 4175 | 0.27 | agree
+- bin 106.92" <r> [arcsec] | `(blank; NGC 5904 block) | 106.92 | 400 | 6.71 | 0.28 | 0.26 | RV` | veldis.html line 4193 | 106.92 | agree
+- bin 106.92" NStar | `(blank; NGC 5904 block) | 106.92 | 400 | 6.71 | 0.28 | 0.26 | RV` | veldis.html line 4193 | 400.0 | agree
+- bin 106.92" sigma [km/s] | `(blank; NGC 5904 block) | 106.92 | 400 | 6.71 | 0.28 | 0.26 | RV` | veldis.html line 4193 | 6.71 | agree
+- bin 106.92" dsigma_Up -> err_hi | `(blank; NGC 5904 block) | 106.92 | 400 | 6.71 | 0.28 | 0.26 | RV` | veldis.html line 4193 | 0.28 | agree
+- bin 106.92" dsigma_Low -> err_lo | `(blank; NGC 5904 block) | 106.92 | 400 | 6.71 | 0.28 | 0.26 | RV` | veldis.html line 4193 | 0.26 | agree
+- bin 122.36" <r> [arcsec] | `(blank; NGC 5904 block) | 122.36 | 400 | 6.27 | 0.26 | 0.25 | RV` | veldis.html line 4199 | 122.36 | agree
+- bin 122.36" NStar | `(blank; NGC 5904 block) | 122.36 | 400 | 6.27 | 0.26 | 0.25 | RV` | veldis.html line 4199 | 400.0 | agree
+- bin 122.36" sigma [km/s] | `(blank; NGC 5904 block) | 122.36 | 400 | 6.27 | 0.26 | 0.25 | RV` | veldis.html line 4199 | 6.27 | agree
+- bin 122.36" dsigma_Up -> err_hi | `(blank; NGC 5904 block) | 122.36 | 400 | 6.27 | 0.26 | 0.25 | RV` | veldis.html line 4199 | 0.26 | agree
+- bin 122.36" dsigma_Low -> err_lo | `(blank; NGC 5904 block) | 122.36 | 400 | 6.27 | 0.26 | 0.25 | RV` | veldis.html line 4199 | 0.25 | agree
+- bin 167.90" <r> [arcsec] | `(blank; NGC 5904 block) | 167.90 | 100 | 5.41 | 0.42 | 0.37 | RV` | veldis.html line 4211 | 167.9 | agree
+- bin 167.90" NStar | `(blank; NGC 5904 block) | 167.90 | 100 | 5.41 | 0.42 | 0.37 | RV` | veldis.html line 4211 | 100.0 | agree
+- bin 167.90" sigma [km/s] | `(blank; NGC 5904 block) | 167.90 | 100 | 5.41 | 0.42 | 0.37 | RV` | veldis.html line 4211 | 5.41 | agree
+- bin 167.90" dsigma_Up -> err_hi | `(blank; NGC 5904 block) | 167.90 | 100 | 5.41 | 0.42 | 0.37 | RV` | veldis.html line 4211 | 0.42 | agree
+- bin 167.90" dsigma_Low -> err_lo | `(blank; NGC 5904 block) | 167.90 | 100 | 5.41 | 0.42 | 0.37 | RV` | veldis.html line 4211 | 0.37 | agree
+- bin 216.24" <r> [arcsec] | `(blank; NGC 5904 block) | 216.24 | 100 | 6.05 | 0.47 | 0.42 | RV` | veldis.html line 4223 | 216.24 | agree
+- bin 216.24" NStar | `(blank; NGC 5904 block) | 216.24 | 100 | 6.05 | 0.47 | 0.42 | RV` | veldis.html line 4223 | 100.0 | agree
+- bin 216.24" sigma [km/s] | `(blank; NGC 5904 block) | 216.24 | 100 | 6.05 | 0.47 | 0.42 | RV` | veldis.html line 4223 | 6.05 | agree
+- bin 216.24" dsigma_Up -> err_hi | `(blank; NGC 5904 block) | 216.24 | 100 | 6.05 | 0.47 | 0.42 | RV` | veldis.html line 4223 | 0.47 | agree
+- bin 216.24" dsigma_Low -> err_lo | `(blank; NGC 5904 block) | 216.24 | 100 | 6.05 | 0.47 | 0.42 | RV` | veldis.html line 4223 | 0.42 | agree
+- bin 274.72" <r> [arcsec] | `(blank; NGC 5904 block) | 274.72 | 100 | 5.16 | 0.39 | 0.36 | RV` | veldis.html line 4241 | 274.72 | agree
+- bin 274.72" NStar | `(blank; NGC 5904 block) | 274.72 | 100 | 5.16 | 0.39 | 0.36 | RV` | veldis.html line 4241 | 100.0 | agree
+- bin 274.72" sigma [km/s] | `(blank; NGC 5904 block) | 274.72 | 100 | 5.16 | 0.39 | 0.36 | RV` | veldis.html line 4241 | 5.16 | agree
+- bin 274.72" dsigma_Up -> err_hi | `(blank; NGC 5904 block) | 274.72 | 100 | 5.16 | 0.39 | 0.36 | RV` | veldis.html line 4241 | 0.39 | agree
+- bin 274.72" dsigma_Low -> err_lo | `(blank; NGC 5904 block) | 274.72 | 100 | 5.16 | 0.39 | 0.36 | RV` | veldis.html line 4241 | 0.36 | agree
+- bin 355.10" <r> [arcsec] | `(blank; NGC 5904 block) | 355.10 | 100 | 4.50 | 0.35 | 0.31 | RV` | veldis.html line 4253 | 355.1 | agree
+- bin 355.10" NStar | `(blank; NGC 5904 block) | 355.10 | 100 | 4.50 | 0.35 | 0.31 | RV` | veldis.html line 4253 | 100.0 | agree
+- bin 355.10" sigma [km/s] | `(blank; NGC 5904 block) | 355.10 | 100 | 4.50 | 0.35 | 0.31 | RV` | veldis.html line 4253 | 4.5 | agree
+- bin 355.10" dsigma_Up -> err_hi | `(blank; NGC 5904 block) | 355.10 | 100 | 4.50 | 0.35 | 0.31 | RV` | veldis.html line 4253 | 0.35 | agree
+- bin 355.10" dsigma_Low -> err_lo | `(blank; NGC 5904 block) | 355.10 | 100 | 4.50 | 0.35 | 0.31 | RV` | veldis.html line 4253 | 0.31 | agree
+- bin 499.22" <r> [arcsec] | `(blank; NGC 5904 block) | 499.22 | 100 | 3.02 | 0.25 | 0.21 | RV` | veldis.html line 4259 | 499.22 | agree
+- bin 499.22" NStar | `(blank; NGC 5904 block) | 499.22 | 100 | 3.02 | 0.25 | 0.21 | RV` | veldis.html line 4259 | 100.0 | agree
+- bin 499.22" sigma [km/s] | `(blank; NGC 5904 block) | 499.22 | 100 | 3.02 | 0.25 | 0.21 | RV` | veldis.html line 4259 | 3.02 | agree
+- bin 499.22" dsigma_Up -> err_hi | `(blank; NGC 5904 block) | 499.22 | 100 | 3.02 | 0.25 | 0.21 | RV` | veldis.html line 4259 | 0.25 | agree
+- bin 499.22" dsigma_Low -> err_lo | `(blank; NGC 5904 block) | 499.22 | 100 | 3.02 | 0.25 | 0.21 | RV` | veldis.html line 4259 | 0.21 | agree
+- bin 882.34" <r> [arcsec] | `(blank; NGC 5904 block) | 882.34 | 70 | 3.92 | 0.37 | 0.32 | RV` | veldis.html line 4265 | 882.34 | agree
+- bin 882.34" NStar | `(blank; NGC 5904 block) | 882.34 | 70 | 3.92 | 0.37 | 0.32 | RV` | veldis.html line 4265 | 70.0 | agree
+- bin 882.34" sigma [km/s] | `(blank; NGC 5904 block) | 882.34 | 70 | 3.92 | 0.37 | 0.32 | RV` | veldis.html line 4265 | 3.92 | agree
+- bin 882.34" dsigma_Up -> err_hi | `(blank; NGC 5904 block) | 882.34 | 70 | 3.92 | 0.37 | 0.32 | RV` | veldis.html line 4265 | 0.37 | agree
+- bin 882.34" dsigma_Low -> err_lo | `(blank; NGC 5904 block) | 882.34 | 70 | 3.92 | 0.37 | 0.32 | RV` | veldis.html line 4265 | 0.32 | agree
+- R_Sun [kpc] | `NGC 5904 ...   7.5   6.2  [R_Sun field: '7.5']` | mwgc.dat line 112 (Part I) | 7.5 | agree
+- M_V,t [mag] | `NGC 5904 ... 5.65  -8.81  [M_V,t field: '-8.81']` | mwgc.dat line 292 (Part II) | -8.81 | agree
+- W0/gamma | `<TD>7.60</TD>` | J_ApJS_161_304_models.vot models.vot line 593 (recno 253, MW-NGC5904, Mod K) | 7.6 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 593 (recno 253, MW-NGC5904, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 593 (recno 253, MW-NGC5904, Mod K) | 0.1 | agree
+- r0 | `<TD>26.320</TD>` | J_ApJS_161_304_models.vot models.vot line 593 (recno 253, MW-NGC5904, Mod K) | 26.32 | agree
+- E_r0 -> err_hi | `<TD>1.730</TD>` | J_ApJS_161_304_models.vot models.vot line 593 (recno 253, MW-NGC5904, Mod K) | 1.73 | agree
+- e_r0 -> err_lo | `<TD>1.650</TD>` | J_ApJS_161_304_models.vot models.vot line 593 (recno 253, MW-NGC5904, Mod K) | 1.65 | agree
+- Rh | `<TD>0.586</TD>` | J_ApJS_161_304_models.vot models.vot line 593 (recno 253, MW-NGC5904, Mod K) | 0.586 | agree
+- E_Rh -> err_hi | `<TD>0.002</TD>` | J_ApJS_161_304_models.vot models.vot line 593 (recno 253, MW-NGC5904, Mod K) | 0.002 | agree
+- e_Rh -> err_lo | `<TD>0.001</TD>` | J_ApJS_161_304_models.vot models.vot line 593 (recno 253, MW-NGC5904, Mod K) | 0.001 | agree
+- Dist | `<TD>7.5</TD>` | J_ApJS_161_304_models.vot models.vot line 593 (recno 253, MW-NGC5904, Mod K) | 7.5 | agree
+- (M/L)1 | `<TD>1.958</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 259 (recno 99, MW-NGC5904) | 1.958 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.163</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 259 (recno 99, MW-NGC5904) | 0.163 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.163</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 259 (recno 99, MW-NGC5904) | 0.163 | agree
+- arithmetic L_V = 291071.7118 vs 291071.7118 | agree; R_h = 10^0.586 x 7.5 / 7.5 = 3.854783577 pc vs 3.854783577 | agree; M/L 1.958 vs 1.958 | agree
+
+### NGC 5986
+
+- bin 25.81" <r> [arcsec] | `(blank; NGC 5986 block) | 25.81 | 47 | 7.02 | 0.83 | 0.70 | RV` | veldis.html line 4517 | 25.81 | agree
+- bin 25.81" NStar | `(blank; NGC 5986 block) | 25.81 | 47 | 7.02 | 0.83 | 0.70 | RV` | veldis.html line 4517 | 47.0 | agree
+- bin 25.81" sigma [km/s] | `(blank; NGC 5986 block) | 25.81 | 47 | 7.02 | 0.83 | 0.70 | RV` | veldis.html line 4517 | 7.02 | agree
+- bin 25.81" dsigma_Up -> err_hi | `(blank; NGC 5986 block) | 25.81 | 47 | 7.02 | 0.83 | 0.70 | RV` | veldis.html line 4517 | 0.83 | agree
+- bin 25.81" dsigma_Low -> err_lo | `(blank; NGC 5986 block) | 25.81 | 47 | 7.02 | 0.83 | 0.70 | RV` | veldis.html line 4517 | 0.7 | agree
+- bin 63.54" <r> [arcsec] | `(blank; NGC 5986 block) | 63.54 | 47 | 7.15 | 0.82 | 0.69 | RV` | veldis.html line 4583 | 63.54 | agree
+- bin 63.54" NStar | `(blank; NGC 5986 block) | 63.54 | 47 | 7.15 | 0.82 | 0.69 | RV` | veldis.html line 4583 | 47.0 | agree
+- bin 63.54" sigma [km/s] | `(blank; NGC 5986 block) | 63.54 | 47 | 7.15 | 0.82 | 0.69 | RV` | veldis.html line 4583 | 7.15 | agree
+- bin 63.54" dsigma_Up -> err_hi | `(blank; NGC 5986 block) | 63.54 | 47 | 7.15 | 0.82 | 0.69 | RV` | veldis.html line 4583 | 0.82 | agree
+- bin 63.54" dsigma_Low -> err_lo | `(blank; NGC 5986 block) | 63.54 | 47 | 7.15 | 0.82 | 0.69 | RV` | veldis.html line 4583 | 0.69 | agree
+- bin 93.08" <r> [arcsec] | `(blank; NGC 5986 block) | 93.08 | 47 | 4.65 | 0.54 | 0.45 | RV` | veldis.html line 4613 | 93.08 | agree
+- bin 93.08" NStar | `(blank; NGC 5986 block) | 93.08 | 47 | 4.65 | 0.54 | 0.45 | RV` | veldis.html line 4613 | 47.0 | agree
+- bin 93.08" sigma [km/s] | `(blank; NGC 5986 block) | 93.08 | 47 | 4.65 | 0.54 | 0.45 | RV` | veldis.html line 4613 | 4.65 | agree
+- bin 93.08" dsigma_Up -> err_hi | `(blank; NGC 5986 block) | 93.08 | 47 | 4.65 | 0.54 | 0.45 | RV` | veldis.html line 4613 | 0.54 | agree
+- bin 93.08" dsigma_Low -> err_lo | `(blank; NGC 5986 block) | 93.08 | 47 | 4.65 | 0.54 | 0.45 | RV` | veldis.html line 4613 | 0.45 | agree
+- bin 128.10" <r> [arcsec] | `(blank; NGC 5986 block) | 128.10 | 47 | 4.84 | 0.57 | 0.48 | RV` | veldis.html line 4625 | 128.1 | agree
+- bin 128.10" NStar | `(blank; NGC 5986 block) | 128.10 | 47 | 4.84 | 0.57 | 0.48 | RV` | veldis.html line 4625 | 47.0 | agree
+- bin 128.10" sigma [km/s] | `(blank; NGC 5986 block) | 128.10 | 47 | 4.84 | 0.57 | 0.48 | RV` | veldis.html line 4625 | 4.84 | agree
+- bin 128.10" dsigma_Up -> err_hi | `(blank; NGC 5986 block) | 128.10 | 47 | 4.84 | 0.57 | 0.48 | RV` | veldis.html line 4625 | 0.57 | agree
+- bin 128.10" dsigma_Low -> err_lo | `(blank; NGC 5986 block) | 128.10 | 47 | 4.84 | 0.57 | 0.48 | RV` | veldis.html line 4625 | 0.48 | agree
+- bin 202.50" <r> [arcsec] | `(blank; NGC 5986 block) | 202.50 | 47 | 5.37 | 0.62 | 0.53 | RV` | veldis.html line 4637 | 202.5 | agree
+- bin 202.50" NStar | `(blank; NGC 5986 block) | 202.50 | 47 | 5.37 | 0.62 | 0.53 | RV` | veldis.html line 4637 | 47.0 | agree
+- bin 202.50" sigma [km/s] | `(blank; NGC 5986 block) | 202.50 | 47 | 5.37 | 0.62 | 0.53 | RV` | veldis.html line 4637 | 5.37 | agree
+- bin 202.50" dsigma_Up -> err_hi | `(blank; NGC 5986 block) | 202.50 | 47 | 5.37 | 0.62 | 0.53 | RV` | veldis.html line 4637 | 0.62 | agree
+- bin 202.50" dsigma_Low -> err_lo | `(blank; NGC 5986 block) | 202.50 | 47 | 5.37 | 0.62 | 0.53 | RV` | veldis.html line 4637 | 0.53 | agree
+- bin 296.04" <r> [arcsec] | `(blank; NGC 5986 block) | 296.04 | 9 | 3.26 | 1.02 | 0.69 | RV` | veldis.html line 4643 | 296.04 | agree
+- bin 296.04" NStar | `(blank; NGC 5986 block) | 296.04 | 9 | 3.26 | 1.02 | 0.69 | RV` | veldis.html line 4643 | 9.0 | agree
+- bin 296.04" sigma [km/s] | `(blank; NGC 5986 block) | 296.04 | 9 | 3.26 | 1.02 | 0.69 | RV` | veldis.html line 4643 | 3.26 | agree
+- bin 296.04" dsigma_Up -> err_hi | `(blank; NGC 5986 block) | 296.04 | 9 | 3.26 | 1.02 | 0.69 | RV` | veldis.html line 4643 | 1.02 | agree
+- bin 296.04" dsigma_Low -> err_lo | `(blank; NGC 5986 block) | 296.04 | 9 | 3.26 | 1.02 | 0.69 | RV` | veldis.html line 4643 | 0.69 | agree
+- R_Sun [kpc] | `NGC 5986 ...  10.4   4.8  [R_Sun field: '10.4']` | mwgc.dat line 116 (Part I) | 10.4 | agree
+- M_V,t [mag] | `NGC 5986 ... 7.52  -8.44  [M_V,t field: '-8.44']` | mwgc.dat line 296 (Part II) | -8.44 | agree
+- W0/gamma | `<TD>5.90</TD>` | J_ApJS_161_304_models.vot models.vot line 596 (recno 256, MW-NGC5986, Mod K) | 5.9 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 596 (recno 256, MW-NGC5986, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 596 (recno 256, MW-NGC5986, Mod K) | 0.1 | agree
+- r0 | `<TD>30.560</TD>` | J_ApJS_161_304_models.vot models.vot line 596 (recno 256, MW-NGC5986, Mod K) | 30.56 | agree
+- E_r0 -> err_hi | `<TD>0.910</TD>` | J_ApJS_161_304_models.vot models.vot line 596 (recno 256, MW-NGC5986, Mod K) | 0.91 | agree
+- e_r0 -> err_lo | `<TD>0.910</TD>` | J_ApJS_161_304_models.vot models.vot line 596 (recno 256, MW-NGC5986, Mod K) | 0.91 | agree
+- Rh | `<TD>0.473</TD>` | J_ApJS_161_304_models.vot models.vot line 596 (recno 256, MW-NGC5986, Mod K) | 0.473 | agree
+- E_Rh -> err_hi | `<TD>0.000</TD>` | J_ApJS_161_304_models.vot models.vot line 596 (recno 256, MW-NGC5986, Mod K) | 0.0 | agree
+- e_Rh -> err_lo | `<TD>0.000</TD>` | J_ApJS_161_304_models.vot models.vot line 596 (recno 256, MW-NGC5986, Mod K) | 0.0 | agree
+- Dist | `<TD>10.4</TD>` | J_ApJS_161_304_models.vot models.vot line 596 (recno 256, MW-NGC5986, Mod K) | 10.4 | agree
+- (M/L)1 | `<TD>1.876</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 262 (recno 102, MW-NGC5986) | 1.876 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.154</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 262 (recno 102, MW-NGC5986) | 0.154 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.154</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 262 (recno 102, MW-NGC5986) | 0.154 | agree
+- arithmetic L_V = 207014.1349 vs 207014.1349 | agree; R_h = 10^0.473 x 10.4 / 10.4 = 2.971666032 pc vs 2.971666032 | agree; M/L 1.876 vs 1.876 | agree
+
+### NGC 6093
+
+- bin 6.52" <r> [arcsec] | `NGC 6093 | 6.52 | 300 | 10.73 | 0.47 | 0.44 | RV` | veldis.html line 4650 | 6.52 | agree
+- bin 6.52" NStar | `NGC 6093 | 6.52 | 300 | 10.73 | 0.47 | 0.44 | RV` | veldis.html line 4650 | 300.0 | agree
+- bin 6.52" sigma [km/s] | `NGC 6093 | 6.52 | 300 | 10.73 | 0.47 | 0.44 | RV` | veldis.html line 4650 | 10.73 | agree
+- bin 6.52" dsigma_Up -> err_hi | `NGC 6093 | 6.52 | 300 | 10.73 | 0.47 | 0.44 | RV` | veldis.html line 4650 | 0.47 | agree
+- bin 6.52" dsigma_Low -> err_lo | `NGC 6093 | 6.52 | 300 | 10.73 | 0.47 | 0.44 | RV` | veldis.html line 4650 | 0.44 | agree
+- bin 13.62" <r> [arcsec] | `(blank; NGC 6093 block) | 13.62 | 300 | 10.63 | 0.46 | 0.44 | RV` | veldis.html line 4657 | 13.62 | agree
+- bin 13.62" NStar | `(blank; NGC 6093 block) | 13.62 | 300 | 10.63 | 0.46 | 0.44 | RV` | veldis.html line 4657 | 300.0 | agree
+- bin 13.62" sigma [km/s] | `(blank; NGC 6093 block) | 13.62 | 300 | 10.63 | 0.46 | 0.44 | RV` | veldis.html line 4657 | 10.63 | agree
+- bin 13.62" dsigma_Up -> err_hi | `(blank; NGC 6093 block) | 13.62 | 300 | 10.63 | 0.46 | 0.44 | RV` | veldis.html line 4657 | 0.46 | agree
+- bin 13.62" dsigma_Low -> err_lo | `(blank; NGC 6093 block) | 13.62 | 300 | 10.63 | 0.46 | 0.44 | RV` | veldis.html line 4657 | 0.44 | agree
+- bin 19.67" <r> [arcsec] | `(blank; NGC 6093 block) | 19.67 | 300 | 8.94 | 0.39 | 0.38 | RV` | veldis.html line 4663 | 19.67 | agree
+- bin 19.67" NStar | `(blank; NGC 6093 block) | 19.67 | 300 | 8.94 | 0.39 | 0.38 | RV` | veldis.html line 4663 | 300.0 | agree
+- bin 19.67" sigma [km/s] | `(blank; NGC 6093 block) | 19.67 | 300 | 8.94 | 0.39 | 0.38 | RV` | veldis.html line 4663 | 8.94 | agree
+- bin 19.67" dsigma_Up -> err_hi | `(blank; NGC 6093 block) | 19.67 | 300 | 8.94 | 0.39 | 0.38 | RV` | veldis.html line 4663 | 0.39 | agree
+- bin 19.67" dsigma_Low -> err_lo | `(blank; NGC 6093 block) | 19.67 | 300 | 8.94 | 0.39 | 0.38 | RV` | veldis.html line 4663 | 0.38 | agree
+- bin 22.57" <r> [arcsec] | `(blank; NGC 6093 block) | 22.57 | 200 | 8.88 | 0.48 | 0.45 | RV` | veldis.html line 4669 | 22.57 | agree
+- bin 22.57" NStar | `(blank; NGC 6093 block) | 22.57 | 200 | 8.88 | 0.48 | 0.45 | RV` | veldis.html line 4669 | 200.0 | agree
+- bin 22.57" sigma [km/s] | `(blank; NGC 6093 block) | 22.57 | 200 | 8.88 | 0.48 | 0.45 | RV` | veldis.html line 4669 | 8.88 | agree
+- bin 22.57" dsigma_Up -> err_hi | `(blank; NGC 6093 block) | 22.57 | 200 | 8.88 | 0.48 | 0.45 | RV` | veldis.html line 4669 | 0.48 | agree
+- bin 22.57" dsigma_Low -> err_lo | `(blank; NGC 6093 block) | 22.57 | 200 | 8.88 | 0.48 | 0.45 | RV` | veldis.html line 4669 | 0.45 | agree
+- bin 27.33" <r> [arcsec] | `(blank; NGC 6093 block) | 27.33 | 200 | 9.02 | 0.49 | 0.46 | RV` | veldis.html line 4675 | 27.33 | agree
+- bin 27.33" NStar | `(blank; NGC 6093 block) | 27.33 | 200 | 9.02 | 0.49 | 0.46 | RV` | veldis.html line 4675 | 200.0 | agree
+- bin 27.33" sigma [km/s] | `(blank; NGC 6093 block) | 27.33 | 200 | 9.02 | 0.49 | 0.46 | RV` | veldis.html line 4675 | 9.02 | agree
+- bin 27.33" dsigma_Up -> err_hi | `(blank; NGC 6093 block) | 27.33 | 200 | 9.02 | 0.49 | 0.46 | RV` | veldis.html line 4675 | 0.49 | agree
+- bin 27.33" dsigma_Low -> err_lo | `(blank; NGC 6093 block) | 27.33 | 200 | 9.02 | 0.49 | 0.46 | RV` | veldis.html line 4675 | 0.46 | agree
+- bin 32.33" <r> [arcsec] | `(blank; NGC 6093 block) | 32.33 | 200 | 8.67 | 0.47 | 0.44 | RV` | veldis.html line 4681 | 32.33 | agree
+- bin 32.33" NStar | `(blank; NGC 6093 block) | 32.33 | 200 | 8.67 | 0.47 | 0.44 | RV` | veldis.html line 4681 | 200.0 | agree
+- bin 32.33" sigma [km/s] | `(blank; NGC 6093 block) | 32.33 | 200 | 8.67 | 0.47 | 0.44 | RV` | veldis.html line 4681 | 8.67 | agree
+- bin 32.33" dsigma_Up -> err_hi | `(blank; NGC 6093 block) | 32.33 | 200 | 8.67 | 0.47 | 0.44 | RV` | veldis.html line 4681 | 0.47 | agree
+- bin 32.33" dsigma_Low -> err_lo | `(blank; NGC 6093 block) | 32.33 | 200 | 8.67 | 0.47 | 0.44 | RV` | veldis.html line 4681 | 0.44 | agree
+- bin 39.27" <r> [arcsec] | `(blank; NGC 6093 block) | 39.27 | 200 | 8.13 | 0.45 | 0.41 | RV` | veldis.html line 4687 | 39.27 | agree
+- bin 39.27" NStar | `(blank; NGC 6093 block) | 39.27 | 200 | 8.13 | 0.45 | 0.41 | RV` | veldis.html line 4687 | 200.0 | agree
+- bin 39.27" sigma [km/s] | `(blank; NGC 6093 block) | 39.27 | 200 | 8.13 | 0.45 | 0.41 | RV` | veldis.html line 4687 | 8.13 | agree
+- bin 39.27" dsigma_Up -> err_hi | `(blank; NGC 6093 block) | 39.27 | 200 | 8.13 | 0.45 | 0.41 | RV` | veldis.html line 4687 | 0.45 | agree
+- bin 39.27" dsigma_Low -> err_lo | `(blank; NGC 6093 block) | 39.27 | 200 | 8.13 | 0.45 | 0.41 | RV` | veldis.html line 4687 | 0.41 | agree
+- bin 47.53" <r> [arcsec] | `(blank; NGC 6093 block) | 47.53 | 200 | 7.83 | 0.44 | 0.40 | RV` | veldis.html line 4693 | 47.53 | agree
+- bin 47.53" NStar | `(blank; NGC 6093 block) | 47.53 | 200 | 7.83 | 0.44 | 0.40 | RV` | veldis.html line 4693 | 200.0 | agree
+- bin 47.53" sigma [km/s] | `(blank; NGC 6093 block) | 47.53 | 200 | 7.83 | 0.44 | 0.40 | RV` | veldis.html line 4693 | 7.83 | agree
+- bin 47.53" dsigma_Up -> err_hi | `(blank; NGC 6093 block) | 47.53 | 200 | 7.83 | 0.44 | 0.40 | RV` | veldis.html line 4693 | 0.44 | agree
+- bin 47.53" dsigma_Low -> err_lo | `(blank; NGC 6093 block) | 47.53 | 200 | 7.83 | 0.44 | 0.40 | RV` | veldis.html line 4693 | 0.4 | agree
+- bin 55.48" <r> [arcsec] | `(blank; NGC 6093 block) | 55.48 | 100 | 7.15 | 0.57 | 0.51 | RV` | veldis.html line 4699 | 55.48 | agree
+- bin 55.48" NStar | `(blank; NGC 6093 block) | 55.48 | 100 | 7.15 | 0.57 | 0.51 | RV` | veldis.html line 4699 | 100.0 | agree
+- bin 55.48" sigma [km/s] | `(blank; NGC 6093 block) | 55.48 | 100 | 7.15 | 0.57 | 0.51 | RV` | veldis.html line 4699 | 7.15 | agree
+- bin 55.48" dsigma_Up -> err_hi | `(blank; NGC 6093 block) | 55.48 | 100 | 7.15 | 0.57 | 0.51 | RV` | veldis.html line 4699 | 0.57 | agree
+- bin 55.48" dsigma_Low -> err_lo | `(blank; NGC 6093 block) | 55.48 | 100 | 7.15 | 0.57 | 0.51 | RV` | veldis.html line 4699 | 0.51 | agree
+- bin 70.09" <r> [arcsec] | `(blank; NGC 6093 block) | 70.09 | 100 | 7.12 | 0.57 | 0.50 | RV` | veldis.html line 4705 | 70.09 | agree
+- bin 70.09" NStar | `(blank; NGC 6093 block) | 70.09 | 100 | 7.12 | 0.57 | 0.50 | RV` | veldis.html line 4705 | 100.0 | agree
+- bin 70.09" sigma [km/s] | `(blank; NGC 6093 block) | 70.09 | 100 | 7.12 | 0.57 | 0.50 | RV` | veldis.html line 4705 | 7.12 | agree
+- bin 70.09" dsigma_Up -> err_hi | `(blank; NGC 6093 block) | 70.09 | 100 | 7.12 | 0.57 | 0.50 | RV` | veldis.html line 4705 | 0.57 | agree
+- bin 70.09" dsigma_Low -> err_lo | `(blank; NGC 6093 block) | 70.09 | 100 | 7.12 | 0.57 | 0.50 | RV` | veldis.html line 4705 | 0.5 | agree
+- bin 167.89" <r> [arcsec] | `(blank; NGC 6093 block) | 167.89 | 87 | 5.54 | 0.46 | 0.41 | RV` | veldis.html line 4723 | 167.89 | agree
+- bin 167.89" NStar | `(blank; NGC 6093 block) | 167.89 | 87 | 5.54 | 0.46 | 0.41 | RV` | veldis.html line 4723 | 87.0 | agree
+- bin 167.89" sigma [km/s] | `(blank; NGC 6093 block) | 167.89 | 87 | 5.54 | 0.46 | 0.41 | RV` | veldis.html line 4723 | 5.54 | agree
+- bin 167.89" dsigma_Up -> err_hi | `(blank; NGC 6093 block) | 167.89 | 87 | 5.54 | 0.46 | 0.41 | RV` | veldis.html line 4723 | 0.46 | agree
+- bin 167.89" dsigma_Low -> err_lo | `(blank; NGC 6093 block) | 167.89 | 87 | 5.54 | 0.46 | 0.41 | RV` | veldis.html line 4723 | 0.41 | agree
+- R_Sun [kpc] | `NGC 6093 ...  10.0   3.8  [R_Sun field: '10.0']` | mwgc.dat line 119 (Part I) | 10.0 | agree
+- M_V,t [mag] | `NGC 6093 ... 7.33  -8.23  [M_V,t field: '-8.23']` | mwgc.dat line 299 (Part II) | -8.23 | agree
+- W0/gamma | `<TD>7.50</TD>` | J_ApJS_161_304_models.vot models.vot line 599 (recno 259, MW-NGC6093, Mod K) | 7.5 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 599 (recno 259, MW-NGC6093, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 599 (recno 259, MW-NGC6093, Mod K) | 0.1 | agree
+- r0 | `<TD>9.570</TD>` | J_ApJS_161_304_models.vot models.vot line 599 (recno 259, MW-NGC6093, Mod K) | 9.57 | agree
+- E_r0 -> err_hi | `<TD>0.370</TD>` | J_ApJS_161_304_models.vot models.vot line 599 (recno 259, MW-NGC6093, Mod K) | 0.37 | agree
+- e_r0 -> err_lo | `<TD>0.370</TD>` | J_ApJS_161_304_models.vot models.vot line 599 (recno 259, MW-NGC6093, Mod K) | 0.37 | agree
+- Rh | `<TD>0.246</TD>` | J_ApJS_161_304_models.vot models.vot line 599 (recno 259, MW-NGC6093, Mod K) | 0.246 | agree
+- E_Rh -> err_hi | `<TD>0.009</TD>` | J_ApJS_161_304_models.vot models.vot line 599 (recno 259, MW-NGC6093, Mod K) | 0.009 | agree
+- e_Rh -> err_lo | `<TD>0.008</TD>` | J_ApJS_161_304_models.vot models.vot line 599 (recno 259, MW-NGC6093, Mod K) | 0.008 | agree
+- Dist | `<TD>10.0</TD>` | J_ApJS_161_304_models.vot models.vot line 599 (recno 259, MW-NGC6093, Mod K) | 10.0 | agree
+- (M/L)1 | `<TD>1.867</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 263 (recno 103, MW-NGC6093) | 1.867 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.155</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 263 (recno 103, MW-NGC6093) | 0.155 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.155</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 263 (recno 103, MW-NGC6093) | 0.155 | agree
+- arithmetic L_V = 170608.2389 vs 170608.2389 | agree; R_h = 10^0.246 x 10.0 / 10.0 = 1.761976046 pc vs 1.761976046 | agree; M/L 1.867 vs 1.867 | agree
+
+### NGC 6101
+
+- bin 42.48" <r> [arcsec] | `(blank; NGC 6101 block) | 42.48 | 35 | 3.39 | 0.54 | 0.45 | RV` | veldis.html line 4749 | 42.48 | agree
+- bin 42.48" NStar | `(blank; NGC 6101 block) | 42.48 | 35 | 3.39 | 0.54 | 0.45 | RV` | veldis.html line 4749 | 35.0 | agree
+- bin 42.48" sigma [km/s] | `(blank; NGC 6101 block) | 42.48 | 35 | 3.39 | 0.54 | 0.45 | RV` | veldis.html line 4749 | 3.39 | agree
+- bin 42.48" dsigma_Up -> err_hi | `(blank; NGC 6101 block) | 42.48 | 35 | 3.39 | 0.54 | 0.45 | RV` | veldis.html line 4749 | 0.54 | agree
+- bin 42.48" dsigma_Low -> err_lo | `(blank; NGC 6101 block) | 42.48 | 35 | 3.39 | 0.54 | 0.45 | RV` | veldis.html line 4749 | 0.45 | agree
+- bin 118.85" <r> [arcsec] | `(blank; NGC 6101 block) | 118.85 | 36 | 2.21 | 0.44 | 0.38 | RV` | veldis.html line 4791 | 118.85 | agree
+- bin 118.85" NStar | `(blank; NGC 6101 block) | 118.85 | 36 | 2.21 | 0.44 | 0.38 | RV` | veldis.html line 4791 | 36.0 | agree
+- bin 118.85" sigma [km/s] | `(blank; NGC 6101 block) | 118.85 | 36 | 2.21 | 0.44 | 0.38 | RV` | veldis.html line 4791 | 2.21 | agree
+- bin 118.85" dsigma_Up -> err_hi | `(blank; NGC 6101 block) | 118.85 | 36 | 2.21 | 0.44 | 0.38 | RV` | veldis.html line 4791 | 0.44 | agree
+- bin 118.85" dsigma_Low -> err_lo | `(blank; NGC 6101 block) | 118.85 | 36 | 2.21 | 0.44 | 0.38 | RV` | veldis.html line 4791 | 0.38 | agree
+- R_Sun [kpc] | `NGC 6101 ...  15.4  11.2  [R_Sun field: '15.4']` | mwgc.dat line 121 (Part I) | 15.4 | agree
+- M_V,t [mag] | `NGC 6101 ... 9.16  -6.94  [M_V,t field: '-6.94']` | mwgc.dat line 301 (Part II) | -6.94 | agree
+- W0/gamma | `<TD>0.30</TD>` | J_ApJS_161_304_models.vot models.vot line 602 (recno 262, MW-NGC6101, Mod K) | 0.3 | agree
+- E_W0/gamma -> err_hi | `<TD>0.80</TD>` | J_ApJS_161_304_models.vot models.vot line 602 (recno 262, MW-NGC6101, Mod K) | 0.8 | agree
+- e_W0/gamma -> err_lo | `<TD>0.00</TD>` | J_ApJS_161_304_models.vot models.vot line 602 (recno 262, MW-NGC6101, Mod K) | 0.0 | agree
+- r0 | `<TD>231.990</TD>` | J_ApJS_161_304_models.vot models.vot line 602 (recno 262, MW-NGC6101, Mod K) | 231.99 | agree
+- E_r0 -> err_hi | `<TD>0.000</TD>` | J_ApJS_161_304_models.vot models.vot line 602 (recno 262, MW-NGC6101, Mod K) | 0.0 | agree
+- e_r0 -> err_lo | `<TD>112.200</TD>` | J_ApJS_161_304_models.vot models.vot line 602 (recno 262, MW-NGC6101, Mod K) | 112.2 | agree
+- Rh | `<TD>0.668</TD>` | J_ApJS_161_304_models.vot models.vot line 602 (recno 262, MW-NGC6101, Mod K) | 0.668 | agree
+- E_Rh -> err_hi | `<TD>0.005</TD>` | J_ApJS_161_304_models.vot models.vot line 602 (recno 262, MW-NGC6101, Mod K) | 0.005 | agree
+- e_Rh -> err_lo | `<TD>0.000</TD>` | J_ApJS_161_304_models.vot models.vot line 602 (recno 262, MW-NGC6101, Mod K) | 0.0 | agree
+- Dist | `<TD>15.3</TD>` | J_ApJS_161_304_models.vot models.vot line 602 (recno 262, MW-NGC6101, Mod K) | 15.3 | agree
+- (M/L)1 | `<TD>1.869</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 264 (recno 104, MW-NGC6101) | 1.869 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.157</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 264 (recno 104, MW-NGC6101) | 0.157 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.157</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 264 (recno 104, MW-NGC6101) | 0.157 | agree
+- arithmetic L_V = 51999.59965 vs 51999.59965 | agree; R_h = 10^0.668 x 15.4 / 15.3 = 4.686291399 pc vs 4.686291399 | agree; M/L 1.869 vs 1.869 | agree
+
+### NGC 6121
+
+- bin 46.97" <r> [arcsec] | `(blank; NGC 6121 block) | 46.97 | 200 | 4.84 | 0.26 | 0.24 | RV` | veldis.html line 4823 | 46.97 | agree
+- bin 46.97" NStar | `(blank; NGC 6121 block) | 46.97 | 200 | 4.84 | 0.26 | 0.24 | RV` | veldis.html line 4823 | 200.0 | agree
+- bin 46.97" sigma [km/s] | `(blank; NGC 6121 block) | 46.97 | 200 | 4.84 | 0.26 | 0.24 | RV` | veldis.html line 4823 | 4.84 | agree
+- bin 46.97" dsigma_Up -> err_hi | `(blank; NGC 6121 block) | 46.97 | 200 | 4.84 | 0.26 | 0.24 | RV` | veldis.html line 4823 | 0.26 | agree
+- bin 46.97" dsigma_Low -> err_lo | `(blank; NGC 6121 block) | 46.97 | 200 | 4.84 | 0.26 | 0.24 | RV` | veldis.html line 4823 | 0.24 | agree
+- bin 89.34" <r> [arcsec] | `(blank; NGC 6121 block) | 89.34 | 200 | 4.74 | 0.25 | 0.23 | RV` | veldis.html line 4841 | 89.34 | agree
+- bin 89.34" NStar | `(blank; NGC 6121 block) | 89.34 | 200 | 4.74 | 0.25 | 0.23 | RV` | veldis.html line 4841 | 200.0 | agree
+- bin 89.34" sigma [km/s] | `(blank; NGC 6121 block) | 89.34 | 200 | 4.74 | 0.25 | 0.23 | RV` | veldis.html line 4841 | 4.74 | agree
+- bin 89.34" dsigma_Up -> err_hi | `(blank; NGC 6121 block) | 89.34 | 200 | 4.74 | 0.25 | 0.23 | RV` | veldis.html line 4841 | 0.25 | agree
+- bin 89.34" dsigma_Low -> err_lo | `(blank; NGC 6121 block) | 89.34 | 200 | 4.74 | 0.25 | 0.23 | RV` | veldis.html line 4841 | 0.23 | agree
+- bin 119.73" <r> [arcsec] | `(blank; NGC 6121 block) | 119.73 | 200 | 4.60 | 0.24 | 0.22 | RV` | veldis.html line 4859 | 119.73 | agree
+- bin 119.73" NStar | `(blank; NGC 6121 block) | 119.73 | 200 | 4.60 | 0.24 | 0.22 | RV` | veldis.html line 4859 | 200.0 | agree
+- bin 119.73" sigma [km/s] | `(blank; NGC 6121 block) | 119.73 | 200 | 4.60 | 0.24 | 0.22 | RV` | veldis.html line 4859 | 4.6 | agree
+- bin 119.73" dsigma_Up -> err_hi | `(blank; NGC 6121 block) | 119.73 | 200 | 4.60 | 0.24 | 0.22 | RV` | veldis.html line 4859 | 0.24 | agree
+- bin 119.73" dsigma_Low -> err_lo | `(blank; NGC 6121 block) | 119.73 | 200 | 4.60 | 0.24 | 0.22 | RV` | veldis.html line 4859 | 0.22 | agree
+- bin 145.54" <r> [arcsec] | `(blank; NGC 6121 block) | 145.54 | 200 | 4.08 | 0.22 | 0.20 | RV` | veldis.html line 4865 | 145.54 | agree
+- bin 145.54" NStar | `(blank; NGC 6121 block) | 145.54 | 200 | 4.08 | 0.22 | 0.20 | RV` | veldis.html line 4865 | 200.0 | agree
+- bin 145.54" sigma [km/s] | `(blank; NGC 6121 block) | 145.54 | 200 | 4.08 | 0.22 | 0.20 | RV` | veldis.html line 4865 | 4.08 | agree
+- bin 145.54" dsigma_Up -> err_hi | `(blank; NGC 6121 block) | 145.54 | 200 | 4.08 | 0.22 | 0.20 | RV` | veldis.html line 4865 | 0.22 | agree
+- bin 145.54" dsigma_Low -> err_lo | `(blank; NGC 6121 block) | 145.54 | 200 | 4.08 | 0.22 | 0.20 | RV` | veldis.html line 4865 | 0.2 | agree
+- bin 170.78" <r> [arcsec] | `(blank; NGC 6121 block) | 170.78 | 200 | 4.00 | 0.21 | 0.19 | RV` | veldis.html line 4877 | 170.78 | agree
+- bin 170.78" NStar | `(blank; NGC 6121 block) | 170.78 | 200 | 4.00 | 0.21 | 0.19 | RV` | veldis.html line 4877 | 200.0 | agree
+- bin 170.78" sigma [km/s] | `(blank; NGC 6121 block) | 170.78 | 200 | 4.00 | 0.21 | 0.19 | RV` | veldis.html line 4877 | 4.0 | agree
+- bin 170.78" dsigma_Up -> err_hi | `(blank; NGC 6121 block) | 170.78 | 200 | 4.00 | 0.21 | 0.19 | RV` | veldis.html line 4877 | 0.21 | agree
+- bin 170.78" dsigma_Low -> err_lo | `(blank; NGC 6121 block) | 170.78 | 200 | 4.00 | 0.21 | 0.19 | RV` | veldis.html line 4877 | 0.19 | agree
+- bin 196.66" <r> [arcsec] | `(blank; NGC 6121 block) | 196.66 | 200 | 4.05 | 0.22 | 0.20 | RV` | veldis.html line 4889 | 196.66 | agree
+- bin 196.66" NStar | `(blank; NGC 6121 block) | 196.66 | 200 | 4.05 | 0.22 | 0.20 | RV` | veldis.html line 4889 | 200.0 | agree
+- bin 196.66" sigma [km/s] | `(blank; NGC 6121 block) | 196.66 | 200 | 4.05 | 0.22 | 0.20 | RV` | veldis.html line 4889 | 4.05 | agree
+- bin 196.66" dsigma_Up -> err_hi | `(blank; NGC 6121 block) | 196.66 | 200 | 4.05 | 0.22 | 0.20 | RV` | veldis.html line 4889 | 0.22 | agree
+- bin 196.66" dsigma_Low -> err_lo | `(blank; NGC 6121 block) | 196.66 | 200 | 4.05 | 0.22 | 0.20 | RV` | veldis.html line 4889 | 0.2 | agree
+- bin 226.33" <r> [arcsec] | `(blank; NGC 6121 block) | 226.33 | 200 | 4.02 | 0.21 | 0.20 | RV` | veldis.html line 4901 | 226.33 | agree
+- bin 226.33" NStar | `(blank; NGC 6121 block) | 226.33 | 200 | 4.02 | 0.21 | 0.20 | RV` | veldis.html line 4901 | 200.0 | agree
+- bin 226.33" sigma [km/s] | `(blank; NGC 6121 block) | 226.33 | 200 | 4.02 | 0.21 | 0.20 | RV` | veldis.html line 4901 | 4.02 | agree
+- bin 226.33" dsigma_Up -> err_hi | `(blank; NGC 6121 block) | 226.33 | 200 | 4.02 | 0.21 | 0.20 | RV` | veldis.html line 4901 | 0.21 | agree
+- bin 226.33" dsigma_Low -> err_lo | `(blank; NGC 6121 block) | 226.33 | 200 | 4.02 | 0.21 | 0.20 | RV` | veldis.html line 4901 | 0.2 | agree
+- bin 259.42" <r> [arcsec] | `(blank; NGC 6121 block) | 259.42 | 200 | 4.35 | 0.23 | 0.21 | RV` | veldis.html line 4913 | 259.42 | agree
+- bin 259.42" NStar | `(blank; NGC 6121 block) | 259.42 | 200 | 4.35 | 0.23 | 0.21 | RV` | veldis.html line 4913 | 200.0 | agree
+- bin 259.42" sigma [km/s] | `(blank; NGC 6121 block) | 259.42 | 200 | 4.35 | 0.23 | 0.21 | RV` | veldis.html line 4913 | 4.35 | agree
+- bin 259.42" dsigma_Up -> err_hi | `(blank; NGC 6121 block) | 259.42 | 200 | 4.35 | 0.23 | 0.21 | RV` | veldis.html line 4913 | 0.23 | agree
+- bin 259.42" dsigma_Low -> err_lo | `(blank; NGC 6121 block) | 259.42 | 200 | 4.35 | 0.23 | 0.21 | RV` | veldis.html line 4913 | 0.21 | agree
+- bin 293.46" <r> [arcsec] | `(blank; NGC 6121 block) | 293.46 | 200 | 4.03 | 0.21 | 0.20 | RV` | veldis.html line 4925 | 293.46 | agree
+- bin 293.46" NStar | `(blank; NGC 6121 block) | 293.46 | 200 | 4.03 | 0.21 | 0.20 | RV` | veldis.html line 4925 | 200.0 | agree
+- bin 293.46" sigma [km/s] | `(blank; NGC 6121 block) | 293.46 | 200 | 4.03 | 0.21 | 0.20 | RV` | veldis.html line 4925 | 4.03 | agree
+- bin 293.46" dsigma_Up -> err_hi | `(blank; NGC 6121 block) | 293.46 | 200 | 4.03 | 0.21 | 0.20 | RV` | veldis.html line 4925 | 0.21 | agree
+- bin 293.46" dsigma_Low -> err_lo | `(blank; NGC 6121 block) | 293.46 | 200 | 4.03 | 0.21 | 0.20 | RV` | veldis.html line 4925 | 0.2 | agree
+- bin 333.30" <r> [arcsec] | `(blank; NGC 6121 block) | 333.30 | 200 | 4.18 | 0.22 | 0.21 | RV` | veldis.html line 4937 | 333.3 | agree
+- bin 333.30" NStar | `(blank; NGC 6121 block) | 333.30 | 200 | 4.18 | 0.22 | 0.21 | RV` | veldis.html line 4937 | 200.0 | agree
+- bin 333.30" sigma [km/s] | `(blank; NGC 6121 block) | 333.30 | 200 | 4.18 | 0.22 | 0.21 | RV` | veldis.html line 4937 | 4.18 | agree
+- bin 333.30" dsigma_Up -> err_hi | `(blank; NGC 6121 block) | 333.30 | 200 | 4.18 | 0.22 | 0.21 | RV` | veldis.html line 4937 | 0.22 | agree
+- bin 333.30" dsigma_Low -> err_lo | `(blank; NGC 6121 block) | 333.30 | 200 | 4.18 | 0.22 | 0.21 | RV` | veldis.html line 4937 | 0.21 | agree
+- bin 376.76" <r> [arcsec] | `(blank; NGC 6121 block) | 376.76 | 200 | 3.58 | 0.19 | 0.18 | RV` | veldis.html line 4949 | 376.76 | agree
+- bin 376.76" NStar | `(blank; NGC 6121 block) | 376.76 | 200 | 3.58 | 0.19 | 0.18 | RV` | veldis.html line 4949 | 200.0 | agree
+- bin 376.76" sigma [km/s] | `(blank; NGC 6121 block) | 376.76 | 200 | 3.58 | 0.19 | 0.18 | RV` | veldis.html line 4949 | 3.58 | agree
+- bin 376.76" dsigma_Up -> err_hi | `(blank; NGC 6121 block) | 376.76 | 200 | 3.58 | 0.19 | 0.18 | RV` | veldis.html line 4949 | 0.19 | agree
+- bin 376.76" dsigma_Low -> err_lo | `(blank; NGC 6121 block) | 376.76 | 200 | 3.58 | 0.19 | 0.18 | RV` | veldis.html line 4949 | 0.18 | agree
+- bin 431.16" <r> [arcsec] | `(blank; NGC 6121 block) | 431.16 | 200 | 3.57 | 0.19 | 0.17 | RV` | veldis.html line 4961 | 431.16 | agree
+- bin 431.16" NStar | `(blank; NGC 6121 block) | 431.16 | 200 | 3.57 | 0.19 | 0.17 | RV` | veldis.html line 4961 | 200.0 | agree
+- bin 431.16" sigma [km/s] | `(blank; NGC 6121 block) | 431.16 | 200 | 3.57 | 0.19 | 0.17 | RV` | veldis.html line 4961 | 3.57 | agree
+- bin 431.16" dsigma_Up -> err_hi | `(blank; NGC 6121 block) | 431.16 | 200 | 3.57 | 0.19 | 0.17 | RV` | veldis.html line 4961 | 0.19 | agree
+- bin 431.16" dsigma_Low -> err_lo | `(blank; NGC 6121 block) | 431.16 | 200 | 3.57 | 0.19 | 0.17 | RV` | veldis.html line 4961 | 0.17 | agree
+- bin 498.05" <r> [arcsec] | `(blank; NGC 6121 block) | 498.05 | 200 | 3.32 | 0.18 | 0.16 | RV` | veldis.html line 4979 | 498.05 | agree
+- bin 498.05" NStar | `(blank; NGC 6121 block) | 498.05 | 200 | 3.32 | 0.18 | 0.16 | RV` | veldis.html line 4979 | 200.0 | agree
+- bin 498.05" sigma [km/s] | `(blank; NGC 6121 block) | 498.05 | 200 | 3.32 | 0.18 | 0.16 | RV` | veldis.html line 4979 | 3.32 | agree
+- bin 498.05" dsigma_Up -> err_hi | `(blank; NGC 6121 block) | 498.05 | 200 | 3.32 | 0.18 | 0.16 | RV` | veldis.html line 4979 | 0.18 | agree
+- bin 498.05" dsigma_Low -> err_lo | `(blank; NGC 6121 block) | 498.05 | 200 | 3.32 | 0.18 | 0.16 | RV` | veldis.html line 4979 | 0.16 | agree
+- bin 580.63" <r> [arcsec] | `(blank; NGC 6121 block) | 580.63 | 200 | 3.31 | 0.18 | 0.17 | RV` | veldis.html line 4991 | 580.63 | agree
+- bin 580.63" NStar | `(blank; NGC 6121 block) | 580.63 | 200 | 3.31 | 0.18 | 0.17 | RV` | veldis.html line 4991 | 200.0 | agree
+- bin 580.63" sigma [km/s] | `(blank; NGC 6121 block) | 580.63 | 200 | 3.31 | 0.18 | 0.17 | RV` | veldis.html line 4991 | 3.31 | agree
+- bin 580.63" dsigma_Up -> err_hi | `(blank; NGC 6121 block) | 580.63 | 200 | 3.31 | 0.18 | 0.17 | RV` | veldis.html line 4991 | 0.18 | agree
+- bin 580.63" dsigma_Low -> err_lo | `(blank; NGC 6121 block) | 580.63 | 200 | 3.31 | 0.18 | 0.17 | RV` | veldis.html line 4991 | 0.17 | agree
+- bin 998.32" <r> [arcsec] | `(blank; NGC 6121 block) | 998.32 | 65 | 2.68 | 0.27 | 0.23 | RV` | veldis.html line 5015 | 998.32 | agree
+- bin 998.32" NStar | `(blank; NGC 6121 block) | 998.32 | 65 | 2.68 | 0.27 | 0.23 | RV` | veldis.html line 5015 | 65.0 | agree
+- bin 998.32" sigma [km/s] | `(blank; NGC 6121 block) | 998.32 | 65 | 2.68 | 0.27 | 0.23 | RV` | veldis.html line 5015 | 2.68 | agree
+- bin 998.32" dsigma_Up -> err_hi | `(blank; NGC 6121 block) | 998.32 | 65 | 2.68 | 0.27 | 0.23 | RV` | veldis.html line 5015 | 0.27 | agree
+- bin 998.32" dsigma_Low -> err_lo | `(blank; NGC 6121 block) | 998.32 | 65 | 2.68 | 0.27 | 0.23 | RV` | veldis.html line 5015 | 0.23 | agree
+- R_Sun [kpc] | `NGC 6121 ...   2.2   5.9  [R_Sun field: '2.2']` | mwgc.dat line 120 (Part I) | 2.2 | agree
+- M_V,t [mag] | `NGC 6121 ... 5.63  -7.19  [M_V,t field: '-7.19']` | mwgc.dat line 300 (Part II) | -7.19 | agree
+- W0/gamma | `<TD>7.40</TD>` | J_ApJS_161_304_models.vot models.vot line 605 (recno 265, MW-NGC6121, Mod K) | 7.4 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 605 (recno 265, MW-NGC6121, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 605 (recno 265, MW-NGC6121, Mod K) | 0.1 | agree
+- r0 | `<TD>72.570</TD>` | J_ApJS_161_304_models.vot models.vot line 605 (recno 265, MW-NGC6121, Mod K) | 72.57 | agree
+- E_r0 -> err_hi | `<TD>1.970</TD>` | J_ApJS_161_304_models.vot models.vot line 605 (recno 265, MW-NGC6121, Mod K) | 1.97 | agree
+- e_r0 -> err_lo | `<TD>1.970</TD>` | J_ApJS_161_304_models.vot models.vot line 605 (recno 265, MW-NGC6121, Mod K) | 1.97 | agree
+- Rh | `<TD>0.443</TD>` | J_ApJS_161_304_models.vot models.vot line 605 (recno 265, MW-NGC6121, Mod K) | 0.443 | agree
+- E_Rh -> err_hi | `<TD>0.013</TD>` | J_ApJS_161_304_models.vot models.vot line 605 (recno 265, MW-NGC6121, Mod K) | 0.013 | agree
+- e_Rh -> err_lo | `<TD>0.012</TD>` | J_ApJS_161_304_models.vot models.vot line 605 (recno 265, MW-NGC6121, Mod K) | 0.012 | agree
+- Dist | `<TD>2.2</TD>` | J_ApJS_161_304_models.vot models.vot line 605 (recno 265, MW-NGC6121, Mod K) | 2.2 | agree
+- (M/L)1 | `<TD>1.991</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 265 (recno 105, MW-NGC6121) | 1.991 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.168</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 265 (recno 105, MW-NGC6121) | 0.168 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.168</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 265 (recno 105, MW-NGC6121) | 0.168 | agree
+- arithmetic L_V = 65463.61741 vs 65463.61741 | agree; R_h = 10^0.443 x 2.2 / 2.2 = 2.773320105 pc vs 2.773320105 | agree; M/L 1.991 vs 1.991 | agree
+
+### NGC 6139
+
+- bin 64.60" <r> [arcsec] | `NGC 6139 | 64.60 | 28 | 6.49 | 1.02 | 0.82 | RV` | veldis.html line 5022 | 64.6 | agree
+- bin 64.60" NStar | `NGC 6139 | 64.60 | 28 | 6.49 | 1.02 | 0.82 | RV` | veldis.html line 5022 | 28.0 | agree
+- bin 64.60" sigma [km/s] | `NGC 6139 | 64.60 | 28 | 6.49 | 1.02 | 0.82 | RV` | veldis.html line 5022 | 6.49 | agree
+- bin 64.60" dsigma_Up -> err_hi | `NGC 6139 | 64.60 | 28 | 6.49 | 1.02 | 0.82 | RV` | veldis.html line 5022 | 1.02 | agree
+- bin 64.60" dsigma_Low -> err_lo | `NGC 6139 | 64.60 | 28 | 6.49 | 1.02 | 0.82 | RV` | veldis.html line 5022 | 0.82 | agree
+- bin 209.11" <r> [arcsec] | `(blank; NGC 6139 block) | 209.11 | 32 | 5.26 | 0.79 | 0.64 | RV` | veldis.html line 5041 | 209.11 | agree
+- bin 209.11" NStar | `(blank; NGC 6139 block) | 209.11 | 32 | 5.26 | 0.79 | 0.64 | RV` | veldis.html line 5041 | 32.0 | agree
+- bin 209.11" sigma [km/s] | `(blank; NGC 6139 block) | 209.11 | 32 | 5.26 | 0.79 | 0.64 | RV` | veldis.html line 5041 | 5.26 | agree
+- bin 209.11" dsigma_Up -> err_hi | `(blank; NGC 6139 block) | 209.11 | 32 | 5.26 | 0.79 | 0.64 | RV` | veldis.html line 5041 | 0.79 | agree
+- bin 209.11" dsigma_Low -> err_lo | `(blank; NGC 6139 block) | 209.11 | 32 | 5.26 | 0.79 | 0.64 | RV` | veldis.html line 5041 | 0.64 | agree
+- R_Sun [kpc] | `NGC 6139 ...  10.1   3.6  [R_Sun field: '10.1']` | mwgc.dat line 123 (Part I) | 10.1 | agree
+- M_V,t [mag] | `NGC 6139 ... 8.99  -8.36  [M_V,t field: '-8.36']` | mwgc.dat line 303 (Part II) | -8.36 | agree
+- W0/gamma | `<TD>8.10</TD>` | J_ApJS_161_304_models.vot models.vot line 608 (recno 268, MW-NGC6139, Mod K) | 8.1 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 608 (recno 268, MW-NGC6139, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 608 (recno 268, MW-NGC6139, Mod K) | 0.1 | agree
+- r0 | `<TD>9.050</TD>` | J_ApJS_161_304_models.vot models.vot line 608 (recno 268, MW-NGC6139, Mod K) | 9.05 | agree
+- E_r0 -> err_hi | `<TD>0.160</TD>` | J_ApJS_161_304_models.vot models.vot line 608 (recno 268, MW-NGC6139, Mod K) | 0.16 | agree
+- e_r0 -> err_lo | `<TD>0.160</TD>` | J_ApJS_161_304_models.vot models.vot line 608 (recno 268, MW-NGC6139, Mod K) | 0.16 | agree
+- Rh | `<TD>0.397</TD>` | J_ApJS_161_304_models.vot models.vot line 608 (recno 268, MW-NGC6139, Mod K) | 0.397 | agree
+- E_Rh -> err_hi | `<TD>0.023</TD>` | J_ApJS_161_304_models.vot models.vot line 608 (recno 268, MW-NGC6139, Mod K) | 0.023 | agree
+- e_Rh -> err_lo | `<TD>0.023</TD>` | J_ApJS_161_304_models.vot models.vot line 608 (recno 268, MW-NGC6139, Mod K) | 0.023 | agree
+- Dist | `<TD>10.1</TD>` | J_ApJS_161_304_models.vot models.vot line 608 (recno 268, MW-NGC6139, Mod K) | 10.1 | agree
+- (M/L)1 | `<TD>1.868</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 266 (recno 106, MW-NGC6139) | 1.868 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.155</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 266 (recno 106, MW-NGC6139) | 0.155 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.155</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 266 (recno 106, MW-NGC6139) | 0.155 | agree
+- arithmetic L_V = 192309.1729 vs 192309.1729 | agree; R_h = 10^0.397 x 10.1 / 10.1 = 2.494594727 pc vs 2.494594727 | agree; M/L 1.868 vs 1.868 | agree
+
+### NGC 6171
+
+- bin 20.11" <r> [arcsec] | `(blank; NGC 6171 block) | 20.11 | 60 | 3.80 | 0.43 | 0.36 | RV` | veldis.html line 5105 | 20.11 | agree
+- bin 20.11" NStar | `(blank; NGC 6171 block) | 20.11 | 60 | 3.80 | 0.43 | 0.36 | RV` | veldis.html line 5105 | 60.0 | agree
+- bin 20.11" sigma [km/s] | `(blank; NGC 6171 block) | 20.11 | 60 | 3.80 | 0.43 | 0.36 | RV` | veldis.html line 5105 | 3.8 | agree
+- bin 20.11" dsigma_Up -> err_hi | `(blank; NGC 6171 block) | 20.11 | 60 | 3.80 | 0.43 | 0.36 | RV` | veldis.html line 5105 | 0.43 | agree
+- bin 20.11" dsigma_Low -> err_lo | `(blank; NGC 6171 block) | 20.11 | 60 | 3.80 | 0.43 | 0.36 | RV` | veldis.html line 5105 | 0.36 | agree
+- bin 49.82" <r> [arcsec] | `(blank; NGC 6171 block) | 49.82 | 60 | 4.21 | 0.44 | 0.39 | RV` | veldis.html line 5123 | 49.82 | agree
+- bin 49.82" NStar | `(blank; NGC 6171 block) | 49.82 | 60 | 4.21 | 0.44 | 0.39 | RV` | veldis.html line 5123 | 60.0 | agree
+- bin 49.82" sigma [km/s] | `(blank; NGC 6171 block) | 49.82 | 60 | 4.21 | 0.44 | 0.39 | RV` | veldis.html line 5123 | 4.21 | agree
+- bin 49.82" dsigma_Up -> err_hi | `(blank; NGC 6171 block) | 49.82 | 60 | 4.21 | 0.44 | 0.39 | RV` | veldis.html line 5123 | 0.44 | agree
+- bin 49.82" dsigma_Low -> err_lo | `(blank; NGC 6171 block) | 49.82 | 60 | 4.21 | 0.44 | 0.39 | RV` | veldis.html line 5123 | 0.39 | agree
+- bin 88.50" <r> [arcsec] | `(blank; NGC 6171 block) | 88.50 | 60 | 3.62 | 0.39 | 0.34 | RV` | veldis.html line 5153 | 88.5 | agree
+- bin 88.50" NStar | `(blank; NGC 6171 block) | 88.50 | 60 | 3.62 | 0.39 | 0.34 | RV` | veldis.html line 5153 | 60.0 | agree
+- bin 88.50" sigma [km/s] | `(blank; NGC 6171 block) | 88.50 | 60 | 3.62 | 0.39 | 0.34 | RV` | veldis.html line 5153 | 3.62 | agree
+- bin 88.50" dsigma_Up -> err_hi | `(blank; NGC 6171 block) | 88.50 | 60 | 3.62 | 0.39 | 0.34 | RV` | veldis.html line 5153 | 0.39 | agree
+- bin 88.50" dsigma_Low -> err_lo | `(blank; NGC 6171 block) | 88.50 | 60 | 3.62 | 0.39 | 0.34 | RV` | veldis.html line 5153 | 0.34 | agree
+- bin 123.39" <r> [arcsec] | `(blank; NGC 6171 block) | 123.39 | 60 | 3.53 | 0.39 | 0.33 | RV` | veldis.html line 5159 | 123.39 | agree
+- bin 123.39" NStar | `(blank; NGC 6171 block) | 123.39 | 60 | 3.53 | 0.39 | 0.33 | RV` | veldis.html line 5159 | 60.0 | agree
+- bin 123.39" sigma [km/s] | `(blank; NGC 6171 block) | 123.39 | 60 | 3.53 | 0.39 | 0.33 | RV` | veldis.html line 5159 | 3.53 | agree
+- bin 123.39" dsigma_Up -> err_hi | `(blank; NGC 6171 block) | 123.39 | 60 | 3.53 | 0.39 | 0.33 | RV` | veldis.html line 5159 | 0.39 | agree
+- bin 123.39" dsigma_Low -> err_lo | `(blank; NGC 6171 block) | 123.39 | 60 | 3.53 | 0.39 | 0.33 | RV` | veldis.html line 5159 | 0.33 | agree
+- bin 173.00" <r> [arcsec] | `(blank; NGC 6171 block) | 173.00 | 60 | 3.02 | 0.31 | 0.27 | RV` | veldis.html line 5171 | 173.0 | agree
+- bin 173.00" NStar | `(blank; NGC 6171 block) | 173.00 | 60 | 3.02 | 0.31 | 0.27 | RV` | veldis.html line 5171 | 60.0 | agree
+- bin 173.00" sigma [km/s] | `(blank; NGC 6171 block) | 173.00 | 60 | 3.02 | 0.31 | 0.27 | RV` | veldis.html line 5171 | 3.02 | agree
+- bin 173.00" dsigma_Up -> err_hi | `(blank; NGC 6171 block) | 173.00 | 60 | 3.02 | 0.31 | 0.27 | RV` | veldis.html line 5171 | 0.31 | agree
+- bin 173.00" dsigma_Low -> err_lo | `(blank; NGC 6171 block) | 173.00 | 60 | 3.02 | 0.31 | 0.27 | RV` | veldis.html line 5171 | 0.27 | agree
+- bin 242.30" <r> [arcsec] | `(blank; NGC 6171 block) | 242.30 | 60 | 2.64 | 0.28 | 0.25 | RV` | veldis.html line 5177 | 242.3 | agree
+- bin 242.30" NStar | `(blank; NGC 6171 block) | 242.30 | 60 | 2.64 | 0.28 | 0.25 | RV` | veldis.html line 5177 | 60.0 | agree
+- bin 242.30" sigma [km/s] | `(blank; NGC 6171 block) | 242.30 | 60 | 2.64 | 0.28 | 0.25 | RV` | veldis.html line 5177 | 2.64 | agree
+- bin 242.30" dsigma_Up -> err_hi | `(blank; NGC 6171 block) | 242.30 | 60 | 2.64 | 0.28 | 0.25 | RV` | veldis.html line 5177 | 0.28 | agree
+- bin 242.30" dsigma_Low -> err_lo | `(blank; NGC 6171 block) | 242.30 | 60 | 2.64 | 0.28 | 0.25 | RV` | veldis.html line 5177 | 0.25 | agree
+- bin 390.94" <r> [arcsec] | `(blank; NGC 6171 block) | 390.94 | 43 | 2.59 | 0.34 | 0.29 | RV` | veldis.html line 5189 | 390.94 | agree
+- bin 390.94" NStar | `(blank; NGC 6171 block) | 390.94 | 43 | 2.59 | 0.34 | 0.29 | RV` | veldis.html line 5189 | 43.0 | agree
+- bin 390.94" sigma [km/s] | `(blank; NGC 6171 block) | 390.94 | 43 | 2.59 | 0.34 | 0.29 | RV` | veldis.html line 5189 | 2.59 | agree
+- bin 390.94" dsigma_Up -> err_hi | `(blank; NGC 6171 block) | 390.94 | 43 | 2.59 | 0.34 | 0.29 | RV` | veldis.html line 5189 | 0.34 | agree
+- bin 390.94" dsigma_Low -> err_lo | `(blank; NGC 6171 block) | 390.94 | 43 | 2.59 | 0.34 | 0.29 | RV` | veldis.html line 5189 | 0.29 | agree
+- R_Sun [kpc] | `NGC 6171 ...   6.4   3.3  [R_Sun field: '6.4']` | mwgc.dat line 125 (Part I) | 6.4 | agree
+- M_V,t [mag] | `NGC 6171 ... 7.93  -7.12  [M_V,t field: '-7.12']` | mwgc.dat line 305 (Part II) | -7.12 | agree
+- W0/gamma | `<TD>7.00</TD>` | J_ApJS_161_304_models.vot models.vot line 611 (recno 271, MW-NGC6171, Mod K) | 7.0 | agree
+- E_W0/gamma -> err_hi | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 611 (recno 271, MW-NGC6171, Mod K) | 0.2 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 611 (recno 271, MW-NGC6171, Mod K) | 0.1 | agree
+- r0 | `<TD>35.490</TD>` | J_ApJS_161_304_models.vot models.vot line 611 (recno 271, MW-NGC6171, Mod K) | 35.49 | agree
+- E_r0 -> err_hi | `<TD>0.710</TD>` | J_ApJS_161_304_models.vot models.vot line 611 (recno 271, MW-NGC6171, Mod K) | 0.71 | agree
+- e_r0 -> err_lo | `<TD>1.420</TD>` | J_ApJS_161_304_models.vot models.vot line 611 (recno 271, MW-NGC6171, Mod K) | 1.42 | agree
+- Rh | `<TD>0.507</TD>` | J_ApJS_161_304_models.vot models.vot line 611 (recno 271, MW-NGC6171, Mod K) | 0.507 | agree
+- E_Rh -> err_hi | `<TD>0.025</TD>` | J_ApJS_161_304_models.vot models.vot line 611 (recno 271, MW-NGC6171, Mod K) | 0.025 | agree
+- e_Rh -> err_lo | `<TD>0.011</TD>` | J_ApJS_161_304_models.vot models.vot line 611 (recno 271, MW-NGC6171, Mod K) | 0.011 | agree
+- Dist | `<TD>6.4</TD>` | J_ApJS_161_304_models.vot models.vot line 611 (recno 271, MW-NGC6171, Mod K) | 6.4 | agree
+- (M/L)1 | `<TD>2.089</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 268 (recno 108, MW-NGC6171) | 2.089 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.186</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 268 (recno 108, MW-NGC6171) | 0.186 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.186</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 268 (recno 108, MW-NGC6171) | 0.186 | agree
+- arithmetic L_V = 61376.20052 vs 61376.20052 | agree; R_h = 10^0.507 x 6.4 / 6.4 = 3.213660539 pc vs 3.213660539 | agree; M/L 2.089 vs 2.089 | agree
+
+### NGC 6205
+
+- bin 22.32" <r> [arcsec] | `(blank; NGC 6205 block) | 22.32 | 75 | 7.68 | 0.68 | 0.59 | RV` | veldis.html line 5221 | 22.32 | agree
+- bin 22.32" NStar | `(blank; NGC 6205 block) | 22.32 | 75 | 7.68 | 0.68 | 0.59 | RV` | veldis.html line 5221 | 75.0 | agree
+- bin 22.32" sigma [km/s] | `(blank; NGC 6205 block) | 22.32 | 75 | 7.68 | 0.68 | 0.59 | RV` | veldis.html line 5221 | 7.68 | agree
+- bin 22.32" dsigma_Up -> err_hi | `(blank; NGC 6205 block) | 22.32 | 75 | 7.68 | 0.68 | 0.59 | RV` | veldis.html line 5221 | 0.68 | agree
+- bin 22.32" dsigma_Low -> err_lo | `(blank; NGC 6205 block) | 22.32 | 75 | 7.68 | 0.68 | 0.59 | RV` | veldis.html line 5221 | 0.59 | agree
+- bin 90.95" <r> [arcsec] | `(blank; NGC 6205 block) | 90.95 | 75 | 6.93 | 0.61 | 0.54 | RV` | veldis.html line 5329 | 90.95 | agree
+- bin 90.95" NStar | `(blank; NGC 6205 block) | 90.95 | 75 | 6.93 | 0.61 | 0.54 | RV` | veldis.html line 5329 | 75.0 | agree
+- bin 90.95" sigma [km/s] | `(blank; NGC 6205 block) | 90.95 | 75 | 6.93 | 0.61 | 0.54 | RV` | veldis.html line 5329 | 6.93 | agree
+- bin 90.95" dsigma_Up -> err_hi | `(blank; NGC 6205 block) | 90.95 | 75 | 6.93 | 0.61 | 0.54 | RV` | veldis.html line 5329 | 0.61 | agree
+- bin 90.95" dsigma_Low -> err_lo | `(blank; NGC 6205 block) | 90.95 | 75 | 6.93 | 0.61 | 0.54 | RV` | veldis.html line 5329 | 0.54 | agree
+- bin 172.89" <r> [arcsec] | `(blank; NGC 6205 block) | 172.89 | 75 | 5.98 | 0.53 | 0.47 | RV` | veldis.html line 5341 | 172.89 | agree
+- bin 172.89" NStar | `(blank; NGC 6205 block) | 172.89 | 75 | 5.98 | 0.53 | 0.47 | RV` | veldis.html line 5341 | 75.0 | agree
+- bin 172.89" sigma [km/s] | `(blank; NGC 6205 block) | 172.89 | 75 | 5.98 | 0.53 | 0.47 | RV` | veldis.html line 5341 | 5.98 | agree
+- bin 172.89" dsigma_Up -> err_hi | `(blank; NGC 6205 block) | 172.89 | 75 | 5.98 | 0.53 | 0.47 | RV` | veldis.html line 5341 | 0.53 | agree
+- bin 172.89" dsigma_Low -> err_lo | `(blank; NGC 6205 block) | 172.89 | 75 | 5.98 | 0.53 | 0.47 | RV` | veldis.html line 5341 | 0.47 | agree
+- bin 293.87" <r> [arcsec] | `(blank; NGC 6205 block) | 293.87 | 75 | 5.85 | 0.52 | 0.46 | RV` | veldis.html line 5365 | 293.87 | agree
+- bin 293.87" NStar | `(blank; NGC 6205 block) | 293.87 | 75 | 5.85 | 0.52 | 0.46 | RV` | veldis.html line 5365 | 75.0 | agree
+- bin 293.87" sigma [km/s] | `(blank; NGC 6205 block) | 293.87 | 75 | 5.85 | 0.52 | 0.46 | RV` | veldis.html line 5365 | 5.85 | agree
+- bin 293.87" dsigma_Up -> err_hi | `(blank; NGC 6205 block) | 293.87 | 75 | 5.85 | 0.52 | 0.46 | RV` | veldis.html line 5365 | 0.52 | agree
+- bin 293.87" dsigma_Low -> err_lo | `(blank; NGC 6205 block) | 293.87 | 75 | 5.85 | 0.52 | 0.46 | RV` | veldis.html line 5365 | 0.46 | agree
+- bin 490.00" <r> [arcsec] | `(blank; NGC 6205 block) | 490.00 | 75 | 4.22 | 0.39 | 0.34 | RV` | veldis.html line 5383 | 490.0 | agree
+- bin 490.00" NStar | `(blank; NGC 6205 block) | 490.00 | 75 | 4.22 | 0.39 | 0.34 | RV` | veldis.html line 5383 | 75.0 | agree
+- bin 490.00" sigma [km/s] | `(blank; NGC 6205 block) | 490.00 | 75 | 4.22 | 0.39 | 0.34 | RV` | veldis.html line 5383 | 4.22 | agree
+- bin 490.00" dsigma_Up -> err_hi | `(blank; NGC 6205 block) | 490.00 | 75 | 4.22 | 0.39 | 0.34 | RV` | veldis.html line 5383 | 0.39 | agree
+- bin 490.00" dsigma_Low -> err_lo | `(blank; NGC 6205 block) | 490.00 | 75 | 4.22 | 0.39 | 0.34 | RV` | veldis.html line 5383 | 0.34 | agree
+- bin 820.44" <r> [arcsec] | `(blank; NGC 6205 block) | 820.44 | 51 | 3.07 | 0.37 | 0.31 | RV` | veldis.html line 5389 | 820.44 | agree
+- bin 820.44" NStar | `(blank; NGC 6205 block) | 820.44 | 51 | 3.07 | 0.37 | 0.31 | RV` | veldis.html line 5389 | 51.0 | agree
+- bin 820.44" sigma [km/s] | `(blank; NGC 6205 block) | 820.44 | 51 | 3.07 | 0.37 | 0.31 | RV` | veldis.html line 5389 | 3.07 | agree
+- bin 820.44" dsigma_Up -> err_hi | `(blank; NGC 6205 block) | 820.44 | 51 | 3.07 | 0.37 | 0.31 | RV` | veldis.html line 5389 | 0.37 | agree
+- bin 820.44" dsigma_Low -> err_lo | `(blank; NGC 6205 block) | 820.44 | 51 | 3.07 | 0.37 | 0.31 | RV` | veldis.html line 5389 | 0.31 | agree
+- R_Sun [kpc] | `NGC 6205 ...   7.1   8.4  [R_Sun field: '7.1']` | mwgc.dat line 127 (Part I) | 7.1 | agree
+- M_V,t [mag] | `NGC 6205 ... 5.78  -8.55  [M_V,t field: '-8.55']` | mwgc.dat line 307 (Part II) | -8.55 | agree
+- W0/gamma | `<TD>7.00</TD>` | J_ApJS_161_304_models.vot models.vot line 614 (recno 274, MW-NGC6205, Mod K) | 7.0 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 614 (recno 274, MW-NGC6205, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 614 (recno 274, MW-NGC6205, Mod K) | 0.1 | agree
+- r0 | `<TD>34.720</TD>` | J_ApJS_161_304_models.vot models.vot line 614 (recno 274, MW-NGC6205, Mod K) | 34.72 | agree
+- E_r0 -> err_hi | `<TD>1.930</TD>` | J_ApJS_161_304_models.vot models.vot line 614 (recno 274, MW-NGC6205, Mod K) | 1.93 | agree
+- e_r0 -> err_lo | `<TD>1.880</TD>` | J_ApJS_161_304_models.vot models.vot line 614 (recno 274, MW-NGC6205, Mod K) | 1.88 | agree
+- Rh | `<TD>0.578</TD>` | J_ApJS_161_304_models.vot models.vot line 614 (recno 274, MW-NGC6205, Mod K) | 0.578 | agree
+- E_Rh -> err_hi | `<TD>0.004</TD>` | J_ApJS_161_304_models.vot models.vot line 614 (recno 274, MW-NGC6205, Mod K) | 0.004 | agree
+- e_Rh -> err_lo | `<TD>0.003</TD>` | J_ApJS_161_304_models.vot models.vot line 614 (recno 274, MW-NGC6205, Mod K) | 0.003 | agree
+- Dist | `<TD>7.7</TD>` | J_ApJS_161_304_models.vot models.vot line 614 (recno 274, MW-NGC6205, Mod K) | 7.7 | agree
+- (M/L)1 | `<TD>1.881</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 269 (recno 109, MW-NGC6205) | 1.881 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.154</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 269 (recno 109, MW-NGC6205) | 0.154 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.154</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 269 (recno 109, MW-NGC6205) | 0.154 | agree
+- arithmetic L_V = 229086.7653 vs 229086.7653 | agree; R_h = 10^0.578 x 7.1 / 7.7 = 3.489535521 pc vs 3.489535521 | agree; M/L 1.881 vs 1.881 | agree
+
+### NGC 6218
+
+- bin 9.86" <r> [arcsec] | `NGC 6218 | 9.86 | 300 | 5.16 | 0.25 | 0.23 | RV` | veldis.html line 5396 | 9.86 | agree
+- bin 9.86" NStar | `NGC 6218 | 9.86 | 300 | 5.16 | 0.25 | 0.23 | RV` | veldis.html line 5396 | 300.0 | agree
+- bin 9.86" sigma [km/s] | `NGC 6218 | 9.86 | 300 | 5.16 | 0.25 | 0.23 | RV` | veldis.html line 5396 | 5.16 | agree
+- bin 9.86" dsigma_Up -> err_hi | `NGC 6218 | 9.86 | 300 | 5.16 | 0.25 | 0.23 | RV` | veldis.html line 5396 | 0.25 | agree
+- bin 9.86" dsigma_Low -> err_lo | `NGC 6218 | 9.86 | 300 | 5.16 | 0.25 | 0.23 | RV` | veldis.html line 5396 | 0.23 | agree
+- bin 20.09" <r> [arcsec] | `(blank; NGC 6218 block) | 20.09 | 300 | 4.67 | 0.23 | 0.21 | RV` | veldis.html line 5409 | 20.09 | agree
+- bin 20.09" NStar | `(blank; NGC 6218 block) | 20.09 | 300 | 4.67 | 0.23 | 0.21 | RV` | veldis.html line 5409 | 300.0 | agree
+- bin 20.09" sigma [km/s] | `(blank; NGC 6218 block) | 20.09 | 300 | 4.67 | 0.23 | 0.21 | RV` | veldis.html line 5409 | 4.67 | agree
+- bin 20.09" dsigma_Up -> err_hi | `(blank; NGC 6218 block) | 20.09 | 300 | 4.67 | 0.23 | 0.21 | RV` | veldis.html line 5409 | 0.23 | agree
+- bin 20.09" dsigma_Low -> err_lo | `(blank; NGC 6218 block) | 20.09 | 300 | 4.67 | 0.23 | 0.21 | RV` | veldis.html line 5409 | 0.21 | agree
+- bin 27.09" <r> [arcsec] | `(blank; NGC 6218 block) | 27.09 | 300 | 4.79 | 0.23 | 0.21 | RV` | veldis.html line 5421 | 27.09 | agree
+- bin 27.09" NStar | `(blank; NGC 6218 block) | 27.09 | 300 | 4.79 | 0.23 | 0.21 | RV` | veldis.html line 5421 | 300.0 | agree
+- bin 27.09" sigma [km/s] | `(blank; NGC 6218 block) | 27.09 | 300 | 4.79 | 0.23 | 0.21 | RV` | veldis.html line 5421 | 4.79 | agree
+- bin 27.09" dsigma_Up -> err_hi | `(blank; NGC 6218 block) | 27.09 | 300 | 4.79 | 0.23 | 0.21 | RV` | veldis.html line 5421 | 0.23 | agree
+- bin 27.09" dsigma_Low -> err_lo | `(blank; NGC 6218 block) | 27.09 | 300 | 4.79 | 0.23 | 0.21 | RV` | veldis.html line 5421 | 0.21 | agree
+- bin 32.86" <r> [arcsec] | `(blank; NGC 6218 block) | 32.86 | 300 | 4.84 | 0.24 | 0.22 | RV` | veldis.html line 5433 | 32.86 | agree
+- bin 32.86" NStar | `(blank; NGC 6218 block) | 32.86 | 300 | 4.84 | 0.24 | 0.22 | RV` | veldis.html line 5433 | 300.0 | agree
+- bin 32.86" sigma [km/s] | `(blank; NGC 6218 block) | 32.86 | 300 | 4.84 | 0.24 | 0.22 | RV` | veldis.html line 5433 | 4.84 | agree
+- bin 32.86" dsigma_Up -> err_hi | `(blank; NGC 6218 block) | 32.86 | 300 | 4.84 | 0.24 | 0.22 | RV` | veldis.html line 5433 | 0.24 | agree
+- bin 32.86" dsigma_Low -> err_lo | `(blank; NGC 6218 block) | 32.86 | 300 | 4.84 | 0.24 | 0.22 | RV` | veldis.html line 5433 | 0.22 | agree
+- bin 38.31" <r> [arcsec] | `(blank; NGC 6218 block) | 38.31 | 300 | 4.76 | 0.23 | 0.21 | RV` | veldis.html line 5445 | 38.31 | agree
+- bin 38.31" NStar | `(blank; NGC 6218 block) | 38.31 | 300 | 4.76 | 0.23 | 0.21 | RV` | veldis.html line 5445 | 300.0 | agree
+- bin 38.31" sigma [km/s] | `(blank; NGC 6218 block) | 38.31 | 300 | 4.76 | 0.23 | 0.21 | RV` | veldis.html line 5445 | 4.76 | agree
+- bin 38.31" dsigma_Up -> err_hi | `(blank; NGC 6218 block) | 38.31 | 300 | 4.76 | 0.23 | 0.21 | RV` | veldis.html line 5445 | 0.23 | agree
+- bin 38.31" dsigma_Low -> err_lo | `(blank; NGC 6218 block) | 38.31 | 300 | 4.76 | 0.23 | 0.21 | RV` | veldis.html line 5445 | 0.21 | agree
+- bin 43.52" <r> [arcsec] | `(blank; NGC 6218 block) | 43.52 | 300 | 4.54 | 0.22 | 0.21 | RV` | veldis.html line 5451 | 43.52 | agree
+- bin 43.52" NStar | `(blank; NGC 6218 block) | 43.52 | 300 | 4.54 | 0.22 | 0.21 | RV` | veldis.html line 5451 | 300.0 | agree
+- bin 43.52" sigma [km/s] | `(blank; NGC 6218 block) | 43.52 | 300 | 4.54 | 0.22 | 0.21 | RV` | veldis.html line 5451 | 4.54 | agree
+- bin 43.52" dsigma_Up -> err_hi | `(blank; NGC 6218 block) | 43.52 | 300 | 4.54 | 0.22 | 0.21 | RV` | veldis.html line 5451 | 0.22 | agree
+- bin 43.52" dsigma_Low -> err_lo | `(blank; NGC 6218 block) | 43.52 | 300 | 4.54 | 0.22 | 0.21 | RV` | veldis.html line 5451 | 0.21 | agree
+- bin 48.25" <r> [arcsec] | `(blank; NGC 6218 block) | 48.25 | 300 | 4.50 | 0.22 | 0.21 | RV` | veldis.html line 5463 | 48.25 | agree
+- bin 48.25" NStar | `(blank; NGC 6218 block) | 48.25 | 300 | 4.50 | 0.22 | 0.21 | RV` | veldis.html line 5463 | 300.0 | agree
+- bin 48.25" sigma [km/s] | `(blank; NGC 6218 block) | 48.25 | 300 | 4.50 | 0.22 | 0.21 | RV` | veldis.html line 5463 | 4.5 | agree
+- bin 48.25" dsigma_Up -> err_hi | `(blank; NGC 6218 block) | 48.25 | 300 | 4.50 | 0.22 | 0.21 | RV` | veldis.html line 5463 | 0.22 | agree
+- bin 48.25" dsigma_Low -> err_lo | `(blank; NGC 6218 block) | 48.25 | 300 | 4.50 | 0.22 | 0.21 | RV` | veldis.html line 5463 | 0.21 | agree
+- bin 53.44" <r> [arcsec] | `(blank; NGC 6218 block) | 53.44 | 300 | 4.40 | 0.21 | 0.21 | RV` | veldis.html line 5475 | 53.44 | agree
+- bin 53.44" NStar | `(blank; NGC 6218 block) | 53.44 | 300 | 4.40 | 0.21 | 0.21 | RV` | veldis.html line 5475 | 300.0 | agree
+- bin 53.44" sigma [km/s] | `(blank; NGC 6218 block) | 53.44 | 300 | 4.40 | 0.21 | 0.21 | RV` | veldis.html line 5475 | 4.4 | agree
+- bin 53.44" dsigma_Up -> err_hi | `(blank; NGC 6218 block) | 53.44 | 300 | 4.40 | 0.21 | 0.21 | RV` | veldis.html line 5475 | 0.21 | agree
+- bin 53.44" dsigma_Low -> err_lo | `(blank; NGC 6218 block) | 53.44 | 300 | 4.40 | 0.21 | 0.21 | RV` | veldis.html line 5475 | 0.21 | agree
+- bin 61.66" <r> [arcsec] | `(blank; NGC 6218 block) | 61.66 | 300 | 4.54 | 0.22 | 0.21 | RV` | veldis.html line 5487 | 61.66 | agree
+- bin 61.66" NStar | `(blank; NGC 6218 block) | 61.66 | 300 | 4.54 | 0.22 | 0.21 | RV` | veldis.html line 5487 | 300.0 | agree
+- bin 61.66" sigma [km/s] | `(blank; NGC 6218 block) | 61.66 | 300 | 4.54 | 0.22 | 0.21 | RV` | veldis.html line 5487 | 4.54 | agree
+- bin 61.66" dsigma_Up -> err_hi | `(blank; NGC 6218 block) | 61.66 | 300 | 4.54 | 0.22 | 0.21 | RV` | veldis.html line 5487 | 0.22 | agree
+- bin 61.66" dsigma_Low -> err_lo | `(blank; NGC 6218 block) | 61.66 | 300 | 4.54 | 0.22 | 0.21 | RV` | veldis.html line 5487 | 0.21 | agree
+- bin 83.51" <r> [arcsec] | `(blank; NGC 6218 block) | 83.51 | 100 | 4.34 | 0.35 | 0.32 | RV` | veldis.html line 5511 | 83.51 | agree
+- bin 83.51" NStar | `(blank; NGC 6218 block) | 83.51 | 100 | 4.34 | 0.35 | 0.32 | RV` | veldis.html line 5511 | 100.0 | agree
+- bin 83.51" sigma [km/s] | `(blank; NGC 6218 block) | 83.51 | 100 | 4.34 | 0.35 | 0.32 | RV` | veldis.html line 5511 | 4.34 | agree
+- bin 83.51" dsigma_Up -> err_hi | `(blank; NGC 6218 block) | 83.51 | 100 | 4.34 | 0.35 | 0.32 | RV` | veldis.html line 5511 | 0.35 | agree
+- bin 83.51" dsigma_Low -> err_lo | `(blank; NGC 6218 block) | 83.51 | 100 | 4.34 | 0.35 | 0.32 | RV` | veldis.html line 5511 | 0.32 | agree
+- bin 128.58" <r> [arcsec] | `(blank; NGC 6218 block) | 128.58 | 100 | 3.41 | 0.26 | 0.23 | RV` | veldis.html line 5529 | 128.58 | agree
+- bin 128.58" NStar | `(blank; NGC 6218 block) | 128.58 | 100 | 3.41 | 0.26 | 0.23 | RV` | veldis.html line 5529 | 100.0 | agree
+- bin 128.58" sigma [km/s] | `(blank; NGC 6218 block) | 128.58 | 100 | 3.41 | 0.26 | 0.23 | RV` | veldis.html line 5529 | 3.41 | agree
+- bin 128.58" dsigma_Up -> err_hi | `(blank; NGC 6218 block) | 128.58 | 100 | 3.41 | 0.26 | 0.23 | RV` | veldis.html line 5529 | 0.26 | agree
+- bin 128.58" dsigma_Low -> err_lo | `(blank; NGC 6218 block) | 128.58 | 100 | 3.41 | 0.26 | 0.23 | RV` | veldis.html line 5529 | 0.23 | agree
+- bin 187.44" <r> [arcsec] | `(blank; NGC 6218 block) | 187.44 | 100 | 3.09 | 0.24 | 0.21 | RV` | veldis.html line 5547 | 187.44 | agree
+- bin 187.44" NStar | `(blank; NGC 6218 block) | 187.44 | 100 | 3.09 | 0.24 | 0.21 | RV` | veldis.html line 5547 | 100.0 | agree
+- bin 187.44" sigma [km/s] | `(blank; NGC 6218 block) | 187.44 | 100 | 3.09 | 0.24 | 0.21 | RV` | veldis.html line 5547 | 3.09 | agree
+- bin 187.44" dsigma_Up -> err_hi | `(blank; NGC 6218 block) | 187.44 | 100 | 3.09 | 0.24 | 0.21 | RV` | veldis.html line 5547 | 0.24 | agree
+- bin 187.44" dsigma_Low -> err_lo | `(blank; NGC 6218 block) | 187.44 | 100 | 3.09 | 0.24 | 0.21 | RV` | veldis.html line 5547 | 0.21 | agree
+- bin 355.96" <r> [arcsec] | `(blank; NGC 6218 block) | 355.96 | 102 | 2.96 | 0.23 | 0.21 | RV` | veldis.html line 5583 | 355.96 | agree
+- bin 355.96" NStar | `(blank; NGC 6218 block) | 355.96 | 102 | 2.96 | 0.23 | 0.21 | RV` | veldis.html line 5583 | 102.0 | agree
+- bin 355.96" sigma [km/s] | `(blank; NGC 6218 block) | 355.96 | 102 | 2.96 | 0.23 | 0.21 | RV` | veldis.html line 5583 | 2.96 | agree
+- bin 355.96" dsigma_Up -> err_hi | `(blank; NGC 6218 block) | 355.96 | 102 | 2.96 | 0.23 | 0.21 | RV` | veldis.html line 5583 | 0.23 | agree
+- bin 355.96" dsigma_Low -> err_lo | `(blank; NGC 6218 block) | 355.96 | 102 | 2.96 | 0.23 | 0.21 | RV` | veldis.html line 5583 | 0.21 | agree
+- R_Sun [kpc] | `NGC 6218 ...   4.8   4.5  [R_Sun field: '4.8']` | mwgc.dat line 129 (Part I) | 4.8 | agree
+- M_V,t [mag] | `NGC 6218 ... 6.70  -7.31  [M_V,t field: '-7.31']` | mwgc.dat line 309 (Part II) | -7.31 | agree
+- W0/gamma | `<TD>6.10</TD>` | J_ApJS_161_304_models.vot models.vot line 617 (recno 277, MW-NGC6218, Mod K) | 6.1 | agree
+- E_W0/gamma -> err_hi | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 617 (recno 277, MW-NGC6218, Mod K) | 0.2 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 617 (recno 277, MW-NGC6218, Mod K) | 0.1 | agree
+- r0 | `<TD>51.740</TD>` | J_ApJS_161_304_models.vot models.vot line 617 (recno 277, MW-NGC6218, Mod K) | 51.74 | agree
+- E_r0 -> err_hi | `<TD>2.060</TD>` | J_ApJS_161_304_models.vot models.vot line 617 (recno 277, MW-NGC6218, Mod K) | 2.06 | agree
+- e_r0 -> err_lo | `<TD>4.040</TD>` | J_ApJS_161_304_models.vot models.vot line 617 (recno 277, MW-NGC6218, Mod K) | 4.04 | agree
+- Rh | `<TD>0.402</TD>` | J_ApJS_161_304_models.vot models.vot line 617 (recno 277, MW-NGC6218, Mod K) | 0.402 | agree
+- E_Rh -> err_hi | `<TD>0.003</TD>` | J_ApJS_161_304_models.vot models.vot line 617 (recno 277, MW-NGC6218, Mod K) | 0.003 | agree
+- e_Rh -> err_lo | `<TD>0.006</TD>` | J_ApJS_161_304_models.vot models.vot line 617 (recno 277, MW-NGC6218, Mod K) | 0.006 | agree
+- Dist | `<TD>4.9</TD>` | J_ApJS_161_304_models.vot models.vot line 617 (recno 277, MW-NGC6218, Mod K) | 4.9 | agree
+- (M/L)1 | `<TD>1.892</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 270 (recno 110, MW-NGC6218) | 1.892 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.155</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 270 (recno 110, MW-NGC6218) | 0.155 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.155</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 270 (recno 110, MW-NGC6218) | 0.155 | agree
+- arithmetic L_V = 73113.90835 vs 73113.90835 | agree; R_h = 10^0.402 x 4.8 / 4.9 = 2.471981165 pc vs 2.471981165 | agree; M/L 1.892 vs 1.892 | agree
+
+### NGC 6254
+
+- bin 7.85" <r> [arcsec] | `NGC 6254 | 7.85 | 400 | 6.45 | 0.27 | 0.25 | RV` | veldis.html line 5630 | 7.85 | agree
+- bin 7.85" NStar | `NGC 6254 | 7.85 | 400 | 6.45 | 0.27 | 0.25 | RV` | veldis.html line 5630 | 400.0 | agree
+- bin 7.85" sigma [km/s] | `NGC 6254 | 7.85 | 400 | 6.45 | 0.27 | 0.25 | RV` | veldis.html line 5630 | 6.45 | agree
+- bin 7.85" dsigma_Up -> err_hi | `NGC 6254 | 7.85 | 400 | 6.45 | 0.27 | 0.25 | RV` | veldis.html line 5630 | 0.27 | agree
+- bin 7.85" dsigma_Low -> err_lo | `NGC 6254 | 7.85 | 400 | 6.45 | 0.27 | 0.25 | RV` | veldis.html line 5630 | 0.25 | agree
+- bin 16.24" <r> [arcsec] | `(blank; NGC 6254 block) | 16.24 | 400 | 5.88 | 0.25 | 0.23 | RV` | veldis.html line 5643 | 16.24 | agree
+- bin 16.24" NStar | `(blank; NGC 6254 block) | 16.24 | 400 | 5.88 | 0.25 | 0.23 | RV` | veldis.html line 5643 | 400.0 | agree
+- bin 16.24" sigma [km/s] | `(blank; NGC 6254 block) | 16.24 | 400 | 5.88 | 0.25 | 0.23 | RV` | veldis.html line 5643 | 5.88 | agree
+- bin 16.24" dsigma_Up -> err_hi | `(blank; NGC 6254 block) | 16.24 | 400 | 5.88 | 0.25 | 0.23 | RV` | veldis.html line 5643 | 0.25 | agree
+- bin 16.24" dsigma_Low -> err_lo | `(blank; NGC 6254 block) | 16.24 | 400 | 5.88 | 0.25 | 0.23 | RV` | veldis.html line 5643 | 0.23 | agree
+- bin 22.29" <r> [arcsec] | `(blank; NGC 6254 block) | 22.29 | 400 | 5.59 | 0.24 | 0.23 | RV` | veldis.html line 5655 | 22.29 | agree
+- bin 22.29" NStar | `(blank; NGC 6254 block) | 22.29 | 400 | 5.59 | 0.24 | 0.23 | RV` | veldis.html line 5655 | 400.0 | agree
+- bin 22.29" sigma [km/s] | `(blank; NGC 6254 block) | 22.29 | 400 | 5.59 | 0.24 | 0.23 | RV` | veldis.html line 5655 | 5.59 | agree
+- bin 22.29" dsigma_Up -> err_hi | `(blank; NGC 6254 block) | 22.29 | 400 | 5.59 | 0.24 | 0.23 | RV` | veldis.html line 5655 | 0.24 | agree
+- bin 22.29" dsigma_Low -> err_lo | `(blank; NGC 6254 block) | 22.29 | 400 | 5.59 | 0.24 | 0.23 | RV` | veldis.html line 5655 | 0.23 | agree
+- bin 27.74" <r> [arcsec] | `(blank; NGC 6254 block) | 27.74 | 400 | 6.34 | 0.26 | 0.25 | RV` | veldis.html line 5667 | 27.74 | agree
+- bin 27.74" NStar | `(blank; NGC 6254 block) | 27.74 | 400 | 6.34 | 0.26 | 0.25 | RV` | veldis.html line 5667 | 400.0 | agree
+- bin 27.74" sigma [km/s] | `(blank; NGC 6254 block) | 27.74 | 400 | 6.34 | 0.26 | 0.25 | RV` | veldis.html line 5667 | 6.34 | agree
+- bin 27.74" dsigma_Up -> err_hi | `(blank; NGC 6254 block) | 27.74 | 400 | 6.34 | 0.26 | 0.25 | RV` | veldis.html line 5667 | 0.26 | agree
+- bin 27.74" dsigma_Low -> err_lo | `(blank; NGC 6254 block) | 27.74 | 400 | 6.34 | 0.26 | 0.25 | RV` | veldis.html line 5667 | 0.25 | agree
+- bin 32.73" <r> [arcsec] | `(blank; NGC 6254 block) | 32.73 | 400 | 5.52 | 0.24 | 0.22 | RV` | veldis.html line 5679 | 32.73 | agree
+- bin 32.73" NStar | `(blank; NGC 6254 block) | 32.73 | 400 | 5.52 | 0.24 | 0.22 | RV` | veldis.html line 5679 | 400.0 | agree
+- bin 32.73" sigma [km/s] | `(blank; NGC 6254 block) | 32.73 | 400 | 5.52 | 0.24 | 0.22 | RV` | veldis.html line 5679 | 5.52 | agree
+- bin 32.73" dsigma_Up -> err_hi | `(blank; NGC 6254 block) | 32.73 | 400 | 5.52 | 0.24 | 0.22 | RV` | veldis.html line 5679 | 0.24 | agree
+- bin 32.73" dsigma_Low -> err_lo | `(blank; NGC 6254 block) | 32.73 | 400 | 5.52 | 0.24 | 0.22 | RV` | veldis.html line 5679 | 0.22 | agree
+- bin 37.25" <r> [arcsec] | `(blank; NGC 6254 block) | 37.25 | 400 | 5.74 | 0.25 | 0.23 | RV` | veldis.html line 5691 | 37.25 | agree
+- bin 37.25" NStar | `(blank; NGC 6254 block) | 37.25 | 400 | 5.74 | 0.25 | 0.23 | RV` | veldis.html line 5691 | 400.0 | agree
+- bin 37.25" sigma [km/s] | `(blank; NGC 6254 block) | 37.25 | 400 | 5.74 | 0.25 | 0.23 | RV` | veldis.html line 5691 | 5.74 | agree
+- bin 37.25" dsigma_Up -> err_hi | `(blank; NGC 6254 block) | 37.25 | 400 | 5.74 | 0.25 | 0.23 | RV` | veldis.html line 5691 | 0.25 | agree
+- bin 37.25" dsigma_Low -> err_lo | `(blank; NGC 6254 block) | 37.25 | 400 | 5.74 | 0.25 | 0.23 | RV` | veldis.html line 5691 | 0.23 | agree
+- bin 41.66" <r> [arcsec] | `(blank; NGC 6254 block) | 41.66 | 400 | 5.74 | 0.24 | 0.23 | RV` | veldis.html line 5703 | 41.66 | agree
+- bin 41.66" NStar | `(blank; NGC 6254 block) | 41.66 | 400 | 5.74 | 0.24 | 0.23 | RV` | veldis.html line 5703 | 400.0 | agree
+- bin 41.66" sigma [km/s] | `(blank; NGC 6254 block) | 41.66 | 400 | 5.74 | 0.24 | 0.23 | RV` | veldis.html line 5703 | 5.74 | agree
+- bin 41.66" dsigma_Up -> err_hi | `(blank; NGC 6254 block) | 41.66 | 400 | 5.74 | 0.24 | 0.23 | RV` | veldis.html line 5703 | 0.24 | agree
+- bin 41.66" dsigma_Low -> err_lo | `(blank; NGC 6254 block) | 41.66 | 400 | 5.74 | 0.24 | 0.23 | RV` | veldis.html line 5703 | 0.23 | agree
+- bin 46.05" <r> [arcsec] | `(blank; NGC 6254 block) | 46.05 | 400 | 6.02 | 0.25 | 0.24 | RV` | veldis.html line 5715 | 46.05 | agree
+- bin 46.05" NStar | `(blank; NGC 6254 block) | 46.05 | 400 | 6.02 | 0.25 | 0.24 | RV` | veldis.html line 5715 | 400.0 | agree
+- bin 46.05" sigma [km/s] | `(blank; NGC 6254 block) | 46.05 | 400 | 6.02 | 0.25 | 0.24 | RV` | veldis.html line 5715 | 6.02 | agree
+- bin 46.05" dsigma_Up -> err_hi | `(blank; NGC 6254 block) | 46.05 | 400 | 6.02 | 0.25 | 0.24 | RV` | veldis.html line 5715 | 0.25 | agree
+- bin 46.05" dsigma_Low -> err_lo | `(blank; NGC 6254 block) | 46.05 | 400 | 6.02 | 0.25 | 0.24 | RV` | veldis.html line 5715 | 0.24 | agree
+- bin 50.34" <r> [arcsec] | `(blank; NGC 6254 block) | 50.34 | 400 | 5.82 | 0.25 | 0.23 | RV` | veldis.html line 5727 | 50.34 | agree
+- bin 50.34" NStar | `(blank; NGC 6254 block) | 50.34 | 400 | 5.82 | 0.25 | 0.23 | RV` | veldis.html line 5727 | 400.0 | agree
+- bin 50.34" sigma [km/s] | `(blank; NGC 6254 block) | 50.34 | 400 | 5.82 | 0.25 | 0.23 | RV` | veldis.html line 5727 | 5.82 | agree
+- bin 50.34" dsigma_Up -> err_hi | `(blank; NGC 6254 block) | 50.34 | 400 | 5.82 | 0.25 | 0.23 | RV` | veldis.html line 5727 | 0.25 | agree
+- bin 50.34" dsigma_Low -> err_lo | `(blank; NGC 6254 block) | 50.34 | 400 | 5.82 | 0.25 | 0.23 | RV` | veldis.html line 5727 | 0.23 | agree
+- bin 55.63" <r> [arcsec] | `(blank; NGC 6254 block) | 55.63 | 400 | 5.26 | 0.24 | 0.22 | RV` | veldis.html line 5739 | 55.63 | agree
+- bin 55.63" NStar | `(blank; NGC 6254 block) | 55.63 | 400 | 5.26 | 0.24 | 0.22 | RV` | veldis.html line 5739 | 400.0 | agree
+- bin 55.63" sigma [km/s] | `(blank; NGC 6254 block) | 55.63 | 400 | 5.26 | 0.24 | 0.22 | RV` | veldis.html line 5739 | 5.26 | agree
+- bin 55.63" dsigma_Up -> err_hi | `(blank; NGC 6254 block) | 55.63 | 400 | 5.26 | 0.24 | 0.22 | RV` | veldis.html line 5739 | 0.24 | agree
+- bin 55.63" dsigma_Low -> err_lo | `(blank; NGC 6254 block) | 55.63 | 400 | 5.26 | 0.24 | 0.22 | RV` | veldis.html line 5739 | 0.22 | agree
+- bin 67.03" <r> [arcsec] | `(blank; NGC 6254 block) | 67.03 | 400 | 5.90 | 0.25 | 0.23 | RV` | veldis.html line 5757 | 67.03 | agree
+- bin 67.03" NStar | `(blank; NGC 6254 block) | 67.03 | 400 | 5.90 | 0.25 | 0.23 | RV` | veldis.html line 5757 | 400.0 | agree
+- bin 67.03" sigma [km/s] | `(blank; NGC 6254 block) | 67.03 | 400 | 5.90 | 0.25 | 0.23 | RV` | veldis.html line 5757 | 5.9 | agree
+- bin 67.03" dsigma_Up -> err_hi | `(blank; NGC 6254 block) | 67.03 | 400 | 5.90 | 0.25 | 0.23 | RV` | veldis.html line 5757 | 0.25 | agree
+- bin 67.03" dsigma_Low -> err_lo | `(blank; NGC 6254 block) | 67.03 | 400 | 5.90 | 0.25 | 0.23 | RV` | veldis.html line 5757 | 0.23 | agree
+- bin 85.08" <r> [arcsec] | `(blank; NGC 6254 block) | 85.08 | 400 | 5.32 | 0.23 | 0.22 | RV` | veldis.html line 5781 | 85.08 | agree
+- bin 85.08" NStar | `(blank; NGC 6254 block) | 85.08 | 400 | 5.32 | 0.23 | 0.22 | RV` | veldis.html line 5781 | 400.0 | agree
+- bin 85.08" sigma [km/s] | `(blank; NGC 6254 block) | 85.08 | 400 | 5.32 | 0.23 | 0.22 | RV` | veldis.html line 5781 | 5.32 | agree
+- bin 85.08" dsigma_Up -> err_hi | `(blank; NGC 6254 block) | 85.08 | 400 | 5.32 | 0.23 | 0.22 | RV` | veldis.html line 5781 | 0.23 | agree
+- bin 85.08" dsigma_Low -> err_lo | `(blank; NGC 6254 block) | 85.08 | 400 | 5.32 | 0.23 | 0.22 | RV` | veldis.html line 5781 | 0.22 | agree
+- bin 96.02" <r> [arcsec] | `(blank; NGC 6254 block) | 96.02 | 200 | 5.07 | 0.32 | 0.30 | RV` | veldis.html line 5793 | 96.02 | agree
+- bin 96.02" NStar | `(blank; NGC 6254 block) | 96.02 | 200 | 5.07 | 0.32 | 0.30 | RV` | veldis.html line 5793 | 200.0 | agree
+- bin 96.02" sigma [km/s] | `(blank; NGC 6254 block) | 96.02 | 200 | 5.07 | 0.32 | 0.30 | RV` | veldis.html line 5793 | 5.07 | agree
+- bin 96.02" dsigma_Up -> err_hi | `(blank; NGC 6254 block) | 96.02 | 200 | 5.07 | 0.32 | 0.30 | RV` | veldis.html line 5793 | 0.32 | agree
+- bin 96.02" dsigma_Low -> err_lo | `(blank; NGC 6254 block) | 96.02 | 200 | 5.07 | 0.32 | 0.30 | RV` | veldis.html line 5793 | 0.3 | agree
+- bin 114.83" <r> [arcsec] | `(blank; NGC 6254 block) | 114.83 | 100 | 5.13 | 0.42 | 0.38 | RV` | veldis.html line 5799 | 114.83 | agree
+- bin 114.83" NStar | `(blank; NGC 6254 block) | 114.83 | 100 | 5.13 | 0.42 | 0.38 | RV` | veldis.html line 5799 | 100.0 | agree
+- bin 114.83" sigma [km/s] | `(blank; NGC 6254 block) | 114.83 | 100 | 5.13 | 0.42 | 0.38 | RV` | veldis.html line 5799 | 5.13 | agree
+- bin 114.83" dsigma_Up -> err_hi | `(blank; NGC 6254 block) | 114.83 | 100 | 5.13 | 0.42 | 0.38 | RV` | veldis.html line 5799 | 0.42 | agree
+- bin 114.83" dsigma_Low -> err_lo | `(blank; NGC 6254 block) | 114.83 | 100 | 5.13 | 0.42 | 0.38 | RV` | veldis.html line 5799 | 0.38 | agree
+- bin 181.31" <r> [arcsec] | `(blank; NGC 6254 block) | 181.31 | 100 | 5.01 | 0.39 | 0.34 | RV` | veldis.html line 5811 | 181.31 | agree
+- bin 181.31" NStar | `(blank; NGC 6254 block) | 181.31 | 100 | 5.01 | 0.39 | 0.34 | RV` | veldis.html line 5811 | 100.0 | agree
+- bin 181.31" sigma [km/s] | `(blank; NGC 6254 block) | 181.31 | 100 | 5.01 | 0.39 | 0.34 | RV` | veldis.html line 5811 | 5.01 | agree
+- bin 181.31" dsigma_Up -> err_hi | `(blank; NGC 6254 block) | 181.31 | 100 | 5.01 | 0.39 | 0.34 | RV` | veldis.html line 5811 | 0.39 | agree
+- bin 181.31" dsigma_Low -> err_lo | `(blank; NGC 6254 block) | 181.31 | 100 | 5.01 | 0.39 | 0.34 | RV` | veldis.html line 5811 | 0.34 | agree
+- bin 281.32" <r> [arcsec] | `(blank; NGC 6254 block) | 281.32 | 100 | 4.22 | 0.33 | 0.29 | RV` | veldis.html line 5823 | 281.32 | agree
+- bin 281.32" NStar | `(blank; NGC 6254 block) | 281.32 | 100 | 4.22 | 0.33 | 0.29 | RV` | veldis.html line 5823 | 100.0 | agree
+- bin 281.32" sigma [km/s] | `(blank; NGC 6254 block) | 281.32 | 100 | 4.22 | 0.33 | 0.29 | RV` | veldis.html line 5823 | 4.22 | agree
+- bin 281.32" dsigma_Up -> err_hi | `(blank; NGC 6254 block) | 281.32 | 100 | 4.22 | 0.33 | 0.29 | RV` | veldis.html line 5823 | 0.33 | agree
+- bin 281.32" dsigma_Low -> err_lo | `(blank; NGC 6254 block) | 281.32 | 100 | 4.22 | 0.33 | 0.29 | RV` | veldis.html line 5823 | 0.29 | agree
+- bin 448.08" <r> [arcsec] | `(blank; NGC 6254 block) | 448.08 | 49 | 2.73 | 0.32 | 0.28 | RV` | veldis.html line 5835 | 448.08 | agree
+- bin 448.08" NStar | `(blank; NGC 6254 block) | 448.08 | 49 | 2.73 | 0.32 | 0.28 | RV` | veldis.html line 5835 | 49.0 | agree
+- bin 448.08" sigma [km/s] | `(blank; NGC 6254 block) | 448.08 | 49 | 2.73 | 0.32 | 0.28 | RV` | veldis.html line 5835 | 2.73 | agree
+- bin 448.08" dsigma_Up -> err_hi | `(blank; NGC 6254 block) | 448.08 | 49 | 2.73 | 0.32 | 0.28 | RV` | veldis.html line 5835 | 0.32 | agree
+- bin 448.08" dsigma_Low -> err_lo | `(blank; NGC 6254 block) | 448.08 | 49 | 2.73 | 0.32 | 0.28 | RV` | veldis.html line 5835 | 0.28 | agree
+- R_Sun [kpc] | `NGC 6254 ...   4.4   4.6  [R_Sun field: '4.4']` | mwgc.dat line 132 (Part I) | 4.4 | agree
+- M_V,t [mag] | `NGC 6254 ... 6.60  -7.48  [M_V,t field: '-7.48']` | mwgc.dat line 312 (Part II) | -7.48 | agree
+- W0/gamma | `<TD>6.50</TD>` | J_ApJS_161_304_models.vot models.vot line 626 (recno 286, MW-NGC6254, Mod K) | 6.5 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 626 (recno 286, MW-NGC6254, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 626 (recno 286, MW-NGC6254, Mod K) | 0.1 | agree
+- r0 | `<TD>49.410</TD>` | J_ApJS_161_304_models.vot models.vot line 626 (recno 286, MW-NGC6254, Mod K) | 49.41 | agree
+- E_r0 -> err_hi | `<TD>1.690</TD>` | J_ApJS_161_304_models.vot models.vot line 626 (recno 286, MW-NGC6254, Mod K) | 1.69 | agree
+- e_r0 -> err_lo | `<TD>1.690</TD>` | J_ApJS_161_304_models.vot models.vot line 626 (recno 286, MW-NGC6254, Mod K) | 1.69 | agree
+- Rh | `<TD>0.397</TD>` | J_ApJS_161_304_models.vot models.vot line 626 (recno 286, MW-NGC6254, Mod K) | 0.397 | agree
+- E_Rh -> err_hi | `<TD>0.002</TD>` | J_ApJS_161_304_models.vot models.vot line 626 (recno 286, MW-NGC6254, Mod K) | 0.002 | agree
+- e_Rh -> err_lo | `<TD>0.001</TD>` | J_ApJS_161_304_models.vot models.vot line 626 (recno 286, MW-NGC6254, Mod K) | 0.001 | agree
+- Dist | `<TD>4.4</TD>` | J_ApJS_161_304_models.vot models.vot line 626 (recno 286, MW-NGC6254, Mod K) | 4.4 | agree
+- (M/L)1 | `<TD>1.885</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 273 (recno 113, MW-NGC6254) | 1.885 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.154</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 273 (recno 113, MW-NGC6254) | 0.154 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.154</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 273 (recno 113, MW-NGC6254) | 0.154 | agree
+- arithmetic L_V = 85506.67129 vs 85506.67129 | agree; R_h = 10^0.397 x 4.4 / 4.4 = 2.494594727 pc vs 2.494594727 | agree; M/L 1.885 vs 1.885 | agree
+
+### NGC 6266
+
+- bin 5.97" <r> [arcsec] | `(blank; NGC 6266 block) | 5.97 | 300 | 15.03 | 0.65 | 0.61 | RV` | veldis.html line 5965 | 5.97 | agree
+- bin 5.97" NStar | `(blank; NGC 6266 block) | 5.97 | 300 | 15.03 | 0.65 | 0.61 | RV` | veldis.html line 5965 | 300.0 | agree
+- bin 5.97" sigma [km/s] | `(blank; NGC 6266 block) | 5.97 | 300 | 15.03 | 0.65 | 0.61 | RV` | veldis.html line 5965 | 15.03 | agree
+- bin 5.97" dsigma_Up -> err_hi | `(blank; NGC 6266 block) | 5.97 | 300 | 15.03 | 0.65 | 0.61 | RV` | veldis.html line 5965 | 0.65 | agree
+- bin 5.97" dsigma_Low -> err_lo | `(blank; NGC 6266 block) | 5.97 | 300 | 15.03 | 0.65 | 0.61 | RV` | veldis.html line 5965 | 0.61 | agree
+- bin 11.77" <r> [arcsec] | `(blank; NGC 6266 block) | 11.77 | 300 | 14.17 | 0.62 | 0.57 | RV` | veldis.html line 6001 | 11.77 | agree
+- bin 11.77" NStar | `(blank; NGC 6266 block) | 11.77 | 300 | 14.17 | 0.62 | 0.57 | RV` | veldis.html line 6001 | 300.0 | agree
+- bin 11.77" sigma [km/s] | `(blank; NGC 6266 block) | 11.77 | 300 | 14.17 | 0.62 | 0.57 | RV` | veldis.html line 6001 | 14.17 | agree
+- bin 11.77" dsigma_Up -> err_hi | `(blank; NGC 6266 block) | 11.77 | 300 | 14.17 | 0.62 | 0.57 | RV` | veldis.html line 6001 | 0.62 | agree
+- bin 11.77" dsigma_Low -> err_lo | `(blank; NGC 6266 block) | 11.77 | 300 | 14.17 | 0.62 | 0.57 | RV` | veldis.html line 6001 | 0.57 | agree
+- bin 16.19" <r> [arcsec] | `(blank; NGC 6266 block) | 16.19 | 300 | 13.64 | 0.59 | 0.55 | RV` | veldis.html line 6019 | 16.19 | agree
+- bin 16.19" NStar | `(blank; NGC 6266 block) | 16.19 | 300 | 13.64 | 0.59 | 0.55 | RV` | veldis.html line 6019 | 300.0 | agree
+- bin 16.19" sigma [km/s] | `(blank; NGC 6266 block) | 16.19 | 300 | 13.64 | 0.59 | 0.55 | RV` | veldis.html line 6019 | 13.64 | agree
+- bin 16.19" dsigma_Up -> err_hi | `(blank; NGC 6266 block) | 16.19 | 300 | 13.64 | 0.59 | 0.55 | RV` | veldis.html line 6019 | 0.59 | agree
+- bin 16.19" dsigma_Low -> err_lo | `(blank; NGC 6266 block) | 16.19 | 300 | 13.64 | 0.59 | 0.55 | RV` | veldis.html line 6019 | 0.55 | agree
+- bin 20.08" <r> [arcsec] | `(blank; NGC 6266 block) | 20.08 | 300 | 13.39 | 0.59 | 0.54 | RV` | veldis.html line 6031 | 20.08 | agree
+- bin 20.08" NStar | `(blank; NGC 6266 block) | 20.08 | 300 | 13.39 | 0.59 | 0.54 | RV` | veldis.html line 6031 | 300.0 | agree
+- bin 20.08" sigma [km/s] | `(blank; NGC 6266 block) | 20.08 | 300 | 13.39 | 0.59 | 0.54 | RV` | veldis.html line 6031 | 13.39 | agree
+- bin 20.08" dsigma_Up -> err_hi | `(blank; NGC 6266 block) | 20.08 | 300 | 13.39 | 0.59 | 0.54 | RV` | veldis.html line 6031 | 0.59 | agree
+- bin 20.08" dsigma_Low -> err_lo | `(blank; NGC 6266 block) | 20.08 | 300 | 13.39 | 0.59 | 0.54 | RV` | veldis.html line 6031 | 0.54 | agree
+- bin 23.72" <r> [arcsec] | `(blank; NGC 6266 block) | 23.72 | 300 | 13.47 | 0.59 | 0.55 | RV` | veldis.html line 6049 | 23.72 | agree
+- bin 23.72" NStar | `(blank; NGC 6266 block) | 23.72 | 300 | 13.47 | 0.59 | 0.55 | RV` | veldis.html line 6049 | 300.0 | agree
+- bin 23.72" sigma [km/s] | `(blank; NGC 6266 block) | 23.72 | 300 | 13.47 | 0.59 | 0.55 | RV` | veldis.html line 6049 | 13.47 | agree
+- bin 23.72" dsigma_Up -> err_hi | `(blank; NGC 6266 block) | 23.72 | 300 | 13.47 | 0.59 | 0.55 | RV` | veldis.html line 6049 | 0.59 | agree
+- bin 23.72" dsigma_Low -> err_lo | `(blank; NGC 6266 block) | 23.72 | 300 | 13.47 | 0.59 | 0.55 | RV` | veldis.html line 6049 | 0.55 | agree
+- bin 27.13" <r> [arcsec] | `(blank; NGC 6266 block) | 27.13 | 300 | 12.12 | 0.53 | 0.50 | RV` | veldis.html line 6061 | 27.13 | agree
+- bin 27.13" NStar | `(blank; NGC 6266 block) | 27.13 | 300 | 12.12 | 0.53 | 0.50 | RV` | veldis.html line 6061 | 300.0 | agree
+- bin 27.13" sigma [km/s] | `(blank; NGC 6266 block) | 27.13 | 300 | 12.12 | 0.53 | 0.50 | RV` | veldis.html line 6061 | 12.12 | agree
+- bin 27.13" dsigma_Up -> err_hi | `(blank; NGC 6266 block) | 27.13 | 300 | 12.12 | 0.53 | 0.50 | RV` | veldis.html line 6061 | 0.53 | agree
+- bin 27.13" dsigma_Low -> err_lo | `(blank; NGC 6266 block) | 27.13 | 300 | 12.12 | 0.53 | 0.50 | RV` | veldis.html line 6061 | 0.5 | agree
+- bin 30.46" <r> [arcsec] | `(blank; NGC 6266 block) | 30.46 | 300 | 11.90 | 0.53 | 0.49 | RV` | veldis.html line 6079 | 30.46 | agree
+- bin 30.46" NStar | `(blank; NGC 6266 block) | 30.46 | 300 | 11.90 | 0.53 | 0.49 | RV` | veldis.html line 6079 | 300.0 | agree
+- bin 30.46" sigma [km/s] | `(blank; NGC 6266 block) | 30.46 | 300 | 11.90 | 0.53 | 0.49 | RV` | veldis.html line 6079 | 11.9 | agree
+- bin 30.46" dsigma_Up -> err_hi | `(blank; NGC 6266 block) | 30.46 | 300 | 11.90 | 0.53 | 0.49 | RV` | veldis.html line 6079 | 0.53 | agree
+- bin 30.46" dsigma_Low -> err_lo | `(blank; NGC 6266 block) | 30.46 | 300 | 11.90 | 0.53 | 0.49 | RV` | veldis.html line 6079 | 0.49 | agree
+- bin 33.65" <r> [arcsec] | `(blank; NGC 6266 block) | 33.65 | 300 | 12.66 | 0.55 | 0.52 | RV` | veldis.html line 6091 | 33.65 | agree
+- bin 33.65" NStar | `(blank; NGC 6266 block) | 33.65 | 300 | 12.66 | 0.55 | 0.52 | RV` | veldis.html line 6091 | 300.0 | agree
+- bin 33.65" sigma [km/s] | `(blank; NGC 6266 block) | 33.65 | 300 | 12.66 | 0.55 | 0.52 | RV` | veldis.html line 6091 | 12.66 | agree
+- bin 33.65" dsigma_Up -> err_hi | `(blank; NGC 6266 block) | 33.65 | 300 | 12.66 | 0.55 | 0.52 | RV` | veldis.html line 6091 | 0.55 | agree
+- bin 33.65" dsigma_Low -> err_lo | `(blank; NGC 6266 block) | 33.65 | 300 | 12.66 | 0.55 | 0.52 | RV` | veldis.html line 6091 | 0.52 | agree
+- bin 36.90" <r> [arcsec] | `(blank; NGC 6266 block) | 36.90 | 300 | 12.91 | 0.56 | 0.53 | RV` | veldis.html line 6103 | 36.9 | agree
+- bin 36.90" NStar | `(blank; NGC 6266 block) | 36.90 | 300 | 12.91 | 0.56 | 0.53 | RV` | veldis.html line 6103 | 300.0 | agree
+- bin 36.90" sigma [km/s] | `(blank; NGC 6266 block) | 36.90 | 300 | 12.91 | 0.56 | 0.53 | RV` | veldis.html line 6103 | 12.91 | agree
+- bin 36.90" dsigma_Up -> err_hi | `(blank; NGC 6266 block) | 36.90 | 300 | 12.91 | 0.56 | 0.53 | RV` | veldis.html line 6103 | 0.56 | agree
+- bin 36.90" dsigma_Low -> err_lo | `(blank; NGC 6266 block) | 36.90 | 300 | 12.91 | 0.56 | 0.53 | RV` | veldis.html line 6103 | 0.53 | agree
+- bin 40.07" <r> [arcsec] | `(blank; NGC 6266 block) | 40.07 | 300 | 12.91 | 0.56 | 0.53 | RV` | veldis.html line 6115 | 40.07 | agree
+- bin 40.07" NStar | `(blank; NGC 6266 block) | 40.07 | 300 | 12.91 | 0.56 | 0.53 | RV` | veldis.html line 6115 | 300.0 | agree
+- bin 40.07" sigma [km/s] | `(blank; NGC 6266 block) | 40.07 | 300 | 12.91 | 0.56 | 0.53 | RV` | veldis.html line 6115 | 12.91 | agree
+- bin 40.07" dsigma_Up -> err_hi | `(blank; NGC 6266 block) | 40.07 | 300 | 12.91 | 0.56 | 0.53 | RV` | veldis.html line 6115 | 0.56 | agree
+- bin 40.07" dsigma_Low -> err_lo | `(blank; NGC 6266 block) | 40.07 | 300 | 12.91 | 0.56 | 0.53 | RV` | veldis.html line 6115 | 0.53 | agree
+- bin 43.35" <r> [arcsec] | `(blank; NGC 6266 block) | 43.35 | 300 | 12.16 | 0.54 | 0.50 | RV` | veldis.html line 6127 | 43.35 | agree
+- bin 43.35" NStar | `(blank; NGC 6266 block) | 43.35 | 300 | 12.16 | 0.54 | 0.50 | RV` | veldis.html line 6127 | 300.0 | agree
+- bin 43.35" sigma [km/s] | `(blank; NGC 6266 block) | 43.35 | 300 | 12.16 | 0.54 | 0.50 | RV` | veldis.html line 6127 | 12.16 | agree
+- bin 43.35" dsigma_Up -> err_hi | `(blank; NGC 6266 block) | 43.35 | 300 | 12.16 | 0.54 | 0.50 | RV` | veldis.html line 6127 | 0.54 | agree
+- bin 43.35" dsigma_Low -> err_lo | `(blank; NGC 6266 block) | 43.35 | 300 | 12.16 | 0.54 | 0.50 | RV` | veldis.html line 6127 | 0.5 | agree
+- bin 46.86" <r> [arcsec] | `(blank; NGC 6266 block) | 46.86 | 300 | 11.92 | 0.52 | 0.49 | RV` | veldis.html line 6139 | 46.86 | agree
+- bin 46.86" NStar | `(blank; NGC 6266 block) | 46.86 | 300 | 11.92 | 0.52 | 0.49 | RV` | veldis.html line 6139 | 300.0 | agree
+- bin 46.86" sigma [km/s] | `(blank; NGC 6266 block) | 46.86 | 300 | 11.92 | 0.52 | 0.49 | RV` | veldis.html line 6139 | 11.92 | agree
+- bin 46.86" dsigma_Up -> err_hi | `(blank; NGC 6266 block) | 46.86 | 300 | 11.92 | 0.52 | 0.49 | RV` | veldis.html line 6139 | 0.52 | agree
+- bin 46.86" dsigma_Low -> err_lo | `(blank; NGC 6266 block) | 46.86 | 300 | 11.92 | 0.52 | 0.49 | RV` | veldis.html line 6139 | 0.49 | agree
+- bin 50.21" <r> [arcsec] | `(blank; NGC 6266 block) | 50.21 | 300 | 12.06 | 0.53 | 0.50 | RV` | veldis.html line 6151 | 50.21 | agree
+- bin 50.21" NStar | `(blank; NGC 6266 block) | 50.21 | 300 | 12.06 | 0.53 | 0.50 | RV` | veldis.html line 6151 | 300.0 | agree
+- bin 50.21" sigma [km/s] | `(blank; NGC 6266 block) | 50.21 | 300 | 12.06 | 0.53 | 0.50 | RV` | veldis.html line 6151 | 12.06 | agree
+- bin 50.21" dsigma_Up -> err_hi | `(blank; NGC 6266 block) | 50.21 | 300 | 12.06 | 0.53 | 0.50 | RV` | veldis.html line 6151 | 0.53 | agree
+- bin 50.21" dsigma_Low -> err_lo | `(blank; NGC 6266 block) | 50.21 | 300 | 12.06 | 0.53 | 0.50 | RV` | veldis.html line 6151 | 0.5 | agree
+- bin 54.22" <r> [arcsec] | `(blank; NGC 6266 block) | 54.22 | 300 | 12.58 | 0.55 | 0.52 | RV` | veldis.html line 6169 | 54.22 | agree
+- bin 54.22" NStar | `(blank; NGC 6266 block) | 54.22 | 300 | 12.58 | 0.55 | 0.52 | RV` | veldis.html line 6169 | 300.0 | agree
+- bin 54.22" sigma [km/s] | `(blank; NGC 6266 block) | 54.22 | 300 | 12.58 | 0.55 | 0.52 | RV` | veldis.html line 6169 | 12.58 | agree
+- bin 54.22" dsigma_Up -> err_hi | `(blank; NGC 6266 block) | 54.22 | 300 | 12.58 | 0.55 | 0.52 | RV` | veldis.html line 6169 | 0.55 | agree
+- bin 54.22" dsigma_Low -> err_lo | `(blank; NGC 6266 block) | 54.22 | 300 | 12.58 | 0.55 | 0.52 | RV` | veldis.html line 6169 | 0.52 | agree
+- bin 63.22" <r> [arcsec] | `(blank; NGC 6266 block) | 63.22 | 300 | 11.12 | 0.49 | 0.46 | RV` | veldis.html line 6193 | 63.22 | agree
+- bin 63.22" NStar | `(blank; NGC 6266 block) | 63.22 | 300 | 11.12 | 0.49 | 0.46 | RV` | veldis.html line 6193 | 300.0 | agree
+- bin 63.22" sigma [km/s] | `(blank; NGC 6266 block) | 63.22 | 300 | 11.12 | 0.49 | 0.46 | RV` | veldis.html line 6193 | 11.12 | agree
+- bin 63.22" dsigma_Up -> err_hi | `(blank; NGC 6266 block) | 63.22 | 300 | 11.12 | 0.49 | 0.46 | RV` | veldis.html line 6193 | 0.49 | agree
+- bin 63.22" dsigma_Low -> err_lo | `(blank; NGC 6266 block) | 63.22 | 300 | 11.12 | 0.49 | 0.46 | RV` | veldis.html line 6193 | 0.46 | agree
+- bin 105.94" <r> [arcsec] | `(blank; NGC 6266 block) | 105.94 | 100 | 9.87 | 0.75 | 0.67 | RV` | veldis.html line 6241 | 105.94 | agree
+- bin 105.94" NStar | `(blank; NGC 6266 block) | 105.94 | 100 | 9.87 | 0.75 | 0.67 | RV` | veldis.html line 6241 | 100.0 | agree
+- bin 105.94" sigma [km/s] | `(blank; NGC 6266 block) | 105.94 | 100 | 9.87 | 0.75 | 0.67 | RV` | veldis.html line 6241 | 9.87 | agree
+- bin 105.94" dsigma_Up -> err_hi | `(blank; NGC 6266 block) | 105.94 | 100 | 9.87 | 0.75 | 0.67 | RV` | veldis.html line 6241 | 0.75 | agree
+- bin 105.94" dsigma_Low -> err_lo | `(blank; NGC 6266 block) | 105.94 | 100 | 9.87 | 0.75 | 0.67 | RV` | veldis.html line 6241 | 0.67 | agree
+- bin 261.26" <r> [arcsec] | `(blank; NGC 6266 block) | 261.26 | 84 | 6.71 | 0.58 | 0.51 | RV` | veldis.html line 6253 | 261.26 | agree
+- bin 261.26" NStar | `(blank; NGC 6266 block) | 261.26 | 84 | 6.71 | 0.58 | 0.51 | RV` | veldis.html line 6253 | 84.0 | agree
+- bin 261.26" sigma [km/s] | `(blank; NGC 6266 block) | 261.26 | 84 | 6.71 | 0.58 | 0.51 | RV` | veldis.html line 6253 | 6.71 | agree
+- bin 261.26" dsigma_Up -> err_hi | `(blank; NGC 6266 block) | 261.26 | 84 | 6.71 | 0.58 | 0.51 | RV` | veldis.html line 6253 | 0.58 | agree
+- bin 261.26" dsigma_Low -> err_lo | `(blank; NGC 6266 block) | 261.26 | 84 | 6.71 | 0.58 | 0.51 | RV` | veldis.html line 6253 | 0.51 | agree
+- R_Sun [kpc] | `NGC 6266 ...   6.8   1.7  [R_Sun field: '6.8']` | mwgc.dat line 135 (Part I) | 6.8 | agree
+- M_V,t [mag] | `NGC 6266 ... 6.45  -9.18  [M_V,t field: '-9.18']` | mwgc.dat line 315 (Part II) | -9.18 | agree
+- W0/gamma | `<TD>7.60</TD>` | J_ApJS_161_304_models.vot models.vot line 629 (recno 289, MW-NGC6266, Mod K) | 7.6 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 629 (recno 289, MW-NGC6266, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 629 (recno 289, MW-NGC6266, Mod K) | 0.1 | agree
+- r0 | `<TD>13.750</TD>` | J_ApJS_161_304_models.vot models.vot line 629 (recno 289, MW-NGC6266, Mod K) | 13.75 | agree
+- E_r0 -> err_hi | `<TD>0.480</TD>` | J_ApJS_161_304_models.vot models.vot line 629 (recno 289, MW-NGC6266, Mod K) | 0.48 | agree
+- e_r0 -> err_lo | `<TD>0.480</TD>` | J_ApJS_161_304_models.vot models.vot line 629 (recno 289, MW-NGC6266, Mod K) | 0.48 | agree
+- Rh | `<TD>0.267</TD>` | J_ApJS_161_304_models.vot models.vot line 629 (recno 289, MW-NGC6266, Mod K) | 0.267 | agree
+- E_Rh -> err_hi | `<TD>0.011</TD>` | J_ApJS_161_304_models.vot models.vot line 629 (recno 289, MW-NGC6266, Mod K) | 0.011 | agree
+- e_Rh -> err_lo | `<TD>0.011</TD>` | J_ApJS_161_304_models.vot models.vot line 629 (recno 289, MW-NGC6266, Mod K) | 0.011 | agree
+- Dist | `<TD>6.9</TD>` | J_ApJS_161_304_models.vot models.vot line 629 (recno 289, MW-NGC6266, Mod K) | 6.9 | agree
+- (M/L)1 | `<TD>1.950</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 275 (recno 115, MW-NGC6266) | 1.95 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.161</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 275 (recno 115, MW-NGC6266) | 0.161 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.161</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 275 (recno 115, MW-NGC6266) | 0.161 | agree
+- arithmetic L_V = 409260.6597 vs 409260.6597 | agree; R_h = 10^0.267 x 6.8 / 6.9 = 1.822467625 pc vs 1.822467625 | agree; M/L 1.95 vs 1.95 | agree
+
+### NGC 6273
+
+- bin 41.90" <r> [arcsec] | `NGC 6273 | 41.90 | 63 | 10.00 | 0.98 | 0.84 | RV` | veldis.html line 6260 | 41.9 | agree
+- bin 41.90" NStar | `NGC 6273 | 41.90 | 63 | 10.00 | 0.98 | 0.84 | RV` | veldis.html line 6260 | 63.0 | agree
+- bin 41.90" sigma [km/s] | `NGC 6273 | 41.90 | 63 | 10.00 | 0.98 | 0.84 | RV` | veldis.html line 6260 | 10.0 | agree
+- bin 41.90" dsigma_Up -> err_hi | `NGC 6273 | 41.90 | 63 | 10.00 | 0.98 | 0.84 | RV` | veldis.html line 6260 | 0.98 | agree
+- bin 41.90" dsigma_Low -> err_lo | `NGC 6273 | 41.90 | 63 | 10.00 | 0.98 | 0.84 | RV` | veldis.html line 6260 | 0.84 | agree
+- bin 77.76" <r> [arcsec] | `(blank; NGC 6273 block) | 77.76 | 63 | 9.04 | 0.88 | 0.76 | RV` | veldis.html line 6267 | 77.76 | agree
+- bin 77.76" NStar | `(blank; NGC 6273 block) | 77.76 | 63 | 9.04 | 0.88 | 0.76 | RV` | veldis.html line 6267 | 63.0 | agree
+- bin 77.76" sigma [km/s] | `(blank; NGC 6273 block) | 77.76 | 63 | 9.04 | 0.88 | 0.76 | RV` | veldis.html line 6267 | 9.04 | agree
+- bin 77.76" dsigma_Up -> err_hi | `(blank; NGC 6273 block) | 77.76 | 63 | 9.04 | 0.88 | 0.76 | RV` | veldis.html line 6267 | 0.88 | agree
+- bin 77.76" dsigma_Low -> err_lo | `(blank; NGC 6273 block) | 77.76 | 63 | 9.04 | 0.88 | 0.76 | RV` | veldis.html line 6267 | 0.76 | agree
+- bin 121.19" <r> [arcsec] | `(blank; NGC 6273 block) | 121.19 | 63 | 9.71 | 0.95 | 0.82 | RV` | veldis.html line 6273 | 121.19 | agree
+- bin 121.19" NStar | `(blank; NGC 6273 block) | 121.19 | 63 | 9.71 | 0.95 | 0.82 | RV` | veldis.html line 6273 | 63.0 | agree
+- bin 121.19" sigma [km/s] | `(blank; NGC 6273 block) | 121.19 | 63 | 9.71 | 0.95 | 0.82 | RV` | veldis.html line 6273 | 9.71 | agree
+- bin 121.19" dsigma_Up -> err_hi | `(blank; NGC 6273 block) | 121.19 | 63 | 9.71 | 0.95 | 0.82 | RV` | veldis.html line 6273 | 0.95 | agree
+- bin 121.19" dsigma_Low -> err_lo | `(blank; NGC 6273 block) | 121.19 | 63 | 9.71 | 0.95 | 0.82 | RV` | veldis.html line 6273 | 0.82 | agree
+- bin 187.59" <r> [arcsec] | `(blank; NGC 6273 block) | 187.59 | 63 | 6.28 | 0.62 | 0.53 | RV` | veldis.html line 6285 | 187.59 | agree
+- bin 187.59" NStar | `(blank; NGC 6273 block) | 187.59 | 63 | 6.28 | 0.62 | 0.53 | RV` | veldis.html line 6285 | 63.0 | agree
+- bin 187.59" sigma [km/s] | `(blank; NGC 6273 block) | 187.59 | 63 | 6.28 | 0.62 | 0.53 | RV` | veldis.html line 6285 | 6.28 | agree
+- bin 187.59" dsigma_Up -> err_hi | `(blank; NGC 6273 block) | 187.59 | 63 | 6.28 | 0.62 | 0.53 | RV` | veldis.html line 6285 | 0.62 | agree
+- bin 187.59" dsigma_Low -> err_lo | `(blank; NGC 6273 block) | 187.59 | 63 | 6.28 | 0.62 | 0.53 | RV` | veldis.html line 6285 | 0.53 | agree
+- bin 351.87" <r> [arcsec] | `(blank; NGC 6273 block) | 351.87 | 54 | 5.51 | 0.59 | 0.51 | RV` | veldis.html line 6303 | 351.87 | agree
+- bin 351.87" NStar | `(blank; NGC 6273 block) | 351.87 | 54 | 5.51 | 0.59 | 0.51 | RV` | veldis.html line 6303 | 54.0 | agree
+- bin 351.87" sigma [km/s] | `(blank; NGC 6273 block) | 351.87 | 54 | 5.51 | 0.59 | 0.51 | RV` | veldis.html line 6303 | 5.51 | agree
+- bin 351.87" dsigma_Up -> err_hi | `(blank; NGC 6273 block) | 351.87 | 54 | 5.51 | 0.59 | 0.51 | RV` | veldis.html line 6303 | 0.59 | agree
+- bin 351.87" dsigma_Low -> err_lo | `(blank; NGC 6273 block) | 351.87 | 54 | 5.51 | 0.59 | 0.51 | RV` | veldis.html line 6303 | 0.51 | agree
+- R_Sun [kpc] | `NGC 6273 ...   8.8   1.7  [R_Sun field: '8.8']` | mwgc.dat line 136 (Part I) | 8.8 | agree
+- M_V,t [mag] | `NGC 6273 ... 6.77  -9.13  [M_V,t field: '-9.13']` | mwgc.dat line 316 (Part II) | -9.13 | agree
+- W0/gamma | `<TD>7.00</TD>` | J_ApJS_161_304_models.vot models.vot line 632 (recno 292, MW-NGC6273, Mod K) | 7.0 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 632 (recno 292, MW-NGC6273, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 632 (recno 292, MW-NGC6273, Mod K) | 0.2 | agree
+- r0 | `<TD>27.200</TD>` | J_ApJS_161_304_models.vot models.vot line 632 (recno 292, MW-NGC6273, Mod K) | 27.2 | agree
+- E_r0 -> err_hi | `<TD>1.420</TD>` | J_ApJS_161_304_models.vot models.vot line 632 (recno 292, MW-NGC6273, Mod K) | 1.42 | agree
+- e_r0 -> err_lo | `<TD>0.720</TD>` | J_ApJS_161_304_models.vot models.vot line 632 (recno 292, MW-NGC6273, Mod K) | 0.72 | agree
+- Rh | `<TD>0.520</TD>` | J_ApJS_161_304_models.vot models.vot line 632 (recno 292, MW-NGC6273, Mod K) | 0.52 | agree
+- E_Rh -> err_hi | `<TD>0.009</TD>` | J_ApJS_161_304_models.vot models.vot line 632 (recno 292, MW-NGC6273, Mod K) | 0.009 | agree
+- e_Rh -> err_lo | `<TD>0.017</TD>` | J_ApJS_161_304_models.vot models.vot line 632 (recno 292, MW-NGC6273, Mod K) | 0.017 | agree
+- Dist | `<TD>8.6</TD>` | J_ApJS_161_304_models.vot models.vot line 632 (recno 292, MW-NGC6273, Mod K) | 8.6 | agree
+- (M/L)1 | `<TD>1.868</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 276 (recno 116, MW-NGC6273) | 1.868 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.155</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 276 (recno 116, MW-NGC6273) | 0.155 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.155</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 276 (recno 116, MW-NGC6273) | 0.155 | agree
+- arithmetic L_V = 390840.8958 vs 390840.8958 | agree; R_h = 10^0.520 x 8.8 / 8.6 = 3.388318452 pc vs 3.388318452 | agree; M/L 1.868 vs 1.868 | agree
+
+### NGC 6316
+
+- bin 43.79" <r> [arcsec] | `NGC 6316 | 43.79 | 37 | 6.09 | 0.81 | 0.67 | RV` | veldis.html line 6486 | 43.79 | agree
+- bin 43.79" NStar | `NGC 6316 | 43.79 | 37 | 6.09 | 0.81 | 0.67 | RV` | veldis.html line 6486 | 37.0 | agree
+- bin 43.79" sigma [km/s] | `NGC 6316 | 43.79 | 37 | 6.09 | 0.81 | 0.67 | RV` | veldis.html line 6486 | 6.09 | agree
+- bin 43.79" dsigma_Up -> err_hi | `NGC 6316 | 43.79 | 37 | 6.09 | 0.81 | 0.67 | RV` | veldis.html line 6486 | 0.81 | agree
+- bin 43.79" dsigma_Low -> err_lo | `NGC 6316 | 43.79 | 37 | 6.09 | 0.81 | 0.67 | RV` | veldis.html line 6486 | 0.67 | agree
+- bin 122.59" <r> [arcsec] | `(blank; NGC 6316 block) | 122.59 | 36 | 4.72 | 0.64 | 0.53 | RV` | veldis.html line 6505 | 122.59 | agree
+- bin 122.59" NStar | `(blank; NGC 6316 block) | 122.59 | 36 | 4.72 | 0.64 | 0.53 | RV` | veldis.html line 6505 | 36.0 | agree
+- bin 122.59" sigma [km/s] | `(blank; NGC 6316 block) | 122.59 | 36 | 4.72 | 0.64 | 0.53 | RV` | veldis.html line 6505 | 4.72 | agree
+- bin 122.59" dsigma_Up -> err_hi | `(blank; NGC 6316 block) | 122.59 | 36 | 4.72 | 0.64 | 0.53 | RV` | veldis.html line 6505 | 0.64 | agree
+- bin 122.59" dsigma_Low -> err_lo | `(blank; NGC 6316 block) | 122.59 | 36 | 4.72 | 0.64 | 0.53 | RV` | veldis.html line 6505 | 0.53 | agree
+- R_Sun [kpc] | `NGC 6316 ...  10.4   2.6  [R_Sun field: '10.4']` | mwgc.dat line 141 (Part I) | 10.4 | agree
+- M_V,t [mag] | `NGC 6316 ... 8.43  -8.34  [M_V,t field: '-8.34']` | mwgc.dat line 321 (Part II) | -8.34 | agree
+- W0/gamma | `<TD>7.40</TD>` | J_ApJS_161_304_models.vot models.vot line 638 (recno 298, MW-NGC6316, Mod K) | 7.4 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 638 (recno 298, MW-NGC6316, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 638 (recno 298, MW-NGC6316, Mod K) | 0.2 | agree
+- r0 | `<TD>10.910</TD>` | J_ApJS_161_304_models.vot models.vot line 638 (recno 298, MW-NGC6316, Mod K) | 10.91 | agree
+- E_r0 -> err_hi | `<TD>0.410</TD>` | J_ApJS_161_304_models.vot models.vot line 638 (recno 298, MW-NGC6316, Mod K) | 0.41 | agree
+- e_r0 -> err_lo | `<TD>0.210</TD>` | J_ApJS_161_304_models.vot models.vot line 638 (recno 298, MW-NGC6316, Mod K) | 0.21 | agree
+- Rh | `<TD>0.319</TD>` | J_ApJS_161_304_models.vot models.vot line 638 (recno 298, MW-NGC6316, Mod K) | 0.319 | agree
+- E_Rh -> err_hi | `<TD>0.017</TD>` | J_ApJS_161_304_models.vot models.vot line 638 (recno 298, MW-NGC6316, Mod K) | 0.017 | agree
+- e_Rh -> err_lo | `<TD>0.030</TD>` | J_ApJS_161_304_models.vot models.vot line 638 (recno 298, MW-NGC6316, Mod K) | 0.03 | agree
+- Dist | `<TD>11.0</TD>` | J_ApJS_161_304_models.vot models.vot line 638 (recno 298, MW-NGC6316, Mod K) | 11.0 | agree
+- (M/L)1 | `<TD>2.625</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 281 (recno 121, MW-NGC6316) | 2.625 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.295</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 281 (recno 121, MW-NGC6316) | 0.295 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.295</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 281 (recno 121, MW-NGC6316) | 0.295 | agree
+- arithmetic L_V = 188799.1349 vs 188799.1349 | agree; R_h = 10^0.319 x 10.4 / 11.0 = 1.97079138 pc vs 1.97079138 | agree; M/L 2.625 vs 2.625 | agree
+
+### NGC 6333
+
+- bin 13.16" <r> [arcsec] | `NGC 6333 | 13.16 | 25 | 8.97 | 1.47 | 1.17 | RV` | veldis.html line 6586 | 13.16 | agree
+- bin 13.16" NStar | `NGC 6333 | 13.16 | 25 | 8.97 | 1.47 | 1.17 | RV` | veldis.html line 6586 | 25.0 | agree
+- bin 13.16" sigma [km/s] | `NGC 6333 | 13.16 | 25 | 8.97 | 1.47 | 1.17 | RV` | veldis.html line 6586 | 8.97 | agree
+- bin 13.16" dsigma_Up -> err_hi | `NGC 6333 | 13.16 | 25 | 8.97 | 1.47 | 1.17 | RV` | veldis.html line 6586 | 1.47 | agree
+- bin 13.16" dsigma_Low -> err_lo | `NGC 6333 | 13.16 | 25 | 8.97 | 1.47 | 1.17 | RV` | veldis.html line 6586 | 1.17 | agree
+- bin 193.20" <r> [arcsec] | `(blank; NGC 6333 block) | 193.20 | 26 | 4.98 | 0.97 | 0.78 | RV` | veldis.html line 6605 | 193.2 | agree
+- bin 193.20" NStar | `(blank; NGC 6333 block) | 193.20 | 26 | 4.98 | 0.97 | 0.78 | RV` | veldis.html line 6605 | 26.0 | agree
+- bin 193.20" sigma [km/s] | `(blank; NGC 6333 block) | 193.20 | 26 | 4.98 | 0.97 | 0.78 | RV` | veldis.html line 6605 | 4.98 | agree
+- bin 193.20" dsigma_Up -> err_hi | `(blank; NGC 6333 block) | 193.20 | 26 | 4.98 | 0.97 | 0.78 | RV` | veldis.html line 6605 | 0.97 | agree
+- bin 193.20" dsigma_Low -> err_lo | `(blank; NGC 6333 block) | 193.20 | 26 | 4.98 | 0.97 | 0.78 | RV` | veldis.html line 6605 | 0.78 | agree
+- R_Sun [kpc] | `NGC 6333 ...   7.9   1.7  [R_Sun field: '7.9']` | mwgc.dat line 144 (Part I) | 7.9 | agree
+- M_V,t [mag] | `NGC 6333 ... 7.72  -7.95  [M_V,t field: '-7.95']` | mwgc.dat line 324 (Part II) | -7.95 | agree
+- W0/gamma | `<TD>6.00</TD>` | J_ApJS_161_304_models.vot models.vot line 641 (recno 301, MW-NGC6333, Mod K) | 6.0 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 641 (recno 301, MW-NGC6333, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 641 (recno 301, MW-NGC6333, Mod K) | 0.2 | agree
+- r0 | `<TD>29.140</TD>` | J_ApJS_161_304_models.vot models.vot line 641 (recno 301, MW-NGC6333, Mod K) | 29.14 | agree
+- E_r0 -> err_hi | `<TD>1.330</TD>` | J_ApJS_161_304_models.vot models.vot line 641 (recno 301, MW-NGC6333, Mod K) | 1.33 | agree
+- e_r0 -> err_lo | `<TD>0.650</TD>` | J_ApJS_161_304_models.vot models.vot line 641 (recno 301, MW-NGC6333, Mod K) | 0.65 | agree
+- Rh | `<TD>0.346</TD>` | J_ApJS_161_304_models.vot models.vot line 641 (recno 301, MW-NGC6333, Mod K) | 0.346 | agree
+- E_Rh -> err_hi | `<TD>0.004</TD>` | J_ApJS_161_304_models.vot models.vot line 641 (recno 301, MW-NGC6333, Mod K) | 0.004 | agree
+- e_Rh -> err_lo | `<TD>0.007</TD>` | J_ApJS_161_304_models.vot models.vot line 641 (recno 301, MW-NGC6333, Mod K) | 0.007 | agree
+- Dist | `<TD>7.9</TD>` | J_ApJS_161_304_models.vot models.vot line 641 (recno 301, MW-NGC6333, Mod K) | 7.9 | agree
+- (M/L)1 | `<TD>1.867</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 283 (recno 123, MW-NGC6333) | 1.867 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.155</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 283 (recno 123, MW-NGC6333) | 0.155 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.155</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 283 (recno 123, MW-NGC6333) | 0.155 | agree
+- arithmetic L_V = 131825.6739 vs 131825.6739 | agree; R_h = 10^0.346 x 7.9 / 7.9 = 2.21819642 pc vs 2.21819642 | agree; M/L 1.867 vs 1.867 | agree
+
+### NGC 6341
+
+- bin 13.23" <r> [arcsec] | `(blank; NGC 6341 block) | 13.23 | 50 | 7.81 | 0.86 | 0.73 | RV` | veldis.html line 6637 | 13.23 | agree
+- bin 13.23" NStar | `(blank; NGC 6341 block) | 13.23 | 50 | 7.81 | 0.86 | 0.73 | RV` | veldis.html line 6637 | 50.0 | agree
+- bin 13.23" sigma [km/s] | `(blank; NGC 6341 block) | 13.23 | 50 | 7.81 | 0.86 | 0.73 | RV` | veldis.html line 6637 | 7.81 | agree
+- bin 13.23" dsigma_Up -> err_hi | `(blank; NGC 6341 block) | 13.23 | 50 | 7.81 | 0.86 | 0.73 | RV` | veldis.html line 6637 | 0.86 | agree
+- bin 13.23" dsigma_Low -> err_lo | `(blank; NGC 6341 block) | 13.23 | 50 | 7.81 | 0.86 | 0.73 | RV` | veldis.html line 6637 | 0.73 | agree
+- bin 54.43" <r> [arcsec] | `(blank; NGC 6341 block) | 54.43 | 50 | 6.62 | 0.73 | 0.62 | RV` | veldis.html line 6709 | 54.43 | agree
+- bin 54.43" NStar | `(blank; NGC 6341 block) | 54.43 | 50 | 6.62 | 0.73 | 0.62 | RV` | veldis.html line 6709 | 50.0 | agree
+- bin 54.43" sigma [km/s] | `(blank; NGC 6341 block) | 54.43 | 50 | 6.62 | 0.73 | 0.62 | RV` | veldis.html line 6709 | 6.62 | agree
+- bin 54.43" dsigma_Up -> err_hi | `(blank; NGC 6341 block) | 54.43 | 50 | 6.62 | 0.73 | 0.62 | RV` | veldis.html line 6709 | 0.73 | agree
+- bin 54.43" dsigma_Low -> err_lo | `(blank; NGC 6341 block) | 54.43 | 50 | 6.62 | 0.73 | 0.62 | RV` | veldis.html line 6709 | 0.62 | agree
+- bin 94.99" <r> [arcsec] | `(blank; NGC 6341 block) | 94.99 | 50 | 6.14 | 0.67 | 0.58 | RV` | veldis.html line 6763 | 94.99 | agree
+- bin 94.99" NStar | `(blank; NGC 6341 block) | 94.99 | 50 | 6.14 | 0.67 | 0.58 | RV` | veldis.html line 6763 | 50.0 | agree
+- bin 94.99" sigma [km/s] | `(blank; NGC 6341 block) | 94.99 | 50 | 6.14 | 0.67 | 0.58 | RV` | veldis.html line 6763 | 6.14 | agree
+- bin 94.99" dsigma_Up -> err_hi | `(blank; NGC 6341 block) | 94.99 | 50 | 6.14 | 0.67 | 0.58 | RV` | veldis.html line 6763 | 0.67 | agree
+- bin 94.99" dsigma_Low -> err_lo | `(blank; NGC 6341 block) | 94.99 | 50 | 6.14 | 0.67 | 0.58 | RV` | veldis.html line 6763 | 0.58 | agree
+- bin 137.85" <r> [arcsec] | `(blank; NGC 6341 block) | 137.85 | 50 | 4.94 | 0.55 | 0.46 | RV` | veldis.html line 6775 | 137.85 | agree
+- bin 137.85" NStar | `(blank; NGC 6341 block) | 137.85 | 50 | 4.94 | 0.55 | 0.46 | RV` | veldis.html line 6775 | 50.0 | agree
+- bin 137.85" sigma [km/s] | `(blank; NGC 6341 block) | 137.85 | 50 | 4.94 | 0.55 | 0.46 | RV` | veldis.html line 6775 | 4.94 | agree
+- bin 137.85" dsigma_Up -> err_hi | `(blank; NGC 6341 block) | 137.85 | 50 | 4.94 | 0.55 | 0.46 | RV` | veldis.html line 6775 | 0.55 | agree
+- bin 137.85" dsigma_Low -> err_lo | `(blank; NGC 6341 block) | 137.85 | 50 | 4.94 | 0.55 | 0.46 | RV` | veldis.html line 6775 | 0.46 | agree
+- bin 182.82" <r> [arcsec] | `(blank; NGC 6341 block) | 182.82 | 50 | 4.50 | 0.50 | 0.43 | RV` | veldis.html line 6781 | 182.82 | agree
+- bin 182.82" NStar | `(blank; NGC 6341 block) | 182.82 | 50 | 4.50 | 0.50 | 0.43 | RV` | veldis.html line 6781 | 50.0 | agree
+- bin 182.82" sigma [km/s] | `(blank; NGC 6341 block) | 182.82 | 50 | 4.50 | 0.50 | 0.43 | RV` | veldis.html line 6781 | 4.5 | agree
+- bin 182.82" dsigma_Up -> err_hi | `(blank; NGC 6341 block) | 182.82 | 50 | 4.50 | 0.50 | 0.43 | RV` | veldis.html line 6781 | 0.5 | agree
+- bin 182.82" dsigma_Low -> err_lo | `(blank; NGC 6341 block) | 182.82 | 50 | 4.50 | 0.50 | 0.43 | RV` | veldis.html line 6781 | 0.43 | agree
+- bin 236.19" <r> [arcsec] | `(blank; NGC 6341 block) | 236.19 | 50 | 4.44 | 0.50 | 0.42 | RV` | veldis.html line 6793 | 236.19 | agree
+- bin 236.19" NStar | `(blank; NGC 6341 block) | 236.19 | 50 | 4.44 | 0.50 | 0.42 | RV` | veldis.html line 6793 | 50.0 | agree
+- bin 236.19" sigma [km/s] | `(blank; NGC 6341 block) | 236.19 | 50 | 4.44 | 0.50 | 0.42 | RV` | veldis.html line 6793 | 4.44 | agree
+- bin 236.19" dsigma_Up -> err_hi | `(blank; NGC 6341 block) | 236.19 | 50 | 4.44 | 0.50 | 0.42 | RV` | veldis.html line 6793 | 0.5 | agree
+- bin 236.19" dsigma_Low -> err_lo | `(blank; NGC 6341 block) | 236.19 | 50 | 4.44 | 0.50 | 0.42 | RV` | veldis.html line 6793 | 0.42 | agree
+- bin 321.80" <r> [arcsec] | `(blank; NGC 6341 block) | 321.80 | 50 | 3.16 | 0.36 | 0.31 | RV` | veldis.html line 6799 | 321.8 | agree
+- bin 321.80" NStar | `(blank; NGC 6341 block) | 321.80 | 50 | 3.16 | 0.36 | 0.31 | RV` | veldis.html line 6799 | 50.0 | agree
+- bin 321.80" sigma [km/s] | `(blank; NGC 6341 block) | 321.80 | 50 | 3.16 | 0.36 | 0.31 | RV` | veldis.html line 6799 | 3.16 | agree
+- bin 321.80" dsigma_Up -> err_hi | `(blank; NGC 6341 block) | 321.80 | 50 | 3.16 | 0.36 | 0.31 | RV` | veldis.html line 6799 | 0.36 | agree
+- bin 321.80" dsigma_Low -> err_lo | `(blank; NGC 6341 block) | 321.80 | 50 | 3.16 | 0.36 | 0.31 | RV` | veldis.html line 6799 | 0.31 | agree
+- bin 570.84" <r> [arcsec] | `(blank; NGC 6341 block) | 570.84 | 47 | 3.10 | 0.38 | 0.32 | RV` | veldis.html line 6811 | 570.84 | agree
+- bin 570.84" NStar | `(blank; NGC 6341 block) | 570.84 | 47 | 3.10 | 0.38 | 0.32 | RV` | veldis.html line 6811 | 47.0 | agree
+- bin 570.84" sigma [km/s] | `(blank; NGC 6341 block) | 570.84 | 47 | 3.10 | 0.38 | 0.32 | RV` | veldis.html line 6811 | 3.1 | agree
+- bin 570.84" dsigma_Up -> err_hi | `(blank; NGC 6341 block) | 570.84 | 47 | 3.10 | 0.38 | 0.32 | RV` | veldis.html line 6811 | 0.38 | agree
+- bin 570.84" dsigma_Low -> err_lo | `(blank; NGC 6341 block) | 570.84 | 47 | 3.10 | 0.38 | 0.32 | RV` | veldis.html line 6811 | 0.32 | agree
+- R_Sun [kpc] | `NGC 6341 ...   8.3   9.6  [R_Sun field: '8.3']` | mwgc.dat line 142 (Part I) | 8.3 | agree
+- M_V,t [mag] | `NGC 6341 ... 6.44  -8.21  [M_V,t field: '-8.21']` | mwgc.dat line 322 (Part II) | -8.21 | agree
+- W0/gamma | `<TD>7.50</TD>` | J_ApJS_161_304_models.vot models.vot line 644 (recno 304, MW-NGC6341, Mod K) | 7.5 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 644 (recno 304, MW-NGC6341, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 644 (recno 304, MW-NGC6341, Mod K) | 0.1 | agree
+- r0 | `<TD>16.150</TD>` | J_ApJS_161_304_models.vot models.vot line 644 (recno 304, MW-NGC6341, Mod K) | 16.15 | agree
+- E_r0 -> err_hi | `<TD>1.080</TD>` | J_ApJS_161_304_models.vot models.vot line 644 (recno 304, MW-NGC6341, Mod K) | 1.08 | agree
+- e_r0 -> err_lo | `<TD>1.060</TD>` | J_ApJS_161_304_models.vot models.vot line 644 (recno 304, MW-NGC6341, Mod K) | 1.06 | agree
+- Rh | `<TD>0.387</TD>` | J_ApJS_161_304_models.vot models.vot line 644 (recno 304, MW-NGC6341, Mod K) | 0.387 | agree
+- E_Rh -> err_hi | `<TD>0.004</TD>` | J_ApJS_161_304_models.vot models.vot line 644 (recno 304, MW-NGC6341, Mod K) | 0.004 | agree
+- e_Rh -> err_lo | `<TD>0.004</TD>` | J_ApJS_161_304_models.vot models.vot line 644 (recno 304, MW-NGC6341, Mod K) | 0.004 | agree
+- Dist | `<TD>8.2</TD>` | J_ApJS_161_304_models.vot models.vot line 644 (recno 304, MW-NGC6341, Mod K) | 8.2 | agree
+- (M/L)1 | `<TD>1.929</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 284 (recno 124, MW-NGC6341) | 1.929 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.164</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 284 (recno 124, MW-NGC6341) | 0.164 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.164</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 284 (recno 124, MW-NGC6341) | 0.164 | agree
+- arithmetic L_V = 167494.2876 vs 167494.2876 | agree; R_h = 10^0.387 x 8.3 / 8.2 = 2.467540219 pc vs 2.467540219 | agree; M/L 1.929 vs 1.929 | agree
+
+### NGC 6356
+
+- bin 13.12" <r> [arcsec] | `NGC 6356 | 13.12 | 27 | 6.85 | 1.13 | 0.90 | RV` | veldis.html line 7058 | 13.12 | agree
+- bin 13.12" NStar | `NGC 6356 | 13.12 | 27 | 6.85 | 1.13 | 0.90 | RV` | veldis.html line 7058 | 27.0 | agree
+- bin 13.12" sigma [km/s] | `NGC 6356 | 13.12 | 27 | 6.85 | 1.13 | 0.90 | RV` | veldis.html line 7058 | 6.85 | agree
+- bin 13.12" dsigma_Up -> err_hi | `NGC 6356 | 13.12 | 27 | 6.85 | 1.13 | 0.90 | RV` | veldis.html line 7058 | 1.13 | agree
+- bin 13.12" dsigma_Low -> err_lo | `NGC 6356 | 13.12 | 27 | 6.85 | 1.13 | 0.90 | RV` | veldis.html line 7058 | 0.9 | agree
+- bin 146.63" <r> [arcsec] | `(blank; NGC 6356 block) | 146.63 | 27 | 3.83 | 0.87 | 0.73 | RV` | veldis.html line 7071 | 146.63 | agree
+- bin 146.63" NStar | `(blank; NGC 6356 block) | 146.63 | 27 | 3.83 | 0.87 | 0.73 | RV` | veldis.html line 7071 | 27.0 | agree
+- bin 146.63" sigma [km/s] | `(blank; NGC 6356 block) | 146.63 | 27 | 3.83 | 0.87 | 0.73 | RV` | veldis.html line 7071 | 3.83 | agree
+- bin 146.63" dsigma_Up -> err_hi | `(blank; NGC 6356 block) | 146.63 | 27 | 3.83 | 0.87 | 0.73 | RV` | veldis.html line 7071 | 0.87 | agree
+- bin 146.63" dsigma_Low -> err_lo | `(blank; NGC 6356 block) | 146.63 | 27 | 3.83 | 0.87 | 0.73 | RV` | veldis.html line 7071 | 0.73 | agree
+- R_Sun [kpc] | `NGC 6356 ...  15.1   7.5  [R_Sun field: '15.1']` | mwgc.dat line 146 (Part I) | 15.1 | agree
+- M_V,t [mag] | `NGC 6356 ... 8.25  -8.51  [M_V,t field: '-8.51']` | mwgc.dat line 326 (Part II) | -8.51 | agree
+- W0/gamma | `<TD>7.20</TD>` | J_ApJS_161_304_models.vot models.vot line 647 (recno 307, MW-NGC6356, Mod K) | 7.2 | agree
+- E_W0/gamma -> err_hi | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 647 (recno 307, MW-NGC6356, Mod K) | 0.2 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 647 (recno 307, MW-NGC6356, Mod K) | 0.1 | agree
+- r0 | `<TD>15.050</TD>` | J_ApJS_161_304_models.vot models.vot line 647 (recno 307, MW-NGC6356, Mod K) | 15.05 | agree
+- E_r0 -> err_hi | `<TD>0.230</TD>` | J_ApJS_161_304_models.vot models.vot line 647 (recno 307, MW-NGC6356, Mod K) | 0.23 | agree
+- e_r0 -> err_lo | `<TD>0.430</TD>` | J_ApJS_161_304_models.vot models.vot line 647 (recno 307, MW-NGC6356, Mod K) | 0.43 | agree
+- Rh | `<TD>0.553</TD>` | J_ApJS_161_304_models.vot models.vot line 647 (recno 307, MW-NGC6356, Mod K) | 0.553 | agree
+- E_Rh -> err_hi | `<TD>0.034</TD>` | J_ApJS_161_304_models.vot models.vot line 647 (recno 307, MW-NGC6356, Mod K) | 0.034 | agree
+- e_Rh -> err_lo | `<TD>0.015</TD>` | J_ApJS_161_304_models.vot models.vot line 647 (recno 307, MW-NGC6356, Mod K) | 0.015 | agree
+- Dist | `<TD>15.2</TD>` | J_ApJS_161_304_models.vot models.vot line 647 (recno 307, MW-NGC6356, Mod K) | 15.2 | agree
+- (M/L)1 | `<TD>2.703</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 288 (recno 128, MW-NGC6356) | 2.703 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.309</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 288 (recno 128, MW-NGC6356) | 0.309 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.309</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 288 (recno 128, MW-NGC6356) | 0.309 | agree
+- arithmetic L_V = 220800.4733 vs 220800.4733 | agree; R_h = 10^0.553 x 15.1 / 15.2 = 3.54922359 pc vs 3.54922359 | agree; M/L 2.703 vs 2.703 | agree
+
+### NGC 6362
+
+- bin 14.29" <r> [arcsec] | `NGC 6362 | 14.29 | 80 | 3.90 | 0.36 | 0.32 | RV` | veldis.html line 7084 | 14.29 | agree
+- bin 14.29" NStar | `NGC 6362 | 14.29 | 80 | 3.90 | 0.36 | 0.32 | RV` | veldis.html line 7084 | 80.0 | agree
+- bin 14.29" sigma [km/s] | `NGC 6362 | 14.29 | 80 | 3.90 | 0.36 | 0.32 | RV` | veldis.html line 7084 | 3.9 | agree
+- bin 14.29" dsigma_Up -> err_hi | `NGC 6362 | 14.29 | 80 | 3.90 | 0.36 | 0.32 | RV` | veldis.html line 7084 | 0.36 | agree
+- bin 14.29" dsigma_Low -> err_lo | `NGC 6362 | 14.29 | 80 | 3.90 | 0.36 | 0.32 | RV` | veldis.html line 7084 | 0.32 | agree
+- bin 25.30" <r> [arcsec] | `(blank; NGC 6362 block) | 25.30 | 80 | 3.18 | 0.33 | 0.29 | RV` | veldis.html line 7097 | 25.3 | agree
+- bin 25.30" NStar | `(blank; NGC 6362 block) | 25.30 | 80 | 3.18 | 0.33 | 0.29 | RV` | veldis.html line 7097 | 80.0 | agree
+- bin 25.30" sigma [km/s] | `(blank; NGC 6362 block) | 25.30 | 80 | 3.18 | 0.33 | 0.29 | RV` | veldis.html line 7097 | 3.18 | agree
+- bin 25.30" dsigma_Up -> err_hi | `(blank; NGC 6362 block) | 25.30 | 80 | 3.18 | 0.33 | 0.29 | RV` | veldis.html line 7097 | 0.33 | agree
+- bin 25.30" dsigma_Low -> err_lo | `(blank; NGC 6362 block) | 25.30 | 80 | 3.18 | 0.33 | 0.29 | RV` | veldis.html line 7097 | 0.29 | agree
+- bin 32.90" <r> [arcsec] | `(blank; NGC 6362 block) | 32.90 | 80 | 3.71 | 0.35 | 0.31 | RV` | veldis.html line 7109 | 32.9 | agree
+- bin 32.90" NStar | `(blank; NGC 6362 block) | 32.90 | 80 | 3.71 | 0.35 | 0.31 | RV` | veldis.html line 7109 | 80.0 | agree
+- bin 32.90" sigma [km/s] | `(blank; NGC 6362 block) | 32.90 | 80 | 3.71 | 0.35 | 0.31 | RV` | veldis.html line 7109 | 3.71 | agree
+- bin 32.90" dsigma_Up -> err_hi | `(blank; NGC 6362 block) | 32.90 | 80 | 3.71 | 0.35 | 0.31 | RV` | veldis.html line 7109 | 0.35 | agree
+- bin 32.90" dsigma_Low -> err_lo | `(blank; NGC 6362 block) | 32.90 | 80 | 3.71 | 0.35 | 0.31 | RV` | veldis.html line 7109 | 0.31 | agree
+- bin 60.02" <r> [arcsec] | `(blank; NGC 6362 block) | 60.02 | 80 | 4.05 | 0.36 | 0.32 | RV` | veldis.html line 7139 | 60.02 | agree
+- bin 60.02" NStar | `(blank; NGC 6362 block) | 60.02 | 80 | 4.05 | 0.36 | 0.32 | RV` | veldis.html line 7139 | 80.0 | agree
+- bin 60.02" sigma [km/s] | `(blank; NGC 6362 block) | 60.02 | 80 | 4.05 | 0.36 | 0.32 | RV` | veldis.html line 7139 | 4.05 | agree
+- bin 60.02" dsigma_Up -> err_hi | `(blank; NGC 6362 block) | 60.02 | 80 | 4.05 | 0.36 | 0.32 | RV` | veldis.html line 7139 | 0.36 | agree
+- bin 60.02" dsigma_Low -> err_lo | `(blank; NGC 6362 block) | 60.02 | 80 | 4.05 | 0.36 | 0.32 | RV` | veldis.html line 7139 | 0.32 | agree
+- bin 106.33" <r> [arcsec] | `(blank; NGC 6362 block) | 106.33 | 80 | 3.15 | 0.29 | 0.26 | RV` | veldis.html line 7205 | 106.33 | agree
+- bin 106.33" NStar | `(blank; NGC 6362 block) | 106.33 | 80 | 3.15 | 0.29 | 0.26 | RV` | veldis.html line 7205 | 80.0 | agree
+- bin 106.33" sigma [km/s] | `(blank; NGC 6362 block) | 106.33 | 80 | 3.15 | 0.29 | 0.26 | RV` | veldis.html line 7205 | 3.15 | agree
+- bin 106.33" dsigma_Up -> err_hi | `(blank; NGC 6362 block) | 106.33 | 80 | 3.15 | 0.29 | 0.26 | RV` | veldis.html line 7205 | 0.29 | agree
+- bin 106.33" dsigma_Low -> err_lo | `(blank; NGC 6362 block) | 106.33 | 80 | 3.15 | 0.29 | 0.26 | RV` | veldis.html line 7205 | 0.26 | agree
+- bin 177.13" <r> [arcsec] | `(blank; NGC 6362 block) | 177.13 | 80 | 2.68 | 0.25 | 0.22 | RV` | veldis.html line 7217 | 177.13 | agree
+- bin 177.13" NStar | `(blank; NGC 6362 block) | 177.13 | 80 | 2.68 | 0.25 | 0.22 | RV` | veldis.html line 7217 | 80.0 | agree
+- bin 177.13" sigma [km/s] | `(blank; NGC 6362 block) | 177.13 | 80 | 2.68 | 0.25 | 0.22 | RV` | veldis.html line 7217 | 2.68 | agree
+- bin 177.13" dsigma_Up -> err_hi | `(blank; NGC 6362 block) | 177.13 | 80 | 2.68 | 0.25 | 0.22 | RV` | veldis.html line 7217 | 0.25 | agree
+- bin 177.13" dsigma_Low -> err_lo | `(blank; NGC 6362 block) | 177.13 | 80 | 2.68 | 0.25 | 0.22 | RV` | veldis.html line 7217 | 0.22 | agree
+- bin 297.28" <r> [arcsec] | `(blank; NGC 6362 block) | 297.28 | 80 | 2.56 | 0.24 | 0.21 | RV` | veldis.html line 7229 | 297.28 | agree
+- bin 297.28" NStar | `(blank; NGC 6362 block) | 297.28 | 80 | 2.56 | 0.24 | 0.21 | RV` | veldis.html line 7229 | 80.0 | agree
+- bin 297.28" sigma [km/s] | `(blank; NGC 6362 block) | 297.28 | 80 | 2.56 | 0.24 | 0.21 | RV` | veldis.html line 7229 | 2.56 | agree
+- bin 297.28" dsigma_Up -> err_hi | `(blank; NGC 6362 block) | 297.28 | 80 | 2.56 | 0.24 | 0.21 | RV` | veldis.html line 7229 | 0.24 | agree
+- bin 297.28" dsigma_Low -> err_lo | `(blank; NGC 6362 block) | 297.28 | 80 | 2.56 | 0.24 | 0.21 | RV` | veldis.html line 7229 | 0.21 | agree
+- bin 451.18" <r> [arcsec] | `(blank; NGC 6362 block) | 451.18 | 12 | 1.82 | 0.57 | 0.40 | RV` | veldis.html line 7241 | 451.18 | agree
+- bin 451.18" NStar | `(blank; NGC 6362 block) | 451.18 | 12 | 1.82 | 0.57 | 0.40 | RV` | veldis.html line 7241 | 12.0 | agree
+- bin 451.18" sigma [km/s] | `(blank; NGC 6362 block) | 451.18 | 12 | 1.82 | 0.57 | 0.40 | RV` | veldis.html line 7241 | 1.82 | agree
+- bin 451.18" dsigma_Up -> err_hi | `(blank; NGC 6362 block) | 451.18 | 12 | 1.82 | 0.57 | 0.40 | RV` | veldis.html line 7241 | 0.57 | agree
+- bin 451.18" dsigma_Low -> err_lo | `(blank; NGC 6362 block) | 451.18 | 12 | 1.82 | 0.57 | 0.40 | RV` | veldis.html line 7241 | 0.4 | agree
+- R_Sun [kpc] | `NGC 6362 ...   7.6   5.1  [R_Sun field: '7.6']` | mwgc.dat line 154 (Part I) | 7.6 | agree
+- M_V,t [mag] | `NGC 6362 ... 7.73  -6.95  [M_V,t field: '-6.95']` | mwgc.dat line 334 (Part II) | -6.95 | agree
+- W0/gamma | `<TD>5.30</TD>` | J_ApJS_161_304_models.vot models.vot line 650 (recno 310, MW-NGC6362, Mod K) | 5.3 | agree
+- E_W0/gamma -> err_hi | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 650 (recno 310, MW-NGC6362, Mod K) | 0.2 | agree
+- e_W0/gamma -> err_lo | `<TD>0.30</TD>` | J_ApJS_161_304_models.vot models.vot line 650 (recno 310, MW-NGC6362, Mod K) | 0.3 | agree
+- r0 | `<TD>75.700</TD>` | J_ApJS_161_304_models.vot models.vot line 650 (recno 310, MW-NGC6362, Mod K) | 75.7 | agree
+- E_r0 -> err_hi | `<TD>4.400</TD>` | J_ApJS_161_304_models.vot models.vot line 650 (recno 310, MW-NGC6362, Mod K) | 4.4 | agree
+- e_r0 -> err_lo | `<TD>2.710</TD>` | J_ApJS_161_304_models.vot models.vot line 650 (recno 310, MW-NGC6362, Mod K) | 2.71 | agree
+- Rh | `<TD>0.657</TD>` | J_ApJS_161_304_models.vot models.vot line 650 (recno 310, MW-NGC6362, Mod K) | 0.657 | agree
+- E_Rh -> err_hi | `<TD>0.007</TD>` | J_ApJS_161_304_models.vot models.vot line 650 (recno 310, MW-NGC6362, Mod K) | 0.007 | agree
+- e_Rh -> err_lo | `<TD>0.008</TD>` | J_ApJS_161_304_models.vot models.vot line 650 (recno 310, MW-NGC6362, Mod K) | 0.008 | agree
+- Dist | `<TD>7.6</TD>` | J_ApJS_161_304_models.vot models.vot line 650 (recno 310, MW-NGC6362, Mod K) | 7.6 | agree
+- (M/L)1 | `<TD>2.160</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 289 (recno 129, MW-NGC6362) | 2.16 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.200</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 289 (recno 129, MW-NGC6362) | 0.2 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.200</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 289 (recno 129, MW-NGC6362) | 0.2 | agree
+- arithmetic L_V = 52480.74602 vs 52480.74602 | agree; R_h = 10^0.657 x 7.6 / 7.6 = 4.539416167 pc vs 4.539416167 | agree; M/L 2.16 vs 2.16 | agree
+
+### NGC 6366
+
+- bin 84.77" <r> [arcsec] | `(blank; NGC 6366 block) | 84.77 | 80 | 2.03 | 0.22 | 0.20 | RV` | veldis.html line 7273 | 84.77 | agree
+- bin 84.77" NStar | `(blank; NGC 6366 block) | 84.77 | 80 | 2.03 | 0.22 | 0.20 | RV` | veldis.html line 7273 | 80.0 | agree
+- bin 84.77" sigma [km/s] | `(blank; NGC 6366 block) | 84.77 | 80 | 2.03 | 0.22 | 0.20 | RV` | veldis.html line 7273 | 2.03 | agree
+- bin 84.77" dsigma_Up -> err_hi | `(blank; NGC 6366 block) | 84.77 | 80 | 2.03 | 0.22 | 0.20 | RV` | veldis.html line 7273 | 0.22 | agree
+- bin 84.77" dsigma_Low -> err_lo | `(blank; NGC 6366 block) | 84.77 | 80 | 2.03 | 0.22 | 0.20 | RV` | veldis.html line 7273 | 0.2 | agree
+- bin 184.60" <r> [arcsec] | `(blank; NGC 6366 block) | 184.60 | 80 | 2.23 | 0.22 | 0.20 | RV` | veldis.html line 7291 | 184.6 | agree
+- bin 184.60" NStar | `(blank; NGC 6366 block) | 184.60 | 80 | 2.23 | 0.22 | 0.20 | RV` | veldis.html line 7291 | 80.0 | agree
+- bin 184.60" sigma [km/s] | `(blank; NGC 6366 block) | 184.60 | 80 | 2.23 | 0.22 | 0.20 | RV` | veldis.html line 7291 | 2.23 | agree
+- bin 184.60" dsigma_Up -> err_hi | `(blank; NGC 6366 block) | 184.60 | 80 | 2.23 | 0.22 | 0.20 | RV` | veldis.html line 7291 | 0.22 | agree
+- bin 184.60" dsigma_Low -> err_lo | `(blank; NGC 6366 block) | 184.60 | 80 | 2.23 | 0.22 | 0.20 | RV` | veldis.html line 7291 | 0.2 | agree
+- bin 342.84" <r> [arcsec] | `(blank; NGC 6366 block) | 342.84 | 72 | 2.17 | 0.24 | 0.21 | RV` | veldis.html line 7309 | 342.84 | agree
+- bin 342.84" NStar | `(blank; NGC 6366 block) | 342.84 | 72 | 2.17 | 0.24 | 0.21 | RV` | veldis.html line 7309 | 72.0 | agree
+- bin 342.84" sigma [km/s] | `(blank; NGC 6366 block) | 342.84 | 72 | 2.17 | 0.24 | 0.21 | RV` | veldis.html line 7309 | 2.17 | agree
+- bin 342.84" dsigma_Up -> err_hi | `(blank; NGC 6366 block) | 342.84 | 72 | 2.17 | 0.24 | 0.21 | RV` | veldis.html line 7309 | 0.24 | agree
+- bin 342.84" dsigma_Low -> err_lo | `(blank; NGC 6366 block) | 342.84 | 72 | 2.17 | 0.24 | 0.21 | RV` | veldis.html line 7309 | 0.21 | agree
+- R_Sun [kpc] | `NGC 6366 ...   3.5   5.0  [R_Sun field: '3.5']` | mwgc.dat line 151 (Part I) | 3.5 | agree
+- M_V,t [mag] | `NGC 6366 ... 9.20  -5.74  [M_V,t field: '-5.74']` | mwgc.dat line 331 (Part II) | -5.74 | agree
+- W0/gamma | `<TD>3.40</TD>` | J_ApJS_161_304_models.vot models.vot line 653 (recno 313, MW-NGC6366, Mod K) | 3.4 | agree
+- E_W0/gamma -> err_hi | `<TD>0.60</TD>` | J_ApJS_161_304_models.vot models.vot line 653 (recno 313, MW-NGC6366, Mod K) | 0.6 | agree
+- e_W0/gamma -> err_lo | `<TD>0.60</TD>` | J_ApJS_161_304_models.vot models.vot line 653 (recno 313, MW-NGC6366, Mod K) | 0.6 | agree
+- r0 | `<TD>167.310</TD>` | J_ApJS_161_304_models.vot models.vot line 653 (recno 313, MW-NGC6366, Mod K) | 167.31 | agree
+- E_r0 -> err_hi | `<TD>24.410</TD>` | J_ApJS_161_304_models.vot models.vot line 653 (recno 313, MW-NGC6366, Mod K) | 24.41 | agree
+- e_r0 -> err_lo | `<TD>19.190</TD>` | J_ApJS_161_304_models.vot models.vot line 653 (recno 313, MW-NGC6366, Mod K) | 19.19 | agree
+- Rh | `<TD>0.486</TD>` | J_ApJS_161_304_models.vot models.vot line 653 (recno 313, MW-NGC6366, Mod K) | 0.486 | agree
+- E_Rh -> err_hi | `<TD>0.005</TD>` | J_ApJS_161_304_models.vot models.vot line 653 (recno 313, MW-NGC6366, Mod K) | 0.005 | agree
+- e_Rh -> err_lo | `<TD>0.001</TD>` | J_ApJS_161_304_models.vot models.vot line 653 (recno 313, MW-NGC6366, Mod K) | 0.001 | agree
+- Dist | `<TD>3.6</TD>` | J_ApJS_161_304_models.vot models.vot line 653 (recno 313, MW-NGC6366, Mod K) | 3.6 | agree
+- (M/L)1 | `<TD>2.282</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 290 (recno 130, MW-NGC6366) | 2.282 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.225</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 290 (recno 130, MW-NGC6366) | 0.225 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.225</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 290 (recno 130, MW-NGC6366) | 0.225 | agree
+- arithmetic L_V = 17218.68575 vs 17218.68575 | agree; R_h = 10^0.486 x 3.5 / 3.6 = 2.976908894 pc vs 2.976908894 | agree; M/L 2.282 vs 2.282 | agree
+
+### NGC 6388
+
+- bin 7.60" <r> [arcsec] | `(blank; NGC 6388 block) | 7.60 | 300 | 17.86 | 0.77 | 0.71 | RV` | veldis.html line 7511 | 7.6 | agree
+- bin 7.60" NStar | `(blank; NGC 6388 block) | 7.60 | 300 | 17.86 | 0.77 | 0.71 | RV` | veldis.html line 7511 | 300.0 | agree
+- bin 7.60" sigma [km/s] | `(blank; NGC 6388 block) | 7.60 | 300 | 17.86 | 0.77 | 0.71 | RV` | veldis.html line 7511 | 17.86 | agree
+- bin 7.60" dsigma_Up -> err_hi | `(blank; NGC 6388 block) | 7.60 | 300 | 17.86 | 0.77 | 0.71 | RV` | veldis.html line 7511 | 0.77 | agree
+- bin 7.60" dsigma_Low -> err_lo | `(blank; NGC 6388 block) | 7.60 | 300 | 17.86 | 0.77 | 0.71 | RV` | veldis.html line 7511 | 0.71 | agree
+- bin 13.31" <r> [arcsec] | `(blank; NGC 6388 block) | 13.31 | 300 | 17.68 | 0.75 | 0.70 | RV` | veldis.html line 7523 | 13.31 | agree
+- bin 13.31" NStar | `(blank; NGC 6388 block) | 13.31 | 300 | 17.68 | 0.75 | 0.70 | RV` | veldis.html line 7523 | 300.0 | agree
+- bin 13.31" sigma [km/s] | `(blank; NGC 6388 block) | 13.31 | 300 | 17.68 | 0.75 | 0.70 | RV` | veldis.html line 7523 | 17.68 | agree
+- bin 13.31" dsigma_Up -> err_hi | `(blank; NGC 6388 block) | 13.31 | 300 | 17.68 | 0.75 | 0.70 | RV` | veldis.html line 7523 | 0.75 | agree
+- bin 13.31" dsigma_Low -> err_lo | `(blank; NGC 6388 block) | 13.31 | 300 | 17.68 | 0.75 | 0.70 | RV` | veldis.html line 7523 | 0.7 | agree
+- bin 16.63" <r> [arcsec] | `(blank; NGC 6388 block) | 16.63 | 300 | 15.41 | 0.66 | 0.62 | RV` | veldis.html line 7529 | 16.63 | agree
+- bin 16.63" NStar | `(blank; NGC 6388 block) | 16.63 | 300 | 15.41 | 0.66 | 0.62 | RV` | veldis.html line 7529 | 300.0 | agree
+- bin 16.63" sigma [km/s] | `(blank; NGC 6388 block) | 16.63 | 300 | 15.41 | 0.66 | 0.62 | RV` | veldis.html line 7529 | 15.41 | agree
+- bin 16.63" dsigma_Up -> err_hi | `(blank; NGC 6388 block) | 16.63 | 300 | 15.41 | 0.66 | 0.62 | RV` | veldis.html line 7529 | 0.66 | agree
+- bin 16.63" dsigma_Low -> err_lo | `(blank; NGC 6388 block) | 16.63 | 300 | 15.41 | 0.66 | 0.62 | RV` | veldis.html line 7529 | 0.62 | agree
+- bin 19.52" <r> [arcsec] | `(blank; NGC 6388 block) | 19.52 | 300 | 15.13 | 0.65 | 0.61 | RV` | veldis.html line 7547 | 19.52 | agree
+- bin 19.52" NStar | `(blank; NGC 6388 block) | 19.52 | 300 | 15.13 | 0.65 | 0.61 | RV` | veldis.html line 7547 | 300.0 | agree
+- bin 19.52" sigma [km/s] | `(blank; NGC 6388 block) | 19.52 | 300 | 15.13 | 0.65 | 0.61 | RV` | veldis.html line 7547 | 15.13 | agree
+- bin 19.52" dsigma_Up -> err_hi | `(blank; NGC 6388 block) | 19.52 | 300 | 15.13 | 0.65 | 0.61 | RV` | veldis.html line 7547 | 0.65 | agree
+- bin 19.52" dsigma_Low -> err_lo | `(blank; NGC 6388 block) | 19.52 | 300 | 15.13 | 0.65 | 0.61 | RV` | veldis.html line 7547 | 0.61 | agree
+- bin 22.48" <r> [arcsec] | `(blank; NGC 6388 block) | 22.48 | 300 | 15.23 | 0.65 | 0.62 | RV` | veldis.html line 7553 | 22.48 | agree
+- bin 22.48" NStar | `(blank; NGC 6388 block) | 22.48 | 300 | 15.23 | 0.65 | 0.62 | RV` | veldis.html line 7553 | 300.0 | agree
+- bin 22.48" sigma [km/s] | `(blank; NGC 6388 block) | 22.48 | 300 | 15.23 | 0.65 | 0.62 | RV` | veldis.html line 7553 | 15.23 | agree
+- bin 22.48" dsigma_Up -> err_hi | `(blank; NGC 6388 block) | 22.48 | 300 | 15.23 | 0.65 | 0.62 | RV` | veldis.html line 7553 | 0.65 | agree
+- bin 22.48" dsigma_Low -> err_lo | `(blank; NGC 6388 block) | 22.48 | 300 | 15.23 | 0.65 | 0.62 | RV` | veldis.html line 7553 | 0.62 | agree
+- bin 25.15" <r> [arcsec] | `(blank; NGC 6388 block) | 25.15 | 300 | 15.84 | 0.68 | 0.64 | RV` | veldis.html line 7565 | 25.15 | agree
+- bin 25.15" NStar | `(blank; NGC 6388 block) | 25.15 | 300 | 15.84 | 0.68 | 0.64 | RV` | veldis.html line 7565 | 300.0 | agree
+- bin 25.15" sigma [km/s] | `(blank; NGC 6388 block) | 25.15 | 300 | 15.84 | 0.68 | 0.64 | RV` | veldis.html line 7565 | 15.84 | agree
+- bin 25.15" dsigma_Up -> err_hi | `(blank; NGC 6388 block) | 25.15 | 300 | 15.84 | 0.68 | 0.64 | RV` | veldis.html line 7565 | 0.68 | agree
+- bin 25.15" dsigma_Low -> err_lo | `(blank; NGC 6388 block) | 25.15 | 300 | 15.84 | 0.68 | 0.64 | RV` | veldis.html line 7565 | 0.64 | agree
+- bin 28.03" <r> [arcsec] | `(blank; NGC 6388 block) | 28.03 | 300 | 15.24 | 0.66 | 0.61 | RV` | veldis.html line 7577 | 28.03 | agree
+- bin 28.03" NStar | `(blank; NGC 6388 block) | 28.03 | 300 | 15.24 | 0.66 | 0.61 | RV` | veldis.html line 7577 | 300.0 | agree
+- bin 28.03" sigma [km/s] | `(blank; NGC 6388 block) | 28.03 | 300 | 15.24 | 0.66 | 0.61 | RV` | veldis.html line 7577 | 15.24 | agree
+- bin 28.03" dsigma_Up -> err_hi | `(blank; NGC 6388 block) | 28.03 | 300 | 15.24 | 0.66 | 0.61 | RV` | veldis.html line 7577 | 0.66 | agree
+- bin 28.03" dsigma_Low -> err_lo | `(blank; NGC 6388 block) | 28.03 | 300 | 15.24 | 0.66 | 0.61 | RV` | veldis.html line 7577 | 0.61 | agree
+- bin 30.92" <r> [arcsec] | `(blank; NGC 6388 block) | 30.92 | 300 | 14.62 | 0.63 | 0.59 | RV` | veldis.html line 7589 | 30.92 | agree
+- bin 30.92" NStar | `(blank; NGC 6388 block) | 30.92 | 300 | 14.62 | 0.63 | 0.59 | RV` | veldis.html line 7589 | 300.0 | agree
+- bin 30.92" sigma [km/s] | `(blank; NGC 6388 block) | 30.92 | 300 | 14.62 | 0.63 | 0.59 | RV` | veldis.html line 7589 | 14.62 | agree
+- bin 30.92" dsigma_Up -> err_hi | `(blank; NGC 6388 block) | 30.92 | 300 | 14.62 | 0.63 | 0.59 | RV` | veldis.html line 7589 | 0.63 | agree
+- bin 30.92" dsigma_Low -> err_lo | `(blank; NGC 6388 block) | 30.92 | 300 | 14.62 | 0.63 | 0.59 | RV` | veldis.html line 7589 | 0.59 | agree
+- bin 33.78" <r> [arcsec] | `(blank; NGC 6388 block) | 33.78 | 300 | 14.73 | 0.64 | 0.59 | RV` | veldis.html line 7601 | 33.78 | agree
+- bin 33.78" NStar | `(blank; NGC 6388 block) | 33.78 | 300 | 14.73 | 0.64 | 0.59 | RV` | veldis.html line 7601 | 300.0 | agree
+- bin 33.78" sigma [km/s] | `(blank; NGC 6388 block) | 33.78 | 300 | 14.73 | 0.64 | 0.59 | RV` | veldis.html line 7601 | 14.73 | agree
+- bin 33.78" dsigma_Up -> err_hi | `(blank; NGC 6388 block) | 33.78 | 300 | 14.73 | 0.64 | 0.59 | RV` | veldis.html line 7601 | 0.64 | agree
+- bin 33.78" dsigma_Low -> err_lo | `(blank; NGC 6388 block) | 33.78 | 300 | 14.73 | 0.64 | 0.59 | RV` | veldis.html line 7601 | 0.59 | agree
+- bin 37.11" <r> [arcsec] | `(blank; NGC 6388 block) | 37.11 | 300 | 13.41 | 0.58 | 0.54 | RV` | veldis.html line 7619 | 37.11 | agree
+- bin 37.11" NStar | `(blank; NGC 6388 block) | 37.11 | 300 | 13.41 | 0.58 | 0.54 | RV` | veldis.html line 7619 | 300.0 | agree
+- bin 37.11" sigma [km/s] | `(blank; NGC 6388 block) | 37.11 | 300 | 13.41 | 0.58 | 0.54 | RV` | veldis.html line 7619 | 13.41 | agree
+- bin 37.11" dsigma_Up -> err_hi | `(blank; NGC 6388 block) | 37.11 | 300 | 13.41 | 0.58 | 0.54 | RV` | veldis.html line 7619 | 0.58 | agree
+- bin 37.11" dsigma_Low -> err_lo | `(blank; NGC 6388 block) | 37.11 | 300 | 13.41 | 0.58 | 0.54 | RV` | veldis.html line 7619 | 0.54 | agree
+- bin 41.03" <r> [arcsec] | `(blank; NGC 6388 block) | 41.03 | 300 | 13.26 | 0.57 | 0.54 | RV` | veldis.html line 7637 | 41.03 | agree
+- bin 41.03" NStar | `(blank; NGC 6388 block) | 41.03 | 300 | 13.26 | 0.57 | 0.54 | RV` | veldis.html line 7637 | 300.0 | agree
+- bin 41.03" sigma [km/s] | `(blank; NGC 6388 block) | 41.03 | 300 | 13.26 | 0.57 | 0.54 | RV` | veldis.html line 7637 | 13.26 | agree
+- bin 41.03" dsigma_Up -> err_hi | `(blank; NGC 6388 block) | 41.03 | 300 | 13.26 | 0.57 | 0.54 | RV` | veldis.html line 7637 | 0.57 | agree
+- bin 41.03" dsigma_Low -> err_lo | `(blank; NGC 6388 block) | 41.03 | 300 | 13.26 | 0.57 | 0.54 | RV` | veldis.html line 7637 | 0.54 | agree
+- bin 47.52" <r> [arcsec] | `(blank; NGC 6388 block) | 47.52 | 300 | 13.79 | 0.59 | 0.55 | RV` | veldis.html line 7661 | 47.52 | agree
+- bin 47.52" NStar | `(blank; NGC 6388 block) | 47.52 | 300 | 13.79 | 0.59 | 0.55 | RV` | veldis.html line 7661 | 300.0 | agree
+- bin 47.52" sigma [km/s] | `(blank; NGC 6388 block) | 47.52 | 300 | 13.79 | 0.59 | 0.55 | RV` | veldis.html line 7661 | 13.79 | agree
+- bin 47.52" dsigma_Up -> err_hi | `(blank; NGC 6388 block) | 47.52 | 300 | 13.79 | 0.59 | 0.55 | RV` | veldis.html line 7661 | 0.59 | agree
+- bin 47.52" dsigma_Low -> err_lo | `(blank; NGC 6388 block) | 47.52 | 300 | 13.79 | 0.59 | 0.55 | RV` | veldis.html line 7661 | 0.55 | agree
+- bin 55.06" <r> [arcsec] | `(blank; NGC 6388 block) | 55.06 | 300 | 13.23 | 0.57 | 0.53 | RV` | veldis.html line 7691 | 55.06 | agree
+- bin 55.06" NStar | `(blank; NGC 6388 block) | 55.06 | 300 | 13.23 | 0.57 | 0.53 | RV` | veldis.html line 7691 | 300.0 | agree
+- bin 55.06" sigma [km/s] | `(blank; NGC 6388 block) | 55.06 | 300 | 13.23 | 0.57 | 0.53 | RV` | veldis.html line 7691 | 13.23 | agree
+- bin 55.06" dsigma_Up -> err_hi | `(blank; NGC 6388 block) | 55.06 | 300 | 13.23 | 0.57 | 0.53 | RV` | veldis.html line 7691 | 0.57 | agree
+- bin 55.06" dsigma_Low -> err_lo | `(blank; NGC 6388 block) | 55.06 | 300 | 13.23 | 0.57 | 0.53 | RV` | veldis.html line 7691 | 0.53 | agree
+- bin 67.49" <r> [arcsec] | `(blank; NGC 6388 block) | 67.49 | 100 | 11.85 | 0.91 | 0.80 | RV` | veldis.html line 7727 | 67.49 | agree
+- bin 67.49" NStar | `(blank; NGC 6388 block) | 67.49 | 100 | 11.85 | 0.91 | 0.80 | RV` | veldis.html line 7727 | 100.0 | agree
+- bin 67.49" sigma [km/s] | `(blank; NGC 6388 block) | 67.49 | 100 | 11.85 | 0.91 | 0.80 | RV` | veldis.html line 7727 | 11.85 | agree
+- bin 67.49" dsigma_Up -> err_hi | `(blank; NGC 6388 block) | 67.49 | 100 | 11.85 | 0.91 | 0.80 | RV` | veldis.html line 7727 | 0.91 | agree
+- bin 67.49" dsigma_Low -> err_lo | `(blank; NGC 6388 block) | 67.49 | 100 | 11.85 | 0.91 | 0.80 | RV` | veldis.html line 7727 | 0.8 | agree
+- bin 94.32" <r> [arcsec] | `(blank; NGC 6388 block) | 94.32 | 100 | 10.92 | 0.82 | 0.73 | RV` | veldis.html line 7775 | 94.32 | agree
+- bin 94.32" NStar | `(blank; NGC 6388 block) | 94.32 | 100 | 10.92 | 0.82 | 0.73 | RV` | veldis.html line 7775 | 100.0 | agree
+- bin 94.32" sigma [km/s] | `(blank; NGC 6388 block) | 94.32 | 100 | 10.92 | 0.82 | 0.73 | RV` | veldis.html line 7775 | 10.92 | agree
+- bin 94.32" dsigma_Up -> err_hi | `(blank; NGC 6388 block) | 94.32 | 100 | 10.92 | 0.82 | 0.73 | RV` | veldis.html line 7775 | 0.82 | agree
+- bin 94.32" dsigma_Low -> err_lo | `(blank; NGC 6388 block) | 94.32 | 100 | 10.92 | 0.82 | 0.73 | RV` | veldis.html line 7775 | 0.73 | agree
+- bin 138.45" <r> [arcsec] | `(blank; NGC 6388 block) | 138.45 | 100 | 8.39 | 0.63 | 0.56 | RV` | veldis.html line 7799 | 138.45 | agree
+- bin 138.45" NStar | `(blank; NGC 6388 block) | 138.45 | 100 | 8.39 | 0.63 | 0.56 | RV` | veldis.html line 7799 | 100.0 | agree
+- bin 138.45" sigma [km/s] | `(blank; NGC 6388 block) | 138.45 | 100 | 8.39 | 0.63 | 0.56 | RV` | veldis.html line 7799 | 8.39 | agree
+- bin 138.45" dsigma_Up -> err_hi | `(blank; NGC 6388 block) | 138.45 | 100 | 8.39 | 0.63 | 0.56 | RV` | veldis.html line 7799 | 0.63 | agree
+- bin 138.45" dsigma_Low -> err_lo | `(blank; NGC 6388 block) | 138.45 | 100 | 8.39 | 0.63 | 0.56 | RV` | veldis.html line 7799 | 0.56 | agree
+- bin 200.86" <r> [arcsec] | `(blank; NGC 6388 block) | 200.86 | 100 | 8.48 | 0.64 | 0.57 | RV` | veldis.html line 7811 | 200.86 | agree
+- bin 200.86" NStar | `(blank; NGC 6388 block) | 200.86 | 100 | 8.48 | 0.64 | 0.57 | RV` | veldis.html line 7811 | 100.0 | agree
+- bin 200.86" sigma [km/s] | `(blank; NGC 6388 block) | 200.86 | 100 | 8.48 | 0.64 | 0.57 | RV` | veldis.html line 7811 | 8.48 | agree
+- bin 200.86" dsigma_Up -> err_hi | `(blank; NGC 6388 block) | 200.86 | 100 | 8.48 | 0.64 | 0.57 | RV` | veldis.html line 7811 | 0.64 | agree
+- bin 200.86" dsigma_Low -> err_lo | `(blank; NGC 6388 block) | 200.86 | 100 | 8.48 | 0.64 | 0.57 | RV` | veldis.html line 7811 | 0.57 | agree
+- bin 348.42" <r> [arcsec] | `(blank; NGC 6388 block) | 348.42 | 88 | 5.71 | 0.46 | 0.41 | RV` | veldis.html line 7829 | 348.42 | agree
+- bin 348.42" NStar | `(blank; NGC 6388 block) | 348.42 | 88 | 5.71 | 0.46 | 0.41 | RV` | veldis.html line 7829 | 88.0 | agree
+- bin 348.42" sigma [km/s] | `(blank; NGC 6388 block) | 348.42 | 88 | 5.71 | 0.46 | 0.41 | RV` | veldis.html line 7829 | 5.71 | agree
+- bin 348.42" dsigma_Up -> err_hi | `(blank; NGC 6388 block) | 348.42 | 88 | 5.71 | 0.46 | 0.41 | RV` | veldis.html line 7829 | 0.46 | agree
+- bin 348.42" dsigma_Low -> err_lo | `(blank; NGC 6388 block) | 348.42 | 88 | 5.71 | 0.46 | 0.41 | RV` | veldis.html line 7829 | 0.41 | agree
+- R_Sun [kpc] | `NGC 6388 ...   9.9   3.1  [R_Sun field: '9.9']` | mwgc.dat line 159 (Part I) | 9.9 | agree
+- M_V,t [mag] | `NGC 6388 ... 6.72  -9.41  [M_V,t field: '-9.41']` | mwgc.dat line 339 (Part II) | -9.41 | agree
+- W0/gamma | `<TD>7.60</TD>` | J_ApJS_161_304_models.vot models.vot line 656 (recno 316, MW-NGC6388, Mod K) | 7.6 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 656 (recno 316, MW-NGC6388, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 656 (recno 316, MW-NGC6388, Mod K) | 0.1 | agree
+- r0 | `<TD>7.800</TD>` | J_ApJS_161_304_models.vot models.vot line 656 (recno 316, MW-NGC6388, Mod K) | 7.8 | agree
+- E_r0 -> err_hi | `<TD>0.330</TD>` | J_ApJS_161_304_models.vot models.vot line 656 (recno 316, MW-NGC6388, Mod K) | 0.33 | agree
+- e_r0 -> err_lo | `<TD>0.310</TD>` | J_ApJS_161_304_models.vot models.vot line 656 (recno 316, MW-NGC6388, Mod K) | 0.31 | agree
+- Rh | `<TD>0.183</TD>` | J_ApJS_161_304_models.vot models.vot line 656 (recno 316, MW-NGC6388, Mod K) | 0.183 | agree
+- E_Rh -> err_hi | `<TD>0.009</TD>` | J_ApJS_161_304_models.vot models.vot line 656 (recno 316, MW-NGC6388, Mod K) | 0.009 | agree
+- e_Rh -> err_lo | `<TD>0.008</TD>` | J_ApJS_161_304_models.vot models.vot line 656 (recno 316, MW-NGC6388, Mod K) | 0.008 | agree
+- Dist | `<TD>10.0</TD>` | J_ApJS_161_304_models.vot models.vot line 656 (recno 316, MW-NGC6388, Mod K) | 10.0 | agree
+- (M/L)1 | `<TD>2.552</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 292 (recno 132, MW-NGC6388) | 2.552 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.281</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 292 (recno 132, MW-NGC6388) | 0.281 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.281</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 292 (recno 132, MW-NGC6388) | 0.281 | agree
+- arithmetic L_V = 505824.662 vs 505824.662 | agree; R_h = 10^0.183 x 9.9 / 10.0 = 1.508812226 pc vs 1.508812226 | agree; M/L 2.552 vs 2.552 | agree
+
+### NGC 6402
+
+- bin 50.92" <r> [arcsec] | `NGC 6402 | 50.92 | 55 | 8.79 | 0.92 | 0.78 | RV` | veldis.html line 8170 | 50.92 | agree
+- bin 50.92" NStar | `NGC 6402 | 50.92 | 55 | 8.79 | 0.92 | 0.78 | RV` | veldis.html line 8170 | 55.0 | agree
+- bin 50.92" sigma [km/s] | `NGC 6402 | 50.92 | 55 | 8.79 | 0.92 | 0.78 | RV` | veldis.html line 8170 | 8.79 | agree
+- bin 50.92" dsigma_Up -> err_hi | `NGC 6402 | 50.92 | 55 | 8.79 | 0.92 | 0.78 | RV` | veldis.html line 8170 | 0.92 | agree
+- bin 50.92" dsigma_Low -> err_lo | `NGC 6402 | 50.92 | 55 | 8.79 | 0.92 | 0.78 | RV` | veldis.html line 8170 | 0.78 | agree
+- bin 88.24" <r> [arcsec] | `(blank; NGC 6402 block) | 88.24 | 55 | 7.66 | 0.80 | 0.68 | RV` | veldis.html line 8177 | 88.24 | agree
+- bin 88.24" NStar | `(blank; NGC 6402 block) | 88.24 | 55 | 7.66 | 0.80 | 0.68 | RV` | veldis.html line 8177 | 55.0 | agree
+- bin 88.24" sigma [km/s] | `(blank; NGC 6402 block) | 88.24 | 55 | 7.66 | 0.80 | 0.68 | RV` | veldis.html line 8177 | 7.66 | agree
+- bin 88.24" dsigma_Up -> err_hi | `(blank; NGC 6402 block) | 88.24 | 55 | 7.66 | 0.80 | 0.68 | RV` | veldis.html line 8177 | 0.8 | agree
+- bin 88.24" dsigma_Low -> err_lo | `(blank; NGC 6402 block) | 88.24 | 55 | 7.66 | 0.80 | 0.68 | RV` | veldis.html line 8177 | 0.68 | agree
+- bin 119.97" <r> [arcsec] | `(blank; NGC 6402 block) | 119.97 | 55 | 7.20 | 0.75 | 0.65 | RV` | veldis.html line 8183 | 119.97 | agree
+- bin 119.97" NStar | `(blank; NGC 6402 block) | 119.97 | 55 | 7.20 | 0.75 | 0.65 | RV` | veldis.html line 8183 | 55.0 | agree
+- bin 119.97" sigma [km/s] | `(blank; NGC 6402 block) | 119.97 | 55 | 7.20 | 0.75 | 0.65 | RV` | veldis.html line 8183 | 7.2 | agree
+- bin 119.97" dsigma_Up -> err_hi | `(blank; NGC 6402 block) | 119.97 | 55 | 7.20 | 0.75 | 0.65 | RV` | veldis.html line 8183 | 0.75 | agree
+- bin 119.97" dsigma_Low -> err_lo | `(blank; NGC 6402 block) | 119.97 | 55 | 7.20 | 0.75 | 0.65 | RV` | veldis.html line 8183 | 0.65 | agree
+- bin 161.03" <r> [arcsec] | `(blank; NGC 6402 block) | 161.03 | 55 | 7.14 | 0.74 | 0.64 | RV` | veldis.html line 8195 | 161.03 | agree
+- bin 161.03" NStar | `(blank; NGC 6402 block) | 161.03 | 55 | 7.14 | 0.74 | 0.64 | RV` | veldis.html line 8195 | 55.0 | agree
+- bin 161.03" sigma [km/s] | `(blank; NGC 6402 block) | 161.03 | 55 | 7.14 | 0.74 | 0.64 | RV` | veldis.html line 8195 | 7.14 | agree
+- bin 161.03" dsigma_Up -> err_hi | `(blank; NGC 6402 block) | 161.03 | 55 | 7.14 | 0.74 | 0.64 | RV` | veldis.html line 8195 | 0.74 | agree
+- bin 161.03" dsigma_Low -> err_lo | `(blank; NGC 6402 block) | 161.03 | 55 | 7.14 | 0.74 | 0.64 | RV` | veldis.html line 8195 | 0.64 | agree
+- bin 245.24" <r> [arcsec] | `(blank; NGC 6402 block) | 245.24 | 55 | 5.61 | 0.59 | 0.50 | RV` | veldis.html line 8213 | 245.24 | agree
+- bin 245.24" NStar | `(blank; NGC 6402 block) | 245.24 | 55 | 5.61 | 0.59 | 0.50 | RV` | veldis.html line 8213 | 55.0 | agree
+- bin 245.24" sigma [km/s] | `(blank; NGC 6402 block) | 245.24 | 55 | 5.61 | 0.59 | 0.50 | RV` | veldis.html line 8213 | 5.61 | agree
+- bin 245.24" dsigma_Up -> err_hi | `(blank; NGC 6402 block) | 245.24 | 55 | 5.61 | 0.59 | 0.50 | RV` | veldis.html line 8213 | 0.59 | agree
+- bin 245.24" dsigma_Low -> err_lo | `(blank; NGC 6402 block) | 245.24 | 55 | 5.61 | 0.59 | 0.50 | RV` | veldis.html line 8213 | 0.5 | agree
+- bin 424.01" <r> [arcsec] | `(blank; NGC 6402 block) | 424.01 | 27 | 4.25 | 0.67 | 0.53 | RV` | veldis.html line 8225 | 424.01 | agree
+- bin 424.01" NStar | `(blank; NGC 6402 block) | 424.01 | 27 | 4.25 | 0.67 | 0.53 | RV` | veldis.html line 8225 | 27.0 | agree
+- bin 424.01" sigma [km/s] | `(blank; NGC 6402 block) | 424.01 | 27 | 4.25 | 0.67 | 0.53 | RV` | veldis.html line 8225 | 4.25 | agree
+- bin 424.01" dsigma_Up -> err_hi | `(blank; NGC 6402 block) | 424.01 | 27 | 4.25 | 0.67 | 0.53 | RV` | veldis.html line 8225 | 0.67 | agree
+- bin 424.01" dsigma_Low -> err_lo | `(blank; NGC 6402 block) | 424.01 | 27 | 4.25 | 0.67 | 0.53 | RV` | veldis.html line 8225 | 0.53 | agree
+- R_Sun [kpc] | `NGC 6402 ...   9.3   4.0  [R_Sun field: '9.3']` | mwgc.dat line 160 (Part I) | 9.3 | agree
+- M_V,t [mag] | `NGC 6402 ... 7.59  -9.10  [M_V,t field: '-9.10']` | mwgc.dat line 340 (Part II) | -9.1 | agree
+- W0/gamma | `<TD>4.80</TD>` | J_ApJS_161_304_models.vot models.vot line 659 (recno 319, MW-NGC6402, Mod K) | 4.8 | agree
+- E_W0/gamma -> err_hi | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 659 (recno 319, MW-NGC6402, Mod K) | 0.2 | agree
+- e_W0/gamma -> err_lo | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 659 (recno 319, MW-NGC6402, Mod K) | 0.2 | agree
+- r0 | `<TD>54.050</TD>` | J_ApJS_161_304_models.vot models.vot line 659 (recno 319, MW-NGC6402, Mod K) | 54.05 | agree
+- E_r0 -> err_hi | `<TD>2.350</TD>` | J_ApJS_161_304_models.vot models.vot line 659 (recno 319, MW-NGC6402, Mod K) | 2.35 | agree
+- e_r0 -> err_lo | `<TD>2.240</TD>` | J_ApJS_161_304_models.vot models.vot line 659 (recno 319, MW-NGC6402, Mod K) | 2.24 | agree
+- Rh | `<TD>0.545</TD>` | J_ApJS_161_304_models.vot models.vot line 659 (recno 319, MW-NGC6402, Mod K) | 0.545 | agree
+- E_Rh -> err_hi | `<TD>0.002</TD>` | J_ApJS_161_304_models.vot models.vot line 659 (recno 319, MW-NGC6402, Mod K) | 0.002 | agree
+- e_Rh -> err_lo | `<TD>0.002</TD>` | J_ApJS_161_304_models.vot models.vot line 659 (recno 319, MW-NGC6402, Mod K) | 0.002 | agree
+- Dist | `<TD>9.3</TD>` | J_ApJS_161_304_models.vot models.vot line 659 (recno 319, MW-NGC6402, Mod K) | 9.3 | agree
+- (M/L)1 | `<TD>1.915</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 295 (recno 135, MW-NGC6402) | 1.915 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.157</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 295 (recno 135, MW-NGC6402) | 0.157 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.157</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 295 (recno 135, MW-NGC6402) | 0.157 | agree
+- arithmetic L_V = 380189.3963 vs 380189.3963 | agree; R_h = 10^0.545 x 9.3 / 9.3 = 3.50751874 pc vs 3.50751874 | agree; M/L 1.915 vs 1.915 | agree
+
+### NGC 6440
+
+- bin 10.65" <r> [arcsec] | `NGC 6440 | 10.65 | 50 | 13.39 | 1.50 | 1.27 | RV` | veldis.html line 8246 | 10.65 | agree
+- bin 10.65" NStar | `NGC 6440 | 10.65 | 50 | 13.39 | 1.50 | 1.27 | RV` | veldis.html line 8246 | 50.0 | agree
+- bin 10.65" sigma [km/s] | `NGC 6440 | 10.65 | 50 | 13.39 | 1.50 | 1.27 | RV` | veldis.html line 8246 | 13.39 | agree
+- bin 10.65" dsigma_Up -> err_hi | `NGC 6440 | 10.65 | 50 | 13.39 | 1.50 | 1.27 | RV` | veldis.html line 8246 | 1.5 | agree
+- bin 10.65" dsigma_Low -> err_lo | `NGC 6440 | 10.65 | 50 | 13.39 | 1.50 | 1.27 | RV` | veldis.html line 8246 | 1.27 | agree
+- bin 13.72" <r> [arcsec] | `(blank; NGC 6440 block) | 13.72 | 50 | 13.82 | 1.55 | 1.32 | RV` | veldis.html line 8253 | 13.72 | agree
+- bin 13.72" NStar | `(blank; NGC 6440 block) | 13.72 | 50 | 13.82 | 1.55 | 1.32 | RV` | veldis.html line 8253 | 50.0 | agree
+- bin 13.72" sigma [km/s] | `(blank; NGC 6440 block) | 13.72 | 50 | 13.82 | 1.55 | 1.32 | RV` | veldis.html line 8253 | 13.82 | agree
+- bin 13.72" dsigma_Up -> err_hi | `(blank; NGC 6440 block) | 13.72 | 50 | 13.82 | 1.55 | 1.32 | RV` | veldis.html line 8253 | 1.55 | agree
+- bin 13.72" dsigma_Low -> err_lo | `(blank; NGC 6440 block) | 13.72 | 50 | 13.82 | 1.55 | 1.32 | RV` | veldis.html line 8253 | 1.32 | agree
+- bin 27.98" <r> [arcsec] | `(blank; NGC 6440 block) | 27.98 | 50 | 11.83 | 1.32 | 1.13 | RV` | veldis.html line 8259 | 27.98 | agree
+- bin 27.98" NStar | `(blank; NGC 6440 block) | 27.98 | 50 | 11.83 | 1.32 | 1.13 | RV` | veldis.html line 8259 | 50.0 | agree
+- bin 27.98" sigma [km/s] | `(blank; NGC 6440 block) | 27.98 | 50 | 11.83 | 1.32 | 1.13 | RV` | veldis.html line 8259 | 11.83 | agree
+- bin 27.98" dsigma_Up -> err_hi | `(blank; NGC 6440 block) | 27.98 | 50 | 11.83 | 1.32 | 1.13 | RV` | veldis.html line 8259 | 1.32 | agree
+- bin 27.98" dsigma_Low -> err_lo | `(blank; NGC 6440 block) | 27.98 | 50 | 11.83 | 1.32 | 1.13 | RV` | veldis.html line 8259 | 1.13 | agree
+- bin 87.87" <r> [arcsec] | `(blank; NGC 6440 block) | 87.87 | 50 | 9.06 | 1.03 | 0.88 | RV` | veldis.html line 8271 | 87.87 | agree
+- bin 87.87" NStar | `(blank; NGC 6440 block) | 87.87 | 50 | 9.06 | 1.03 | 0.88 | RV` | veldis.html line 8271 | 50.0 | agree
+- bin 87.87" sigma [km/s] | `(blank; NGC 6440 block) | 87.87 | 50 | 9.06 | 1.03 | 0.88 | RV` | veldis.html line 8271 | 9.06 | agree
+- bin 87.87" dsigma_Up -> err_hi | `(blank; NGC 6440 block) | 87.87 | 50 | 9.06 | 1.03 | 0.88 | RV` | veldis.html line 8271 | 1.03 | agree
+- bin 87.87" dsigma_Low -> err_lo | `(blank; NGC 6440 block) | 87.87 | 50 | 9.06 | 1.03 | 0.88 | RV` | veldis.html line 8271 | 0.88 | agree
+- bin 177.16" <r> [arcsec] | `(blank; NGC 6440 block) | 177.16 | 20 | 4.21 | 0.78 | 0.59 | RV` | veldis.html line 8283 | 177.16 | agree
+- bin 177.16" NStar | `(blank; NGC 6440 block) | 177.16 | 20 | 4.21 | 0.78 | 0.59 | RV` | veldis.html line 8283 | 20.0 | agree
+- bin 177.16" sigma [km/s] | `(blank; NGC 6440 block) | 177.16 | 20 | 4.21 | 0.78 | 0.59 | RV` | veldis.html line 8283 | 4.21 | agree
+- bin 177.16" dsigma_Up -> err_hi | `(blank; NGC 6440 block) | 177.16 | 20 | 4.21 | 0.78 | 0.59 | RV` | veldis.html line 8283 | 0.78 | agree
+- bin 177.16" dsigma_Low -> err_lo | `(blank; NGC 6440 block) | 177.16 | 20 | 4.21 | 0.78 | 0.59 | RV` | veldis.html line 8283 | 0.59 | agree
+- R_Sun [kpc] | `NGC 6440 ...   8.5   1.3  [R_Sun field: '8.5']` | mwgc.dat line 167 (Part I) | 8.5 | agree
+- M_V,t [mag] | `NGC 6440 ... 9.20  -8.75  [M_V,t field: '-8.75']` | mwgc.dat line 347 (Part II) | -8.75 | agree
+- W0/gamma | `<TD>7.30</TD>` | J_ApJS_161_304_models.vot models.vot line 662 (recno 322, MW-NGC6440, Mod K) | 7.3 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 662 (recno 322, MW-NGC6440, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 662 (recno 322, MW-NGC6440, Mod K) | 0.2 | agree
+- r0 | `<TD>8.500</TD>` | J_ApJS_161_304_models.vot models.vot line 662 (recno 322, MW-NGC6440, Mod K) | 8.5 | agree
+- E_r0 -> err_hi | `<TD>0.610</TD>` | J_ApJS_161_304_models.vot models.vot line 662 (recno 322, MW-NGC6440, Mod K) | 0.61 | agree
+- e_r0 -> err_lo | `<TD>0.290</TD>` | J_ApJS_161_304_models.vot models.vot line 662 (recno 322, MW-NGC6440, Mod K) | 0.29 | agree
+- Rh | `<TD>0.069</TD>` | J_ApJS_161_304_models.vot models.vot line 662 (recno 322, MW-NGC6440, Mod K) | 0.069 | agree
+- E_Rh -> err_hi | `<TD>0.008</TD>` | J_ApJS_161_304_models.vot models.vot line 662 (recno 322, MW-NGC6440, Mod K) | 0.008 | agree
+- e_Rh -> err_lo | `<TD>0.014</TD>` | J_ApJS_161_304_models.vot models.vot line 662 (recno 322, MW-NGC6440, Mod K) | 0.014 | agree
+- Dist | `<TD>8.4</TD>` | J_ApJS_161_304_models.vot models.vot line 662 (recno 322, MW-NGC6440, Mod K) | 8.4 | agree
+- (M/L)1 | `<TD>2.981</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 297 (recno 137, MW-NGC6440) | 2.981 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.354</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 297 (recno 137, MW-NGC6440) | 0.354 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.354</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 297 (recno 137, MW-NGC6440) | 0.354 | agree
+- arithmetic L_V = 275422.8703 vs 275422.8703 | agree; R_h = 10^0.069 x 8.5 / 8.4 = 1.186150072 pc vs 1.186150072 | agree; M/L 2.981 vs 2.981 | agree
+
+### NGC 6441
+
+- bin 7.09" <r> [arcsec] | `(blank; NGC 6441 block) | 7.09 | 400 | 16.98 | 0.63 | 0.59 | RV` | veldis.html line 8345 | 7.09 | agree
+- bin 7.09" NStar | `(blank; NGC 6441 block) | 7.09 | 400 | 16.98 | 0.63 | 0.59 | RV` | veldis.html line 8345 | 400.0 | agree
+- bin 7.09" sigma [km/s] | `(blank; NGC 6441 block) | 7.09 | 400 | 16.98 | 0.63 | 0.59 | RV` | veldis.html line 8345 | 16.98 | agree
+- bin 7.09" dsigma_Up -> err_hi | `(blank; NGC 6441 block) | 7.09 | 400 | 16.98 | 0.63 | 0.59 | RV` | veldis.html line 8345 | 0.63 | agree
+- bin 7.09" dsigma_Low -> err_lo | `(blank; NGC 6441 block) | 7.09 | 400 | 16.98 | 0.63 | 0.59 | RV` | veldis.html line 8345 | 0.59 | agree
+- bin 12.97" <r> [arcsec] | `(blank; NGC 6441 block) | 12.97 | 400 | 18.13 | 0.67 | 0.63 | RV` | veldis.html line 8381 | 12.97 | agree
+- bin 12.97" NStar | `(blank; NGC 6441 block) | 12.97 | 400 | 18.13 | 0.67 | 0.63 | RV` | veldis.html line 8381 | 400.0 | agree
+- bin 12.97" sigma [km/s] | `(blank; NGC 6441 block) | 12.97 | 400 | 18.13 | 0.67 | 0.63 | RV` | veldis.html line 8381 | 18.13 | agree
+- bin 12.97" dsigma_Up -> err_hi | `(blank; NGC 6441 block) | 12.97 | 400 | 18.13 | 0.67 | 0.63 | RV` | veldis.html line 8381 | 0.67 | agree
+- bin 12.97" dsigma_Low -> err_lo | `(blank; NGC 6441 block) | 12.97 | 400 | 18.13 | 0.67 | 0.63 | RV` | veldis.html line 8381 | 0.63 | agree
+- bin 17.01" <r> [arcsec] | `(blank; NGC 6441 block) | 17.01 | 400 | 16.23 | 0.61 | 0.56 | RV` | veldis.html line 8393 | 17.01 | agree
+- bin 17.01" NStar | `(blank; NGC 6441 block) | 17.01 | 400 | 16.23 | 0.61 | 0.56 | RV` | veldis.html line 8393 | 400.0 | agree
+- bin 17.01" sigma [km/s] | `(blank; NGC 6441 block) | 17.01 | 400 | 16.23 | 0.61 | 0.56 | RV` | veldis.html line 8393 | 16.23 | agree
+- bin 17.01" dsigma_Up -> err_hi | `(blank; NGC 6441 block) | 17.01 | 400 | 16.23 | 0.61 | 0.56 | RV` | veldis.html line 8393 | 0.61 | agree
+- bin 17.01" dsigma_Low -> err_lo | `(blank; NGC 6441 block) | 17.01 | 400 | 16.23 | 0.61 | 0.56 | RV` | veldis.html line 8393 | 0.56 | agree
+- bin 20.94" <r> [arcsec] | `(blank; NGC 6441 block) | 20.94 | 400 | 16.29 | 0.60 | 0.56 | RV` | veldis.html line 8399 | 20.94 | agree
+- bin 20.94" NStar | `(blank; NGC 6441 block) | 20.94 | 400 | 16.29 | 0.60 | 0.56 | RV` | veldis.html line 8399 | 400.0 | agree
+- bin 20.94" sigma [km/s] | `(blank; NGC 6441 block) | 20.94 | 400 | 16.29 | 0.60 | 0.56 | RV` | veldis.html line 8399 | 16.29 | agree
+- bin 20.94" dsigma_Up -> err_hi | `(blank; NGC 6441 block) | 20.94 | 400 | 16.29 | 0.60 | 0.56 | RV` | veldis.html line 8399 | 0.6 | agree
+- bin 20.94" dsigma_Low -> err_lo | `(blank; NGC 6441 block) | 20.94 | 400 | 16.29 | 0.60 | 0.56 | RV` | veldis.html line 8399 | 0.56 | agree
+- bin 25.41" <r> [arcsec] | `(blank; NGC 6441 block) | 25.41 | 400 | 17.00 | 0.62 | 0.59 | RV` | veldis.html line 8411 | 25.41 | agree
+- bin 25.41" NStar | `(blank; NGC 6441 block) | 25.41 | 400 | 17.00 | 0.62 | 0.59 | RV` | veldis.html line 8411 | 400.0 | agree
+- bin 25.41" sigma [km/s] | `(blank; NGC 6441 block) | 25.41 | 400 | 17.00 | 0.62 | 0.59 | RV` | veldis.html line 8411 | 17.0 | agree
+- bin 25.41" dsigma_Up -> err_hi | `(blank; NGC 6441 block) | 25.41 | 400 | 17.00 | 0.62 | 0.59 | RV` | veldis.html line 8411 | 0.62 | agree
+- bin 25.41" dsigma_Low -> err_lo | `(blank; NGC 6441 block) | 25.41 | 400 | 17.00 | 0.62 | 0.59 | RV` | veldis.html line 8411 | 0.59 | agree
+- bin 30.13" <r> [arcsec] | `(blank; NGC 6441 block) | 30.13 | 400 | 16.30 | 0.60 | 0.57 | RV` | veldis.html line 8423 | 30.13 | agree
+- bin 30.13" NStar | `(blank; NGC 6441 block) | 30.13 | 400 | 16.30 | 0.60 | 0.57 | RV` | veldis.html line 8423 | 400.0 | agree
+- bin 30.13" sigma [km/s] | `(blank; NGC 6441 block) | 30.13 | 400 | 16.30 | 0.60 | 0.57 | RV` | veldis.html line 8423 | 16.3 | agree
+- bin 30.13" dsigma_Up -> err_hi | `(blank; NGC 6441 block) | 30.13 | 400 | 16.30 | 0.60 | 0.57 | RV` | veldis.html line 8423 | 0.6 | agree
+- bin 30.13" dsigma_Low -> err_lo | `(blank; NGC 6441 block) | 30.13 | 400 | 16.30 | 0.60 | 0.57 | RV` | veldis.html line 8423 | 0.57 | agree
+- bin 35.14" <r> [arcsec] | `(blank; NGC 6441 block) | 35.14 | 400 | 16.18 | 0.60 | 0.56 | RV` | veldis.html line 8435 | 35.14 | agree
+- bin 35.14" NStar | `(blank; NGC 6441 block) | 35.14 | 400 | 16.18 | 0.60 | 0.56 | RV` | veldis.html line 8435 | 400.0 | agree
+- bin 35.14" sigma [km/s] | `(blank; NGC 6441 block) | 35.14 | 400 | 16.18 | 0.60 | 0.56 | RV` | veldis.html line 8435 | 16.18 | agree
+- bin 35.14" dsigma_Up -> err_hi | `(blank; NGC 6441 block) | 35.14 | 400 | 16.18 | 0.60 | 0.56 | RV` | veldis.html line 8435 | 0.6 | agree
+- bin 35.14" dsigma_Low -> err_lo | `(blank; NGC 6441 block) | 35.14 | 400 | 16.18 | 0.60 | 0.56 | RV` | veldis.html line 8435 | 0.56 | agree
+- bin 41.12" <r> [arcsec] | `(blank; NGC 6441 block) | 41.12 | 400 | 13.89 | 0.52 | 0.48 | RV` | veldis.html line 8459 | 41.12 | agree
+- bin 41.12" NStar | `(blank; NGC 6441 block) | 41.12 | 400 | 13.89 | 0.52 | 0.48 | RV` | veldis.html line 8459 | 400.0 | agree
+- bin 41.12" sigma [km/s] | `(blank; NGC 6441 block) | 41.12 | 400 | 13.89 | 0.52 | 0.48 | RV` | veldis.html line 8459 | 13.89 | agree
+- bin 41.12" dsigma_Up -> err_hi | `(blank; NGC 6441 block) | 41.12 | 400 | 13.89 | 0.52 | 0.48 | RV` | veldis.html line 8459 | 0.52 | agree
+- bin 41.12" dsigma_Low -> err_lo | `(blank; NGC 6441 block) | 41.12 | 400 | 13.89 | 0.52 | 0.48 | RV` | veldis.html line 8459 | 0.48 | agree
+- bin 49.10" <r> [arcsec] | `(blank; NGC 6441 block) | 49.10 | 400 | 14.04 | 0.52 | 0.49 | RV` | veldis.html line 8483 | 49.1 | agree
+- bin 49.10" NStar | `(blank; NGC 6441 block) | 49.10 | 400 | 14.04 | 0.52 | 0.49 | RV` | veldis.html line 8483 | 400.0 | agree
+- bin 49.10" sigma [km/s] | `(blank; NGC 6441 block) | 49.10 | 400 | 14.04 | 0.52 | 0.49 | RV` | veldis.html line 8483 | 14.04 | agree
+- bin 49.10" dsigma_Up -> err_hi | `(blank; NGC 6441 block) | 49.10 | 400 | 14.04 | 0.52 | 0.49 | RV` | veldis.html line 8483 | 0.52 | agree
+- bin 49.10" dsigma_Low -> err_lo | `(blank; NGC 6441 block) | 49.10 | 400 | 14.04 | 0.52 | 0.49 | RV` | veldis.html line 8483 | 0.49 | agree
+- bin 55.91" <r> [arcsec] | `(blank; NGC 6441 block) | 55.91 | 100 | 12.64 | 0.96 | 0.86 | RV` | veldis.html line 8507 | 55.91 | agree
+- bin 55.91" NStar | `(blank; NGC 6441 block) | 55.91 | 100 | 12.64 | 0.96 | 0.86 | RV` | veldis.html line 8507 | 100.0 | agree
+- bin 55.91" sigma [km/s] | `(blank; NGC 6441 block) | 55.91 | 100 | 12.64 | 0.96 | 0.86 | RV` | veldis.html line 8507 | 12.64 | agree
+- bin 55.91" dsigma_Up -> err_hi | `(blank; NGC 6441 block) | 55.91 | 100 | 12.64 | 0.96 | 0.86 | RV` | veldis.html line 8507 | 0.96 | agree
+- bin 55.91" dsigma_Low -> err_lo | `(blank; NGC 6441 block) | 55.91 | 100 | 12.64 | 0.96 | 0.86 | RV` | veldis.html line 8507 | 0.86 | agree
+- bin 61.19" <r> [arcsec] | `(blank; NGC 6441 block) | 61.19 | 100 | 13.37 | 1.01 | 0.91 | RV` | veldis.html line 8525 | 61.19 | agree
+- bin 61.19" NStar | `(blank; NGC 6441 block) | 61.19 | 100 | 13.37 | 1.01 | 0.91 | RV` | veldis.html line 8525 | 100.0 | agree
+- bin 61.19" sigma [km/s] | `(blank; NGC 6441 block) | 61.19 | 100 | 13.37 | 1.01 | 0.91 | RV` | veldis.html line 8525 | 13.37 | agree
+- bin 61.19" dsigma_Up -> err_hi | `(blank; NGC 6441 block) | 61.19 | 100 | 13.37 | 1.01 | 0.91 | RV` | veldis.html line 8525 | 1.01 | agree
+- bin 61.19" dsigma_Low -> err_lo | `(blank; NGC 6441 block) | 61.19 | 100 | 13.37 | 1.01 | 0.91 | RV` | veldis.html line 8525 | 0.91 | agree
+- bin 91.54" <r> [arcsec] | `(blank; NGC 6441 block) | 91.54 | 100 | 10.70 | 0.82 | 0.73 | RV` | veldis.html line 8585 | 91.54 | agree
+- bin 91.54" NStar | `(blank; NGC 6441 block) | 91.54 | 100 | 10.70 | 0.82 | 0.73 | RV` | veldis.html line 8585 | 100.0 | agree
+- bin 91.54" sigma [km/s] | `(blank; NGC 6441 block) | 91.54 | 100 | 10.70 | 0.82 | 0.73 | RV` | veldis.html line 8585 | 10.7 | agree
+- bin 91.54" dsigma_Up -> err_hi | `(blank; NGC 6441 block) | 91.54 | 100 | 10.70 | 0.82 | 0.73 | RV` | veldis.html line 8585 | 0.82 | agree
+- bin 91.54" dsigma_Low -> err_lo | `(blank; NGC 6441 block) | 91.54 | 100 | 10.70 | 0.82 | 0.73 | RV` | veldis.html line 8585 | 0.73 | agree
+- bin 171.68" <r> [arcsec] | `(blank; NGC 6441 block) | 171.68 | 22 | 7.63 | 1.34 | 1.04 | RV` | veldis.html line 8609 | 171.68 | agree
+- bin 171.68" NStar | `(blank; NGC 6441 block) | 171.68 | 22 | 7.63 | 1.34 | 1.04 | RV` | veldis.html line 8609 | 22.0 | agree
+- bin 171.68" sigma [km/s] | `(blank; NGC 6441 block) | 171.68 | 22 | 7.63 | 1.34 | 1.04 | RV` | veldis.html line 8609 | 7.63 | agree
+- bin 171.68" dsigma_Up -> err_hi | `(blank; NGC 6441 block) | 171.68 | 22 | 7.63 | 1.34 | 1.04 | RV` | veldis.html line 8609 | 1.34 | agree
+- bin 171.68" dsigma_Low -> err_lo | `(blank; NGC 6441 block) | 171.68 | 22 | 7.63 | 1.34 | 1.04 | RV` | veldis.html line 8609 | 1.04 | agree
+- R_Sun [kpc] | `NGC 6441 ...  11.6   3.9  [R_Sun field: '11.6']` | mwgc.dat line 168 (Part I) | 11.6 | agree
+- M_V,t [mag] | `NGC 6441 ... 7.15  -9.63  [M_V,t field: '-9.63']` | mwgc.dat line 348 (Part II) | -9.63 | agree
+- W0/gamma | `<TD>7.70</TD>` | J_ApJS_161_304_models.vot models.vot line 665 (recno 325, MW-NGC6441, Mod K) | 7.7 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 665 (recno 325, MW-NGC6441, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 665 (recno 325, MW-NGC6441, Mod K) | 0.1 | agree
+- r0 | `<TD>8.040</TD>` | J_ApJS_161_304_models.vot models.vot line 665 (recno 325, MW-NGC6441, Mod K) | 8.04 | agree
+- E_r0 -> err_hi | `<TD>0.210</TD>` | J_ApJS_161_304_models.vot models.vot line 665 (recno 325, MW-NGC6441, Mod K) | 0.21 | agree
+- e_r0 -> err_lo | `<TD>0.210</TD>` | J_ApJS_161_304_models.vot models.vot line 665 (recno 325, MW-NGC6441, Mod K) | 0.21 | agree
+- Rh | `<TD>0.291</TD>` | J_ApJS_161_304_models.vot models.vot line 665 (recno 325, MW-NGC6441, Mod K) | 0.291 | agree
+- E_Rh -> err_hi | `<TD>0.016</TD>` | J_ApJS_161_304_models.vot models.vot line 665 (recno 325, MW-NGC6441, Mod K) | 0.016 | agree
+- e_Rh -> err_lo | `<TD>0.016</TD>` | J_ApJS_161_304_models.vot models.vot line 665 (recno 325, MW-NGC6441, Mod K) | 0.016 | agree
+- Dist | `<TD>11.7</TD>` | J_ApJS_161_304_models.vot models.vot line 665 (recno 325, MW-NGC6441, Mod K) | 11.7 | agree
+- (M/L)1 | `<TD>2.656</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 298 (recno 138, MW-NGC6441) | 2.656 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.301</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 298 (recno 138, MW-NGC6441) | 0.301 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.301</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 298 (recno 138, MW-NGC6441) | 0.301 | agree
+- arithmetic L_V = 619441.0751 vs 619441.0751 | agree; R_h = 10^0.291 x 11.6 / 11.7 = 1.9376357 pc vs 1.9376357 | agree; M/L 2.656 vs 2.656 | agree
+
+### NGC 6496
+
+- bin 33.46" <r> [arcsec] | `NGC 6496 | 33.46 | 47 | 3.13 | 0.58 | 0.48 | RV` | veldis.html line 8714 | 33.46 | agree
+- bin 33.46" NStar | `NGC 6496 | 33.46 | 47 | 3.13 | 0.58 | 0.48 | RV` | veldis.html line 8714 | 47.0 | agree
+- bin 33.46" sigma [km/s] | `NGC 6496 | 33.46 | 47 | 3.13 | 0.58 | 0.48 | RV` | veldis.html line 8714 | 3.13 | agree
+- bin 33.46" dsigma_Up -> err_hi | `NGC 6496 | 33.46 | 47 | 3.13 | 0.58 | 0.48 | RV` | veldis.html line 8714 | 0.58 | agree
+- bin 33.46" dsigma_Low -> err_lo | `NGC 6496 | 33.46 | 47 | 3.13 | 0.58 | 0.48 | RV` | veldis.html line 8714 | 0.48 | agree
+- bin 64.62" <r> [arcsec] | `(blank; NGC 6496 block) | 64.62 | 47 | 2.73 | 0.43 | 0.35 | RV` | veldis.html line 8727 | 64.62 | agree
+- bin 64.62" NStar | `(blank; NGC 6496 block) | 64.62 | 47 | 2.73 | 0.43 | 0.35 | RV` | veldis.html line 8727 | 47.0 | agree
+- bin 64.62" sigma [km/s] | `(blank; NGC 6496 block) | 64.62 | 47 | 2.73 | 0.43 | 0.35 | RV` | veldis.html line 8727 | 2.73 | agree
+- bin 64.62" dsigma_Up -> err_hi | `(blank; NGC 6496 block) | 64.62 | 47 | 2.73 | 0.43 | 0.35 | RV` | veldis.html line 8727 | 0.43 | agree
+- bin 64.62" dsigma_Low -> err_lo | `(blank; NGC 6496 block) | 64.62 | 47 | 2.73 | 0.43 | 0.35 | RV` | veldis.html line 8727 | 0.35 | agree
+- bin 103.62" <r> [arcsec] | `(blank; NGC 6496 block) | 103.62 | 47 | 2.56 | 0.36 | 0.30 | RV` | veldis.html line 8733 | 103.62 | agree
+- bin 103.62" NStar | `(blank; NGC 6496 block) | 103.62 | 47 | 2.56 | 0.36 | 0.30 | RV` | veldis.html line 8733 | 47.0 | agree
+- bin 103.62" sigma [km/s] | `(blank; NGC 6496 block) | 103.62 | 47 | 2.56 | 0.36 | 0.30 | RV` | veldis.html line 8733 | 2.56 | agree
+- bin 103.62" dsigma_Up -> err_hi | `(blank; NGC 6496 block) | 103.62 | 47 | 2.56 | 0.36 | 0.30 | RV` | veldis.html line 8733 | 0.36 | agree
+- bin 103.62" dsigma_Low -> err_lo | `(blank; NGC 6496 block) | 103.62 | 47 | 2.56 | 0.36 | 0.30 | RV` | veldis.html line 8733 | 0.3 | agree
+- bin 158.59" <r> [arcsec] | `(blank; NGC 6496 block) | 158.59 | 47 | 1.97 | 0.28 | 0.24 | RV` | veldis.html line 8745 | 158.59 | agree
+- bin 158.59" NStar | `(blank; NGC 6496 block) | 158.59 | 47 | 1.97 | 0.28 | 0.24 | RV` | veldis.html line 8745 | 47.0 | agree
+- bin 158.59" sigma [km/s] | `(blank; NGC 6496 block) | 158.59 | 47 | 1.97 | 0.28 | 0.24 | RV` | veldis.html line 8745 | 1.97 | agree
+- bin 158.59" dsigma_Up -> err_hi | `(blank; NGC 6496 block) | 158.59 | 47 | 1.97 | 0.28 | 0.24 | RV` | veldis.html line 8745 | 0.28 | agree
+- bin 158.59" dsigma_Low -> err_lo | `(blank; NGC 6496 block) | 158.59 | 47 | 1.97 | 0.28 | 0.24 | RV` | veldis.html line 8745 | 0.24 | agree
+- bin 302.74" <r> [arcsec] | `(blank; NGC 6496 block) | 302.74 | 15 | 1.53 | 0.45 | 0.34 | RV` | veldis.html line 8757 | 302.74 | agree
+- bin 302.74" NStar | `(blank; NGC 6496 block) | 302.74 | 15 | 1.53 | 0.45 | 0.34 | RV` | veldis.html line 8757 | 15.0 | agree
+- bin 302.74" sigma [km/s] | `(blank; NGC 6496 block) | 302.74 | 15 | 1.53 | 0.45 | 0.34 | RV` | veldis.html line 8757 | 1.53 | agree
+- bin 302.74" dsigma_Up -> err_hi | `(blank; NGC 6496 block) | 302.74 | 15 | 1.53 | 0.45 | 0.34 | RV` | veldis.html line 8757 | 0.45 | agree
+- bin 302.74" dsigma_Low -> err_lo | `(blank; NGC 6496 block) | 302.74 | 15 | 1.53 | 0.45 | 0.34 | RV` | veldis.html line 8757 | 0.34 | agree
+- R_Sun [kpc] | `NGC 6496 ...  11.3   4.2  [R_Sun field: '11.3']` | mwgc.dat line 172 (Part I) | 11.3 | agree
+- M_V,t [mag] | `NGC 6496 ... 8.54  -7.20  [M_V,t field: '-7.20']` | mwgc.dat line 352 (Part II) | -7.2 | agree
+- W0/gamma | `<TD>0.30</TD>` | J_ApJS_161_304_models.vot models.vot line 668 (recno 328, MW-NGC6496, Mod K) | 0.3 | agree
+- E_W0/gamma -> err_hi | `<TD>4.30</TD>` | J_ApJS_161_304_models.vot models.vot line 668 (recno 328, MW-NGC6496, Mod K) | 4.3 | agree
+- e_W0/gamma -> err_lo | `<TD>0.00</TD>` | J_ApJS_161_304_models.vot models.vot line 668 (recno 328, MW-NGC6496, Mod K) | 0.0 | agree
+- r0 | `<TD>226.700</TD>` | J_ApJS_161_304_models.vot models.vot line 668 (recno 328, MW-NGC6496, Mod K) | 226.7 | agree
+- E_r0 -> err_hi | `<TD>0.000</TD>` | J_ApJS_161_304_models.vot models.vot line 668 (recno 328, MW-NGC6496, Mod K) | 0.0 | agree
+- e_r0 -> err_lo | `<TD>162.200</TD>` | J_ApJS_161_304_models.vot models.vot line 668 (recno 328, MW-NGC6496, Mod K) | 162.2 | agree
+- Rh | `<TD>0.534</TD>` | J_ApJS_161_304_models.vot models.vot line 668 (recno 328, MW-NGC6496, Mod K) | 0.534 | agree
+- E_Rh -> err_hi | `<TD>0.160</TD>` | J_ApJS_161_304_models.vot models.vot line 668 (recno 328, MW-NGC6496, Mod K) | 0.16 | agree
+- e_Rh -> err_lo | `<TD>0.000</TD>` | J_ApJS_161_304_models.vot models.vot line 668 (recno 328, MW-NGC6496, Mod K) | 0.0 | agree
+- Dist | `<TD>11.5</TD>` | J_ApJS_161_304_models.vot models.vot line 668 (recno 328, MW-NGC6496, Mod K) | 11.5 | agree
+- (M/L)1 | `<TD>2.497</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 300 (recno 140, MW-NGC6496) | 2.497 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.270</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 300 (recno 140, MW-NGC6496) | 0.27 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.270</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 300 (recno 140, MW-NGC6496) | 0.27 | agree
+- arithmetic L_V = 66069.3448 vs 66069.3448 | agree; R_h = 10^0.534 x 11.3 / 11.5 = 3.360319739 pc vs 3.360319739 | agree; M/L 2.497 vs 2.497 | agree
+
+### NGC 6535
+
+- bin 50.14" <r> [arcsec] | `(blank; NGC 6535 block) | 50.14 | 19 | 2.07 | 0.40 | 0.31 | RV` | veldis.html line 8897 | 50.14 | agree
+- bin 50.14" NStar | `(blank; NGC 6535 block) | 50.14 | 19 | 2.07 | 0.40 | 0.31 | RV` | veldis.html line 8897 | 19.0 | agree
+- bin 50.14" sigma [km/s] | `(blank; NGC 6535 block) | 50.14 | 19 | 2.07 | 0.40 | 0.31 | RV` | veldis.html line 8897 | 2.07 | agree
+- bin 50.14" dsigma_Up -> err_hi | `(blank; NGC 6535 block) | 50.14 | 19 | 2.07 | 0.40 | 0.31 | RV` | veldis.html line 8897 | 0.4 | agree
+- bin 50.14" dsigma_Low -> err_lo | `(blank; NGC 6535 block) | 50.14 | 19 | 2.07 | 0.40 | 0.31 | RV` | veldis.html line 8897 | 0.31 | agree
+- bin 157.84" <r> [arcsec] | `(blank; NGC 6535 block) | 157.84 | 10 | 1.69 | 0.50 | 0.35 | RV` | veldis.html line 8915 | 157.84 | agree
+- bin 157.84" NStar | `(blank; NGC 6535 block) | 157.84 | 10 | 1.69 | 0.50 | 0.35 | RV` | veldis.html line 8915 | 10.0 | agree
+- bin 157.84" sigma [km/s] | `(blank; NGC 6535 block) | 157.84 | 10 | 1.69 | 0.50 | 0.35 | RV` | veldis.html line 8915 | 1.69 | agree
+- bin 157.84" dsigma_Up -> err_hi | `(blank; NGC 6535 block) | 157.84 | 10 | 1.69 | 0.50 | 0.35 | RV` | veldis.html line 8915 | 0.5 | agree
+- bin 157.84" dsigma_Low -> err_lo | `(blank; NGC 6535 block) | 157.84 | 10 | 1.69 | 0.50 | 0.35 | RV` | veldis.html line 8915 | 0.35 | agree
+- R_Sun [kpc] | `NGC 6535 ...   6.8   3.9  [R_Sun field: '6.8']` | mwgc.dat line 178 (Part I) | 6.8 | agree
+- M_V,t [mag] | `NGC 6535 ...10.47  -4.75  [M_V,t field: '-4.75']` | mwgc.dat line 358 (Part II) | -4.75 | agree
+- W0/gamma | `<TD>6.30</TD>` | J_ApJS_161_304_models.vot models.vot line 674 (recno 334, MW-NGC6535, Mod K) | 6.3 | agree
+- E_W0/gamma -> err_hi | `<TD>0.60</TD>` | J_ApJS_161_304_models.vot models.vot line 674 (recno 334, MW-NGC6535, Mod K) | 0.6 | agree
+- e_W0/gamma -> err_lo | `<TD>0.60</TD>` | J_ApJS_161_304_models.vot models.vot line 674 (recno 334, MW-NGC6535, Mod K) | 0.6 | agree
+- r0 | `<TD>23.180</TD>` | J_ApJS_161_304_models.vot models.vot line 674 (recno 334, MW-NGC6535, Mod K) | 23.18 | agree
+- E_r0 -> err_hi | `<TD>2.370</TD>` | J_ApJS_161_304_models.vot models.vot line 674 (recno 334, MW-NGC6535, Mod K) | 2.37 | agree
+- e_r0 -> err_lo | `<TD>1.790</TD>` | J_ApJS_161_304_models.vot models.vot line 674 (recno 334, MW-NGC6535, Mod K) | 1.79 | agree
+- Rh | `<TD>0.225</TD>` | J_ApJS_161_304_models.vot models.vot line 674 (recno 334, MW-NGC6535, Mod K) | 0.225 | agree
+- E_Rh -> err_hi | `<TD>0.068</TD>` | J_ApJS_161_304_models.vot models.vot line 674 (recno 334, MW-NGC6535, Mod K) | 0.068 | agree
+- e_Rh -> err_lo | `<TD>0.041</TD>` | J_ApJS_161_304_models.vot models.vot line 674 (recno 334, MW-NGC6535, Mod K) | 0.041 | agree
+- Dist | `<TD>6.8</TD>` | J_ApJS_161_304_models.vot models.vot line 674 (recno 334, MW-NGC6535, Mod K) | 6.8 | agree
+- (M/L)1 | `<TD>1.868</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 304 (recno 144, MW-NGC6535) | 1.868 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.156</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 304 (recno 144, MW-NGC6535) | 0.156 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.156</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 304 (recno 144, MW-NGC6535) | 0.156 | agree
+- arithmetic L_V = 6918.309709 vs 6918.309709 | agree; R_h = 10^0.225 x 6.8 / 6.8 = 1.678804018 pc vs 1.678804018 | agree; M/L 1.868 vs 1.868 | agree
+
+### NGC 6539
+
+- bin 45.86" <r> [arcsec] | `(blank; NGC 6539 block) | 45.86 | 43 | 5.75 | 0.71 | 0.59 | RV` | veldis.html line 8929 | 45.86 | agree
+- bin 45.86" NStar | `(blank; NGC 6539 block) | 45.86 | 43 | 5.75 | 0.71 | 0.59 | RV` | veldis.html line 8929 | 43.0 | agree
+- bin 45.86" sigma [km/s] | `(blank; NGC 6539 block) | 45.86 | 43 | 5.75 | 0.71 | 0.59 | RV` | veldis.html line 8929 | 5.75 | agree
+- bin 45.86" dsigma_Up -> err_hi | `(blank; NGC 6539 block) | 45.86 | 43 | 5.75 | 0.71 | 0.59 | RV` | veldis.html line 8929 | 0.71 | agree
+- bin 45.86" dsigma_Low -> err_lo | `(blank; NGC 6539 block) | 45.86 | 43 | 5.75 | 0.71 | 0.59 | RV` | veldis.html line 8929 | 0.59 | agree
+- bin 107.41" <r> [arcsec] | `(blank; NGC 6539 block) | 107.41 | 43 | 4.73 | 0.59 | 0.49 | RV` | veldis.html line 8941 | 107.41 | agree
+- bin 107.41" NStar | `(blank; NGC 6539 block) | 107.41 | 43 | 4.73 | 0.59 | 0.49 | RV` | veldis.html line 8941 | 43.0 | agree
+- bin 107.41" sigma [km/s] | `(blank; NGC 6539 block) | 107.41 | 43 | 4.73 | 0.59 | 0.49 | RV` | veldis.html line 8941 | 4.73 | agree
+- bin 107.41" dsigma_Up -> err_hi | `(blank; NGC 6539 block) | 107.41 | 43 | 4.73 | 0.59 | 0.49 | RV` | veldis.html line 8941 | 0.59 | agree
+- bin 107.41" dsigma_Low -> err_lo | `(blank; NGC 6539 block) | 107.41 | 43 | 4.73 | 0.59 | 0.49 | RV` | veldis.html line 8941 | 0.49 | agree
+- bin 248.46" <r> [arcsec] | `(blank; NGC 6539 block) | 248.46 | 37 | 3.75 | 0.51 | 0.42 | RV` | veldis.html line 8953 | 248.46 | agree
+- bin 248.46" NStar | `(blank; NGC 6539 block) | 248.46 | 37 | 3.75 | 0.51 | 0.42 | RV` | veldis.html line 8953 | 37.0 | agree
+- bin 248.46" sigma [km/s] | `(blank; NGC 6539 block) | 248.46 | 37 | 3.75 | 0.51 | 0.42 | RV` | veldis.html line 8953 | 3.75 | agree
+- bin 248.46" dsigma_Up -> err_hi | `(blank; NGC 6539 block) | 248.46 | 37 | 3.75 | 0.51 | 0.42 | RV` | veldis.html line 8953 | 0.51 | agree
+- bin 248.46" dsigma_Low -> err_lo | `(blank; NGC 6539 block) | 248.46 | 37 | 3.75 | 0.51 | 0.42 | RV` | veldis.html line 8953 | 0.42 | agree
+- R_Sun [kpc] | `NGC 6539 ...   7.8   3.0  [R_Sun field: '7.8']` | mwgc.dat line 180 (Part I) | 7.8 | agree
+- M_V,t [mag] | `NGC 6539 ... 9.33  -8.29  [M_V,t field: '-8.29']` | mwgc.dat line 360 (Part II) | -8.29 | agree
+- W0/gamma | `<TD>7.70</TD>` | J_ApJS_161_304_models.vot models.vot line 677 (recno 337, MW-NGC6539, Mod K) | 7.7 | agree
+- E_W0/gamma -> err_hi | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 677 (recno 337, MW-NGC6539, Mod K) | 0.2 | agree
+- e_W0/gamma -> err_lo | `<TD>0.30</TD>` | J_ApJS_161_304_models.vot models.vot line 677 (recno 337, MW-NGC6539, Mod K) | 0.3 | agree
+- r0 | `<TD>23.790</TD>` | J_ApJS_161_304_models.vot models.vot line 677 (recno 337, MW-NGC6539, Mod K) | 23.79 | agree
+- E_r0 -> err_hi | `<TD>1.620</TD>` | J_ApJS_161_304_models.vot models.vot line 677 (recno 337, MW-NGC6539, Mod K) | 1.62 | agree
+- e_r0 -> err_lo | `<TD>1.130</TD>` | J_ApJS_161_304_models.vot models.vot line 677 (recno 337, MW-NGC6539, Mod K) | 1.13 | agree
+- Rh | `<TD>0.619</TD>` | J_ApJS_161_304_models.vot models.vot line 677 (recno 337, MW-NGC6539, Mod K) | 0.619 | agree
+- E_Rh -> err_hi | `<TD>0.036</TD>` | J_ApJS_161_304_models.vot models.vot line 677 (recno 337, MW-NGC6539, Mod K) | 0.036 | agree
+- e_Rh -> err_lo | `<TD>0.049</TD>` | J_ApJS_161_304_models.vot models.vot line 677 (recno 337, MW-NGC6539, Mod K) | 0.049 | agree
+- Dist | `<TD>8.4</TD>` | J_ApJS_161_304_models.vot models.vot line 677 (recno 337, MW-NGC6539, Mod K) | 8.4 | agree
+- (M/L)1 | `<TD>2.470</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 305 (recno 145, MW-NGC6539) | 2.47 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.265</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 305 (recno 145, MW-NGC6539) | 0.265 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.265</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 305 (recno 145, MW-NGC6539) | 0.265 | agree
+- arithmetic L_V = 180301.7741 vs 180301.7741 | agree; R_h = 10^0.619 x 7.8 / 8.4 = 3.862027097 pc vs 3.862027097 | agree; M/L 2.47 vs 2.47 | agree
+
+### NGC 6541
+
+- bin 8.32" <r> [arcsec] | `(blank; NGC 6541 block) | 8.32 | 400 | 9.00 | 0.35 | 0.33 | RV` | veldis.html line 8987 | 8.32 | agree
+- bin 8.32" NStar | `(blank; NGC 6541 block) | 8.32 | 400 | 9.00 | 0.35 | 0.33 | RV` | veldis.html line 8987 | 400.0 | agree
+- bin 8.32" sigma [km/s] | `(blank; NGC 6541 block) | 8.32 | 400 | 9.00 | 0.35 | 0.33 | RV` | veldis.html line 8987 | 9.0 | agree
+- bin 8.32" dsigma_Up -> err_hi | `(blank; NGC 6541 block) | 8.32 | 400 | 9.00 | 0.35 | 0.33 | RV` | veldis.html line 8987 | 0.35 | agree
+- bin 8.32" dsigma_Low -> err_lo | `(blank; NGC 6541 block) | 8.32 | 400 | 9.00 | 0.35 | 0.33 | RV` | veldis.html line 8987 | 0.33 | agree
+- bin 16.05" <r> [arcsec] | `(blank; NGC 6541 block) | 16.05 | 400 | 7.71 | 0.31 | 0.29 | RV` | veldis.html line 9005 | 16.05 | agree
+- bin 16.05" NStar | `(blank; NGC 6541 block) | 16.05 | 400 | 7.71 | 0.31 | 0.29 | RV` | veldis.html line 9005 | 400.0 | agree
+- bin 16.05" sigma [km/s] | `(blank; NGC 6541 block) | 16.05 | 400 | 7.71 | 0.31 | 0.29 | RV` | veldis.html line 9005 | 7.71 | agree
+- bin 16.05" dsigma_Up -> err_hi | `(blank; NGC 6541 block) | 16.05 | 400 | 7.71 | 0.31 | 0.29 | RV` | veldis.html line 9005 | 0.31 | agree
+- bin 16.05" dsigma_Low -> err_lo | `(blank; NGC 6541 block) | 16.05 | 400 | 7.71 | 0.31 | 0.29 | RV` | veldis.html line 9005 | 0.29 | agree
+- bin 21.96" <r> [arcsec] | `(blank; NGC 6541 block) | 21.96 | 400 | 7.23 | 0.29 | 0.28 | RV` | veldis.html line 9023 | 21.96 | agree
+- bin 21.96" NStar | `(blank; NGC 6541 block) | 21.96 | 400 | 7.23 | 0.29 | 0.28 | RV` | veldis.html line 9023 | 400.0 | agree
+- bin 21.96" sigma [km/s] | `(blank; NGC 6541 block) | 21.96 | 400 | 7.23 | 0.29 | 0.28 | RV` | veldis.html line 9023 | 7.23 | agree
+- bin 21.96" dsigma_Up -> err_hi | `(blank; NGC 6541 block) | 21.96 | 400 | 7.23 | 0.29 | 0.28 | RV` | veldis.html line 9023 | 0.29 | agree
+- bin 21.96" dsigma_Low -> err_lo | `(blank; NGC 6541 block) | 21.96 | 400 | 7.23 | 0.29 | 0.28 | RV` | veldis.html line 9023 | 0.28 | agree
+- bin 27.27" <r> [arcsec] | `(blank; NGC 6541 block) | 27.27 | 400 | 7.76 | 0.31 | 0.30 | RV` | veldis.html line 9041 | 27.27 | agree
+- bin 27.27" NStar | `(blank; NGC 6541 block) | 27.27 | 400 | 7.76 | 0.31 | 0.30 | RV` | veldis.html line 9041 | 400.0 | agree
+- bin 27.27" sigma [km/s] | `(blank; NGC 6541 block) | 27.27 | 400 | 7.76 | 0.31 | 0.30 | RV` | veldis.html line 9041 | 7.76 | agree
+- bin 27.27" dsigma_Up -> err_hi | `(blank; NGC 6541 block) | 27.27 | 400 | 7.76 | 0.31 | 0.30 | RV` | veldis.html line 9041 | 0.31 | agree
+- bin 27.27" dsigma_Low -> err_lo | `(blank; NGC 6541 block) | 27.27 | 400 | 7.76 | 0.31 | 0.30 | RV` | veldis.html line 9041 | 0.3 | agree
+- bin 32.53" <r> [arcsec] | `(blank; NGC 6541 block) | 32.53 | 400 | 7.19 | 0.29 | 0.28 | RV` | veldis.html line 9053 | 32.53 | agree
+- bin 32.53" NStar | `(blank; NGC 6541 block) | 32.53 | 400 | 7.19 | 0.29 | 0.28 | RV` | veldis.html line 9053 | 400.0 | agree
+- bin 32.53" sigma [km/s] | `(blank; NGC 6541 block) | 32.53 | 400 | 7.19 | 0.29 | 0.28 | RV` | veldis.html line 9053 | 7.19 | agree
+- bin 32.53" dsigma_Up -> err_hi | `(blank; NGC 6541 block) | 32.53 | 400 | 7.19 | 0.29 | 0.28 | RV` | veldis.html line 9053 | 0.29 | agree
+- bin 32.53" dsigma_Low -> err_lo | `(blank; NGC 6541 block) | 32.53 | 400 | 7.19 | 0.29 | 0.28 | RV` | veldis.html line 9053 | 0.28 | agree
+- bin 37.71" <r> [arcsec] | `(blank; NGC 6541 block) | 37.71 | 400 | 7.29 | 0.30 | 0.28 | RV` | veldis.html line 9071 | 37.71 | agree
+- bin 37.71" NStar | `(blank; NGC 6541 block) | 37.71 | 400 | 7.29 | 0.30 | 0.28 | RV` | veldis.html line 9071 | 400.0 | agree
+- bin 37.71" sigma [km/s] | `(blank; NGC 6541 block) | 37.71 | 400 | 7.29 | 0.30 | 0.28 | RV` | veldis.html line 9071 | 7.29 | agree
+- bin 37.71" dsigma_Up -> err_hi | `(blank; NGC 6541 block) | 37.71 | 400 | 7.29 | 0.30 | 0.28 | RV` | veldis.html line 9071 | 0.3 | agree
+- bin 37.71" dsigma_Low -> err_lo | `(blank; NGC 6541 block) | 37.71 | 400 | 7.29 | 0.30 | 0.28 | RV` | veldis.html line 9071 | 0.28 | agree
+- bin 44.01" <r> [arcsec] | `(blank; NGC 6541 block) | 44.01 | 400 | 7.31 | 0.30 | 0.29 | RV` | veldis.html line 9083 | 44.01 | agree
+- bin 44.01" NStar | `(blank; NGC 6541 block) | 44.01 | 400 | 7.31 | 0.30 | 0.29 | RV` | veldis.html line 9083 | 400.0 | agree
+- bin 44.01" sigma [km/s] | `(blank; NGC 6541 block) | 44.01 | 400 | 7.31 | 0.30 | 0.29 | RV` | veldis.html line 9083 | 7.31 | agree
+- bin 44.01" dsigma_Up -> err_hi | `(blank; NGC 6541 block) | 44.01 | 400 | 7.31 | 0.30 | 0.29 | RV` | veldis.html line 9083 | 0.3 | agree
+- bin 44.01" dsigma_Low -> err_lo | `(blank; NGC 6541 block) | 44.01 | 400 | 7.31 | 0.30 | 0.29 | RV` | veldis.html line 9083 | 0.29 | agree
+- bin 51.38" <r> [arcsec] | `(blank; NGC 6541 block) | 51.38 | 400 | 6.77 | 0.28 | 0.27 | RV` | veldis.html line 9101 | 51.38 | agree
+- bin 51.38" NStar | `(blank; NGC 6541 block) | 51.38 | 400 | 6.77 | 0.28 | 0.27 | RV` | veldis.html line 9101 | 400.0 | agree
+- bin 51.38" sigma [km/s] | `(blank; NGC 6541 block) | 51.38 | 400 | 6.77 | 0.28 | 0.27 | RV` | veldis.html line 9101 | 6.77 | agree
+- bin 51.38" dsigma_Up -> err_hi | `(blank; NGC 6541 block) | 51.38 | 400 | 6.77 | 0.28 | 0.27 | RV` | veldis.html line 9101 | 0.28 | agree
+- bin 51.38" dsigma_Low -> err_lo | `(blank; NGC 6541 block) | 51.38 | 400 | 6.77 | 0.28 | 0.27 | RV` | veldis.html line 9101 | 0.27 | agree
+- bin 59.04" <r> [arcsec] | `(blank; NGC 6541 block) | 59.04 | 100 | 7.06 | 0.60 | 0.54 | RV` | veldis.html line 9113 | 59.04 | agree
+- bin 59.04" NStar | `(blank; NGC 6541 block) | 59.04 | 100 | 7.06 | 0.60 | 0.54 | RV` | veldis.html line 9113 | 100.0 | agree
+- bin 59.04" sigma [km/s] | `(blank; NGC 6541 block) | 59.04 | 100 | 7.06 | 0.60 | 0.54 | RV` | veldis.html line 9113 | 7.06 | agree
+- bin 59.04" dsigma_Up -> err_hi | `(blank; NGC 6541 block) | 59.04 | 100 | 7.06 | 0.60 | 0.54 | RV` | veldis.html line 9113 | 0.6 | agree
+- bin 59.04" dsigma_Low -> err_lo | `(blank; NGC 6541 block) | 59.04 | 100 | 7.06 | 0.60 | 0.54 | RV` | veldis.html line 9113 | 0.54 | agree
+- bin 71.92" <r> [arcsec] | `(blank; NGC 6541 block) | 71.92 | 100 | 6.74 | 0.56 | 0.50 | RV` | veldis.html line 9137 | 71.92 | agree
+- bin 71.92" NStar | `(blank; NGC 6541 block) | 71.92 | 100 | 6.74 | 0.56 | 0.50 | RV` | veldis.html line 9137 | 100.0 | agree
+- bin 71.92" sigma [km/s] | `(blank; NGC 6541 block) | 71.92 | 100 | 6.74 | 0.56 | 0.50 | RV` | veldis.html line 9137 | 6.74 | agree
+- bin 71.92" dsigma_Up -> err_hi | `(blank; NGC 6541 block) | 71.92 | 100 | 6.74 | 0.56 | 0.50 | RV` | veldis.html line 9137 | 0.56 | agree
+- bin 71.92" dsigma_Low -> err_lo | `(blank; NGC 6541 block) | 71.92 | 100 | 6.74 | 0.56 | 0.50 | RV` | veldis.html line 9137 | 0.5 | agree
+- bin 184.06" <r> [arcsec] | `(blank; NGC 6541 block) | 184.06 | 100 | 5.12 | 0.40 | 0.36 | RV` | veldis.html line 9179 | 184.06 | agree
+- bin 184.06" NStar | `(blank; NGC 6541 block) | 184.06 | 100 | 5.12 | 0.40 | 0.36 | RV` | veldis.html line 9179 | 100.0 | agree
+- bin 184.06" sigma [km/s] | `(blank; NGC 6541 block) | 184.06 | 100 | 5.12 | 0.40 | 0.36 | RV` | veldis.html line 9179 | 5.12 | agree
+- bin 184.06" dsigma_Up -> err_hi | `(blank; NGC 6541 block) | 184.06 | 100 | 5.12 | 0.40 | 0.36 | RV` | veldis.html line 9179 | 0.4 | agree
+- bin 184.06" dsigma_Low -> err_lo | `(blank; NGC 6541 block) | 184.06 | 100 | 5.12 | 0.40 | 0.36 | RV` | veldis.html line 9179 | 0.36 | agree
+- bin 364.84" <r> [arcsec] | `(blank; NGC 6541 block) | 364.84 | 36 | 3.08 | 0.46 | 0.38 | RV` | veldis.html line 9191 | 364.84 | agree
+- bin 364.84" NStar | `(blank; NGC 6541 block) | 364.84 | 36 | 3.08 | 0.46 | 0.38 | RV` | veldis.html line 9191 | 36.0 | agree
+- bin 364.84" sigma [km/s] | `(blank; NGC 6541 block) | 364.84 | 36 | 3.08 | 0.46 | 0.38 | RV` | veldis.html line 9191 | 3.08 | agree
+- bin 364.84" dsigma_Up -> err_hi | `(blank; NGC 6541 block) | 364.84 | 36 | 3.08 | 0.46 | 0.38 | RV` | veldis.html line 9191 | 0.46 | agree
+- bin 364.84" dsigma_Low -> err_lo | `(blank; NGC 6541 block) | 364.84 | 36 | 3.08 | 0.46 | 0.38 | RV` | veldis.html line 9191 | 0.38 | agree
+- R_Sun [kpc] | `NGC 6541 ...   7.5   2.1  [R_Sun field: '7.5']` | mwgc.dat line 183 (Part I) | 7.5 | agree
+- M_V,t [mag] | `NGC 6541 ... 6.30  -8.52  [M_V,t field: '-8.52']` | mwgc.dat line 363 (Part II) | -8.52 | agree
+- W0/gamma | `<TD>8.10</TD>` | J_ApJS_161_304_models.vot models.vot line 680 (recno 340, MW-NGC6541, Mod K) | 8.1 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 680 (recno 340, MW-NGC6541, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 680 (recno 340, MW-NGC6541, Mod K) | 0.2 | agree
+- r0 | `<TD>11.260</TD>` | J_ApJS_161_304_models.vot models.vot line 680 (recno 340, MW-NGC6541, Mod K) | 11.26 | agree
+- E_r0 -> err_hi | `<TD>1.150</TD>` | J_ApJS_161_304_models.vot models.vot line 680 (recno 340, MW-NGC6541, Mod K) | 1.15 | agree
+- e_r0 -> err_lo | `<TD>0.560</TD>` | J_ApJS_161_304_models.vot models.vot line 680 (recno 340, MW-NGC6541, Mod K) | 0.56 | agree
+- Rh | `<TD>0.333</TD>` | J_ApJS_161_304_models.vot models.vot line 680 (recno 340, MW-NGC6541, Mod K) | 0.333 | agree
+- E_Rh -> err_hi | `<TD>0.010</TD>` | J_ApJS_161_304_models.vot models.vot line 680 (recno 340, MW-NGC6541, Mod K) | 0.01 | agree
+- e_Rh -> err_lo | `<TD>0.019</TD>` | J_ApJS_161_304_models.vot models.vot line 680 (recno 340, MW-NGC6541, Mod K) | 0.019 | agree
+- Dist | `<TD>7.0</TD>` | J_ApJS_161_304_models.vot models.vot line 680 (recno 340, MW-NGC6541, Mod K) | 7.0 | agree
+- (M/L)1 | `<TD>1.869</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 307 (recno 147, MW-NGC6541) | 1.869 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.157</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 307 (recno 147, MW-NGC6541) | 0.157 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.157</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 307 (recno 147, MW-NGC6541) | 0.157 | agree
+- arithmetic L_V = 222843.5149 vs 222843.5149 | agree; R_h = 10^0.333 x 7.5 / 7.0 = 2.306551859 pc vs 2.306551859 | agree; M/L 1.869 vs 1.869 | agree
+
+### NGC 6553
+
+- bin 28.90" <r> [arcsec] | `(blank; NGC 6553 block) | 28.90 | 120 | 6.68 | 0.47 | 0.42 | RV` | veldis.html line 9243 | 28.9 | agree
+- bin 28.90" NStar | `(blank; NGC 6553 block) | 28.90 | 120 | 6.68 | 0.47 | 0.42 | RV` | veldis.html line 9243 | 120.0 | agree
+- bin 28.90" sigma [km/s] | `(blank; NGC 6553 block) | 28.90 | 120 | 6.68 | 0.47 | 0.42 | RV` | veldis.html line 9243 | 6.68 | agree
+- bin 28.90" dsigma_Up -> err_hi | `(blank; NGC 6553 block) | 28.90 | 120 | 6.68 | 0.47 | 0.42 | RV` | veldis.html line 9243 | 0.47 | agree
+- bin 28.90" dsigma_Low -> err_lo | `(blank; NGC 6553 block) | 28.90 | 120 | 6.68 | 0.47 | 0.42 | RV` | veldis.html line 9243 | 0.42 | agree
+- bin 66.95" <r> [arcsec] | `(blank; NGC 6553 block) | 66.95 | 120 | 7.26 | 0.51 | 0.45 | RV` | veldis.html line 9255 | 66.95 | agree
+- bin 66.95" NStar | `(blank; NGC 6553 block) | 66.95 | 120 | 7.26 | 0.51 | 0.45 | RV` | veldis.html line 9255 | 120.0 | agree
+- bin 66.95" sigma [km/s] | `(blank; NGC 6553 block) | 66.95 | 120 | 7.26 | 0.51 | 0.45 | RV` | veldis.html line 9255 | 7.26 | agree
+- bin 66.95" dsigma_Up -> err_hi | `(blank; NGC 6553 block) | 66.95 | 120 | 7.26 | 0.51 | 0.45 | RV` | veldis.html line 9255 | 0.51 | agree
+- bin 66.95" dsigma_Low -> err_lo | `(blank; NGC 6553 block) | 66.95 | 120 | 7.26 | 0.51 | 0.45 | RV` | veldis.html line 9255 | 0.45 | agree
+- bin 130.19" <r> [arcsec] | `(blank; NGC 6553 block) | 130.19 | 120 | 6.62 | 0.46 | 0.42 | RV` | veldis.html line 9273 | 130.19 | agree
+- bin 130.19" NStar | `(blank; NGC 6553 block) | 130.19 | 120 | 6.62 | 0.46 | 0.42 | RV` | veldis.html line 9273 | 120.0 | agree
+- bin 130.19" sigma [km/s] | `(blank; NGC 6553 block) | 130.19 | 120 | 6.62 | 0.46 | 0.42 | RV` | veldis.html line 9273 | 6.62 | agree
+- bin 130.19" dsigma_Up -> err_hi | `(blank; NGC 6553 block) | 130.19 | 120 | 6.62 | 0.46 | 0.42 | RV` | veldis.html line 9273 | 0.46 | agree
+- bin 130.19" dsigma_Low -> err_lo | `(blank; NGC 6553 block) | 130.19 | 120 | 6.62 | 0.46 | 0.42 | RV` | veldis.html line 9273 | 0.42 | agree
+- bin 253.16" <r> [arcsec] | `(blank; NGC 6553 block) | 253.16 | 78 | 5.66 | 0.50 | 0.44 | RV` | veldis.html line 9285 | 253.16 | agree
+- bin 253.16" NStar | `(blank; NGC 6553 block) | 253.16 | 78 | 5.66 | 0.50 | 0.44 | RV` | veldis.html line 9285 | 78.0 | agree
+- bin 253.16" sigma [km/s] | `(blank; NGC 6553 block) | 253.16 | 78 | 5.66 | 0.50 | 0.44 | RV` | veldis.html line 9285 | 5.66 | agree
+- bin 253.16" dsigma_Up -> err_hi | `(blank; NGC 6553 block) | 253.16 | 78 | 5.66 | 0.50 | 0.44 | RV` | veldis.html line 9285 | 0.5 | agree
+- bin 253.16" dsigma_Low -> err_lo | `(blank; NGC 6553 block) | 253.16 | 78 | 5.66 | 0.50 | 0.44 | RV` | veldis.html line 9285 | 0.44 | agree
+- R_Sun [kpc] | `NGC 6553 ...   6.0   2.2  [R_Sun field: '6.0']` | mwgc.dat line 186 (Part I) | 6.0 | agree
+- M_V,t [mag] | `NGC 6553 ... 8.06  -7.77  [M_V,t field: '-7.77']` | mwgc.dat line 366 (Part II) | -7.77 | agree
+- W0/gamma | `<TD>5.60</TD>` | J_ApJS_161_304_models.vot models.vot line 683 (recno 343, MW-NGC6553, Mod K) | 5.6 | agree
+- E_W0/gamma -> err_hi | `<TD>0.40</TD>` | J_ApJS_161_304_models.vot models.vot line 683 (recno 343, MW-NGC6553, Mod K) | 0.4 | agree
+- e_W0/gamma -> err_lo | `<TD>0.40</TD>` | J_ApJS_161_304_models.vot models.vot line 683 (recno 343, MW-NGC6553, Mod K) | 0.4 | agree
+- r0 | `<TD>34.930</TD>` | J_ApJS_161_304_models.vot models.vot line 683 (recno 343, MW-NGC6553, Mod K) | 34.93 | agree
+- E_r0 -> err_hi | `<TD>1.860</TD>` | J_ApJS_161_304_models.vot models.vot line 683 (recno 343, MW-NGC6553, Mod K) | 1.86 | agree
+- e_r0 -> err_lo | `<TD>1.620</TD>` | J_ApJS_161_304_models.vot models.vot line 683 (recno 343, MW-NGC6553, Mod K) | 1.62 | agree
+- Rh | `<TD>0.254</TD>` | J_ApJS_161_304_models.vot models.vot line 683 (recno 343, MW-NGC6553, Mod K) | 0.254 | agree
+- E_Rh -> err_hi | `<TD>0.031</TD>` | J_ApJS_161_304_models.vot models.vot line 683 (recno 343, MW-NGC6553, Mod K) | 0.031 | agree
+- e_Rh -> err_lo | `<TD>0.024</TD>` | J_ApJS_161_304_models.vot models.vot line 683 (recno 343, MW-NGC6553, Mod K) | 0.024 | agree
+- Dist | `<TD>6.0</TD>` | J_ApJS_161_304_models.vot models.vot line 683 (recno 343, MW-NGC6553, Mod K) | 6.0 | agree
+- (M/L)1 | `<TD>3.242</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 309 (recno 149, MW-NGC6553) | 3.242 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.393</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 309 (recno 149, MW-NGC6553) | 0.393 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.393</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 309 (recno 149, MW-NGC6553) | 0.393 | agree
+- arithmetic L_V = 111686.3248 vs 111686.3248 | agree; R_h = 10^0.254 x 6.0 / 6.0 = 1.794733627 pc vs 1.794733627 | agree; M/L 3.242 vs 3.242 | agree
+
+### NGC 6569
+
+- bin 31.14" <r> [arcsec] | `NGC 6569 | 31.14 | 50 | 6.33 | 0.71 | 0.60 | RV` | veldis.html line 9366 | 31.14 | agree
+- bin 31.14" NStar | `NGC 6569 | 31.14 | 50 | 6.33 | 0.71 | 0.60 | RV` | veldis.html line 9366 | 50.0 | agree
+- bin 31.14" sigma [km/s] | `NGC 6569 | 31.14 | 50 | 6.33 | 0.71 | 0.60 | RV` | veldis.html line 9366 | 6.33 | agree
+- bin 31.14" dsigma_Up -> err_hi | `NGC 6569 | 31.14 | 50 | 6.33 | 0.71 | 0.60 | RV` | veldis.html line 9366 | 0.71 | agree
+- bin 31.14" dsigma_Low -> err_lo | `NGC 6569 | 31.14 | 50 | 6.33 | 0.71 | 0.60 | RV` | veldis.html line 9366 | 0.6 | agree
+- bin 76.84" <r> [arcsec] | `(blank; NGC 6569 block) | 76.84 | 50 | 5.11 | 0.57 | 0.48 | RV` | veldis.html line 9373 | 76.84 | agree
+- bin 76.84" NStar | `(blank; NGC 6569 block) | 76.84 | 50 | 5.11 | 0.57 | 0.48 | RV` | veldis.html line 9373 | 50.0 | agree
+- bin 76.84" sigma [km/s] | `(blank; NGC 6569 block) | 76.84 | 50 | 5.11 | 0.57 | 0.48 | RV` | veldis.html line 9373 | 5.11 | agree
+- bin 76.84" dsigma_Up -> err_hi | `(blank; NGC 6569 block) | 76.84 | 50 | 5.11 | 0.57 | 0.48 | RV` | veldis.html line 9373 | 0.57 | agree
+- bin 76.84" dsigma_Low -> err_lo | `(blank; NGC 6569 block) | 76.84 | 50 | 5.11 | 0.57 | 0.48 | RV` | veldis.html line 9373 | 0.48 | agree
+- bin 142.63" <r> [arcsec] | `(blank; NGC 6569 block) | 142.63 | 50 | 4.99 | 0.55 | 0.48 | RV` | veldis.html line 9385 | 142.63 | agree
+- bin 142.63" NStar | `(blank; NGC 6569 block) | 142.63 | 50 | 4.99 | 0.55 | 0.48 | RV` | veldis.html line 9385 | 50.0 | agree
+- bin 142.63" sigma [km/s] | `(blank; NGC 6569 block) | 142.63 | 50 | 4.99 | 0.55 | 0.48 | RV` | veldis.html line 9385 | 4.99 | agree
+- bin 142.63" dsigma_Up -> err_hi | `(blank; NGC 6569 block) | 142.63 | 50 | 4.99 | 0.55 | 0.48 | RV` | veldis.html line 9385 | 0.55 | agree
+- bin 142.63" dsigma_Low -> err_lo | `(blank; NGC 6569 block) | 142.63 | 50 | 4.99 | 0.55 | 0.48 | RV` | veldis.html line 9385 | 0.48 | agree
+- bin 244.77" <r> [arcsec] | `(blank; NGC 6569 block) | 244.77 | 14 | 4.09 | 0.95 | 0.70 | RV` | veldis.html line 9391 | 244.77 | agree
+- bin 244.77" NStar | `(blank; NGC 6569 block) | 244.77 | 14 | 4.09 | 0.95 | 0.70 | RV` | veldis.html line 9391 | 14.0 | agree
+- bin 244.77" sigma [km/s] | `(blank; NGC 6569 block) | 244.77 | 14 | 4.09 | 0.95 | 0.70 | RV` | veldis.html line 9391 | 4.09 | agree
+- bin 244.77" dsigma_Up -> err_hi | `(blank; NGC 6569 block) | 244.77 | 14 | 4.09 | 0.95 | 0.70 | RV` | veldis.html line 9391 | 0.95 | agree
+- bin 244.77" dsigma_Low -> err_lo | `(blank; NGC 6569 block) | 244.77 | 14 | 4.09 | 0.95 | 0.70 | RV` | veldis.html line 9391 | 0.7 | agree
+- R_Sun [kpc] | `NGC 6569 ...  10.9   3.1  [R_Sun field: '10.9']` | mwgc.dat line 191 (Part I) | 10.9 | agree
+- M_V,t [mag] | `NGC 6569 ... 8.55  -8.28  [M_V,t field: '-8.28']` | mwgc.dat line 371 (Part II) | -8.28 | agree
+- W0/gamma | `<TD>6.20</TD>` | J_ApJS_161_304_models.vot models.vot line 686 (recno 346, MW-NGC6569, Mod K) | 6.2 | agree
+- E_W0/gamma -> err_hi | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 686 (recno 346, MW-NGC6569, Mod K) | 0.2 | agree
+- e_W0/gamma -> err_lo | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 686 (recno 346, MW-NGC6569, Mod K) | 0.2 | agree
+- r0 | `<TD>22.710</TD>` | J_ApJS_161_304_models.vot models.vot line 686 (recno 346, MW-NGC6569, Mod K) | 22.71 | agree
+- E_r0 -> err_hi | `<TD>0.730</TD>` | J_ApJS_161_304_models.vot models.vot line 686 (recno 346, MW-NGC6569, Mod K) | 0.73 | agree
+- e_r0 -> err_lo | `<TD>0.690</TD>` | J_ApJS_161_304_models.vot models.vot line 686 (recno 346, MW-NGC6569, Mod K) | 0.69 | agree
+- Rh | `<TD>0.398</TD>` | J_ApJS_161_304_models.vot models.vot line 686 (recno 346, MW-NGC6569, Mod K) | 0.398 | agree
+- E_Rh -> err_hi | `<TD>0.017</TD>` | J_ApJS_161_304_models.vot models.vot line 686 (recno 346, MW-NGC6569, Mod K) | 0.017 | agree
+- e_Rh -> err_lo | `<TD>0.015</TD>` | J_ApJS_161_304_models.vot models.vot line 686 (recno 346, MW-NGC6569, Mod K) | 0.015 | agree
+- Dist | `<TD>10.7</TD>` | J_ApJS_161_304_models.vot models.vot line 686 (recno 346, MW-NGC6569, Mod K) | 10.7 | agree
+- (M/L)1 | `<TD>2.242</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 311 (recno 151, MW-NGC6569) | 2.242 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.217</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 311 (recno 151, MW-NGC6569) | 0.217 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.217</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 311 (recno 151, MW-NGC6569) | 0.217 | agree
+- arithmetic L_V = 178648.7575 vs 178648.7575 | agree; R_h = 10^0.398 x 10.9 / 10.7 = 2.547080789 pc vs 2.547080789 | agree; M/L 2.242 vs 2.242 | agree
+
+### NGC 6656
+
+- bin 9.75" <r> [arcsec] | `(blank; NGC 6656 block) | 9.75 | 500 | 8.48 | 0.30 | 0.29 | RV` | veldis.html line 9983 | 9.75 | agree
+- bin 9.75" NStar | `(blank; NGC 6656 block) | 9.75 | 500 | 8.48 | 0.30 | 0.29 | RV` | veldis.html line 9983 | 500.0 | agree
+- bin 9.75" sigma [km/s] | `(blank; NGC 6656 block) | 9.75 | 500 | 8.48 | 0.30 | 0.29 | RV` | veldis.html line 9983 | 8.48 | agree
+- bin 9.75" dsigma_Up -> err_hi | `(blank; NGC 6656 block) | 9.75 | 500 | 8.48 | 0.30 | 0.29 | RV` | veldis.html line 9983 | 0.3 | agree
+- bin 9.75" dsigma_Low -> err_lo | `(blank; NGC 6656 block) | 9.75 | 500 | 8.48 | 0.30 | 0.29 | RV` | veldis.html line 9983 | 0.29 | agree
+- bin 20.02" <r> [arcsec] | `(blank; NGC 6656 block) | 20.02 | 500 | 8.06 | 0.29 | 0.28 | RV` | veldis.html line 9995 | 20.02 | agree
+- bin 20.02" NStar | `(blank; NGC 6656 block) | 20.02 | 500 | 8.06 | 0.29 | 0.28 | RV` | veldis.html line 9995 | 500.0 | agree
+- bin 20.02" sigma [km/s] | `(blank; NGC 6656 block) | 20.02 | 500 | 8.06 | 0.29 | 0.28 | RV` | veldis.html line 9995 | 8.06 | agree
+- bin 20.02" dsigma_Up -> err_hi | `(blank; NGC 6656 block) | 20.02 | 500 | 8.06 | 0.29 | 0.28 | RV` | veldis.html line 9995 | 0.29 | agree
+- bin 20.02" dsigma_Low -> err_lo | `(blank; NGC 6656 block) | 20.02 | 500 | 8.06 | 0.29 | 0.28 | RV` | veldis.html line 9995 | 0.28 | agree
+- bin 27.17" <r> [arcsec] | `(blank; NGC 6656 block) | 27.17 | 500 | 8.58 | 0.30 | 0.29 | RV` | veldis.html line 10007 | 27.17 | agree
+- bin 27.17" NStar | `(blank; NGC 6656 block) | 27.17 | 500 | 8.58 | 0.30 | 0.29 | RV` | veldis.html line 10007 | 500.0 | agree
+- bin 27.17" sigma [km/s] | `(blank; NGC 6656 block) | 27.17 | 500 | 8.58 | 0.30 | 0.29 | RV` | veldis.html line 10007 | 8.58 | agree
+- bin 27.17" dsigma_Up -> err_hi | `(blank; NGC 6656 block) | 27.17 | 500 | 8.58 | 0.30 | 0.29 | RV` | veldis.html line 10007 | 0.3 | agree
+- bin 27.17" dsigma_Low -> err_lo | `(blank; NGC 6656 block) | 27.17 | 500 | 8.58 | 0.30 | 0.29 | RV` | veldis.html line 10007 | 0.29 | agree
+- bin 33.31" <r> [arcsec] | `(blank; NGC 6656 block) | 33.31 | 500 | 8.83 | 0.31 | 0.30 | RV` | veldis.html line 10019 | 33.31 | agree
+- bin 33.31" NStar | `(blank; NGC 6656 block) | 33.31 | 500 | 8.83 | 0.31 | 0.30 | RV` | veldis.html line 10019 | 500.0 | agree
+- bin 33.31" sigma [km/s] | `(blank; NGC 6656 block) | 33.31 | 500 | 8.83 | 0.31 | 0.30 | RV` | veldis.html line 10019 | 8.83 | agree
+- bin 33.31" dsigma_Up -> err_hi | `(blank; NGC 6656 block) | 33.31 | 500 | 8.83 | 0.31 | 0.30 | RV` | veldis.html line 10019 | 0.31 | agree
+- bin 33.31" dsigma_Low -> err_lo | `(blank; NGC 6656 block) | 33.31 | 500 | 8.83 | 0.31 | 0.30 | RV` | veldis.html line 10019 | 0.3 | agree
+- bin 38.66" <r> [arcsec] | `(blank; NGC 6656 block) | 38.66 | 500 | 9.09 | 0.31 | 0.30 | RV` | veldis.html line 10031 | 38.66 | agree
+- bin 38.66" NStar | `(blank; NGC 6656 block) | 38.66 | 500 | 9.09 | 0.31 | 0.30 | RV` | veldis.html line 10031 | 500.0 | agree
+- bin 38.66" sigma [km/s] | `(blank; NGC 6656 block) | 38.66 | 500 | 9.09 | 0.31 | 0.30 | RV` | veldis.html line 10031 | 9.09 | agree
+- bin 38.66" dsigma_Up -> err_hi | `(blank; NGC 6656 block) | 38.66 | 500 | 9.09 | 0.31 | 0.30 | RV` | veldis.html line 10031 | 0.31 | agree
+- bin 38.66" dsigma_Low -> err_lo | `(blank; NGC 6656 block) | 38.66 | 500 | 9.09 | 0.31 | 0.30 | RV` | veldis.html line 10031 | 0.3 | agree
+- bin 43.49" <r> [arcsec] | `(blank; NGC 6656 block) | 43.49 | 500 | 8.09 | 0.29 | 0.28 | RV` | veldis.html line 10043 | 43.49 | agree
+- bin 43.49" NStar | `(blank; NGC 6656 block) | 43.49 | 500 | 8.09 | 0.29 | 0.28 | RV` | veldis.html line 10043 | 500.0 | agree
+- bin 43.49" sigma [km/s] | `(blank; NGC 6656 block) | 43.49 | 500 | 8.09 | 0.29 | 0.28 | RV` | veldis.html line 10043 | 8.09 | agree
+- bin 43.49" dsigma_Up -> err_hi | `(blank; NGC 6656 block) | 43.49 | 500 | 8.09 | 0.29 | 0.28 | RV` | veldis.html line 10043 | 0.29 | agree
+- bin 43.49" dsigma_Low -> err_lo | `(blank; NGC 6656 block) | 43.49 | 500 | 8.09 | 0.29 | 0.28 | RV` | veldis.html line 10043 | 0.28 | agree
+- bin 48.36" <r> [arcsec] | `(blank; NGC 6656 block) | 48.36 | 500 | 8.46 | 0.30 | 0.29 | RV` | veldis.html line 10055 | 48.36 | agree
+- bin 48.36" NStar | `(blank; NGC 6656 block) | 48.36 | 500 | 8.46 | 0.30 | 0.29 | RV` | veldis.html line 10055 | 500.0 | agree
+- bin 48.36" sigma [km/s] | `(blank; NGC 6656 block) | 48.36 | 500 | 8.46 | 0.30 | 0.29 | RV` | veldis.html line 10055 | 8.46 | agree
+- bin 48.36" dsigma_Up -> err_hi | `(blank; NGC 6656 block) | 48.36 | 500 | 8.46 | 0.30 | 0.29 | RV` | veldis.html line 10055 | 0.3 | agree
+- bin 48.36" dsigma_Low -> err_lo | `(blank; NGC 6656 block) | 48.36 | 500 | 8.46 | 0.30 | 0.29 | RV` | veldis.html line 10055 | 0.29 | agree
+- bin 53.31" <r> [arcsec] | `(blank; NGC 6656 block) | 53.31 | 500 | 8.38 | 0.30 | 0.29 | RV` | veldis.html line 10061 | 53.31 | agree
+- bin 53.31" NStar | `(blank; NGC 6656 block) | 53.31 | 500 | 8.38 | 0.30 | 0.29 | RV` | veldis.html line 10061 | 500.0 | agree
+- bin 53.31" sigma [km/s] | `(blank; NGC 6656 block) | 53.31 | 500 | 8.38 | 0.30 | 0.29 | RV` | veldis.html line 10061 | 8.38 | agree
+- bin 53.31" dsigma_Up -> err_hi | `(blank; NGC 6656 block) | 53.31 | 500 | 8.38 | 0.30 | 0.29 | RV` | veldis.html line 10061 | 0.3 | agree
+- bin 53.31" dsigma_Low -> err_lo | `(blank; NGC 6656 block) | 53.31 | 500 | 8.38 | 0.30 | 0.29 | RV` | veldis.html line 10061 | 0.29 | agree
+- bin 58.18" <r> [arcsec] | `(blank; NGC 6656 block) | 58.18 | 200 | 9.02 | 0.51 | 0.47 | RV` | veldis.html line 10073 | 58.18 | agree
+- bin 58.18" NStar | `(blank; NGC 6656 block) | 58.18 | 200 | 9.02 | 0.51 | 0.47 | RV` | veldis.html line 10073 | 200.0 | agree
+- bin 58.18" sigma [km/s] | `(blank; NGC 6656 block) | 58.18 | 200 | 9.02 | 0.51 | 0.47 | RV` | veldis.html line 10073 | 9.02 | agree
+- bin 58.18" dsigma_Up -> err_hi | `(blank; NGC 6656 block) | 58.18 | 200 | 9.02 | 0.51 | 0.47 | RV` | veldis.html line 10073 | 0.51 | agree
+- bin 58.18" dsigma_Low -> err_lo | `(blank; NGC 6656 block) | 58.18 | 200 | 9.02 | 0.51 | 0.47 | RV` | veldis.html line 10073 | 0.47 | agree
+- bin 63.05" <r> [arcsec] | `(blank; NGC 6656 block) | 63.05 | 200 | 8.21 | 0.47 | 0.43 | RV` | veldis.html line 10085 | 63.05 | agree
+- bin 63.05" NStar | `(blank; NGC 6656 block) | 63.05 | 200 | 8.21 | 0.47 | 0.43 | RV` | veldis.html line 10085 | 200.0 | agree
+- bin 63.05" sigma [km/s] | `(blank; NGC 6656 block) | 63.05 | 200 | 8.21 | 0.47 | 0.43 | RV` | veldis.html line 10085 | 8.21 | agree
+- bin 63.05" dsigma_Up -> err_hi | `(blank; NGC 6656 block) | 63.05 | 200 | 8.21 | 0.47 | 0.43 | RV` | veldis.html line 10085 | 0.47 | agree
+- bin 63.05" dsigma_Low -> err_lo | `(blank; NGC 6656 block) | 63.05 | 200 | 8.21 | 0.47 | 0.43 | RV` | veldis.html line 10085 | 0.43 | agree
+- bin 90.82" <r> [arcsec] | `(blank; NGC 6656 block) | 90.82 | 200 | 7.81 | 0.42 | 0.39 | RV` | veldis.html line 10121 | 90.82 | agree
+- bin 90.82" NStar | `(blank; NGC 6656 block) | 90.82 | 200 | 7.81 | 0.42 | 0.39 | RV` | veldis.html line 10121 | 200.0 | agree
+- bin 90.82" sigma [km/s] | `(blank; NGC 6656 block) | 90.82 | 200 | 7.81 | 0.42 | 0.39 | RV` | veldis.html line 10121 | 7.81 | agree
+- bin 90.82" dsigma_Up -> err_hi | `(blank; NGC 6656 block) | 90.82 | 200 | 7.81 | 0.42 | 0.39 | RV` | veldis.html line 10121 | 0.42 | agree
+- bin 90.82" dsigma_Low -> err_lo | `(blank; NGC 6656 block) | 90.82 | 200 | 7.81 | 0.42 | 0.39 | RV` | veldis.html line 10121 | 0.39 | agree
+- bin 107.85" <r> [arcsec] | `(blank; NGC 6656 block) | 107.85 | 100 | 8.07 | 0.61 | 0.54 | RV` | veldis.html line 10139 | 107.85 | agree
+- bin 107.85" NStar | `(blank; NGC 6656 block) | 107.85 | 100 | 8.07 | 0.61 | 0.54 | RV` | veldis.html line 10139 | 100.0 | agree
+- bin 107.85" sigma [km/s] | `(blank; NGC 6656 block) | 107.85 | 100 | 8.07 | 0.61 | 0.54 | RV` | veldis.html line 10139 | 8.07 | agree
+- bin 107.85" dsigma_Up -> err_hi | `(blank; NGC 6656 block) | 107.85 | 100 | 8.07 | 0.61 | 0.54 | RV` | veldis.html line 10139 | 0.61 | agree
+- bin 107.85" dsigma_Low -> err_lo | `(blank; NGC 6656 block) | 107.85 | 100 | 8.07 | 0.61 | 0.54 | RV` | veldis.html line 10139 | 0.54 | agree
+- bin 145.69" <r> [arcsec] | `(blank; NGC 6656 block) | 145.69 | 100 | 8.05 | 0.62 | 0.55 | RV` | veldis.html line 10145 | 145.69 | agree
+- bin 145.69" NStar | `(blank; NGC 6656 block) | 145.69 | 100 | 8.05 | 0.62 | 0.55 | RV` | veldis.html line 10145 | 100.0 | agree
+- bin 145.69" sigma [km/s] | `(blank; NGC 6656 block) | 145.69 | 100 | 8.05 | 0.62 | 0.55 | RV` | veldis.html line 10145 | 8.05 | agree
+- bin 145.69" dsigma_Up -> err_hi | `(blank; NGC 6656 block) | 145.69 | 100 | 8.05 | 0.62 | 0.55 | RV` | veldis.html line 10145 | 0.62 | agree
+- bin 145.69" dsigma_Low -> err_lo | `(blank; NGC 6656 block) | 145.69 | 100 | 8.05 | 0.62 | 0.55 | RV` | veldis.html line 10145 | 0.55 | agree
+- bin 189.06" <r> [arcsec] | `(blank; NGC 6656 block) | 189.06 | 100 | 7.09 | 0.54 | 0.48 | RV` | veldis.html line 10151 | 189.06 | agree
+- bin 189.06" NStar | `(blank; NGC 6656 block) | 189.06 | 100 | 7.09 | 0.54 | 0.48 | RV` | veldis.html line 10151 | 100.0 | agree
+- bin 189.06" sigma [km/s] | `(blank; NGC 6656 block) | 189.06 | 100 | 7.09 | 0.54 | 0.48 | RV` | veldis.html line 10151 | 7.09 | agree
+- bin 189.06" dsigma_Up -> err_hi | `(blank; NGC 6656 block) | 189.06 | 100 | 7.09 | 0.54 | 0.48 | RV` | veldis.html line 10151 | 0.54 | agree
+- bin 189.06" dsigma_Low -> err_lo | `(blank; NGC 6656 block) | 189.06 | 100 | 7.09 | 0.54 | 0.48 | RV` | veldis.html line 10151 | 0.48 | agree
+- bin 251.48" <r> [arcsec] | `(blank; NGC 6656 block) | 251.48 | 100 | 7.01 | 0.53 | 0.47 | RV` | veldis.html line 10163 | 251.48 | agree
+- bin 251.48" NStar | `(blank; NGC 6656 block) | 251.48 | 100 | 7.01 | 0.53 | 0.47 | RV` | veldis.html line 10163 | 100.0 | agree
+- bin 251.48" sigma [km/s] | `(blank; NGC 6656 block) | 251.48 | 100 | 7.01 | 0.53 | 0.47 | RV` | veldis.html line 10163 | 7.01 | agree
+- bin 251.48" dsigma_Up -> err_hi | `(blank; NGC 6656 block) | 251.48 | 100 | 7.01 | 0.53 | 0.47 | RV` | veldis.html line 10163 | 0.53 | agree
+- bin 251.48" dsigma_Low -> err_lo | `(blank; NGC 6656 block) | 251.48 | 100 | 7.01 | 0.53 | 0.47 | RV` | veldis.html line 10163 | 0.47 | agree
+- bin 365.00" <r> [arcsec] | `(blank; NGC 6656 block) | 365.00 | 100 | 5.79 | 0.45 | 0.39 | RV` | veldis.html line 10175 | 365.0 | agree
+- bin 365.00" NStar | `(blank; NGC 6656 block) | 365.00 | 100 | 5.79 | 0.45 | 0.39 | RV` | veldis.html line 10175 | 100.0 | agree
+- bin 365.00" sigma [km/s] | `(blank; NGC 6656 block) | 365.00 | 100 | 5.79 | 0.45 | 0.39 | RV` | veldis.html line 10175 | 5.79 | agree
+- bin 365.00" dsigma_Up -> err_hi | `(blank; NGC 6656 block) | 365.00 | 100 | 5.79 | 0.45 | 0.39 | RV` | veldis.html line 10175 | 0.45 | agree
+- bin 365.00" dsigma_Low -> err_lo | `(blank; NGC 6656 block) | 365.00 | 100 | 5.79 | 0.45 | 0.39 | RV` | veldis.html line 10175 | 0.39 | agree
+- bin 560.61" <r> [arcsec] | `(blank; NGC 6656 block) | 560.61 | 100 | 5.17 | 0.40 | 0.36 | RV` | veldis.html line 10205 | 560.61 | agree
+- bin 560.61" NStar | `(blank; NGC 6656 block) | 560.61 | 100 | 5.17 | 0.40 | 0.36 | RV` | veldis.html line 10205 | 100.0 | agree
+- bin 560.61" sigma [km/s] | `(blank; NGC 6656 block) | 560.61 | 100 | 5.17 | 0.40 | 0.36 | RV` | veldis.html line 10205 | 5.17 | agree
+- bin 560.61" dsigma_Up -> err_hi | `(blank; NGC 6656 block) | 560.61 | 100 | 5.17 | 0.40 | 0.36 | RV` | veldis.html line 10205 | 0.4 | agree
+- bin 560.61" dsigma_Low -> err_lo | `(blank; NGC 6656 block) | 560.61 | 100 | 5.17 | 0.40 | 0.36 | RV` | veldis.html line 10205 | 0.36 | agree
+- bin 1046.38" <r> [arcsec] | `(blank; NGC 6656 block) | 1046.38 | 62 | 3.79 | 0.38 | 0.32 | RV` | veldis.html line 10235 | 1046.38 | agree
+- bin 1046.38" NStar | `(blank; NGC 6656 block) | 1046.38 | 62 | 3.79 | 0.38 | 0.32 | RV` | veldis.html line 10235 | 62.0 | agree
+- bin 1046.38" sigma [km/s] | `(blank; NGC 6656 block) | 1046.38 | 62 | 3.79 | 0.38 | 0.32 | RV` | veldis.html line 10235 | 3.79 | agree
+- bin 1046.38" dsigma_Up -> err_hi | `(blank; NGC 6656 block) | 1046.38 | 62 | 3.79 | 0.38 | 0.32 | RV` | veldis.html line 10235 | 0.38 | agree
+- bin 1046.38" dsigma_Low -> err_lo | `(blank; NGC 6656 block) | 1046.38 | 62 | 3.79 | 0.38 | 0.32 | RV` | veldis.html line 10235 | 0.32 | agree
+- R_Sun [kpc] | `NGC 6656 ...   3.2   4.9  [R_Sun field: '3.2']` | mwgc.dat line 201 (Part I) | 3.2 | agree
+- M_V,t [mag] | `NGC 6656 ... 5.10  -8.50  [M_V,t field: '-8.50']` | mwgc.dat line 381 (Part II) | -8.5 | agree
+- W0/gamma | `<TD>6.50</TD>` | J_ApJS_161_304_models.vot models.vot line 701 (recno 361, MW-NGC6656, Mod K) | 6.5 | agree
+- E_W0/gamma -> err_hi | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 701 (recno 361, MW-NGC6656, Mod K) | 0.2 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 701 (recno 361, MW-NGC6656, Mod K) | 0.1 | agree
+- r0 | `<TD>85.150</TD>` | J_ApJS_161_304_models.vot models.vot line 701 (recno 361, MW-NGC6656, Mod K) | 85.15 | agree
+- E_r0 -> err_hi | `<TD>1.740</TD>` | J_ApJS_161_304_models.vot models.vot line 701 (recno 361, MW-NGC6656, Mod K) | 1.74 | agree
+- e_r0 -> err_lo | `<TD>3.420</TD>` | J_ApJS_161_304_models.vot models.vot line 701 (recno 361, MW-NGC6656, Mod K) | 3.42 | agree
+- Rh | `<TD>0.495</TD>` | J_ApJS_161_304_models.vot models.vot line 701 (recno 361, MW-NGC6656, Mod K) | 0.495 | agree
+- E_Rh -> err_hi | `<TD>0.016</TD>` | J_ApJS_161_304_models.vot models.vot line 701 (recno 361, MW-NGC6656, Mod K) | 0.016 | agree
+- e_Rh -> err_lo | `<TD>0.008</TD>` | J_ApJS_161_304_models.vot models.vot line 701 (recno 361, MW-NGC6656, Mod K) | 0.008 | agree
+- Dist | `<TD>3.2</TD>` | J_ApJS_161_304_models.vot models.vot line 701 (recno 361, MW-NGC6656, Mod K) | 3.2 | agree
+- (M/L)1 | `<TD>1.870</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 319 (recno 159, MW-NGC6656) | 1.87 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.154</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 319 (recno 159, MW-NGC6656) | 0.154 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.154</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 319 (recno 159, MW-NGC6656) | 0.154 | agree
+- arithmetic L_V = 218776.1624 vs 218776.1624 | agree; R_h = 10^0.495 x 3.2 / 3.2 = 3.126079367 pc vs 3.126079367 | agree; M/L 1.87 vs 1.87 | agree
+
+### NGC 6712
+
+- bin 34.41" <r> [arcsec] | `NGC 6712 | 34.41 | 50 | 4.65 | 0.52 | 0.44 | RV` | veldis.html line 10406 | 34.41 | agree
+- bin 34.41" NStar | `NGC 6712 | 34.41 | 50 | 4.65 | 0.52 | 0.44 | RV` | veldis.html line 10406 | 50.0 | agree
+- bin 34.41" sigma [km/s] | `NGC 6712 | 34.41 | 50 | 4.65 | 0.52 | 0.44 | RV` | veldis.html line 10406 | 4.65 | agree
+- bin 34.41" dsigma_Up -> err_hi | `NGC 6712 | 34.41 | 50 | 4.65 | 0.52 | 0.44 | RV` | veldis.html line 10406 | 0.52 | agree
+- bin 34.41" dsigma_Low -> err_lo | `NGC 6712 | 34.41 | 50 | 4.65 | 0.52 | 0.44 | RV` | veldis.html line 10406 | 0.44 | agree
+- bin 63.66" <r> [arcsec] | `(blank; NGC 6712 block) | 63.66 | 50 | 3.93 | 0.45 | 0.38 | RV` | veldis.html line 10413 | 63.66 | agree
+- bin 63.66" NStar | `(blank; NGC 6712 block) | 63.66 | 50 | 3.93 | 0.45 | 0.38 | RV` | veldis.html line 10413 | 50.0 | agree
+- bin 63.66" sigma [km/s] | `(blank; NGC 6712 block) | 63.66 | 50 | 3.93 | 0.45 | 0.38 | RV` | veldis.html line 10413 | 3.93 | agree
+- bin 63.66" dsigma_Up -> err_hi | `(blank; NGC 6712 block) | 63.66 | 50 | 3.93 | 0.45 | 0.38 | RV` | veldis.html line 10413 | 0.45 | agree
+- bin 63.66" dsigma_Low -> err_lo | `(blank; NGC 6712 block) | 63.66 | 50 | 3.93 | 0.45 | 0.38 | RV` | veldis.html line 10413 | 0.38 | agree
+- bin 100.68" <r> [arcsec] | `(blank; NGC 6712 block) | 100.68 | 50 | 4.00 | 0.45 | 0.39 | RV` | veldis.html line 10425 | 100.68 | agree
+- bin 100.68" NStar | `(blank; NGC 6712 block) | 100.68 | 50 | 4.00 | 0.45 | 0.39 | RV` | veldis.html line 10425 | 50.0 | agree
+- bin 100.68" sigma [km/s] | `(blank; NGC 6712 block) | 100.68 | 50 | 4.00 | 0.45 | 0.39 | RV` | veldis.html line 10425 | 4.0 | agree
+- bin 100.68" dsigma_Up -> err_hi | `(blank; NGC 6712 block) | 100.68 | 50 | 4.00 | 0.45 | 0.39 | RV` | veldis.html line 10425 | 0.45 | agree
+- bin 100.68" dsigma_Low -> err_lo | `(blank; NGC 6712 block) | 100.68 | 50 | 4.00 | 0.45 | 0.39 | RV` | veldis.html line 10425 | 0.39 | agree
+- bin 154.45" <r> [arcsec] | `(blank; NGC 6712 block) | 154.45 | 50 | 3.60 | 0.41 | 0.34 | RV` | veldis.html line 10437 | 154.45 | agree
+- bin 154.45" NStar | `(blank; NGC 6712 block) | 154.45 | 50 | 3.60 | 0.41 | 0.34 | RV` | veldis.html line 10437 | 50.0 | agree
+- bin 154.45" sigma [km/s] | `(blank; NGC 6712 block) | 154.45 | 50 | 3.60 | 0.41 | 0.34 | RV` | veldis.html line 10437 | 3.6 | agree
+- bin 154.45" dsigma_Up -> err_hi | `(blank; NGC 6712 block) | 154.45 | 50 | 3.60 | 0.41 | 0.34 | RV` | veldis.html line 10437 | 0.41 | agree
+- bin 154.45" dsigma_Low -> err_lo | `(blank; NGC 6712 block) | 154.45 | 50 | 3.60 | 0.41 | 0.34 | RV` | veldis.html line 10437 | 0.34 | agree
+- bin 252.39" <r> [arcsec] | `(blank; NGC 6712 block) | 252.39 | 16 | 2.64 | 0.57 | 0.42 | RV` | veldis.html line 10449 | 252.39 | agree
+- bin 252.39" NStar | `(blank; NGC 6712 block) | 252.39 | 16 | 2.64 | 0.57 | 0.42 | RV` | veldis.html line 10449 | 16.0 | agree
+- bin 252.39" sigma [km/s] | `(blank; NGC 6712 block) | 252.39 | 16 | 2.64 | 0.57 | 0.42 | RV` | veldis.html line 10449 | 2.64 | agree
+- bin 252.39" dsigma_Up -> err_hi | `(blank; NGC 6712 block) | 252.39 | 16 | 2.64 | 0.57 | 0.42 | RV` | veldis.html line 10449 | 0.57 | agree
+- bin 252.39" dsigma_Low -> err_lo | `(blank; NGC 6712 block) | 252.39 | 16 | 2.64 | 0.57 | 0.42 | RV` | veldis.html line 10449 | 0.42 | agree
+- R_Sun [kpc] | `NGC 6712 ...   6.9   3.5  [R_Sun field: '6.9']` | mwgc.dat line 205 (Part I) | 6.9 | agree
+- M_V,t [mag] | `NGC 6712 ... 8.10  -7.50  [M_V,t field: '-7.50']` | mwgc.dat line 385 (Part II) | -7.5 | agree
+- W0/gamma | `<TD>5.10</TD>` | J_ApJS_161_304_models.vot models.vot line 704 (recno 364, MW-NGC6712, Mod K) | 5.1 | agree
+- E_W0/gamma -> err_hi | `<TD>0.40</TD>` | J_ApJS_161_304_models.vot models.vot line 704 (recno 364, MW-NGC6712, Mod K) | 0.4 | agree
+- e_W0/gamma -> err_lo | `<TD>0.40</TD>` | J_ApJS_161_304_models.vot models.vot line 704 (recno 364, MW-NGC6712, Mod K) | 0.4 | agree
+- r0 | `<TD>51.570</TD>` | J_ApJS_161_304_models.vot models.vot line 704 (recno 364, MW-NGC6712, Mod K) | 51.57 | agree
+- E_r0 -> err_hi | `<TD>3.920</TD>` | J_ApJS_161_304_models.vot models.vot line 704 (recno 364, MW-NGC6712, Mod K) | 3.92 | agree
+- e_r0 -> err_lo | `<TD>3.530</TD>` | J_ApJS_161_304_models.vot models.vot line 704 (recno 364, MW-NGC6712, Mod K) | 3.53 | agree
+- Rh | `<TD>0.426</TD>` | J_ApJS_161_304_models.vot models.vot line 704 (recno 364, MW-NGC6712, Mod K) | 0.426 | agree
+- E_Rh -> err_hi | `<TD>0.015</TD>` | J_ApJS_161_304_models.vot models.vot line 704 (recno 364, MW-NGC6712, Mod K) | 0.015 | agree
+- e_Rh -> err_lo | `<TD>0.010</TD>` | J_ApJS_161_304_models.vot models.vot line 704 (recno 364, MW-NGC6712, Mod K) | 0.01 | agree
+- Dist | `<TD>6.9</TD>` | J_ApJS_161_304_models.vot models.vot line 704 (recno 364, MW-NGC6712, Mod K) | 6.9 | agree
+- (M/L)1 | `<TD>2.111</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 321 (recno 161, MW-NGC6712) | 2.111 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.190</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 321 (recno 161, MW-NGC6712) | 0.19 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.190</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 321 (recno 161, MW-NGC6712) | 0.19 | agree
+- arithmetic L_V = 87096.359 vs 87096.359 | agree; R_h = 10^0.426 x 6.9 / 6.9 = 2.666858665 pc vs 2.666858665 | agree; M/L 2.111 vs 2.111 | agree
+
+### NGC 6715
+
+- bin 6.61" <r> [arcsec] | `NGC 6715 | 6.61 | 100 | 16.25 | 1.23 | 1.09 | RV` | veldis.html line 10456 | 6.61 | agree
+- bin 6.61" NStar | `NGC 6715 | 6.61 | 100 | 16.25 | 1.23 | 1.09 | RV` | veldis.html line 10456 | 100.0 | agree
+- bin 6.61" sigma [km/s] | `NGC 6715 | 6.61 | 100 | 16.25 | 1.23 | 1.09 | RV` | veldis.html line 10456 | 16.25 | agree
+- bin 6.61" dsigma_Up -> err_hi | `NGC 6715 | 6.61 | 100 | 16.25 | 1.23 | 1.09 | RV` | veldis.html line 10456 | 1.23 | agree
+- bin 6.61" dsigma_Low -> err_lo | `NGC 6715 | 6.61 | 100 | 16.25 | 1.23 | 1.09 | RV` | veldis.html line 10456 | 1.09 | agree
+- bin 12.47" <r> [arcsec] | `(blank; NGC 6715 block) | 12.47 | 100 | 15.77 | 1.19 | 1.06 | RV` | veldis.html line 10469 | 12.47 | agree
+- bin 12.47" NStar | `(blank; NGC 6715 block) | 12.47 | 100 | 15.77 | 1.19 | 1.06 | RV` | veldis.html line 10469 | 100.0 | agree
+- bin 12.47" sigma [km/s] | `(blank; NGC 6715 block) | 12.47 | 100 | 15.77 | 1.19 | 1.06 | RV` | veldis.html line 10469 | 15.77 | agree
+- bin 12.47" dsigma_Up -> err_hi | `(blank; NGC 6715 block) | 12.47 | 100 | 15.77 | 1.19 | 1.06 | RV` | veldis.html line 10469 | 1.19 | agree
+- bin 12.47" dsigma_Low -> err_lo | `(blank; NGC 6715 block) | 12.47 | 100 | 15.77 | 1.19 | 1.06 | RV` | veldis.html line 10469 | 1.06 | agree
+- bin 16.38" <r> [arcsec] | `(blank; NGC 6715 block) | 16.38 | 100 | 16.91 | 1.27 | 1.14 | RV` | veldis.html line 10481 | 16.38 | agree
+- bin 16.38" NStar | `(blank; NGC 6715 block) | 16.38 | 100 | 16.91 | 1.27 | 1.14 | RV` | veldis.html line 10481 | 100.0 | agree
+- bin 16.38" sigma [km/s] | `(blank; NGC 6715 block) | 16.38 | 100 | 16.91 | 1.27 | 1.14 | RV` | veldis.html line 10481 | 16.91 | agree
+- bin 16.38" dsigma_Up -> err_hi | `(blank; NGC 6715 block) | 16.38 | 100 | 16.91 | 1.27 | 1.14 | RV` | veldis.html line 10481 | 1.27 | agree
+- bin 16.38" dsigma_Low -> err_lo | `(blank; NGC 6715 block) | 16.38 | 100 | 16.91 | 1.27 | 1.14 | RV` | veldis.html line 10481 | 1.14 | agree
+- bin 20.37" <r> [arcsec] | `(blank; NGC 6715 block) | 20.37 | 100 | 15.89 | 1.21 | 1.06 | RV` | veldis.html line 10499 | 20.37 | agree
+- bin 20.37" NStar | `(blank; NGC 6715 block) | 20.37 | 100 | 15.89 | 1.21 | 1.06 | RV` | veldis.html line 10499 | 100.0 | agree
+- bin 20.37" sigma [km/s] | `(blank; NGC 6715 block) | 20.37 | 100 | 15.89 | 1.21 | 1.06 | RV` | veldis.html line 10499 | 15.89 | agree
+- bin 20.37" dsigma_Up -> err_hi | `(blank; NGC 6715 block) | 20.37 | 100 | 15.89 | 1.21 | 1.06 | RV` | veldis.html line 10499 | 1.21 | agree
+- bin 20.37" dsigma_Low -> err_lo | `(blank; NGC 6715 block) | 20.37 | 100 | 15.89 | 1.21 | 1.06 | RV` | veldis.html line 10499 | 1.06 | agree
+- bin 24.35" <r> [arcsec] | `(blank; NGC 6715 block) | 24.35 | 100 | 11.69 | 0.88 | 0.79 | RV` | veldis.html line 10511 | 24.35 | agree
+- bin 24.35" NStar | `(blank; NGC 6715 block) | 24.35 | 100 | 11.69 | 0.88 | 0.79 | RV` | veldis.html line 10511 | 100.0 | agree
+- bin 24.35" sigma [km/s] | `(blank; NGC 6715 block) | 24.35 | 100 | 11.69 | 0.88 | 0.79 | RV` | veldis.html line 10511 | 11.69 | agree
+- bin 24.35" dsigma_Up -> err_hi | `(blank; NGC 6715 block) | 24.35 | 100 | 11.69 | 0.88 | 0.79 | RV` | veldis.html line 10511 | 0.88 | agree
+- bin 24.35" dsigma_Low -> err_lo | `(blank; NGC 6715 block) | 24.35 | 100 | 11.69 | 0.88 | 0.79 | RV` | veldis.html line 10511 | 0.79 | agree
+- bin 28.47" <r> [arcsec] | `(blank; NGC 6715 block) | 28.47 | 100 | 14.22 | 1.08 | 0.96 | RV` | veldis.html line 10529 | 28.47 | agree
+- bin 28.47" NStar | `(blank; NGC 6715 block) | 28.47 | 100 | 14.22 | 1.08 | 0.96 | RV` | veldis.html line 10529 | 100.0 | agree
+- bin 28.47" sigma [km/s] | `(blank; NGC 6715 block) | 28.47 | 100 | 14.22 | 1.08 | 0.96 | RV` | veldis.html line 10529 | 14.22 | agree
+- bin 28.47" dsigma_Up -> err_hi | `(blank; NGC 6715 block) | 28.47 | 100 | 14.22 | 1.08 | 0.96 | RV` | veldis.html line 10529 | 1.08 | agree
+- bin 28.47" dsigma_Low -> err_lo | `(blank; NGC 6715 block) | 28.47 | 100 | 14.22 | 1.08 | 0.96 | RV` | veldis.html line 10529 | 0.96 | agree
+- bin 33.70" <r> [arcsec] | `(blank; NGC 6715 block) | 33.70 | 100 | 12.71 | 0.96 | 0.86 | RV` | veldis.html line 10559 | 33.7 | agree
+- bin 33.70" NStar | `(blank; NGC 6715 block) | 33.70 | 100 | 12.71 | 0.96 | 0.86 | RV` | veldis.html line 10559 | 100.0 | agree
+- bin 33.70" sigma [km/s] | `(blank; NGC 6715 block) | 33.70 | 100 | 12.71 | 0.96 | 0.86 | RV` | veldis.html line 10559 | 12.71 | agree
+- bin 33.70" dsigma_Up -> err_hi | `(blank; NGC 6715 block) | 33.70 | 100 | 12.71 | 0.96 | 0.86 | RV` | veldis.html line 10559 | 0.96 | agree
+- bin 33.70" dsigma_Low -> err_lo | `(blank; NGC 6715 block) | 33.70 | 100 | 12.71 | 0.96 | 0.86 | RV` | veldis.html line 10559 | 0.86 | agree
+- bin 44.69" <r> [arcsec] | `(blank; NGC 6715 block) | 44.69 | 100 | 11.37 | 0.86 | 0.77 | RV` | veldis.html line 10583 | 44.69 | agree
+- bin 44.69" NStar | `(blank; NGC 6715 block) | 44.69 | 100 | 11.37 | 0.86 | 0.77 | RV` | veldis.html line 10583 | 100.0 | agree
+- bin 44.69" sigma [km/s] | `(blank; NGC 6715 block) | 44.69 | 100 | 11.37 | 0.86 | 0.77 | RV` | veldis.html line 10583 | 11.37 | agree
+- bin 44.69" dsigma_Up -> err_hi | `(blank; NGC 6715 block) | 44.69 | 100 | 11.37 | 0.86 | 0.77 | RV` | veldis.html line 10583 | 0.86 | agree
+- bin 44.69" dsigma_Low -> err_lo | `(blank; NGC 6715 block) | 44.69 | 100 | 11.37 | 0.86 | 0.77 | RV` | veldis.html line 10583 | 0.77 | agree
+- bin 55.30" <r> [arcsec] | `(blank; NGC 6715 block) | 55.30 | 100 | 12.36 | 0.94 | 0.83 | RV` | veldis.html line 10595 | 55.3 | agree
+- bin 55.30" NStar | `(blank; NGC 6715 block) | 55.30 | 100 | 12.36 | 0.94 | 0.83 | RV` | veldis.html line 10595 | 100.0 | agree
+- bin 55.30" sigma [km/s] | `(blank; NGC 6715 block) | 55.30 | 100 | 12.36 | 0.94 | 0.83 | RV` | veldis.html line 10595 | 12.36 | agree
+- bin 55.30" dsigma_Up -> err_hi | `(blank; NGC 6715 block) | 55.30 | 100 | 12.36 | 0.94 | 0.83 | RV` | veldis.html line 10595 | 0.94 | agree
+- bin 55.30" dsigma_Low -> err_lo | `(blank; NGC 6715 block) | 55.30 | 100 | 12.36 | 0.94 | 0.83 | RV` | veldis.html line 10595 | 0.83 | agree
+- bin 71.18" <r> [arcsec] | `(blank; NGC 6715 block) | 71.18 | 100 | 10.67 | 0.81 | 0.72 | RV` | veldis.html line 10613 | 71.18 | agree
+- bin 71.18" NStar | `(blank; NGC 6715 block) | 71.18 | 100 | 10.67 | 0.81 | 0.72 | RV` | veldis.html line 10613 | 100.0 | agree
+- bin 71.18" sigma [km/s] | `(blank; NGC 6715 block) | 71.18 | 100 | 10.67 | 0.81 | 0.72 | RV` | veldis.html line 10613 | 10.67 | agree
+- bin 71.18" dsigma_Up -> err_hi | `(blank; NGC 6715 block) | 71.18 | 100 | 10.67 | 0.81 | 0.72 | RV` | veldis.html line 10613 | 0.81 | agree
+- bin 71.18" dsigma_Low -> err_lo | `(blank; NGC 6715 block) | 71.18 | 100 | 10.67 | 0.81 | 0.72 | RV` | veldis.html line 10613 | 0.72 | agree
+- bin 94.67" <r> [arcsec] | `(blank; NGC 6715 block) | 94.67 | 100 | 9.01 | 0.68 | 0.62 | RV` | veldis.html line 10631 | 94.67 | agree
+- bin 94.67" NStar | `(blank; NGC 6715 block) | 94.67 | 100 | 9.01 | 0.68 | 0.62 | RV` | veldis.html line 10631 | 100.0 | agree
+- bin 94.67" sigma [km/s] | `(blank; NGC 6715 block) | 94.67 | 100 | 9.01 | 0.68 | 0.62 | RV` | veldis.html line 10631 | 9.01 | agree
+- bin 94.67" dsigma_Up -> err_hi | `(blank; NGC 6715 block) | 94.67 | 100 | 9.01 | 0.68 | 0.62 | RV` | veldis.html line 10631 | 0.68 | agree
+- bin 94.67" dsigma_Low -> err_lo | `(blank; NGC 6715 block) | 94.67 | 100 | 9.01 | 0.68 | 0.62 | RV` | veldis.html line 10631 | 0.62 | agree
+- bin 121.24" <r> [arcsec] | `(blank; NGC 6715 block) | 121.24 | 100 | 8.78 | 0.67 | 0.60 | RV` | veldis.html line 10637 | 121.24 | agree
+- bin 121.24" NStar | `(blank; NGC 6715 block) | 121.24 | 100 | 8.78 | 0.67 | 0.60 | RV` | veldis.html line 10637 | 100.0 | agree
+- bin 121.24" sigma [km/s] | `(blank; NGC 6715 block) | 121.24 | 100 | 8.78 | 0.67 | 0.60 | RV` | veldis.html line 10637 | 8.78 | agree
+- bin 121.24" dsigma_Up -> err_hi | `(blank; NGC 6715 block) | 121.24 | 100 | 8.78 | 0.67 | 0.60 | RV` | veldis.html line 10637 | 0.67 | agree
+- bin 121.24" dsigma_Low -> err_lo | `(blank; NGC 6715 block) | 121.24 | 100 | 8.78 | 0.67 | 0.60 | RV` | veldis.html line 10637 | 0.6 | agree
+- bin 170.92" <r> [arcsec] | `(blank; NGC 6715 block) | 170.92 | 100 | 6.08 | 0.46 | 0.42 | RV` | veldis.html line 10649 | 170.92 | agree
+- bin 170.92" NStar | `(blank; NGC 6715 block) | 170.92 | 100 | 6.08 | 0.46 | 0.42 | RV` | veldis.html line 10649 | 100.0 | agree
+- bin 170.92" sigma [km/s] | `(blank; NGC 6715 block) | 170.92 | 100 | 6.08 | 0.46 | 0.42 | RV` | veldis.html line 10649 | 6.08 | agree
+- bin 170.92" dsigma_Up -> err_hi | `(blank; NGC 6715 block) | 170.92 | 100 | 6.08 | 0.46 | 0.42 | RV` | veldis.html line 10649 | 0.46 | agree
+- bin 170.92" dsigma_Low -> err_lo | `(blank; NGC 6715 block) | 170.92 | 100 | 6.08 | 0.46 | 0.42 | RV` | veldis.html line 10649 | 0.42 | agree
+- bin 269.01" <r> [arcsec] | `(blank; NGC 6715 block) | 269.01 | 100 | 7.04 | 0.54 | 0.47 | RV` | veldis.html line 10655 | 269.01 | agree
+- bin 269.01" NStar | `(blank; NGC 6715 block) | 269.01 | 100 | 7.04 | 0.54 | 0.47 | RV` | veldis.html line 10655 | 100.0 | agree
+- bin 269.01" sigma [km/s] | `(blank; NGC 6715 block) | 269.01 | 100 | 7.04 | 0.54 | 0.47 | RV` | veldis.html line 10655 | 7.04 | agree
+- bin 269.01" dsigma_Up -> err_hi | `(blank; NGC 6715 block) | 269.01 | 100 | 7.04 | 0.54 | 0.47 | RV` | veldis.html line 10655 | 0.54 | agree
+- bin 269.01" dsigma_Low -> err_lo | `(blank; NGC 6715 block) | 269.01 | 100 | 7.04 | 0.54 | 0.47 | RV` | veldis.html line 10655 | 0.47 | agree
+- bin 410.12" <r> [arcsec] | `(blank; NGC 6715 block) | 410.12 | 100 | 8.27 | 0.62 | 0.56 | RV` | veldis.html line 10661 | 410.12 | agree
+- bin 410.12" NStar | `(blank; NGC 6715 block) | 410.12 | 100 | 8.27 | 0.62 | 0.56 | RV` | veldis.html line 10661 | 100.0 | agree
+- bin 410.12" sigma [km/s] | `(blank; NGC 6715 block) | 410.12 | 100 | 8.27 | 0.62 | 0.56 | RV` | veldis.html line 10661 | 8.27 | agree
+- bin 410.12" dsigma_Up -> err_hi | `(blank; NGC 6715 block) | 410.12 | 100 | 8.27 | 0.62 | 0.56 | RV` | veldis.html line 10661 | 0.62 | agree
+- bin 410.12" dsigma_Low -> err_lo | `(blank; NGC 6715 block) | 410.12 | 100 | 8.27 | 0.62 | 0.56 | RV` | veldis.html line 10661 | 0.56 | agree
+- bin 679.10" <r> [arcsec] | `(blank; NGC 6715 block) | 679.10 | 100 | 8.38 | 0.63 | 0.57 | RV` | veldis.html line 10667 | 679.1 | agree
+- bin 679.10" NStar | `(blank; NGC 6715 block) | 679.10 | 100 | 8.38 | 0.63 | 0.57 | RV` | veldis.html line 10667 | 100.0 | agree
+- bin 679.10" sigma [km/s] | `(blank; NGC 6715 block) | 679.10 | 100 | 8.38 | 0.63 | 0.57 | RV` | veldis.html line 10667 | 8.38 | agree
+- bin 679.10" dsigma_Up -> err_hi | `(blank; NGC 6715 block) | 679.10 | 100 | 8.38 | 0.63 | 0.57 | RV` | veldis.html line 10667 | 0.63 | agree
+- bin 679.10" dsigma_Low -> err_lo | `(blank; NGC 6715 block) | 679.10 | 100 | 8.38 | 0.63 | 0.57 | RV` | veldis.html line 10667 | 0.57 | agree
+- R_Sun [kpc] | `NGC 6715 ...  26.5  18.9  [R_Sun field: '26.5']` | mwgc.dat line 206 (Part I) | 26.5 | agree
+- M_V,t [mag] | `NGC 6715 ... 7.60  -9.98  [M_V,t field: '-9.98']` | mwgc.dat line 386 (Part II) | -9.98 | agree
+- W0/gamma | `<TD>8.70</TD>` | J_ApJS_161_304_models.vot models.vot line 707 (recno 367, MW-NGC6715, Mod K) | 8.7 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 707 (recno 367, MW-NGC6715, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 707 (recno 367, MW-NGC6715, Mod K) | 0.1 | agree
+- r0 | `<TD>5.540</TD>` | J_ApJS_161_304_models.vot models.vot line 707 (recno 367, MW-NGC6715, Mod K) | 5.54 | agree
+- E_r0 -> err_hi | `<TD>0.300</TD>` | J_ApJS_161_304_models.vot models.vot line 707 (recno 367, MW-NGC6715, Mod K) | 0.3 | agree
+- e_r0 -> err_lo | `<TD>0.280</TD>` | J_ApJS_161_304_models.vot models.vot line 707 (recno 367, MW-NGC6715, Mod K) | 0.28 | agree
+- Rh | `<TD>0.806</TD>` | J_ApJS_161_304_models.vot models.vot line 707 (recno 367, MW-NGC6715, Mod K) | 0.806 | agree
+- E_Rh -> err_hi | `<TD>0.012</TD>` | J_ApJS_161_304_models.vot models.vot line 707 (recno 367, MW-NGC6715, Mod K) | 0.012 | agree
+- e_Rh -> err_lo | `<TD>0.011</TD>` | J_ApJS_161_304_models.vot models.vot line 707 (recno 367, MW-NGC6715, Mod K) | 0.011 | agree
+- Dist | `<TD>26.8</TD>` | J_ApJS_161_304_models.vot models.vot line 707 (recno 367, MW-NGC6715, Mod K) | 26.8 | agree
+- (M/L)1 | `<TD>1.876</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 322 (recno 162, MW-NGC6715) | 1.876 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.154</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 322 (recno 162, MW-NGC6715) | 0.154 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.154</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 322 (recno 162, MW-NGC6715) | 0.154 | agree
+- arithmetic L_V = 855066.7129 vs 855066.7129 | agree; R_h = 10^0.806 x 26.5 / 26.8 = 6.325736246 pc vs 6.325736246 | agree; M/L 1.876 vs 1.876 | agree
+
+### NGC 6723
+
+- bin 21.72" <r> [arcsec] | `(blank; NGC 6723 block) | 21.72 | 60 | 5.79 | 0.59 | 0.51 | RV` | veldis.html line 10749 | 21.72 | agree
+- bin 21.72" NStar | `(blank; NGC 6723 block) | 21.72 | 60 | 5.79 | 0.59 | 0.51 | RV` | veldis.html line 10749 | 60.0 | agree
+- bin 21.72" sigma [km/s] | `(blank; NGC 6723 block) | 21.72 | 60 | 5.79 | 0.59 | 0.51 | RV` | veldis.html line 10749 | 5.79 | agree
+- bin 21.72" dsigma_Up -> err_hi | `(blank; NGC 6723 block) | 21.72 | 60 | 5.79 | 0.59 | 0.51 | RV` | veldis.html line 10749 | 0.59 | agree
+- bin 21.72" dsigma_Low -> err_lo | `(blank; NGC 6723 block) | 21.72 | 60 | 5.79 | 0.59 | 0.51 | RV` | veldis.html line 10749 | 0.51 | agree
+- bin 47.75" <r> [arcsec] | `(blank; NGC 6723 block) | 47.75 | 60 | 5.43 | 0.56 | 0.48 | RV` | veldis.html line 10809 | 47.75 | agree
+- bin 47.75" NStar | `(blank; NGC 6723 block) | 47.75 | 60 | 5.43 | 0.56 | 0.48 | RV` | veldis.html line 10809 | 60.0 | agree
+- bin 47.75" sigma [km/s] | `(blank; NGC 6723 block) | 47.75 | 60 | 5.43 | 0.56 | 0.48 | RV` | veldis.html line 10809 | 5.43 | agree
+- bin 47.75" dsigma_Up -> err_hi | `(blank; NGC 6723 block) | 47.75 | 60 | 5.43 | 0.56 | 0.48 | RV` | veldis.html line 10809 | 0.56 | agree
+- bin 47.75" dsigma_Low -> err_lo | `(blank; NGC 6723 block) | 47.75 | 60 | 5.43 | 0.56 | 0.48 | RV` | veldis.html line 10809 | 0.48 | agree
+- bin 69.54" <r> [arcsec] | `(blank; NGC 6723 block) | 69.54 | 60 | 4.85 | 0.50 | 0.43 | RV` | veldis.html line 10833 | 69.54 | agree
+- bin 69.54" NStar | `(blank; NGC 6723 block) | 69.54 | 60 | 4.85 | 0.50 | 0.43 | RV` | veldis.html line 10833 | 60.0 | agree
+- bin 69.54" sigma [km/s] | `(blank; NGC 6723 block) | 69.54 | 60 | 4.85 | 0.50 | 0.43 | RV` | veldis.html line 10833 | 4.85 | agree
+- bin 69.54" dsigma_Up -> err_hi | `(blank; NGC 6723 block) | 69.54 | 60 | 4.85 | 0.50 | 0.43 | RV` | veldis.html line 10833 | 0.5 | agree
+- bin 69.54" dsigma_Low -> err_lo | `(blank; NGC 6723 block) | 69.54 | 60 | 4.85 | 0.50 | 0.43 | RV` | veldis.html line 10833 | 0.43 | agree
+- bin 90.35" <r> [arcsec] | `(blank; NGC 6723 block) | 90.35 | 60 | 4.74 | 0.48 | 0.42 | RV` | veldis.html line 10851 | 90.35 | agree
+- bin 90.35" NStar | `(blank; NGC 6723 block) | 90.35 | 60 | 4.74 | 0.48 | 0.42 | RV` | veldis.html line 10851 | 60.0 | agree
+- bin 90.35" sigma [km/s] | `(blank; NGC 6723 block) | 90.35 | 60 | 4.74 | 0.48 | 0.42 | RV` | veldis.html line 10851 | 4.74 | agree
+- bin 90.35" dsigma_Up -> err_hi | `(blank; NGC 6723 block) | 90.35 | 60 | 4.74 | 0.48 | 0.42 | RV` | veldis.html line 10851 | 0.48 | agree
+- bin 90.35" dsigma_Low -> err_lo | `(blank; NGC 6723 block) | 90.35 | 60 | 4.74 | 0.48 | 0.42 | RV` | veldis.html line 10851 | 0.42 | agree
+- bin 115.73" <r> [arcsec] | `(blank; NGC 6723 block) | 115.73 | 60 | 4.41 | 0.45 | 0.38 | RV` | veldis.html line 10863 | 115.73 | agree
+- bin 115.73" NStar | `(blank; NGC 6723 block) | 115.73 | 60 | 4.41 | 0.45 | 0.38 | RV` | veldis.html line 10863 | 60.0 | agree
+- bin 115.73" sigma [km/s] | `(blank; NGC 6723 block) | 115.73 | 60 | 4.41 | 0.45 | 0.38 | RV` | veldis.html line 10863 | 4.41 | agree
+- bin 115.73" dsigma_Up -> err_hi | `(blank; NGC 6723 block) | 115.73 | 60 | 4.41 | 0.45 | 0.38 | RV` | veldis.html line 10863 | 0.45 | agree
+- bin 115.73" dsigma_Low -> err_lo | `(blank; NGC 6723 block) | 115.73 | 60 | 4.41 | 0.45 | 0.38 | RV` | veldis.html line 10863 | 0.38 | agree
+- bin 148.52" <r> [arcsec] | `(blank; NGC 6723 block) | 148.52 | 60 | 4.09 | 0.42 | 0.36 | RV` | veldis.html line 10869 | 148.52 | agree
+- bin 148.52" NStar | `(blank; NGC 6723 block) | 148.52 | 60 | 4.09 | 0.42 | 0.36 | RV` | veldis.html line 10869 | 60.0 | agree
+- bin 148.52" sigma [km/s] | `(blank; NGC 6723 block) | 148.52 | 60 | 4.09 | 0.42 | 0.36 | RV` | veldis.html line 10869 | 4.09 | agree
+- bin 148.52" dsigma_Up -> err_hi | `(blank; NGC 6723 block) | 148.52 | 60 | 4.09 | 0.42 | 0.36 | RV` | veldis.html line 10869 | 0.42 | agree
+- bin 148.52" dsigma_Low -> err_lo | `(blank; NGC 6723 block) | 148.52 | 60 | 4.09 | 0.42 | 0.36 | RV` | veldis.html line 10869 | 0.36 | agree
+- bin 183.91" <r> [arcsec] | `(blank; NGC 6723 block) | 183.91 | 60 | 3.13 | 0.33 | 0.28 | RV` | veldis.html line 10881 | 183.91 | agree
+- bin 183.91" NStar | `(blank; NGC 6723 block) | 183.91 | 60 | 3.13 | 0.33 | 0.28 | RV` | veldis.html line 10881 | 60.0 | agree
+- bin 183.91" sigma [km/s] | `(blank; NGC 6723 block) | 183.91 | 60 | 3.13 | 0.33 | 0.28 | RV` | veldis.html line 10881 | 3.13 | agree
+- bin 183.91" dsigma_Up -> err_hi | `(blank; NGC 6723 block) | 183.91 | 60 | 3.13 | 0.33 | 0.28 | RV` | veldis.html line 10881 | 0.33 | agree
+- bin 183.91" dsigma_Low -> err_lo | `(blank; NGC 6723 block) | 183.91 | 60 | 3.13 | 0.33 | 0.28 | RV` | veldis.html line 10881 | 0.28 | agree
+- bin 247.42" <r> [arcsec] | `(blank; NGC 6723 block) | 247.42 | 60 | 3.31 | 0.35 | 0.29 | RV` | veldis.html line 10887 | 247.42 | agree
+- bin 247.42" NStar | `(blank; NGC 6723 block) | 247.42 | 60 | 3.31 | 0.35 | 0.29 | RV` | veldis.html line 10887 | 60.0 | agree
+- bin 247.42" sigma [km/s] | `(blank; NGC 6723 block) | 247.42 | 60 | 3.31 | 0.35 | 0.29 | RV` | veldis.html line 10887 | 3.31 | agree
+- bin 247.42" dsigma_Up -> err_hi | `(blank; NGC 6723 block) | 247.42 | 60 | 3.31 | 0.35 | 0.29 | RV` | veldis.html line 10887 | 0.35 | agree
+- bin 247.42" dsigma_Low -> err_lo | `(blank; NGC 6723 block) | 247.42 | 60 | 3.31 | 0.35 | 0.29 | RV` | veldis.html line 10887 | 0.29 | agree
+- bin 368.23" <r> [arcsec] | `(blank; NGC 6723 block) | 368.23 | 13 | 2.58 | 0.65 | 0.47 | RV` | veldis.html line 10893 | 368.23 | agree
+- bin 368.23" NStar | `(blank; NGC 6723 block) | 368.23 | 13 | 2.58 | 0.65 | 0.47 | RV` | veldis.html line 10893 | 13.0 | agree
+- bin 368.23" sigma [km/s] | `(blank; NGC 6723 block) | 368.23 | 13 | 2.58 | 0.65 | 0.47 | RV` | veldis.html line 10893 | 2.58 | agree
+- bin 368.23" dsigma_Up -> err_hi | `(blank; NGC 6723 block) | 368.23 | 13 | 2.58 | 0.65 | 0.47 | RV` | veldis.html line 10893 | 0.65 | agree
+- bin 368.23" dsigma_Low -> err_lo | `(blank; NGC 6723 block) | 368.23 | 13 | 2.58 | 0.65 | 0.47 | RV` | veldis.html line 10893 | 0.47 | agree
+- R_Sun [kpc] | `NGC 6723 ...   8.7   2.6  [R_Sun field: '8.7']` | mwgc.dat line 208 (Part I) | 8.7 | agree
+- M_V,t [mag] | `NGC 6723 ... 7.01  -7.83  [M_V,t field: '-7.83']` | mwgc.dat line 388 (Part II) | -7.83 | agree
+- W0/gamma | `<TD>5.40</TD>` | J_ApJS_161_304_models.vot models.vot line 710 (recno 370, MW-NGC6723, Mod K) | 5.4 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 710 (recno 370, MW-NGC6723, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 710 (recno 370, MW-NGC6723, Mod K) | 0.2 | agree
+- r0 | `<TD>55.030</TD>` | J_ApJS_161_304_models.vot models.vot line 710 (recno 370, MW-NGC6723, Mod K) | 55.03 | agree
+- E_r0 -> err_hi | `<TD>2.230</TD>` | J_ApJS_161_304_models.vot models.vot line 710 (recno 370, MW-NGC6723, Mod K) | 2.23 | agree
+- e_r0 -> err_lo | `<TD>1.110</TD>` | J_ApJS_161_304_models.vot models.vot line 710 (recno 370, MW-NGC6723, Mod K) | 1.11 | agree
+- Rh | `<TD>0.589</TD>` | J_ApJS_161_304_models.vot models.vot line 710 (recno 370, MW-NGC6723, Mod K) | 0.589 | agree
+- E_Rh -> err_hi | `<TD>0.003</TD>` | J_ApJS_161_304_models.vot models.vot line 710 (recno 370, MW-NGC6723, Mod K) | 0.003 | agree
+- e_Rh -> err_lo | `<TD>0.005</TD>` | J_ApJS_161_304_models.vot models.vot line 710 (recno 370, MW-NGC6723, Mod K) | 0.005 | agree
+- Dist | `<TD>8.7</TD>` | J_ApJS_161_304_models.vot models.vot line 710 (recno 370, MW-NGC6723, Mod K) | 8.7 | agree
+- (M/L)1 | `<TD>2.036</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 324 (recno 164, MW-NGC6723) | 2.036 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.176</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 324 (recno 164, MW-NGC6723) | 0.176 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.176</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 324 (recno 164, MW-NGC6723) | 0.176 | agree
+- arithmetic L_V = 118032.0636 vs 118032.0636 | agree; R_h = 10^0.589 x 8.7 / 8.7 = 3.88150366 pc vs 3.88150366 | agree; M/L 2.036 vs 2.036 | agree
+
+### NGC 6779
+
+- bin 87.25" <r> [arcsec] | `(blank; NGC 6779 block) | 87.25 | 40 | 4.66 | 0.66 | 0.55 | RV` | veldis.html line 11285 | 87.25 | agree
+- bin 87.25" NStar | `(blank; NGC 6779 block) | 87.25 | 40 | 4.66 | 0.66 | 0.55 | RV` | veldis.html line 11285 | 40.0 | agree
+- bin 87.25" sigma [km/s] | `(blank; NGC 6779 block) | 87.25 | 40 | 4.66 | 0.66 | 0.55 | RV` | veldis.html line 11285 | 4.66 | agree
+- bin 87.25" dsigma_Up -> err_hi | `(blank; NGC 6779 block) | 87.25 | 40 | 4.66 | 0.66 | 0.55 | RV` | veldis.html line 11285 | 0.66 | agree
+- bin 87.25" dsigma_Low -> err_lo | `(blank; NGC 6779 block) | 87.25 | 40 | 4.66 | 0.66 | 0.55 | RV` | veldis.html line 11285 | 0.55 | agree
+- bin 146.97" <r> [arcsec] | `(blank; NGC 6779 block) | 146.97 | 40 | 4.17 | 0.61 | 0.51 | RV` | veldis.html line 11303 | 146.97 | agree
+- bin 146.97" NStar | `(blank; NGC 6779 block) | 146.97 | 40 | 4.17 | 0.61 | 0.51 | RV` | veldis.html line 11303 | 40.0 | agree
+- bin 146.97" sigma [km/s] | `(blank; NGC 6779 block) | 146.97 | 40 | 4.17 | 0.61 | 0.51 | RV` | veldis.html line 11303 | 4.17 | agree
+- bin 146.97" dsigma_Up -> err_hi | `(blank; NGC 6779 block) | 146.97 | 40 | 4.17 | 0.61 | 0.51 | RV` | veldis.html line 11303 | 0.61 | agree
+- bin 146.97" dsigma_Low -> err_lo | `(blank; NGC 6779 block) | 146.97 | 40 | 4.17 | 0.61 | 0.51 | RV` | veldis.html line 11303 | 0.51 | agree
+- bin 221.36" <r> [arcsec] | `(blank; NGC 6779 block) | 221.36 | 21 | 3.67 | 0.83 | 0.66 | RV` | veldis.html line 11315 | 221.36 | agree
+- bin 221.36" NStar | `(blank; NGC 6779 block) | 221.36 | 21 | 3.67 | 0.83 | 0.66 | RV` | veldis.html line 11315 | 21.0 | agree
+- bin 221.36" sigma [km/s] | `(blank; NGC 6779 block) | 221.36 | 21 | 3.67 | 0.83 | 0.66 | RV` | veldis.html line 11315 | 3.67 | agree
+- bin 221.36" dsigma_Up -> err_hi | `(blank; NGC 6779 block) | 221.36 | 21 | 3.67 | 0.83 | 0.66 | RV` | veldis.html line 11315 | 0.83 | agree
+- bin 221.36" dsigma_Low -> err_lo | `(blank; NGC 6779 block) | 221.36 | 21 | 3.67 | 0.83 | 0.66 | RV` | veldis.html line 11315 | 0.66 | agree
+- R_Sun [kpc] | `NGC 6779 ...   9.4   9.2  [R_Sun field: '9.4']` | mwgc.dat line 212 (Part I) | 9.4 | agree
+- M_V,t [mag] | `NGC 6779 ... 8.27  -7.41  [M_V,t field: '-7.41']` | mwgc.dat line 392 (Part II) | -7.41 | agree
+- W0/gamma | `<TD>6.50</TD>` | J_ApJS_161_304_models.vot models.vot line 716 (recno 376, MW-NGC6779, Mod K) | 6.5 | agree
+- E_W0/gamma -> err_hi | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 716 (recno 376, MW-NGC6779, Mod K) | 0.2 | agree
+- e_W0/gamma -> err_lo | `<TD>0.30</TD>` | J_ApJS_161_304_models.vot models.vot line 716 (recno 376, MW-NGC6779, Mod K) | 0.3 | agree
+- r0 | `<TD>27.860</TD>` | J_ApJS_161_304_models.vot models.vot line 716 (recno 376, MW-NGC6779, Mod K) | 27.86 | agree
+- E_r0 -> err_hi | `<TD>1.250</TD>` | J_ApJS_161_304_models.vot models.vot line 716 (recno 376, MW-NGC6779, Mod K) | 1.25 | agree
+- e_r0 -> err_lo | `<TD>0.880</TD>` | J_ApJS_161_304_models.vot models.vot line 716 (recno 376, MW-NGC6779, Mod K) | 0.88 | agree
+- Rh | `<TD>0.509</TD>` | J_ApJS_161_304_models.vot models.vot line 716 (recno 376, MW-NGC6779, Mod K) | 0.509 | agree
+- E_Rh -> err_hi | `<TD>0.020</TD>` | J_ApJS_161_304_models.vot models.vot line 716 (recno 376, MW-NGC6779, Mod K) | 0.02 | agree
+- e_Rh -> err_lo | `<TD>0.028</TD>` | J_ApJS_161_304_models.vot models.vot line 716 (recno 376, MW-NGC6779, Mod K) | 0.028 | agree
+- Dist | `<TD>10.1</TD>` | J_ApJS_161_304_models.vot models.vot line 716 (recno 376, MW-NGC6779, Mod K) | 10.1 | agree
+- (M/L)1 | `<TD>1.878</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 328 (recno 168, MW-NGC6779) | 1.878 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.158</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 328 (recno 168, MW-NGC6779) | 0.158 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.158</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 328 (recno 168, MW-NGC6779) | 0.158 | agree
+- arithmetic L_V = 80167.80634 vs 80167.80634 | agree; R_h = 10^0.509 x 9.4 / 10.1 = 3.004737103 pc vs 3.004737103 | agree; M/L 1.878 vs 1.878 | agree
+
+### NGC 6809
+
+- bin 51.03" <r> [arcsec] | `(blank; NGC 6809 block) | 51.03 | 110 | 4.29 | 0.33 | 0.29 | RV` | veldis.html line 11341 | 51.03 | agree
+- bin 51.03" NStar | `(blank; NGC 6809 block) | 51.03 | 110 | 4.29 | 0.33 | 0.29 | RV` | veldis.html line 11341 | 110.0 | agree
+- bin 51.03" sigma [km/s] | `(blank; NGC 6809 block) | 51.03 | 110 | 4.29 | 0.33 | 0.29 | RV` | veldis.html line 11341 | 4.29 | agree
+- bin 51.03" dsigma_Up -> err_hi | `(blank; NGC 6809 block) | 51.03 | 110 | 4.29 | 0.33 | 0.29 | RV` | veldis.html line 11341 | 0.33 | agree
+- bin 51.03" dsigma_Low -> err_lo | `(blank; NGC 6809 block) | 51.03 | 110 | 4.29 | 0.33 | 0.29 | RV` | veldis.html line 11341 | 0.29 | agree
+- bin 122.97" <r> [arcsec] | `(blank; NGC 6809 block) | 122.97 | 110 | 4.06 | 0.30 | 0.27 | RV` | veldis.html line 11371 | 122.97 | agree
+- bin 122.97" NStar | `(blank; NGC 6809 block) | 122.97 | 110 | 4.06 | 0.30 | 0.27 | RV` | veldis.html line 11371 | 110.0 | agree
+- bin 122.97" sigma [km/s] | `(blank; NGC 6809 block) | 122.97 | 110 | 4.06 | 0.30 | 0.27 | RV` | veldis.html line 11371 | 4.06 | agree
+- bin 122.97" dsigma_Up -> err_hi | `(blank; NGC 6809 block) | 122.97 | 110 | 4.06 | 0.30 | 0.27 | RV` | veldis.html line 11371 | 0.3 | agree
+- bin 122.97" dsigma_Low -> err_lo | `(blank; NGC 6809 block) | 122.97 | 110 | 4.06 | 0.30 | 0.27 | RV` | veldis.html line 11371 | 0.27 | agree
+- bin 190.59" <r> [arcsec] | `(blank; NGC 6809 block) | 190.59 | 110 | 4.05 | 0.30 | 0.27 | RV` | veldis.html line 11383 | 190.59 | agree
+- bin 190.59" NStar | `(blank; NGC 6809 block) | 190.59 | 110 | 4.05 | 0.30 | 0.27 | RV` | veldis.html line 11383 | 110.0 | agree
+- bin 190.59" sigma [km/s] | `(blank; NGC 6809 block) | 190.59 | 110 | 4.05 | 0.30 | 0.27 | RV` | veldis.html line 11383 | 4.05 | agree
+- bin 190.59" dsigma_Up -> err_hi | `(blank; NGC 6809 block) | 190.59 | 110 | 4.05 | 0.30 | 0.27 | RV` | veldis.html line 11383 | 0.3 | agree
+- bin 190.59" dsigma_Low -> err_lo | `(blank; NGC 6809 block) | 190.59 | 110 | 4.05 | 0.30 | 0.27 | RV` | veldis.html line 11383 | 0.27 | agree
+- bin 280.84" <r> [arcsec] | `(blank; NGC 6809 block) | 280.84 | 110 | 3.81 | 0.28 | 0.25 | RV` | veldis.html line 11395 | 280.84 | agree
+- bin 280.84" NStar | `(blank; NGC 6809 block) | 280.84 | 110 | 3.81 | 0.28 | 0.25 | RV` | veldis.html line 11395 | 110.0 | agree
+- bin 280.84" sigma [km/s] | `(blank; NGC 6809 block) | 280.84 | 110 | 3.81 | 0.28 | 0.25 | RV` | veldis.html line 11395 | 3.81 | agree
+- bin 280.84" dsigma_Up -> err_hi | `(blank; NGC 6809 block) | 280.84 | 110 | 3.81 | 0.28 | 0.25 | RV` | veldis.html line 11395 | 0.28 | agree
+- bin 280.84" dsigma_Low -> err_lo | `(blank; NGC 6809 block) | 280.84 | 110 | 3.81 | 0.28 | 0.25 | RV` | veldis.html line 11395 | 0.25 | agree
+- bin 513.23" <r> [arcsec] | `(blank; NGC 6809 block) | 513.23 | 102 | 3.15 | 0.25 | 0.23 | RV` | veldis.html line 11407 | 513.23 | agree
+- bin 513.23" NStar | `(blank; NGC 6809 block) | 513.23 | 102 | 3.15 | 0.25 | 0.23 | RV` | veldis.html line 11407 | 102.0 | agree
+- bin 513.23" sigma [km/s] | `(blank; NGC 6809 block) | 513.23 | 102 | 3.15 | 0.25 | 0.23 | RV` | veldis.html line 11407 | 3.15 | agree
+- bin 513.23" dsigma_Up -> err_hi | `(blank; NGC 6809 block) | 513.23 | 102 | 3.15 | 0.25 | 0.23 | RV` | veldis.html line 11407 | 0.25 | agree
+- bin 513.23" dsigma_Low -> err_lo | `(blank; NGC 6809 block) | 513.23 | 102 | 3.15 | 0.25 | 0.23 | RV` | veldis.html line 11407 | 0.23 | agree
+- R_Sun [kpc] | `NGC 6809 ...   5.4   3.9  [R_Sun field: '5.4']` | mwgc.dat line 216 (Part I) | 5.4 | agree
+- M_V,t [mag] | `NGC 6809 ... 6.32  -7.57  [M_V,t field: '-7.57']` | mwgc.dat line 396 (Part II) | -7.57 | agree
+- W0/gamma | `<TD>4.50</TD>` | J_ApJS_161_304_models.vot models.vot line 719 (recno 379, MW-NGC6809, Mod K) | 4.5 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 719 (recno 379, MW-NGC6809, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 719 (recno 379, MW-NGC6809, Mod K) | 0.2 | agree
+- r0 | `<TD>126.410</TD>` | J_ApJS_161_304_models.vot models.vot line 719 (recno 379, MW-NGC6809, Mod K) | 126.41 | agree
+- E_r0 -> err_hi | `<TD>7.320</TD>` | J_ApJS_161_304_models.vot models.vot line 719 (recno 379, MW-NGC6809, Mod K) | 7.32 | agree
+- e_r0 -> err_lo | `<TD>3.500</TD>` | J_ApJS_161_304_models.vot models.vot line 719 (recno 379, MW-NGC6809, Mod K) | 3.5 | agree
+- Rh | `<TD>0.639</TD>` | J_ApJS_161_304_models.vot models.vot line 719 (recno 379, MW-NGC6809, Mod K) | 0.639 | agree
+- E_Rh -> err_hi | `<TD>0.005</TD>` | J_ApJS_161_304_models.vot models.vot line 719 (recno 379, MW-NGC6809, Mod K) | 0.005 | agree
+- e_Rh -> err_lo | `<TD>0.002</TD>` | J_ApJS_161_304_models.vot models.vot line 719 (recno 379, MW-NGC6809, Mod K) | 0.002 | agree
+- Dist | `<TD>5.3</TD>` | J_ApJS_161_304_models.vot models.vot line 719 (recno 379, MW-NGC6809, Mod K) | 5.3 | agree
+- (M/L)1 | `<TD>1.868</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 329 (recno 169, MW-NGC6809) | 1.868 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.156</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 329 (recno 169, MW-NGC6809) | 0.156 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.156</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 329 (recno 169, MW-NGC6809) | 0.156 | agree
+- arithmetic L_V = 92896.63868 vs 92896.63868 | agree; R_h = 10^0.639 x 5.4 / 5.3 = 4.437290788 pc vs 4.437290788 | agree; M/L 1.868 vs 1.868 | agree
+
+### NGC 6864
+
+- bin 66.76" <r> [arcsec] | `(blank; NGC 6864 block) | 66.76 | 25 | 5.82 | 1.04 | 0.84 | RV` | veldis.html line 11513 | 66.76 | agree
+- bin 66.76" NStar | `(blank; NGC 6864 block) | 66.76 | 25 | 5.82 | 1.04 | 0.84 | RV` | veldis.html line 11513 | 25.0 | agree
+- bin 66.76" sigma [km/s] | `(blank; NGC 6864 block) | 66.76 | 25 | 5.82 | 1.04 | 0.84 | RV` | veldis.html line 11513 | 5.82 | agree
+- bin 66.76" dsigma_Up -> err_hi | `(blank; NGC 6864 block) | 66.76 | 25 | 5.82 | 1.04 | 0.84 | RV` | veldis.html line 11513 | 1.04 | agree
+- bin 66.76" dsigma_Low -> err_lo | `(blank; NGC 6864 block) | 66.76 | 25 | 5.82 | 1.04 | 0.84 | RV` | veldis.html line 11513 | 0.84 | agree
+- bin 161.80" <r> [arcsec] | `(blank; NGC 6864 block) | 161.80 | 21 | 4.07 | 0.92 | 0.72 | RV` | veldis.html line 11537 | 161.8 | agree
+- bin 161.80" NStar | `(blank; NGC 6864 block) | 161.80 | 21 | 4.07 | 0.92 | 0.72 | RV` | veldis.html line 11537 | 21.0 | agree
+- bin 161.80" sigma [km/s] | `(blank; NGC 6864 block) | 161.80 | 21 | 4.07 | 0.92 | 0.72 | RV` | veldis.html line 11537 | 4.07 | agree
+- bin 161.80" dsigma_Up -> err_hi | `(blank; NGC 6864 block) | 161.80 | 21 | 4.07 | 0.92 | 0.72 | RV` | veldis.html line 11537 | 0.92 | agree
+- bin 161.80" dsigma_Low -> err_lo | `(blank; NGC 6864 block) | 161.80 | 21 | 4.07 | 0.92 | 0.72 | RV` | veldis.html line 11537 | 0.72 | agree
+- R_Sun [kpc] | `NGC 6864 ...  20.9  14.7  [R_Sun field: '20.9']` | mwgc.dat line 220 (Part I) | 20.9 | agree
+- M_V,t [mag] | `NGC 6864 ... 8.52  -8.57  [M_V,t field: '-8.57']` | mwgc.dat line 400 (Part II) | -8.57 | agree
+- W0/gamma | `<TD>7.90</TD>` | J_ApJS_161_304_models.vot models.vot line 722 (recno 382, MW-NGC6864, Mod K) | 7.9 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 722 (recno 382, MW-NGC6864, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 722 (recno 382, MW-NGC6864, Mod K) | 0.1 | agree
+- r0 | `<TD>5.620</TD>` | J_ApJS_161_304_models.vot models.vot line 722 (recno 382, MW-NGC6864, Mod K) | 5.62 | agree
+- E_r0 -> err_hi | `<TD>0.220</TD>` | J_ApJS_161_304_models.vot models.vot line 722 (recno 382, MW-NGC6864, Mod K) | 0.22 | agree
+- e_r0 -> err_lo | `<TD>0.220</TD>` | J_ApJS_161_304_models.vot models.vot line 722 (recno 382, MW-NGC6864, Mod K) | 0.22 | agree
+- Rh | `<TD>0.440</TD>` | J_ApJS_161_304_models.vot models.vot line 722 (recno 382, MW-NGC6864, Mod K) | 0.44 | agree
+- E_Rh -> err_hi | `<TD>0.012</TD>` | J_ApJS_161_304_models.vot models.vot line 722 (recno 382, MW-NGC6864, Mod K) | 0.012 | agree
+- e_Rh -> err_lo | `<TD>0.012</TD>` | J_ApJS_161_304_models.vot models.vot line 722 (recno 382, MW-NGC6864, Mod K) | 0.012 | agree
+- Dist | `<TD>20.7</TD>` | J_ApJS_161_304_models.vot models.vot line 722 (recno 382, MW-NGC6864, Mod K) | 20.7 | agree
+- (M/L)1 | `<TD>2.013</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 331 (recno 171, MW-NGC6864) | 2.013 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.171</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 331 (recno 171, MW-NGC6864) | 0.171 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.171</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 331 (recno 171, MW-NGC6864) | 0.171 | agree
+- arithmetic L_V = 233345.8062 vs 233345.8062 | agree; R_h = 10^0.440 x 20.9 / 20.7 = 2.780839609 pc vs 2.780839609 | agree; M/L 2.013 vs 2.013 | agree
+
+### NGC 6934
+
+- bin 15.52" <r> [arcsec] | `(blank; NGC 6934 block) | 15.52 | 26 | 4.07 | 0.68 | 0.55 | RV` | veldis.html line 11557 | 15.52 | agree
+- bin 15.52" NStar | `(blank; NGC 6934 block) | 15.52 | 26 | 4.07 | 0.68 | 0.55 | RV` | veldis.html line 11557 | 26.0 | agree
+- bin 15.52" sigma [km/s] | `(blank; NGC 6934 block) | 15.52 | 26 | 4.07 | 0.68 | 0.55 | RV` | veldis.html line 11557 | 4.07 | agree
+- bin 15.52" dsigma_Up -> err_hi | `(blank; NGC 6934 block) | 15.52 | 26 | 4.07 | 0.68 | 0.55 | RV` | veldis.html line 11557 | 0.68 | agree
+- bin 15.52" dsigma_Low -> err_lo | `(blank; NGC 6934 block) | 15.52 | 26 | 4.07 | 0.68 | 0.55 | RV` | veldis.html line 11557 | 0.55 | agree
+- bin 80.57" <r> [arcsec] | `(blank; NGC 6934 block) | 80.57 | 26 | 3.86 | 0.63 | 0.50 | RV` | veldis.html line 11641 | 80.57 | agree
+- bin 80.57" NStar | `(blank; NGC 6934 block) | 80.57 | 26 | 3.86 | 0.63 | 0.50 | RV` | veldis.html line 11641 | 26.0 | agree
+- bin 80.57" sigma [km/s] | `(blank; NGC 6934 block) | 80.57 | 26 | 3.86 | 0.63 | 0.50 | RV` | veldis.html line 11641 | 3.86 | agree
+- bin 80.57" dsigma_Up -> err_hi | `(blank; NGC 6934 block) | 80.57 | 26 | 3.86 | 0.63 | 0.50 | RV` | veldis.html line 11641 | 0.63 | agree
+- bin 80.57" dsigma_Low -> err_lo | `(blank; NGC 6934 block) | 80.57 | 26 | 3.86 | 0.63 | 0.50 | RV` | veldis.html line 11641 | 0.5 | agree
+- bin 214.71" <r> [arcsec] | `(blank; NGC 6934 block) | 214.71 | 26 | 2.31 | 0.41 | 0.32 | RV` | veldis.html line 11665 | 214.71 | agree
+- bin 214.71" NStar | `(blank; NGC 6934 block) | 214.71 | 26 | 2.31 | 0.41 | 0.32 | RV` | veldis.html line 11665 | 26.0 | agree
+- bin 214.71" sigma [km/s] | `(blank; NGC 6934 block) | 214.71 | 26 | 2.31 | 0.41 | 0.32 | RV` | veldis.html line 11665 | 2.31 | agree
+- bin 214.71" dsigma_Up -> err_hi | `(blank; NGC 6934 block) | 214.71 | 26 | 2.31 | 0.41 | 0.32 | RV` | veldis.html line 11665 | 0.41 | agree
+- bin 214.71" dsigma_Low -> err_lo | `(blank; NGC 6934 block) | 214.71 | 26 | 2.31 | 0.41 | 0.32 | RV` | veldis.html line 11665 | 0.32 | agree
+- R_Sun [kpc] | `NGC 6934 ...  15.6  12.8  [R_Sun field: '15.6']` | mwgc.dat line 221 (Part I) | 15.6 | agree
+- M_V,t [mag] | `NGC 6934 ... 8.83  -7.45  [M_V,t field: '-7.45']` | mwgc.dat line 401 (Part II) | -7.45 | agree
+- W0/gamma | `<TD>7.00</TD>` | J_ApJS_161_304_models.vot models.vot line 725 (recno 385, MW-NGC6934, Mod K) | 7.0 | agree
+- E_W0/gamma -> err_hi | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 725 (recno 385, MW-NGC6934, Mod K) | 0.2 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 725 (recno 385, MW-NGC6934, Mod K) | 0.1 | agree
+- r0 | `<TD>14.160</TD>` | J_ApJS_161_304_models.vot models.vot line 725 (recno 385, MW-NGC6934, Mod K) | 14.16 | agree
+- E_r0 -> err_hi | `<TD>0.490</TD>` | J_ApJS_161_304_models.vot models.vot line 725 (recno 385, MW-NGC6934, Mod K) | 0.49 | agree
+- e_r0 -> err_lo | `<TD>1.020</TD>` | J_ApJS_161_304_models.vot models.vot line 725 (recno 385, MW-NGC6934, Mod K) | 1.02 | agree
+- Rh | `<TD>0.498</TD>` | J_ApJS_161_304_models.vot models.vot line 725 (recno 385, MW-NGC6934, Mod K) | 0.498 | agree
+- E_Rh -> err_hi | `<TD>0.010</TD>` | J_ApJS_161_304_models.vot models.vot line 725 (recno 385, MW-NGC6934, Mod K) | 0.01 | agree
+- e_Rh -> err_lo | `<TD>0.005</TD>` | J_ApJS_161_304_models.vot models.vot line 725 (recno 385, MW-NGC6934, Mod K) | 0.005 | agree
+- Dist | `<TD>15.7</TD>` | J_ApJS_161_304_models.vot models.vot line 725 (recno 385, MW-NGC6934, Mod K) | 15.7 | agree
+- (M/L)1 | `<TD>1.881</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 332 (recno 172, MW-NGC6934) | 1.881 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.154</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 332 (recno 172, MW-NGC6934) | 0.154 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.154</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 332 (recno 172, MW-NGC6934) | 0.154 | agree
+- arithmetic L_V = 83176.37711 vs 83176.37711 | agree; R_h = 10^0.498 x 15.6 / 15.7 = 3.127698962 pc vs 3.127698962 | agree; M/L 1.881 vs 1.881 | agree
+
+### NGC 7006
+
+- bin 10.69" <r> [arcsec] | `NGC 7006 | 10.69 | 22 | 3.43 | 0.71 | 0.56 | RV` | veldis.html line 11716 | 10.69 | agree
+- bin 10.69" NStar | `NGC 7006 | 10.69 | 22 | 3.43 | 0.71 | 0.56 | RV` | veldis.html line 11716 | 22.0 | agree
+- bin 10.69" sigma [km/s] | `NGC 7006 | 10.69 | 22 | 3.43 | 0.71 | 0.56 | RV` | veldis.html line 11716 | 3.43 | agree
+- bin 10.69" dsigma_Up -> err_hi | `NGC 7006 | 10.69 | 22 | 3.43 | 0.71 | 0.56 | RV` | veldis.html line 11716 | 0.71 | agree
+- bin 10.69" dsigma_Low -> err_lo | `NGC 7006 | 10.69 | 22 | 3.43 | 0.71 | 0.56 | RV` | veldis.html line 11716 | 0.56 | agree
+- bin 50.68" <r> [arcsec] | `(blank; NGC 7006 block) | 50.68 | 19 | 3.12 | 0.68 | 0.51 | RV` | veldis.html line 11723 | 50.68 | agree
+- bin 50.68" NStar | `(blank; NGC 7006 block) | 50.68 | 19 | 3.12 | 0.68 | 0.51 | RV` | veldis.html line 11723 | 19.0 | agree
+- bin 50.68" sigma [km/s] | `(blank; NGC 7006 block) | 50.68 | 19 | 3.12 | 0.68 | 0.51 | RV` | veldis.html line 11723 | 3.12 | agree
+- bin 50.68" dsigma_Up -> err_hi | `(blank; NGC 7006 block) | 50.68 | 19 | 3.12 | 0.68 | 0.51 | RV` | veldis.html line 11723 | 0.68 | agree
+- bin 50.68" dsigma_Low -> err_lo | `(blank; NGC 7006 block) | 50.68 | 19 | 3.12 | 0.68 | 0.51 | RV` | veldis.html line 11723 | 0.51 | agree
+- R_Sun [kpc] | `NGC 7006 ...  41.2  38.5  [R_Sun field: '41.2']` | mwgc.dat line 223 (Part I) | 41.2 | agree
+- M_V,t [mag] | `NGC 7006 ...10.56  -7.67  [M_V,t field: '-7.67']` | mwgc.dat line 403 (Part II) | -7.67 | agree
+- W0/gamma | `<TD>6.60</TD>` | J_ApJS_161_304_models.vot models.vot line 731 (recno 391, MW-NGC7006, Mod K) | 6.6 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 731 (recno 391, MW-NGC7006, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.20</TD>` | J_ApJS_161_304_models.vot models.vot line 731 (recno 391, MW-NGC7006, Mod K) | 0.2 | agree
+- r0 | `<TD>10.800</TD>` | J_ApJS_161_304_models.vot models.vot line 731 (recno 391, MW-NGC7006, Mod K) | 10.8 | agree
+- E_r0 -> err_hi | `<TD>0.570</TD>` | J_ApJS_161_304_models.vot models.vot line 731 (recno 391, MW-NGC7006, Mod K) | 0.57 | agree
+- e_r0 -> err_lo | `<TD>0.280</TD>` | J_ApJS_161_304_models.vot models.vot line 731 (recno 391, MW-NGC7006, Mod K) | 0.28 | agree
+- Rh | `<TD>0.728</TD>` | J_ApJS_161_304_models.vot models.vot line 731 (recno 391, MW-NGC7006, Mod K) | 0.728 | agree
+- E_Rh -> err_hi | `<TD>0.006</TD>` | J_ApJS_161_304_models.vot models.vot line 731 (recno 391, MW-NGC7006, Mod K) | 0.006 | agree
+- e_Rh -> err_lo | `<TD>0.011</TD>` | J_ApJS_161_304_models.vot models.vot line 731 (recno 391, MW-NGC7006, Mod K) | 0.011 | agree
+- Dist | `<TD>41.5</TD>` | J_ApJS_161_304_models.vot models.vot line 731 (recno 391, MW-NGC7006, Mod K) | 41.5 | agree
+- (M/L)1 | `<TD>1.871</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 334 (recno 174, MW-NGC7006) | 1.871 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.154</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 334 (recno 174, MW-NGC7006) | 0.154 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.154</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 334 (recno 174, MW-NGC7006) | 0.154 | agree
+- arithmetic L_V = 101859.1388 vs 101859.1388 | agree; R_h = 10^0.728 x 41.2 / 41.5 = 5.307000387 pc vs 5.307000387 | agree; M/L 1.871 vs 1.871 | agree
+
+### NGC 7089
+
+- bin 7.92" <r> [arcsec] | `(blank; NGC 7089 block) | 7.92 | 400 | 10.36 | 0.40 | 0.38 | RV` | veldis.html line 12015 | 7.92 | agree
+- bin 7.92" NStar | `(blank; NGC 7089 block) | 7.92 | 400 | 10.36 | 0.40 | 0.38 | RV` | veldis.html line 12015 | 400.0 | agree
+- bin 7.92" sigma [km/s] | `(blank; NGC 7089 block) | 7.92 | 400 | 10.36 | 0.40 | 0.38 | RV` | veldis.html line 12015 | 10.36 | agree
+- bin 7.92" dsigma_Up -> err_hi | `(blank; NGC 7089 block) | 7.92 | 400 | 10.36 | 0.40 | 0.38 | RV` | veldis.html line 12015 | 0.4 | agree
+- bin 7.92" dsigma_Low -> err_lo | `(blank; NGC 7089 block) | 7.92 | 400 | 10.36 | 0.40 | 0.38 | RV` | veldis.html line 12015 | 0.38 | agree
+- bin 15.72" <r> [arcsec] | `(blank; NGC 7089 block) | 15.72 | 400 | 10.47 | 0.41 | 0.38 | RV` | veldis.html line 12027 | 15.72 | agree
+- bin 15.72" NStar | `(blank; NGC 7089 block) | 15.72 | 400 | 10.47 | 0.41 | 0.38 | RV` | veldis.html line 12027 | 400.0 | agree
+- bin 15.72" sigma [km/s] | `(blank; NGC 7089 block) | 15.72 | 400 | 10.47 | 0.41 | 0.38 | RV` | veldis.html line 12027 | 10.47 | agree
+- bin 15.72" dsigma_Up -> err_hi | `(blank; NGC 7089 block) | 15.72 | 400 | 10.47 | 0.41 | 0.38 | RV` | veldis.html line 12027 | 0.41 | agree
+- bin 15.72" dsigma_Low -> err_lo | `(blank; NGC 7089 block) | 15.72 | 400 | 10.47 | 0.41 | 0.38 | RV` | veldis.html line 12027 | 0.38 | agree
+- bin 21.39" <r> [arcsec] | `(blank; NGC 7089 block) | 21.39 | 400 | 9.53 | 0.38 | 0.35 | RV` | veldis.html line 12039 | 21.39 | agree
+- bin 21.39" NStar | `(blank; NGC 7089 block) | 21.39 | 400 | 9.53 | 0.38 | 0.35 | RV` | veldis.html line 12039 | 400.0 | agree
+- bin 21.39" sigma [km/s] | `(blank; NGC 7089 block) | 21.39 | 400 | 9.53 | 0.38 | 0.35 | RV` | veldis.html line 12039 | 9.53 | agree
+- bin 21.39" dsigma_Up -> err_hi | `(blank; NGC 7089 block) | 21.39 | 400 | 9.53 | 0.38 | 0.35 | RV` | veldis.html line 12039 | 0.38 | agree
+- bin 21.39" dsigma_Low -> err_lo | `(blank; NGC 7089 block) | 21.39 | 400 | 9.53 | 0.38 | 0.35 | RV` | veldis.html line 12039 | 0.35 | agree
+- bin 26.54" <r> [arcsec] | `(blank; NGC 7089 block) | 26.54 | 400 | 9.92 | 0.39 | 0.37 | RV` | veldis.html line 12057 | 26.54 | agree
+- bin 26.54" NStar | `(blank; NGC 7089 block) | 26.54 | 400 | 9.92 | 0.39 | 0.37 | RV` | veldis.html line 12057 | 400.0 | agree
+- bin 26.54" sigma [km/s] | `(blank; NGC 7089 block) | 26.54 | 400 | 9.92 | 0.39 | 0.37 | RV` | veldis.html line 12057 | 9.92 | agree
+- bin 26.54" dsigma_Up -> err_hi | `(blank; NGC 7089 block) | 26.54 | 400 | 9.92 | 0.39 | 0.37 | RV` | veldis.html line 12057 | 0.39 | agree
+- bin 26.54" dsigma_Low -> err_lo | `(blank; NGC 7089 block) | 26.54 | 400 | 9.92 | 0.39 | 0.37 | RV` | veldis.html line 12057 | 0.37 | agree
+- bin 31.75" <r> [arcsec] | `(blank; NGC 7089 block) | 31.75 | 400 | 9.62 | 0.38 | 0.36 | RV` | veldis.html line 12075 | 31.75 | agree
+- bin 31.75" NStar | `(blank; NGC 7089 block) | 31.75 | 400 | 9.62 | 0.38 | 0.36 | RV` | veldis.html line 12075 | 400.0 | agree
+- bin 31.75" sigma [km/s] | `(blank; NGC 7089 block) | 31.75 | 400 | 9.62 | 0.38 | 0.36 | RV` | veldis.html line 12075 | 9.62 | agree
+- bin 31.75" dsigma_Up -> err_hi | `(blank; NGC 7089 block) | 31.75 | 400 | 9.62 | 0.38 | 0.36 | RV` | veldis.html line 12075 | 0.38 | agree
+- bin 31.75" dsigma_Low -> err_lo | `(blank; NGC 7089 block) | 31.75 | 400 | 9.62 | 0.38 | 0.36 | RV` | veldis.html line 12075 | 0.36 | agree
+- bin 36.92" <r> [arcsec] | `(blank; NGC 7089 block) | 36.92 | 400 | 9.47 | 0.38 | 0.35 | RV` | veldis.html line 12093 | 36.92 | agree
+- bin 36.92" NStar | `(blank; NGC 7089 block) | 36.92 | 400 | 9.47 | 0.38 | 0.35 | RV` | veldis.html line 12093 | 400.0 | agree
+- bin 36.92" sigma [km/s] | `(blank; NGC 7089 block) | 36.92 | 400 | 9.47 | 0.38 | 0.35 | RV` | veldis.html line 12093 | 9.47 | agree
+- bin 36.92" dsigma_Up -> err_hi | `(blank; NGC 7089 block) | 36.92 | 400 | 9.47 | 0.38 | 0.35 | RV` | veldis.html line 12093 | 0.38 | agree
+- bin 36.92" dsigma_Low -> err_lo | `(blank; NGC 7089 block) | 36.92 | 400 | 9.47 | 0.38 | 0.35 | RV` | veldis.html line 12093 | 0.35 | agree
+- bin 41.77" <r> [arcsec] | `(blank; NGC 7089 block) | 41.77 | 400 | 10.04 | 0.40 | 0.38 | RV` | veldis.html line 12111 | 41.77 | agree
+- bin 41.77" NStar | `(blank; NGC 7089 block) | 41.77 | 400 | 10.04 | 0.40 | 0.38 | RV` | veldis.html line 12111 | 400.0 | agree
+- bin 41.77" sigma [km/s] | `(blank; NGC 7089 block) | 41.77 | 400 | 10.04 | 0.40 | 0.38 | RV` | veldis.html line 12111 | 10.04 | agree
+- bin 41.77" dsigma_Up -> err_hi | `(blank; NGC 7089 block) | 41.77 | 400 | 10.04 | 0.40 | 0.38 | RV` | veldis.html line 12111 | 0.4 | agree
+- bin 41.77" dsigma_Low -> err_lo | `(blank; NGC 7089 block) | 41.77 | 400 | 10.04 | 0.40 | 0.38 | RV` | veldis.html line 12111 | 0.38 | agree
+- bin 47.07" <r> [arcsec] | `(blank; NGC 7089 block) | 47.07 | 400 | 9.68 | 0.38 | 0.37 | RV` | veldis.html line 12135 | 47.07 | agree
+- bin 47.07" NStar | `(blank; NGC 7089 block) | 47.07 | 400 | 9.68 | 0.38 | 0.37 | RV` | veldis.html line 12135 | 400.0 | agree
+- bin 47.07" sigma [km/s] | `(blank; NGC 7089 block) | 47.07 | 400 | 9.68 | 0.38 | 0.37 | RV` | veldis.html line 12135 | 9.68 | agree
+- bin 47.07" dsigma_Up -> err_hi | `(blank; NGC 7089 block) | 47.07 | 400 | 9.68 | 0.38 | 0.37 | RV` | veldis.html line 12135 | 0.38 | agree
+- bin 47.07" dsigma_Low -> err_lo | `(blank; NGC 7089 block) | 47.07 | 400 | 9.68 | 0.38 | 0.37 | RV` | veldis.html line 12135 | 0.37 | agree
+- bin 51.69" <r> [arcsec] | `(blank; NGC 7089 block) | 51.69 | 200 | 9.01 | 0.52 | 0.48 | RV` | veldis.html line 12153 | 51.69 | agree
+- bin 51.69" NStar | `(blank; NGC 7089 block) | 51.69 | 200 | 9.01 | 0.52 | 0.48 | RV` | veldis.html line 12153 | 200.0 | agree
+- bin 51.69" sigma [km/s] | `(blank; NGC 7089 block) | 51.69 | 200 | 9.01 | 0.52 | 0.48 | RV` | veldis.html line 12153 | 9.01 | agree
+- bin 51.69" dsigma_Up -> err_hi | `(blank; NGC 7089 block) | 51.69 | 200 | 9.01 | 0.52 | 0.48 | RV` | veldis.html line 12153 | 0.52 | agree
+- bin 51.69" dsigma_Low -> err_lo | `(blank; NGC 7089 block) | 51.69 | 200 | 9.01 | 0.52 | 0.48 | RV` | veldis.html line 12153 | 0.48 | agree
+- bin 56.21" <r> [arcsec] | `(blank; NGC 7089 block) | 56.21 | 200 | 9.47 | 0.54 | 0.51 | RV` | veldis.html line 12165 | 56.21 | agree
+- bin 56.21" NStar | `(blank; NGC 7089 block) | 56.21 | 200 | 9.47 | 0.54 | 0.51 | RV` | veldis.html line 12165 | 200.0 | agree
+- bin 56.21" sigma [km/s] | `(blank; NGC 7089 block) | 56.21 | 200 | 9.47 | 0.54 | 0.51 | RV` | veldis.html line 12165 | 9.47 | agree
+- bin 56.21" dsigma_Up -> err_hi | `(blank; NGC 7089 block) | 56.21 | 200 | 9.47 | 0.54 | 0.51 | RV` | veldis.html line 12165 | 0.54 | agree
+- bin 56.21" dsigma_Low -> err_lo | `(blank; NGC 7089 block) | 56.21 | 200 | 9.47 | 0.54 | 0.51 | RV` | veldis.html line 12165 | 0.51 | agree
+- bin 88.58" <r> [arcsec] | `(blank; NGC 7089 block) | 88.58 | 100 | 8.29 | 0.63 | 0.57 | RV` | veldis.html line 12219 | 88.58 | agree
+- bin 88.58" NStar | `(blank; NGC 7089 block) | 88.58 | 100 | 8.29 | 0.63 | 0.57 | RV` | veldis.html line 12219 | 100.0 | agree
+- bin 88.58" sigma [km/s] | `(blank; NGC 7089 block) | 88.58 | 100 | 8.29 | 0.63 | 0.57 | RV` | veldis.html line 12219 | 8.29 | agree
+- bin 88.58" dsigma_Up -> err_hi | `(blank; NGC 7089 block) | 88.58 | 100 | 8.29 | 0.63 | 0.57 | RV` | veldis.html line 12219 | 0.63 | agree
+- bin 88.58" dsigma_Low -> err_lo | `(blank; NGC 7089 block) | 88.58 | 100 | 8.29 | 0.63 | 0.57 | RV` | veldis.html line 12219 | 0.57 | agree
+- bin 165.41" <r> [arcsec] | `(blank; NGC 7089 block) | 165.41 | 100 | 6.86 | 0.52 | 0.47 | RV` | veldis.html line 12237 | 165.41 | agree
+- bin 165.41" NStar | `(blank; NGC 7089 block) | 165.41 | 100 | 6.86 | 0.52 | 0.47 | RV` | veldis.html line 12237 | 100.0 | agree
+- bin 165.41" sigma [km/s] | `(blank; NGC 7089 block) | 165.41 | 100 | 6.86 | 0.52 | 0.47 | RV` | veldis.html line 12237 | 6.86 | agree
+- bin 165.41" dsigma_Up -> err_hi | `(blank; NGC 7089 block) | 165.41 | 100 | 6.86 | 0.52 | 0.47 | RV` | veldis.html line 12237 | 0.52 | agree
+- bin 165.41" dsigma_Low -> err_lo | `(blank; NGC 7089 block) | 165.41 | 100 | 6.86 | 0.52 | 0.47 | RV` | veldis.html line 12237 | 0.47 | agree
+- bin 278.44" <r> [arcsec] | `(blank; NGC 7089 block) | 278.44 | 100 | 5.13 | 0.40 | 0.35 | RV` | veldis.html line 12255 | 278.44 | agree
+- bin 278.44" NStar | `(blank; NGC 7089 block) | 278.44 | 100 | 5.13 | 0.40 | 0.35 | RV` | veldis.html line 12255 | 100.0 | agree
+- bin 278.44" sigma [km/s] | `(blank; NGC 7089 block) | 278.44 | 100 | 5.13 | 0.40 | 0.35 | RV` | veldis.html line 12255 | 5.13 | agree
+- bin 278.44" dsigma_Up -> err_hi | `(blank; NGC 7089 block) | 278.44 | 100 | 5.13 | 0.40 | 0.35 | RV` | veldis.html line 12255 | 0.4 | agree
+- bin 278.44" dsigma_Low -> err_lo | `(blank; NGC 7089 block) | 278.44 | 100 | 5.13 | 0.40 | 0.35 | RV` | veldis.html line 12255 | 0.35 | agree
+- bin 536.05" <r> [arcsec] | `(blank; NGC 7089 block) | 536.05 | 73 | 4.13 | 0.41 | 0.35 | RV` | veldis.html line 12261 | 536.05 | agree
+- bin 536.05" NStar | `(blank; NGC 7089 block) | 536.05 | 73 | 4.13 | 0.41 | 0.35 | RV` | veldis.html line 12261 | 73.0 | agree
+- bin 536.05" sigma [km/s] | `(blank; NGC 7089 block) | 536.05 | 73 | 4.13 | 0.41 | 0.35 | RV` | veldis.html line 12261 | 4.13 | agree
+- bin 536.05" dsigma_Up -> err_hi | `(blank; NGC 7089 block) | 536.05 | 73 | 4.13 | 0.41 | 0.35 | RV` | veldis.html line 12261 | 0.41 | agree
+- bin 536.05" dsigma_Low -> err_lo | `(blank; NGC 7089 block) | 536.05 | 73 | 4.13 | 0.41 | 0.35 | RV` | veldis.html line 12261 | 0.35 | agree
+- R_Sun [kpc] | `NGC 7089 ...  11.5  10.4  [R_Sun field: '11.5']` | mwgc.dat line 225 (Part I) | 11.5 | agree
+- M_V,t [mag] | `NGC 7089 ... 6.47  -9.03  [M_V,t field: '-9.03']` | mwgc.dat line 405 (Part II) | -9.03 | agree
+- W0/gamma | `<TD>7.20</TD>` | J_ApJS_161_304_models.vot models.vot line 734 (recno 394, MW-NGC7089, Mod K) | 7.2 | agree
+- E_W0/gamma -> err_hi | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 734 (recno 394, MW-NGC7089, Mod K) | 0.1 | agree
+- e_W0/gamma -> err_lo | `<TD>0.10</TD>` | J_ApJS_161_304_models.vot models.vot line 734 (recno 394, MW-NGC7089, Mod K) | 0.1 | agree
+- r0 | `<TD>19.800</TD>` | J_ApJS_161_304_models.vot models.vot line 734 (recno 394, MW-NGC7089, Mod K) | 19.8 | agree
+- E_r0 -> err_hi | `<TD>0.630</TD>` | J_ApJS_161_304_models.vot models.vot line 734 (recno 394, MW-NGC7089, Mod K) | 0.63 | agree
+- e_r0 -> err_lo | `<TD>0.650</TD>` | J_ApJS_161_304_models.vot models.vot line 734 (recno 394, MW-NGC7089, Mod K) | 0.65 | agree
+- Rh | `<TD>0.551</TD>` | J_ApJS_161_304_models.vot models.vot line 734 (recno 394, MW-NGC7089, Mod K) | 0.551 | agree
+- E_Rh -> err_hi | `<TD>0.009</TD>` | J_ApJS_161_304_models.vot models.vot line 734 (recno 394, MW-NGC7089, Mod K) | 0.009 | agree
+- e_Rh -> err_lo | `<TD>0.008</TD>` | J_ApJS_161_304_models.vot models.vot line 734 (recno 394, MW-NGC7089, Mod K) | 0.008 | agree
+- Dist | `<TD>11.5</TD>` | J_ApJS_161_304_models.vot models.vot line 734 (recno 394, MW-NGC7089, Mod K) | 11.5 | agree
+- (M/L)1 | `<TD>1.872</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 336 (recno 176, MW-NGC7089) | 1.872 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.154</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 336 (recno 176, MW-NGC7089) | 0.154 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.154</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 336 (recno 176, MW-NGC7089) | 0.154 | agree
+- arithmetic L_V = 356451.1334 vs 356451.1334 | agree; R_h = 10^0.551 x 11.5 / 11.5 = 3.556313186 pc vs 3.556313186 | agree; M/L 1.872 vs 1.872 | agree
+
+### Pal 5
+
+- bin 129.05" <r> [arcsec] | `Pal 5 | 129.05 | 20 | 1.30 | 0.26 | 0.21 | RV` | veldis.html line 12513 | 129.05 | agree
+- bin 129.05" NStar | `Pal 5 | 129.05 | 20 | 1.30 | 0.26 | 0.21 | RV` | veldis.html line 12513 | 20.0 | agree
+- bin 129.05" sigma [km/s] | `Pal 5 | 129.05 | 20 | 1.30 | 0.26 | 0.21 | RV` | veldis.html line 12513 | 1.3 | agree
+- bin 129.05" dsigma_Up -> err_hi | `Pal 5 | 129.05 | 20 | 1.30 | 0.26 | 0.21 | RV` | veldis.html line 12513 | 0.26 | agree
+- bin 129.05" dsigma_Low -> err_lo | `Pal 5 | 129.05 | 20 | 1.30 | 0.26 | 0.21 | RV` | veldis.html line 12513 | 0.21 | agree
+- bin 341.56" <r> [arcsec] | `(blank; Pal 5 block) | 341.56 | 19 | 1.12 | 0.31 | 0.24 | RV` | veldis.html line 12520 | 341.56 | agree
+- bin 341.56" NStar | `(blank; Pal 5 block) | 341.56 | 19 | 1.12 | 0.31 | 0.24 | RV` | veldis.html line 12520 | 19.0 | agree
+- bin 341.56" sigma [km/s] | `(blank; Pal 5 block) | 341.56 | 19 | 1.12 | 0.31 | 0.24 | RV` | veldis.html line 12520 | 1.12 | agree
+- bin 341.56" dsigma_Up -> err_hi | `(blank; Pal 5 block) | 341.56 | 19 | 1.12 | 0.31 | 0.24 | RV` | veldis.html line 12520 | 0.31 | agree
+- bin 341.56" dsigma_Low -> err_lo | `(blank; Pal 5 block) | 341.56 | 19 | 1.12 | 0.31 | 0.24 | RV` | veldis.html line 12520 | 0.24 | agree
+- R_Sun [kpc] | `Pal 5 ...  23.2  18.6  [R_Sun field: '23.2']` | mwgc.dat line 110 (Part I) | 23.2 | agree
+- M_V,t [mag] | `Pal 5 ...11.75  -5.17  [M_V,t field: '-5.17']` | mwgc.dat line 290 (Part II) | -5.17 | agree
+- W0/gamma | `<TD>2.10</TD>` | J_ApJS_161_304_models.vot models.vot line 764 (recno 424, MW-PAL5, Mod K) | 2.1 | agree
+- E_W0/gamma -> err_hi | `<TD>1.10</TD>` | J_ApJS_161_304_models.vot models.vot line 764 (recno 424, MW-PAL5, Mod K) | 1.1 | agree
+- e_W0/gamma -> err_lo | `<TD>1.20</TD>` | J_ApJS_161_304_models.vot models.vot line 764 (recno 424, MW-PAL5, Mod K) | 1.2 | agree
+- r0 | `<TD>214.900</TD>` | J_ApJS_161_304_models.vot models.vot line 764 (recno 424, MW-PAL5, Mod K) | 214.9 | agree
+- E_r0 -> err_hi | `<TD>125.000</TD>` | J_ApJS_161_304_models.vot models.vot line 764 (recno 424, MW-PAL5, Mod K) | 125.0 | agree
+- e_r0 -> err_lo | `<TD>48.000</TD>` | J_ApJS_161_304_models.vot models.vot line 764 (recno 424, MW-PAL5, Mod K) | 48.0 | agree
+- Rh | `<TD>1.265</TD>` | J_ApJS_161_304_models.vot models.vot line 764 (recno 424, MW-PAL5, Mod K) | 1.265 | agree
+- E_Rh -> err_hi | `<TD>0.010</TD>` | J_ApJS_161_304_models.vot models.vot line 764 (recno 424, MW-PAL5, Mod K) | 0.01 | agree
+- e_Rh -> err_lo | `<TD>0.005</TD>` | J_ApJS_161_304_models.vot models.vot line 764 (recno 424, MW-PAL5, Mod K) | 0.005 | agree
+- Dist | `<TD>23.2</TD>` | J_ApJS_161_304_models.vot models.vot line 764 (recno 424, MW-PAL5, Mod K) | 23.2 | agree
+- (M/L)1 | `<TD>1.909</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 349 (recno 189, MW-PAL5) | 1.909 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.156</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 349 (recno 189, MW-PAL5) | 0.156 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.156</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 349 (recno 189, MW-PAL5) | 0.156 | agree
+- arithmetic L_V = 10185.91388 vs 10185.91388 | agree; R_h = 10^1.265 x 23.2 / 23.2 = 18.40772001 pc vs 18.40772001 | agree; M/L 1.909 vs 1.909 | agree
+
+### Ter 7
+
+- bin 20.46" <r> [arcsec] | `Ter 7 | 20.46 | 23 | 1.09 | 0.24 | 0.18 | RV` | veldis.html line 12797 | 20.46 | agree
+- bin 20.46" NStar | `Ter 7 | 20.46 | 23 | 1.09 | 0.24 | 0.18 | RV` | veldis.html line 12797 | 23.0 | agree
+- bin 20.46" sigma [km/s] | `Ter 7 | 20.46 | 23 | 1.09 | 0.24 | 0.18 | RV` | veldis.html line 12797 | 1.09 | agree
+- bin 20.46" dsigma_Up -> err_hi | `Ter 7 | 20.46 | 23 | 1.09 | 0.24 | 0.18 | RV` | veldis.html line 12797 | 0.24 | agree
+- bin 20.46" dsigma_Low -> err_lo | `Ter 7 | 20.46 | 23 | 1.09 | 0.24 | 0.18 | RV` | veldis.html line 12797 | 0.18 | agree
+- bin 98.29" <r> [arcsec] | `(blank; Ter 7 block) | 98.29 | 22 | 0.50 | 0.14 | 0.11 | RV` | veldis.html line 12804 | 98.29 | agree
+- bin 98.29" NStar | `(blank; Ter 7 block) | 98.29 | 22 | 0.50 | 0.14 | 0.11 | RV` | veldis.html line 12804 | 22.0 | agree
+- bin 98.29" sigma [km/s] | `(blank; Ter 7 block) | 98.29 | 22 | 0.50 | 0.14 | 0.11 | RV` | veldis.html line 12804 | 0.5 | agree
+- bin 98.29" dsigma_Up -> err_hi | `(blank; Ter 7 block) | 98.29 | 22 | 0.50 | 0.14 | 0.11 | RV` | veldis.html line 12804 | 0.14 | agree
+- bin 98.29" dsigma_Low -> err_lo | `(blank; Ter 7 block) | 98.29 | 22 | 0.50 | 0.14 | 0.11 | RV` | veldis.html line 12804 | 0.11 | agree
+- R_Sun [kpc] | `Terzan 7 ...  22.8  15.6  [R_Sun field: '22.8']` | mwgc.dat line 213 (Part I) | 22.8 | agree
+- M_V,t [mag] | `Terzan 7 ...12.00  -5.01  [M_V,t field: '-5.01']` | mwgc.dat line 393 (Part II) | -5.01 | agree
+- W0/gamma | `<TD>4.50</TD>` | J_ApJS_161_304_models.vot models.vot line 767 (recno 427, MW-TERZAN7, Mod K) | 4.5 | agree
+- E_W0/gamma -> err_hi | `<TD>0.90</TD>` | J_ApJS_161_304_models.vot models.vot line 767 (recno 427, MW-TERZAN7, Mod K) | 0.9 | agree
+- e_W0/gamma -> err_lo | `<TD>0.90</TD>` | J_ApJS_161_304_models.vot models.vot line 767 (recno 427, MW-TERZAN7, Mod K) | 0.9 | agree
+- r0 | `<TD>34.590</TD>` | J_ApJS_161_304_models.vot models.vot line 767 (recno 427, MW-TERZAN7, Mod K) | 34.59 | agree
+- E_r0 -> err_hi | `<TD>4.310</TD>` | J_ApJS_161_304_models.vot models.vot line 767 (recno 427, MW-TERZAN7, Mod K) | 4.31 | agree
+- e_r0 -> err_lo | `<TD>3.000</TD>` | J_ApJS_161_304_models.vot models.vot line 767 (recno 427, MW-TERZAN7, Mod K) | 3.0 | agree
+- Rh | `<TD>0.717</TD>` | J_ApJS_161_304_models.vot models.vot line 767 (recno 427, MW-TERZAN7, Mod K) | 0.717 | agree
+- E_Rh -> err_hi | `<TD>0.056</TD>` | J_ApJS_161_304_models.vot models.vot line 767 (recno 427, MW-TERZAN7, Mod K) | 0.056 | agree
+- e_Rh -> err_lo | `<TD>0.036</TD>` | J_ApJS_161_304_models.vot models.vot line 767 (recno 427, MW-TERZAN7, Mod K) | 0.036 | agree
+- Dist | `<TD>23.2</TD>` | J_ApJS_161_304_models.vot models.vot line 767 (recno 427, MW-TERZAN7, Mod K) | 23.2 | agree
+- (M/L)1 | `<TD>2.581</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 362 (recno 202, MW-TERZAN7) | 2.581 | agree
+- e_(M/L)1 -> err_lo | `<TD>0.287</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 362 (recno 202, MW-TERZAN7) | 0.287 | agree
+- e_(M/L)1 -> err_hi | `<TD>0.287</TD>` | J_ApJS_161_304_clusters.vot clusters.vot line 362 (recno 202, MW-TERZAN7) | 0.287 | agree
+- arithmetic L_V = 8790.225168 vs 8790.225168 | agree; R_h = 10^0.717 x 22.8 / 23.2 = 5.122085954 pc vs 5.122085954 | agree; M/L 2.581 vs 2.581 | agree
+
+## Disagreements and how resolved
+
+None. No number disagreed, no bin was missing in either direction, and all arithmetic checks passed.
+
+## Observations outside the pass/fail count
+
+- The introduction of `veldis.html` says the table holds profiles of 156 clusters; this reading finds 155 distinct cluster names in the table (157 `<b>` elements, two of which are the reference-list headings). This does not affect the 64 plotted clusters.

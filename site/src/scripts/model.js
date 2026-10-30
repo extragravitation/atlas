@@ -19,7 +19,11 @@ export async function loadData(keys) {
 function prepare(d) {
   d.rows = [];
   const cols = Object.keys(d.columns);
-  for (let i = 0; i < d.n; i++) { const r = {}; for (const c of cols) r[c] = d.columns[c][i]; d.rows.push(r); }
+  for (let i = 0; i < d.n; i++) { const r = {}; for (const c of cols) r[c] = d.columns[c][i]; r.tableIndex = i; d.rows.push(r); }
+  // Standard 2.0: only rows marked plotted are drawn in default views; alternatives and recorded
+  // values stay in the tables and on the system pages (D-029, D-042).
+  d.recorded = d.rows.filter((r) => r.plotted === 'false');
+  d.rows = d.rows.filter((r) => r.plotted !== 'false');
   d.sysById = {};
   (d.systems || []).forEach((s, i) => { s.index = i; d.sysById[s.system_id] = s; s.rows = []; });
   d.rows.forEach((r, i) => { r.index = i; if (r.system_id && d.sysById[r.system_id]) d.sysById[r.system_id].rows.push(i); });

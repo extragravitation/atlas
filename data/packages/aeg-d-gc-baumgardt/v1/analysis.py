@@ -14,7 +14,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
-sys.path.insert(0, str(HERE.parents[2] / "pipeline"))
+sys.path.insert(0, str(HERE.parents[3] / "pipeline"))
 
 import astropy.constants as const  # noqa: E402
 import astropy.units as u  # noqa: E402
