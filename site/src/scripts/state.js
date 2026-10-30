@@ -2,12 +2,13 @@
 // assumptions. Kept in the address (shareable, D-027) and in this tab's session storage, so it
 // survives moving between pages. Nothing is sent anywhere.
 
-const KEYS = ['view', 'marks', 'err', 'col', 'hide', 'sel', 'a', 's', 'unit', 'eb', 'rng', 'z'];
-export const state = { view: 'obs', marks: 'points', err: false, col: 'dataset', hide: [], sel: null, global: {}, per: {}, unit: 'acc', eb: true, rng: true, zoom: null };
+const KEYS = ['view', 'pick', 'marks', 'err', 'col', 'hide', 'sel', 'a', 's', 'unit', 'eb', 'rng', 'z'];
+export const state = { view: 'obs', pick: 'all', marks: 'points', err: false, col: 'dataset', hide: [], sel: null, global: {}, per: {}, unit: 'acc', eb: true, rng: true, zoom: null };
 const listeners = [];
 
 function decode(q) {
   if (q.has('view')) state.view = q.get('view');
+  if (q.has('pick')) state.pick = ['all', 'outer', 'light'].includes(q.get('pick')) ? q.get('pick') : 'all';
   if (q.has('marks')) state.marks = q.get('marks');
   if (q.has('err')) state.err = q.get('err') === '1';
   if (q.has('col')) state.col = q.get('col');
@@ -26,6 +27,7 @@ export function encode(forPage) {
   const page = forPage || '';
   if (page !== 'other') {
     if (state.view !== 'obs') q.set('view', state.view);
+    if (state.pick !== 'all') q.set('pick', state.pick);
     if (state.marks !== 'points') q.set('marks', state.marks);
     if (state.err) q.set('err', '1');
     if (state.col !== 'dataset') q.set('col', state.col);
