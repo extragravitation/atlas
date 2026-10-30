@@ -27,6 +27,7 @@ const PROPS = {
   incl: { label: 'Inclination (°)', kind: 'cont', get: (d, r) => sysOf(d, r)?.inclination_deg ?? null, lo: 0, hi: 90, fmt: (v) => v.toFixed(0) + '°' },
   dist: { label: 'Distance (Mpc, log scale)', kind: 'cont', log: true, get: (d, r) => sysOf(d, r)?.distance_mpc ?? null, lo: 0, hi: Math.log10(150), fmt: (v) => (v < 10 ? v.toFixed(1) : Math.round(v)) + ' Mpc' },
   z: { label: 'Redshift', kind: 'cont', get: (d, r) => sysOf(d, r)?.properties?.redshift ?? null, lo: 0, hi: 0.12, fmt: (v) => v.toFixed(3) },
+  rext: { label: 'Outermost measured radius of the system (kpc, log scale)', kind: 'cont', log: true, get: (d, r) => { const s = sysOf(d, r); if (!s) return null; if (s._rext === undefined) s._rext = Math.max(...s.rows.map((i) => d.rows[i].r_kpc || 0)) || null; return s._rext; }, lo: Math.log10(0.3), hi: Math.log10(3000), fmt: (v) => (v < 10 ? v.toFixed(1) : Math.round(v)) + ' kpc' },
   dmethod: { label: 'Distance method', kind: 'cat', get: (d, r) => sysOf(d, r)?.distance_method ?? null },
   q: { label: 'Source quality flag Q (1 high, 3 low)', kind: 'cat', get: (d, r) => { const v = sysOf(d, r)?.properties?.quality_flag_Q; return v === undefined || v === null ? null : 'Q = ' + v; } },
 };
@@ -62,6 +63,39 @@ function colorKey() {
   else { const stops = [0, 0.5, 1].map((t) => P.lo + t * (P.hi - P.lo)).map((x) => P.fmt(P.log ? Math.pow(10, x) : x)); html += `<span class="ramp" aria-hidden="true"></span> ${stops[0]} → ${stops[1]} → ${stops[2]}`; }
   html += `. ${have.toLocaleString('en')} measurements coloured; ${miss.toLocaleString('en')} without this property drawn faint grey.`;
   el.innerHTML = html; el.hidden = false;
+}
+
+// One point per system (D-043). Every point is an existing measured row, chosen by a rule; nothing is
+// interpolated or extrapolated. 'outer': the row at the largest measured radius (everything within the
+// measured extent). 'light': the first measured row at or beyond LIGHT_K times the source's effective
+// (half-light) radius; systems whose data do not reach it, or whose source gives no such radius, are
+// left out and counted. Population bins (stacked lensing) are averages, not systems, and are unchanged.
+const LIGHT_K = 2;
+const lightRadius = (s) => s?.properties?.r_eff_kpc ?? null;
+let pickKey = null, picked = null, pickStats = null;
+function computePick() {
+  const key = state.pick + '|' + cacheKey;
+  if (key === pickKey) return;
+  pickKey = key;
+  if (state.pick === 'all') { picked = null; pickStats = null; return; }
+  picked = []; pickStats = { shown: 0, noRadius: 0, short: 0, systems: 0 };
+  D.datasets.forEach((d, di) => {
+    if (!d.systems) { picked.push(null); return; }
+    const set = new Set();
+    for (const s of d.systems) {
+      pickStats.systems++;
+      const idx = s.rows.filter((i) => d.rows[i].r_kpc > 0);
+      if (!idx.length) continue;
+      if (state.pick === 'outer') { let best = idx[0]; for (const i of idx) if (d.rows[i].r_kpc > d.rows[best].r_kpc) best = i; set.add(best); pickStats.shown++; continue; }
+      const re = lightRadius(s);
+      if (!(re > 0)) { pickStats.noRadius++; continue; }
+      const target = LIGHT_K * re, ok = idx.filter((i) => d.rows[i].r_kpc >= target);
+      if (!ok.length) { pickStats.short++; continue; }
+      let best = ok[0]; for (const i of ok) if (d.rows[i].r_kpc < d.rows[best].r_kpc) best = i;
+      set.add(best); pickStats.shown++;
+    }
+    picked.push(set);
+  });
 }
 
 let cacheKey = null;
@@ -128,12 +162,14 @@ function draw() {
     if (RADIAL.includes(v) && pop) return; // population bins have no radius
     const col = (r) => colorFor(d, r);
     // tracks
-    if (state.marks !== 'points' && !pop) {
+    if (state.marks !== 'points' && !pop && state.pick === 'all') {
       g.lineWidth = 0.9; g.globalAlpha = d.name === 'aeg-d-xcop' ? 0.8 : 0.4;
       for (const s of d.systems) { g.strokeStyle = col(d.rows[s.rows[0]]); g.beginPath(); let st = false; for (const i of s.rows) { const xy = pos(cache[di][i]); if (!xy) { st = false; continue; } if (st) g.lineTo(xy[0], xy[1]); else { g.moveTo(xy[0], xy[1]); st = true; } } g.stroke(); }
       g.globalAlpha = 1;
     }
+    const only = picked && picked[di];
     d.rows.forEach((r, i) => {
+      if (only && !only.has(i)) return;
       const q = cache[di][i], xy = pos(q);
       if (!xy) { if (!(q.g_bar > 0) && v !== 'speed') nNeg++; return; }
       const [x, y] = xy, c = col(r), shape = r.method_class;
@@ -148,7 +184,7 @@ function draw() {
       const faint = PROPS[state.col] && (propValue(d, r) === null || propValue(d, r) === undefined);
       if (faint) { g.globalAlpha = 0.18; }
       if (shape === 'lensing') { g.save(); g.translate(x, y); g.rotate(Math.PI / 4); g.fillStyle = css('--bg'); g.fillRect(-3, -3, 6, 6); g.strokeStyle = c; g.lineWidth = 1.3; g.strokeRect(-3, -3, 6, 6); g.restore(); }
-      else if (state.marks !== 'tracks') { g.fillStyle = c; g.globalAlpha = faint ? 0.15 : shape === 'hydrostatic' ? 0.8 : alpha; if (shape === 'kinematic') { g.beginPath(); g.arc(x, y, 1.7, 0, 6.2832); g.fill(); } else g.fillRect(x - 1.8, y - 1.8, 3.6, 3.6); g.globalAlpha = 1; }
+      else if (state.marks !== 'tracks' || state.pick !== 'all') { g.fillStyle = c; g.globalAlpha = faint ? 0.15 : shape === 'hydrostatic' ? 0.8 : alpha; const rr = state.pick === 'all' ? 1.7 : 3; if (shape === 'kinematic') { g.beginPath(); g.arc(x, y, rr, 0, 6.2832); g.fill(); } else g.fillRect(x - rr - 0.1, y - rr - 0.1, 2 * rr + 0.2, 2 * rr + 0.2); g.globalAlpha = 1; }
       g.globalAlpha = faint ? 0.25 : 1;
       if (ringed(r.flags)) { g.strokeStyle = css('--flag'); g.lineWidth = 0.7; g.beginPath(); g.arc(x, y, 3.6, 0, 6.2832); g.stroke(); }
       g.globalAlpha = 1;
@@ -171,6 +207,12 @@ function draw() {
   $('zoom-state').textContent = zoomed ? (P ? 'Zoomed in.' : 'Zoomed: ' + rg.x.map((a) => a.toFixed(2)).join(' to ') + ' by ' + rg.y.map((a) => a.toFixed(2)).join(' to ') + '.') : '';
   $('neg-note').textContent = nNeg ? `${nNeg} measurements have g_bar ≤ 0 at these settings (a component pulls outward) and cannot be placed on log axes; they are listed in the downloads.` : '';
   $('fig').setAttribute('aria-label', LBL['aria_' + v][+P]);
+  const pn = $('pick-note');
+  if (pickStats) {
+    const t = state.pick === 'outer' ? LBL.pickOuter[+P] : LBL.pickLight[+P].replace('{k}', LIGHT_K);
+    const left = state.pick === 'light' ? ' ' + LBL.pickLeft[+P].replace('{short}', pickStats.short).replace('{none}', pickStats.noRadius) : '';
+    pn.innerHTML = t.replace('{n}', pickStats.shown).replace('{N}', pickStats.systems) + left; pn.hidden = false;
+  } else pn.hidden = true;
   $('lens-note').innerHTML = LBL.lens[v][+P] + (RADIAL.includes(v) && D.datasets.some((d) => !d.systems && !state.hide.includes(d.key)) ? ' ' + LBL.noRadius[+P] : '');
 }
 
@@ -222,10 +264,11 @@ function card() {
   prof.setAttribute('aria-label', `log g_obs and log g_bar of ${s.name_in_source} against radius`);
 }
 
-function render() { compute(); prepareCats(); draw(); legend(); colorKey(); card(); syncControls(); }
+function render() { compute(); computePick(); prepareCats(); draw(); legend(); colorKey(); card(); syncControls(); }
 function syncControls() {
   document.querySelectorAll('[data-view]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.view === state.view)));
-  document.querySelectorAll('[data-marks]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.marks === state.marks)));
+  document.querySelectorAll('[data-marks]').forEach((b) => { b.setAttribute('aria-pressed', String(b.dataset.marks === state.marks)); b.disabled = state.pick !== 'all'; });
+  document.querySelectorAll('[data-pick]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.pick === state.pick)));
   $('colsel').value = state.col in PROPS || state.col === 'channel' ? state.col : 'dataset';
   $('err').checked = state.err;
 }
@@ -239,6 +282,7 @@ export async function start() {
   D = await loadData();
   document.querySelectorAll('[data-view]').forEach((b) => b.addEventListener('click', () => set({ view: b.dataset.view, zoom: null })));
   document.querySelectorAll('[data-marks]').forEach((b) => b.addEventListener('click', () => set({ marks: b.dataset.marks })));
+  document.querySelectorAll('[data-pick]').forEach((b) => b.addEventListener('click', () => set({ pick: b.dataset.pick })));
   $('colsel').addEventListener('change', (e) => set({ col: e.target.value }));
   $('err').addEventListener('change', (e) => set({ err: e.target.checked }));
   $('arrows').addEventListener('change', (e) => { state.arrows = e.target.checked; render(); });
@@ -254,7 +298,7 @@ export async function start() {
     const Pp = PROPS[state.col], pv = Pp ? Pp.get(h.d, r) : null;
     const propLine = Pp ? `<br>${Pp.label.replace(/ \(.*\)$/, '')}: ${pv === null || pv === undefined ? 'not given' : Pp.kind === 'cont' ? Pp.fmt(pv) : pv}` : '';
     const extra = propLine + (state.view === 'mass' ? `<br>M_obs(&lt;r) ${sci(massOf(q.g_obs, q.r_kpc))} M☉<br>M_bar(&lt;r) ${sci(massOf(q.g_bar, q.r_kpc))} M☉` : state.view === 'speed' ? `<br>V_obs ${speedOf(q.g_obs, q.r_kpc).toFixed(1)} km s⁻¹` : '');
-    showTip(tip, box, `<b>${name}</b><br>${h.d.title.split(':')[0]}${r.r_kpc !== null && r.r_kpc !== undefined ? ' · r = ' + (q.r_kpc < 10 ? q.r_kpc.toFixed(2) : Math.round(q.r_kpc)) + ' kpc' : ''}<br>g_obs ${sci(q.g_obs)} m s⁻²<br>g_bar ${sci(q.g_bar)} m s⁻²${extra}<br>g_obs / g_bar ${(q.g_obs / q.g_bar).toFixed(2)}${r.flags ? '<br><span style="color:var(--flag)">Flagged: ' + r.flags.replace(/;/g, ', ') + '</span>' : ''}<br><span class="muted">${r.measurement_id}</span>${r.system_id ? '<br><span class="muted">Click to select</span>' : ''}`, h.x, h.y);
+    showTip(tip, box, `<b>${name}</b>${state.pick !== 'all' && r.system_id ? '<br><span class="muted">' + (state.pick === 'outer' ? 'Outermost measured radius' : 'First measured radius ≥ ' + LIGHT_K + ' × half-light radius') + '</span>' : ''}<br>${h.d.title.split(':')[0]}${r.r_kpc !== null && r.r_kpc !== undefined ? ' · r = ' + (q.r_kpc < 10 ? q.r_kpc.toFixed(2) : Math.round(q.r_kpc)) + ' kpc' : ''}<br>g_obs ${sci(q.g_obs)} m s⁻²<br>g_bar ${sci(q.g_bar)} m s⁻²${extra}<br>g_obs / g_bar ${(q.g_obs / q.g_bar).toFixed(2)}${r.flags ? '<br><span style="color:var(--flag)">Flagged: ' + r.flags.replace(/;/g, ', ') + '</span>' : ''}<br><span class="muted">${r.measurement_id}</span>${r.system_id ? '<br><span class="muted">Click to select</span>' : ''}`, h.x, h.y);
   });
   fig.addEventListener('mouseleave', () => { hover = null; tip.hidden = true; draw(); });
   fig.addEventListener('click', (ev) => { if (suppressClick) { suppressClick = false; return; } const h = nearest(ev); if (h && h.r.system_id) set({ sel: h.r.system_id }); });

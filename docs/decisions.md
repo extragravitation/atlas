@@ -637,6 +637,23 @@ Defaults and ranges for any conversion factor are read at source before a packag
 
 ---
 
+## D-043 — One point per system on the map
+
+**Ruling (2026-10-29 20:55 MDT, JvH).** "Yes I like your recommendations for the build." **Proposed by** Claude; **adopted unchanged**, with the light-radius multiple (2 × the source's half-light radius) set by Claude in the build and put to JvH in the pull request.
+1. The map gains a reader's choice of points: **every measurement** (the default view, unchanged under D-012 and D-027), **one per system at the outermost measured radius**, or **one per system at a radius set by the light** (the first measured radius at or beyond 2 × the source's effective radius).
+2. Each point is an existing packaged measurement chosen by the rule; nothing is interpolated, extrapolated or recomputed. Values are labelled as within a radius, never as totals.
+3. Systems whose data do not reach the light-defined radius, or whose source gives no half-light radius (the X-COP clusters, whose usual size R500 is defined from total mass and is not used), are left out and counted on the page.
+4. Stacked lensing bins are averages over many galaxies, not systems, and are unchanged.
+5. A systematics colour, "outermost measured radius", lets readers check whether survey depth shapes the one-per-system picture (D-033).
+
+**Reason.** The full map has many points per system and is hard to read; a one-per-system view is simpler, but a total mass cannot be measured, so the honest form picks a measured point by a declared rule. Outermost radius uses everything measured; the light-defined radius makes systems comparable and is independent of survey depth; showing both, with the depth check, keeps either from carrying the result.
+
+**Alternatives rejected.** Extrapolated total masses; R500 for clusters (defined from the observed side); replacing the default view.
+
+**Data seen at the time of ruling.** The published map of the three v1 packages.
+
+---
+
 ## Recorded alongside (not decisions; corrections to the plans)
 
 - X-ray hydrostatic measurements are not "motions": the method field distinguishes kinematic from hydrostatic, and plain-language labels for X-ray points must say gas pressure balance, not motions.

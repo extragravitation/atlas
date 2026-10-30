@@ -40,6 +40,9 @@ const labels = {
     rad: ['<b>Scale lens.</b> log (g_obs / g_bar) against radius, from the smallest to the largest scales measured.', '<b>Distance view.</b> Extra pull against distance from the centre.'],
     speed: ['<b>Speed lens.</b> Equivalent circular speed V = √(g_obs r) against radius. For disc galaxies these are their rotation curves; for clusters it is the speed a circular orbit would need, not a measured speed.', '<b>Speed view.</b> The observed pull written as the speed of an orbit at each distance. For spinning galaxies this is how fast they turn.'],
   },
+  pickOuter: ['<b>One point per system, outermost measured radius.</b> {n} of {N} systems: for each, the measurement at the largest radius its data reach, so both sides are enclosed within the measured extent, not the total. How far the data reach depends on the survey and on each system (colour by outermost measured radius to check). Stacked lensing bins are averages, unchanged. Select a point to see its full profile.', '<b>One mark per galaxy or cluster, at the farthest point measured.</b> {n} of {N}. Each compares the pull we see with the pull from detected matter, out to the farthest point the data reach. That is not the whole galaxy: nobody can measure where a galaxy ends. Tap a mark to see all its measurements.'],
+  pickLight: ['<b>One point per system, at a radius set by the light.</b> {n} of {N} systems: for each, the first measurement at or beyond {k} × the source’s effective (half-light) radius. No value is interpolated or extrapolated.', '<b>One mark per galaxy, at the same distance relative to its size:</b> the first measurement at least {k} times the radius that holds half its light. {n} of {N} shown.'],
+  pickLeft: ['Left out: {short} whose data do not reach that radius; {none} whose source gives no half-light radius (the X-COP clusters).', 'Left out: {short} galaxies measured less far than that, and {none} systems without a half-light radius (the clusters).'],
   noRadius: ['Stacked lensing bins have no single radius and are not shown in this lens.', 'Averages over many galaxies have no single distance and are left out of this view.'],
   ds, weight, flagged: `Ringed: ${flagged} measurements with a reproduction mismatch or the source’s own quality caveat (see Known issues)`, bin: 'Stacked lensing bin',
 };
@@ -60,6 +63,15 @@ const total = atlas.datasets.reduce((s, d) => s + d.measurements.rows.length, 0)
           <button class="btn" disabled aria-disabled="true" title="Needs the observables recorded under data standard 2.0 (D-029)"><L t="Surface density" p="Density" /></button>
         </div>
         <p class="small" style="margin-top:6px"><L t="Same data, different framings (D-030). Surface density needs the recorded observables of data standard 2.0 and arrives with the next packages." p="The same measurements seen in different ways. One more view arrives with the next datasets." /></p>
+      </div>
+      <div>
+        <p class="cap"><L t="Points" p="Marks" /></p>
+        <div class="seg" role="group" aria-label="Points per system">
+          <button class="btn" data-pick="all" aria-pressed="true"><L t="Every measurement" p="Every point" /></button>
+          <button class="btn" data-pick="outer" aria-pressed="false"><L t="One per system: outermost" p="One per galaxy: farthest" /></button>
+          <button class="btn" data-pick="light" aria-pressed="false"><L t="One per system: 2 × half-light" p="One per galaxy: same relative size" /></button>
+        </div>
+        <p class="small" style="margin-top:6px"><L t="One point per system selects an existing measurement by a fixed rule; nothing is recomputed (D-043). Values are always within a radius, never a total." p="A simpler picture: one mark per galaxy or cluster. Each is a real measurement, picked by a fixed rule." /></p>
       </div>
       <div>
         <p class="cap">Datasets</p>
@@ -84,6 +96,7 @@ const total = atlas.datasets.reduce((s, d) => s + d.measurements.rows.length, 0)
             <option value="q">Source quality flag Q (SPARC)</option>
             <option value="dist">Distance (SPARC)</option>
             <option value="z">Redshift (X-COP)</option>
+            <option value="rext">Outermost measured radius (all systems)</option>
           </optgroup>
         </select>
         <p class="small" style="margin-top:6px"><L t="Systematics checks colour each measurement by a property its source gives. If the comparison were affected by that property, the colours would separate at fixed g_bar. No fit is made (D-033)." p="Colour the points by something about how they were measured. If that affected the results, the colours would separate." /></p>
@@ -114,6 +127,7 @@ const total = atlas.datasets.reduce((s, d) => s + d.measurements.rows.length, 0)
         </div>
         <figcaption><b>Figure.</b> <L t="Each mark is one packaged measurement. Dashed line, where shown: g_obs = g_bar, Newtonian gravity on detected matter accounts for the observed acceleration. Rings: flagged measurements. No fitted relation is drawn (D-026)." p="Each mark is one measurement. On the dashed line, the detected matter explains all of the pull. Rings mark measurements with a known issue." /> <span id="caption-state"></span></figcaption>
       </figure>
+      <p class="hint" id="pick-note" hidden></p>
       <p class="hint" id="lens-note"></p>
       <ul class="legend" id="legend" aria-label="Legend: select a type to show only it"></ul>
       <div id="colkey" class="hint" hidden></div>
