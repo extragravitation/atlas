@@ -1,0 +1,9 @@
+{
+  "description": "D-052 selection, version 2 (fixes three defects of version 1 found on its first run; rules unchanged). Frozen before the adjudicated supplementary reading it uses was seen by the main session and before it was run.",
+  "frozen_on": "2026-10-30",
+  "decision": "D-052",
+  "spec": "docs/methods/D052_STRUCTURE_SELECTION.md",
+  "files": {
+    "data/packages/aeg-d-dwarfs/v1/reproduction/select_structure_v2.py": "976c627b93877b807291def2837efb16fd2b9fce7eceecd78ec77f483db26139"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "description": "D-052 selection, version 3: as version 2, with the leading number of the printed modulus string parsed (version 2 could not parse 'x \u00b1 y'). Rules unchanged. Frozen before it was run.",
+  "frozen_on": "2026-10-30",
+  "decision": "D-052",
+  "spec": "docs/methods/D052_STRUCTURE_SELECTION.md",
+  "files": {
+    "data/packages/aeg-d-dwarfs/v1/reproduction/select_structure_v3.py": "133366795220811278e6fe121b256f7af746bf689e1c1d8f4bc279c2e0bf912f"
+  }
+}
