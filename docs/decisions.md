@@ -1183,3 +1183,21 @@ No mass-to-light value, g_bar or g_obs of a dwarf had been computed.
 **Data seen.** Search log A6 and the two screening readings: metadata, abstracts, methods and table headings only. No data table was opened and no mass, M/L or result was read.
 
 **Still open.** The protocol §5 projection ruling (baryons projected, or lensing deprojected), which is needed before the first lensing package.
+
+## D-064 — Lensing projection: project the baryons (protocol §5)
+
+**Ruling (2026-10-31 17:40 MDT, JvH).** Option (a), as recommended. **Proposed by** Claude (2026-10-31, with option (b) set out beside it). **Adopted.** JvH's words: "Project the baryons. Compare the lensing mass with the stellar mass inside the same projected radius, and express both as G·M/R_E² labelled 'projected'."
+
+1. For galaxy-scale strong lensing (A6), the observed side is the projected mass inside the Einstein radius, M_E. The baryonic side is the projected baryonic mass inside the same cylinder of radius R_E. Both are expressed as G·M/R_E², labelled **projected**.
+2. g_obs/g_bar is then exactly M_E / M_bar(<R_E): no mass-profile model enters either side.
+3. Projected points carry their own mark and label on the map and in downloads (`projection = projected`). They are never merged with 3D accelerations without that mark.
+4. R_E in kpc and M_E use the source's own cosmology, registered where it enters (D-029); the ratio does not depend on it to first order, because both masses scale with the same distances.
+5. Applies to A6·strong lensing now. Other lensing cells (A8, A9) get their own ruling when they arrive, with this one as the starting proposal.
+
+**Reason.** It compares like with like (two measured masses in the same projected aperture), adds no profile assumption, and keeps the comparison exact. The cost, that these points are a different quantity from 3D accelerations, is handled by marking them, not by converting them.
+
+**Alternatives rejected.** (b) Deprojecting the lensing mass with an assumed density profile: every point would depend on the profile chosen.
+
+**Data seen.** Search log A6 and the screening readings: metadata and methods only. No lensing mass or stellar mass was read.
+
+**Note.** D-039 had named this ruling as the next blind one. D-040 since replaced blind rulings with recording the proposer, so it was ruled with a recommendation, recorded above.
