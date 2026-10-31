@@ -1103,3 +1103,18 @@ Implemented in `reproduction/rc3_convert.py` (frozen). It reads the identified r
 - The count of plotted systems below that floor (26 of 64).
 
 No mass-to-light value, g_bar or g_obs of a dwarf had been computed.
+
+## D-061 — Boötes III: structural fit and luminosity (A5)
+
+**Ruling (2026-10-31 12:27 MDT, JvH).** "Go with 1a and 2a." **Proposed by** Claude (both recommended). **Adopted unchanged.**
+
+1. **Structure.** Use the standard single-component Plummer fit of Moskowitz et al. 2020 ("1-Plummer", DECaLS: r_h = 33.03′, ε = 0.33, θ = 278.91°). The paper marks no fit as adopted. D-052's fixed order names Plummer, and the paper calls this one "the standard 1-Plummer profile". The three-component fit (r_h = 32.45′) is recorded as an alternative.
+2. **Luminosity.** L_V comes directly from Correnti et al. 2009's M_V = −5.8 ± 0.5, with no distance correction, flagged `mv_distance_independent`. The paper derives M_V from the count of core-helium-burning stars and states that this estimate is independent of distance.
+
+**Alternatives rejected.**
+- (1B) The three-component fit: not the profile D-052 names.
+- (2B) Not plotting the system: the magnitude needs no distance.
+
+**Data seen.** Both readings of Moskowitz 2020 (the four Boötes III fits) and of Correnti 2009. No g_obs or g_bar had been computed.
+
+The other five items proposed alongside these (Muñoz 2018 moduli, Leo I, Phoenix, Leo T, Tucana V) await a ruling.
