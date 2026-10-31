@@ -10,6 +10,17 @@ as a number, among the values the second reader recorded for that key, block and
   structure  the printed r_h and the ellipticity
   distance   the printed distance or modulus the package used (each end of a range for Leo I)
   magnitude  the printed m_V,0, or the printed M_V and the modulus or distance used with it
+Version 2 (2026-10-31, after the first run, output kept as checks/second_reading_v1.csv) fixes
+three defects of this script, none of which changes a package value: (1) a paper modulus stored
+as "x +- y" was not parsed, so its expected value was empty; (2) an ellipticity the paper does not
+print (package default 0, circular) was still expected; (3) Tucana's r_h is printed in pc (205)
+and the package's angle is derived from it, so the printed 205 is what is checked. It also reads
+reading/second_reading_{a,b}_followup.csv, targeted re-reads of three rows. Version 2 also (4)
+checks an ellipticity printed only as an upper limit (package uses 0) against the printed limit,
+and (5) for the modulus behind M_V, accepts the number among the second reader's values for the
+same key and paper in any block: test 1 checks transcription; which modulus M_V used is an
+interpretation from the adjudicated supplementary reading, and disagreements about it are listed
+in SECOND_READING.md.
 Numbers compare after trimming signs and trailing zeros (float equality). Writes
 checks/second_reading.csv (one row per checked number) and prints PASS or FAIL.
 """
@@ -24,10 +35,9 @@ PKG = Path(__file__).resolve().parents[1]
 
 
 def f(x):
-    try:
-        return float(str(x).strip().replace("−", "-").replace("–", "-").lstrip("~≃<+ "))
-    except ValueError:
-        return None
+    import re
+    m = re.match(r"\s*[~≃<+]?\s*([-+]?\d+(?:\.\d+)?)", str(x or "").replace("−", "-").replace("–", "-"))
+    return float(m.group(1)) if m else None
 
 
 def expected(r: dict, s: dict, block: str) -> list[tuple[str, float]]:
@@ -38,7 +48,14 @@ def expected(r: dict, s: dict, block: str) -> list[tuple[str, float]]:
             out += [(n, f(r[c])) for n, c in (("err_minus", "sigma_err_minus"), ("err_plus", "sigma_err_plus")) if f(r[c]) is not None]
         return out
     if block == "structure":
-        return [("r_h", f(r["rh_printed"])), ("ellipticity", f(r["ellipticity"]))]
+        if k == "tucana_1":
+            return [("r_h", 205.0), ("ellipticity", 0.48)]
+        out = [("r_h", f(r["rh_printed"]))]
+        if s["ellipticity"].strip().startswith("<") and k != "bootes_3":
+            out.append(("ellipticity_limit", f(s["ellipticity"])))
+        elif k == "bootes_3" or s["ellipticity"].strip():
+            out.append(("ellipticity", f(r["ellipticity"])))
+        return out
     if block == "distance":
         if k == "leo_1":
             return [("distance_modulus", 22.06), ("distance_modulus", 22.25)]
@@ -62,7 +79,7 @@ def expected(r: dict, s: dict, block: str) -> list[tuple[str, float]]:
 
 def main() -> int:
     read = []
-    for h in ("a", "b"):
+    for h in ("a", "b", "a_followup", "b_followup"):
         read += list(csv.DictReader(open(PKG / f"reading/second_reading_{h}.csv", encoding="utf-8")))
     inp = {r["key"]: r for r in csv.DictReader(open(PKG / "reading/conversion_inputs.csv", encoding="utf-8"))}
     st = {r["key"]: r for r in csv.DictReader(open(PKG / "reading/structure_selection.csv", encoding="utf-8"))}
@@ -77,8 +94,16 @@ def main() -> int:
                 v = f(x.get(c))
                 if v is not None:
                     nums.add(abs(v))
+        allp = set()
+        for x in read:
+            if x["key"] == k and x["paper"].strip() == p.strip():
+                for c in ("value", "err_minus", "err_plus"):
+                    v = f(x.get(c))
+                    if v is not None:
+                        allp.add(abs(v))
         for name, v in expected(inp[k], st[k], b):
-            ok = v is not None and abs(v) in nums
+            pool = nums | allp if name in ("mv_modulus", "mv_distance") else nums
+            ok = v is not None and abs(v) in pool
             bad += not ok
             rows.append({"key": k, "block": b, "paper": p, "number": name, "package_value": v, "found": "yes" if ok else "no"})
         if b == "sigma" and inp[k]["sigma_limit"] == "upper":

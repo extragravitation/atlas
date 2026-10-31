@@ -81,8 +81,11 @@
   ],
   "x_search_log": "docs/sources/ (A5 search log); reading/originals.csv",
   "x_second_reading": {
-    "status": "pending",
-    "file": "SECOND_READING.md"
+    "by": "two independent agent sessions (Claude), without access to the conversion code, tables or earlier readings; read at source from PDFs and page images",
+    "date": "2026-10-31",
+    "result": "test 1: 470 of 470 packaged input numbers found as printed (after three test-script defects were fixed and three values re-read; first run 451 of 470); tests 2-4 pass",
+    "file": "SECOND_READING.md",
+    "scripts": "reproduction/test1_second_reading.py; reproduction/test2_transcription.py"
   },
   "resources": [
     {
