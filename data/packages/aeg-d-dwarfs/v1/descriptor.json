@@ -83,7 +83,7 @@
   "x_second_reading": {
     "by": "two independent agent sessions (Claude), without access to the conversion code, tables or earlier readings; read at source from PDFs and page images",
     "date": "2026-10-31",
-    "result": "test 1: 484 of 484 packaged input numbers found as printed (after three test-script defects were fixed and three values re-read; first run 451 of 470); tests 2-4 pass",
+    "result": "test 1: 534 of 534 packaged input numbers found as printed, including the printed m_V,0 errors added after PR #85 (after three test-script defects were fixed and three values re-read; first run 451 of 470); tests 2-4 pass",
     "file": "SECOND_READING.md",
     "scripts": "reproduction/test1_second_reading.py; reproduction/test2_transcription.py"
   }
