@@ -1,0 +1,6 @@
+key,ra0_deg,dec0_deg,ellipticity,pa_deg,a_h_arcmin,rh_convention,centre_source,status
+bootes_3,209.300000,26.800000,0.0000,0.00,,circularised,"adopted: quoted from Table 2 refs 2,3,4: Grillmair (2009); Carlin et al. (2009); Correnti et al. (2009). Centre not fitted (fits in coordinates centred on Table 2 centre",not available: angular r_h
+horologium_1,,-54.117400,0.0000,0.00,1.46000,circularised,,not available: centre tie
+lmc,,,0.8360,227.24,,semi-major,,"not available: centre tie, angular r_h"
+phoenix_2,,,0.4400,0.00,1.57684,circularised,,not available: centre tie
+smc,13.190000,-72.830000,0.0000,0.00,,not stated,"adopted: quoted from McConnachie (2012) (Table 2 source 5); tertiary sample, not measured in this survey",not available: angular r_h

@@ -1,0 +1,11 @@
+{
+  "description": "D-051 coverage, Geha et al. 2026 (34 systems): structural inputs, table extraction and member rules, frozen before any data row of the member table was read.",
+  "frozen_on": "2026-10-31",
+  "decision": "D-051",
+  "spec": "docs/methods/D051_COVERAGE.md",
+  "files": {
+    "data/packages/aeg-d-dwarfs/v1/reproduction/structure_for_coverage.py": "60f402764cf2c0bd05e85194e99a38c705f0106c3da225f89f1a7c9babcbe219",
+    "data/packages/aeg-d-dwarfs/v1/reproduction/extract_geha2026.py": "50b8fe7753a091dfc7cc0cccc9bd810f6a6c77c5c9aa057c639cb292b05912f2",
+    "data/packages/aeg-d-dwarfs/v1/reading/coverage_config.csv": "57ea3e03e3ee25dbdfaaa1e2a08b8317b04c3d71fdaa4db8fccffccaebd9bc7d"
+  }
+}

@@ -53,6 +53,72 @@
    "redistributable": true,
    "evidence_tier": 1,
    "note": "CC0-1.0 (repository LICENSE). Pinned to commit c9fb49c620adab3df32c7d206e8599f4bb624a3a. Locator only."
+  },
+  {
+   "role": "Geha et al. 2026, ApJ 999, 140, machine-readable Table 1 (systems, Reff): member positions for the D-051 coverage check",
+   "url": "https://content.cld.iop.org/journals/0004-637X/999/1/140/revision1/apjae290dt1_mrt.txt",
+   "file": "members/geha2026/apjae290dt1_mrt.txt",
+   "bytes": 12032,
+   "sha256": "9de96469e6b06bb9b35dec7a2972db72a2a770fcb149a5d51a29668bed26c57d",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "AAS journal machine-readable table; licence not read, linked not redistributed."
+  },
+  {
+   "role": "Geha et al. 2026, ApJ 999, 140, machine-readable Table 5 (per-star catalogue; file title line repeats Table 4): member positions for the D-051 coverage check",
+   "url": "https://content.cld.iop.org/journals/0004-637X/999/1/140/revision1/apjae290dt5_mrt.txt",
+   "file": "members/geha2026/apjae290dt5_mrt.txt",
+   "bytes": 10977987,
+   "sha256": "3b731eb3b055cf14feeccf54cea862102b6be1c75a38b66ba1cbbe38664e82f4",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "AAS journal machine-readable table; licence not read, linked not redistributed."
+  },
+  {
+   "role": "Collins et al. 2013, ApJ 768, 172, machine-readable Table 3 (probable dSph members): member positions for the D-051 coverage check",
+   "url": "https://content.cld.iop.org/journals/0004-637X/768/2/172/revision1/apj466362t3_mrt.txt",
+   "file": "members/collins2013/apj466362t3_mrt.txt",
+   "bytes": 27272,
+   "sha256": "73fdfdc45a84ef9c37d8f5dc6370e03fcd295d0586871d711ad79e0bae0b695d",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "AAS journal MRT; licence not read, linked not redistributed."
+  },
+  {
+   "role": "Kvasova et al. 2024, ApJ 972, 180, machine-readable Table 1 (And XVIII catalogue): member positions for the D-051 coverage check",
+   "url": "https://content.cld.iop.org/journals/0004-637X/972/2/180/revision1/apjad55f0t1_mrt.txt",
+   "file": "members/kvasova2024/apjad55f0t1_mrt.txt",
+   "bytes": 20488,
+   "sha256": "ff3ae7d9d91db2a06b13b609aa0c5c114d6a268fc6eabb3cca2ab89fce76e430",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "AAS journal MRT; licence not read, linked not redistributed."
+  },
+  {
+   "role": "Spencer et al. 2017, ApJ 836, 202, machine-readable Table 3 (Leo II spectroscopy): member positions for the D-051 coverage check",
+   "url": "https://content.cld.iop.org/journals/0004-637X/836/2/202/revision1/apjaa58edt3_mrt.txt",
+   "file": "members/spencer2017/apjaa58edt3_mrt.txt",
+   "bytes": 38229,
+   "sha256": "3f69d8722db105d6f2a8bda24bf0c3e38a219ddfddef515f61f0a6020d3b62db",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "AAS journal MRT; licence not read, linked not redistributed."
+  },
+  {
+   "role": "Cerny et al. 2026, member catalogues v1.1 (Zenodo 10.5281/zenodo.18688283): member positions for the D-051 coverage check",
+   "url": "https://zenodo.org/records/18688283/files/MemberCatalogs_v1.1.tar.gz?download=1",
+   "file": "members/cerny2026/MemberCatalogs_v1.1.tar.gz",
+   "bytes": 22225,
+   "sha256": "153f21e28406ab9b384fa096cd36ad0450274d11f38543975c15ea6307dfd360",
+   "retrieved": "2026-10-31",
+   "redistributable": true,
+   "evidence_tier": 1,
+   "note": "CC BY 4.0 (Zenodo record). md5 a90c904cd391c34a51379cb03c59a1e3 as listed by Zenodo."
   }
  ]
 }

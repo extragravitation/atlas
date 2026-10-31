@@ -1,0 +1,11 @@
+{
+  "description": "D-051 coverage batch 2: Collins 2013 (17 systems), Kvasova 2024, Spencer 2017 and Cerny 2026 member rules and extraction; Tollerud 2012 and Ji 2021 Crater 2 recorded as not reached; coverage runner v2 reads every coverage_config*.csv. Frozen before any data row of these tables was read (headers, FITS column names and the distinct values of field and membership-flag columns only).",
+  "frozen_on": "2026-10-31",
+  "decision": "D-051",
+  "spec": "docs/methods/D051_COVERAGE.md",
+  "files": {
+    "data/packages/aeg-d-dwarfs/v1/reproduction/extract_members.py": "93f69e5f74ab20b67da47b845c7b88a0f425475ccc9bb322e0b05693e3a62d8f",
+    "data/packages/aeg-d-dwarfs/v1/reading/coverage_config_batch2.csv": "8721eaf056f947558d605af99fac1753bb591519d3f2b72bce128810fd782fe0",
+    "data/packages/aeg-d-dwarfs/v1/reproduction/coverage_from_tables_v2.py": "39befa5bd1e85e889b00ecf04f2ac5e1bc02bd7db827b3f6a1d1a8940bbe5745"
+  }
+}
