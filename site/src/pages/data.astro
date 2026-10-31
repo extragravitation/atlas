@@ -14,7 +14,7 @@ const REPO = 'https://github.com/extragravitation/atlas';
       <p class="kicker">Data</p>
       <h1><L t="Data and downloads" p="Get the data" /></h1>
       <p class="lede"><L t="Every table on this site, as ECSV (with units and column descriptions in the header) and as plain CSV. Values are exactly those in the repository’s packages, at the source’s default assumptions." p="Download every number on this site, in formats that open in a spreadsheet or in analysis code." /></p>
-      <div tabindex="0" class="tablebox" style="max-height:none"><table>
+      <div tabindex="0" class="tablebox" style="max-height:none"><table class="dl">
         <thead><tr><th class="l">Dataset</th><th class="l">Tables</th><th class="l">Package files</th></tr></thead>
         <tbody>{atlas.datasets.map((d) => { const p = `${base}downloads/${d.name}/${d.version}/`; return <tr>
           <td class="l"><a href={`${base}datasets/${d.name}/${d.version}/`}>{datasetLabel(d.name).t} {d.version}</a><br><span class="small">{d.measurements.rows.length.toLocaleString('en')} measurements</span></td>
@@ -24,7 +24,7 @@ const REPO = 'https://github.com/extragravitation/atlas';
       </table></div>
       <h2><L t="Reproduce everything" p="Rebuild it yourself" /></h2>
       <p><L t="Every table is rebuilt from the published sources by the conversion scripts in the repository, which check each source file against its recorded hash. Clone the repository and run:" p="Everything can be rebuilt from the original studies with one command:" /></p>
-      <pre class="code">pip install -e "pipeline[test,data]"
+      <pre class="code" tabindex="0" aria-label="Commands to rebuild every table">pip install -e "pipeline[test,data]"
 for pkg in data/packages/*/*/; do
   python -m aeg.fetch "$pkg"      # fetch each source and verify its hash
   python "$pkg/convert.py"        # rebuild the package tables
