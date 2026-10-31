@@ -177,3 +177,20 @@ Named but not in R1–R59, to be screened in a second round with the same brief:
 | Excluded at full text (X) | 16 |
 | Review (leads only) | 1 |
 | Round-2 leads (citations) | 10 named sources or groups |
+
+## 3. Round 2: citation leads (§3 step 4), listed before screening
+
+Same brief and the same two-reader method. D-063 now applies; readers still code by the brief, and the codes are mapped to D-063 at adjudication.
+
+| # | Lead | Named by |
+|---|---|---|
+| R60 | Dye et al. 2008, Cosmic Horseshoe lens model | R34 |
+| R61 | Collier, Smith & Lucey 2018, arXiv:1709.01931, HST models of two SNELLS lenses | R25, R59 |
+| R62 | SNELLS-HD I, arXiv:2509.01732 | R25 |
+| R63 | Tan et al. 2024, Project Dinos I | R24 |
+| R64 | Treu et al. 2010, ApJ 709, 1195 | R59 |
+| R65 | Ferreras et al. 2010, MNRAS 409, 30 | R59 |
+| R66 | Sonnenfeld et al. 2012, ApJ 752, 163 (SDSS J0946+1006) | R59 |
+| R67 | Shajib et al. 2021, 23 SLACS lenses re-modelled | R59 |
+| R68 | Lemon et al. 2024, CASTLES | R59 |
+| R69 | H-ATLAS and HerMES galaxy-scale lens models: Negrello et al. 2010, 2017; Dye et al. 2014, 2018; Amvrosiadis et al. 2018; Maresca et al. 2022 | R59 |
