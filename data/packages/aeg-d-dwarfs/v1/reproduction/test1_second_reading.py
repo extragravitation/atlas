@@ -22,7 +22,8 @@ same key and paper in any block: test 1 checks transcription; which modulus M_V 
 interpretation from the adjudicated supplementary reading, and disagreements about it are listed
 in SECOND_READING.md.
 After D-062 (And XII plotted) four And XII rows were added to the sheet and read by the same
-reader (reading/second_reading_a2.csv).
+reader (reading/second_reading_a2.csv); after Leo II's distance was read (inputs v2), its four
+rows likewise (reading/second_reading_a3.csv).
 Numbers compare after trimming signs and trailing zeros (float equality). Writes
 checks/second_reading.csv (one row per checked number) and prints PASS or FAIL.
 """
@@ -61,7 +62,7 @@ def expected(r: dict, s: dict, block: str) -> list[tuple[str, float]]:
     if block == "distance":
         if k == "leo_1":
             return [("distance_modulus", 22.06), ("distance_modulus", 22.25)]
-        over = {"leo_4": 151.4, "leo_5": 169.0, "segue_2": 34.4, "tucana_1": 24.74}
+        over = {"leo_4": 151.4, "leo_5": 169.0, "segue_2": 34.4, "tucana_1": 24.74, "leo_2": 21.60}
         return [("distance", over[k])] if k in over else [("distance", f(s["distance"]))]
     if block == "magnitude":
         over = {"andromeda_06": [-11.5, 24.47], "andromeda_07": [-13.3, 24.41], "phoenix_1": [-9.9, 23.1],
@@ -81,7 +82,7 @@ def expected(r: dict, s: dict, block: str) -> list[tuple[str, float]]:
 
 def main() -> int:
     read = []
-    for h in ("a", "b", "a_followup", "b_followup", "a2"):
+    for h in ("a", "b", "a_followup", "b_followup", "a2", "a3"):
         read += list(csv.DictReader(open(PKG / f"reading/second_reading_{h}.csv", encoding="utf-8")))
     inp = {r["key"]: r for r in csv.DictReader(open(PKG / "reading/conversion_inputs.csv", encoding="utf-8"))}
     st = {r["key"]: r for r in csv.DictReader(open(PKG / "reading/structure_selection.csv", encoding="utf-8"))}

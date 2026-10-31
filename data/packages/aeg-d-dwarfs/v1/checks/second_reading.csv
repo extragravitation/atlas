@@ -475,3 +475,11 @@ andromeda_12,structure,Martin2016ApJ...833..167M,r_h,1.8,yes
 andromeda_12,structure,Martin2016ApJ...833..167M,ellipticity,0.61,yes
 andromeda_12,distance,Savino2022ApJ...938..101S,distance,24.28,yes
 andromeda_12,magnitude,Martin2016ApJ...833..167M,m_V0,17.7,yes
+leo_2,sigma,Spencer 2017 ApJ 836 202,sigma,7.4,yes
+leo_2,sigma,Spencer 2017 ApJ 836 202,err_minus,0.4,yes
+leo_2,sigma,Spencer 2017 ApJ 836 202,err_plus,0.4,yes
+leo_2,structure,Munoz2018ApJ...860...66M,r_h,2.48,yes
+leo_2,structure,Munoz2018ApJ...860...66M,ellipticity,0.07,yes
+leo_2,distance,Monelli2025A&A...700A.201M,distance,21.6,yes
+leo_2,magnitude,Munoz2018ApJ...860...66M,M_V,-9.74,yes
+leo_2,magnitude,Munoz2018ApJ...860...66M,mv_distance,233.0,yes

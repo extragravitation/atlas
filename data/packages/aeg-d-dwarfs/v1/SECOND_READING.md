@@ -6,14 +6,14 @@ Run 2026-10-31. Method in `REPRODUCTION.md`; brief in `reading/SECOND_READING_BR
 
 | Test | Result |
 |---|---|
-| 1. Second reading against the originals | **PASS:** 476 of 476 packaged input numbers are found as printed (`checks/second_reading.csv`). |
-| 2. Transcription | **PASS:** 545 of 545 table values equal the checked inputs. |
+| 1. Second reading against the originals | **PASS:** 484 of 484 packaged input numbers are found as printed (`checks/second_reading.csv`). |
+| 2. Transcription | **PASS:** 554 of 554 table values equal the checked inputs. |
 | 3. Arithmetic integrity | **PASS:** g_obs and g_bar recomputed from the stored columns agree to 10⁻⁹ (run inside `convert.py`). |
 | 4. Kind coding | **PASS:** the coding sheet is complete; double-coding agreement 20 of 21, resolved by the rule text (`reading/KINDS_RESULT.md`). |
 
 ## How test 1 was run
 
-**Readers.** Two independent agent sessions read the original papers for 254 sheet rows: 64 systems (And XII's four rows were added after D-062), each with dispersion, structure, distance and magnitude. They worked with no access to the conversion code, the package tables or the earlier readings. They recorded 946 values, with every printed candidate and the headline marked (`reading/second_reading_{a,b}.csv`).
+**Readers.** Two independent agent sessions read the original papers for 258 sheet rows: 65 systems (And XII's four rows were added after D-062, Leo II's after its distance original was read), each with dispersion, structure, distance and magnitude. They worked with no access to the conversion code, the package tables or the earlier readings. They recorded 946 values, with every printed candidate and the headline marked (`reading/second_reading_{a,b}.csv`).
 
 **First run: 451 of 470** (`checks/second_reading_v1.csv`). The 19 misses are all accounted for below. **No package value was changed.**
 - **Defects in the test script, fixed in version 2 and disclosed in the script's docstring:**
@@ -46,7 +46,10 @@ These numbers are printed as packaged. The question is how a paper used them.
 
 Collins 2013 prints σ = 0.0 (+4.0) and calls the dispersion unresolved, without stating a limit. It is plotted as an upper limit at 4.0 km/s, the 1σ upper end, flagged `limit_from_1sigma_upper_error`.
 
+## Leo II
+
+Its distance original, Monelli et al. 2025 (A&A 700, A201), was read from the journal PDF (JvH; sha256 6cf940d5…). Two readers agree on the headline (m−M)₀ = 21.60 ± 0.03 (`reading/residual_reading_{1,2}_leo2.csv`). It enters through the frozen input assembly v2.
+
 ## Not plotted (recorded)
 
 - **And XIII:** no [Fe/H] (D-059).
-- **Leo II:** distance original (Monelli 2025) not yet read.
