@@ -1,0 +1,10 @@
+{
+  "description": "D-055 items 1-5: explicit choices for the A5 cases the dispersion rules could not settle; rule script v3.",
+  "frozen_on": "2026-10-31",
+  "decision": "D-055",
+  "spec": "docs/decisions.md (D-055)",
+  "files": {
+    "data/packages/aeg-d-dwarfs/v1/reproduction/apply_sigma_rules_v3.py": "69b2d23104d7a91b729423115ce282bda5386e58f48d32257771c049f6863a09",
+    "data/packages/aeg-d-dwarfs/v1/reading/d055_choices.csv": "50b1ce0b4d338058b200654ae2ebc3c233c8b79821e88b440ba5725282f2054c"
+  }
+}

@@ -1,0 +1,7 @@
+key,paper,value_id,d055_item,reason
+andromeda_26,Collins 2013 ApJ 768 172,v1,2,printing that matches the text (Table 4 and p.17) over Table A1
+centaurus_1,Heiger 2024 ApJ 961 234,v1,2,printing that matches the abstract and text (Table 1; Sec. 5.1; abstract) over Table 5
+grus_2,Simon 2020 ApJ 892 137,v2,3,unresolved dispersion: the upper limit stated in the abstract (90%)
+tucana_3,Simon 2017 ApJ 838 11,v3,3,unresolved dispersion: the upper limit stated in the abstract (95.5%)
+smc,Harris 2006 AJ 131 2514,v1,4,duplicate printings of one fit: the table value (Table 3) over the rounded summary
+andromeda_02,Cote 1999 ApJ 526 147,v1,5,maximum-likelihood estimator over the biweight; central King-Michie sigma_0 excluded
