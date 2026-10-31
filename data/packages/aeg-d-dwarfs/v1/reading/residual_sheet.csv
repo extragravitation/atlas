@@ -29,3 +29,4 @@ leo_1,Stetson2014PASP..126..616S,1406.6704v2,C: every distance or distance modul
 tucana_5,Simon2020ApJ...892..137S,1911.08493v2,D: the printed M_V of the system and the distance modulus (or distance) used to compute it
 phoenix_1,vandeRydt1991AJ....102..130V,1991AJ....102..130V,D: the distance modulus (or distance) used to compute the headline M_V = -9.9
 leo_t,deJong2008ApJ...680.1112D,0801.4027v2,D: the distance modulus (or distance) used to compute the headline M_V = -8.0
+leo_2,Monelli2025A&A...700A.201M,version of record (A&A PDF; Dropbox, sha256 6cf940d5de09b969939db84ce76fd0a6d3cb0b842e3362e93e1ded3ba28b5845),C: every distance or distance modulus printed for the system (headline first)
