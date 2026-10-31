@@ -1,0 +1,191 @@
+id,status,variant_1,variant_2,location_1,location_2
+andromeda_01 | log_mstar | 6.85,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row And I, column log M*",
+andromeda_01 | log_stellar_mass | 6.85,reader 2 only,,,,"p.4, Table 1, column log M* (footnote c: ""Stellar mass, in units of M⊙, derived as described in text. The typical uncertainty: 0.17 dex."")"
+andromeda_01 | ml_star | 1.6,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row And I, column M*/LV",
+andromeda_01 | stellar_ml_v | 1.6,reader 2 only,,,,"p.4, Table 1 (Data for the Local Group Dwarf Galaxies), column M*/LV (footnote b: ""Our derived values of M*/LV for the 'b' set as described in the text"")"
+andromeda_02 | log_mstar | 6.63,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row And II, column log M*",
+andromeda_02 | log_stellar_mass | 6.63,reader 2 only,,,,"p.4, Table 1, column log M* (footnote c: ""Stellar mass, in units of M⊙, derived as described in text. The typical uncertainty: 0.17 dex."")"
+andromeda_02 | ml_star | 1.0,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row And II, column M*/LV",
+andromeda_02 | stellar_ml_v | 1.0,reader 2 only,,,,"p.4, Table 1 (Data for the Local Group Dwarf Galaxies), column M*/LV (footnote b: ""Our derived values of M*/LV for the 'b' set as described in the text"")"
+andromeda_03 | log_mstar | 6.27,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row And III, column log M*",
+andromeda_03 | log_stellar_mass | 6.27,reader 2 only,,,,"p.4, Table 1, column log M* (footnote c: ""Stellar mass, in units of M⊙, derived as described in text. The typical uncertainty: 0.17 dex."")"
+andromeda_03 | ml_star | 1.8,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row And III, column M*/LV",
+andromeda_03 | stellar_ml_v | 1.8,reader 2 only,,,,"p.4, Table 1 (Data for the Local Group Dwarf Galaxies), column M*/LV (footnote b: ""Our derived values of M*/LV for the 'b' set as described in the text"")"
+andromeda_05 | log_mstar | 5.6,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row And V, column log M*",
+andromeda_05 | log_stellar_mass | 5.6,reader 2 only,,,,"p.4, Table 1, column log M* (footnote c: ""Stellar mass, in units of M⊙, derived as described in text. The typical uncertainty: 0.17 dex."")"
+andromeda_05 | ml_star | 1.1,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row And V, column M*/LV",
+andromeda_05 | stellar_ml_v | 1.1,reader 2 only,,,,"p.4, Table 1 (Data for the Local Group Dwarf Galaxies), column M*/LV (footnote b: ""Our derived values of M*/LV for the 'b' set as described in the text"")"
+andromeda_06 | log_mstar | 6.17,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row And VI, column log M*",
+andromeda_06 | log_stellar_mass | 6.17,reader 2 only,,,,"p.4, Table 1, column log M* (footnote c: ""Stellar mass, in units of M⊙, derived as described in text. The typical uncertainty: 0.17 dex."")"
+andromeda_06 | ml_star | 0.5,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row And VI, column M*/LV",
+andromeda_06 | stellar_ml_v | 0.5,reader 2 only,,,,"p.4, Table 1 (Data for the Local Group Dwarf Galaxies), column M*/LV (footnote b: ""Our derived values of M*/LV for the 'b' set as described in the text"")"
+andromeda_07 | log_mstar | 6.67,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row And VII, column log M*",
+andromeda_07 | log_stellar_mass | 6.67,reader 2 only,,,,"p.4, Table 1, column log M* (footnote c: ""Stellar mass, in units of M⊙, derived as described in text. The typical uncertainty: 0.17 dex."")"
+andromeda_07 | ml_star | 0.9,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row And VII, column M*/LV",
+andromeda_07 | stellar_ml_v | 0.9,reader 2 only,,,,"p.4, Table 1 (Data for the Local Group Dwarf Galaxies), column M*/LV (footnote b: ""Our derived values of M*/LV for the 'b' set as described in the text"")"
+andromeda_09 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+andromeda_10 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+andromeda_11 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+andromeda_12 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+andromeda_13 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+andromeda_14 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+andromeda_15 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+andromeda_16 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+andromeda_17 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+andromeda_18 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+andromeda_19 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+andromeda_20 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+andromeda_21 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+andromeda_22 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+andromeda_23 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+andromeda_24 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+andromeda_25 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+andromeda_26 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+andromeda_27 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+andromeda_28 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+andromeda_29 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+antlia_2 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+antlia_b | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+aquarius_1 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+aquarius_2 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+aquarius_3 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+bootes_1 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+bootes_2 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+bootes_3 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+canes_venatici_1 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+canes_venatici_2 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+carina_1 | log_mstar | 5.71,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row Carina, column log M*",
+carina_1 | log_stellar_mass | 5.71,reader 2 only,,,,"p.4, Table 1, column log M* (footnote c: ""Stellar mass, in units of M⊙, derived as described in text. The typical uncertainty: 0.17 dex."")"
+carina_1 | ml_star | 1.0,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row Carina, column M*/LV",
+carina_1 | stellar_ml_v | 1.0,reader 2 only,,,,"p.4, Table 1 (Data for the Local Group Dwarf Galaxies), column M*/LV (footnote b: ""Our derived values of M*/LV for the 'b' set as described in the text"")"
+carina_2 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+carina_3 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+cassiopeia_2 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+cassiopeia_3 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+centaurus_1 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+cetus_1 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+columba_1 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+coma_berenices_1 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+crater_2 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+draco_1 | log_mstar | 5.96,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row Draco, column log M*",
+draco_1 | log_stellar_mass | 5.96,reader 2 only,,,,"p.4, Table 1, column log M* (footnote c: ""Stellar mass, in units of M⊙, derived as described in text. The typical uncertainty: 0.17 dex."")"
+draco_1 | ml_star | 1.8,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row Draco, column M*/LV",
+draco_1 | stellar_ml_v | 1.8,reader 2 only,,,,"p.4, Table 1 (Data for the Local Group Dwarf Galaxies), column M*/LV (footnote b: ""Our derived values of M*/LV for the 'b' set as described in the text"")"
+draco_2 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+eridanus_2 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+eridanus_4 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+fornax_1 | log_mstar | 7.27,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row Fornax, column log M*",
+fornax_1 | log_stellar_mass | 7.27,reader 2 only,,,,"p.4, Table 1, column log M* (footnote c: ""Stellar mass, in units of M⊙, derived as described in text. The typical uncertainty: 0.17 dex."")"
+fornax_1 | ml_star | 1.2,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row Fornax, column M*/LV",
+fornax_1 | stellar_ml_v | 1.2,reader 2 only,,,,"p.4, Table 1 (Data for the Local Group Dwarf Galaxies), column M*/LV (footnote b: ""Our derived values of M*/LV for the 'b' set as described in the text"")"
+grus_1 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+grus_2 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+hercules_1 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+horologium_1 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+hydra_2 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+hydrus_1 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+ic_1613 | log_mstar | 8.03,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row IC 1613, column log M*",
+ic_1613 | log_stellar_mass | 8.03,reader 2 only,,,,"p.4, Table 1, column log M* (footnote c: ""Stellar mass, in units of M⊙, derived as described in text. The typical uncertainty: 0.17 dex."")"
+ic_1613 | ml_star | 1.0,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row IC 1613, column M*/LV",
+ic_1613 | stellar_ml_v | 1.0,reader 2 only,,,,"p.4, Table 1 (Data for the Local Group Dwarf Galaxies), column M*/LV (footnote b: ""Our derived values of M*/LV for the 'b' set as described in the text"")"
+lacerta_1 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+leo_1 | log_mstar | 6.66,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row Leo I, column log M*",
+leo_1 | log_stellar_mass | 6.66,reader 2 only,,,,"p.4, Table 1, column log M* (footnote c: ""Stellar mass, in units of M⊙, derived as described in text. The typical uncertainty: 0.17 dex."")"
+leo_1 | ml_star | 0.9,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row Leo I, column M*/LV",
+leo_1 | stellar_ml_v | 0.9,reader 2 only,,,,"p.4, Table 1 (Data for the Local Group Dwarf Galaxies), column M*/LV (footnote b: ""Our derived values of M*/LV for the 'b' set as described in the text"")"
+leo_2 | log_mstar | 6.16,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row Leo II, column log M*",
+leo_2 | log_stellar_mass | 6.16,reader 2 only,,,,"p.4, Table 1, column log M* (footnote c: ""Stellar mass, in units of M⊙, derived as described in text. The typical uncertainty: 0.17 dex."")"
+leo_2 | ml_star | 1.6,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row Leo II, column M*/LV",
+leo_2 | stellar_ml_v | 1.6,reader 2 only,,,,"p.4, Table 1 (Data for the Local Group Dwarf Galaxies), column M*/LV (footnote b: ""Our derived values of M*/LV for the 'b' set as described in the text"")"
+leo_4 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+leo_5 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+leo_6 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+leo_a | log_mstar | 6.26,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row Leo A, column log M*",
+leo_a | log_stellar_mass | 6.26,reader 2 only,,,,"p.4, Table 1, column log M* (footnote c: ""Stellar mass, in units of M⊙, derived as described in text. The typical uncertainty: 0.17 dex."")"
+leo_a | ml_star | 0.5,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row Leo A, column M*/LV",
+leo_a | stellar_ml_v | 0.5,reader 2 only,,,,"p.4, Table 1 (Data for the Local Group Dwarf Galaxies), column M*/LV (footnote b: ""Our derived values of M*/LV for the 'b' set as described in the text"")"
+leo_t | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+lgs_3 | log_mstar | 5.86,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row LGS 3, column log M*",
+lgs_3 | log_stellar_mass | 5.86,reader 2 only,,,,"p.4, Table 1, column log M* (footnote c: ""Stellar mass, in units of M⊙, derived as described in text. The typical uncertainty: 0.17 dex."")"
+lgs_3 | ml_star | 1.0,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row LGS 3, column M*/LV",
+lgs_3 | stellar_ml_v | 1.0,reader 2 only,,,,"p.4, Table 1 (Data for the Local Group Dwarf Galaxies), column M*/LV (footnote b: ""Our derived values of M*/LV for the 'b' set as described in the text"")"
+lmc | log_mstar | 9.19,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row LMC, column log M*",
+lmc | log_stellar_mass | 9.19,reader 2 only,,,,"p.4, Table 1, column log M* (footnote c: ""Stellar mass, in units of M⊙, derived as described in text. The typical uncertainty: 0.17 dex."")"
+lmc | ml_star | 0.7,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row LMC, column M*/LV",
+lmc | stellar_ml_v | 0.7,reader 2 only,,,,"p.4, Table 1 (Data for the Local Group Dwarf Galaxies), column M*/LV (footnote b: ""Our derived values of M*/LV for the 'b' set as described in the text"")"
+m_032 | log_mstar | 8.66,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row M 32, column log M*",
+m_032 | log_stellar_mass | 8.66,reader 2 only,,,,"p.4, Table 1, column log M* (footnote c: ""Stellar mass, in units of M⊙, derived as described in text. The typical uncertainty: 0.17 dex."")"
+m_032 | ml_star | 1.3,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row M 32, column M*/LV",
+m_032 | stellar_ml_v | 1.3,reader 2 only,,,,"p.4, Table 1 (Data for the Local Group Dwarf Galaxies), column M*/LV (footnote b: ""Our derived values of M*/LV for the 'b' set as described in the text"")"
+ngc_0147 | log_mstar | 8.17,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row NGC 147, column log M*",
+ngc_0147 | log_stellar_mass | 8.17,reader 2 only,,,,"p.4, Table 1, column log M* (footnote c: ""Stellar mass, in units of M⊙, derived as described in text. The typical uncertainty: 0.17 dex."")"
+ngc_0147 | ml_star | 1.6,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row NGC 147, column M*/LV",
+ngc_0147 | stellar_ml_v | 1.6,reader 2 only,,,,"p.4, Table 1 (Data for the Local Group Dwarf Galaxies), column M*/LV (footnote b: ""Our derived values of M*/LV for the 'b' set as described in the text"")"
+ngc_0185 | log_mstar | 8.14,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row NGC 185, column log M*",
+ngc_0185 | log_stellar_mass | 8.14,reader 2 only,,,,"p.4, Table 1, column log M* (footnote c: ""Stellar mass, in units of M⊙, derived as described in text. The typical uncertainty: 0.17 dex."")"
+ngc_0185 | ml_star | 1.0,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row NGC 185, column M*/LV",
+ngc_0185 | stellar_ml_v | 1.0,reader 2 only,,,,"p.4, Table 1 (Data for the Local Group Dwarf Galaxies), column M*/LV (footnote b: ""Our derived values of M*/LV for the 'b' set as described in the text"")"
+ngc_0205 | log_mstar | 8.65,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row NGC 205, column log M*",
+ngc_0205 | log_stellar_mass | 8.65,reader 2 only,,,,"p.4, Table 1, column log M* (footnote c: ""Stellar mass, in units of M⊙, derived as described in text. The typical uncertainty: 0.17 dex."")"
+ngc_0205 | ml_star | 1.4,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row NGC 205, column M*/LV",
+ngc_0205 | stellar_ml_v | 1.4,reader 2 only,,,,"p.4, Table 1 (Data for the Local Group Dwarf Galaxies), column M*/LV (footnote b: ""Our derived values of M*/LV for the 'b' set as described in the text"")"
+ngc_6822 | log_mstar | 8.23,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row NGC 6822, column log M*",
+ngc_6822 | log_stellar_mass | 8.23,reader 2 only,,,,"p.4, Table 1, column log M* (footnote c: ""Stellar mass, in units of M⊙, derived as described in text. The typical uncertainty: 0.17 dex."")"
+ngc_6822 | ml_star | 0.8,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row NGC 6822, column M*/LV",
+ngc_6822 | stellar_ml_v | 0.8,reader 2 only,,,,"p.4, Table 1 (Data for the Local Group Dwarf Galaxies), column M*/LV (footnote b: ""Our derived values of M*/LV for the 'b' set as described in the text"")"
+pegasus_3 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+pegasus_4 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+pegasus_dirr | log_mstar | 6.83,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row Pegasus, column log M*",
+pegasus_dirr | log_stellar_mass | 6.83,reader 2 only,,,,"p.4, Table 1, column log M* (footnote c: ""Stellar mass, in units of M⊙, derived as described in text. The typical uncertainty: 0.17 dex."")"
+pegasus_dirr | ml_star | 1.0,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row Pegasus, column M*/LV",
+pegasus_dirr | stellar_ml_v | 1.0,reader 2 only,,,,"p.4, Table 1 (Data for the Local Group Dwarf Galaxies), column M*/LV (footnote b: ""Our derived values of M*/LV for the 'b' set as described in the text"")"
+perseus_1 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+phoenix_1 | log_mstar | 6.1,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row Phoenix, column log M*",
+phoenix_1 | log_stellar_mass | 6.1,reader 2 only,,,,"p.4, Table 1, column log M* (footnote c: ""Stellar mass, in units of M⊙, derived as described in text. The typical uncertainty: 0.17 dex."")"
+phoenix_1 | ml_star | 1.8,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row Phoenix, column M*/LV",
+phoenix_1 | stellar_ml_v | 1.8,reader 2 only,,,,"p.4, Table 1 (Data for the Local Group Dwarf Galaxies), column M*/LV (footnote b: ""Our derived values of M*/LV for the 'b' set as described in the text"")"
+phoenix_2 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+pictor_2 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+pisces_2 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+reticulum_2 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+reticulum_3 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+sagittarius_1 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+sagittarius_dirr | log_mstar | 6.36,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row Sag DIG, column log M*",
+sagittarius_dirr | log_stellar_mass | 6.36,reader 2 only,,,,"p.4, Table 1, column log M* (footnote c: ""Stellar mass, in units of M⊙, derived as described in text. The typical uncertainty: 0.17 dex."")"
+sagittarius_dirr | ml_star | 0.4,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row Sag DIG, column M*/LV",
+sagittarius_dirr | stellar_ml_v | 0.4,reader 2 only,,,,"p.4, Table 1 (Data for the Local Group Dwarf Galaxies), column M*/LV (footnote b: ""Our derived values of M*/LV for the 'b' set as described in the text"")"
+sculptor_1 | log_mstar | 6.08,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row Sculptor, column log M*",
+sculptor_1 | log_stellar_mass | 6.08,reader 2 only,,,,"p.4, Table 1, column log M* (footnote c: ""Stellar mass, in units of M⊙, derived as described in text. The typical uncertainty: 0.17 dex."")"
+sculptor_1 | ml_star | 1.7,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row Sculptor, column M*/LV",
+sculptor_1 | stellar_ml_v | 1.7,reader 2 only,,,,"p.4, Table 1 (Data for the Local Group Dwarf Galaxies), column M*/LV (footnote b: ""Our derived values of M*/LV for the 'b' set as described in the text"")"
+segue_1 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+segue_2 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+sextans_1 | log_mstar | 5.93,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row Sextans, column log M*",
+sextans_1 | log_stellar_mass | 5.93,reader 2 only,,,,"p.4, Table 1, column log M* (footnote c: ""Stellar mass, in units of M⊙, derived as described in text. The typical uncertainty: 0.17 dex."")"
+sextans_1 | ml_star | 1.6,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row Sextans, column M*/LV",
+sextans_1 | stellar_ml_v | 1.6,reader 2 only,,,,"p.4, Table 1 (Data for the Local Group Dwarf Galaxies), column M*/LV (footnote b: ""Our derived values of M*/LV for the 'b' set as described in the text"")"
+smc | log_mstar | 8.67,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row SMC, column log M*",
+smc | log_stellar_mass | 8.67,reader 2 only,,,,"p.4, Table 1, column log M* (footnote c: ""Stellar mass, in units of M⊙, derived as described in text. The typical uncertainty: 0.17 dex."")"
+smc | ml_star | 0.8,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row SMC, column M*/LV",
+smc | stellar_ml_v | 0.8,reader 2 only,,,,"p.4, Table 1 (Data for the Local Group Dwarf Galaxies), column M*/LV (footnote b: ""Our derived values of M*/LV for the 'b' set as described in the text"")"
+triangulum_2 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+tucana_1 | log_mstar | 5.97,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row Tucana, column log M*",
+tucana_1 | log_stellar_mass | 5.97,reader 2 only,,,,"p.4, Table 1, column log M* (footnote c: ""Stellar mass, in units of M⊙, derived as described in text. The typical uncertainty: 0.17 dex."")"
+tucana_1 | ml_star | 1.6,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row Tucana, column M*/LV",
+tucana_1 | stellar_ml_v | 1.6,reader 2 only,,,,"p.4, Table 1 (Data for the Local Group Dwarf Galaxies), column M*/LV (footnote b: ""Our derived values of M*/LV for the 'b' set as described in the text"")"
+tucana_2 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+tucana_3 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+tucana_4 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+tucana_5 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+ugc_04879 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+ursa_major_1 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+ursa_major_2 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+ursa_minor_1 | log_mstar | 5.75,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row UMi, column log M*",
+ursa_minor_1 | log_stellar_mass | 5.75,reader 2 only,,,,"p.4, Table 1, column log M* (footnote c: ""Stellar mass, in units of M⊙, derived as described in text. The typical uncertainty: 0.17 dex."")"
+ursa_minor_1 | ml_star | 1.9,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row UMi, column M*/LV",
+ursa_minor_1 | stellar_ml_v | 1.9,reader 2 only,,,,"p.4, Table 1 (Data for the Local Group Dwarf Galaxies), column M*/LV (footnote b: ""Our derived values of M*/LV for the 'b' set as described in the text"")"
+willman_1 | not_in_paper | ,both,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies) (searched all 41 rows) and full text","p.4, Table 1"
+wlm | log_mstar | 7.65,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row WLM, column log M*",
+wlm | log_stellar_mass | 7.65,reader 2 only,,,,"p.4, Table 1, column log M* (footnote c: ""Stellar mass, in units of M⊙, derived as described in text. The typical uncertainty: 0.17 dex."")"
+wlm | ml_star | 0.9,reader 1 only,,,"p.4, Sec. 2, Table 1 (Data for the Local Group Dwarf Galaxies), row WLM, column M*/LV",
+wlm | stellar_ml_v | 0.9,reader 2 only,,,,"p.4, Table 1 (Data for the Local Group Dwarf Galaxies), column M*/LV (footnote b: ""Our derived values of M*/LV for the 'b' set as described in the text"")"
