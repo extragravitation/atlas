@@ -1,0 +1,10 @@
+{
+  "description": "D-052: selection of structure, distance and magnitude values for A5/A7, frozen before the selection was run.",
+  "frozen_on": "2026-10-30",
+  "decision": "D-052",
+  "spec": "docs/methods/D052_STRUCTURE_SELECTION.md",
+  "files": {
+    "docs/methods/D052_STRUCTURE_SELECTION.md": "3918989c7a59bca2b63ddeca5ea7fc187915a9eb890b3eb39ff1c8d938194ba2",
+    "data/packages/aeg-d-dwarfs/v1/reproduction/select_structure.py": "06b507c566e2882a5ca42a18a1a4c3db2fedf63e0bf737051b67be6637bec4a3"
+  }
+}

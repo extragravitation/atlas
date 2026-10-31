@@ -883,3 +883,41 @@ Specification: `docs/methods/D051_COVERAGE.md`, frozen with `pipeline/aeg/covera
 - The two codings, the adjudication and the counts from the version 1 rule script: plotted 16, aperture 75, flagged 16, lower limits 3.
 - The readers' and coders' reports, which mention some dispersion values.
 - No per-star table and no structural value.
+
+---
+
+## D-052 — A5 structure, distance and magnitude: which printed value is used
+
+**Ruling (2026-10-30 18:09 MDT, JvH).** "Rule as recommended." **Proposed by** Claude. **Adopted unchanged.** Made before any structural, distance or magnitude value was looked at by the main session or used. The two independent readings and their adjudication were complete; the values were seen by the readers and adjudicators only.
+
+Specification: `docs/methods/D052_STRUCTURE_SELECTION.md`, frozen with `reproduction/select_structure.py`.
+
+1. **Profile fit.**
+   - Use the fit the paper adopts.
+   - If it adopts none, take the first printed fit in this fixed order: exponential, Plummer, Sérsic, King.
+   - All other fits are recorded and shown.
+2. **Half-light radius convention.**
+   - Where the paper does not say whether r_h is semi-major or circularised, and it fits ellipticity in the same model, the value is treated as semi-major.
+   - This is a named assumption, "r_h convention not stated". Its effect (the circularised reading) is computed from the data and shown on each affected point.
+3. **Distance.**
+   - Use the paper's adopted value, otherwise the value stated in its abstract.
+   - Anything still undecided goes to JvH.
+   - D-036 #6 applies: no distance derived from the system's own motions.
+4. **Magnitude.**
+   - Rebuild the apparent magnitude as m_V,0 = M_V + (m−M)_paper wherever the magnitude paper prints both, then apply the Atlas distance.
+   - Otherwise use the paper's M_V, flagged "distance basis of M_V differs".
+5. **Duplicate printings** (as D-051): use the table printing, otherwise the one with the most significant digits.
+
+**Reason (Claude, adopted).**
+- A fixed order chosen before any value is seen keeps the choice of fit from tracking the result. Exponential comes first because it is the most widely used fit in this literature, which keeps systems comparable.
+- Semi-major is the field's standard definition when ellipticity is fitted in the same model. Showing the other reading as a computed effect keeps the assumption visible, not hidden.
+- REPRODUCTION.md takes the apparent magnitude as the observable. Rebuilding it from the paper's own modulus keeps L_V consistent with the Atlas distance.
+
+**Alternatives rejected.**
+- Averaging the profile fits: this mixes models.
+- Treating unstated r_h as circularised: this is against the field's convention.
+- Using M_V as printed throughout: this mixes distance bases.
+
+**Data seen at the time of ruling.**
+- Main session: the counts and kinds of disagreement between readings, and the quantity names and units present. No structural, distance or magnitude value of an A5 or A7 candidate.
+- The readers' and adjudicators' reports mention a few values in passing. None entered the choice.
