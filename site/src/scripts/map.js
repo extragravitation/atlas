@@ -9,7 +9,7 @@ import { wireSliders } from './sliders.js';
 
 const BASE = document.documentElement.dataset.base || '/';
 const $ = (id) => document.getElementById(id);
-const COLOR = { 'aeg-d-sparc': '--sparc', 'aeg-d-gc-baumgardt': '--gc', 'aeg-d-xcop': '--xcop', 'aeg-d-kids1000-rar': '--kids' };
+const COLOR = { 'aeg-d-sparc': '--sparc', 'aeg-d-gc-baumgardt': '--gc', 'aeg-d-dwarfs': '--dw', 'aeg-d-xcop': '--xcop', 'aeg-d-kids1000-rar': '--kids' };
 const LBL = JSON.parse($('map-labels').textContent);
 let D = null, hits = [], hover = null, cache = null, geom = null, brush = null;
 
@@ -227,6 +227,13 @@ function draw() {
         const xy0 = posDef(r);
         if (xy0) { const dx = x - xy0[0], dy = y - xy0[1], len = Math.hypot(dx, dy); if (len > 1.2) { g.strokeStyle = css('--range'); g.globalAlpha = 0.3; g.lineWidth = 0.6; g.beginPath(); g.moveTo(xy0[0], xy0[1]); g.lineTo(x, y); const a = Math.atan2(dy, dx), h = Math.min(4, len * 0.5); g.lineTo(x - h * Math.cos(a - 0.5), y - h * Math.sin(a - 0.5)); g.moveTo(x, y); g.lineTo(x - h * Math.cos(a + 0.5), y - h * Math.sin(a + 0.5)); g.stroke(); g.globalAlpha = 1; } }
       }
+      if (r.limit === 'upper') {
+        // Upper limit on g_obs (the source's dispersion is a limit): an open marker with a downward arrow, no error bar.
+        g.strokeStyle = c; g.lineWidth = 1.4; g.globalAlpha = 0.9; g.beginPath(); g.moveTo(x, y); g.lineTo(x, y + 12); g.moveTo(x - 3.5, y + 8); g.lineTo(x, y + 12); g.lineTo(x + 3.5, y + 8); g.stroke();
+        g.fillStyle = css('--bg'); g.beginPath(); g.arc(x, y, 3.6, 0, 6.2832); g.fill(); g.stroke(); g.globalAlpha = 1;
+        if (x >= L && x <= L + pw && y >= T && y <= T + ph) hits.push({ x, y, d, r, q });
+        return;
+      }
       if (state.err && state.view === 'obs') {
         const [elo, ehi] = errOf(r, q), lo = q.g_obs - elo, hi = q.g_obs + ehi, open = !(lo > 0);
         const yb = open ? T + ph : Y(lg(lo)), yt = Y(lg(hi));
@@ -290,6 +297,7 @@ function legend() {
     return `<li><button type="button" class="item" data-leg="${d.key}" aria-pressed="${on}"><span class="sw" style="${sw}" aria-hidden="true"></span><span>${LBL.ds[d.key][+P]}: ${LBL.weight[d.key]}</span></button></li>`;
   });
   items.push(`<li><span class="item"><span class="sw" style="border-radius:50%;border:1.2px solid var(--flag)" aria-hidden="true"></span><span>${LBL.flagged}</span></span></li>`);
+  if (D.datasets.some((d) => !state.hide.includes(d.key) && d.rows.some((r) => r.limit === 'upper'))) items.push(`<li><span class="item"><span class="sw" style="width:9px;height:9px;border-radius:50%;border:1.5px solid var(--muted)" aria-hidden="true"></span><span>${P ? '↓ Upper limit: the true pull is at or below this point' : '↓ Upper limit on g_obs (dispersion given only as a limit)'}</span></span></li>`);
   if (Object.keys(state.per).length) items.push(`<li><span class="item"><span class="sw" style="border:1px solid var(--range)" aria-hidden="true"></span><span>${P ? 'Square: a system changed on its own page' : 'Square: distance or inclination changed for this system on its page'}</span></span></li>`);
   if (anyChange(D.datasets) && state.arrows !== false) items.push(`<li><span class="item"><span class="sw" style="height:2px;background:var(--range)" aria-hidden="true"></span><span>${P ? 'Arrow: where each point moved from' : 'Arrow: from the default position to the position at the changed assumptions'}</span></span></li>`);
   $('legend').innerHTML = items.join('');
@@ -366,7 +374,7 @@ export async function start() {
     const Pp = PROPS[state.col], pv = Pp ? Pp.get(h.d, r) : null;
     const propLine = Pp ? `<br>${Pp.label.replace(/ \(.*\)$/, '')}: ${pv === null || pv === undefined ? 'not given' : Pp.kind === 'cont' ? Pp.fmt(pv) : pv}` : '';
     const extra = propLine + (state.view === 'mass' ? `<br>M_obs(&lt;r) ${sci(massOf(q.g_obs, q.r_kpc))} M☉<br>M_bar(&lt;r) ${sci(massOf(q.g_bar, q.r_kpc))} M☉` : state.view === 'speed' ? `<br>V_obs ${speedOf(q.g_obs, q.r_kpc).toFixed(1)} km s⁻¹` : '');
-    showTip(tip, box, `<b>${name}</b>${state.pick !== 'all' && r.system_id ? '<br><span class="muted">' + (state.pick === 'outer' ? 'Outermost measured radius' : 'First measured radius ≥ ' + LIGHT_K + ' × half-light radius') + '</span>' : ''}<br>${h.d.title.split(':')[0]}${r.r_kpc !== null && r.r_kpc !== undefined ? ' · r = ' + (q.r_kpc < 10 ? q.r_kpc.toFixed(2) : Math.round(q.r_kpc)) + ' kpc' : ''}<br>g_obs ${sci(q.g_obs)} m s⁻²<br>g_bar ${sci(q.g_bar)} m s⁻²${extra}<br>g_obs / g_bar ${(q.g_obs / q.g_bar).toFixed(2)}${r.flags ? '<br><span style="color:var(--flag)">Flagged: ' + r.flags.replace(/;/g, ', ') + '</span>' : ''}<br><span class="muted">${r.measurement_id}</span>${r.system_id ? '<br><span class="muted">Click to select</span>' : ''}`, h.x, h.y);
+    showTip(tip, box, `<b>${name}</b>${state.pick !== 'all' && r.system_id ? '<br><span class="muted">' + (state.pick === 'outer' ? 'Outermost measured radius' : 'First measured radius ≥ ' + LIGHT_K + ' × half-light radius') + '</span>' : ''}<br>${h.d.title.split(':')[0]}${r.r_kpc !== null && r.r_kpc !== undefined ? ' · r = ' + (q.r_kpc < 10 ? q.r_kpc.toFixed(2) : Math.round(q.r_kpc)) + ' kpc' : ''}<br>g_obs ${r.limit === 'upper' ? '< ' : ''}${sci(q.g_obs)} m s⁻²${r.limit === 'upper' ? (plain() ? ' (upper limit)' : ' (upper limit: the source gives only a limit on the dispersion)') : ''}<br>g_bar ${sci(q.g_bar)} m s⁻²${extra}<br>g_obs / g_bar ${(q.g_obs / q.g_bar).toFixed(2)}${r.flags ? '<br><span style="color:var(--flag)">Flagged: ' + r.flags.replace(/;/g, ', ') + '</span>' : ''}<br><span class="muted">${r.measurement_id}</span>${r.system_id ? '<br><span class="muted">Click to select</span>' : ''}`, h.x, h.y);
   });
   fig.addEventListener('mouseleave', () => { hover = null; tip.hidden = true; draw(); });
   fig.addEventListener('click', (ev) => { if (suppressClick) { suppressClick = false; return; } const h = nearest(ev); if (h && h.r.system_id) set({ sel: h.r.system_id }); });

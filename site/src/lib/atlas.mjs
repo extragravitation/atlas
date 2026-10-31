@@ -13,7 +13,7 @@ const read = (p) => fs.readFileSync(p, 'utf8');
 const readIf = (p) => (fs.existsSync(p) ? read(p) : null);
 
 // Columns the site needs from every measurement row (when present).
-const CORE = ['measurement_id', 'system_id', 'kind', 'channel', 'method_class', 'method', 'r_kpc', 'r_kind', 'g_obs', 'g_obs_err_lo', 'g_obs_err_hi',
+const CORE = ['measurement_id', 'system_id', 'kind', 'limit', 'channel', 'method_class', 'method', 'r_kpc', 'r_kind', 'g_obs', 'g_obs_err_lo', 'g_obs_err_hi',
   'g_bar', 'g_bar_err_lo', 'g_bar_err_hi', 'g_bar_stars', 'g_bar_stars_disk', 'g_bar_stars_bulge', 'g_bar_gas_cold', 'g_bar_gas_hot',
   'stars_status', 'gas_cold_status', 'gas_hot_status', 'assumptions', 'adjustable', 'quality_source', 'source_ref', 'flags', 'known_issues',
   'plotted', 'role', 'not_plotted_reason'];
@@ -62,7 +62,7 @@ export function loadAtlas() {
       });
     }
   }
-  const ORDER = ['aeg-d-sparc', 'aeg-d-gc-baumgardt', 'aeg-d-xcop', 'aeg-d-kids1000-rar'];
+  const ORDER = ['aeg-d-sparc', 'aeg-d-gc-baumgardt', 'aeg-d-dwarfs', 'aeg-d-xcop', 'aeg-d-kids1000-rar'];
   datasets.sort((a, b) => (ORDER.indexOf(a.name) + 1 || 99) - (ORDER.indexOf(b.name) + 1 || 99) || a.key.localeCompare(b.key));
   const systems = [];
   for (const d of datasets) {

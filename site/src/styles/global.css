@@ -3,7 +3,7 @@
    dashed line for Newtonian gravity on detected matter. */
 :root {
   --bg: #07090D; --panel: #0B1017; --ink: #E6EAF0; --muted: #9AA6B2; --line: #1F2A36; --grid: #121A24;
-  --sparc: #5CC8FF; --gc: #9BE564; --xcop: #FFB454; --kids: #C3B4FF; --flag: #FF6B8A; --sel: #FFFFFF; --bar: #FFB454; --on: #123247; --onText: #E6EAF0;
+  --sparc: #5CC8FF; --gc: #9BE564; --dw: #F5D90A; --xcop: #FFB454; --kids: #C3B4FF; --flag: #FF6B8A; --sel: #FFFFFF; --bar: #FFB454; --on: #123247; --onText: #E6EAF0;
   --kicker: #FFB454; --ptAlpha: 0.5; --range: #FFB454; --link: #7FD4FF;
   --disc: #3E7CB1; --bulge: #8E6CC0; --gas: #3FA37C; --stars: #3E7CB1; --rem: #E6EAF0; --remAlpha: 0.14;
   --c0: #3B5A9A; --c1: #6E7FA0; --c2: #9A9A8C; --c3: #C9B76A; --c4: #FFE945;
@@ -15,7 +15,7 @@
 }
 :root[data-theme="light"] {
   --bg: #FFFFFF; --panel: #F6F7F9; --ink: #16181D; --muted: #4A4F59; --line: #D5D8DE; --grid: #ECEEF1;
-  --sparc: #1F4E8C; --gc: #3F7D1E; --xcop: #C2410C; --kids: #16181D; --flag: #9D174D; --sel: #0F766E; --bar: #C2410C; --on: #16181D; --onText: #FFFFFF;
+  --sparc: #1F4E8C; --gc: #3F7D1E; --dw: #8A6A00; --xcop: #C2410C; --kids: #16181D; --flag: #9D174D; --sel: #0F766E; --bar: #C2410C; --on: #16181D; --onText: #FFFFFF;
   --kicker: #8A3B12; --ptAlpha: 0.38; --range: #B45309; --link: #1F4E8C;
   --disc: #2F6497; --bulge: #6E4FA3; --gas: #2E8A63; --stars: #2F6497; --rem: #16181D; --remAlpha: 0.10;
   --c0: #1F3A73; --c1: #4F5E7E; --c2: #7C7A72; --c3: #AE9A4E; --c4: #D9B800;
