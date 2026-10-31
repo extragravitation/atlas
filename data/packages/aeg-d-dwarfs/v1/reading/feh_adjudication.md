@@ -58,3 +58,12 @@ Woo's "Antlia" is not on the sheet (the sheet has Antlia II and Antlia B), so it
 - the case applied to each galaxy is not printed.
 
 So no Woo value can be confirmed as a per-system star-formation-history value, which is what REPRODUCTION.md's route (a) requires. Proposed ruling: D-059.
+
+## D-059 item 2: [Fe/H] from the dispersion original
+
+Ten plotted systems have no metallicity original. Both readers read their dispersion originals (`feh_d059_sheet.csv`; `feh_reading_*_d059.csv`).
+
+- **Collins 2013 (nine systems):** both readers took the Table 4 co-added-spectrum value as the paper's own result and agree on every value and error. These values are used, flagged `feh_from_dispersion_paper feh_stacked_spectrum`.
+  - The paper also prints Table 5 (a compilation of literature values) and figure-panel values. These often differ from Table 4: for And XI, −2.0 ± 0.3 in Table 5 against −1.8 ± 0.1 in Table 4. Both readers recorded them as non-headline.
+  - The paper prints no spread for any of these systems.
+- **Tollerud 2012 (And XIII):** both readers found no [Fe/H] for the system. And XIII is flagged `no_metallicity_value` and is recorded, not plotted (D-059).

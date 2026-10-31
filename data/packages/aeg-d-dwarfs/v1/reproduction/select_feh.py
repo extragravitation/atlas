@@ -11,7 +11,11 @@ Rule: the value the original presents as its headline system [Fe/H] (variant sta
 from another paper. Both readers must record the same value and errors; otherwise the
 system must have an entry in ADJUDICATED. A median or stacked-spectrum headline is used and
 flagged. Duplicate printings with different errors: the table printing (D-051).
-Systems with kind "none" get no value ("no metallicity original").
+Systems with kind "none" get no value ("no metallicity original"), except under D-059 item 2:
+the headline [Fe/H] printed by the system's dispersion original (reading/feh_d059_sheet.csv,
+both readings in reading/feh_reading_{1,2}_d059.csv, which must agree), flagged
+feh_from_dispersion_paper (and feh_stacked_spectrum where it comes from a co-added spectrum).
+Where that paper prints none, the flag is no_metallicity_value and the system is not plotted.
 """
 
 from __future__ import annotations
@@ -57,6 +61,8 @@ def heads(paths: list[Path]) -> dict:
 def main() -> int:
     a = heads([R / "feh_reading_1.csv", R / "feh_reading_1_followup.csv"])
     b = heads([R / "feh_reading_2.csv", R / "feh_reading_2_followup.csv"])
+    d059 = {r["key"]: r["paper"] for r in csv.DictReader(open(R / "feh_d059_sheet.csv", encoding="utf-8"))}
+    d059a, d059b = heads([R / "feh_reading_1_d059.csv"]), heads([R / "feh_reading_2_d059.csv"])
     follow = {r["key"]: r["paper"] for r in csv.DictReader(open(R / "feh_followup_sheet.csv", encoding="utf-8"))}
     out = []
     for s in csv.DictReader(open(R / "feh_sources.csv", encoding="utf-8")):
@@ -64,7 +70,18 @@ def main() -> int:
         paper = follow.get(k, s["paper"])
         row = {"key": k, "kind": kind, "paper": paper, "feh": "", "err_minus": "", "err_plus": "", "quantity": "",
                "n_stars": "", "flags": "", "basis": ""}
-        if kind == "none":
+        if kind == "none" and k in d059:
+            va, vb = d059a.get((k, d059[k]), set()), d059b.get((k, d059[k]), set())
+            if va != vb or len(va) > 1:
+                raise SystemExit(f"{k}: D-059 readings differ: {va} {vb}")
+            if va:
+                q, v, em, ep = next(iter(va))
+                row.update(paper=d059[k], feh=v, err_minus=em, err_plus=ep, quantity=q,
+                           flags="feh_from_dispersion_paper" + (" feh_stacked_spectrum" if d059[k].startswith("Collins2013") else ""),
+                           basis="D-059 item 2: dispersion original; both readings agree")
+            else:
+                row.update(paper=d059[k], flags="no_metallicity_value", basis="D-059 item 2: dispersion original prints no [Fe/H]; not plotted")
+        elif kind == "none":
             row["flags"], row["basis"] = "no_metallicity_original", "LVDB gives no metallicity reference"
         elif k in ADJUDICATED:
             p, v, em, ep, q, fl, why = ADJUDICATED[k]

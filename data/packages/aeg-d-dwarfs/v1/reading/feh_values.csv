@@ -57,30 +57,30 @@ andromeda_01,spectroscopic,Kirby2020AJ....159...46K,-1.51,0.02,0.02,feh_mean,28,
 andromeda_02,spectroscopic,Wojno2020ApJ...895...78W,-1.47,0.006,0.006,feh_mean,,,both readings agree
 andromeda_03,spectroscopic,Kirby2020AJ....159...46K,-1.75,0.03,0.03,feh_mean,24,,both readings agree
 andromeda_05,spectroscopic,Kirby2020AJ....159...46K,-1.84,0.01,0.01,feh_mean,81,,both readings agree
-andromeda_06,none,,,,,,,no_metallicity_original,LVDB gives no metallicity reference
+andromeda_06,none,Collins2013ApJ...768..172C,-1.5,0.1,0.1,feh_mean,,feh_from_dispersion_paper feh_stacked_spectrum,D-059 item 2: dispersion original; both readings agree
 andromeda_07,spectroscopic,Kirby2020AJ....159...46K,-1.37,0.01,0.01,feh_mean,87,,both readings agree
 andromeda_09,spectroscopic,Wojno2020ApJ...895...78W,-2.03,0.01,0.01,feh_mean,,,both readings agree
 andromeda_10,spectroscopic,Kirby2020AJ....159...46K,-2.27,0.03,0.03,feh_mean,21,,both readings agree
-andromeda_11,none,,,,,,,no_metallicity_original,LVDB gives no metallicity reference
-andromeda_12,none,,,,,,,no_metallicity_original,LVDB gives no metallicity reference
-andromeda_13,none,,,,,,,no_metallicity_original,LVDB gives no metallicity reference
+andromeda_11,none,Collins2013ApJ...768..172C,-1.8,0.1,0.1,feh_mean,,feh_from_dispersion_paper feh_stacked_spectrum,D-059 item 2: dispersion original; both readings agree
+andromeda_12,none,Collins2013ApJ...768..172C,-2.2,0.2,0.2,feh_mean,,feh_from_dispersion_paper feh_stacked_spectrum,D-059 item 2: dispersion original; both readings agree
+andromeda_13,none,Tollerud2012ApJ...752...45T,,,,,,no_metallicity_value,D-059 item 2: dispersion original prints no [Fe/H]; not plotted
 andromeda_14,spectroscopic,Wojno2020ApJ...895...78W,-2.23,0.01,0.01,feh_mean,,,both readings agree
 andromeda_15,spectroscopic,Wojno2020ApJ...895...78W,-1.43,0.42,0.42,feh_mean,,,both readings agree
 andromeda_16,photometric,Fu2024ApJ...975....2F,-2.17,0.05,0.05,feh_mean,95,feh_photometric,both readings agree
-andromeda_17,none,,,,,,,no_metallicity_original,LVDB gives no metallicity reference
+andromeda_17,none,Collins2013ApJ...768..172C,-1.7,0.2,0.2,feh_mean,,feh_from_dispersion_paper feh_stacked_spectrum,D-059 item 2: dispersion original; both readings agree
 andromeda_18,spectroscopic,Kvasova2024ApJ...972..180K,-1.49,,,feh_mean,38,,both readings agree
 andromeda_19,spectroscopic,Cullinane2024ApJ...972..133C,-1.50,0.02,0.02,feh_mean,79,,both readings agree
-andromeda_20,none,,,,,,,no_metallicity_original,LVDB gives no metallicity reference
+andromeda_20,none,Collins2013ApJ...768..172C,-2.2,0.4,0.4,feh_mean,,feh_from_dispersion_paper feh_stacked_spectrum,D-059 item 2: dispersion original; both readings agree
 andromeda_21,spectroscopic,Collins2021MNRAS.505.5686C,-1.7,0.1,0.1,feh_mean,30,,both readings agree
-andromeda_22,none,,,,,,,no_metallicity_original,LVDB gives no metallicity reference
-andromeda_23,none,,,,,,,no_metallicity_original,LVDB gives no metallicity reference
+andromeda_22,none,Collins2013ApJ...768..172C,-1.8,0.6,0.6,feh_mean,,feh_from_dispersion_paper feh_stacked_spectrum,D-059 item 2: dispersion original; both readings agree
+andromeda_23,none,Collins2013ApJ...768..172C,-2.2,0.3,0.3,feh_mean,,feh_from_dispersion_paper feh_stacked_spectrum,D-059 item 2: dispersion original; both readings agree
 andromeda_24,none,,,,,,,no_metallicity_original,LVDB gives no metallicity reference
 andromeda_25,spectroscopic,Charles2023MNRAS.521.3527C,-1.9,0.1,0.1,feh_mean,41,,both readings agree
 andromeda_26,none,,,,,,,no_metallicity_original,LVDB gives no metallicity reference
-andromeda_27,none,,,,,,,no_metallicity_original,LVDB gives no metallicity reference
+andromeda_27,none,Collins2013ApJ...768..172C,-2.1,0.5,0.5,feh_mean,,feh_from_dispersion_paper feh_stacked_spectrum,D-059 item 2: dispersion original; both readings agree
 andromeda_28,spectroscopic,Slater2015ApJ...806..230S,-1.84,0.15,0.15,feh_mean,13,,both readings agree
 andromeda_29,spectroscopic,Slater2015ApJ...806..230S,-1.90,0.12,0.12,feh_mean,17,,both readings agree
-cassiopeia_2,none,,,,,,,no_metallicity_original,LVDB gives no metallicity reference
+cassiopeia_2,none,Collins2013ApJ...768..172C,-1.7,0.4,0.4,feh_mean,,feh_from_dispersion_paper feh_stacked_spectrum,D-059 item 2: dispersion original; both readings agree
 cassiopeia_3,spectroscopic,Martin2014ApJ...793L..14M,-1.7,0.1,0.1,feh_median,,feh_median,both readings agree
 lacerta_1,spectroscopic,Martin2014ApJ...793L..14M,-2.0,0.1,0.1,feh_median,,feh_median,both readings agree
 lgs_3,none,,,,,,,no_metallicity_original,LVDB gives no metallicity reference
