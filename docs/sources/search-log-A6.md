@@ -149,7 +149,7 @@ Two independent AI readers (A and B) screened R1–R59 to the brief `docs/source
 
 Several agreed codes still depend on a question below: R32 and R41 on Q1, R19 and R21 on Q3.
 
-### 2a. Questions for JvH (method rulings; recommendations given)
+### 2a. Questions for JvH (method rulings; recommendations given). **Ruled as recommended, D-063 (2026-10-31).**
 
 These change how the cell measures, so each needs a ruling before any lens package is converted. The §5 projection ruling (baryons projected, or lensing deprojected) is also still needed.
 
