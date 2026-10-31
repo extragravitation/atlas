@@ -228,6 +228,9 @@
     "https://vizier.cfa.harvard.edu/viz-bin/votable?-source=J/ApJS/161/304/clusters&-out.all&-out.max=unlimited"
    ],
    "file": "mvdm05/J_ApJS_161_304_clusters.vot",
+   "local_copies": [
+    "data/packages/aeg-d-gc-baumgardt/v1/source/mvdm05/J_ApJS_161_304_clusters.vot"
+   ],
    "bytes": 119148,
    "sha256": "282ea6daaaa9da0b690c3efd1384a12e83da9e664e939649896aea8d006dc7ec",
    "retrieved": "2026-10-30",

@@ -21,6 +21,10 @@ again; up to ATTEMPTS rounds, with a pause between rounds. A download that
 stalls or takes longer than DEADLINE_S is abandoned. A host that failed is
 tried last for the rest of the run. A file from any address is used only if
 it passes the same hash check, so a mirror can never change what is used.
+
+An entry may also list `local_copies`: repository-relative paths of the same file in another
+package's source/ (fetched or restored there already). Each is tried before any download and
+used only if it passes the same hash check.
 """
 
 from __future__ import annotations
@@ -142,9 +146,20 @@ def fetch_package(package_dir: Path) -> list[str]:
         if target.is_file() and not verify(target, entry):
             print(f"ok (cached)  {entry['file']}")
             continue
-        used = fetch_entry(target, entry)
+        used = None
+        root = package_dir.resolve().parents[3]
+        for rel in entry.get("local_copies", []):
+            src = root / rel
+            if src.is_file():
+                target.write_bytes(src.read_bytes())
+                if not verify(target, entry):
+                    used = f"local copy {rel}"
+                    break
+                target.unlink()
+        used = used or fetch_entry(target, entry)
         if used:
-            print(f"ok (fetched) {entry['file']}" + ("" if used == entry["url"] else f" from mirror {used}"))
+            print(f"ok (fetched) {entry['file']}" + ("" if used == entry["url"] else
+                                                     f" from {used}" if used.startswith("local copy") else f" from mirror {used}"))
         else:
             problems.append(f"{entry['file']}: no address gave a verified file: " + " | ".join(entry["_tried"]))
     return problems
