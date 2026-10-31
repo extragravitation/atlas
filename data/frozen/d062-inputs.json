@@ -1,0 +1,9 @@
+{
+  "description": "D-062 item 2 (Pegasus IV circularised radius) applied to the conversion inputs. Frozen before it was run.",
+  "frozen_on": "2026-10-31",
+  "decision": "D-062",
+  "spec": "docs/decisions.md (D-062)",
+  "files": {
+    "data/packages/aeg-d-dwarfs/v1/reproduction/inputs_d062.py": "9e6b458b4acdacd4a18bb304e77f68c3dbe347e0d9057384667efa2dfe07e108"
+  }
+}

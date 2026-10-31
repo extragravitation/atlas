@@ -1132,3 +1132,20 @@ No mass-to-light value, g_bar or g_obs of a dwarf had been computed.
 - For Leo I, the end of the range at the metallicity nearer the D-057 value.
 
 **Data seen.** Both residual readings (`reading/residual_adjudication.md`). No g_obs or g_bar had been computed.
+
+## D-062 — And XII dispersion at zero; Pegasus IV radius (A5)
+
+**Ruling (2026-10-31 14:06 MDT, JvH).** "1. Plot the upper limit. 2 use circularized radius." **Proposed by** Claude. **Adopted.**
+
+1. **And XII.** Collins 2013 gives σ = 0.0 (+4.0) km/s and states no limit. It is plotted as an upper limit at σ = 0.0 + 4.0 = 4.0 km/s, the 1σ upper end, flagged `limit_from_1sigma_upper_error`. The level is recorded as "1σ upper error (no limit stated)".
+2. **Pegasus IV.** Cerny et al. 2023 prints the ellipticity only as a 95% upper limit (< 0.41), so a √(1 − ε) is undefined. Use the circularised (azimuthally averaged) r_h that the paper prints in Table 1: 1.55 (+0.29/−0.24) arcmin. This replaces a_h = 1.60′ with ε = 0.
+
+**Reason.**
+- Item 1: a best value of zero cannot be placed on a logarithmic axis. Its printed upper error bounds σ at the level the paper gives.
+- Item 2: the paper's own circularised radius is the quantity R_h is meant to be, and it needs no assumed ellipticity.
+
+**Alternatives rejected.**
+- Recording And XII only.
+- Keeping ε = 0 for Pegasus IV, which would overstate R_h by up to ×1.30.
+
+**Data seen.** The computed tables of PR #83 (62 plotted g_obs and g_bar values). These rulings were proposed from the inputs, not from any acceleration.
