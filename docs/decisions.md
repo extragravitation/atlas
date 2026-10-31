@@ -1079,3 +1079,27 @@ Implemented in `reproduction/rc3_convert.py` (frozen). It reads the identified r
 **Data seen.**
 - Both readings of the D-057 originals and of Woo 2008 Table 1.
 - The list of plotted systems without a metallicity original.
+
+## D-060 — Stellar mass-to-light range for dwarfs: an envelope (A5)
+
+**Ruling (2026-10-31 11:06 MDT, JvH).** "Proceed with envelope." He restated the rule and its reason and cost as proposed. **Proposed by** Claude (option A, recommended). **Adopted unchanged.** This makes D-039 item 3 concrete for dwarfs.
+
+1. **Default.** The default is unchanged. It is the BC03 + Chabrier-disk (M/L)₁ of McLaughlin & van der Marel (2005), interpolated at the D-057/D-059 [Fe/H] by the frozen `aeg.ml_interp`.
+2. **Metallicity interval.** The interval is [Fe/H] ± s.
+   - s is the intrinsic spread the metallicity original prints.
+   - Where no spread is printed, s is the [Fe/H] error, using the larger of the two sides.
+3. **Lower bound.** Take the smallest value of ((M/L)₁ − e_(M/L)₁) over the interval, then multiply by 0.90 and by 0.81.
+   - 0.90: the two population-synthesis codes agree within about 10% in Υ_V (McLaughlin & van der Marel 2005 §3.1).
+   - 0.81 = 1.3/1.6: Woo et al. (2008) median Υ_V from colours against from star-formation histories (`docs/sources/stellar-ml-2026-10-29.md`).
+4. **Upper bound.** Take the largest value of ((M/L)₂ + e_(M/L)₂) over the interval, the Salpeter IMF column, then multiply by 1.10.
+5. **Beyond the table.** Outside the tabulated [Fe/H] range the end values apply, flagged `beyond_source_range`. Nothing is extrapolated.
+
+**Reason (JvH).** "These are alternative models, not random errors. An envelope shows their honest combined reach, and every factor traces to a printed number." **Cost:** a wide range, about a factor of 2 to 3 end to end.
+
+**Alternative rejected.** (B) Quadrature, with the IMF as a separate one-sided term. It treats model systematics as independent random scatter.
+
+**Data seen.**
+- The McLaughlin & van der Marel table's metallicity span (lowest [Fe/H] −2.29).
+- The count of plotted systems below that floor (26 of 64).
+
+No mass-to-light value, g_bar or g_obs of a dwarf had been computed.
