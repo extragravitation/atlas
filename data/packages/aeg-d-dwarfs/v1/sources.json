@@ -208,6 +208,17 @@
    "note": "VizieR query export (Harvard mirror); content hash from <RESOURCE. CDS/VizieR terms of use apply; linked, not redistributed. The full-catalogue export (23,011 rows) timed out in CI; this export holds the same 11 rows, checked field by field against the full export on 2026-10-31 (no differences).",
    "content_from": "<RESOURCE",
    "content_sha256": "a5e40dd6fab2e6c4cf6b7d1915614357c85688735cb9ff81b29be01aaec27502"
+  },
+  {
+   "role": "Putman et al. 2021, ApJ 913, 53, machine-readable Table 1 (dwarf galaxies within 2 Mpc: positions and HI parameters): the gas side (HI mass and limits)",
+   "url": "https://content.cld.iop.org/journals/0004-637X/913/1/53/revision2/apjabe391t1_mrt.txt",
+   "file": "gas/putman2021/apjabe391t1_mrt.txt",
+   "bytes": 19857,
+   "sha256": "444c6337bde863049b1e1d28d2cf26667c18b0b783bfa667b1e9f542f102637f",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "AAS journal MRT; licence not read, linked not redistributed. The VizieR copy (Harvard mirror) returned 504 on 2026-10-31."
   }
  ]
 }
