@@ -131,11 +131,13 @@ def main() -> int:
         sid = ids[name]
         L = lv[k]
         plotted = r.get("status") == "plotted"
-        if plotted and float(r["sigma"]) == 0.0 and r["sigma_limit"] == "none":
-            plotted = False
-            r["reason"] = (f"best-fit dispersion 0.0 (+{r['sigma_err_plus']}) with no stated limit "
-                           f"({r['sigma_paper']}); recorded, awaiting a ruling")
         fl = (r.get("flags") or "").split()
+        if plotted and float(r["sigma"]) == 0.0 and r["sigma_limit"] == "none":
+            # D-062 item 1: best value 0 with no stated limit -> upper limit at 0 + the printed upper error
+            r["sigma"] = f"{float(r['sigma']) + float(r['sigma_err_plus']):g}"
+            r["sigma_limit"], r["sigma_limit_level"] = "upper", "1-sigma upper error (no limit stated; D-062)"
+            r["sigma_err_minus"] = r["sigma_err_plus"] = ""
+            fl.append("limit_from_1sigma_upper_error")
         if not r.get("distance_kpc"):
             r["distance_kpc"] = L.get("distance")
             r["distance_source"] = "LVDB index value, recorded only (never used for g_obs or g_bar)"

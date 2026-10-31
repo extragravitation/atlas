@@ -350,7 +350,7 @@ pegasus_3,magnitude,Richstein2022ApJ...933..217R,m_V0,17.5,yes
 pegasus_4,sigma,Geha 2026 ApJ 999 140,sigma,3.33,yes
 pegasus_4,sigma,Geha 2026 ApJ 999 140,err_minus,0.86,yes
 pegasus_4,sigma,Geha 2026 ApJ 999 140,err_plus,1.19,yes
-pegasus_4,structure,Cerny2023ApJ...942..111C,r_h,1.6,yes
+pegasus_4,structure,Cerny2023ApJ...942..111C,r_h,1.55,yes
 pegasus_4,structure,Cerny2023ApJ...942..111C,ellipticity_limit,0.41,yes
 pegasus_4,distance,Cerny2023ApJ...942..111C,distance,19.77,yes
 pegasus_4,magnitude,Cerny2023ApJ...942..111C,M_V,-4.25,yes
@@ -469,3 +469,9 @@ willman_1,structure,Munoz2018ApJ...860...66M,ellipticity,0.47,yes
 willman_1,distance,Willman2006astro.ph..3486W,distance,38.0,yes
 willman_1,magnitude,Munoz2018ApJ...860...66M,M_V,-2.53,yes
 willman_1,magnitude,Munoz2018ApJ...860...66M,mv_distance,38.0,yes
+andromeda_12,sigma,Collins 2013 ApJ 768 172,sigma,0.0,yes
+andromeda_12,sigma,Collins 2013 ApJ 768 172,err_plus,4.0,yes
+andromeda_12,structure,Martin2016ApJ...833..167M,r_h,1.8,yes
+andromeda_12,structure,Martin2016ApJ...833..167M,ellipticity,0.61,yes
+andromeda_12,distance,Savino2022ApJ...938..101S,distance,24.28,yes
+andromeda_12,magnitude,Martin2016ApJ...833..167M,m_V0,17.7,yes

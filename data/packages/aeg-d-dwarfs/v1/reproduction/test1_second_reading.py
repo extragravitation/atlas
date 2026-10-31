@@ -21,6 +21,8 @@ and (5) for the modulus behind M_V, accepts the number among the second reader's
 same key and paper in any block: test 1 checks transcription; which modulus M_V used is an
 interpretation from the adjudicated supplementary reading, and disagreements about it are listed
 in SECOND_READING.md.
+After D-062 (And XII plotted) four And XII rows were added to the sheet and read by the same
+reader (reading/second_reading_a2.csv).
 Numbers compare after trimming signs and trailing zeros (float equality). Writes
 checks/second_reading.csv (one row per checked number) and prints PASS or FAIL.
 """
@@ -79,7 +81,7 @@ def expected(r: dict, s: dict, block: str) -> list[tuple[str, float]]:
 
 def main() -> int:
     read = []
-    for h in ("a", "b", "a_followup", "b_followup"):
+    for h in ("a", "b", "a_followup", "b_followup", "a2"):
         read += list(csv.DictReader(open(PKG / f"reading/second_reading_{h}.csv", encoding="utf-8")))
     inp = {r["key"]: r for r in csv.DictReader(open(PKG / "reading/conversion_inputs.csv", encoding="utf-8"))}
     st = {r["key"]: r for r in csv.DictReader(open(PKG / "reading/structure_selection.csv", encoding="utf-8"))}
