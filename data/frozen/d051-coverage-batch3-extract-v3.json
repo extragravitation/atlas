@@ -1,0 +1,9 @@
+{
+  "description": "D-051 batch 3 extraction v3: Tollerud 2012 MRT parsed by whitespace (its data rows are shifted against its own byte-by-byte description; v2 stopped before the check ran). Frozen before running.",
+  "frozen_on": "2026-10-31",
+  "decision": "D-051",
+  "spec": "docs/methods/D051_COVERAGE.md",
+  "files": {
+    "data/packages/aeg-d-dwarfs/v1/reproduction/extract_members_batch3_v3.py": "883bbf4dafc87e78d840a433fa65ee3ad8dcf9df1b5aa9631399d87129bc7d5f"
+  }
+}
