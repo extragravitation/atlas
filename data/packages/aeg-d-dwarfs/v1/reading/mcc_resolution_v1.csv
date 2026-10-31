@@ -1,0 +1,45 @@
+key,quantity,candidates,printers,chosen,how,match_location,flags
+aquarius_1,m_v,2006MNRAS.373..715M,2006MNRAS.373..715M,2006MNRAS.373..715M,single printer,,
+cetus_1,distance_modulus,2005MNRAS.356..979M,2005MNRAS.356..979M,2005MNRAS.356..979M,single printer,,
+cetus_1,m_v,2006MNRAS.365.1263M,2006MNRAS.365.1263M,2006MNRAS.365.1263M,single printer,,
+cetus_1,r_h,2006MNRAS.365.1263M,2006MNRAS.365.1263M,2006MNRAS.365.1263M,single printer,,
+cetus_1,ellipticity,2006MNRAS.365.1263M,2006MNRAS.365.1263M,2006MNRAS.365.1263M,single printer,,
+cetus_1,pa,2006MNRAS.365.1263M,2006MNRAS.365.1263M,2006MNRAS.365.1263M,single printer,,
+ic_1613,m_v,1991rc3..book.....D,,,no candidate prints it,,unresolved
+leo_a,m_v,1991rc3..book.....D | 2004ApJ...611L..93V,,,no candidate prints it,,unresolved
+leo_t,m_v,2008ApJ...680.1112D,,,no candidate prints it,,unresolved
+lgs_3,m_v,1995AJ....110.1129L,,,no candidate prints it,,unresolved
+lgs_3,r_h,1995AJ....110.1129L,,,no candidate prints it,,unresolved
+lgs_3,ellipticity,1995AJ....110.1129L,,,no candidate prints it,,unresolved
+lgs_3,pa,1995AJ....110.1129L,,,no candidate prints it,,unresolved
+lgs_3,sigma,1999PASP..111..306C,,,no candidate prints it,,unresolved
+m_032,m_v,1991rc3..book.....D | 2002AJ....124..310C,,,no candidate prints it,,unresolved
+m_032,r_h,1991rc3..book.....D | 2002AJ....124..310C,2002AJ....124..310C,2002AJ....124..310C,single printer,,
+m_032,ellipticity,1991rc3..book.....D | 2002AJ....124..310C,2002AJ....124..310C,2002AJ....124..310C,single printer,,
+m_032,pa,1991rc3..book.....D | 2002AJ....124..310C,2002AJ....124..310C,2002AJ....124..310C,single printer,,
+m_032,sigma,1996ApJ...464L.123B,,,no candidate prints it,,unresolved
+ngc_0147,m_v,1991rc3..book.....D,,,no candidate prints it,,unresolved
+ngc_0147,sigma,2010ApJ...711..361G,2010ApJ...711..361G,2010ApJ...711..361G,single printer,,
+ngc_0185,m_v,1991rc3..book.....D,,,no candidate prints it,,unresolved
+ngc_0185,sigma,2010ApJ...711..361G,2010ApJ...711..361G,2010ApJ...711..361G,single printer,,
+ngc_0205,m_v,1991rc3..book.....D | 2002AJ....124..310C,,,no candidate prints it,,unresolved
+ngc_0205,r_h,1991rc3..book.....D | 2002AJ....124..310C,,,no candidate prints it,,unresolved
+ngc_0205,ellipticity,1991rc3..book.....D | 2002AJ....124..310C,2002AJ....124..310C,2002AJ....124..310C,single printer,,
+ngc_0205,pa,1991rc3..book.....D | 2002AJ....124..310C,2002AJ....124..310C,2002AJ....124..310C,single printer,,
+ngc_0205,sigma,2006AJ....131..332G,2006AJ....131..332G,2006AJ....131..332G,single printer,,
+ngc_6822,m_v,1991rc3..book.....D | 2007ApJ...655..863D,2007ApJ...655..863D,2007ApJ...655..863D,single printer,,
+pegasus_dirr,m_v,1991rc3..book.....D,,,no candidate prints it,,unresolved
+sagittarius_1,distance_modulus,2004MNRAS.353..874M,2004MNRAS.353..874M,2004MNRAS.353..874M,single printer,,
+sagittarius_1,m_v,1998ApJ...508L..55M | 2003ApJ...599.1082M,1998ApJ...508L..55M,1998ApJ...508L..55M,single printer,,
+sagittarius_1,r_h,1998ApJ...508L..55M | 2003ApJ...599.1082M,,,no candidate prints it,,unresolved
+sagittarius_1,ellipticity,1998ApJ...508L..55M | 2003ApJ...599.1082M,2003ApJ...599.1082M,2003ApJ...599.1082M,single printer,,
+sagittarius_1,pa,1998ApJ...508L..55M | 2003ApJ...599.1082M,1998ApJ...508L..55M | 2003ApJ...599.1082M,2003ApJ...599.1082M,no match; most recent printer,,no_match
+sagittarius_1,sigma,1994Natur.370..194I | 1997AJ....113..634I | 2011ApJ...727L...2P,1997AJ....113..634I,1997AJ....113..634I,single printer,,
+sagittarius_dirr,m_v,2000AJ....119..777L,2000AJ....119..777L,2000AJ....119..777L,single printer,,
+tucana_1,distance_modulus,2009ApJ...699.1742B,2009ApJ...699.1742B,2009ApJ...699.1742B,single printer,,
+tucana_1,m_v,1996A&A...315...40S,1996A&A...315...40S,1996A&A...315...40S,single printer,,
+tucana_1,r_h,1996A&A...315...40S,1996A&A...315...40S,1996A&A...315...40S,single printer,,
+tucana_1,ellipticity,1996A&A...315...40S,1996A&A...315...40S,1996A&A...315...40S,single printer,,
+tucana_1,pa,1996A&A...315...40S,1996A&A...315...40S,1996A&A...315...40S,single printer,,
+ugc_04879,m_v,2011A&A...527A..58B,2011A&A...527A..58B,2011A&A...527A..58B,single printer,,
+wlm,m_v,1991rc3..book.....D,,,no candidate prints it,,unresolved

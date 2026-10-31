@@ -195,6 +195,19 @@
    "redistributable": false,
    "evidence_tier": 1,
    "note": "AAS journal MRT; licence not read, linked not redistributed."
+  },
+  {
+   "role": "RC3, de Vaucouleurs et al. 1991 (VizieR VII/155): VOTable export; magnitudes, radii, shapes and positions for 11 systems (D-053, D-056)",
+   "url": "https://vizier.cfa.harvard.edu/viz-bin/votable?-source=VII/155&-out.all&-out.max=unlimited",
+   "file": "members/vizier/VII_155.vot",
+   "bytes": 17214520,
+   "sha256": "3c5c8eaa9ed60dbbbd834197901a05e9dcf960f56049614056162db0da29277b",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "VizieR query export (Harvard mirror); content hash from <RESOURCE. CDS/VizieR terms of use apply; linked, not redistributed.",
+   "content_from": "<RESOURCE",
+   "content_sha256": "bbb26337e102dc539ae2bcc3e73fb5c106a01c5c24d19c101c5395776e2cee38"
   }
  ]
 }

@@ -1,0 +1,10 @@
+{
+  "description": "D-056 RC3 conversion and D-053 resolution v2 (adds the ADS-scan and RC3 originals). Frozen before running.",
+  "frozen_on": "2026-10-31",
+  "decision": "D-053, D-056",
+  "spec": "docs/decisions.md (D-056); docs/methods/D053_COMPILATION_ORIGINALS.md",
+  "files": {
+    "data/packages/aeg-d-dwarfs/v1/reproduction/rc3_convert.py": "b4442f359f75a0ef064458fbb41cbbafc767eab0826e90b6f9bc451e20f89599",
+    "data/packages/aeg-d-dwarfs/v1/reproduction/resolve_compilation_v2.py": "0f3588b944681d285d3a70fa1c42deab3571baaace1d560be33f9d10634fc9fd"
+  }
+}
