@@ -53,6 +53,28 @@
    "redistributable": true,
    "evidence_tier": 1,
    "note": "CC0-1.0 (repository LICENSE). Pinned to commit c9fb49c620adab3df32c7d206e8599f4bb624a3a. Locator only."
+  },
+  {
+   "role": "Geha et al. 2026, ApJ 999, 140, machine-readable Table 1 (systems, Reff): member positions for the D-051 coverage check",
+   "url": "https://content.cld.iop.org/journals/0004-637X/999/1/140/revision1/apjae290dt1_mrt.txt",
+   "file": "members/geha2026/apjae290dt1_mrt.txt",
+   "bytes": 12032,
+   "sha256": "9de96469e6b06bb9b35dec7a2972db72a2a770fcb149a5d51a29668bed26c57d",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "AAS journal machine-readable table; licence not read, linked not redistributed."
+  },
+  {
+   "role": "Geha et al. 2026, ApJ 999, 140, machine-readable Table 5 (per-star catalogue; file title line repeats Table 4): member positions for the D-051 coverage check",
+   "url": "https://content.cld.iop.org/journals/0004-637X/999/1/140/revision1/apjae290dt5_mrt.txt",
+   "file": "members/geha2026/apjae290dt5_mrt.txt",
+   "bytes": 10977987,
+   "sha256": "3b731eb3b055cf14feeccf54cea862102b6be1c75a38b66ba1cbbe38664e82f4",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "AAS journal machine-readable table; licence not read, linked not redistributed."
   }
  ]
 }
