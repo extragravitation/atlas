@@ -47,6 +47,10 @@ HOSTS = {"mw": "Milky Way", "m_031": "M31", "": "Local Group field"}
 CORE_FLAGS = {"beyond_source_range"}
 ASSUMPTIONS = ("dw_equilibrium;dw_rhalf_wolf;dw_rh_circularised;dw_distance;dw_magnitude_modulus;dw_stellar_ml;"
                "helium_factor;dw_hi_distance_rescaled;dw_gas_half_total")
+# D-050 checks (reading/D050_CHECKS.md): values from unrefereed preprints, and values read in
+# arXiv because the version of record does not print them.
+D050_FLAGS = {"draco_2": ["source_preprint_sigma_feh"], "bootes_3": ["source_preprint_sigma_distance_feh"],
+              "willman_1": ["source_preprint_distance"], "hydrus_1": ["structure_from_arxiv_vor_cells_empty"]}
 METHOD = "half-light-radius estimator (Wolf et al. 2010) on the published line-of-sight velocity dispersion (D-025, D-038)"
 
 
@@ -131,7 +135,7 @@ def main() -> int:
         sid = ids[name]
         L = lv[k]
         plotted = r.get("status") == "plotted"
-        fl = (r.get("flags") or "").split()
+        fl = (r.get("flags") or "").split() + D050_FLAGS.get(k, [])
         if plotted and float(r["sigma"]) == 0.0 and r["sigma_limit"] == "none":
             # D-062 item 1: best value 0 with no stated limit -> upper limit at 0 + the printed upper error
             r["sigma"] = f"{float(r['sigma']) + float(r['sigma_err_plus']):g}"

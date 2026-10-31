@@ -199,6 +199,10 @@
   {
    "role": "RC3, de Vaucouleurs et al. 1991 (VizieR VII/155): VOTable export of the 11 identified rows (by recno); magnitudes, radii, shapes and positions for 11 systems (D-053, D-056)",
    "url": "https://vizier.cfa.harvard.edu/viz-bin/votable?-source=VII/155&-out.all&-out.max=unlimited&recno=1296,9368,852,630,762,809,19722,22478,43,6199,1041",
+   "mirrors": [
+    "https://vizier.cds.unistra.fr/viz-bin/votable?-source=VII/155&-out.all&-out.max=unlimited&recno=1296,9368,852,630,762,809,19722,22478,43,6199,1041",
+    "https://vizier.idia.ac.za/viz-bin/votable?-source=VII/155&-out.all&-out.max=unlimited&recno=1296,9368,852,630,762,809,19722,22478,43,6199,1041"
+   ],
    "file": "members/vizier/VII_155.vot",
    "bytes": 25256,
    "sha256": "aeab59d7c519b0235db1308bcb58dfc53f23f9b02a3f3182526d44010b792a29",
