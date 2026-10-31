@@ -1,0 +1,9 @@
+{
+  "description": "D-054 structural inputs version 3: the centre of the adopted fit is found when the fit is marked headline only on its r_h row (version 2 treated per-fit centres as ties). Frozen before it was run.",
+  "frozen_on": "2026-10-31",
+  "decision": "D-054",
+  "spec": "docs/decisions.md (D-054)",
+  "files": {
+    "data/packages/aeg-d-dwarfs/v1/reproduction/structure_for_coverage_v3.py": "d957fdcd2c3e6a32b12134e152207fc35f7c0c9712c9490159f7954a9eea11e9"
+  }
+}
