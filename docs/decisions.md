@@ -1058,3 +1058,24 @@ Implemented in `reproduction/rc3_convert.py` (frozen). It reads the identified r
 **Alternative rejected.** (B) Use the masses as printed, with Putman's distance shown. This mixes two distances in one system's g_bar.
 
 **Data seen.** Both readings of Table 1, compared and adjudicated (`reading/gas_adjudication.md`). That includes Cassiopeia II: Putman's distance is 682 kpc and the package distance is 559.8 kpc. The conversion was not run.
+
+## D-059 — Stellar mass-to-light route for every dwarf; metallicity fallback (A5)
+
+**Ruling (2026-10-31 10:59 MDT, JvH).** "Go for 1a and 2a." **Proposed by** Claude (both recommended). **Adopted unchanged.** Ruled after the Woo 2008 and metallicity readings were compared. No mass-to-light value, g_bar or g_obs had been computed.
+
+1. **One route for all.**
+   - Every A5/A7 system takes Υ_V from the frozen metallicity interpolation: REPRODUCTION.md route (b), at the D-057 [Fe/H].
+   - Woo et al. 2008 data-set "b" values are shown as labelled alternatives where they exist (30 systems). They enter the Υ_V range as D-039 item 3 provides.
+   - Route (a) is not used. Its condition, "a cited star-formation-history value per system", cannot be verified. Woo assigns M*/L by type and data availability (Table 3, Cases 1–3) and does not print which case applies to each galaxy (both readers, `reading/feh_adjudication.md`).
+2. **Metallicity fallback.** Some plotted systems have no LVDB metallicity original. For these, use the mean spectroscopic [Fe/H] printed by the system's dispersion original, read twice and flagged `feh_from_dispersion_paper`. Where that paper prints none, the system is recorded and not plotted. At the time of ruling there are ten such systems: And VI, XI, XII, XIII, XVII, XX, XXII, XXIII, XXVII and Cassiopeia II. Their originals are Collins 2013, and Tollerud 2012 for And XIII.
+
+**Reason.** One method for every system avoids a split by which galaxies happen to be in Woo's table. The fallback is still a spectroscopic measurement from an original paper.
+
+**Alternatives rejected.**
+- (1B) Woo values as printed, labelled: the method per galaxy is unknown.
+- (2B) Not plotted: discards a measurement that exists.
+- (2C) The lowest tabulated model value with the full range: assumes an unmeasured metallicity.
+
+**Data seen.**
+- Both readings of the D-057 originals and of Woo 2008 Table 1.
+- The list of plotted systems without a metallicity original.
