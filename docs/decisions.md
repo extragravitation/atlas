@@ -1117,4 +1117,18 @@ No mass-to-light value, g_bar or g_obs of a dwarf had been computed.
 
 **Data seen.** Both readings of Moskowitz 2020 (the four Boötes III fits) and of Correnti 2009. No g_obs or g_bar had been computed.
 
-The other five items proposed alongside these (Muñoz 2018 moduli, Leo I, Phoenix, Leo T, Tucana V) await a ruling.
+**Items 3–7, ruled 2026-10-31 (JvH, by selecting the recommended option for each).** Each value is flagged on the point.
+
+3. **Muñoz 2018 (20 systems).** m_V,0 = M_V + 5 log₁₀(D / 10 pc), where D is the paper's Table 1 adopted heliocentric distance. Flag: `mv_distance_from_table1`. The paper does not tie Table 6 M_V to Table 1 in a sentence. It states that its luminosity functions use "the adopted … distance information".
+4. **Leo I distance (Stetson 2014).** The paper prints a range that depends on the assumed metallicity: 22.06 ± 0.08 to 22.25 ± 0.07. Use the midpoint, 22.155, with errors of −0.175 and +0.165, which span both ends and their errors. Flag: `distance_range_midpoint`.
+5. **Phoenix.** Use the paper's adopted modulus, 23.1 ± 0.1 (van de Rydt 1991), for its M_V = −9.9 ± 0.4. Flag: `mv_modulus_assumed`.
+6. **Leo T.** Use the headline red-clump modulus, 23.1 ± 0.2 (de Jong 2008), for M_V ≃ −8.0. Flag: `mv_modulus_assumed`.
+7. **Tucana V.** Use the Table 6 distance, 55 (+3/−8) kpc (Simon 2020), for the M_V,0 in the same table. Flag: `mv_modulus_assumed`.
+
+**Reason (items 3–7).** Where the paper prints the value, use it over dropping the system, and flag it on the point.
+
+**Alternatives rejected.**
+- Not plotting the systems.
+- For Leo I, the end of the range at the metallicity nearer the D-057 value.
+
+**Data seen.** Both residual readings (`reading/residual_adjudication.md`). No g_obs or g_bar had been computed.
