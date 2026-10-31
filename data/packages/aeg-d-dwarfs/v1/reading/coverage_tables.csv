@@ -33,3 +33,38 @@ ursa_major_1,Geha 2026 ApJ 999 140,checked,37,13,0.3514,1.9347,True
 ursa_major_2,Geha 2026 ApJ 999 140,checked,63,22,0.3492,1.8051,True
 ursa_minor_1,Geha 2026 ApJ 999 140,checked,777,254,0.3269,2.0970,True
 willman_1,Geha 2026 ApJ 999 140,checked,41,16,0.3902,1.9293,True
+andromeda_01,Tollerud 2012 ApJ 752 45,not reached: per-dwarf velocity windows (Sect. data) to be read by two readers first,,,,,
+andromeda_03,Tollerud 2012 ApJ 752 45,not reached: per-dwarf velocity windows (Sect. data) to be read by two readers first,,,,,
+andromeda_05,Collins 2013 ApJ 768 172,checked,16,6,0.3750,2.4207,True
+andromeda_05,Tollerud 2012 ApJ 752 45,not reached: per-dwarf velocity windows (Sect. data) to be read by two readers first,,,,,
+andromeda_06,Collins 2013 ApJ 768 172,checked,38,22,0.5789,2.2516,True
+andromeda_09,Tollerud 2012 ApJ 752 45,not reached: per-dwarf velocity windows (Sect. data) to be read by two readers first,,,,,
+andromeda_10,Tollerud 2012 ApJ 752 45,not reached: per-dwarf velocity windows (Sect. data) to be read by two readers first,,,,,
+andromeda_11,Collins 2013 ApJ 768 172,checked,5,3,0.6000,3.8657,True
+andromeda_11,Tollerud 2012 ApJ 752 45,not reached: per-dwarf velocity windows (Sect. data) to be read by two readers first,,,,,
+andromeda_13,Collins 2013 ApJ 768 172,checked,5,4,0.8000,3.0984,True
+andromeda_13,Tollerud 2012 ApJ 752 45,not reached: per-dwarf velocity windows (Sect. data) to be read by two readers first,,,,,
+andromeda_18,Collins 2013 ApJ 768 172,not reached: no structural values,,,,,
+andromeda_18,Kvasova 2024 ApJ 972 180,not reached: no structural values,,,,,
+andromeda_18,Tollerud 2012 ApJ 752 45,not reached: per-dwarf velocity windows (Sect. data) to be read by two readers first,,,,,
+andromeda_22,Collins 2013 ApJ 768 172,checked,12,10,0.8333,8.2766,True
+andromeda_22,Tollerud 2012 ApJ 752 45,not reached: per-dwarf velocity windows (Sect. data) to be read by two readers first,,,,,
+andromeda_23,Collins 2013 ApJ 768 172,checked,47,8,0.1702,1.5355,True
+andromeda_27,Collins 2013 ApJ 768 172,checked,11,9,0.8182,4.3145,True
+andromeda_28,Collins 2013 ApJ 768 172,not reached: no structural values,,,,,
+cassiopeia_2,Collins 2013 ApJ 768 172,checked,8,6,0.7500,2.2065,True
+crater_2,Ji 2021 ApJ 921 32,"not reached: probability-weighted fit with no stated member list (coverage not checkable, D-051 application)",,,,,
+leo_2,Spencer 2017 ApJ 836 202,checked,175,108,0.6171,4.4825,True
+andromeda_12,Collins 2013 ApJ 768 172,checked,7,1,0.1429,1.0133,True
+andromeda_12,Tollerud 2012 ApJ 752 45,not reached: per-dwarf velocity windows (Sect. data) to be read by two readers first,,,,,
+andromeda_14,Tollerud 2012 ApJ 752 45,not reached: per-dwarf velocity windows (Sect. data) to be read by two readers first,,,,,
+andromeda_15,Tollerud 2012 ApJ 752 45,not reached: per-dwarf velocity windows (Sect. data) to be read by two readers first,,,,,
+andromeda_16,Tollerud 2012 ApJ 752 45,not reached: per-dwarf velocity windows (Sect. data) to be read by two readers first,,,,,
+andromeda_17,Collins 2013 ApJ 768 172,checked,7,7,1.0000,2.6552,True
+andromeda_19,Collins 2013 ApJ 768 172,checked,27,3,0.1111,1.5206,True
+andromeda_20,Collins 2013 ApJ 768 172,checked,4,2,0.5000,2.1428,True
+andromeda_21,Collins 2013 ApJ 768 172,checked,32,10,0.3125,2.5900,True
+andromeda_21,Tollerud 2012 ApJ 752 45,not reached: per-dwarf velocity windows (Sect. data) to be read by two readers first,,,,,
+andromeda_24,Collins 2013 ApJ 768 172,checked,3,0,0.0000,0.9164,False
+andromeda_25,Collins 2013 ApJ 768 172,checked,25,5,0.2000,1.6752,True
+draco_2,Cerny 2026 arXiv 2602.17652,checked,25,9,0.3600,1.4955,True
