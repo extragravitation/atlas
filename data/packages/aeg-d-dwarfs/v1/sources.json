@@ -208,6 +208,34 @@
    "note": "VizieR query export (Harvard mirror); content hash from <RESOURCE. CDS/VizieR terms of use apply; linked, not redistributed. The full-catalogue export (23,011 rows) timed out in CI; this export holds the same 11 rows, checked field by field against the full export on 2026-10-31 (no differences).",
    "content_from": "<RESOURCE",
    "content_sha256": "a5e40dd6fab2e6c4cf6b7d1915614357c85688735cb9ff81b29be01aaec27502"
+  },
+  {
+   "role": "Putman et al. 2021, ApJ 913, 53, machine-readable Table 1 (dwarf galaxies within 2 Mpc: positions and HI parameters): the gas side (HI mass and limits)",
+   "url": "https://content.cld.iop.org/journals/0004-637X/913/1/53/revision2/apjabe391t1_mrt.txt",
+   "file": "gas/putman2021/apjabe391t1_mrt.txt",
+   "bytes": 19857,
+   "sha256": "444c6337bde863049b1e1d28d2cf26667c18b0b783bfa667b1e9f542f102637f",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "AAS journal MRT; licence not read, linked not redistributed. The VizieR copy (Harvard mirror) returned 504 on 2026-10-31."
+  },
+  {
+   "role": "McLaughlin & van der Marel 2005, ApJS 161, 304 (VizieR J/ApJS/161/304/clusters): per-cluster population M/L_V and [Fe/H], the model table for the dwarf Upsilon_V interpolation (D-039, D-060). Same file and hash as aeg-d-gc-baumgardt/v1.",
+   "url": "https://vizier.idia.ac.za/viz-bin/votable?-source=J/ApJS/161/304/clusters&-out.all&-out.max=unlimited",
+   "mirrors": [
+    "https://vizier.cds.unistra.fr/viz-bin/votable?-source=J/ApJS/161/304/clusters&-out.all&-out.max=unlimited",
+    "https://vizier.cfa.harvard.edu/viz-bin/votable?-source=J/ApJS/161/304/clusters&-out.all&-out.max=unlimited"
+   ],
+   "file": "mvdm05/J_ApJS_161_304_clusters.vot",
+   "bytes": 119148,
+   "sha256": "282ea6daaaa9da0b690c3efd1384a12e83da9e664e939649896aea8d006dc7ec",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "VOTable export from the VizieR mirror at IDIA (South Africa), not the CDS original archive, which could not be reached (deviation #19). The file records its own request URL and date (2026-10-30T15:20 UTC); a new export will differ in those lines.",
+   "content_from": "<RESOURCE",
+   "content_sha256": "619b71cf61b537983574ee73f9b81e1e9733043b2a51d8b7cb482f2ed566d3dd"
   }
  ]
 }

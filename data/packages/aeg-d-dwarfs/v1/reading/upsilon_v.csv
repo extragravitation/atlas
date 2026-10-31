@@ -1,0 +1,104 @@
+key,feh,s,s_basis,upsilon_v,upsilon_v_low,upsilon_v_high,flags
+antlia_2,-1.90,0.66,intrinsic spread printed (largest agreed printing),1.8740,1.2512,3.9281,beyond_source_range
+aquarius_2,-2.57,0.36,intrinsic spread printed (largest agreed printing),1.9310,1.2831,3.7389,beyond_source_range
+aquarius_3,-2.51,0.45,intrinsic spread printed (largest agreed printing),1.9310,1.2673,3.7389,beyond_source_range
+bootes_1,-2.43,0.41,intrinsic spread printed (largest agreed printing),1.9310,1.2639,3.7389,beyond_source_range
+bootes_2,-2.51,0.38,intrinsic spread printed (largest agreed printing),1.9310,1.2749,3.7389,beyond_source_range
+bootes_3,-2.34,0.36,intrinsic spread printed (largest agreed printing),1.9310,1.2605,3.7389,beyond_source_range
+canes_venatici_1,-2.34,0.19,intrinsic spread printed (largest agreed printing),1.9310,1.2769,3.7389,beyond_source_range
+canes_venatici_2,-2.85,0.3,intrinsic spread printed (largest agreed printing),1.9310,1.2921,3.7389,beyond_source_range
+carina_1,-1.80,0,none printed,1.8680,1.2519,3.6707,spread_zero
+carina_2,-2.44,0.22,intrinsic spread printed (largest agreed printing),1.9310,1.2841,3.7389,beyond_source_range
+carina_3,,,,,,,no_metallicity_original no_upsilon
+centaurus_1,-2.57,0.38,intrinsic spread printed (largest agreed printing),1.9310,1.2810,3.7389,beyond_source_range
+columba_1,-2.37,0.71,intrinsic spread printed (largest agreed printing),1.9310,1.2512,3.7389,beyond_source_range
+coma_berenices_1,-2.44,0.26,intrinsic spread printed (largest agreed printing),1.9310,1.2800,3.7389,beyond_source_range
+crater_2,-2.16,0.34,intrinsic spread printed (largest agreed printing),1.9094,1.2519,3.7389,beyond_source_range
+draco_1,-2.20,0.24,intrinsic spread printed (largest agreed printing),1.9158,1.2587,3.7389,beyond_source_range
+draco_2,-2.94,0.57,intrinsic spread printed (largest agreed printing),1.9310,1.2921,3.7389,beyond_source_range
+eridanus_2,-2.38,0.47,intrinsic spread printed (largest agreed printing),1.9310,1.2556,3.7389,beyond_source_range
+eridanus_4,-2.87,0.2,intrinsic spread printed (largest agreed printing),1.9310,1.2921,3.7389,beyond_source_range
+fornax_1,-1.04,0.01,[Fe/H] error (no spread printed),2.0890,1.3876,4.2280,
+grus_1,-2.62,0.53,intrinsic spread printed (largest agreed printing),1.9310,1.2702,3.7389,beyond_source_range
+grus_2,-2.51,0.45,intrinsic spread printed (largest agreed printing),1.9310,1.2673,3.7389,beyond_source_range
+hercules_1,-2.64,0.27,intrinsic spread printed (largest agreed printing),1.9310,1.2921,3.7389,beyond_source_range
+horologium_1,-2.76,0.17,intrinsic spread printed (largest agreed printing),1.9310,1.2921,3.7389,beyond_source_range
+hydra_2,-2.41,0.17,[Fe/H] error (no spread printed),1.9310,1.2859,3.7389,beyond_source_range
+hydrus_1,-2.52,0.41,intrinsic spread printed (largest agreed printing),1.9310,1.2726,3.7389,beyond_source_range
+leo_1,-1.58,0.27,intrinsic spread printed (largest agreed printing),1.8760,1.2512,3.8577,
+leo_2,-1.97,0.32,intrinsic spread printed (largest agreed printing),1.8815,1.2512,3.7389,
+leo_4,-2.56,0.28,intrinsic spread printed (largest agreed printing),1.9310,1.2907,3.7389,beyond_source_range
+leo_5,-2.29,0.34,intrinsic spread printed (largest agreed printing),1.9310,1.2578,3.7389,beyond_source_range
+leo_6,-2.39,0.25,intrinsic spread printed (largest agreed printing),1.9310,1.2759,3.7389,beyond_source_range
+lmc,,,,,,,no_metallicity_original no_upsilon
+pegasus_3,-2.63,0.28,intrinsic spread printed (largest agreed printing),1.9310,1.2921,3.7389,beyond_source_range
+pegasus_4,-2.52,0.41,intrinsic spread printed (largest agreed printing),1.9310,1.2726,3.7389,beyond_source_range
+phoenix_2,-2.51,0.75,intrinsic spread printed (largest agreed printing),1.9310,1.2512,3.7389,beyond_source_range
+pictor_2,-2.99,0.49,intrinsic spread printed (largest agreed printing),1.9310,1.2921,3.7389,beyond_source_range
+pisces_2,-2.45,0.48,intrinsic spread printed (largest agreed printing),1.9310,1.2596,3.7389,beyond_source_range
+reticulum_2,-2.65,0.28,intrinsic spread printed (largest agreed printing),1.9310,1.2921,3.7389,beyond_source_range
+reticulum_3,-2.81,0.35,intrinsic spread printed (largest agreed printing),1.9310,1.2921,3.7389,beyond_source_range
+sagittarius_1,-0.52,0.17,intrinsic spread printed (largest agreed printing),2.6710,1.5905,6.3595,
+sculptor_1,-1.68,0.01,[Fe/H] error (no spread printed),1.8680,1.2523,3.6817,
+segue_1,-2.52,0.59,intrinsic spread printed (largest agreed printing),1.9310,1.2570,3.7389,beyond_source_range
+segue_2,-2.27,0.47,intrinsic spread printed (largest agreed printing),1.9270,1.2519,3.7389,beyond_source_range
+sextans_1,-1.94,0.01,[Fe/H] error (no spread printed),1.8780,1.2570,3.6795,
+smc,,,,,,,no_metallicity_original no_upsilon
+triangulum_2,-2.24,0.53,intrinsic spread printed (largest agreed printing),1.9220,1.2512,3.7389,beyond_source_range
+tucana_2,-2.77,0,none printed,1.9310,1.2921,3.7389,spread_zero beyond_source_range
+tucana_3,-2.42,0.19,intrinsic spread printed (largest agreed printing),1.9310,1.2850,3.7389,beyond_source_range
+tucana_4,-2.49,0.64,intrinsic spread printed (largest agreed printing),1.9310,1.2526,3.7389,beyond_source_range
+tucana_5,-2.84,0.43,intrinsic spread printed (largest agreed printing),1.9310,1.2921,3.7389,beyond_source_range
+ursa_major_1,-2.56,0.24,intrinsic spread printed (largest agreed printing),1.9310,1.2921,3.7389,beyond_source_range
+ursa_major_2,-2.54,0.22,intrinsic spread printed (largest agreed printing),1.9310,1.2921,3.7389,beyond_source_range
+ursa_minor_1,-2.23,0.25,intrinsic spread printed (largest agreed printing),1.9205,1.2605,3.7389,beyond_source_range
+willman_1,-2.45,0.3,intrinsic spread printed (largest agreed printing),1.9310,1.2769,3.7389,beyond_source_range
+andromeda_01,-1.51,0.02,[Fe/H] error (no spread printed),1.8860,1.2643,3.7378,
+andromeda_02,-1.47,0.006,[Fe/H] error (no spread printed),1.8945,1.2709,3.7501,
+andromeda_03,-1.75,0.03,[Fe/H] error (no spread printed),1.8670,1.2512,3.6762,
+andromeda_05,-1.84,0.01,[Fe/H] error (no spread printed),1.8695,1.2519,3.6718,
+andromeda_06,-1.5,0.1,[Fe/H] error (no spread printed),1.8880,1.2578,3.7873,feh_from_dispersion_paper feh_stacked_spectrum
+andromeda_07,-1.37,0.01,[Fe/H] error (no spread printed),1.9210,1.2877,3.8165,
+andromeda_09,-2.03,0.01,[Fe/H] error (no spread printed),1.8892,1.2639,3.6914,
+andromeda_10,-2.27,0.03,[Fe/H] error (no spread printed),1.9270,1.2859,3.7389,beyond_source_range
+andromeda_11,-1.8,0.1,[Fe/H] error (no spread printed),1.8680,1.2512,3.6784,feh_from_dispersion_paper feh_stacked_spectrum
+andromeda_12,-2.2,0.2,[Fe/H] error (no spread printed),1.9158,1.2621,3.7389,feh_from_dispersion_paper feh_stacked_spectrum beyond_source_range
+andromeda_13,,,,,,,no_metallicity_value no_upsilon
+andromeda_14,-2.23,0.01,[Fe/H] error (no spread printed),1.9205,1.2841,3.7296,
+andromeda_15,-1.43,0.42,[Fe/H] error (no spread printed),1.9040,1.2512,4.2647,
+andromeda_16,-2.17,0.33,intrinsic spread printed (largest agreed printing),1.9110,1.2523,3.7389,feh_photometric beyond_source_range
+andromeda_17,-1.7,0.2,[Fe/H] error (no spread printed),1.8670,1.2512,3.7323,feh_from_dispersion_paper feh_stacked_spectrum
+andromeda_18,-1.49,0.36,intrinsic spread printed (largest agreed printing),1.8900,1.2512,4.0671,
+andromeda_19,-1.50,0.2,intrinsic spread printed (largest agreed printing),1.8880,1.2519,3.8665,
+andromeda_20,-2.2,0.4,[Fe/H] error (no spread printed),1.9158,1.2519,3.7389,feh_from_dispersion_paper feh_stacked_spectrum beyond_source_range
+andromeda_21,-1.7,0.5,intrinsic spread printed (largest agreed printing),1.8670,1.2512,3.9732,
+andromeda_22,-1.8,0.6,[Fe/H] error (no spread printed),1.8680,1.2512,3.9732,feh_from_dispersion_paper feh_stacked_spectrum beyond_source_range
+andromeda_23,-2.2,0.3,[Fe/H] error (no spread printed),1.9158,1.2548,3.7389,feh_from_dispersion_paper feh_stacked_spectrum beyond_source_range
+andromeda_24,,,,,,,no_metallicity_original no_upsilon
+andromeda_25,-1.9,0.08,intrinsic spread printed (largest agreed printing),1.8740,1.2519,3.6836,
+andromeda_26,,,,,,,no_metallicity_original no_upsilon
+andromeda_27,-2.1,0.5,[Fe/H] error (no spread printed),1.8997,1.2512,3.7389,feh_from_dispersion_paper feh_stacked_spectrum beyond_source_range
+andromeda_28,-1.84,0.15,[Fe/H] error (no spread printed),1.8695,1.2512,3.6850,
+andromeda_29,-1.90,0.12,[Fe/H] error (no spread printed),1.8740,1.2515,3.6887,
+cassiopeia_2,-1.7,0.4,[Fe/H] error (no spread printed),1.8670,1.2512,3.8665,feh_from_dispersion_paper feh_stacked_spectrum
+cassiopeia_3,-1.7,0.1,[Fe/H] error (no spread printed),1.8670,1.2512,3.6971,feh_median
+lacerta_1,-2.0,0.1,[Fe/H] error (no spread printed),1.8850,1.2548,3.7022,feh_median
+lgs_3,,,,,,,no_metallicity_original no_upsilon
+m_032,,,,,,,no_metallicity_original no_upsilon
+ngc_0147,,,,,,,no_metallicity_original no_upsilon
+ngc_0185,,,,,,,no_metallicity_original no_upsilon
+ngc_0205,,,,,,,no_metallicity_original no_upsilon
+perseus_1,-2.0,0.2,[Fe/H] error (no spread printed),1.8850,1.2519,3.7217,feh_stacked_spectrum
+antlia_b,,,,,,,no_metallicity_original no_upsilon
+aquarius_1,-1.50,0.06,[Fe/H] error (no spread printed),1.8880,1.2607,3.7631,
+cetus_1,-1.71,0.42,intrinsic spread printed (largest agreed printing),1.8670,1.2512,3.8764,feh_median
+ic_1613,-1.19,0.01,[Fe/H] error (no spread printed),1.9963,1.3331,3.9989,
+leo_a,-1.67,0.09,[Fe/H] error (no spread printed),1.8680,1.2512,3.7026,
+leo_t,-1.74,0.04,[Fe/H] error (no spread printed),1.8670,1.2512,3.6784,
+ngc_6822,-1.05,0.01,[Fe/H] error (no spread printed),2.0822,1.3837,4.2097,
+pegasus_dirr,-1.39,0.01,[Fe/H] error (no spread printed),1.9150,1.2833,3.8016,
+phoenix_1,-1.49,0.51,intrinsic spread printed (largest agreed printing),1.8900,1.2512,4.3219,
+sagittarius_dirr,-1.88,0.13,[Fe/H] error (no spread printed),1.8730,1.2512,3.6874,
+tucana_1,-1.58,0.39,intrinsic spread printed (largest agreed printing),1.8760,1.2512,3.9860,feh_median
+ugc_04879,-1.43,0.02,[Fe/H] error (no spread printed),1.9040,1.2753,3.7807,
+wlm,-1.28,0.38,intrinsic spread printed (largest agreed printing),1.9540,1.2534,4.4946,

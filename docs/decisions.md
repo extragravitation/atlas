@@ -1028,3 +1028,78 @@ Implemented in `reproduction/rc3_convert.py` (frozen). It reads the identified r
 - (C) Leave RC3 unused: nine systems would then have no luminosity.
 
 **Data seen.** RC3 column descriptions only.
+
+---
+
+## D-057 — Metallicity used for the stellar mass-to-light interpolation (A5)
+
+**Ruling (2026-10-31 10:18 MDT, JvH).** He ruled in these words: "the mean spectroscopic [Fe/H] from the original paper the database cites for it (ref_metallicity_spectroscopic), read twice like everything else. Where no spectroscopic value exists, use the database's photometric or isochrone original, flagged as such. This keeps D-048's 'originals are the record', and spectroscopic iron abundances are the standard input for these models." **Proposed by** Claude (option A, recommended). **Adopted unchanged.** Made before any metallicity value of an A5/A7 candidate was read.
+
+1. **Spectroscopic first.** For REPRODUCTION.md's Υ_V route (b), each system's [Fe/H] is the mean spectroscopic value printed by the LVDB `ref_metallicity_spectroscopic` original. It is read by two independent readers.
+2. **Fallback.** Where none exists, use the LVDB `ref_metallicity_photometric` original, else the `ref_metallicity_isochrone` original. Either is flagged with its kind.
+3. **Floor.** REPRODUCTION.md's floor applies: below the lowest tabulated [Fe/H], use the lowest value, flagged `beyond_source_range`, with no extrapolation.
+
+**Alternatives rejected.**
+- (B) The dispersion paper's own [Fe/H]: patchy coverage.
+- (C) One fixed value: discards measured information.
+
+**Data seen.** None of the metallicity values.
+
+## D-058 — HI masses rescaled to the package distance (A5)
+
+**Ruling (2026-10-31 10:28 MDT, JvH).** He ruled in these words: "rescale each HI mass and each upper limit by (D_package / D_Putman)², and record both distances. Why: the HI mass scales exactly as D², so this is an exact conversion, not a model. It also keeps one distance per system, as D-052 does." **Proposed by** Claude (option A, recommended). **Adopted unchanged.**
+
+1. **Rescaling.** Each HI mass and each 5σ upper limit from Putman et al. 2021 Table 1 is multiplied by (D_package / D_Putman)². D_package is the D-052 distance. D_Putman is the table's `Dist`. Putman computes M_HI = 2.36 × 10⁵ S D² (§2, read at source in arXiv:2101.07809v1), so the conversion is exact.
+2. **Record.** Both distances and the factor are stored with each system.
+3. **Settled under existing rulings, stated here for the record.**
+   - Helium factor: the registered default of 1.33 (Lelli et al. 2016, read at source). It is not adjustable until a published range is read (D-034).
+   - Gas inside r½: half the total, flagged (REPRODUCTION.md), because Table 1 gives only total masses.
+
+**Alternative rejected.** (B) Use the masses as printed, with Putman's distance shown. This mixes two distances in one system's g_bar.
+
+**Data seen.** Both readings of Table 1, compared and adjudicated (`reading/gas_adjudication.md`). That includes Cassiopeia II: Putman's distance is 682 kpc and the package distance is 559.8 kpc. The conversion was not run.
+
+## D-059 — Stellar mass-to-light route for every dwarf; metallicity fallback (A5)
+
+**Ruling (2026-10-31 10:59 MDT, JvH).** "Go for 1a and 2a." **Proposed by** Claude (both recommended). **Adopted unchanged.** Ruled after the Woo 2008 and metallicity readings were compared. No mass-to-light value, g_bar or g_obs had been computed.
+
+1. **One route for all.**
+   - Every A5/A7 system takes Υ_V from the frozen metallicity interpolation: REPRODUCTION.md route (b), at the D-057 [Fe/H].
+   - Woo et al. 2008 data-set "b" values are shown as labelled alternatives where they exist (30 systems). They enter the Υ_V range as D-039 item 3 provides.
+   - Route (a) is not used. Its condition, "a cited star-formation-history value per system", cannot be verified. Woo assigns M*/L by type and data availability (Table 3, Cases 1–3) and does not print which case applies to each galaxy (both readers, `reading/feh_adjudication.md`).
+2. **Metallicity fallback.** Some plotted systems have no LVDB metallicity original. For these, use the mean spectroscopic [Fe/H] printed by the system's dispersion original, read twice and flagged `feh_from_dispersion_paper`. Where that paper prints none, the system is recorded and not plotted. At the time of ruling there are ten such systems: And VI, XI, XII, XIII, XVII, XX, XXII, XXIII, XXVII and Cassiopeia II. Their originals are Collins 2013, and Tollerud 2012 for And XIII.
+
+**Reason.** One method for every system avoids a split by which galaxies happen to be in Woo's table. The fallback is still a spectroscopic measurement from an original paper.
+
+**Alternatives rejected.**
+- (1B) Woo values as printed, labelled: the method per galaxy is unknown.
+- (2B) Not plotted: discards a measurement that exists.
+- (2C) The lowest tabulated model value with the full range: assumes an unmeasured metallicity.
+
+**Data seen.**
+- Both readings of the D-057 originals and of Woo 2008 Table 1.
+- The list of plotted systems without a metallicity original.
+
+## D-060 — Stellar mass-to-light range for dwarfs: an envelope (A5)
+
+**Ruling (2026-10-31 11:06 MDT, JvH).** "Proceed with envelope." He restated the rule and its reason and cost as proposed. **Proposed by** Claude (option A, recommended). **Adopted unchanged.** This makes D-039 item 3 concrete for dwarfs.
+
+1. **Default.** The default is unchanged. It is the BC03 + Chabrier-disk (M/L)₁ of McLaughlin & van der Marel (2005), interpolated at the D-057/D-059 [Fe/H] by the frozen `aeg.ml_interp`.
+2. **Metallicity interval.** The interval is [Fe/H] ± s.
+   - s is the intrinsic spread the metallicity original prints.
+   - Where no spread is printed, s is the [Fe/H] error, using the larger of the two sides.
+3. **Lower bound.** Take the smallest value of ((M/L)₁ − e_(M/L)₁) over the interval, then multiply by 0.90 and by 0.81.
+   - 0.90: the two population-synthesis codes agree within about 10% in Υ_V (McLaughlin & van der Marel 2005 §3.1).
+   - 0.81 = 1.3/1.6: Woo et al. (2008) median Υ_V from colours against from star-formation histories (`docs/sources/stellar-ml-2026-10-29.md`).
+4. **Upper bound.** Take the largest value of ((M/L)₂ + e_(M/L)₂) over the interval, the Salpeter IMF column, then multiply by 1.10.
+5. **Beyond the table.** Outside the tabulated [Fe/H] range the end values apply, flagged `beyond_source_range`. Nothing is extrapolated.
+
+**Reason (JvH).** "These are alternative models, not random errors. An envelope shows their honest combined reach, and every factor traces to a printed number." **Cost:** a wide range, about a factor of 2 to 3 end to end.
+
+**Alternative rejected.** (B) Quadrature, with the IMF as a separate one-sided term. It treats model systematics as independent random scatter.
+
+**Data seen.**
+- The McLaughlin & van der Marel table's metallicity span (lowest [Fe/H] −2.29).
+- The count of plotted systems below that floor (26 of 64).
+
+No mass-to-light value, g_bar or g_obs of a dwarf had been computed.

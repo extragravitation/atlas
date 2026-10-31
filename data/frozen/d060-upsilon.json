@@ -1,0 +1,11 @@
+{
+  "description": "A5 Upsilon_V default and range (D-039, D-059, D-060), and the D-057/D-059 metallicity selection. Frozen before Upsilon_V was computed for any dwarf.",
+  "frozen_on": "2026-10-31",
+  "decision": "D-057, D-059, D-060",
+  "spec": "docs/decisions.md (D-057, D-059, D-060)",
+  "files": {
+    "data/packages/aeg-d-dwarfs/v1/reproduction/upsilon.py": "6bbf0eb6a9dbd5b0b41be0f3878c3509542a0da0c60b1650650c85fbb8004c48",
+    "data/packages/aeg-d-dwarfs/v1/reproduction/select_feh.py": "ddf00dc52376eba1b902addd3282e1a80609d60846dd8b522551a26e0a869880",
+    "pipeline/tests/test_dwarf_upsilon.py": "8f73742a3be3a00ab08e617ab7c1724a0338835dedaf221ea4698e1c3fffc7fa"
+  }
+}

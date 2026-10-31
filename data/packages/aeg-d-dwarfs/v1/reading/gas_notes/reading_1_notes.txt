@@ -1,0 +1,51 @@
+Note (1): Notes or flags on Galaxy --
+     8 = The limit is only for the core of this tidally extended galaxy;
+    11 = The limit is calculated with twice the median flux in the region of
+        the galaxy due to strong Galactic contamination (see text);
+    14 = Sculptor has been claimed as a detection in previous publications,
+        but the HI clouds are offset from the stellar position of the galaxy
+        and there is abundant surrounding emission at similar velocities;
+    19 = Fornax is at velocities that confuse any associated HI with
+        Galactic emission. The limit at the stellar position and velocity is
+        given;
+    20 = This galaxy is unlikely to exist based on observations by Cantu et
+        al. (2020arXiv200506478C);
+    22 = Phoenix has confusion with Galactic emission, but the HI cloud is
+        at the position and velocity of the stellar component;
+    24 = Lacerta I is Andromeda XXXI in McConnachie (2012AJ....144....4M);
+    25 = Perseus I is Andromeda XXXIII in McConnachie (2012AJ....144....4M);
+    26 = Cassiopeia III is Andromeda XXXII in McConnachie (2012AJ....144....4M).
+Note (2): Data --
+    GALFA1 = GALFA-HI DR1, Peek et al. (2011ApJS..194...20P);
+    GALFA2 = GALFA-HI DR2, Peek et al. (2018ApJS..234....2P);
+    HI4PI  = HI4PI Collaboration et al. (2016A&A...594A.116H).
+Note (3): The method indicates if sigHI was obtained with a method
+    consistent with the source being resolved (Res.) or unresolved (Unres.)
+    in the data. If the source does not have a velocity (No Vel), then the
+    sigHI is an average from all of the channels without significant
+    Galactic emission. For HI4PI resolved, the sigHI values tend to be lower
+    as they are the standard deviation of the flux sum divided by the area
+    of the optical galaxy for 9 regions surrounding the galaxy (see text). 
+Note (4): The HI mass is calculated using 5{sigma}, the noted distance, and
+    a fixed velocity width of 10 km/s. The errors are from the distance
+    errors shown.
+Note (5): References --
+     5 = McConnachie (2012AJ....144....4M). 
+     6 = Simon (2019ARA&A..57..375S);
+     7 = Luque et al. (2017MNRAS.468...97L) for the position;
+     9 = Koposov et al. (2018MNRAS.479.5343K) for the position;
+    10 = Torrealba et al. (2018MNRAS.475.5085T) for the position;
+    12 = Drlica-Wagner et al. (2016ApJ...833L...5D) for the position;
+    13 = Simon et al. (2020ApJ...892..137S) for the position and velocity;
+    15 = Homma et al. (2016ApJ...832...21H) for the position;
+    16 = Torrealba et al. (2016MNRAS.463..712T) for the position;
+    17 = Torrealba et al. (2016MNRAS.459.2370T) for the position;
+    18 = Torrealba et al. (2019MNRAS.488.2743T) for position, velocity and distance;
+    21 = Homma et al. (2018PASJ...70S..18H) for the position;
+    23 = Martin et al. (2014ApJ...793L..14M);
+    27 = Bouchard et al. (2005AJ....130.2058B) found a velocity of 159 km
+        s−1, but we do not note that here as this could not be confirmed by
+        Westmeier et al. (2017MNRAS.472.4832W) or Koribalski et al.
+        (2018MNRAS.478.1611K). Koribalski et al. (2018MNRAS.478.1611K) find
+        emission with a similar flux and velocity width at 36 km s−1, so we
+        leave the HI mass.

@@ -1,0 +1,104 @@
+key,kind,paper,feh,err_minus,err_plus,quantity,n_stars,flags,basis
+antlia_2,spectroscopic,Ji2021ApJ...921...32J,-1.90,0.04,0.04,feh_mean,,,both readings agree
+aquarius_2,spectroscopic,Bruce2023ApJ...950..167B,-2.57,0.17,0.17,feh_mean,8,,both readings agree
+aquarius_3,spectroscopic,Geha2026arXiv260210202G,-2.51,0.18,0.18,feh_mean,,,both readings agree
+bootes_1,spectroscopic,Sandford2026ApJ...998...47S,-2.43,0.04,0.04,feh_mean,92,,both readings agree
+bootes_2,spectroscopic,Geha2026arXiv260210202G,-2.51,0.12,0.12,feh_mean,,,both readings agree
+bootes_3,spectroscopic,Li2026arXiv260707803L,-2.34,0.11,0.11,feh_mean,21,,both readings agree
+canes_venatici_1,spectroscopic,Geha2026arXiv260210202G,-2.34,0.02,0.02,feh_mean,,,both readings agree
+canes_venatici_2,spectroscopic,Geha2026arXiv260210202G,-2.85,0.08,0.08,feh_mean,,,both readings agree
+carina_1,spectroscopic,Fabrizio2012PASP..124..519F,-1.80,,,feh_mean,44,,both readings agree; original behind Simon 2019 (D-053)
+carina_2,spectroscopic,Li2018ApJ...857..145L,-2.44,0.09,0.09,feh_mean,9,,both readings agree
+carina_3,none,,,,,,,no_metallicity_original,LVDB gives no metallicity reference
+centaurus_1,spectroscopic,Heiger2024ApJ...961..234H,-2.57,0.08,0.08,feh_mean,27,,both readings agree
+columba_1,spectroscopic,Fritz2019A&A...623A.129F,-2.37,0.34,0.35,feh_mean,,,both readings agree
+coma_berenices_1,spectroscopic,Geha2026arXiv260210202G,-2.44,0.07,0.07,feh_mean,,,both readings agree
+crater_2,spectroscopic,Ji2021ApJ...921...32J,-2.16,0.04,0.04,feh_mean,,,adjudicated: duplicate printing: table 0.04 over text 0.03 (D-051)
+draco_1,spectroscopic,Geha2026arXiv260210202G,-2.20,0.01,0.01,feh_mean,,,both readings agree
+draco_2,spectroscopic,Cerny2026arXiv260217652C,-2.94,0.39,0.32,feh_mean,3,,both readings agree
+eridanus_2,spectroscopic,Li2017ApJ...838....8L,-2.38,0.13,0.13,feh_mean,16,,both readings agree
+eridanus_4,spectroscopic,Heiger2024ApJ...961..234H,-2.87,0.07,0.08,feh_mean,16,,both readings agree
+fornax_1,spectroscopic,Kirby2013ApJ...779..102K,-1.04,0.01,0.01,feh_mean,672,,both readings agree; original behind Simon 2019 (D-053)
+grus_1,spectroscopic,Chiti2022ApJ...939...41C,-2.62,0.11,0.11,feh_mean,8,,both readings agree
+grus_2,spectroscopic,Simon2020ApJ...892..137S,-2.51,0.11,0.11,feh_mean,,,both readings agree
+hercules_1,spectroscopic,Geha2026arXiv260210202G,-2.64,0.05,0.05,feh_mean,,,both readings agree
+horologium_1,spectroscopic,Koposov2015ApJ...811...62K,-2.76,0.1,0.1,feh_mean,5,,both readings agree
+hydra_2,spectroscopic,Geha2026arXiv260210202G,-2.41,0.17,0.17,feh_mean,,,both readings agree
+hydrus_1,spectroscopic,Koposov2018MNRAS.479.5343K,-2.52,0.09,0.09,feh_mean,,,both readings agree
+leo_1,spectroscopic,Geha2026arXiv260210202G,-1.58,0.01,0.01,feh_mean,,,both readings agree
+leo_2,spectroscopic,Geha2026arXiv260210202G,-1.97,0.02,0.02,feh_mean,,,both readings agree
+leo_4,spectroscopic,Geha2026arXiv260210202G,-2.56,0.08,0.08,feh_mean,,,both readings agree
+leo_5,spectroscopic,Jenkins2021ApJ...920...92J,-2.29,0.17,0.14,feh_mean,7,,both readings agree
+leo_6,spectroscopic,Tan2025ApJ...979..176T,-2.39,0.13,0.10,feh_mean,6,,both readings agree
+lmc,none,,,,,,,no_metallicity_original,LVDB gives no metallicity reference
+pegasus_3,spectroscopic,Geha2026arXiv260210202G,-2.63,0.10,0.10,feh_mean,,,both readings agree
+pegasus_4,spectroscopic,Geha2026arXiv260210202G,-2.52,0.13,0.13,feh_mean,,,both readings agree
+phoenix_2,spectroscopic,Fritz2019A&A...623A.129F,-2.51,0.17,0.19,feh_mean,,,both readings agree
+pictor_2,spectroscopic,Pace2025OJAp....8E.112P,-2.99,0.06,0.06,feh_mean,9,,both readings agree
+pisces_2,spectroscopic,Kirby2015ApJ...810...56K,-2.45,0.07,0.07,feh_mean,4,,both readings agree
+reticulum_2,spectroscopic,Simon2015ApJ...808...95S,-2.65,0.07,0.07,feh_mean,16,,both readings agree
+reticulum_3,spectroscopic,Fritz2019A&A...623A.129F,-2.81,0.29,0.29,feh_mean,,,both readings agree
+sagittarius_1,spectroscopic,Mucciarelli2017A&A...605A..46M,-0.52,0.02,0.02,feh_mean,109,,both readings agree; original behind Simon 2019 (D-053)
+sculptor_1,spectroscopic,Kirby2013ApJ...779..102K,-1.68,0.01,0.01,feh_mean,375,,both readings agree; original behind Simon 2019 (D-053)
+segue_1,spectroscopic,Bissonette2026arXiv260512810B,-2.52,0.10,0.10,feh_mean,45,,both readings agree
+segue_2,spectroscopic,Geha2026arXiv260210202G,-2.27,0.14,0.14,feh_mean,,,both readings agree
+sextans_1,spectroscopic,Kirby2013ApJ...779..102K,-1.94,0.01,0.01,feh_mean,123,,both readings agree; original behind Simon 2019 (D-053)
+smc,none,,,,,,,no_metallicity_original,LVDB gives no metallicity reference
+triangulum_2,spectroscopic,Kirby2017ApJ...838...83K,-2.24,0.05,0.05,feh_mean,6,,both readings agree
+tucana_2,spectroscopic,Chiti2021NatAs...5..392C,-2.77,,,feh_mean,19,,both readings agree
+tucana_3,spectroscopic,Simon2017ApJ...838...11S,-2.42,0.08,0.07,feh_mean,10,,both readings agree
+tucana_4,spectroscopic,Simon2020ApJ...892..137S,-2.49,0.16,0.15,feh_mean,8,,both readings agree
+tucana_5,spectroscopic,Hansen2024ApJ...968...21H,-2.84,0.30,0.32,feh_mean,4,,both readings agree
+ursa_major_1,spectroscopic,Geha2026arXiv260210202G,-2.56,0.07,0.07,feh_mean,,,both readings agree
+ursa_major_2,spectroscopic,Geha2026arXiv260210202G,-2.54,0.07,0.07,feh_mean,,,both readings agree
+ursa_minor_1,spectroscopic,Geha2026arXiv260210202G,-2.23,0.01,0.01,feh_mean,,,both readings agree
+willman_1,spectroscopic,Chiu2026ApJ..1002...55C,-2.45,0.13,0.12,feh_mean,8,,both readings agree
+andromeda_01,spectroscopic,Kirby2020AJ....159...46K,-1.51,0.02,0.02,feh_mean,28,,both readings agree
+andromeda_02,spectroscopic,Wojno2020ApJ...895...78W,-1.47,0.006,0.006,feh_mean,,,both readings agree
+andromeda_03,spectroscopic,Kirby2020AJ....159...46K,-1.75,0.03,0.03,feh_mean,24,,both readings agree
+andromeda_05,spectroscopic,Kirby2020AJ....159...46K,-1.84,0.01,0.01,feh_mean,81,,both readings agree
+andromeda_06,none,Collins2013ApJ...768..172C,-1.5,0.1,0.1,feh_mean,,feh_from_dispersion_paper feh_stacked_spectrum,D-059 item 2: dispersion original; both readings agree
+andromeda_07,spectroscopic,Kirby2020AJ....159...46K,-1.37,0.01,0.01,feh_mean,87,,both readings agree
+andromeda_09,spectroscopic,Wojno2020ApJ...895...78W,-2.03,0.01,0.01,feh_mean,,,both readings agree
+andromeda_10,spectroscopic,Kirby2020AJ....159...46K,-2.27,0.03,0.03,feh_mean,21,,both readings agree
+andromeda_11,none,Collins2013ApJ...768..172C,-1.8,0.1,0.1,feh_mean,,feh_from_dispersion_paper feh_stacked_spectrum,D-059 item 2: dispersion original; both readings agree
+andromeda_12,none,Collins2013ApJ...768..172C,-2.2,0.2,0.2,feh_mean,,feh_from_dispersion_paper feh_stacked_spectrum,D-059 item 2: dispersion original; both readings agree
+andromeda_13,none,Tollerud2012ApJ...752...45T,,,,,,no_metallicity_value,D-059 item 2: dispersion original prints no [Fe/H]; not plotted
+andromeda_14,spectroscopic,Wojno2020ApJ...895...78W,-2.23,0.01,0.01,feh_mean,,,both readings agree
+andromeda_15,spectroscopic,Wojno2020ApJ...895...78W,-1.43,0.42,0.42,feh_mean,,,both readings agree
+andromeda_16,photometric,Fu2024ApJ...975....2F,-2.17,0.05,0.05,feh_mean,95,feh_photometric,both readings agree
+andromeda_17,none,Collins2013ApJ...768..172C,-1.7,0.2,0.2,feh_mean,,feh_from_dispersion_paper feh_stacked_spectrum,D-059 item 2: dispersion original; both readings agree
+andromeda_18,spectroscopic,Kvasova2024ApJ...972..180K,-1.49,,,feh_mean,38,,both readings agree
+andromeda_19,spectroscopic,Cullinane2024ApJ...972..133C,-1.50,0.02,0.02,feh_mean,79,,both readings agree
+andromeda_20,none,Collins2013ApJ...768..172C,-2.2,0.4,0.4,feh_mean,,feh_from_dispersion_paper feh_stacked_spectrum,D-059 item 2: dispersion original; both readings agree
+andromeda_21,spectroscopic,Collins2021MNRAS.505.5686C,-1.7,0.1,0.1,feh_mean,30,,both readings agree
+andromeda_22,none,Collins2013ApJ...768..172C,-1.8,0.6,0.6,feh_mean,,feh_from_dispersion_paper feh_stacked_spectrum,D-059 item 2: dispersion original; both readings agree
+andromeda_23,none,Collins2013ApJ...768..172C,-2.2,0.3,0.3,feh_mean,,feh_from_dispersion_paper feh_stacked_spectrum,D-059 item 2: dispersion original; both readings agree
+andromeda_24,none,,,,,,,no_metallicity_original,LVDB gives no metallicity reference
+andromeda_25,spectroscopic,Charles2023MNRAS.521.3527C,-1.9,0.1,0.1,feh_mean,41,,both readings agree
+andromeda_26,none,,,,,,,no_metallicity_original,LVDB gives no metallicity reference
+andromeda_27,none,Collins2013ApJ...768..172C,-2.1,0.5,0.5,feh_mean,,feh_from_dispersion_paper feh_stacked_spectrum,D-059 item 2: dispersion original; both readings agree
+andromeda_28,spectroscopic,Slater2015ApJ...806..230S,-1.84,0.15,0.15,feh_mean,13,,both readings agree
+andromeda_29,spectroscopic,Slater2015ApJ...806..230S,-1.90,0.12,0.12,feh_mean,17,,both readings agree
+cassiopeia_2,none,Collins2013ApJ...768..172C,-1.7,0.4,0.4,feh_mean,,feh_from_dispersion_paper feh_stacked_spectrum,D-059 item 2: dispersion original; both readings agree
+cassiopeia_3,spectroscopic,Martin2014ApJ...793L..14M,-1.7,0.1,0.1,feh_median,,feh_median,both readings agree
+lacerta_1,spectroscopic,Martin2014ApJ...793L..14M,-2.0,0.1,0.1,feh_median,,feh_median,both readings agree
+lgs_3,none,,,,,,,no_metallicity_original,LVDB gives no metallicity reference
+m_032,none,,,,,,,no_metallicity_original,LVDB gives no metallicity reference
+ngc_0147,none,,,,,,,no_metallicity_original,LVDB gives no metallicity reference
+ngc_0185,none,,,,,,,no_metallicity_original,LVDB gives no metallicity reference
+ngc_0205,none,,,,,,,no_metallicity_original,LVDB gives no metallicity reference
+perseus_1,spectroscopic,Martin2014ApJ...793L..14M,-2.0,0.2,0.2,feh_stacked,,feh_stacked_spectrum,"adjudicated: both read -2.0 +-0.2 (12 stars); labelled mean by reader 1, other by reader 2: a stacked-spectrum value"
+antlia_b,none,,,,,,,no_metallicity_original,LVDB gives no metallicity reference
+aquarius_1,spectroscopic,Kirby2017ApJ...834....9K,-1.50,0.06,0.06,feh_mean,23,,both readings agree
+cetus_1,spectroscopic,Taibi2018A&A...618A.122T,-1.71,,,feh_median,54,feh_median,both readings agree
+ic_1613,spectroscopic,Kirby2013ApJ...779..102K,-1.19,0.01,0.01,feh_mean,125,,both readings agree
+leo_a,spectroscopic,Kirby2017ApJ...834....9K,-1.67,0.08,0.09,feh_mean,113,,both readings agree
+leo_t,spectroscopic,Kirby2013ApJ...779..102K,-1.74,0.04,0.04,feh_mean,16,,both readings agree
+ngc_6822,spectroscopic,Kirby2013ApJ...779..102K,-1.05,0.01,0.01,feh_mean,278,,both readings agree
+pegasus_dirr,spectroscopic,Kirby2013ApJ...779..102K,-1.39,0.01,0.01,feh_mean,95,,both readings agree
+phoenix_1,spectroscopic,Kacharov2017MNRAS.466.2006K,-1.49,0.04,0.04,feh_mean,,,both readings agree
+sagittarius_dirr,spectroscopic,Kirby2017ApJ...834....9K,-1.88,0.09,0.13,feh_mean,43,,both readings agree
+tucana_1,spectroscopic,Taibi2020A&A...635A.152T,-1.58,,,feh_median,,feh_median,both readings agree
+ugc_04879,spectroscopic,Kirby2013ApJ...779..102K,-1.43,0.02,0.02,feh_mean,,,adjudicated: printed as VV 124; Kirby et al. 2014 abstract: 'VV 124 (UGC 4879)'; both readers read -1.43 +-0.02
+wlm,spectroscopic,Leaman2013ApJ...767..131L,-1.28,0.02,0.02,feh_mean,126,,both readings agree
