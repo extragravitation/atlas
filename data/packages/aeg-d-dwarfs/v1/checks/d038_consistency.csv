@@ -1,0 +1,14 @@
+key,original,sigma_original,lo_original,hi_original,limit_original,sigma_geha,lo_geha,hi_geha,limit_geha,z,consistent
+bootes_1,Sandford 2026 ApJ 998 47,4.0,0.3,0.4,none,3.19,0.41,0.48,,-1.431,yes
+bootes_3,Li 2026 arXiv 2607.07803,1.69,0.85,1.03,none,5.27,1.67,2.1,,1.825,yes
+draco_2,Cerny 2026 arXiv 2602.17652,2.6,,,upper,2.64,,,upper,,yes
+eridanus_4,Heiger 2024 ApJ 961 234,6.1,0.9,1.2,none,4.55,0.89,1.15,,-1.061,yes
+fornax_1,Hendricks 2014 A&A 572 A82,11.84,0.45,0.45,none,11.71,0.33,0.36,,-0.226,yes
+hercules_1,Ou 2024 ApJ 966 33,1.8,0.6,0.6,none,2.25,0.61,0.67,,0.526,yes
+leo_1,Koch 2007 ApJ 657 241,9.9,1.5,1.5,none,9.29,0.26,0.26,,-0.401,yes
+leo_2,Spencer 2017 ApJ 836 202,7.4,0.4,0.4,none,7.53,0.36,0.39,,0.242,yes
+segue_1,Simon 2011 ApJ 733 46,3.7,1.1,1.4,none,3.97,0.86,0.97,,0.164,yes
+segue_2,Kirby 2013 ApJ 770 16,2.2,,,upper,2.06,,,upper,,yes
+sextans_1,Battaglia 2011 MNRAS 411 1013,8.4,0.4,0.4,none,8.77,0.47,0.49,,0.600,yes
+triangulum_2,Kirby 2017 ApJ 838 83,3.4,,,upper,5.54,,,upper,,yes
+willman_1,Chiu 2026 ApJ 1002 55,4.7,1.3,1.5,none,3.97,0.72,0.88,,-0.465,yes
