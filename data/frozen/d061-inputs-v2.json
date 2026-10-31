@@ -1,0 +1,9 @@
+{
+  "description": "A5 conversion-input assembly, version 2 (adds Leo II from Monelli 2025). Frozen before it was run and before the Monelli readings were seen.",
+  "frozen_on": "2026-10-31",
+  "decision": "D-052",
+  "spec": "data/packages/aeg-d-dwarfs/v1/reproduction/inputs_v2.py docstring",
+  "files": {
+    "data/packages/aeg-d-dwarfs/v1/reproduction/inputs_v2.py": "5fd77b8675e871c509884d4d8bdc2acba23c6e049a2038d5da89e95d07889406"
+  }
+}

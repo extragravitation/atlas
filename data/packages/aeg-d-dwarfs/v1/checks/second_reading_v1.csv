@@ -1,0 +1,471 @@
+key,block,paper,number,package_value,found
+andromeda_01,sigma,Tollerud 2012 ApJ 752 45,sigma,10.2,yes
+andromeda_01,sigma,Tollerud 2012 ApJ 752 45,err_minus,1.9,yes
+andromeda_01,sigma,Tollerud 2012 ApJ 752 45,err_plus,1.9,yes
+andromeda_01,structure,Martin2016ApJ...833..167M,r_h,3.9,yes
+andromeda_01,structure,Martin2016ApJ...833..167M,ellipticity,0.28,yes
+andromeda_01,distance,Savino2022ApJ...938..101S,distance,24.45,yes
+andromeda_01,magnitude,Martin2016ApJ...833..167M,m_V0,13.1,yes
+andromeda_02,sigma,Ho 2012 ApJ 758 124,sigma,7.8,yes
+andromeda_02,sigma,Ho 2012 ApJ 758 124,err_minus,1.1,yes
+andromeda_02,sigma,Ho 2012 ApJ 758 124,err_plus,1.1,yes
+andromeda_02,structure,Martin2016ApJ...833..167M,r_h,5.3,yes
+andromeda_02,structure,Martin2016ApJ...833..167M,ellipticity,0.16,yes
+andromeda_02,distance,Savino2022ApJ...938..101S,distance,24.12,yes
+andromeda_02,magnitude,Martin2016ApJ...833..167M,m_V0,12.4,yes
+andromeda_03,sigma,Tollerud 2012 ApJ 752 45,sigma,9.3,yes
+andromeda_03,sigma,Tollerud 2012 ApJ 752 45,err_minus,1.4,yes
+andromeda_03,sigma,Tollerud 2012 ApJ 752 45,err_plus,1.4,yes
+andromeda_03,structure,Martin2016ApJ...833..167M,r_h,2.0,yes
+andromeda_03,structure,Martin2016ApJ...833..167M,ellipticity,0.59,yes
+andromeda_03,distance,Savino2022ApJ...938..101S,distance,24.29,yes
+andromeda_03,magnitude,Martin2016ApJ...833..167M,m_V0,14.8,yes
+andromeda_05,sigma,Tollerud 2012 ApJ 752 45,sigma,10.5,yes
+andromeda_05,sigma,Tollerud 2012 ApJ 752 45,err_minus,1.1,yes
+andromeda_05,sigma,Tollerud 2012 ApJ 752 45,err_plus,1.1,yes
+andromeda_05,structure,Martin2016ApJ...833..167M,r_h,1.6,yes
+andromeda_05,structure,Martin2016ApJ...833..167M,ellipticity,0.26,yes
+andromeda_05,distance,Savino2022ApJ...938..101S,distance,24.4,yes
+andromeda_05,magnitude,Martin2016ApJ...833..167M,m_V0,15.1,yes
+andromeda_06,sigma,Collins 2013 ApJ 768 172,sigma,12.4,yes
+andromeda_06,sigma,Collins 2013 ApJ 768 172,err_minus,1.3,yes
+andromeda_06,sigma,Collins 2013 ApJ 768 172,err_plus,1.5,yes
+andromeda_06,structure,McConnachie2006MNRAS.365.1263M,r_h,1.8,yes
+andromeda_06,structure,McConnachie2006MNRAS.365.1263M,ellipticity,0.41,yes
+andromeda_06,distance,Savino2022ApJ...938..101S,distance,24.6,yes
+andromeda_06,magnitude,McConnachie2006MNRAS.365.1263M,magnitude,-11.5,yes
+andromeda_06,magnitude,McConnachie2006MNRAS.365.1263M,magnitude,24.47,yes
+andromeda_06,magnitude,McConnachie2005MNRAS.356..979M,magnitude,-11.5,yes
+andromeda_06,magnitude,McConnachie2005MNRAS.356..979M,magnitude,24.47,yes
+andromeda_07,sigma,Tollerud 2012 ApJ 752 45,sigma,13.0,yes
+andromeda_07,sigma,Tollerud 2012 ApJ 752 45,err_minus,1.0,yes
+andromeda_07,sigma,Tollerud 2012 ApJ 752 45,err_plus,1.0,yes
+andromeda_07,structure,McConnachie2006MNRAS.365.1263M,r_h,3.3,yes
+andromeda_07,structure,McConnachie2006MNRAS.365.1263M,ellipticity,0.13,yes
+andromeda_07,distance,Savino2022ApJ...938..101S,distance,24.58,yes
+andromeda_07,magnitude,McConnachie2006MNRAS.365.1263M,magnitude,-13.3,yes
+andromeda_07,magnitude,McConnachie2006MNRAS.365.1263M,magnitude,24.41,yes
+andromeda_07,magnitude,McConnachie2005MNRAS.356..979M,magnitude,-13.3,yes
+andromeda_07,magnitude,McConnachie2005MNRAS.356..979M,magnitude,24.41,yes
+andromeda_09,sigma,Tollerud 2012 ApJ 752 45,sigma,10.9,yes
+andromeda_09,sigma,Tollerud 2012 ApJ 752 45,err_minus,2.0,yes
+andromeda_09,sigma,Tollerud 2012 ApJ 752 45,err_plus,2.0,yes
+andromeda_09,structure,Martin2016ApJ...833..167M,r_h,2.0,yes
+andromeda_09,structure,Martin2016ApJ...833..167M,ellipticity,0.0,yes
+andromeda_09,distance,Savino2022ApJ...938..101S,distance,24.23,yes
+andromeda_09,magnitude,Martin2016ApJ...833..167M,m_V0,15.6,yes
+andromeda_10,sigma,Tollerud 2012 ApJ 752 45,sigma,6.4,yes
+andromeda_10,sigma,Tollerud 2012 ApJ 752 45,err_minus,1.4,yes
+andromeda_10,sigma,Tollerud 2012 ApJ 752 45,err_plus,1.4,yes
+andromeda_10,structure,Martin2016ApJ...833..167M,r_h,1.1,yes
+andromeda_10,structure,Martin2016ApJ...833..167M,ellipticity,0.1,yes
+andromeda_10,distance,Savino2022ApJ...938..101S,distance,24.0,yes
+andromeda_10,magnitude,Martin2016ApJ...833..167M,m_V0,16.7,yes
+andromeda_11,sigma,Collins 2013 ApJ 768 172,sigma,7.6,yes
+andromeda_11,sigma,Collins 2013 ApJ 768 172,err_minus,2.8,yes
+andromeda_11,sigma,Collins 2013 ApJ 768 172,err_plus,4.0,yes
+andromeda_11,structure,Martin2016ApJ...833..167M,r_h,0.6,yes
+andromeda_11,structure,Martin2016ApJ...833..167M,ellipticity,0.19,yes
+andromeda_11,distance,Savino2022ApJ...938..101S,distance,24.38,yes
+andromeda_11,magnitude,Martin2016ApJ...833..167M,m_V0,18.0,yes
+andromeda_14,sigma,Tollerud 2012 ApJ 752 45,sigma,5.3,yes
+andromeda_14,sigma,Tollerud 2012 ApJ 752 45,err_minus,1.0,yes
+andromeda_14,sigma,Tollerud 2012 ApJ 752 45,err_plus,1.0,yes
+andromeda_14,structure,Martin2016ApJ...833..167M,r_h,1.5,yes
+andromeda_14,structure,Martin2016ApJ...833..167M,ellipticity,0.17,yes
+andromeda_14,distance,Savino2022ApJ...938..101S,distance,24.44,yes
+andromeda_14,magnitude,Martin2016ApJ...833..167M,m_V0,15.8,yes
+andromeda_15,sigma,Tollerud 2012 ApJ 752 45,sigma,4.0,yes
+andromeda_15,sigma,Tollerud 2012 ApJ 752 45,err_minus,1.4,yes
+andromeda_15,sigma,Tollerud 2012 ApJ 752 45,err_plus,1.4,yes
+andromeda_15,structure,Martin2016ApJ...833..167M,r_h,1.3,yes
+andromeda_15,structure,Martin2016ApJ...833..167M,ellipticity,0.24,yes
+andromeda_15,distance,Savino2022ApJ...938..101S,distance,24.37,yes
+andromeda_15,magnitude,Martin2016ApJ...833..167M,m_V0,16.0,yes
+andromeda_16,sigma,Tollerud 2012 ApJ 752 45,sigma,3.8,yes
+andromeda_16,sigma,Tollerud 2012 ApJ 752 45,err_minus,2.9,yes
+andromeda_16,sigma,Tollerud 2012 ApJ 752 45,err_plus,2.9,yes
+andromeda_16,structure,Martin2016ApJ...833..167M,r_h,1.0,yes
+andromeda_16,structure,Martin2016ApJ...833..167M,ellipticity,0.29,yes
+andromeda_16,distance,MartinezVazquez2017ApJ...850..137M,distance,23.7,yes
+andromeda_16,magnitude,Martin2016ApJ...833..167M,m_V0,16.1,yes
+andromeda_17,sigma,Collins 2013 ApJ 768 172,sigma,2.9,yes
+andromeda_17,sigma,Collins 2013 ApJ 768 172,err_minus,1.9,yes
+andromeda_17,sigma,Collins 2013 ApJ 768 172,err_plus,2.2,yes
+andromeda_17,structure,Martin2016ApJ...833..167M,r_h,1.4,yes
+andromeda_17,structure,Martin2016ApJ...833..167M,ellipticity,0.5,yes
+andromeda_17,distance,Savino2022ApJ...938..101S,distance,24.4,yes
+andromeda_17,magnitude,Martin2016ApJ...833..167M,m_V0,16.6,yes
+andromeda_18,sigma,Kvasova 2024 ApJ 972 180,sigma,10.0,yes
+andromeda_18,sigma,Kvasova 2024 ApJ 972 180,err_minus,1.0,yes
+andromeda_18,sigma,Kvasova 2024 ApJ 972 180,err_plus,1.1,yes
+andromeda_18,structure,Higgs2021MNRAS.503..176H,r_h,0.92,yes
+andromeda_18,structure,Higgs2021MNRAS.503..176H,ellipticity,0.44,yes
+andromeda_18,distance,Higgs2021MNRAS.503..176H,distance,25.36,yes
+andromeda_18,magnitude,Martin2016ApJ...833..167M,m_V0,16.2,yes
+andromeda_19,sigma,Collins 2013 ApJ 768 172,sigma,4.7,yes
+andromeda_19,sigma,Collins 2013 ApJ 768 172,err_minus,1.4,yes
+andromeda_19,sigma,Collins 2013 ApJ 768 172,err_plus,1.6,yes
+andromeda_19,structure,Martin2016ApJ...833..167M,r_h,14.2,yes
+andromeda_19,structure,Martin2016ApJ...833..167M,ellipticity,0.58,yes
+andromeda_19,distance,Savino2022ApJ...938..101S,distance,24.55,yes
+andromeda_19,magnitude,Martin2016ApJ...833..167M,m_V0,14.5,yes
+andromeda_20,sigma,Collins 2013 ApJ 768 172,sigma,7.1,yes
+andromeda_20,sigma,Collins 2013 ApJ 768 172,err_minus,2.5,yes
+andromeda_20,sigma,Collins 2013 ApJ 768 172,err_plus,3.9,yes
+andromeda_20,structure,Martin2016ApJ...833..167M,r_h,0.4,yes
+andromeda_20,structure,Martin2016ApJ...833..167M,ellipticity,0.11,yes
+andromeda_20,distance,Savino2022ApJ...938..101S,distance,24.35,yes
+andromeda_20,magnitude,Martin2016ApJ...833..167M,m_V0,18.0,yes
+andromeda_21,sigma,Collins 2021 MNRAS 505 5686,sigma,6.1,yes
+andromeda_21,sigma,Collins 2021 MNRAS 505 5686,err_minus,0.9,yes
+andromeda_21,sigma,Collins 2021 MNRAS 505 5686,err_plus,1.0,yes
+andromeda_21,structure,Martin2016ApJ...833..167M,r_h,4.1,yes
+andromeda_21,structure,Martin2016ApJ...833..167M,ellipticity,0.36,yes
+andromeda_21,distance,Savino2022ApJ...938..101S,distance,24.44,yes
+andromeda_21,magnitude,Martin2016ApJ...833..167M,m_V0,15.5,yes
+andromeda_22,sigma,Collins 2013 ApJ 768 172,sigma,2.8,yes
+andromeda_22,sigma,Collins 2013 ApJ 768 172,err_minus,1.4,yes
+andromeda_22,sigma,Collins 2013 ApJ 768 172,err_plus,1.9,yes
+andromeda_22,structure,Martin2016ApJ...833..167M,r_h,0.9,yes
+andromeda_22,structure,Martin2016ApJ...833..167M,ellipticity,0.61,yes
+andromeda_22,distance,Savino2022ApJ...938..101S,distance,24.39,yes
+andromeda_22,magnitude,Martin2016ApJ...833..167M,m_V0,18.0,yes
+andromeda_23,sigma,Collins 2013 ApJ 768 172,sigma,7.1,yes
+andromeda_23,sigma,Collins 2013 ApJ 768 172,err_minus,1.0,yes
+andromeda_23,sigma,Collins 2013 ApJ 768 172,err_plus,1.0,yes
+andromeda_23,structure,Martin2016ApJ...833..167M,r_h,5.4,yes
+andromeda_23,structure,Martin2016ApJ...833..167M,ellipticity,0.41,yes
+andromeda_23,distance,Savino2022ApJ...938..101S,distance,24.36,yes
+andromeda_23,magnitude,Martin2016ApJ...833..167M,m_V0,14.6,yes
+andromeda_25,sigma,Collins 2013 ApJ 768 172,sigma,3.0,yes
+andromeda_25,sigma,Collins 2013 ApJ 768 172,err_minus,1.1,yes
+andromeda_25,sigma,Collins 2013 ApJ 768 172,err_plus,1.2,yes
+andromeda_25,structure,Martin2016ApJ...833..167M,r_h,2.7,yes
+andromeda_25,structure,Martin2016ApJ...833..167M,ellipticity,0.03,yes
+andromeda_25,distance,Savino2022ApJ...938..101S,distance,24.38,yes
+andromeda_25,magnitude,Martin2016ApJ...833..167M,m_V0,15.3,yes
+andromeda_27,sigma,Collins 2013 ApJ 768 172,sigma,14.8,yes
+andromeda_27,sigma,Collins 2013 ApJ 768 172,err_minus,3.1,yes
+andromeda_27,sigma,Collins 2013 ApJ 768 172,err_plus,4.3,yes
+andromeda_27,structure,Richardson2011ApJ...732...76R,r_h,1.8,yes
+andromeda_27,structure,Richardson2011ApJ...732...76R,ellipticity,0.4,yes
+andromeda_27,distance,Richardson2011ApJ...732...76R,distance,24.59,yes
+andromeda_27,magnitude,Richardson2011ApJ...732...76R,M_V,-7.9,yes
+andromeda_27,magnitude,Richardson2011ApJ...732...76R,mv_modulus,,no
+andromeda_28,sigma,Collins 2013 ApJ 768 172,sigma,6.6,yes
+andromeda_28,sigma,Collins 2013 ApJ 768 172,err_minus,2.1,yes
+andromeda_28,sigma,Collins 2013 ApJ 768 172,err_plus,2.9,yes
+andromeda_28,structure,Higgs2021MNRAS.503..176H,r_h,1.38,yes
+andromeda_28,structure,Higgs2021MNRAS.503..176H,ellipticity,0.42,yes
+andromeda_28,distance,Savino2022ApJ...938..101S,distance,24.36,yes
+andromeda_28,magnitude,Slater2015ApJ...806..230S,M_V,-8.7,yes
+andromeda_28,magnitude,Slater2015ApJ...806..230S,mv_modulus,,no
+antlia_2,sigma,Ji 2021 ApJ 921 32,sigma,7.69,yes
+antlia_2,sigma,Ji 2021 ApJ 921 32,err_minus,0.37,yes
+antlia_2,sigma,Ji 2021 ApJ 921 32,err_plus,0.4,yes
+antlia_2,structure,Ji2021ApJ...921...32J,r_h,66.3,yes
+antlia_2,structure,Ji2021ApJ...921...32J,ellipticity,0.6,yes
+antlia_2,distance,Vivas2022ApJ...926...78V,distance,20.47,yes
+antlia_2,magnitude,Ji2021ApJ...921...32J,M_V,-9.86,yes
+antlia_2,magnitude,Ji2021ApJ...921...32J,mv_modulus,,no
+aquarius_2,sigma,Geha 2026 ApJ 999 140,sigma,5.31,yes
+aquarius_2,sigma,Geha 2026 ApJ 999 140,err_minus,1.6,yes
+aquarius_2,sigma,Geha 2026 ApJ 999 140,err_plus,2.72,yes
+aquarius_2,structure,Torrealba2016MNRAS.463..712T,r_h,5.1,yes
+aquarius_2,structure,Torrealba2016MNRAS.463..712T,ellipticity,0.39,yes
+aquarius_2,distance,Torrealba2016MNRAS.463..712T,distance,20.16,yes
+aquarius_2,magnitude,Torrealba2016MNRAS.463..712T,M_V,-4.36,yes
+aquarius_2,magnitude,Torrealba2016MNRAS.463..712T,mv_modulus,,no
+aquarius_3,sigma,Geha 2026 ApJ 999 140,sigma,3.65,yes
+aquarius_3,sigma,Geha 2026 ApJ 999 140,limit,upper,yes
+aquarius_3,structure,Cerny2025ApJ...979..164C,r_h,2.1,yes
+aquarius_3,structure,Cerny2025ApJ...979..164C,ellipticity,0.47,yes
+aquarius_3,distance,Cerny2025ApJ...979..164C,distance,19.66,yes
+aquarius_3,magnitude,Cerny2025ApJ...979..164C,M_V,-2.5,yes
+aquarius_3,magnitude,Cerny2025ApJ...979..164C,mv_modulus,,no
+bootes_1,sigma,Sandford 2026 ApJ 998 47,sigma,4.0,yes
+bootes_1,sigma,Sandford 2026 ApJ 998 47,err_minus,0.3,yes
+bootes_1,sigma,Sandford 2026 ApJ 998 47,err_plus,0.4,yes
+bootes_1,structure,Munoz2018ApJ...860...66M,r_h,11.26,yes
+bootes_1,structure,Munoz2018ApJ...860...66M,ellipticity,0.25,yes
+bootes_1,distance,DallOra2006ApJ...653L.109D,distance,19.11,yes
+bootes_1,magnitude,Munoz2018ApJ...860...66M,M_V,-6.02,yes
+bootes_1,magnitude,Munoz2018ApJ...860...66M,mv_distance,66.0,yes
+bootes_2,sigma,Geha 2026 ApJ 999 140,sigma,1.92,yes
+bootes_2,sigma,Geha 2026 ApJ 999 140,err_minus,0.6,yes
+bootes_2,sigma,Geha 2026 ApJ 999 140,err_plus,0.77,yes
+bootes_2,structure,Munoz2018ApJ...860...66M,r_h,3.05,yes
+bootes_2,structure,Munoz2018ApJ...860...66M,ellipticity,0.24,yes
+bootes_2,distance,Walsh2008ApJ...688..245W,distance,18.1,yes
+bootes_2,magnitude,Munoz2018ApJ...860...66M,M_V,-2.94,yes
+bootes_2,magnitude,Munoz2018ApJ...860...66M,mv_distance,42.0,yes
+bootes_3,sigma,Li 2026 arXiv 2607.07803,sigma,1.69,yes
+bootes_3,sigma,Li 2026 arXiv 2607.07803,err_minus,0.85,yes
+bootes_3,sigma,Li 2026 arXiv 2607.07803,err_plus,1.03,yes
+bootes_3,structure,Moskowitz2020ApJ...892...27M,r_h,33.03,yes
+bootes_3,structure,Moskowitz2020ApJ...892...27M,ellipticity,0.33,yes
+bootes_3,distance,Li2026arXiv260707803L,distance,18.43,yes
+bootes_3,magnitude,Correnti2009MNRAS.397L..26C,magnitude,-5.8,yes
+canes_venatici_1,sigma,Geha 2026 ApJ 999 140,sigma,7.66,yes
+canes_venatici_1,sigma,Geha 2026 ApJ 999 140,err_minus,0.41,yes
+canes_venatici_1,sigma,Geha 2026 ApJ 999 140,err_plus,0.44,yes
+canes_venatici_1,structure,Munoz2018ApJ...860...66M,r_h,7.67,yes
+canes_venatici_1,structure,Munoz2018ApJ...860...66M,ellipticity,0.46,yes
+canes_venatici_1,distance,Kuehn2008ApJ...674L..81K,distance,21.62,yes
+canes_venatici_1,magnitude,Munoz2018ApJ...860...66M,M_V,-8.8,yes
+canes_venatici_1,magnitude,Munoz2018ApJ...860...66M,mv_distance,218.0,yes
+canes_venatici_2,sigma,Geha 2026 ApJ 999 140,sigma,5.28,yes
+canes_venatici_2,sigma,Geha 2026 ApJ 999 140,err_minus,0.96,yes
+canes_venatici_2,sigma,Geha 2026 ApJ 999 140,err_plus,1.25,yes
+canes_venatici_2,structure,Munoz2018ApJ...860...66M,r_h,1.51,yes
+canes_venatici_2,structure,Munoz2018ApJ...860...66M,ellipticity,0.46,yes
+canes_venatici_2,distance,Greco2008ApJ...675L..73G,distance,21.02,yes
+canes_venatici_2,magnitude,Munoz2018ApJ...860...66M,M_V,-5.17,yes
+canes_venatici_2,magnitude,Munoz2018ApJ...860...66M,mv_distance,160.0,yes
+cassiopeia_2,sigma,Collins 2013 ApJ 768 172,sigma,11.8,yes
+cassiopeia_2,sigma,Collins 2013 ApJ 768 172,err_minus,4.7,yes
+cassiopeia_2,sigma,Collins 2013 ApJ 768 172,err_plus,7.7,yes
+cassiopeia_2,structure,Martin2016ApJ...833..167M,r_h,1.5,yes
+cassiopeia_2,structure,Martin2016ApJ...833..167M,ellipticity,0.43,yes
+cassiopeia_2,distance,Savino2022ApJ...938..101S,distance,23.74,yes
+cassiopeia_2,magnitude,Martin2016ApJ...833..167M,m_V0,16.0,yes
+columba_1,sigma,Geha 2026 ApJ 999 140,sigma,5.96,yes
+columba_1,sigma,Geha 2026 ApJ 999 140,err_minus,1.81,yes
+columba_1,sigma,Geha 2026 ApJ 999 140,err_plus,2.78,yes
+columba_1,structure,Carlin2017AJ....154..267C,r_h,2.2,yes
+columba_1,structure,Carlin2017AJ....154..267C,ellipticity,0.3,yes
+columba_1,distance,Carlin2017AJ....154..267C,distance,21.31,yes
+columba_1,magnitude,Carlin2017AJ....154..267C,M_V,-4.2,yes
+columba_1,magnitude,Carlin2017AJ....154..267C,mv_modulus,,no
+coma_berenices_1,sigma,Geha 2026 ApJ 999 140,sigma,3.33,yes
+coma_berenices_1,sigma,Geha 2026 ApJ 999 140,err_minus,0.46,yes
+coma_berenices_1,sigma,Geha 2026 ApJ 999 140,err_plus,0.58,yes
+coma_berenices_1,structure,Munoz2018ApJ...860...66M,r_h,5.63,yes
+coma_berenices_1,structure,Munoz2018ApJ...860...66M,ellipticity,0.37,yes
+coma_berenices_1,distance,Musella2009ApJ...695L..83M,distance,18.13,yes
+coma_berenices_1,magnitude,Munoz2018ApJ...860...66M,M_V,-4.38,yes
+coma_berenices_1,magnitude,Munoz2018ApJ...860...66M,mv_distance,44.0,yes
+draco_1,sigma,Geha 2026 ApJ 999 140,sigma,9.55,yes
+draco_1,sigma,Geha 2026 ApJ 999 140,err_minus,0.25,yes
+draco_1,sigma,Geha 2026 ApJ 999 140,err_plus,0.26,yes
+draco_1,structure,Munoz2018ApJ...860...66M,r_h,9.93,yes
+draco_1,structure,Munoz2018ApJ...860...66M,ellipticity,0.3,yes
+draco_1,distance,Bhardwaj2024AJ....167..247B,distance,19.557,yes
+draco_1,magnitude,Munoz2018ApJ...860...66M,M_V,-8.71,yes
+draco_1,magnitude,Munoz2018ApJ...860...66M,mv_distance,76.0,yes
+draco_2,sigma,Cerny 2026 arXiv 2602.17652,sigma,2.6,yes
+draco_2,sigma,Cerny 2026 arXiv 2602.17652,limit,upper,yes
+draco_2,structure,Longeard2018MNRAS.480.2609L,r_h,3.0,yes
+draco_2,structure,Longeard2018MNRAS.480.2609L,ellipticity,0.23,yes
+draco_2,distance,Longeard2018MNRAS.480.2609L,distance,16.67,yes
+draco_2,magnitude,Longeard2018MNRAS.480.2609L,M_V,-0.8,yes
+draco_2,magnitude,Longeard2018MNRAS.480.2609L,mv_modulus,,no
+eridanus_4,sigma,Heiger 2024 ApJ 961 234,sigma,6.1,yes
+eridanus_4,sigma,Heiger 2024 ApJ 961 234,err_minus,0.9,yes
+eridanus_4,sigma,Heiger 2024 ApJ 961 234,err_plus,1.2,yes
+eridanus_4,structure,Casey2025ApJ...984..148C,r_h,3.24,yes
+eridanus_4,structure,Casey2025ApJ...984..148C,ellipticity,0.26,yes
+eridanus_4,distance,Cerny2021ApJ...920L..44C,distance,19.42,yes
+eridanus_4,magnitude,Casey2025ApJ...984..148C,M_V,-3.55,yes
+eridanus_4,magnitude,Casey2025ApJ...984..148C,mv_modulus,,no
+fornax_1,sigma,Hendricks 2014 A&A 572 A82,sigma,11.84,yes
+fornax_1,sigma,Hendricks 2014 A&A 572 A82,err_minus,0.45,yes
+fornax_1,sigma,Hendricks 2014 A&A 572 A82,err_plus,0.45,yes
+fornax_1,structure,Wang2019ApJ...881..118W,r_h,19.8,yes
+fornax_1,structure,Wang2019ApJ...881..118W,ellipticity,0.31,yes
+fornax_1,distance,Oakes2022ApJ...929..116O,distance,20.77,yes
+fornax_1,magnitude,Munoz2018ApJ...860...66M,M_V,-13.46,yes
+fornax_1,magnitude,Munoz2018ApJ...860...66M,mv_distance,147.0,yes
+hercules_1,sigma,Ou 2024 ApJ 966 33,sigma,1.8,yes
+hercules_1,sigma,Ou 2024 ApJ 966 33,err_minus,0.6,yes
+hercules_1,sigma,Ou 2024 ApJ 966 33,err_plus,0.6,yes
+hercules_1,structure,Munoz2018ApJ...860...66M,r_h,5.99,yes
+hercules_1,structure,Munoz2018ApJ...860...66M,ellipticity,0.69,yes
+hercules_1,distance,MutluPakdil2020ApJ...902..106M,distance,20.58,yes
+hercules_1,magnitude,Munoz2018ApJ...860...66M,M_V,-5.83,yes
+hercules_1,magnitude,Munoz2018ApJ...860...66M,mv_distance,132.0,yes
+hydra_2,sigma,Geha 2026 ApJ 999 140,sigma,4.11,yes
+hydra_2,sigma,Geha 2026 ApJ 999 140,limit,upper,yes
+hydra_2,structure,Munoz2018ApJ...860...66M,r_h,1.5,yes
+hydra_2,structure,Munoz2018ApJ...860...66M,ellipticity,0.17,yes
+hydra_2,distance,Vivas2016AJ....151..118V,distance,151.0,yes
+hydra_2,magnitude,Richstein2024ApJ...967...72R,m_V0,15.8,yes
+hydrus_1,sigma,Koposov 2018 MNRAS 479 5343,sigma,2.69,yes
+hydrus_1,sigma,Koposov 2018 MNRAS 479 5343,err_minus,0.43,yes
+hydrus_1,sigma,Koposov 2018 MNRAS 479 5343,err_plus,0.51,yes
+hydrus_1,structure,Koposov2018MNRAS.479.5343K,r_h,7.42,yes
+hydrus_1,structure,Koposov2018MNRAS.479.5343K,ellipticity,0.21,yes
+hydrus_1,distance,Koposov2018MNRAS.479.5343K,distance,17.2,yes
+hydrus_1,magnitude,Koposov2018MNRAS.479.5343K,M_V,-4.71,yes
+hydrus_1,magnitude,Koposov2018MNRAS.479.5343K,mv_modulus,,no
+leo_1,sigma,Koch 2007 ApJ 657 241,sigma,9.9,yes
+leo_1,sigma,Koch 2007 ApJ 657 241,err_minus,1.5,yes
+leo_1,sigma,Koch 2007 ApJ 657 241,err_plus,1.5,yes
+leo_1,structure,Munoz2018ApJ...860...66M,r_h,3.3,yes
+leo_1,structure,Munoz2018ApJ...860...66M,ellipticity,0.3,yes
+leo_1,distance,Stetson2014PASP..126..616S,distance_modulus,22.06,yes
+leo_1,distance,Stetson2014PASP..126..616S,distance_modulus,22.25,yes
+leo_1,magnitude,Munoz2018ApJ...860...66M,M_V,-11.78,yes
+leo_1,magnitude,Munoz2018ApJ...860...66M,mv_distance,254.0,yes
+leo_4,sigma,Geha 2026 ApJ 999 140,sigma,3.29,yes
+leo_4,sigma,Geha 2026 ApJ 999 140,err_minus,0.66,yes
+leo_4,sigma,Geha 2026 ApJ 999 140,err_plus,0.89,yes
+leo_4,structure,Munoz2018ApJ...860...66M,r_h,2.61,yes
+leo_4,structure,Munoz2018ApJ...860...66M,ellipticity,0.19,yes
+leo_4,distance,Medina2018ApJ...855...43M,distance,151.4,yes
+leo_4,magnitude,Munoz2018ApJ...860...66M,M_V,-4.99,yes
+leo_4,magnitude,Munoz2018ApJ...860...66M,mv_distance,154.0,yes
+leo_5,sigma,Geha 2026 ApJ 999 140,sigma,3.37,yes
+leo_5,sigma,Geha 2026 ApJ 999 140,err_minus,1.04,yes
+leo_5,sigma,Geha 2026 ApJ 999 140,err_plus,1.72,yes
+leo_5,structure,Munoz2018ApJ...860...66M,r_h,1.0,yes
+leo_5,structure,Munoz2018ApJ...860...66M,ellipticity,0.35,yes
+leo_5,distance,Medina2018ApJ...855...43M,distance,169.0,yes
+leo_5,magnitude,Munoz2018ApJ...860...66M,M_V,-4.4,yes
+leo_5,magnitude,Munoz2018ApJ...860...66M,mv_distance,178.0,yes
+leo_6,sigma,Geha 2026 ApJ 999 140,sigma,3.78,yes
+leo_6,sigma,Geha 2026 ApJ 999 140,err_minus,1.37,yes
+leo_6,sigma,Geha 2026 ApJ 999 140,err_plus,2.15,yes
+leo_6,structure,Tan2025ApJ...979..176T,r_h,4.17,yes
+leo_6,structure,Tan2025ApJ...979..176T,ellipticity,0.54,yes
+leo_6,distance,Tan2025ApJ...979..176T,distance,20.23,yes
+leo_6,magnitude,Tan2025ApJ...979..176T,M_V,-3.56,yes
+leo_6,magnitude,Tan2025ApJ...979..176T,mv_modulus,,no
+leo_t,sigma,Geha 2026 ApJ 999 140,sigma,6.05,yes
+leo_t,sigma,Geha 2026 ApJ 999 140,err_minus,0.86,yes
+leo_t,sigma,Geha 2026 ApJ 999 140,err_plus,1.07,yes
+leo_t,structure,Higgs2021MNRAS.503..176H,r_h,1.39,yes
+leo_t,structure,Higgs2021MNRAS.503..176H,ellipticity,0.12,yes
+leo_t,distance,Higgs2021MNRAS.503..176H,distance,23.08,yes
+leo_t,magnitude,deJong2008ApJ...680.1112D,magnitude,-8.0,yes
+leo_t,magnitude,deJong2008ApJ...680.1112D,magnitude,23.1,no
+pegasus_3,sigma,Geha 2026 ApJ 999 140,sigma,2.76,yes
+pegasus_3,sigma,Geha 2026 ApJ 999 140,err_minus,0.91,yes
+pegasus_3,sigma,Geha 2026 ApJ 999 140,err_plus,1.24,yes
+pegasus_3,structure,Richstein2022ApJ...933..217R,r_h,1.88,yes
+pegasus_3,structure,Richstein2022ApJ...933..217R,ellipticity,0.36,yes
+pegasus_3,distance,Kim2016ApJ...833...16K,distance,21.66,yes
+pegasus_3,magnitude,Richstein2022ApJ...933..217R,m_V0,17.5,yes
+pegasus_4,sigma,Geha 2026 ApJ 999 140,sigma,3.33,yes
+pegasus_4,sigma,Geha 2026 ApJ 999 140,err_minus,0.86,yes
+pegasus_4,sigma,Geha 2026 ApJ 999 140,err_plus,1.19,yes
+pegasus_4,structure,Cerny2023ApJ...942..111C,r_h,1.6,yes
+pegasus_4,structure,Cerny2023ApJ...942..111C,ellipticity,0.0,no
+pegasus_4,distance,Cerny2023ApJ...942..111C,distance,19.77,yes
+pegasus_4,magnitude,Cerny2023ApJ...942..111C,M_V,-4.25,yes
+pegasus_4,magnitude,Cerny2023ApJ...942..111C,mv_modulus,,no
+phoenix_1,sigma,Kacharov 2017 MNRAS 466 2006,sigma,9.3,yes
+phoenix_1,sigma,Kacharov 2017 MNRAS 466 2006,err_minus,0.7,yes
+phoenix_1,sigma,Kacharov 2017 MNRAS 466 2006,err_plus,0.7,yes
+phoenix_1,structure,Battaglia2012MNRAS.424.1113B,r_h,2.3,yes
+phoenix_1,structure,Battaglia2012MNRAS.424.1113B,ellipticity,0.3,yes
+phoenix_1,distance,Battaglia2012MNRAS.424.1113B,distance,23.06,yes
+phoenix_1,magnitude,vandeRydt1991AJ....102..130V,magnitude,-9.9,yes
+phoenix_1,magnitude,vandeRydt1991AJ....102..130V,magnitude,23.1,yes
+phoenix_2,sigma,Fritz 2019 A&A 623 A129,sigma,9.5,yes
+phoenix_2,sigma,Fritz 2019 A&A 623 A129,err_minus,4.4,yes
+phoenix_2,sigma,Fritz 2019 A&A 623 A129,err_plus,6.8,yes
+phoenix_2,structure,Richstein2024ApJ...967...72R,r_h,1.18,yes
+phoenix_2,structure,Richstein2024ApJ...967...72R,ellipticity,0.44,yes
+phoenix_2,distance,MutluPakdil2018ApJ...863...25M,distance,19.6,yes
+phoenix_2,magnitude,Richstein2024ApJ...967...72R,m_V0,17.0,yes
+pisces_2,sigma,Geha 2026 ApJ 999 140,sigma,3.72,yes
+pisces_2,sigma,Geha 2026 ApJ 999 140,err_minus,1.33,yes
+pisces_2,sigma,Geha 2026 ApJ 999 140,err_plus,1.98,yes
+pisces_2,structure,Richstein2022ApJ...933..217R,r_h,1.31,yes
+pisces_2,structure,Richstein2022ApJ...933..217R,ellipticity,0.37,yes
+pisces_2,distance,Sand2012ApJ...756...79S,distance,21.31,yes
+pisces_2,magnitude,Richstein2022ApJ...933..217R,m_V0,17.03,yes
+reticulum_3,sigma,Fritz 2019 A&A 623 A129,sigma,31.2,yes
+reticulum_3,sigma,Fritz 2019 A&A 623 A129,limit,upper,yes
+reticulum_3,structure,DrlicaWagner2015ApJ...813..109D,r_h,2.4,yes
+reticulum_3,structure,DrlicaWagner2015ApJ...813..109D,ellipticity,0.0,no
+reticulum_3,distance,DrlicaWagner2015ApJ...813..109D,distance,19.81,yes
+reticulum_3,magnitude,DrlicaWagner2015ApJ...813..109D,M_V,-3.3,yes
+reticulum_3,magnitude,DrlicaWagner2015ApJ...813..109D,mv_modulus,,no
+sculptor_1,sigma,Geha 2026 ApJ 999 140,sigma,8.66,yes
+sculptor_1,sigma,Geha 2026 ApJ 999 140,err_minus,0.33,yes
+sculptor_1,sigma,Geha 2026 ApJ 999 140,err_plus,0.33,yes
+sculptor_1,structure,Munoz2018ApJ...860...66M,r_h,12.33,yes
+sculptor_1,structure,Munoz2018ApJ...860...66M,ellipticity,0.37,yes
+sculptor_1,distance,MartinezVazquez2015MNRAS.454.1509M,distance,19.62,yes
+sculptor_1,magnitude,Munoz2018ApJ...860...66M,M_V,-10.82,yes
+sculptor_1,magnitude,Munoz2018ApJ...860...66M,mv_distance,86.0,yes
+segue_1,sigma,Simon 2011 ApJ 733 46,sigma,3.7,yes
+segue_1,sigma,Simon 2011 ApJ 733 46,err_minus,1.1,yes
+segue_1,sigma,Simon 2011 ApJ 733 46,err_plus,1.4,yes
+segue_1,structure,Munoz2018ApJ...860...66M,r_h,3.95,yes
+segue_1,structure,Munoz2018ApJ...860...66M,ellipticity,0.34,yes
+segue_1,distance,Belokurov2007ApJ...654..897B,distance,16.8,yes
+segue_1,magnitude,Munoz2018ApJ...860...66M,M_V,-1.3,yes
+segue_1,magnitude,Munoz2018ApJ...860...66M,mv_distance,23.0,yes
+segue_2,sigma,Kirby 2013 ApJ 770 16,sigma,2.2,yes
+segue_2,sigma,Kirby 2013 ApJ 770 16,limit,upper,yes
+segue_2,structure,Munoz2018ApJ...860...66M,r_h,3.64,yes
+segue_2,structure,Munoz2018ApJ...860...66M,ellipticity,0.21,yes
+segue_2,distance,Boettcher2013AJ....146...94B,distance,34.4,yes
+segue_2,magnitude,Munoz2018ApJ...860...66M,M_V,-1.86,yes
+segue_2,magnitude,Munoz2018ApJ...860...66M,mv_distance,35.0,yes
+sextans_1,sigma,Battaglia 2011 MNRAS 411 1013,sigma,8.4,yes
+sextans_1,sigma,Battaglia 2011 MNRAS 411 1013,err_minus,0.4,yes
+sextans_1,sigma,Battaglia 2011 MNRAS 411 1013,err_plus,0.4,yes
+sextans_1,structure,Cicuendez2018A&A...609A..53C,r_h,22.0,yes
+sextans_1,structure,Cicuendez2018A&A...609A..53C,ellipticity,0.27,yes
+sextans_1,distance,Lee2009ApJ...703..692L,distance,19.67,yes
+sextans_1,magnitude,Munoz2018ApJ...860...66M,M_V,-8.72,yes
+sextans_1,magnitude,Munoz2018ApJ...860...66M,mv_distance,86.0,yes
+triangulum_2,sigma,Kirby 2017 ApJ 838 83,sigma,3.4,yes
+triangulum_2,sigma,Kirby 2017 ApJ 838 83,limit,upper,yes
+triangulum_2,structure,Carlin2017AJ....154..267C,r_h,2.5,yes
+triangulum_2,structure,Carlin2017AJ....154..267C,ellipticity,0.3,yes
+triangulum_2,distance,Carlin2017AJ....154..267C,distance,17.27,yes
+triangulum_2,magnitude,Richstein2024ApJ...967...72R,m_V0,15.97,yes
+tucana_1,sigma,Gregory 2019 MNRAS 485 2010,sigma,14.35,no
+tucana_1,sigma,Gregory 2019 MNRAS 485 2010,err_minus,2.32,no
+tucana_1,sigma,Gregory 2019 MNRAS 485 2010,err_plus,2.78,no
+tucana_1,structure,1996A&A...315...40S,r_h,0.812882,no
+tucana_1,structure,1996A&A...315...40S,ellipticity,0.48,yes
+tucana_1,distance,2009ApJ...699.1742B,distance,24.74,yes
+tucana_1,magnitude,1996A&A...315...40S,magnitude,-9.55,yes
+tucana_1,magnitude,1996A&A...315...40S,magnitude,24.69,yes
+tucana_5,sigma,Hansen 2024 ApJ 968 21,sigma,1.2,yes
+tucana_5,sigma,Hansen 2024 ApJ 968 21,err_minus,0.6,yes
+tucana_5,sigma,Hansen 2024 ApJ 968 21,err_plus,0.9,yes
+tucana_5,structure,Simon2020ApJ...892..137S,r_h,2.1,yes
+tucana_5,structure,Simon2020ApJ...892..137S,ellipticity,0.51,yes
+tucana_5,distance,Simon2020ApJ...892..137S,distance,55.0,yes
+tucana_5,magnitude,Simon2020ApJ...892..137S,magnitude,-1.1,yes
+tucana_5,magnitude,Simon2020ApJ...892..137S,magnitude,55.0,yes
+ursa_major_1,sigma,Geha 2026 ApJ 999 140,sigma,7.16,yes
+ursa_major_1,sigma,Geha 2026 ApJ 999 140,err_minus,1.04,yes
+ursa_major_1,sigma,Geha 2026 ApJ 999 140,err_plus,1.21,yes
+ursa_major_1,structure,Munoz2018ApJ...860...66M,r_h,8.34,yes
+ursa_major_1,structure,Munoz2018ApJ...860...66M,ellipticity,0.57,yes
+ursa_major_1,distance,Garofalo2013ApJ...767...62G,distance,19.94,yes
+ursa_major_1,magnitude,Munoz2018ApJ...860...66M,M_V,-5.12,yes
+ursa_major_1,magnitude,Munoz2018ApJ...860...66M,mv_distance,97.0,yes
+ursa_major_2,sigma,Geha 2026 ApJ 999 140,sigma,6.3,yes
+ursa_major_2,sigma,Geha 2026 ApJ 999 140,err_minus,0.95,yes
+ursa_major_2,sigma,Geha 2026 ApJ 999 140,err_plus,1.06,yes
+ursa_major_2,structure,Munoz2018ApJ...860...66M,r_h,13.95,yes
+ursa_major_2,structure,Munoz2018ApJ...860...66M,ellipticity,0.56,yes
+ursa_major_2,distance,DallOra2012ApJ...752...42D,distance,17.7,yes
+ursa_major_2,magnitude,Munoz2018ApJ...860...66M,M_V,-4.25,yes
+ursa_major_2,magnitude,Munoz2018ApJ...860...66M,mv_distance,32.0,yes
+ursa_minor_1,sigma,Geha 2026 ApJ 999 140,sigma,8.86,yes
+ursa_minor_1,sigma,Geha 2026 ApJ 999 140,err_minus,0.24,yes
+ursa_minor_1,sigma,Geha 2026 ApJ 999 140,err_plus,0.27,yes
+ursa_minor_1,structure,Munoz2018ApJ...860...66M,r_h,17.32,yes
+ursa_minor_1,structure,Munoz2018ApJ...860...66M,ellipticity,0.55,yes
+ursa_minor_1,distance,Garofalo2025A&A...695A..88G,distance,19.23,yes
+ursa_minor_1,magnitude,Munoz2018ApJ...860...66M,M_V,-9.03,yes
+ursa_minor_1,magnitude,Munoz2018ApJ...860...66M,mv_distance,76.0,yes
+willman_1,sigma,Chiu 2026 ApJ 1002 55,sigma,4.7,yes
+willman_1,sigma,Chiu 2026 ApJ 1002 55,err_minus,1.3,yes
+willman_1,sigma,Chiu 2026 ApJ 1002 55,err_plus,1.5,yes
+willman_1,structure,Munoz2018ApJ...860...66M,r_h,2.53,yes
+willman_1,structure,Munoz2018ApJ...860...66M,ellipticity,0.47,yes
+willman_1,distance,Willman2006astro.ph..3486W,distance,38.0,yes
+willman_1,magnitude,Munoz2018ApJ...860...66M,M_V,-2.53,yes
+willman_1,magnitude,Munoz2018ApJ...860...66M,mv_distance,38.0,yes

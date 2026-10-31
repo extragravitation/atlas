@@ -172,6 +172,12 @@
           "default": 1.33,
           "default_ref": "SPARC Table 2 note 2; arXiv:1606.09251 §III.3: total gas mass 1.33 M_HI",
           "effects": []
+        },
+        "aeg-d-dwarfs/v1": {
+          "default": 1.33,
+          "default_ref": "Register default (Lelli et al. 2016, arXiv:1606.09251 §III.3, read at source); D-034, D-058",
+          "effects": [],
+          "note": "Not adjustable until a published range is read (D-034)."
         }
       }
     },
@@ -436,6 +442,190 @@
           "effects": []
         }
       }
+    },
+    {
+      "id": "dw_equilibrium",
+      "name_technical": "Spherical symmetry and dynamical equilibrium; half-light-radius mass estimator M(<r½) = 3 σ²_los r½ / G (Wolf et al. 2010)",
+      "name_plain": "The galaxy is treated as round and settled, and its stars' motions as balancing its pull",
+      "adjustable": false,
+      "status": "draft",
+      "parameter": {
+        "unit": "method"
+      },
+      "datasets": {
+        "aeg-d-dwarfs/v1": {
+          "default": "wolf2010",
+          "default_ref": "D-025; Wolf et al. 2010 (arXiv:0908.2995)",
+          "effects": []
+        }
+      },
+      "scope": "dataset",
+      "role": "observed_inference",
+      "not_adjustable_reason": "assumed by the method; not tested by the Atlas"
+    },
+    {
+      "id": "dw_rhalf_wolf",
+      "name_technical": "3D half-light radius r½ = 4/3 × circularised projected half-light radius R_h",
+      "name_plain": "Turning the half-light size seen on the sky into a size in space",
+      "adjustable": false,
+      "status": "draft",
+      "parameter": {
+        "unit": "method"
+      },
+      "datasets": {
+        "aeg-d-dwarfs/v1": {
+          "default": "4/3",
+          "default_ref": "D-025; Wolf et al. 2010 (arXiv:0908.2995)",
+          "effects": []
+        }
+      },
+      "scope": "dataset",
+      "role": "observed_inference",
+      "not_adjustable_reason": "assumed by the method; not tested by the Atlas"
+    },
+    {
+      "id": "dw_rh_circularised",
+      "name_technical": "R_h = a √(1 − ε) from the structural original's semi-major half-light radius; where the paper does not state the convention and fits an ellipticity, its r_h is taken as semi-major (flag x_dwarfs_flags rh_semimajor_assumed)",
+      "name_plain": "Averaging the galaxy's stretched outline into one size",
+      "adjustable": false,
+      "status": "draft",
+      "parameter": {
+        "unit": "method"
+      },
+      "datasets": {
+        "aeg-d-dwarfs/v1": {
+          "default": "D-048 item 2; D-052 item 2",
+          "default_ref": "D-048 item 2, D-052 item 2",
+          "effects": []
+        }
+      },
+      "scope": "dataset",
+      "role": "baryonic_inference",
+      "not_adjustable_reason": "assumed by the method; not tested by the Atlas"
+    },
+    {
+      "id": "dw_distance",
+      "name_technical": "Distance from the LVDB distance original, stellar-population methods only (RR Lyrae, horizontal branch, red-giant tip, red clump); never kinematic",
+      "name_plain": "How far away the galaxy is, from the brightness of particular kinds of star",
+      "adjustable": false,
+      "status": "draft",
+      "parameter": {
+        "unit": "method"
+      },
+      "datasets": {
+        "aeg-d-dwarfs/v1": {
+          "default": "D-052 item 3",
+          "default_ref": "D-036 #6, D-052, D-055 item 8, D-061 item 4; reading/distance_method_audit.csv",
+          "effects": [],
+          "note": "Enters g_obs and g_bar together; no slider."
+        }
+      },
+      "scope": "dataset",
+      "role": "baryonic_inference",
+      "not_adjustable_reason": "assumed by the method; not tested by the Atlas"
+    },
+    {
+      "id": "dw_magnitude_modulus",
+      "name_technical": "Extinction-corrected apparent V rebuilt as M_V plus the modulus the paper used, where only M_V is printed (D-052 item 4; D-061 items 3, 5–7); distance-independent M_V used directly for Boötes III (D-061 item 2)",
+      "name_plain": "Placing the galaxy's brightness at the adopted distance",
+      "adjustable": false,
+      "status": "draft",
+      "parameter": {
+        "unit": "method"
+      },
+      "datasets": {
+        "aeg-d-dwarfs/v1": {
+          "default": "D-052 item 4",
+          "default_ref": "D-052 item 4; D-061",
+          "effects": []
+        }
+      },
+      "scope": "dataset",
+      "role": "baryonic_inference",
+      "not_adjustable_reason": "assumed by the method; not tested by the Atlas"
+    },
+    {
+      "id": "dw_gas_half_total",
+      "name_technical": "Gas mass inside r½ taken as half the total HI mass (Putman et al. 2021 Table 1 gives totals only), flag x_dwarfs_flags gas_half_total",
+      "name_plain": "How much of the galaxy's gas lies within its half-light size",
+      "adjustable": false,
+      "status": "draft",
+      "parameter": {
+        "unit": "method"
+      },
+      "datasets": {
+        "aeg-d-dwarfs/v1": {
+          "default": "0.5",
+          "default_ref": "REPRODUCTION.md (Gas); D-058",
+          "effects": []
+        }
+      },
+      "scope": "dataset",
+      "role": "baryonic_inference",
+      "not_adjustable_reason": "assumed by the method; not tested by the Atlas"
+    },
+    {
+      "id": "dw_hi_distance_rescaled",
+      "name_technical": "HI masses and limits rescaled by (D_package / D_Putman)² (M_HI = 2.36 × 10⁵ S D²; Putman et al. 2021 §2)",
+      "name_plain": "Moving the hydrogen gas mass to the adopted distance",
+      "adjustable": false,
+      "status": "draft",
+      "parameter": {
+        "unit": "method"
+      },
+      "datasets": {
+        "aeg-d-dwarfs/v1": {
+          "default": "exact",
+          "default_ref": "D-058",
+          "effects": []
+        }
+      },
+      "scope": "dataset",
+      "role": "baryonic_inference",
+      "not_adjustable_reason": "assumed by the method; not tested by the Atlas"
+    },
+    {
+      "id": "dw_stellar_ml",
+      "name_technical": "Stellar mass-to-light ratio Υ_V from population synthesis (Bruzual & Charlot 2003, Chabrier disk IMF), interpolated in [Fe/H] in McLaughlin & van der Marel (2005) per-cluster values at 13 ± 2 Gyr",
+      "name_plain": "How much mass each unit of starlight stands for",
+      "adjustable": true,
+      "status": "confirmed",
+      "parameter": {
+        "unit": "position in the published range: −1 = the D-060 lower bound, 0 = default, +1 = the D-060 upper bound"
+      },
+      "datasets": {
+        "aeg-d-dwarfs/v1": {
+          "default": 0,
+          "min": -1,
+          "max": 1,
+          "default_ref": "D-039, D-057, D-059; McLaughlin & van der Marel 2005 (VizieR J/ApJS/161/304/clusters, (M/L)1, Milky Way clusters), interpolated by aeg.ml_interp; below [Fe/H] = −2.29 the end value, flag beyond_source_range; M_V,sun = 4.85",
+          "range_ref": "D-060: lower = min over [Fe/H] ± s of ((M/L)1 − e1) × 0.90 × 0.81; upper = max of ((M/L)2 + e2) × 1.10. 0.90: BC03 vs PÉGASE within ~10% (McLaughlin & van der Marel 2005 §3.1); 0.81 = 1.3/1.6, Woo et al. 2008 median Υ_V from colours vs star-formation histories; (M/L)2: Salpeter IMF. Read at source: docs/sources/stellar-ml-2026-10-29.md.",
+          "range_basis": {
+            "min": "D-060 envelope lower bound (age/metallicity error, metallicity spread, code agreement, colour vs SFH)",
+            "max": "D-060 envelope upper bound (Salpeter IMF, code agreement)"
+          },
+          "effects": [
+            {
+              "column": "g_bar_stars",
+              "formula": "g_bar_stars * (1 + ((x_dwarfs_upsilon_v_high / x_dwarfs_upsilon_v - 1 + 1 - x_dwarfs_upsilon_v_low / x_dwarfs_upsilon_v) / 2) * p + ((x_dwarfs_upsilon_v_high / x_dwarfs_upsilon_v - 1 - 1 + x_dwarfs_upsilon_v_low / x_dwarfs_upsilon_v) / 2) * abs(p))"
+            },
+            {
+              "column": "g_bar_err_lo",
+              "formula": "g_bar_err_lo * (1 + ((x_dwarfs_upsilon_v_high / x_dwarfs_upsilon_v - 1 + 1 - x_dwarfs_upsilon_v_low / x_dwarfs_upsilon_v) / 2) * p + ((x_dwarfs_upsilon_v_high / x_dwarfs_upsilon_v - 1 - 1 + x_dwarfs_upsilon_v_low / x_dwarfs_upsilon_v) / 2) * abs(p))"
+            },
+            {
+              "column": "g_bar_err_hi",
+              "formula": "g_bar_err_hi * (1 + ((x_dwarfs_upsilon_v_high / x_dwarfs_upsilon_v - 1 + 1 - x_dwarfs_upsilon_v_low / x_dwarfs_upsilon_v) / 2) * p + ((x_dwarfs_upsilon_v_high / x_dwarfs_upsilon_v - 1 - 1 + x_dwarfs_upsilon_v_low / x_dwarfs_upsilon_v) / 2) * abs(p))"
+            },
+            {
+              "column": "g_bar",
+              "formula": "g_bar_stars * (1 + ((x_dwarfs_upsilon_v_high / x_dwarfs_upsilon_v - 1 + 1 - x_dwarfs_upsilon_v_low / x_dwarfs_upsilon_v) / 2) * p + ((x_dwarfs_upsilon_v_high / x_dwarfs_upsilon_v - 1 - 1 + x_dwarfs_upsilon_v_low / x_dwarfs_upsilon_v) / 2) * abs(p)) + g_bar_gas_cold"
+            }
+          ]
+        }
+      },
+      "scope": "dataset",
+      "role": "baryonic_inference"
     }
   ]
 }

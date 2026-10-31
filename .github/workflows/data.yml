@@ -45,25 +45,32 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: data/packages/*/*/source
-          key: sources-${{ hashFiles('data/packages/*/*/sources.json') }}
-          restore-keys: sources-
+          key: sources-${{ hashFiles('data/packages/*/*/sources.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            sources-${{ hashFiles('data/packages/*/*/sources.json') }}-
+            sources-
       - name: Fetch and verify sources
         id: fetch
         run: |
           set -uo pipefail
+          status=0
           for pkg in data/packages/*/*/; do
             [ -f "$pkg/sources.json" ] || continue
             if ! python -m aeg.fetch "$pkg" > fetch.log 2>&1; then
-              echo "::error title=fetch $pkg::$(tail -c 3000 fetch.log | tr '\n' '|')"; exit 1
+              echo "::error title=fetch $pkg::$(tail -c 3000 fetch.log | tr '\n' '|')"; status=1
             fi
             cat fetch.log
           done
+          exit $status
       - name: Save source cache
-        if: always() && steps.fetch.outcome == 'success'
+        # Saved after every run, even when a server was down, so the files that were verified are
+        # kept and the next run fetches only what is still missing. Every file in the cache was
+        # hash-verified by aeg.fetch (an unverified download is deleted), and is re-verified on restore.
+        if: always() && steps.fetch.outcome != 'skipped'
         uses: actions/cache/save@v4
         with:
           path: data/packages/*/*/source
-          key: sources-${{ hashFiles('data/packages/*/*/sources.json') }}
+          key: sources-${{ hashFiles('data/packages/*/*/sources.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Build packages
         run: |
           set -uo pipefail

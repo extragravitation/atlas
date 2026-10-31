@@ -1,0 +1,615 @@
+{
+  "name": "aeg-d-dwarfs",
+  "version": "v1",
+  "title": "Local Group dwarf galaxies: published line-of-sight dispersions with population mass-to-light ratios and atomic gas",
+  "description": "Atlas conversion of the published velocity dispersions of Milky Way, M31 and Local Group field dwarf galaxies (A5) and ambiguous systems (A7) into one g_obs and g_bar per system at the 3D half-light radius (D-025). The Local Volume Database (Pace 2025, CC0) is the index; every value is read twice from the original papers (D-048). Structure, distance and magnitude by D-052 to D-055 and D-061; stellar M/L_V by D-039, D-057, D-059 and D-060; atomic gas from Putman et al. 2021 (D-058). See REPRODUCTION.md, reading/ and docs/decisions.md.",
+  "standard_version": "2.0.0",
+  "x_standard_version": "2.0.0",
+  "x_licence_status": "LVDB CC0. Original papers: values transcribed with citation, not redistributed. AAS machine-readable tables and VizieR exports linked, not redistributed. Atlas tables intended CC BY 4.0 under D-004, citing the sources.",
+  "licenses": [],
+  "sources": [
+    {
+      "title": "Local Volume Database (Pace 2025), v1.1.1, CC0",
+      "path": "https://github.com/apace7/local_volume_database"
+    },
+    {
+      "title": "Original papers (dispersion, structure, distance, magnitude, metallicity): reading/originals.csv and the reading files",
+      "path": "reading/originals.csv"
+    },
+    {
+      "title": "Putman et al. 2021, ApJ 913, 53, Table 1 (HI)",
+      "path": "https://content.cld.iop.org/journals/0004-637X/913/1/53/revision2/apjabe391t1_mrt.txt"
+    },
+    {
+      "title": "McLaughlin & van der Marel 2005, ApJS 161, 304 (VizieR J/ApJS/161/304/clusters, IDIA mirror)",
+      "path": "https://vizier.idia.ac.za/viz-bin/VizieR?-source=J/ApJS/161/304"
+    }
+  ],
+  "x_citation": "Index: Pace 2025 (LVDB). Dispersions, structure, distances, magnitudes and metallicities: the original papers listed per value in source_ref and reading/. Gas: Putman et al. 2021, ApJ 913, 53. Population M/L: McLaughlin & van der Marel 2005, ApJS 161, 304.",
+  "x_selection": [
+    {
+      "quantity": "kind",
+      "condition": "==",
+      "value": "A5 dwarf galaxy, or A7 with the reason (frozen D-048/D-049 coding)",
+      "citation": "D-048, D-049"
+    },
+    {
+      "quantity": "velocity dispersion",
+      "condition": "==",
+      "value": "original paper's whole-sample second moment, members beyond the half-light radius (D-038 1A, D-051); upper limits at the stated level",
+      "citation": "D-038, D-051, D-055"
+    },
+    {
+      "quantity": "distance",
+      "condition": "==",
+      "value": "LVDB distance original; stellar-population methods, never kinematic",
+      "citation": "D-036 #6, D-052"
+    },
+    {
+      "quantity": "metallicity",
+      "condition": "exists",
+      "value": "spectroscopic original (D-057) or the dispersion paper (D-059); otherwise recorded, not plotted",
+      "citation": "D-057, D-059"
+    }
+  ],
+  "x_baryon_inventory": [
+    {
+      "component": "stars",
+      "status": "measured",
+      "citation": "Original V photometry; population M/L_V from McLaughlin & van der Marel 2005 (D-034, D-039, D-060)"
+    },
+    {
+      "component": "atomic gas",
+      "status": "measured",
+      "citation": "Putman et al. 2021 Table 1: detections measured; 5σ limits absent_limit; systems outside the table not_addressed (D-035 d, D-058); helium factor 1.33"
+    },
+    {
+      "component": "molecular gas",
+      "status": "not_addressed",
+      "citation": "No per-system source read for v1"
+    },
+    {
+      "component": "ionised gas",
+      "status": "not_addressed",
+      "citation": "No per-system source read for v1"
+    },
+    {
+      "component": "stellar remnants",
+      "status": "modelled",
+      "citation": "Included in the population-synthesis M/L_V (Bruzual & Charlot 2003, Chabrier IMF)"
+    }
+  ],
+  "x_search_log": "docs/sources/ (A5 search log); reading/originals.csv",
+  "x_second_reading": {
+    "by": "two independent agent sessions (Claude), without access to the conversion code, tables or earlier readings; read at source from PDFs and page images",
+    "date": "2026-10-31",
+    "result": "test 1: 484 of 484 packaged input numbers found as printed (after three test-script defects were fixed and three values re-read; first run 451 of 470); tests 2-4 pass",
+    "file": "SECOND_READING.md",
+    "scripts": "reproduction/test1_second_reading.py; reproduction/test2_transcription.py"
+  },
+  "resources": [
+    {
+      "name": "measurements",
+      "path": "tables/measurements.ecsv",
+      "format": "ecsv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "dialect": {
+        "delimiter": ",",
+        "commentChar": "#",
+        "header": true
+      },
+      "schema": {
+        "fields": [
+          {
+            "name": "measurement_id",
+            "type": "string",
+            "description": "Permanent measurement identifier",
+            "ucd": "meta.id;meta.main"
+          },
+          {
+            "name": "system_id",
+            "type": "string",
+            "description": "Atlas system identifier",
+            "ucd": "meta.id"
+          },
+          {
+            "name": "kind",
+            "type": "string",
+            "description": "Kind of measurement",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "channel",
+            "type": "string",
+            "description": "Observational channel",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "method_class",
+            "type": "string",
+            "description": "Class of method",
+            "ucd": "meta.code.class"
+          },
+          {
+            "name": "method",
+            "type": "string",
+            "description": "Method",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "measured_quantity",
+            "type": "string",
+            "description": "Quantity measured (D-029)",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "r_kpc",
+            "type": "number",
+            "description": "Three-dimensional half-light radius r½ = 4/3 R_h",
+            "ucd": "phys.size.radius",
+            "unit": "kpc"
+          },
+          {
+            "name": "r_kind",
+            "type": "string",
+            "description": "Radius is three-dimensional",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "g_obs",
+            "type": "number",
+            "description": "Observed acceleration at r½, 3 σ² / r½ (D-025); an upper limit where limit = upper",
+            "ucd": "phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_obs_err_lo",
+            "type": "number",
+            "description": "From the dispersion's printed lower error only",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_obs_err_hi",
+            "type": "number",
+            "description": "From the dispersion's printed upper error only",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar",
+            "type": "number",
+            "description": "Baryonic acceleration at r½, G (L_V Υ_V / 2 + M_gas(<r½)) / r½² (D-025)",
+            "ucd": "phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar_err_lo",
+            "type": "number",
+            "description": "From the magnitude error only (stars)",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar_err_hi",
+            "type": "number",
+            "description": "From the magnitude error only (stars)",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar_stars",
+            "type": "number",
+            "description": "Stellar component of g_bar",
+            "ucd": "phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar_gas_cold",
+            "type": "number",
+            "description": "Atomic gas with helium (1.33 M_HI), half the total inside r½ (D-058); 0 where absent",
+            "ucd": "phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "limit",
+            "type": "string",
+            "description": "Whether g_obs is a limit",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "stars_status",
+            "type": "string",
+            "description": "Stars measured (starlight with population M/L)",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "gas_cold_status",
+            "type": "string",
+            "description": "Atomic gas: measured (Putman et al. 2021 detection) or absent (5σ limit, or not addressed); see x_dwarfs_gas_status",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "gas_hot_status",
+            "type": "string",
+            "description": "Hot gas not included (not addressed by the sources)",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "observed_from",
+            "type": "string",
+            "description": "Observables used on the observed side",
+            "ucd": "meta.ref"
+          },
+          {
+            "name": "baryonic_from",
+            "type": "string",
+            "description": "Observables used on the baryonic side",
+            "ucd": "meta.ref"
+          },
+          {
+            "name": "model_dependence",
+            "type": "string",
+            "description": "No fitted form on the observed side",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "evidence_tier",
+            "type": "string",
+            "description": "Evidence tier (D-035)",
+            "ucd": "meta.code.qual"
+          },
+          {
+            "name": "role",
+            "type": "string",
+            "description": "Default value for the system",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "plotted",
+            "type": "string",
+            "description": "Shown in default views",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "not_plotted_reason",
+            "type": "string",
+            "description": "Why not plotted (closed list)",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "assumptions",
+            "type": "string",
+            "description": "Named assumptions affecting this row",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "adjustable",
+            "type": "string",
+            "description": "Assumptions whose sliders can change this row",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "flags",
+            "type": "string",
+            "description": "Atlas flags",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "source_ref",
+            "type": "string",
+            "description": "Originals: dispersion; structure; distance; magnitude",
+            "ucd": "meta.ref"
+          },
+          {
+            "name": "notes",
+            "type": "string",
+            "description": "Notes",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "x_dwarfs_flags",
+            "type": "string",
+            "description": "Package flags: how each input was chosen (rulings in docs/decisions.md)",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "x_dwarfs_sigma",
+            "type": "number",
+            "description": "Published line-of-sight dispersion (or its upper limit)",
+            "ucd": "phys.veloc.dispersion",
+            "unit": "km / s"
+          },
+          {
+            "name": "x_dwarfs_sigma_err_lo",
+            "type": "number",
+            "description": "Printed lower error",
+            "ucd": "stat.error;phys.veloc.dispersion",
+            "unit": "km / s"
+          },
+          {
+            "name": "x_dwarfs_sigma_err_hi",
+            "type": "number",
+            "description": "Printed upper error",
+            "ucd": "stat.error;phys.veloc.dispersion",
+            "unit": "km / s"
+          },
+          {
+            "name": "x_dwarfs_sigma_limit_level",
+            "type": "string",
+            "description": "Confidence level of an upper limit, as stated",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "x_dwarfs_R_h_arcmin",
+            "type": "number",
+            "description": "Circularised projected half-light radius",
+            "ucd": "phys.angSize",
+            "unit": "arcmin"
+          },
+          {
+            "name": "x_dwarfs_distance_kpc",
+            "type": "number",
+            "description": "Package distance",
+            "ucd": "pos.distance",
+            "unit": "kpc"
+          },
+          {
+            "name": "x_dwarfs_l_v",
+            "type": "number",
+            "description": "V-band luminosity at the package distance, M_V,sun = 4.85",
+            "ucd": "phys.luminosity",
+            "unit": "solLum"
+          },
+          {
+            "name": "x_dwarfs_upsilon_v",
+            "type": "number",
+            "description": "Population Υ_V default (D-059)",
+            "ucd": "phys.composition.massLightRatio",
+            "unit": "solMass / solLum"
+          },
+          {
+            "name": "x_dwarfs_upsilon_v_low",
+            "type": "number",
+            "description": "D-060 lower bound",
+            "ucd": "phys.composition.massLightRatio",
+            "unit": "solMass / solLum"
+          },
+          {
+            "name": "x_dwarfs_upsilon_v_high",
+            "type": "number",
+            "description": "D-060 upper bound",
+            "ucd": "phys.composition.massLightRatio",
+            "unit": "solMass / solLum"
+          },
+          {
+            "name": "x_dwarfs_m_gas_rh",
+            "type": "number",
+            "description": "Gas mass inside r½ (1.33 × half the rescaled HI mass), 0 where absent",
+            "ucd": "phys.mass",
+            "unit": "solMass"
+          },
+          {
+            "name": "x_dwarfs_gas_status",
+            "type": "string",
+            "description": "measured, absent (measured limit) or not addressed (D-035 d)",
+            "ucd": "meta.code"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    },
+    {
+      "name": "observables",
+      "path": "tables/observables.ecsv",
+      "format": "ecsv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "dialect": {
+        "delimiter": ",",
+        "commentChar": "#",
+        "header": true
+      },
+      "schema": {
+        "fields": [
+          {
+            "name": "observable_id",
+            "type": "string",
+            "description": "Permanent observable identifier",
+            "ucd": "meta.id;meta.main"
+          },
+          {
+            "name": "system_id",
+            "type": "string",
+            "description": "Atlas system identifier",
+            "ucd": "meta.id"
+          },
+          {
+            "name": "side",
+            "type": "string",
+            "description": "Observed or baryonic side",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "quantity",
+            "type": "string",
+            "description": "Quantity (closed list, data standard 2.0)",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "value",
+            "type": "number",
+            "description": "Value (as printed, or as converted where x_dwarfs_parameter says)",
+            "ucd": "meta.number"
+          },
+          {
+            "name": "err_lo",
+            "type": "number",
+            "description": "Lower error",
+            "ucd": "stat.error"
+          },
+          {
+            "name": "err_hi",
+            "type": "number",
+            "description": "Upper error",
+            "ucd": "stat.error"
+          },
+          {
+            "name": "unit",
+            "type": "string",
+            "description": "Unit of value",
+            "ucd": "meta.unit"
+          },
+          {
+            "name": "band",
+            "type": "string",
+            "description": "Photometric band",
+            "ucd": "instr.bandpass"
+          },
+          {
+            "name": "limit",
+            "type": "string",
+            "description": "Whether the value is a limit",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "steps",
+            "type": "string",
+            "description": "Processing ladder from data to this quantity",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "evidence_tier",
+            "type": "string",
+            "description": "Evidence tier (D-035)",
+            "ucd": "meta.code.qual"
+          },
+          {
+            "name": "source_ref",
+            "type": "string",
+            "description": "Source and location",
+            "ucd": "meta.ref"
+          },
+          {
+            "name": "x_dwarfs_parameter",
+            "type": "string",
+            "description": "Which value this row is",
+            "ucd": "meta.note"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    },
+    {
+      "name": "systems",
+      "path": "tables/systems.ecsv",
+      "format": "ecsv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "dialect": {
+        "delimiter": ",",
+        "commentChar": "#",
+        "header": true
+      },
+      "schema": {
+        "fields": [
+          {
+            "name": "system_id",
+            "type": "string",
+            "description": "Atlas system identifier",
+            "ucd": "meta.id;meta.main"
+          },
+          {
+            "name": "name_in_source",
+            "type": "string",
+            "description": "Name as in the LVDB index",
+            "ucd": "meta.id"
+          },
+          {
+            "name": "class_in_source",
+            "type": "string",
+            "description": "Class as the source gives it",
+            "ucd": "src.class"
+          },
+          {
+            "name": "taxonomy_kind",
+            "type": "string",
+            "description": "Taxonomy kind (D-048, D-049)",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "kind_label",
+            "type": "string",
+            "description": "Kind label",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "host",
+            "type": "string",
+            "description": "Host (property, never a filter)",
+            "ucd": "meta.id"
+          },
+          {
+            "name": "ra_deg",
+            "type": "number",
+            "description": "Right ascension (J2000), LVDB",
+            "ucd": "pos.eq.ra;meta.main",
+            "unit": "deg"
+          },
+          {
+            "name": "dec_deg",
+            "type": "number",
+            "description": "Declination (J2000), LVDB",
+            "ucd": "pos.eq.dec;meta.main",
+            "unit": "deg"
+          },
+          {
+            "name": "distance_mpc",
+            "type": "number",
+            "description": "Package distance",
+            "ucd": "pos.distance",
+            "unit": "Mpc"
+          },
+          {
+            "name": "distance_method",
+            "type": "string",
+            "description": "Distance method",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "distance_kinematic",
+            "type": "string",
+            "description": "Distance derived from kinematics",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "distance_ref",
+            "type": "string",
+            "description": "Distance source",
+            "ucd": "meta.ref"
+          },
+          {
+            "name": "metallicity_feh",
+            "type": "number",
+            "description": "[Fe/H] (D-057, D-059)",
+            "ucd": "phys.abund.Fe"
+          },
+          {
+            "name": "properties",
+            "type": "string",
+            "description": "Status, reasons and flags (JSON)",
+            "ucd": "meta.note"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    }
+  ]
+}

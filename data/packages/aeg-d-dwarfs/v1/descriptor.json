@@ -1,0 +1,90 @@
+{
+  "name": "aeg-d-dwarfs",
+  "version": "v1",
+  "title": "Local Group dwarf galaxies: published line-of-sight dispersions with population mass-to-light ratios and atomic gas",
+  "description": "Atlas conversion of the published velocity dispersions of Milky Way, M31 and Local Group field dwarf galaxies (A5) and ambiguous systems (A7) into one g_obs and g_bar per system at the 3D half-light radius (D-025). The Local Volume Database (Pace 2025, CC0) is the index; every value is read twice from the original papers (D-048). Structure, distance and magnitude by D-052 to D-055 and D-061; stellar M/L_V by D-039, D-057, D-059 and D-060; atomic gas from Putman et al. 2021 (D-058). See REPRODUCTION.md, reading/ and docs/decisions.md.",
+  "standard_version": "2.0.0",
+  "x_standard_version": "2.0.0",
+  "x_licence_status": "LVDB CC0. Original papers: values transcribed with citation, not redistributed. AAS machine-readable tables and VizieR exports linked, not redistributed. Atlas tables intended CC BY 4.0 under D-004, citing the sources.",
+  "licenses": [],
+  "sources": [
+    {
+      "title": "Local Volume Database (Pace 2025), v1.1.1, CC0",
+      "path": "https://github.com/apace7/local_volume_database"
+    },
+    {
+      "title": "Original papers (dispersion, structure, distance, magnitude, metallicity): reading/originals.csv and the reading files",
+      "path": "reading/originals.csv"
+    },
+    {
+      "title": "Putman et al. 2021, ApJ 913, 53, Table 1 (HI)",
+      "path": "https://content.cld.iop.org/journals/0004-637X/913/1/53/revision2/apjabe391t1_mrt.txt"
+    },
+    {
+      "title": "McLaughlin & van der Marel 2005, ApJS 161, 304 (VizieR J/ApJS/161/304/clusters, IDIA mirror)",
+      "path": "https://vizier.idia.ac.za/viz-bin/VizieR?-source=J/ApJS/161/304"
+    }
+  ],
+  "x_citation": "Index: Pace 2025 (LVDB). Dispersions, structure, distances, magnitudes and metallicities: the original papers listed per value in source_ref and reading/. Gas: Putman et al. 2021, ApJ 913, 53. Population M/L: McLaughlin & van der Marel 2005, ApJS 161, 304.",
+  "x_selection": [
+    {
+      "quantity": "kind",
+      "condition": "==",
+      "value": "A5 dwarf galaxy, or A7 with the reason (frozen D-048/D-049 coding)",
+      "citation": "D-048, D-049"
+    },
+    {
+      "quantity": "velocity dispersion",
+      "condition": "==",
+      "value": "original paper's whole-sample second moment, members beyond the half-light radius (D-038 1A, D-051); upper limits at the stated level",
+      "citation": "D-038, D-051, D-055"
+    },
+    {
+      "quantity": "distance",
+      "condition": "==",
+      "value": "LVDB distance original; stellar-population methods, never kinematic",
+      "citation": "D-036 #6, D-052"
+    },
+    {
+      "quantity": "metallicity",
+      "condition": "exists",
+      "value": "spectroscopic original (D-057) or the dispersion paper (D-059); otherwise recorded, not plotted",
+      "citation": "D-057, D-059"
+    }
+  ],
+  "x_baryon_inventory": [
+    {
+      "component": "stars",
+      "status": "measured",
+      "citation": "Original V photometry; population M/L_V from McLaughlin & van der Marel 2005 (D-034, D-039, D-060)"
+    },
+    {
+      "component": "atomic gas",
+      "status": "measured",
+      "citation": "Putman et al. 2021 Table 1: detections measured; 5σ limits absent_limit; systems outside the table not_addressed (D-035 d, D-058); helium factor 1.33"
+    },
+    {
+      "component": "molecular gas",
+      "status": "not_addressed",
+      "citation": "No per-system source read for v1"
+    },
+    {
+      "component": "ionised gas",
+      "status": "not_addressed",
+      "citation": "No per-system source read for v1"
+    },
+    {
+      "component": "stellar remnants",
+      "status": "modelled",
+      "citation": "Included in the population-synthesis M/L_V (Bruzual & Charlot 2003, Chabrier IMF)"
+    }
+  ],
+  "x_search_log": "docs/sources/ (A5 search log); reading/originals.csv",
+  "x_second_reading": {
+    "by": "two independent agent sessions (Claude), without access to the conversion code, tables or earlier readings; read at source from PDFs and page images",
+    "date": "2026-10-31",
+    "result": "test 1: 484 of 484 packaged input numbers found as printed (after three test-script defects were fixed and three values re-read; first run 451 of 470); tests 2-4 pass",
+    "file": "SECOND_READING.md",
+    "scripts": "reproduction/test1_second_reading.py; reproduction/test2_transcription.py"
+  }
+}
