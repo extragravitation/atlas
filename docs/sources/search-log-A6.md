@@ -134,3 +134,46 @@ Excluded at title level: other kinds (clusters, groups, quasar hosts, discs and 
 | Leads for other cells | 23 records |
 | Excluded at title level | the rest (regenerable by re-running the queries) |
 | Full-text screening | **pending**: two independent readers, brief `docs/sources/screening-brief-A6S.md` |
+
+## 2. Full-text screening (2026-10-31)
+
+Two independent AI readers (A and B) screened R1–R59 to the brief `docs/sources/screening-brief-A6S.md`, each in two blocks. Their tables are kept as returned in `docs/sources/screening-A6S/reader-{a,b}-block{1,2}.md`. `compare.py`, committed before either reading was opened, found **43 of 59 decisions in agreement** (`comparison.csv`). The 15 substantive disagreements were settled in `adjudication.md`, one of them (R52) by reading the source. Final codes are in `final.csv`. Claude checked the readings for recorded masses, mass-to-light ratios and results and found none.
+
+| Code | Count | Records |
+|---|---|---|
+| E (both sides) | 12 | R10, R13, R19, R20, R22, R30, R32, R37, R41, R43, R49, R57 |
+| E-pair (one side) | 19 | R3, R5, R9, R12, R15, R17, R18, R21, R24, R31, R33, R35, R36, R40, R46, R50, R53, R55, R56 |
+| P (pending a ruling) | 11 | R7, R25, R26, R27, R28, R29, R34, R38, R44, R45, R47 |
+| X | 16 | R1, R2, R4, R6, R8, R11, R14, R16, R23, R39, R42, R48, R51, R52, R54, R58 |
+| — (review) | 1 | R59 |
+
+Several agreed codes still depend on a question below: R32 and R41 on Q1, R19 and R21 on Q3.
+
+### 2a. Questions for JvH (method rulings; recommendations given)
+
+These change how the cell measures, so each needs a ruling before any lens package is converted. The §5 projection ruling (baryons projected, or lensing deprojected) is also still needed.
+
+1. **Stellar M/L from spectra.** Several nearby lenses (R25, R26, R28, R29, R31 with R33, R32, R41) give a photometric luminosity inside the Einstein radius times a stellar-population M/L fitted to *spectra*, with a fixed named IMF, rather than an SED fit to photometry. Some (R32) use an assumed age and metallicity range. *Recommendation:* accept both, with the IMF and population models named and the assumed ranges carried as an assumption range. Both are stellar-population M/Ls independent of lensing and dynamics, which is what "from photometry" in §2 was written to secure; IMF-free spectral fits are not defaults. Recorded as a clarification of §2 in the deviations register.
+2. **Einstein radius from half the image separation** (R25, R29), and single-image limits (R9 grade C, R27). *Recommendation:* accept the half-separation value as a lens model with `model_dependence` "SIS from image separation". Where a full model of the same system exists, that model is the default (R27 for J0403−0239). Single-image limits are recorded, not plotted, in v1.0.
+3. **Priors that use the system's own velocity dispersion.** R7 (SLACS IX) draws its metallicity prior from the σ–metallicity relation at each lens's own σ. R19 and R21 (SL2S) derive some source redshifts with the help of the velocity dispersion. *Recommendation:* treat both as inputs derived from the system's own kinematics (deviation #6). R7's stellar masses are recorded and shown as a flagged alternative; the default comes from a source without that prior (R13 or R9/R10), by a precedence rule frozen before any value is seen. SL2S systems whose source redshift used σ are recorded, not plotted.
+4. **Several lens models and stellar-mass sources for the same lenses** (SLACS: R5, R7, R12; SL2S: R20, R24; stellar masses: R7, R9/R10, R13). *Recommendation:* the observed default is the Einstein mass, which depends little on the model; the other models are shown as alternatives. A precedence rule for both sides is written and hash-frozen before any table is opened.
+5. **Source redshift and confirmation** (R38, R44, R45, R58). *Recommendation:* an Einstein mass needs measured lens and source redshifts, so systems without a spectroscopic source redshift are recorded, not plotted. Candidates count only when confirmed. R45 is held until its files are public.
+6. **Galaxy or group** (R28, R34, R35 MG2016+112, R47, R48, R49, R53). *Recommendation:* the source's own label where sources agree. A6 where the model has one main deflector (with external shear or minor perturbers); A8 where the source models several group members or calls it a group lens; A7 "ambiguous" where sources disagree (as deviations #7 and #15).
+7. **Stellar mass printed as a fraction of the lens mass** (R34, XLENS I). *Recommendation:* accept fraction × the published Einstein mass, flagged, since both are printed values and the product is the authors' own stellar mass.
+8. **Licence route for SLACS** (R11 Zenodo CC BY 4.0 copy of SLACS IX values). *Recommendation:* the original (R7 and its VizieR table) is the source of record, cited. The CC BY copy is used for redistribution only after a value-by-value check that it matches.
+
+### 2b. Leads from the readers and the review (for §3 step 4, citations; round 2)
+
+Named but not in R1–R59, to be screened in a second round with the same brief: Dye et al. 2008 (Cosmic Horseshoe lens model); Collier, Smith & Lucey 2018 (arXiv:1709.01931, HST models of SNELLS lenses); SNELLS-HD I (arXiv:2509.01732); Tan et al. 2024 (Project Dinos I); Treu et al. 2010 (ApJ 709, 1195); Ferreras et al. 2010 (MNRAS 409, 30); Sonnenfeld et al. 2012 (ApJ 752, 163); Shajib et al. 2021 (23 SLACS re-modelled); Lemon et al. 2024 (CASTLES); H-ATLAS and HerMES lens models (Negrello 2010, 2017; Dye 2014, 2018; Amvrosiadis 2018; Maresca 2022). Spiral lenses (SWELLS, Treu et al. 2011) go to A4.
+
+### 2c. Counts
+
+| Stage | Count |
+|---|---|
+| Passed to full-text screening | 59 entries |
+| Eligible (E) | 12 |
+| One side (E-pair) | 19 |
+| Pending a ruling (P) | 11 |
+| Excluded at full text (X) | 16 |
+| Review (leads only) | 1 |
+| Round-2 leads (citations) | 10 named sources or groups |
