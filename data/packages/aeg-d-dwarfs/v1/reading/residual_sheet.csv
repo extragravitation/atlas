@@ -1,0 +1,31 @@
+key,paper,copy,task
+bootes_1,Munoz2018ApJ...860...66M,1806.06891v1,"A: the distance this paper adopted for the system (Table 1, heliocentric, kpc, with errors) and any statement tying Table 6 M_V to it"
+bootes_2,Munoz2018ApJ...860...66M,1806.06891v1,"A: the distance this paper adopted for the system (Table 1, heliocentric, kpc, with errors) and any statement tying Table 6 M_V to it"
+canes_venatici_1,Munoz2018ApJ...860...66M,1806.06891v1,"A: the distance this paper adopted for the system (Table 1, heliocentric, kpc, with errors) and any statement tying Table 6 M_V to it"
+canes_venatici_2,Munoz2018ApJ...860...66M,1806.06891v1,"A: the distance this paper adopted for the system (Table 1, heliocentric, kpc, with errors) and any statement tying Table 6 M_V to it"
+coma_berenices_1,Munoz2018ApJ...860...66M,1806.06891v1,"A: the distance this paper adopted for the system (Table 1, heliocentric, kpc, with errors) and any statement tying Table 6 M_V to it"
+draco_1,Munoz2018ApJ...860...66M,1806.06891v1,"A: the distance this paper adopted for the system (Table 1, heliocentric, kpc, with errors) and any statement tying Table 6 M_V to it"
+fornax_1,Munoz2018ApJ...860...66M,1806.06891v1,"A: the distance this paper adopted for the system (Table 1, heliocentric, kpc, with errors) and any statement tying Table 6 M_V to it"
+hercules_1,Munoz2018ApJ...860...66M,1806.06891v1,"A: the distance this paper adopted for the system (Table 1, heliocentric, kpc, with errors) and any statement tying Table 6 M_V to it"
+leo_1,Munoz2018ApJ...860...66M,1806.06891v1,"A: the distance this paper adopted for the system (Table 1, heliocentric, kpc, with errors) and any statement tying Table 6 M_V to it"
+leo_2,Munoz2018ApJ...860...66M,1806.06891v1,"A: the distance this paper adopted for the system (Table 1, heliocentric, kpc, with errors) and any statement tying Table 6 M_V to it"
+leo_4,Munoz2018ApJ...860...66M,1806.06891v1,"A: the distance this paper adopted for the system (Table 1, heliocentric, kpc, with errors) and any statement tying Table 6 M_V to it"
+leo_5,Munoz2018ApJ...860...66M,1806.06891v1,"A: the distance this paper adopted for the system (Table 1, heliocentric, kpc, with errors) and any statement tying Table 6 M_V to it"
+sculptor_1,Munoz2018ApJ...860...66M,1806.06891v1,"A: the distance this paper adopted for the system (Table 1, heliocentric, kpc, with errors) and any statement tying Table 6 M_V to it"
+segue_1,Munoz2018ApJ...860...66M,1806.06891v1,"A: the distance this paper adopted for the system (Table 1, heliocentric, kpc, with errors) and any statement tying Table 6 M_V to it"
+segue_2,Munoz2018ApJ...860...66M,1806.06891v1,"A: the distance this paper adopted for the system (Table 1, heliocentric, kpc, with errors) and any statement tying Table 6 M_V to it"
+sextans_1,Munoz2018ApJ...860...66M,1806.06891v1,"A: the distance this paper adopted for the system (Table 1, heliocentric, kpc, with errors) and any statement tying Table 6 M_V to it"
+ursa_major_1,Munoz2018ApJ...860...66M,1806.06891v1,"A: the distance this paper adopted for the system (Table 1, heliocentric, kpc, with errors) and any statement tying Table 6 M_V to it"
+ursa_major_2,Munoz2018ApJ...860...66M,1806.06891v1,"A: the distance this paper adopted for the system (Table 1, heliocentric, kpc, with errors) and any statement tying Table 6 M_V to it"
+ursa_minor_1,Munoz2018ApJ...860...66M,1806.06891v1,"A: the distance this paper adopted for the system (Table 1, heliocentric, kpc, with errors) and any statement tying Table 6 M_V to it"
+willman_1,Munoz2018ApJ...860...66M,1806.06891v1,"A: the distance this paper adopted for the system (Table 1, heliocentric, kpc, with errors) and any statement tying Table 6 M_V to it"
+andromeda_06,McConnachie2006MNRAS.365.1263M,astro-ph/0511004v1,"B1: the extinction (A_V or E(B-V)) this paper applies to the system, and how its M_V is computed"
+andromeda_06,McConnachie2005MNRAS.356..979M,astro-ph/0410489v1,B2: the distance modulus printed for the system (the system may be printed as Pegasus dSph = And VI or Cassiopeia dSph = And VII only if the paper says so)
+andromeda_07,McConnachie2006MNRAS.365.1263M,astro-ph/0511004v1,"B1: the extinction (A_V or E(B-V)) this paper applies to the system, and how its M_V is computed"
+andromeda_07,McConnachie2005MNRAS.356..979M,astro-ph/0410489v1,B2: the distance modulus printed for the system (the system may be printed as Pegasus dSph = And VI or Cassiopeia dSph = And VII only if the paper says so)
+leo_4,Medina2018ApJ...855...43M,1802.01581v1,C: every distance or distance modulus printed for the system (headline first)
+leo_5,Medina2018ApJ...855...43M,1802.01581v1,C: every distance or distance modulus printed for the system (headline first)
+leo_1,Stetson2014PASP..126..616S,1406.6704v2,C: every distance or distance modulus printed for the system (headline first)
+tucana_5,Simon2020ApJ...892..137S,1911.08493v2,D: the printed M_V of the system and the distance modulus (or distance) used to compute it
+phoenix_1,vandeRydt1991AJ....102..130V,1991AJ....102..130V,D: the distance modulus (or distance) used to compute the headline M_V = -9.9
+leo_t,deJong2008ApJ...680.1112D,0801.4027v2,D: the distance modulus (or distance) used to compute the headline M_V = -8.0
