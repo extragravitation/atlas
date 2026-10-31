@@ -921,3 +921,32 @@ Specification: `docs/methods/D052_STRUCTURE_SELECTION.md`, frozen with `reproduc
 **Data seen at the time of ruling.**
 - Main session: the counts and kinds of disagreement between readings, and the quantity names and units present. No structural, distance or magnitude value of an A5 or A7 candidate.
 - The readers' and adjudicators' reports mention a few values in passing. None entered the choice.
+
+---
+
+## D-053 — Resolving a compilation entry that lists several originals
+
+**Ruling (2026-10-30 19:36 MDT, JvH).** "I choose A." **Proposed by** Claude as option A, recommended. **Adopted unchanged.** Made before any value in the originals behind McConnachie 2012 was read.
+
+Specification: `docs/methods/D053_COMPILATION_ORIGINALS.md`, frozen with `reproduction/resolve_compilation.py`.
+
+1. **Candidates.** Every original that the compilation lists for the value is a candidate, and each is read by two independent readers.
+2. **One printer.** If only one candidate prints the quantity, it is used.
+3. **Several printers.** The candidate whose printed value the compilation reproduces is used. This is a mechanical match at the compilation's printed precision, recorded with its location.
+4. **No match** (the compilation averaged or converted): the most recent candidate that prints the quantity is used, flagged.
+5. **Centres.** These come from the structure original if it prints one, otherwise from the discovery paper, which is the only reference in the compilation's centre table.
+6. **Pre-arXiv originals** are read through JvH's browser (D-050).
+
+**Reason (Claude, adopted).**
+- D-048 makes the originals the record.
+- The value match only identifies which paper a compiled value came from. It never chooses a value for its effect on the result.
+- The fallback is fixed in advance.
+
+**Alternatives rejected.**
+- (B) Most recent original always: this may silently substitute a different measurement.
+- (C) Leave these values undetermined: this loses data that has real originals.
+
+**Data seen at the time of ruling.**
+- McConnachie 2012's reference columns, notes and reference list, and the originals' titles and arXiv records.
+- No value from the originals.
+- Readers had read McConnachie 2012's own values in the earlier readings (structure, magnitude and dispersion sheets). The main session has not.

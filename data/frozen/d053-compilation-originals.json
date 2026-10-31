@@ -1,0 +1,10 @@
+{
+  "description": "D-053: resolving compilation entries with several originals; frozen before any value in the originals was read.",
+  "frozen_on": "2026-10-30",
+  "decision": "D-053",
+  "spec": "docs/methods/D053_COMPILATION_ORIGINALS.md",
+  "files": {
+    "docs/methods/D053_COMPILATION_ORIGINALS.md": "8e3884f2e6aeb4bd62a5c00b7ff8451de5e0a72cd252d2c12640c4447bc684b0",
+    "data/packages/aeg-d-dwarfs/v1/reproduction/resolve_compilation.py": "73876071121c8aa291e52aec2ee10ed07275274aecf02c59037abf45db8e6fdc"
+  }
+}

@@ -1,0 +1,104 @@
+key,distance_method,has_distance,kinematic
+antlia_2,"RR Lyrae, period–luminosity relation in i band (Cáceres & Catelan 2008), [Fe/H] = −1.90",yes,no
+aquarius_2,blue horizontal branch (BHB) stars,yes,no
+aquarius_3,"isochrone fit (PARSEC isochrone, age 13.5 Gyr, Z = 0.0001 fixed; ugali)",yes,no
+bootes_1,"RR Lyrae, mean V luminosity (M_V–[Fe/H])",yes,no
+bootes_2,main-sequence / CMD fit to globular-cluster fiducials (M92),yes,no
+bootes_3,"RR Lyrae, Gaia G-band period-independent M_G–[Fe/H] calibration (Garofalo et al. 2022), 5 RRL stars",yes,no
+canes_venatici_1,"RR Lyrae, mean V magnitude with adopted absolute magnitude MV = 0.46 ± 0.03 (Cacciari & Clementini 2003)",yes,no
+canes_venatici_2,"RR Lyrae, luminosity–metallicity relation (average of 2 stars)",yes,no
+carina_1,"RR Lyrae, near-infrared (J, K) period–luminosity–metallicity relations, 33 stars, single-phase",yes,no
+carina_2,"RR Lyrae, period–metallicity–luminosity relation in SDSS i band (Cáceres & Catelan 2008) / isochrone fit (PARSEC isochrones, simultaneous spatial + CMD likelihood)",yes,no
+carina_3,"isochrone fit (PARSEC isochrones, simultaneous spatial + CMD likelihood)",yes,no
+centaurus_1,"RR Lyrae, period–luminosity–metallicity (PLZ) relations in i and z (Cáceres & Catelan 2008)",yes,no
+columba_1,"horizontal branch (least-squares fit of BHB stars to NGC 7078 (M15) BHB ridgeline, PS1)",yes,no
+coma_berenices_1,"horizontal branch: mean HB magnitude matched to M68 ridge lines, RR Lyrae/HB absolute magnitude–metallicity relation",yes,no
+crater_2,"RR Lyrae (RRab), period–luminosity–metallicity relation in i band",yes,no
+draco_1,"RR Lyrae, near-infrared (H, Ks) period–luminosity–metallicity relations calibrated in globular clusters (Bhardwaj et al. 2023a), [Fe/H] = −1.98 ± 0.10",yes,no
+draco_2,isochrone fit to CMD (forward modelling of CMD with completeness),yes,no
+eridanus_2,"RR Lyrae, period–luminosity relations (i-SDSS Cáceres & Catelan 2008; I Marconi et al. 2015; F814W)",yes,no
+eridanus_4,"isochrone fit (ugali; PARSEC isochrones, Chabrier IMF, simultaneous with Plummer spatial model)",yes,no
+fornax_1,"three methods: I-band TRGB (Freedman et al. 2020 calibration), RR Lyrae PLZ/PWZ (Neeley et al. 2019), horizontal-branch fit to M55 and ω Cen; combined as product distribution",yes,no
+grus_1,"RR Lyrae, period-luminosity-metallicity (i band)",yes,no
+grus_2,"RR Lyrae, period-luminosity-metallicity (i band)",yes,no
+hercules_1,main-sequence / CMD fit to M92 fiducial,yes,no
+horologium_1,blue horizontal branch (BHB) stars: theoretical HB isochrone and M92 HB fiducial; checked with Hess-diagram stellar-population fit,yes,no
+hydra_2,"RR Lyrae, period–luminosity–metallicity relation in i band",yes,no
+hydrus_1,"blue horizontal branch (BHB) stars; validated by RR Lyrae, period–luminosity",yes,no
+leo_1,"RR Lyrae, MV–[Fe/H] relation (Bono et al. 2003) for 81 RRab; also First Overtone Blue Edge (FOBE) method",no,no
+leo_2,,no,no
+leo_4,"RR Lyrae, period–luminosity–metallicity (PLZ) relation",no,no
+leo_5,"RR Lyrae, period–luminosity–metallicity (PLZ) relation",no,no
+leo_6,isochrone fit (PARSEC isochrone; ugali),yes,no
+lmc,eclipsing binaries (surface brightness–colour relation),yes,no
+pegasus_3,"blue horizontal branch (BHB) stars, M15 HB fiducial",yes,no
+pegasus_4,"RR Lyrae, Gaia G absolute magnitude–metallicity relation (Muraveva et al. 2018) / isochrone fit (Bressan et al. 2012 PARSEC) with ugali",yes,no
+phoenix_2,"isochrone fit: mean of best-fit Dartmouth ([Fe/H]=−2.2) and PARSEC ([Fe/H]=−2.0) isochrones, star counting with r < 25 mag; 13.5 Gyr",yes,no
+pictor_2,"isochrone fit (ugali; PARSEC isochrones fit to magnitudes and colours, simultaneous with structure)",yes,no
+pisces_2,"horizontal branch (SDSS HB fiducials of M92 and M3/M13, corrected to [Fe/H] = −2.0)",yes,no
+reticulum_2,"isochrone fit (star counting; Dartmouth and PARSEC isochrones, [Fe/H]= −2.4 and −2.0)",yes,no
+reticulum_3,isochrone fit,yes,no
+sagittarius_1,,no,no
+sculptor_1,"RR Lyrae, period–Wesenheit relations W(V,B–V) and W(V,B–I), theoretical/semi-empirical/empirical calibrations",yes,no
+segue_1,CMD comparison with globular-cluster ridgeline (M92),yes,no
+segue_2,"RR Lyrae (one RRab, MV–[Fe/H], Chaboyer 1999) and blue horizontal branch stars (Sand et al. 2012 technique)",no,no
+sextans_1,synthetic CMD fitting (SFH modelling),yes,no
+smc,"tip of the red giant branch (TRGB), DENIS I, J, KS; distance from bolometric TRGB magnitude",yes,no
+triangulum_2,main-sequence ridgeline fit (least-squares fit of NGC 7078 (M15) PS1 ridgeline to Tri II stars with i0 < 24),yes,no
+tucana_2,"RR Lyrae, MG–[Fe/H] relation (Gaia DR2 G band)",yes,no
+tucana_3,"isochrone fit (star counting; Dartmouth and PARSEC isochrones, [Fe/H]= −2.4 and −2.2)",yes,no
+tucana_4,re-analysis of DES Y3A2 photometry following Drlica-Wagner et al. (2015),yes,no
+tucana_5,re-analysis of DES Y3A2 photometry following Drlica-Wagner et al. (2015),yes,no
+ursa_major_1,"RR Lyrae, mean V magnitude with MV–[Fe/H] relation (MV = 0.54 ± 0.09 at [Fe/H] = −1.5, slope 0.214 mag/dex)",yes,no
+ursa_major_2,"RR Lyrae (single star), M_V–[Fe/H] calibration",yes,no
+ursa_minor_1,"RR Lyrae, G-band luminosity–metallicity relation MG−[Fe/H] (Garofalo et al. 2022), Gaia DR3",yes,no
+willman_1,"main-sequence turnoff magnitude compared with globular clusters Pal 5, M5, M13, M15 (SDSS)",yes,no
+andromeda_01,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+andromeda_02,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+andromeda_03,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+andromeda_05,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+andromeda_06,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+andromeda_07,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+andromeda_09,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+andromeda_10,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+andromeda_11,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+andromeda_12,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+andromeda_13,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+andromeda_14,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+andromeda_15,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+andromeda_16,"RR Lyrae, period-Wesenheit relation",yes,no
+andromeda_17,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+andromeda_18,tip of the RGB (TRGB),yes,no
+andromeda_19,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+andromeda_20,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+andromeda_21,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+andromeda_22,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+andromeda_23,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+andromeda_24,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+andromeda_25,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+andromeda_26,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+andromeda_27,"horizontal branch (g-band luminosity of HB, Mg = 0.8 ± 0.1 calibrated on And I, II, III, XVI)",yes,no
+andromeda_28,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+andromeda_29,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+cassiopeia_2,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+cassiopeia_3,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+lacerta_1,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+lgs_3,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+m_032,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+ngc_0147,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+ngc_0185,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+ngc_0205,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+perseus_1,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+antlia_b,"tip of the red giant branch (HST/ACS F814W; Jang & Lee 2017 calibration; model LF fit, Makarov et al. 2006)",yes,no
+aquarius_1,tip of the RGB (TRGB),yes,no
+cetus_1,,no,no
+ic_1613,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+leo_a,"RR Lyrae, M_V–[Fe/H] calibration",yes,no
+leo_t,tip of the RGB (TRGB),yes,no
+ngc_6822,tip of the RGB (TRGB),yes,no
+pegasus_dirr,"RR Lyrae, Period-Wesenheit-Metallicity (PWZ) relation, RRab only",yes,no
+phoenix_1,"tip of the red-giant branch (I band, Sobel edge detection)",yes,no
+sagittarius_dirr,tip of the RGB (TRGB),yes,no
+tucana_1,,no,no
+ugc_04879,tip of the RGB (TRGB),yes,no
+wlm,tip of the red-giant branch,yes,no
