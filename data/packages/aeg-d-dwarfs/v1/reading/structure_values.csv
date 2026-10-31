@@ -1,82 +1,99 @@
-key,ra0_deg,dec0_deg,ellipticity,pa_deg,a_h_arcmin,rh_convention,status
-antlia_2,143.807900,-36.699100,0.6000,154.00,104.82950,circularised,ok
-aquarius_2,338.481300,-9.327400,0.3900,121.00,5.10000,semi-major,ok
-aquarius_3,357.218000,-3.489000,0.4700,119.00,2.10000,semi-major (a_h; circularised value printed too),ok
-bootes_1,210.020000,14.513500,0.2500,7.00,11.26000,"semi-major (assumed, D-052 item 2)",ok
-bootes_2,209.514100,12.855300,0.2400,-70.00,3.05000,"semi-major (assumed, D-052 item 2)",ok
-canes_venatici_1,202.009100,33.552100,0.4600,80.00,7.67000,"semi-major (assumed, D-052 item 2)",ok
-canes_venatici_2,194.292700,34.322600,0.4600,10.00,1.51000,"semi-major (assumed, D-052 item 2)",ok
-carina_1,100.406500,-50.959300,0.3700,60.00,11.43000,"semi-major (assumed, D-052 item 2)",ok
-carina_2,114.106600,-57.999100,0.3400,170.00,8.69000,semi-major,ok
-carina_3,114.629800,-57.899700,0.5500,150.00,3.75000,semi-major,ok
-centaurus_1,189.590800,-40.904300,0.3600,10.00,2.60000,semi-major,ok
-columba_1,82.856958,-28.042528,0.3000,24.00,2.20000,semi-major,ok
-coma_berenices_1,186.745400,23.906900,0.3700,-58.00,5.63000,"semi-major (assumed, D-052 item 2)",ok
-crater_2,177.310000,-18.413000,0.0000,0.00,31.20000,semi-major,ok
-draco_1,260.068400,57.918500,0.3000,87.00,9.93000,"semi-major (assumed, D-052 item 2)",ok
-draco_2,238.174000,64.579000,0.2300,76.00,3.00000,semi-major,ok
-eridanus_2,56.083750,-43.533806,0.4800,72.60,2.31000,"semi-major (assumed, D-052 item 2)",ok
-eridanus_4,76.424600,-9.518900,0.2600,75.00,3.24000,semi-major,ok
-fornax_1,39.970833,-34.505833,0.3100,43.20,19.80000,"semi-major (assumed, D-052 item 2)",ok
-grus_1,344.166000,-50.168000,0.4400,153.00,5.55903,circularised,ok
-grus_2,331.023700,-46.450900,0.2500,186.00,6.80000,semi-major,ok
-hercules_1,247.772200,12.785200,0.6900,-73.00,5.99000,"semi-major (assumed, D-052 item 2)",ok
-hydra_2,185.425100,-31.986000,0.1700,29.00,1.50000,"semi-major (assumed, D-052 item 2)",ok
-hydrus_1,37.389000,-79.308900,0.2100,97.00,7.42000,semi-major (a_h; circularised value printed too),ok
-leo_1,152.114600,12.305900,0.3000,78.00,3.30000,"semi-major (assumed, D-052 item 2)",ok
-leo_2,168.362700,22.152900,0.0700,43.00,2.48000,"semi-major (assumed, D-052 item 2)",ok
-leo_4,173.240500,-0.545300,0.1900,-29.00,2.61000,"semi-major (assumed, D-052 item 2)",ok
-leo_5,172.785700,2.219400,0.3500,-65.00,1.00000,"semi-major (assumed, D-052 item 2)",ok
-leo_6,171.077000,24.874000,0.5400,63.00,4.17000,semi-major (a_h; circularised value printed too),ok
-pegasus_3,336.107583,5.415003,0.3600,85.00,1.88000,semi-major (a_h; circularised value printed too),ok
-pegasus_4,328.539000,26.620000,0.0000,115.00,1.60000,semi-major (a_h; circularised value printed too),ok
-pictor_2,101.175000,-59.901000,0.2200,55.00,2.80000,semi-major (a_h; circularised value printed too),ok
-pisces_2,344.636500,5.955656,0.3700,97.00,1.31000,semi-major (a_h; circularised value printed too),ok
-reticulum_2,53.949292,-54.046611,0.6000,68.00,6.30000,semi-major,ok
-reticulum_3,56.360000,-60.450000,0.0000,0.00,2.40000,circularised,ok
-sagittarius_1,283.831250,-30.545278,0.6400,102.00,342.00000,semi-major,ok
-sculptor_1,15.018300,-33.718600,0.3700,94.00,12.33000,"semi-major (assumed, D-052 item 2)",ok
-segue_1,151.750400,16.075600,0.3400,75.00,3.95000,"semi-major (assumed, D-052 item 2)",ok
-segue_2,34.822600,20.162400,0.2100,166.00,3.64000,"semi-major (assumed, D-052 item 2)",ok
-sextans_1,153.268000,-1.619000,0.2700,52.00,22.00000,semi-major,ok
-triangulum_2,33.322250,36.171917,0.3000,73.00,2.50000,semi-major,ok
-tucana_2,342.979600,-58.568900,0.3900,107.00,12.58603,circularised,ok
-tucana_3,359.107500,-59.583317,0.2000,25.00,5.10000,semi-major,ok
-tucana_4,0.717000,-60.830000,0.3900,27.00,9.30000,semi-major,ok
-tucana_5,354.347000,-63.266000,0.5100,29.00,2.10000,semi-major,ok
-ursa_major_1,158.770600,51.947900,0.5700,67.00,8.34000,"semi-major (assumed, D-052 item 2)",ok
-ursa_major_2,132.872600,63.133500,0.5600,-77.00,13.95000,"semi-major (assumed, D-052 item 2)",ok
-ursa_minor_1,227.242000,67.222100,0.5500,50.00,17.32000,"semi-major (assumed, D-052 item 2)",ok
-willman_1,162.343600,51.050100,0.4700,74.00,2.53000,"semi-major (assumed, D-052 item 2)",ok
-andromeda_01,11.415417,38.037500,0.2800,30.00,3.90000,semi-major,ok
-andromeda_02,19.111667,33.435278,0.1600,31.00,5.30000,semi-major,ok
-andromeda_03,8.878750,36.498889,0.5900,140.00,2.00000,semi-major,ok
-andromeda_05,17.572917,47.628333,0.2600,54.00,1.60000,semi-major,ok
-andromeda_06,357.945417,24.582500,0.4100,163.00,2.34340,circularised,ok
-andromeda_07,351.639583,50.680000,0.1300,94.00,3.53797,circularised,ok
-andromeda_09,13.222500,43.199167,0.0000,41.00,2.00000,semi-major,ok
-andromeda_10,16.647500,44.807500,0.1000,30.00,1.10000,semi-major,ok
-andromeda_11,11.582083,33.802778,0.1900,54.00,0.60000,semi-major,ok
-andromeda_12,11.867917,34.377222,0.6100,16.00,1.80000,semi-major,ok
-andromeda_13,12.962500,33.004444,0.6100,-20.00,0.80000,semi-major,ok
-andromeda_14,12.895833,29.689722,0.1700,-4.00,1.50000,semi-major,ok
-andromeda_15,18.576250,38.119722,0.2400,38.00,1.30000,semi-major,ok
-andromeda_16,14.876250,32.376111,0.2900,98.00,1.00000,semi-major,ok
-andromeda_17,9.276250,44.323056,0.5000,110.00,1.40000,semi-major,ok
-andromeda_19,4.893750,35.044722,0.5800,34.00,14.20000,semi-major,ok
-andromeda_20,1.877500,35.126944,0.1100,90.00,0.40000,semi-major,ok
-andromeda_21,358.699583,42.470556,0.3600,139.00,4.10000,semi-major,ok
-andromeda_22,21.918333,28.090278,0.6100,114.00,0.90000,semi-major,ok
-andromeda_23,22.337500,38.723889,0.4100,138.00,5.40000,semi-major,ok
-andromeda_24,19.636250,46.370278,0.1000,90.00,2.60000,semi-major,ok
-andromeda_25,7.541250,46.861389,0.0300,-16.00,2.70000,semi-major,ok
-andromeda_26,5.942917,47.911944,0.3500,50.00,1.00000,semi-major,ok
-andromeda_27,9.362917,45.386944,0.4000,150.00,1.80000,semi-major,ok
-andromeda_29,359.731667,30.755611,0.2900,55.00,1.39000,semi-major,ok
-cassiopeia_2,9.144167,49.646944,0.4300,110.00,1.50000,semi-major,ok
-lgs_3,15.979167,21.885000,0.2000,0.00,2.10000,semi-major,ok
-m_032,10.674167,40.865278,0.2500,159.00,0.47000,semi-major,ok
-ngc_0205,10.092083,41.685278,0.4300,28.00,2.46000,semi-major,ok
-antlia_b,147.233667,-25.990000,0.3000,4.00,0.72000,"semi-major (assumed, D-052 item 2)",ok
-cetus_1,6.545833,-11.044444,0.3300,63.00,3.20000,semi-major,ok
-tucana_1,340.456667,-64.419444,0.4800,97.00,1.10000,semi-major,ok
+key,ra0_deg,dec0_deg,ellipticity,pa_deg,a_h_arcmin,rh_convention,centre_source,status
+antlia_2,143.807900,-36.699100,0.6000,154.00,104.82950,circularised,measured,ok
+aquarius_2,338.481300,-9.327400,0.3900,121.00,5.10000,semi-major,measured,ok
+aquarius_3,357.218000,-3.489000,0.4700,119.00,2.10000,semi-major (a_h; circularised value printed too),measured,ok
+bootes_1,210.020000,14.513500,0.2500,7.00,11.26000,"semi-major (assumed, D-052 item 2)",measured,ok
+bootes_2,209.514100,12.855300,0.2400,-70.00,3.05000,"semi-major (assumed, D-052 item 2)",measured,ok
+canes_venatici_1,202.009100,33.552100,0.4600,80.00,7.67000,"semi-major (assumed, D-052 item 2)",measured,ok
+canes_venatici_2,194.292700,34.322600,0.4600,10.00,1.51000,"semi-major (assumed, D-052 item 2)",measured,ok
+carina_1,100.406500,-50.959300,0.3700,60.00,11.43000,"semi-major (assumed, D-052 item 2)",measured,ok
+carina_2,114.106600,-57.999100,0.3400,170.00,8.69000,semi-major,measured,ok
+carina_3,114.629800,-57.899700,0.5500,150.00,3.75000,semi-major,measured,ok
+centaurus_1,189.590800,-40.904300,0.3600,10.00,2.60000,semi-major,measured,ok
+columba_1,82.856958,-28.042528,0.3000,24.00,2.20000,semi-major,measured,ok
+coma_berenices_1,186.745400,23.906900,0.3700,-58.00,5.63000,"semi-major (assumed, D-052 item 2)",measured,ok
+crater_2,177.310000,-18.413000,0.0000,0.00,31.20000,semi-major,measured,ok
+draco_1,260.068400,57.918500,0.3000,87.00,9.93000,"semi-major (assumed, D-052 item 2)",measured,ok
+draco_2,238.174000,64.579000,0.2300,76.00,3.00000,semi-major,measured,ok
+eridanus_2,56.083750,-43.533806,0.4800,72.60,2.31000,"semi-major (assumed, D-052 item 2)",measured,ok
+eridanus_4,76.424600,-9.518900,0.2600,75.00,3.24000,semi-major,measured,ok
+fornax_1,39.970833,-34.505833,0.3100,43.20,19.80000,"semi-major (assumed, D-052 item 2)",measured,ok
+grus_1,344.166000,-50.168000,0.4400,153.00,5.55903,circularised,measured,ok
+grus_2,331.023700,-46.450900,0.2500,186.00,6.80000,semi-major,measured,ok
+hercules_1,247.772200,12.785200,0.6900,-73.00,5.99000,"semi-major (assumed, D-052 item 2)",measured,ok
+hydra_2,185.425100,-31.986000,0.1700,29.00,1.50000,"semi-major (assumed, D-052 item 2)",measured,ok
+hydrus_1,37.389000,-79.308900,0.2100,97.00,7.42000,semi-major (a_h; circularised value printed too),measured,ok
+leo_1,152.114600,12.305900,0.3000,78.00,3.30000,"semi-major (assumed, D-052 item 2)",measured,ok
+leo_2,168.362700,22.152900,0.0700,43.00,2.48000,"semi-major (assumed, D-052 item 2)",measured,ok
+leo_4,173.240500,-0.545300,0.1900,-29.00,2.61000,"semi-major (assumed, D-052 item 2)",measured,ok
+leo_5,172.785700,2.219400,0.3500,-65.00,1.00000,"semi-major (assumed, D-052 item 2)",measured,ok
+leo_6,171.077000,24.874000,0.5400,63.00,4.17000,semi-major (a_h; circularised value printed too),measured,ok
+pegasus_3,336.107583,5.415003,0.3600,85.00,1.88000,semi-major (a_h; circularised value printed too),measured,ok
+pegasus_4,328.539000,26.620000,0.0000,115.00,1.60000,semi-major (a_h; circularised value printed too),measured,ok
+pictor_2,101.175000,-59.901000,0.2200,55.00,2.80000,semi-major (a_h; circularised value printed too),measured,ok
+pisces_2,344.636500,5.955656,0.3700,97.00,1.31000,semi-major (a_h; circularised value printed too),measured,ok
+reticulum_2,53.949292,-54.046611,0.6000,68.00,6.30000,semi-major,measured,ok
+reticulum_3,56.360000,-60.450000,0.0000,0.00,2.40000,circularised,measured,ok
+sagittarius_1,283.831250,-30.545278,0.6400,102.00,342.00000,semi-major,measured,ok
+sculptor_1,15.018300,-33.718600,0.3700,94.00,12.33000,"semi-major (assumed, D-052 item 2)",measured,ok
+segue_1,151.750400,16.075600,0.3400,75.00,3.95000,"semi-major (assumed, D-052 item 2)",measured,ok
+segue_2,34.822600,20.162400,0.2100,166.00,3.64000,"semi-major (assumed, D-052 item 2)",measured,ok
+sextans_1,153.268000,-1.619000,0.2700,52.00,22.00000,semi-major,measured,ok
+triangulum_2,33.322250,36.171917,0.3000,73.00,2.50000,semi-major,measured,ok
+tucana_2,342.979600,-58.568900,0.3900,107.00,12.58603,circularised,measured,ok
+tucana_3,359.107500,-59.583317,0.2000,25.00,5.10000,semi-major,measured,ok
+tucana_4,0.717000,-60.830000,0.3900,27.00,9.30000,semi-major,measured,ok
+tucana_5,354.347000,-63.266000,0.5100,29.00,2.10000,semi-major,measured,ok
+ursa_major_1,158.770600,51.947900,0.5700,67.00,8.34000,"semi-major (assumed, D-052 item 2)",measured,ok
+ursa_major_2,132.872600,63.133500,0.5600,-77.00,13.95000,"semi-major (assumed, D-052 item 2)",measured,ok
+ursa_minor_1,227.242000,67.222100,0.5500,50.00,17.32000,"semi-major (assumed, D-052 item 2)",measured,ok
+willman_1,162.343600,51.050100,0.4700,74.00,2.53000,"semi-major (assumed, D-052 item 2)",measured,ok
+andromeda_01,11.415417,38.037500,0.2800,30.00,3.90000,semi-major,measured,ok
+andromeda_02,19.111667,33.435278,0.1600,31.00,5.30000,semi-major,measured,ok
+andromeda_03,8.878750,36.498889,0.5900,140.00,2.00000,semi-major,measured,ok
+andromeda_05,17.572917,47.628333,0.2600,54.00,1.60000,semi-major,measured,ok
+andromeda_06,357.945417,24.582500,0.4100,163.00,2.34340,circularised,measured,ok
+andromeda_07,351.639583,50.680000,0.1300,94.00,3.53797,circularised,measured,ok
+andromeda_09,13.222500,43.199167,0.0000,41.00,2.00000,semi-major,measured,ok
+andromeda_10,16.647500,44.807500,0.1000,30.00,1.10000,semi-major,measured,ok
+andromeda_11,11.582083,33.802778,0.1900,54.00,0.60000,semi-major,measured,ok
+andromeda_12,11.867917,34.377222,0.6100,16.00,1.80000,semi-major,measured,ok
+andromeda_13,12.962500,33.004444,0.6100,-20.00,0.80000,semi-major,measured,ok
+andromeda_14,12.895833,29.689722,0.1700,-4.00,1.50000,semi-major,measured,ok
+andromeda_15,18.576250,38.119722,0.2400,38.00,1.30000,semi-major,measured,ok
+andromeda_16,14.876250,32.376111,0.2900,98.00,1.00000,semi-major,measured,ok
+andromeda_17,9.276250,44.323056,0.5000,110.00,1.40000,semi-major,measured,ok
+andromeda_18,0.560417,45.088889,0.4400,75.12,0.92000,semi-major,"adopted: quoted from McConnachie (2012): Table 2 caption 'RA and Dec. for each galaxy are taken from McConnachie (2012).' Δx, Δy offsets of RGB centre from adopted centr",ok
+andromeda_19,4.893750,35.044722,0.5800,34.00,14.20000,semi-major,measured,ok
+andromeda_20,1.877500,35.126944,0.1100,90.00,0.40000,semi-major,measured,ok
+andromeda_21,358.699583,42.470556,0.3600,139.00,4.10000,semi-major,measured,ok
+andromeda_22,21.918333,28.090278,0.6100,114.00,0.90000,semi-major,measured,ok
+andromeda_23,22.337500,38.723889,0.4100,138.00,5.40000,semi-major,measured,ok
+andromeda_24,19.636250,46.370278,0.1000,90.00,2.60000,semi-major,measured,ok
+andromeda_25,7.541250,46.861389,0.0300,-16.00,2.70000,semi-major,measured,ok
+andromeda_26,5.942917,47.911944,0.3500,50.00,1.00000,semi-major,measured,ok
+andromeda_27,9.362917,45.386944,0.4000,150.00,1.80000,semi-major,measured,ok
+andromeda_28,338.171667,31.216111,0.4200,35.04,1.38000,semi-major,"adopted: quoted from McConnachie (2012): Table 2 caption 'RA and Dec. for each galaxy are taken from McConnachie (2012).' Δx, Δy offsets of RGB centre from adopted centr",ok
+andromeda_29,359.731667,30.755611,0.2900,55.00,1.39000,semi-major,measured,ok
+cassiopeia_2,9.144167,49.646944,0.4300,110.00,1.50000,semi-major,measured,ok
+cassiopeia_3,8.997500,51.559722,0.3500,91.00,4.73000,"semi-major (assumed, D-052 item 2)",adopted: Quoted from NED. Table 3 note: 'RA and Dec coordinates are from the NASA/IPAC Extragalactic Database (NED).' Offsets of the MLE centre from this position (Table,ok
+lacerta_1,344.555417,41.298194,0.4000,-63.00,3.13000,"semi-major (assumed, D-052 item 2)",adopted: Quoted from NED. Table 3 note: 'RA and Dec coordinates are from the NASA/IPAC Extragalactic Database (NED).' Offsets of the MLE centre from this position (Table,ok
+lgs_3,15.979167,21.885000,0.2000,0.00,2.10000,semi-major,measured,ok
+m_032,10.674167,40.865278,0.2500,159.00,0.47000,semi-major,measured,ok
+ngc_0147,8.300500,48.508750,0.4600,34.20,6.70000,semi-major,adopted: quoted from NED database (Table 1 caption: 'equatorial coordinates from the NED database').,ok
+ngc_0185,9.741542,48.337389,0.2200,45.90,2.94000,semi-major,adopted: quoted from NED database (Table 1 caption: 'equatorial coordinates from the NED database').,ok
+ngc_0205,10.092083,41.685278,0.4300,28.00,2.46000,semi-major,measured,ok
+perseus_1,45.348333,40.988333,0.0900,-59.00,1.40000,"semi-major (assumed, D-052 item 2)",adopted: Quoted from NED. Table 3 note: 'RA and Dec coordinates are from the NASA/IPAC Extragalactic Database (NED).' Offsets of the MLE centre from this position (Table,ok
+antlia_b,147.233667,-25.990000,0.3000,4.00,0.72000,"semi-major (assumed, D-052 item 2)",measured,ok
+aquarius_1,311.715833,-12.848056,0.5300,96.58,1.63000,semi-major,"adopted: quoted from McConnachie (2012): Table 2 caption 'RA and Dec. for each galaxy are taken from McConnachie (2012).' Δx, Δy offsets of RGB centre from adopted centr",ok
+cetus_1,6.545833,-11.044444,0.3300,63.00,3.20000,semi-major,measured,ok
+ic_1613,16.199167,2.117778,0.2000,90.49,7.57000,semi-major,"adopted: quoted from McConnachie (2012): Table 2 caption 'RA and Dec. for each galaxy are taken from McConnachie (2012).' Δx, Δy offsets of RGB centre from adopted centr",ok
+leo_a,149.860417,30.746389,0.4200,116.40,2.30000,semi-major,"adopted: quoted from McConnachie (2012): Table 2 caption 'RA and Dec. for each galaxy are taken from McConnachie (2012).' Δx, Δy offsets of RGB centre from adopted centr",ok
+leo_t,143.722500,17.051389,0.1200,121.13,1.39000,semi-major,"adopted: quoted from McConnachie (2012): Table 2 caption 'RA and Dec. for each galaxy are taken from McConnachie (2012).' Δx, Δy offsets of RGB centre from adopted centr",ok
+ngc_6822,296.235833,-14.789167,0.2800,66.88,11.95000,semi-major,"adopted: quoted from McConnachie (2012): Table 2 caption 'RA and Dec. for each galaxy are taken from McConnachie (2012).' Δx, Δy offsets of RGB centre from adopted centr",ok
+pegasus_dirr,352.151250,14.743056,0.5600,126.30,3.81000,semi-major,"adopted: quoted from McConnachie (2012): Table 2 caption 'RA and Dec. for each galaxy are taken from McConnachie (2012).' Δx, Δy offsets of RGB centre from adopted centr",ok
+phoenix_1,27.775000,-44.445000,0.3000,8.00,2.30000,semi-major,adopted: quoted from Mateo (1998) (reference 1).,ok
+sagittarius_dirr,292.495833,-17.680833,0.5600,86.91,1.43000,semi-major,"adopted: quoted from McConnachie (2012): Table 2 caption 'RA and Dec. for each galaxy are taken from McConnachie (2012).' Δx, Δy offsets of RGB centre from adopted centr",ok
+tucana_1,340.456667,-64.419444,0.4800,97.00,1.10000,semi-major,measured,ok
+ugc_04879,139.009167,52.840000,0.4300,81.19,1.13000,semi-major,"adopted: quoted from McConnachie (2012): Table 2 caption 'RA and Dec. for each galaxy are taken from McConnachie (2012).' Δx, Δy offsets of RGB centre from adopted centr",ok
+wlm,0.492500,-15.460833,0.5400,177.02,4.10000,semi-major,"adopted: quoted from McConnachie (2012): Table 2 caption 'RA and Dec. for each galaxy are taken from McConnachie (2012).' Δx, Δy offsets of RGB centre from adopted centr",ok

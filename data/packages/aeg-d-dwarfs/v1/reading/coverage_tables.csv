@@ -19,7 +19,7 @@ leo_2,Geha 2026 ApJ 999 140,checked,230,128,0.5565,1.9788,True
 leo_4,Geha 2026 ApJ 999 140,checked,23,10,0.4348,1.9419,True
 leo_5,Geha 2026 ApJ 999 140,checked,9,3,0.3333,1.5519,True
 leo_6,Geha 2026 ApJ 999 140,checked,9,1,0.1111,1.0451,True
-leo_t,Geha 2026 ApJ 999 140,not reached: no structural values,,,,,
+leo_t,Geha 2026 ApJ 999 140,checked,39,8,0.2051,1.6850,True
 pegasus_3,Geha 2026 ApJ 999 140,checked,15,10,0.6667,3.1910,True
 pegasus_4,Geha 2026 ApJ 999 140,checked,20,7,0.3500,1.9751,True
 pisces_2,Geha 2026 ApJ 999 140,checked,8,3,0.3750,1.6851,True
@@ -44,14 +44,14 @@ andromeda_11,Collins 2013 ApJ 768 172,checked,5,3,0.6000,3.8657,True
 andromeda_11,Tollerud 2012 ApJ 752 45,not reached: per-dwarf velocity windows (Sect. data) to be read by two readers first,,,,,
 andromeda_13,Collins 2013 ApJ 768 172,checked,5,4,0.8000,3.0984,True
 andromeda_13,Tollerud 2012 ApJ 752 45,not reached: per-dwarf velocity windows (Sect. data) to be read by two readers first,,,,,
-andromeda_18,Collins 2013 ApJ 768 172,not reached: no structural values,,,,,
-andromeda_18,Kvasova 2024 ApJ 972 180,not reached: no structural values,,,,,
+andromeda_18,Collins 2013 ApJ 768 172,checked,4,2,0.5000,1.3937,True
+andromeda_18,Kvasova 2024 ApJ 972 180,checked,56,36,0.6429,7.6351,True
 andromeda_18,Tollerud 2012 ApJ 752 45,not reached: per-dwarf velocity windows (Sect. data) to be read by two readers first,,,,,
 andromeda_22,Collins 2013 ApJ 768 172,checked,12,10,0.8333,8.2766,True
 andromeda_22,Tollerud 2012 ApJ 752 45,not reached: per-dwarf velocity windows (Sect. data) to be read by two readers first,,,,,
 andromeda_23,Collins 2013 ApJ 768 172,checked,47,8,0.1702,1.5355,True
 andromeda_27,Collins 2013 ApJ 768 172,checked,11,9,0.8182,4.3145,True
-andromeda_28,Collins 2013 ApJ 768 172,not reached: no structural values,,,,,
+andromeda_28,Collins 2013 ApJ 768 172,checked,16,6,0.3750,3.0259,True
 cassiopeia_2,Collins 2013 ApJ 768 172,checked,8,6,0.7500,2.2065,True
 crater_2,Ji 2021 ApJ 921 32,"not reached: probability-weighted fit with no stated member list (coverage not checkable, D-051 application)",,,,,
 leo_2,Spencer 2017 ApJ 836 202,checked,175,108,0.6171,4.4825,True
