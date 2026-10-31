@@ -1,0 +1,10 @@
+{
+  "description": "D-051 coverage batch 3: Hendricks 2014, Tolstoy 2025, Koch 2007 (AJ, ApJ), Battaglia 2011 (VizieR, Harvard mirror) and Tollerud 2012 (15 M31 dSphs) member rules and extraction; Pickett 2025, Collins 2020 and Limberg 2026 recorded as not reached. Frozen before the coverage check ran on these tables.",
+  "frozen_on": "2026-10-31",
+  "decision": "D-051",
+  "spec": "docs/methods/D051_COVERAGE.md",
+  "files": {
+    "data/packages/aeg-d-dwarfs/v1/reproduction/extract_members_batch3.py": "94c75fb0b9604ab4018293edfd50b3acff8182a75064a5ebfd06c031667bbe19",
+    "data/packages/aeg-d-dwarfs/v1/reading/coverage_config_batch3.csv": "4245f3aeeee41975f30b685bd5b3fb04a12aeedfa34f5040c1259df3c86631a2"
+  }
+}

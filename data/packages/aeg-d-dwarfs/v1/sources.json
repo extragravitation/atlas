@@ -119,6 +119,82 @@
    "redistributable": true,
    "evidence_tier": 1,
    "note": "CC BY 4.0 (Zenodo record). md5 a90c904cd391c34a51379cb03c59a1e3 as listed by Zenodo."
+  },
+  {
+   "role": "Hendricks et al. 2014, A&A 572, A82 (Fornax stars): VizieR VOTable export, member positions for the D-051 coverage check",
+   "url": "https://vizier.cfa.harvard.edu/viz-bin/votable?-source=J/A+A/572/A82&-out.all&-out.max=unlimited",
+   "file": "members/vizier/J_A_A_572_A82.vot",
+   "bytes": 145036,
+   "sha256": "0e8df8ab5b5d3b9a0d2fc5315133f6380d528811cae4d92cf0435b358d8028a8",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "VizieR query export (Harvard mirror); the response is stamped with the request time, so the content hash from <RESOURCE is the check. CDS/VizieR terms of use apply; linked, not redistributed.",
+   "content_from": "<RESOURCE",
+   "content_sha256": "37f9995bd99df735e8cc8d20546676af66397e1fbe4bbeff9c9c3a0bf3d1eae1"
+  },
+  {
+   "role": "Tolstoy et al. 2025, A&A 698, A53 (Sextans members, table D1/D2): VizieR VOTable export, member positions for the D-051 coverage check",
+   "url": "https://vizier.cfa.harvard.edu/viz-bin/votable?-source=J/A+A/698/A53&-out.all&-out.max=unlimited",
+   "file": "members/vizier/J_A_A_698_A53.vot",
+   "bytes": 624849,
+   "sha256": "9f25990de20c0ac98bc528a1401f672e895dbc9a6c57845bb3934affd5367e9c",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "VizieR query export (Harvard mirror); the response is stamped with the request time, so the content hash from <RESOURCE is the check. CDS/VizieR terms of use apply; linked, not redistributed.",
+   "content_from": "<RESOURCE",
+   "content_sha256": "966b734eb820726d606d5e36a07bda940902533bb091047ff7dd7210eb38535e"
+  },
+  {
+   "role": "Koch et al. 2007, AJ 134, 566 (Leo II): VizieR VOTable export, member positions for the D-051 coverage check",
+   "url": "https://vizier.cfa.harvard.edu/viz-bin/votable?-source=J/AJ/134/566&-out.all&-out.max=unlimited",
+   "file": "members/vizier/J_AJ_134_566.vot",
+   "bytes": 31683,
+   "sha256": "87b98a1e707f1afe6144181f9128e92fd59f8a99e143fc4a92eb23a13dd3f07a",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "VizieR query export (Harvard mirror); the response is stamped with the request time, so the content hash from <RESOURCE is the check. CDS/VizieR terms of use apply; linked, not redistributed.",
+   "content_from": "<RESOURCE",
+   "content_sha256": "efc12a01398ebd2da14e27032128f113894d5dcf986654316a9903b07fdcc6e7"
+  },
+  {
+   "role": "Koch et al. 2007, ApJ 657, 241 (Leo I): VizieR VOTable export, member positions for the D-051 coverage check",
+   "url": "https://vizier.cfa.harvard.edu/viz-bin/votable?-source=J/ApJ/657/241&-out.all&-out.max=unlimited",
+   "file": "members/vizier/J_ApJ_657_241.vot",
+   "bytes": 31338,
+   "sha256": "e45d61a36b81283c13692021eb883114bc8913d39f5dca1311c4bd592a60c068",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "VizieR query export (Harvard mirror); the response is stamped with the request time, so the content hash from <RESOURCE is the check. CDS/VizieR terms of use apply; linked, not redistributed.",
+   "content_from": "<RESOURCE",
+   "content_sha256": "f89ee96d55416bba50195ceba7b79e7154daca09ee031700f8e0fa31f64e9a95"
+  },
+  {
+   "role": "Battaglia et al. 2011, MNRAS 411, 1013 (Sextans members): VizieR VOTable export, member positions for the D-051 coverage check",
+   "url": "https://vizier.cfa.harvard.edu/viz-bin/votable?-source=J/MNRAS/411/1013&-out.all&-out.max=unlimited",
+   "file": "members/vizier/J_MNRAS_411_1013.vot",
+   "bytes": 36838,
+   "sha256": "fe85a4209d6369c386bfd7812af03fc92e08824c174fc38cae80cdee405760bc",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "VizieR query export (Harvard mirror); the response is stamped with the request time, so the content hash from <RESOURCE is the check. CDS/VizieR terms of use apply; linked, not redistributed.",
+   "content_from": "<RESOURCE",
+   "content_sha256": "23ac3856e5fd9004803aaca888a28c21c707dd25b107de357f6f6b43a7355ea7"
+  },
+  {
+   "role": "Tollerud et al. 2012, ApJ 752, 45, machine-readable Table 2 (SPLASH M31 dSph stars): member positions for the D-051 coverage check",
+   "url": "https://content.cld.iop.org/journals/0004-637X/752/1/45/revision1/apj430011t2_mrt.txt",
+   "file": "members/tollerud2012/apj430011t2_mrt.txt",
+   "bytes": 51178,
+   "sha256": "681c671183161fea3e999e0a728d627704e9b2cc02baa8722fd39c8fb7238842",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "AAS journal MRT; licence not read, linked not redistributed."
   }
  ]
 }
