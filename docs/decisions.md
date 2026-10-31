@@ -1006,3 +1006,25 @@ Items 6–9 are applied in the conversion.
 - The coverage counts and pass/fail outcomes of batches 1–3.
 - The variant labels and locations of the values in items 2–5.
 - In preparing item 3, the main session saw the printed Simon 2017 and Simon 2020 dispersion values and limits.
+
+---
+
+## D-056 — Converting RC3 catalogue values
+
+**Ruling (2026-10-31 10:03 MDT, JvH).** "Rule as A for D-056." **Proposed by** Claude (A recommended, with items 2–3). **Adopted.** Made after reading RC3's column descriptions, and before any galaxy's RC3 value was used.
+
+Implemented in `reproduction/rc3_convert.py` (frozen). It reads the identified rows (`reading/rc3_values.csv`, two readers) by record number from the VizieR VII/155 export.
+
+1. **Magnitude:** V₀ = B₀ᵀ − (B−V)₀ᵀ, from RC3's own corrected columns. RC3's correction includes Galactic and internal extinction and a redshift term; the internal-extinction part is registered as a named assumption ("RC3 corrected magnitudes include internal extinction").
+2. **Radius:** r_h = ½ × 0.1′ × 10^Aₑ (Aₑ = log effective-aperture diameter in 0.1′), treated as circularised.
+3. **Shape:** ε = 1 − 10^(−R25), with RC3's position angle. The 25 mag arcsec⁻² isophote's shape stands in for the half-light ellipse; this substitution is recorded.
+
+**Reason (Claude, adopted).**
+- Only printed numbers are used, with no extinction model of the Atlas's own, as when a paper prints its own m_V,0.
+- The radius and shape steps are unit arithmetic.
+
+**Alternatives rejected.**
+- (B) Raw values with a Galactic correction by an assumed A_V/A_B ratio.
+- (C) Leave RC3 unused: nine systems would then have no luminosity.
+
+**Data seen.** RC3 column descriptions only.

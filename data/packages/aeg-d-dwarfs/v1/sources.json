@@ -195,6 +195,19 @@
    "redistributable": false,
    "evidence_tier": 1,
    "note": "AAS journal MRT; licence not read, linked not redistributed."
+  },
+  {
+   "role": "RC3, de Vaucouleurs et al. 1991 (VizieR VII/155): VOTable export of the 11 identified rows (by recno); magnitudes, radii, shapes and positions for 11 systems (D-053, D-056)",
+   "url": "https://vizier.cfa.harvard.edu/viz-bin/votable?-source=VII/155&-out.all&-out.max=unlimited&recno=1296,9368,852,630,762,809,19722,22478,43,6199,1041",
+   "file": "members/vizier/VII_155.vot",
+   "bytes": 25256,
+   "sha256": "aeab59d7c519b0235db1308bcb58dfc53f23f9b02a3f3182526d44010b792a29",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "VizieR query export (Harvard mirror); content hash from <RESOURCE. CDS/VizieR terms of use apply; linked, not redistributed. The full-catalogue export (23,011 rows) timed out in CI; this export holds the same 11 rows, checked field by field against the full export on 2026-10-31 (no differences).",
+   "content_from": "<RESOURCE",
+   "content_sha256": "a5e40dd6fab2e6c4cf6b7d1915614357c85688735cb9ff81b29be01aaec27502"
   }
  ]
 }
