@@ -1,0 +1,9 @@
+{
+  "description": "Carries the printed error of a printed m_V,0 into the conversion inputs (gap found after PR #85). Frozen before it was run.",
+  "frozen_on": "2026-10-31",
+  "decision": "D-052 item 4; D-051 duplicate rule",
+  "spec": "data/packages/aeg-d-dwarfs/v1/reproduction/inputs_magerr.py docstring",
+  "files": {
+    "data/packages/aeg-d-dwarfs/v1/reproduction/inputs_magerr.py": "8e128c5ebc2ee6f721d6eb56fc6eb463a35aa5477cf99454c40c009723cabacd"
+  }
+}
