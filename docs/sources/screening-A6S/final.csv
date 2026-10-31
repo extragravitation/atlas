@@ -5,7 +5,7 @@ R3,E-pair,agreed
 R4,X,adjudicated
 R5,E-pair,agreed
 R6,X,agreed
-R7,P,adjudicated
+R7,E,adjudicated; resolved under D-063
 R8,X,agreed
 R9,E-pair,adjudicated
 R10,E,agreed
@@ -23,29 +23,29 @@ R21,E-pair,agreed
 R22,E,agreed
 R23,X,agreed
 R24,E-pair,agreed
-R25,P,adjudicated
-R26,P,adjudicated
-R27,P,agreed
-R28,P,adjudicated
-R29,P,adjudicated
+R25,E,adjudicated; resolved under D-063
+R26,E-pair,adjudicated; resolved under D-063
+R27,E-pair,agreed; resolved under D-063
+R28,E,adjudicated; resolved under D-063
+R29,E,adjudicated; resolved under D-063
 R30,E,agreed
 R31,E-pair,adjudicated
 R32,E,agreed
 R33,E-pair,agreed
-R34,P,adjudicated
+R34,E,adjudicated; resolved under D-063
 R35,E-pair,agreed
 R36,E-pair,agreed
 R37,E,agreed
-R38,P,agreed
+R38,P,agreed; resolved under D-063
 R39,X,agreed
 R40,E-pair,adjudicated
 R41,E,agreed
 R42,X,agreed
 R43,E,agreed
-R44,P,agreed
-R45,P,adjudicated
+R44,X,agreed; resolved under D-063
+R45,P,adjudicated; resolved under D-063
 R46,E-pair,agreed
-R47,P,agreed
+R47,E,agreed; resolved under D-063
 R48,X,agreed
 R49,E,agreed
 R50,E-pair,agreed
@@ -58,3 +58,18 @@ R56,E-pair,agreed
 R57,E,agreed
 R58,X,adjudicated
 R59,—,agreed (formatting)
+R60,E-pair,agreed (round 2)
+R61,E,adjudicated (round 2)
+R62,X,adjudicated (round 2)
+R63,E-pair,agreed (round 2)
+R64,X,agreed (round 2)
+R65,X,agreed (round 2)
+R66,E-pair,agreed (round 2)
+R67,E-pair,agreed (round 2)
+R68,NS,agreed (round 2)
+R69a,E,agreed (round 2)
+R69b,X,agreed (round 2)
+R69c,E,agreed (round 2)
+R69d,E-pair,agreed (round 2)
+R69e,E-pair,adjudicated (round 2)
+R69f,E-pair,agreed (round 2)

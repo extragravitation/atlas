@@ -194,3 +194,23 @@ Same brief and the same two-reader method. D-063 now applies; readers still code
 | R67 | Shajib et al. 2021, 23 SLACS lenses re-modelled | R59 |
 | R68 | Lemon et al. 2024, CASTLES | R59 |
 | R69 | H-ATLAS and HerMES galaxy-scale lens models: Negrello et al. 2010, 2017; Dye et al. 2014, 2018; Amvrosiadis et al. 2018; Maresca et al. 2022 | R59 |
+
+### 3a. Round-2 result and state of the cell after D-063
+
+Two readers screened R60–R69 (R69 split into R69a–f); their tables are kept as returned (`reader-{a,b}-round2.md`). `compare_round2.py`: **12 of 15 decisions agree**. The three disagreements were settled under D-063, and the round-1 P codes were mapped to D-063. Both steps are in `adjudication.md`, and the codes are in `final.csv`.
+
+| Code | Count | Records |
+|---|---|---|
+| E | 21 | R7 (flagged alternative only), R10, R13, R19, R20, R22, R25, R28, R29, R30, R32, R34, R37, R41, R43, R47 (A7, ambiguous), R49, R57, R61, R69a, R69c |
+| E-pair | 28 | R3, R5, R9, R12, R15, R17, R18, R21, R24, R26, R27, R31, R33, R35, R36, R40, R46, R50, R53, R55, R56, R60, R63, R66, R67, R69d, R69e, R69f |
+| P | 2 | R38 (IMF unverified), R45 (restricted release) |
+| X | 21 | R1, R2, R4, R6, R8, R11, R14, R16, R23, R39, R42, R44, R48, R51, R52, R54, R58, R62, R64, R65, R69b |
+| NS | 1 | R68 (citation not identified) |
+| — | 1 | R59 (review) |
+
+D-063 item 3 still applies inside eligible sources: SL2S systems whose source redshift used σ (R19, R21) are recorded, not plotted.
+
+**Next for this cell:**
+1. JvH rules on the §5 projection question.
+2. A precedence rule for both sides (D-063 item 4) is written and hash-frozen.
+3. Only then is any data table opened.

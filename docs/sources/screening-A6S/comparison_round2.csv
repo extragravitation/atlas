@@ -1,0 +1,16 @@
+r,decision_a,decision_b,agree
+R60,E-pair,E-pair,yes
+R61,E-pair,P,no
+R62,P,X,no
+R63,E-pair,E-pair,yes
+R64,X,X,yes
+R65,X,X,yes
+R66,E-pair,E-pair,yes
+R67,E-pair,E-pair,yes
+R68,NS,NS,yes
+R69a,E,E,yes
+R69b,X,X,yes
+R69c,E,E,yes
+R69d,E-pair,E-pair,yes
+R69e,X,P,no
+R69f,E-pair,E-pair,yes

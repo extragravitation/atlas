@@ -21,3 +21,33 @@
 | R58 | P | X | **X** | Reader B read the ReadMe columns: candidates with a network score and grade; the SIE parameters are predicted by a neural network and are not released per system. Candidates only. |
 
 Rows where the readers agreed but a question still applies (R19, R21, R32, R38, R41, R44, R47) are listed under the questions in the search log; their codes are unchanged.
+
+## Round 2 (R60–R69f)
+
+`compare_round2.py` (committed before either round-2 reading was opened): **12 of 15 decisions agree**. The three disagreements were settled under D-063, which was ruled before round 2 began.
+
+| # | A | B | Final | Reason |
+|---|---|---|---|---|
+| R61 | E-pair | P | **E** | Both readers: new lens models fitted to new HST imaging (the observed side) and the F814W luminosity inside the aperture. Reader B: the reference M/L is the Kroupa spectroscopic value from Newman et al. 2017 (R26), converted to F814W. That M/L is accepted under D-063 item 1. |
+| R62 | P | X | **X** | Both readers: no new lensing measurement (values quoted from R25 and R61). The population fit has a free IMF slope (never a default, D-063 item 1) and covers only a central aperture much smaller than the Einstein radius. Lead for A6·random. |
+| R69e | X | P | **E-pair** (observed side) | Both readers: θ_E is half the image separation, measured from ALMA images. Accepted as "SIS from image separation" (D-063 item 2), and an alternative only where R69d or R69f give a full model of the same system. Systems without a lens redshift are recorded, not plotted (D-063 item 5). No baryonic side. |
+
+R68 is NS for both readers: no "Lemon et al. 2024" paper about CASTLES could be identified from the review's citation.
+
+## Round-1 P codes resolved under D-063
+
+These applications of the ruling were made by Claude and are open to correction by JvH.
+
+| # | Final | How D-063 applies |
+|---|---|---|
+| R7 | **E** (flagged alternative, never default) | Item 3. The metallicity prior uses the lens's own σ. |
+| R25 | **E** | Item 1 (spectroscopic Kroupa M/L) and item 2 (half-separation θ_E). The full HST models in R61 are the default for SNL-1 and SNL-2. |
+| R26 | **E-pair** (baryonic side) | Item 1. The observed side is R25's, or R61's as default. |
+| R28 | **E** (A6) | Item 1. Item 6: the model has one deflector; "group-dominant" describes its environment, not a group lens model. Gas is stated negligible inside the Einstein radius. |
+| R29 | **E** | Items 1 and 2. R27's HST value is the default for J0403−0239. |
+| R27 | **E-pair** (observed side) | Item 2. The updated θ_E of J0403−0239 is printed in the text (tier 2, flagged, deviation #16). Single-image limits are recorded only. |
+| R34 | **E** (A6) | Item 7: fraction × the Einstein mass of Dye et al. 2008 (R60), flagged. Item 6: R60 models one galaxy plus external shear. |
+| R38 | **P** | Item 5: systems without a spectroscopic source redshift are recorded, not plotted. The IMF behind the stellar masses is unverified and must be read before admission. |
+| R44 | **X** for v1.0 | Item 5: unconfirmed candidates, mostly without source redshifts. Kept as a lead for later confirmation. |
+| R45 | **P** (held) | Item 5: a restricted release is held until public. |
+| R47 | **E** (A7, ambiguous) | Item 6: the paper says "galaxy/group" and the 2024 follow-up says "lens group", so the sources disagree. |
