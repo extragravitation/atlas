@@ -950,3 +950,26 @@ Specification: `docs/methods/D053_COMPILATION_ORIGINALS.md`, frozen with `reprod
 - McConnachie 2012's reference columns, notes and reference list, and the originals' titles and arXiv records.
 - No value from the originals.
 - Readers had read McConnachie 2012's own values in the earlier readings (structure, magnitude and dispersion sheets). The main session has not.
+
+---
+
+## D-054 — Centre used for the coverage check
+
+**Ruling (2026-10-31 08:33 MDT, JvH).** "Proceed with 'B': The centre the structural paper used, measured or adopted." **Proposed by** Claude (option B, recommended, after JvH asked for a review "as a great scientist"). **Adopted.**
+
+JvH's reason, in his words: "This is the only choice that keeps centre, ellipticity, angle and radius as one consistent set. The 'quoted, not measured' filter exists to keep the Atlas from taking a result second-hand. A centre used as the origin of a fit is part of that paper's own model, not someone else's result. The value is already double-read, and the source it was adopted from is recorded."
+
+1. **Which centre.** The D-051 coverage check uses the centre the structural original used for its fit, whether that paper measured it or adopted it from another paper. Which of the two it was, and the cited source, is recorded.
+2. **No centre.** A structural original that neither prints nor cites a centre leaves the value "coverage not checkable". There is no fallback.
+3. **Cross-check (information only, not a gate).** Where the kinematics paper states its own centre, the outcome with that centre is also reported.
+
+**Alternatives rejected.**
+- (A) The measured centre only. This dropped 20 systems for a bookkeeping reason.
+- (C) The kinematics paper's centre as the default. It pairs a centre with an ellipse fitted about a different one.
+- (D) The LVDB centre. The database is an index (D-048).
+- (E) Requiring a pass under every candidate centre. Usually there is only one consistent candidate.
+
+**Data seen at the time of ruling.**
+- The count and source papers of the 22 systems lacking a measured centre, and that 20 of them print an adopted centre.
+- The coverage outcomes of batches 1 and 2 (PR #80).
+- No dispersion value entered the proposal.
