@@ -65,9 +65,10 @@ const FLAG_T = {
   </>
 )}
 
+<h2 id="inputs"><L t="Inputs" p="What went into the numbers" /></h2>
+{!plotted && <p class="small"><L t="No acceleration was computed for this system, so no inputs are converted; its readings are in the package's reading/ files." p="This galaxy has no point on the map, so nothing was converted." /></p>}
 {plotted && (
   <>
-    <h2 id="inputs"><L t="Inputs" p="What went into the numbers" /></h2>
     <div tabindex="0" class="tablebox"><table>
       <thead><tr><th class="l">Quantity</th><th>Value</th><th>Error</th><th class="l">Unit</th><th class="l">Source</th></tr></thead>
       <tbody>{[sig, ...inputs].filter(Boolean).map((o) => <tr><td class="l">{o.quantity.replace(/_/g, ' ')}{o.x_dwarfs_parameter ? ` (${o.x_dwarfs_parameter})` : ''}{o.limit === 'upper' ? ' · upper limit' : ''}</td><td>{o.value}</td><td>{o.err_lo == null ? '–' : o.err_lo === o.err_hi ? `± ${o.err_lo}` : `−${o.err_lo} / +${o.err_hi}`}</td><td class="l">{o.unit}</td><td class="l small">{o.source_ref}</td></tr>)}</tbody>
