@@ -1,0 +1,11 @@
+{
+  "description": "A5 gas rule (D-034, D-035 d, D-058) and the gas-reading resolution. Frozen before the conversion ran.",
+  "frozen_on": "2026-10-31",
+  "decision": "D-058",
+  "spec": "docs/decisions.md (D-058); data/packages/aeg-d-dwarfs/v1/REPRODUCTION.md (Gas)",
+  "files": {
+    "data/packages/aeg-d-dwarfs/v1/reproduction/gas.py": "942c4af00cebd1f4f539f0f64385cf7605c86e9cf63b1f9e842bb95da5956ba8",
+    "data/packages/aeg-d-dwarfs/v1/reproduction/resolve_gas_readings.py": "668bd6141fe11f39511274d357f6b121da29107bc460a28b3c7210025dbf159f",
+    "data/packages/aeg-d-dwarfs/v1/reproduction/compare_gas_readings.py": "cb4ddb60474c5d4080b0e56919c18347854c0323ca8c2335446c1e7564f8d047"
+  }
+}
