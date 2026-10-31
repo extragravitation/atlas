@@ -87,6 +87,7 @@ const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(d.name ==
       {d.knownIssues.length === 0 && <p>No known issues.</p>}
       {d.knownIssues.length > 0 && <ul>{d.knownIssues.map((k) => <li><a href={k.url}>#{k.issue}</a>: {k.title} ({(k.measurements || []).length} measurements, flag <code>{k.flag}</code>)</li>)}</ul>}
       {Object.keys(counts).length > 0 && <p class="small">Flags in this package: {Object.entries(counts).map(([f, n]) => `${f} (${n})`).join(', ')}.</p>}
+      {d.name === 'aeg-d-kids1000-rar' && <p class="small">The <code>no_uncertainty</code> flag on every row here refers to <b>g_bar</b> only: the source publishes no uncertainty for the baryonic side. Every row has g_obs uncertainties, from the published ESD errors (<a href="https://github.com/extragravitation/atlas/issues/64">#64</a>; the 2.0.0 re-issue will name the side in the flag).</p>}
       <p class="small"><a href={`${base}known-issues/`}>All known issues</a></p>
 
       <h2 id="files">Files and checksums</h2>
