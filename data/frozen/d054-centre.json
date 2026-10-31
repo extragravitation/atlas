@@ -1,0 +1,9 @@
+{
+  "description": "D-054: centre for the coverage check is the one the structural original used (measured or adopted); structural inputs version 2. Frozen before it was run.",
+  "frozen_on": "2026-10-31",
+  "decision": "D-054",
+  "spec": "docs/decisions.md (D-054)",
+  "files": {
+    "data/packages/aeg-d-dwarfs/v1/reproduction/structure_for_coverage_v2.py": "8d766538b4c7d522105413b9c19422c1d034d18bcbca1ae73bea3673076b7ee7"
+  }
+}

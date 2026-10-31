@@ -1,0 +1,9 @@
+{
+  "description": "D-051 batch 3 extraction v2: astropy's renamed [Fe/H] error columns (v1 stopped with KeyError at the Battaglia table, before the coverage check ran). Frozen before running.",
+  "frozen_on": "2026-10-31",
+  "decision": "D-051",
+  "spec": "docs/methods/D051_COVERAGE.md",
+  "files": {
+    "data/packages/aeg-d-dwarfs/v1/reproduction/extract_members_batch3_v2.py": "798a82fb4be3a4541ff342edb26bc0cceda8f34fd2272e99bbaf986d1ea413b5"
+  }
+}

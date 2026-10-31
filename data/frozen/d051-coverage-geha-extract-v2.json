@@ -1,0 +1,9 @@
+{
+  "description": "D-051 Geha extraction, version 2: column definitions read after the second separator (version 1 crashed before writing output). Frozen before it was run.",
+  "frozen_on": "2026-10-31",
+  "decision": "D-051",
+  "spec": "docs/methods/D051_COVERAGE.md",
+  "files": {
+    "data/packages/aeg-d-dwarfs/v1/reproduction/extract_geha2026_v2.py": "ac1c5bd931bb2d8563ac912ea0bd79cf746a60e2a6a45b6f38ded5c19b60fcfe"
+  }
+}

@@ -950,3 +950,59 @@ Specification: `docs/methods/D053_COMPILATION_ORIGINALS.md`, frozen with `reprod
 - McConnachie 2012's reference columns, notes and reference list, and the originals' titles and arXiv records.
 - No value from the originals.
 - Readers had read McConnachie 2012's own values in the earlier readings (structure, magnitude and dispersion sheets). The main session has not.
+
+---
+
+## D-054 — Centre used for the coverage check
+
+**Ruling (2026-10-31 08:33 MDT, JvH).** "Proceed with 'B': The centre the structural paper used, measured or adopted." **Proposed by** Claude (option B, recommended, after JvH asked for a review "as a great scientist"). **Adopted.**
+
+JvH's reason, in his words: "This is the only choice that keeps centre, ellipticity, angle and radius as one consistent set. The 'quoted, not measured' filter exists to keep the Atlas from taking a result second-hand. A centre used as the origin of a fit is part of that paper's own model, not someone else's result. The value is already double-read, and the source it was adopted from is recorded."
+
+1. **Which centre.** The D-051 coverage check uses the centre the structural original used for its fit, whether that paper measured it or adopted it from another paper. Which of the two it was, and the cited source, is recorded.
+2. **No centre.** A structural original that neither prints nor cites a centre leaves the value "coverage not checkable". There is no fallback.
+3. **Cross-check (information only, not a gate).** Where the kinematics paper states its own centre, the outcome with that centre is also reported.
+
+**Alternatives rejected.**
+- (A) The measured centre only. This dropped 20 systems for a bookkeeping reason.
+- (C) The kinematics paper's centre as the default. It pairs a centre with an ellipse fitted about a different one.
+- (D) The LVDB centre. The database is an index (D-048).
+- (E) Requiring a pass under every candidate centre. Usually there is only one consistent candidate.
+
+**Data seen at the time of ruling.**
+- The count and source papers of the 22 systems lacking a measured centre, and that 20 of them print an adopted centre.
+- The coverage outcomes of batches 1 and 2 (PR #80).
+- No dispersion value entered the proposal.
+
+---
+
+## D-055 — Nine A5 cases the frozen rules could not settle
+
+**Ruling (2026-10-31 09:32 MDT, JvH).** "Proceed as recommended." **Proposed by** Claude. **Adopted unchanged.** Some coverage outcomes and the counts were known when these were proposed. Each recommendation follows a principle stated in advance, and none was chosen for its effect on any value.
+
+Implemented in:
+- `reading/d055_choices.csv` and `reproduction/apply_sigma_rules_v3.py` (items 2–5);
+- `reading/sigma_candidates.csv` (item 1).
+
+Items 6–9 are applied in the conversion.
+
+1. **Hendricks 2014 (Fornax)** reports new VLT/FLAMES spectra, so it is an **original**. The candidate list had marked it "unclear".
+2. **A paper prints its adopted value differently in two places.** Use the printing that matches the abstract or text:
+   - And XXVI, Collins 2013: Table 4, not Table A1;
+   - Cen I, Heiger 2024: Table 1, not Table 5.
+3. **Unresolved dispersion given as a best value plus several upper limits.** Plot the upper limit the paper states in its abstract (REPRODUCTION.md: "plotted as limits at the level the source states"):
+   - Grus II, Simon 2020: 90%;
+   - Tucana III, Simon 2017: **95.5%**.
+
+   Claude's proposal said "90% in both". That was wrong for Tucana III, whose abstract states the 95.5% limit. The rule as worded governs.
+4. **SMC, Harris 2006.** The table value and the rounded summary are printings of one fit, so the table value is used.
+5. **And II, Côté 1999.** The maximum-likelihood estimate is used. The biweight estimate is recorded as an alternative. The central σ₀ of the King-Michie fit is excluded, because it describes the centre only.
+6. **NGC 6822.** A V flux density in Jy is not converted. The magnitude comes from RC3, the other listed original, once it is read.
+7. **Leo T.** Where only g and r are printed, the published g,r→V transformation that McConnachie 2012 cites is used. It is registered as a named assumption, with its published scatter added to the error. It applies only where no V exists.
+8. **Distance with no adopted value** (Segue 2, Boettcher 2013). Use the estimate based on the most stars: the blue horizontal-branch value rather than the single RR Lyrae star. This is a general tie-break after D-052 item 3.
+9. **Coverage when the centre differs by fit** (Horologium I, Phoenix II). Run the test with each fit's centre, and pass only if both pass. This is as D-051 applies to ambiguous member windows.
+
+**Data seen at the time of ruling.**
+- The coverage counts and pass/fail outcomes of batches 1–3.
+- The variant labels and locations of the values in items 2–5.
+- In preparing item 3, the main session saw the printed Simon 2017 and Simon 2020 dispersion values and limits.
