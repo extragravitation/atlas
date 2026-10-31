@@ -24,6 +24,9 @@ in SECOND_READING.md.
 After D-062 (And XII plotted) four And XII rows were added to the sheet and read by the same
 reader (reading/second_reading_a2.csv); after Leo II's distance was read (inputs v2), its four
 rows likewise (reading/second_reading_a3.csv).
+Version 3 (2026-10-31, after PR #85) also checks the printed errors of a printed m_V,0, which
+reproduction/inputs_magerr.py now carries into g_bar. Output of version 2 kept as
+checks/second_reading_v2.csv.
 Numbers compare after trimming signs and trailing zeros (float equality). Writes
 checks/second_reading.csv (one row per checked number) and prints PASS or FAIL.
 """
@@ -70,7 +73,10 @@ def expected(r: dict, s: dict, block: str) -> list[tuple[str, float]]:
         if k in over:
             return [("magnitude", v) for v in over[k]]
         if s["m_V0_route"].startswith("printed"):
-            return [("m_V0", f(s["m_V0"]))]
+            out = [("m_V0", f(s["m_V0"]))]
+            # version 3: the printed errors, now carried into g_bar (reproduction/inputs_magerr.py)
+            out += [(n, f(r[c])) for n, c in (("m_V0_err_minus", "mag_err_minus"), ("m_V0_err_plus", "mag_err_plus")) if f(r.get(c))]
+            return out
         out = [("M_V", f(s["M_V"]))]
         if s["mu_paper"].strip():
             out.append(("mv_modulus", f(s["mu_paper"])))

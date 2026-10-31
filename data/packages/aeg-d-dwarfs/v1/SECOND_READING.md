@@ -6,7 +6,7 @@ Run 2026-10-31. Method in `REPRODUCTION.md`; brief in `reading/SECOND_READING_BR
 
 | Test | Result |
 |---|---|
-| 1. Second reading against the originals | **PASS:** 484 of 484 packaged input numbers are found as printed (`checks/second_reading.csv`). |
+| 1. Second reading against the originals | **PASS:** 534 of 534 packaged input numbers are found as printed (`checks/second_reading.csv`). |
 | 2. Transcription | **PASS:** 554 of 554 table values equal the checked inputs. |
 | 3. Arithmetic integrity | **PASS:** g_obs and g_bar recomputed from the stored columns agree to 10⁻⁹ (run inside `convert.py`). |
 | 4. Kind coding | **PASS:** the coding sheet is complete; double-coding agreement 20 of 21, resolved by the rule text (`reading/KINDS_RESULT.md`). |
@@ -49,6 +49,10 @@ Collins 2013 prints σ = 0.0 (+4.0) and calls the dispersion unresolved, without
 ## Leo II
 
 Its distance original, Monelli et al. 2025 (A&A 700, A201), was read from the journal PDF (JvH; sha256 6cf940d5…). Two readers agree on the headline (m−M)₀ = 21.60 ± 0.03 (`reading/residual_reading_{1,2}_leo2.csv`). It enters through the frozen input assembly v2.
+
+## Printed m_V,0 errors (after PR #85)
+
+The input assembly had taken the magnitude error only on the M_V route. For the 25 systems whose paper prints m_V,0 itself, g_bar had no magnitude error. `reproduction/inputs_magerr.py` (frozen before it ran) carries those printed errors from the double-read structure readings. Test 1, version 3, checks them against the second reading: all 50 are found. No g_obs or g_bar value changed; only g_bar's error columns did.
 
 ## Not plotted (recorded)
 
