@@ -10,9 +10,9 @@ Done through JvH's signed-in ADS session and the publisher sites, using Claude i
   - Charles 2023 agrees.
   - Koposov 2018: the version-of-record Table 1 is missing the values that have asymmetric errors, in both the PDF and the HTML. The affected cells are the half-light radii, the ellipticity, σ, the mass, M/L and J.
   - σ (abstract), the distance, M_V and [Fe/H] agree.
-  - **Hydrus I's r_h = 7.42′ and ε = 0.21 therefore come from arXiv**, labelled, under D-050 item 2 (the version of record cannot be read for those cells).
+  - **Hydrus I's r_h = 7.42′ and ε = 0.21 therefore come from arXiv**, labelled (flag `structure_from_arxiv_vor_cells_empty`), under D-050 item 2 (the version of record cannot be read for those cells).
 - **Monelli 2025 and van de Rydt 1991** were already read in the version of record.
-- **Unrefereed preprints**, still arXiv-only on ADS on this date, labelled as such:
+- **Unrefereed preprints**, still arXiv-only on ADS on this date, flagged `source_preprint_*` in the measurements:
   - Cerny 2026 (Draco II);
   - Li 2026 (Boötes III);
   - Willman et al. 2006 (Willman 1 distance). Never published since 2006.
