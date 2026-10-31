@@ -1,0 +1,82 @@
+---
+// System page for an A5/A7 dwarf galaxy (aeg-d-dwarfs): one published dispersion per system,
+// structure, distance and magnitude from the double-read originals (D-048 to D-062). Everything
+// shown is read from the package tables; nothing is computed here except unit conversions.
+import L from './L.astro';
+
+const { sys, d, lab } = Astro.props;
+const P = sys.props, R = sys.row;
+const meas = d.measurements.rows.filter((r) => r.system_id === sys.id);
+const def = meas.find((r) => r.plotted === 'true');
+const obs = (d.observables?.rows || []).filter((o) => o.system_id === sys.id);
+const sig = obs.find((o) => o.quantity === 'sigma_los');
+const inputs = obs.filter((o) => o.side === 'baryonic');
+const plotted = P.status === 'plotted' && !!def;
+const limit = def?.limit === 'upper';
+const e10 = (v) => (v === null || v === undefined || v === '' ? '–' : (v / 1e-10).toPrecision(3));
+const fmt = (v, n = 3) => (v === null || v === undefined || v === '' ? '–' : Number(v).toPrecision(n));
+const flags = [...(def?.flags || '').split(';'), ...(def?.x_dwarfs_flags || '').split(' ')].filter(Boolean);
+const FLAG_T = {
+  beyond_source_range: 'Metallicity at or below the lowest tabulated in the mass-to-light model table: its end value is used, with no extrapolation (D-060).',
+  no_uncertainty: 'No uncertainty printed for an input.',
+  rh_semimajor_assumed: 'The paper does not say whether its half-light radius is semi-major or circularised; semi-major is assumed because an ellipticity is fitted (D-052 item 2).',
+  mv_distance_from_table1: 'The paper’s absolute magnitude is placed at the package distance through the distance the paper lists for the system (D-061 item 3).',
+  mv_modulus_assumed: 'The paper does not say which distance its absolute magnitude uses; its own adopted value is used (D-061).',
+  mv_distance_independent: 'The absolute magnitude is distance-independent as the paper states (D-061 item 2).',
+  distance_range_midpoint: 'The paper gives a range of distances; the midpoint is used, with the range as the uncertainty (D-061 item 4).',
+  rh_from_physical_at_source_distance: 'The half-light radius is printed in parsecs; it is turned back into an angle at the paper’s own distance (D-053).',
+  limit_from_1sigma_upper_error: 'The paper gives a best dispersion of zero with no stated limit; the point is an upper limit at its one-sigma upper end (D-062).',
+  feh_median: 'The metallicity is the paper’s median, not a mean.',
+  feh_photometric: 'The metallicity is photometric (D-057 item 2).',
+  feh_stacked_spectrum: 'The metallicity comes from a co-added spectrum.',
+  feh_from_dispersion_paper: 'No metallicity paper in the index; the dispersion paper’s value is used (D-059 item 2).',
+  hi_upper_limit_5sigma: 'Atomic gas: only a 5σ upper limit on HI (Putman et al. 2021), so no gas enters g_bar (D-035 d).',
+  gas_half_total: 'Atomic gas measured; half of the total (with helium) is taken to lie inside r½ (D-058).',
+  spread_zero: 'No metallicity spread or error printed; the mass-to-light range uses no metallicity interval.',
+  source_preprint_sigma_feh: 'Dispersion and metallicity come from an unrefereed preprint (D-050).',
+  source_preprint_sigma_distance_feh: 'Dispersion, distance and metallicity come from an unrefereed preprint (D-050).',
+  source_preprint_distance: 'The distance comes from an unrefereed preprint (D-050).',
+  structure_from_arxiv_vor_cells_empty: 'The published table prints no half-light radius or ellipticity; the arXiv values are used (D-050).',
+};
+---
+<p class="lede"><L t={`${R.class_in_source}, ${R.host}. ${R.kind_label === 'dwarf galaxy' ? '' : 'Kind: ' + R.kind_label + '. '}${lab.method_t}. ${plotted ? 'Plotted: one value at the 3D half-light radius.' : 'Recorded, not plotted.'}`} p={`${lab.one_p}. ${plotted ? 'Shown on the map as one point.' : 'Kept in the record but not shown on the map, for the reason below.'}`} /></p>
+
+<h2 id="status"><L t="Status" p="On the map?" /></h2>
+{plotted ? (
+  <dl class="facts">
+    <div><dt>g_obs at r½</dt><dd>{limit ? '< ' : ''}{e10(def.g_obs)} × 10⁻¹⁰ m s⁻² <span class="small">{limit ? '(upper limit)' : `(−${e10(def.g_obs_err_lo)} / +${e10(def.g_obs_err_hi)})`}</span></dd></div>
+    <div><dt>g_bar at r½</dt><dd>{e10(def.g_bar)} × 10⁻¹⁰ m s⁻² <span class="small">{def.g_bar_err_lo == null ? '(no magnitude error printed)' : `(−${e10(def.g_bar_err_lo)} / +${e10(def.g_bar_err_hi)}, from the magnitude only)`}</span></dd></div>
+    <div><dt><L t="g_bar: stars / gas" p="From stars / from gas" /></dt><dd>{e10(def.g_bar_stars)} / {e10(def.g_bar_gas_cold)} × 10⁻¹⁰ m s⁻²</dd></div>
+    <div><dt>g_obs / g_bar</dt><dd>{limit ? '< ' : ''}{(def.g_obs / def.g_bar).toFixed(2)}</dd></div>
+    <div><dt>r½ (3D half-light)</dt><dd>{(def.r_kpc * 1000).toFixed(1)} pc</dd></div>
+    <div><dt>σ (published)</dt><dd>{limit ? '< ' : ''}{fmt(def.x_dwarfs_sigma)} km s⁻¹ <span class="small">{limit ? `(upper limit, ${def.x_dwarfs_sigma_limit_level})` : `(−${def.x_dwarfs_sigma_err_lo} / +${def.x_dwarfs_sigma_err_hi})`}{sig ? ` · ${sig.source_ref.replace(' (reading/sigma_selection_v3.csv)', '')}` : ''}</span></dd></div>
+    <div><dt>Υ_V</dt><dd>{fmt(def.x_dwarfs_upsilon_v)} <span class="small">(<L t="slider range" p="could be" /> {fmt(def.x_dwarfs_upsilon_v_low)} – {fmt(def.x_dwarfs_upsilon_v_high)}, D-060)</span></dd></div>
+  </dl>
+) : (
+  <div class="boxed">
+    <p><b><L t="Not plotted." p="Not on the map." /></b> {P.reason_not_plotted || 'No dispersion that passes the plotting rules.'}</p>
+  </div>
+)}
+
+{flags.length > 0 && (
+  <>
+    <h3><L t="How the inputs were chosen" p="Notes on this galaxy’s numbers" /></h3>
+    <ul class="small">{flags.map((f) => <li><code>{f}</code>: {FLAG_T[f] || 'see the dataset page.'}</li>)}</ul>
+  </>
+)}
+
+{plotted && (
+  <>
+    <h2 id="inputs"><L t="Inputs" p="What went into the numbers" /></h2>
+    <div tabindex="0" class="tablebox"><table>
+      <thead><tr><th class="l">Quantity</th><th>Value</th><th>Error</th><th class="l">Unit</th><th class="l">Source</th></tr></thead>
+      <tbody>{[sig, ...inputs].filter(Boolean).map((o) => <tr><td class="l">{o.quantity.replace(/_/g, ' ')}{o.x_dwarfs_parameter ? ` (${o.x_dwarfs_parameter})` : ''}{o.limit === 'upper' ? ' · upper limit' : ''}</td><td>{o.value}</td><td>{o.err_lo == null ? '–' : o.err_lo === o.err_hi ? `± ${o.err_lo}` : `−${o.err_lo} / +${o.err_hi}`}</td><td class="l">{o.unit}</td><td class="l small">{o.source_ref}</td></tr>)}</tbody>
+    </table></div>
+    <p class="small"><L t="Every printed input was read twice from the original paper and checked by an independent second reading (SECOND_READING.md); the version of record was checked where it differs from arXiv (D-050)." p="Each number was read from the original paper by two readers, and checked again by a third." /></p>
+  </>
+)}
+<dl class="facts" style="margin-top:12px">
+  <div><dt>Distance</dt><dd>{R.distance_mpc ? `${(R.distance_mpc * 1000).toFixed(1)} kpc` : '–'}<span class="small" style="display:block">{R.distance_ref}</span></dd></div>
+  <div><dt>[Fe/H]</dt><dd>{R.metallicity_feh ?? '–'}</dd></div>
+  <div><dt>Position (J2000)</dt><dd>{R.ra_deg?.toFixed?.(4)}°, {R.dec_deg?.toFixed?.(4)}°</dd></div>
+</dl>
