@@ -1028,3 +1028,19 @@ Implemented in `reproduction/rc3_convert.py` (frozen). It reads the identified r
 - (C) Leave RC3 unused: nine systems would then have no luminosity.
 
 **Data seen.** RC3 column descriptions only.
+
+---
+
+## D-057 — Metallicity used for the stellar mass-to-light interpolation (A5)
+
+**Ruling (2026-10-31 10:18 MDT, JvH).** He ruled in these words: "the mean spectroscopic [Fe/H] from the original paper the database cites for it (ref_metallicity_spectroscopic), read twice like everything else. Where no spectroscopic value exists, use the database's photometric or isochrone original, flagged as such. This keeps D-048's 'originals are the record', and spectroscopic iron abundances are the standard input for these models." **Proposed by** Claude (option A, recommended). **Adopted unchanged.** Made before any metallicity value of an A5/A7 candidate was read.
+
+1. **Spectroscopic first.** For REPRODUCTION.md's Υ_V route (b), each system's [Fe/H] is the mean spectroscopic value printed by the LVDB `ref_metallicity_spectroscopic` original. It is read by two independent readers.
+2. **Fallback.** Where none exists, use the LVDB `ref_metallicity_photometric` original, else the `ref_metallicity_isochrone` original. Either is flagged with its kind.
+3. **Floor.** REPRODUCTION.md's floor applies: below the lowest tabulated [Fe/H], use the lowest value, flagged `beyond_source_range`, with no extrapolation.
+
+**Alternatives rejected.**
+- (B) The dispersion paper's own [Fe/H]: patchy coverage.
+- (C) One fixed value: discards measured information.
+
+**Data seen.** None of the metallicity values.

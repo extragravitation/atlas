@@ -1,0 +1,104 @@
+key,name,paper,kind,arxiv
+antlia_2,Antlia II,Ji2021ApJ...921...32J,spectroscopic,2106.12656
+aquarius_2,Aquarius II,Bruce2023ApJ...950..167B,spectroscopic,2302.03708
+aquarius_3,Aquarius III,Geha2026arXiv260210202G,spectroscopic,2602.10202
+bootes_1,Bootes I,Sandford2026ApJ...998...47S,spectroscopic,2509.02546
+bootes_2,Bootes II,Geha2026arXiv260210202G,spectroscopic,2602.10202
+bootes_3,Bootes III,Li2026arXiv260707803L,spectroscopic,2607.07803
+canes_venatici_1,Canes Venatici I,Geha2026arXiv260210202G,spectroscopic,2602.10202
+canes_venatici_2,Canes Venatici II,Geha2026arXiv260210202G,spectroscopic,2602.10202
+carina_1,Carina,Simon2019ARA&A..57..375S,spectroscopic,1901.05465
+carina_2,Carina II,Li2018ApJ...857..145L,spectroscopic,1802.06810
+carina_3,Carina III,,none,
+centaurus_1,Centaurus I,Heiger2024ApJ...961..234H,spectroscopic,2308.08602
+columba_1,Columba I,Fritz2019A&A...623A.129F,spectroscopic,1805.07350
+coma_berenices_1,Coma Berenices,Geha2026arXiv260210202G,spectroscopic,2602.10202
+crater_2,Crater II,Ji2021ApJ...921...32J,spectroscopic,2106.12656
+draco_1,Draco,Geha2026arXiv260210202G,spectroscopic,2602.10202
+draco_2,Draco II,Cerny2026arXiv260217652C,spectroscopic,2602.17652
+eridanus_2,Eridanus II,Li2017ApJ...838....8L,spectroscopic,1611.05052
+eridanus_4,Eridanus IV,Heiger2024ApJ...961..234H,spectroscopic,2308.08602
+fornax_1,Fornax,Simon2019ARA&A..57..375S,spectroscopic,1901.05465
+grus_1,Grus I,Chiti2022ApJ...939...41C,spectroscopic,2206.04580
+grus_2,Grus II,Simon2020ApJ...892..137S,spectroscopic,1911.08493
+hercules_1,Hercules,Geha2026arXiv260210202G,spectroscopic,2602.10202
+horologium_1,Horologium I,Koposov2015ApJ...811...62K,spectroscopic,1504.07916
+hydra_2,Hydra II,Geha2026arXiv260210202G,spectroscopic,2602.10202
+hydrus_1,Hydrus I,Koposov2018MNRAS.479.5343K,spectroscopic,1804.06430
+leo_1,Leo I,Geha2026arXiv260210202G,spectroscopic,2602.10202
+leo_2,Leo II,Geha2026arXiv260210202G,spectroscopic,2602.10202
+leo_4,Leo IV,Geha2026arXiv260210202G,spectroscopic,2602.10202
+leo_5,Leo V,Jenkins2021ApJ...920...92J,spectroscopic,2101.00013
+leo_6,Leo VI,Tan2025ApJ...979..176T,spectroscopic,2408.00865
+lmc,LMC,,none,
+pegasus_3,Pegasus III,Geha2026arXiv260210202G,spectroscopic,2602.10202
+pegasus_4,Pegasus IV,Geha2026arXiv260210202G,spectroscopic,2602.10202
+phoenix_2,Phoenix II,Fritz2019A&A...623A.129F,spectroscopic,1805.07350
+pictor_2,Pictor II,Pace2025OJAp....8E.112P,spectroscopic,2506.21841
+pisces_2,Pisces II,Kirby2015ApJ...810...56K,spectroscopic,1506.01021
+reticulum_2,Reticulum II,Simon2015ApJ...808...95S,spectroscopic,1504.02889
+reticulum_3,Reticulum III,Fritz2019A&A...623A.129F,spectroscopic,1805.07350
+sagittarius_1,Sagittarius,Simon2019ARA&A..57..375S,spectroscopic,1901.05465
+sculptor_1,Sculptor,Simon2019ARA&A..57..375S,spectroscopic,1901.05465
+segue_1,Segue 1,Bissonette2026arXiv260512810B,spectroscopic,2605.12810
+segue_2,Segue 2,Geha2026arXiv260210202G,spectroscopic,2602.10202
+sextans_1,Sextans,Simon2019ARA&A..57..375S,spectroscopic,1901.05465
+smc,SMC,,none,
+triangulum_2,Triangulum II,Kirby2017ApJ...838...83K,spectroscopic,1703.02978
+tucana_2,Tucana II,Chiti2021NatAs...5..392C,spectroscopic,2012.02309
+tucana_3,Tucana III,Simon2017ApJ...838...11S,spectroscopic,1610.05301
+tucana_4,Tucana IV,Simon2020ApJ...892..137S,spectroscopic,1911.08493
+tucana_5,Tucana V,Hansen2024ApJ...968...21H,spectroscopic,2403.13060
+ursa_major_1,Ursa Major I,Geha2026arXiv260210202G,spectroscopic,2602.10202
+ursa_major_2,Ursa Major II,Geha2026arXiv260210202G,spectroscopic,2602.10202
+ursa_minor_1,Ursa Minor,Geha2026arXiv260210202G,spectroscopic,2602.10202
+willman_1,Willman 1,Chiu2026ApJ..1002...55C,spectroscopic,2602.20272
+andromeda_01,Andromeda I,Kirby2020AJ....159...46K,spectroscopic,1912.02186
+andromeda_02,Andromeda II,Wojno2020ApJ...895...78W,spectroscopic,2004.03425
+andromeda_03,Andromeda III,Kirby2020AJ....159...46K,spectroscopic,1912.02186
+andromeda_05,Andromeda V,Kirby2020AJ....159...46K,spectroscopic,1912.02186
+andromeda_06,Andromeda VI,,none,
+andromeda_07,Andromeda VII,Kirby2020AJ....159...46K,spectroscopic,1912.02186
+andromeda_09,Andromeda IX,Wojno2020ApJ...895...78W,spectroscopic,2004.03425
+andromeda_10,Andromeda X,Kirby2020AJ....159...46K,spectroscopic,1912.02186
+andromeda_11,Andromeda XI,,none,
+andromeda_12,Andromeda XII,,none,
+andromeda_13,Andromeda XIII,,none,
+andromeda_14,Andromeda XIV,Wojno2020ApJ...895...78W,spectroscopic,2004.03425
+andromeda_15,Andromeda XV,Wojno2020ApJ...895...78W,spectroscopic,2004.03425
+andromeda_16,Andromeda XVI,Fu2024ApJ...975....2F,photometric,2407.04698
+andromeda_17,Andromeda XVII,,none,
+andromeda_18,Andromeda XVIII,Kvasova2024ApJ...972..180K,spectroscopic,2404.11804
+andromeda_19,Andromeda XIX,Cullinane2024ApJ...972..133C,spectroscopic,2407.04349
+andromeda_20,Andromeda XX,,none,
+andromeda_21,Andromeda XXI,Collins2021MNRAS.505.5686C,spectroscopic,2102.11890
+andromeda_22,Andromeda XXII,,none,
+andromeda_23,Andromeda XXIII,,none,
+andromeda_24,Andromeda XXIV,,none,
+andromeda_25,Andromeda XXV,Charles2023MNRAS.521.3527C,spectroscopic,2209.15022
+andromeda_26,Andromeda XXVI,,none,
+andromeda_27,Andromeda XXVII,,none,
+andromeda_28,Andromeda XXVIII,Slater2015ApJ...806..230S,spectroscopic,1505.02161
+andromeda_29,Andromeda XXIX,Slater2015ApJ...806..230S,spectroscopic,1505.02161
+cassiopeia_2,Cassiopeia II,,none,
+cassiopeia_3,Cassiopeia III,Martin2014ApJ...793L..14M,spectroscopic,1408.5130
+lacerta_1,Lacerta I,Martin2014ApJ...793L..14M,spectroscopic,1408.5130
+lgs_3,LGS 3,,none,
+m_032,M 32,,none,
+ngc_0147,NGC 147,,none,
+ngc_0185,NGC 185,,none,
+ngc_0205,NGC 205,,none,
+perseus_1,Perseus I,Martin2014ApJ...793L..14M,spectroscopic,1408.5130
+antlia_b,Antlia B,,none,
+aquarius_1,Aquarius,Kirby2017ApJ...834....9K,spectroscopic,1610.08505
+cetus_1,Cetus,Taibi2018A&A...618A.122T,spectroscopic,1807.04250
+ic_1613,IC 1613,Kirby2013ApJ...779..102K,spectroscopic,1310.0814
+leo_a,Leo A,Kirby2017ApJ...834....9K,spectroscopic,1610.08505
+leo_t,Leo T,Kirby2013ApJ...779..102K,spectroscopic,1310.0814
+ngc_6822,NGC 6822,Kirby2013ApJ...779..102K,spectroscopic,1310.0814
+pegasus_dirr,Pegasus dIrr,Kirby2013ApJ...779..102K,spectroscopic,1310.0814
+phoenix_1,Phoenix,Kacharov2017MNRAS.466.2006K,spectroscopic,1612.01560
+sagittarius_dirr,Sagittarius dIrr,Kirby2017ApJ...834....9K,spectroscopic,1610.08505
+tucana_1,Tucana,Taibi2020A&A...635A.152T,spectroscopic,2001.11410
+ugc_04879,UGC 4879,Kirby2013ApJ...779..102K,spectroscopic,1310.0814
+wlm,WLM,Leaman2013ApJ...767..131L,spectroscopic,1302.1879
