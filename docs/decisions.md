@@ -1044,3 +1044,17 @@ Implemented in `reproduction/rc3_convert.py` (frozen). It reads the identified r
 - (C) One fixed value: discards measured information.
 
 **Data seen.** None of the metallicity values.
+
+## D-058 — HI masses rescaled to the package distance (A5)
+
+**Ruling (2026-10-31 10:28 MDT, JvH).** He ruled in these words: "rescale each HI mass and each upper limit by (D_package / D_Putman)², and record both distances. Why: the HI mass scales exactly as D², so this is an exact conversion, not a model. It also keeps one distance per system, as D-052 does." **Proposed by** Claude (option A, recommended). **Adopted unchanged.**
+
+1. **Rescaling.** Each HI mass and each 5σ upper limit from Putman et al. 2021 Table 1 is multiplied by (D_package / D_Putman)². D_package is the D-052 distance. D_Putman is the table's `Dist`. Putman computes M_HI = 2.36 × 10⁵ S D² (§2, read at source in arXiv:2101.07809v1), so the conversion is exact.
+2. **Record.** Both distances and the factor are stored with each system.
+3. **Settled under existing rulings, stated here for the record.**
+   - Helium factor: the registered default of 1.33 (Lelli et al. 2016, read at source). It is not adjustable until a published range is read (D-034).
+   - Gas inside r½: half the total, flagged (REPRODUCTION.md), because Table 1 gives only total masses.
+
+**Alternative rejected.** (B) Use the masses as printed, with Putman's distance shown. This mixes two distances in one system's g_bar.
+
+**Data seen.** Both readings of Table 1, compared and adjudicated (`reading/gas_adjudication.md`). That includes Cassiopeia II: Putman's distance is 682 kpc and the package distance is 559.8 kpc. The conversion was not run.
