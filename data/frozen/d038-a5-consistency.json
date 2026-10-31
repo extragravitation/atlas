@@ -1,0 +1,9 @@
+{
+  "description": "A5 D-038 3A consistency check (originals vs Geha et al. 2026). Frozen before it was run.",
+  "frozen_on": "2026-10-31",
+  "decision": "D-038 3A",
+  "spec": "pipeline/aeg/repro_dispersion.py; data/packages/aeg-d-dwarfs/v1/REPRODUCTION.md",
+  "files": {
+    "data/packages/aeg-d-dwarfs/v1/reproduction/check_d038_consistency.py": "96915498afd0c2794075eea4e494404eefc50cb7ed39646dc154ffbb20bd3e52"
+  }
+}

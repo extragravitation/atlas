@@ -11,6 +11,12 @@ Run 2026-10-31. Method in `REPRODUCTION.md`; brief in `reading/SECOND_READING_BR
 | 3. Arithmetic integrity | **PASS:** g_obs and g_bar recomputed from the stored columns agree to 10⁻⁹ (run inside `convert.py`). |
 | 4. Kind coding | **PASS:** the coding sheet is complete; double-coding agreement 20 of 21, resolved by the rule text (`reading/KINDS_RESULT.md`). |
 
+## Reported, not pass/fail
+
+**D-038 3A consistency (originals against Geha et al. 2026): consistent.** Run 2026-10-31 by `reproduction/check_d038_consistency.py`, committed and hash-frozen (`data/frozen/d038-a5-consistency.json`) before it was run. 13 systems have both an original default and a Geha et al. 2026 value; 10 pairs have two-sided values and give a z-score, 3 are limit pairs. No pair is beyond 2σ; median z = −0.03; largest |z| = 1.8 (Boötes III, against an unrefereed preprint). Per-pair results in `checks/d038_consistency.csv`.
+
+**D-037 reproduction from released per-star velocities: not yet run.** It needs a per-source membership configuration frozen before any velocities are read (issue #24).
+
 ## How test 1 was run
 
 **Readers.** Two independent agent sessions read the original papers for 258 sheet rows: 65 systems (And XII's four rows were added after D-062, Leo II's after its distance original was read), each with dispersion, structure, distance and magnitude. They worked with no access to the conversion code, the package tables or the earlier readings. They recorded 946 values, with every printed candidate and the headline marked (`reading/second_reading_{a,b}.csv`).
