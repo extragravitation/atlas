@@ -1,0 +1,9 @@
+{
+  "description": "A5 conversion-input assembly (D-052 to D-061). Frozen before it was run and before any g_obs or g_bar was computed.",
+  "frozen_on": "2026-10-31",
+  "decision": "D-052, D-053, D-055, D-058, D-059, D-060, D-061",
+  "spec": "docs/decisions.md; data/packages/aeg-d-dwarfs/v1/REPRODUCTION.md",
+  "files": {
+    "data/packages/aeg-d-dwarfs/v1/reproduction/inputs.py": "cc10a45e0c56c27c9146fc72be09b93480012be47746332ceb8ef302f9d8122f"
+  }
+}
