@@ -1201,3 +1201,18 @@ No mass-to-light value, g_bar or g_obs of a dwarf had been computed.
 **Data seen.** Search log A6 and the screening readings: metadata and methods only. No lensing mass or stellar mass was read.
 
 **Note.** D-039 had named this ruling as the next blind one. D-040 since replaced blind rulings with recording the proposer, so it was ruled with a recommendation, recorded above.
+
+## D-065 — A6·strong lensing precedence rule (frozen)
+
+**Ruling (2026-10-31 17:43 MDT, JvH).** "Approved as written." **Proposed by** Claude (`docs/methods/A6S_PRECEDENCE.md`, under D-063 item 4 and D-064). **Adopted** without change. Frozen by hash in `data/frozen/a6s-precedence.json`.
+
+What the rule covers:
+- who is plotted;
+- which lens model is the default (originals first; full models over image-separation estimates);
+- which stellar mass is the default (inside R_E; Chabrier/Kroupa default with the Salpeter value as the top of the range; no priors using the lens's own σ; then more bands, a per-object fit, and the most recent);
+- the gas route;
+- the tests.
+
+**Reason.** It fixes every choice between published values before any value is read, as D-063 item 4 requires.
+
+**Data seen.** Search log A6 and the screening readings only. No lensing table was opened.

@@ -1,4 +1,4 @@
-# A6·strong lensing: which values are shown (draft for JvH's approval; frozen by hash once approved)
+# A6·strong lensing: which values are shown (approved by JvH 2026-10-31 17:43 MDT; frozen by hash, D-065)
 
 Written 2026-10-31 under D-063 item 4 and D-064, before any lensing table has been opened. Sources are the eligible records of search log A6 (`docs/sources/screening-A6S/final.csv`). Once approved, this file is hash-frozen in `data/frozen/` and changes only by a new decision.
 
