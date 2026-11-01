@@ -1,40 +1,53 @@
 # aeg-d-strong-lensing/v1: result summary
 
-Conversion run 2026-11-01 under D-063 to D-066, D-075 and D-076, with data standard 2.1.0. Status: **not shipped**, because test 1 fails (4 numbers; see "Tests").
+Conversion run 2026-11-01 under D-063 to D-066, D-075 and D-076, with data standard 2.1.0. Re-run 2026-11-01 to record the systems at z_l ≥ 0.30 (D-066 item 2). Status: not shipped (PR #94 open).
 
 ## Counts per survey
 
-Plotted points use printed lens redshifts z_l < 0.30 (D-066). Each plotted system has one default row (projected g_obs and g_bar at R_E). Alternatives are role = alternative rows and are never plotted.
+Plotted points use printed lens redshifts z_l < 0.30 (D-066). Each plotted system has one default row (projected g_obs and g_bar at R_E). Alternatives are role = alternative rows and are never plotted. Systems at printed z_l ≥ 0.30 are recorded in the systems table in full, not plotted, flagged `epoch_gap_v1` (D-066 item 2); they have no measurement row.
 
-| Survey (inventory scope) | Systems | Plotted | Recorded, not plotted | Alternative rows |
-|---|---|---|---|---|
-| SLACS (R5 observed, R13 stellar) | 54 | 48 | 6 | 48 (Maraston 2005 pair) |
-| S4TM (R10) | 37 | 37 | 0 | 0 |
-| SL2S (R20, redshifts R21) | 4 | 2 | 2 | 4 (ugriz-only fit; HST R_e) |
-| SNELLS SNL-0 (R28 observed, R26 stellar) | 1 | 1 | 0 | 0 |
-| SNELLS SNL-1 (R61; D-076 item 3) | 1 | 1 | 0 | 0 |
-| SNELLS SNL-2 (R61) | 1 | 1 | 0 | 0 |
-| MNELLS J0403−0239 (R29 matched pair) | 1 | 1 | 0 | 0 |
-| MaNGA (R32) | 2 | 2 | 0 | 0 |
-| NGC 6505 (R30) | 1 | 1 | 0 | 1 (z_l = 0.041) |
-| CASTLES (R36) | 3 | 0 | 3 | 0 |
-| **Total in the tables** | **105** | **94** | **11** | **53** |
+| Survey (inventory scope) | Systems | Plotted | Recorded, not plotted (z_l < 0.30) | Recorded, z_l ≥ 0.30 (epoch gap) | Alternative rows |
+|---|---|---|---|---|---|
+| SLACS (R5 observed, R13 stellar) | 63 | 48 | 6 | 9 | 48 (Maraston 2005 pair) |
+| S4TM (R10) | 40 | 37 | 0 | 3 | 0 |
+| SL2S (R20, redshifts R21; SL2S V added; R49 for SL2SJ02176−0513) | 58 | 2 | 2 | 54 | 4 (ugriz-only fit; HST R_e) |
+| SNELLS SNL-0 (R28 observed, R26 stellar) | 1 | 1 | 0 | 0 | 0 |
+| SNELLS SNL-1 (R61; D-076 item 3) | 1 | 1 | 0 | 0 | 0 |
+| SNELLS SNL-2 (R61) | 1 | 1 | 0 | 0 | 0 |
+| MNELLS J0403−0239 (R29 matched pair) | 1 | 1 | 0 | 0 | 0 |
+| MaNGA (R32) | 2 | 2 | 0 | 0 | 0 |
+| NGC 6505 (R30) | 1 | 1 | 0 | 0 | 1 (z_l = 0.041) |
+| CASTLES (R36) | 24 | 0 | 3 | 21 | 0 |
+| SuGOHI CMASS (R57) | 17 | 0 | 0 | 17 | 0 |
+| Cosmic Horseshoe | 1 | 0 | 0 | 1 | 0 |
+| KiDS J0233−3447 | 1 | 0 | 0 | 1 | 0 |
+| J0100+1818 | 1 | 0 | 0 | 1 | 0 |
+| **Total in the tables** | **212** | **94** | **11** | **107** | **53** |
 
-**Reasons for the 11 recorded systems:**
+Six SuGOHI lenses are also SL2S lenses (same coordinates): SL2SJ021411−040502, J021737−051329, J022346−053418, J022610−042011, J023307−043838 and J220506+014703. Each is one system, counted under SL2S, with both surveys' readings in its properties. Five of the six have redshifts printed differently by the two sources (flag `sources_differ`).
+
+**Reasons for the 11 recorded systems below the cut:**
 - **SLACS (6).** Five are late-type at source (R5 Mph = L: J0841+3824, J0955+0101, J1032+5322, J1251−0208, J1432+6317) and one is unclassified (Mph = U: J1103+5322) (D-063 item 6). The inputs hold no θ_E for them.
 - **SL2S (2).** SL2SJ221929−001743 is grade B and SL2SJ222012+010606 is grade C. Neither is a confirmed lens (D-063 item 5).
 - **CASTLES (3).** Q2237+030 is late-type at source. MG1549+3047 and MG1654+1346 have no kind stated in the inputs. None of the three has a spectroscopic redshift pair in the inputs, an Einstein radius or mass in the inputs, or a stellar-mass default.
 
-**Not in the tables (21; `checks/not_tabulated.csv`).** Data standard §10 item 7 requires a redshift for each tabulated system.
+**The 107 epoch-gap systems (D-066 item 2).** Recorded from the two independent readings (`reading/readings/reader-{a,b}-block{1,2,3}.csv`), not adjudicated. Each row carries its identifiers, z_l and z_s, their measurement methods, its kind as read, `plotted: false`, the reason "z_l ≥ 0.30 (D-066)" and the flag `epoch_gap_v1`. No other plotting condition was evaluated for them.
+- **Readers agree on everything: 48.** The values are used as recorded.
+- **Readers differ: 59** (flag `readers_differ`). Both readings are recorded in properties; nothing was chosen between them. 58 differ on the kind, 11 on z_l, 9 on z_s, 10 on the z_l method and 5 on the z_s method (a system can differ on several). Most differences are wording, or values that only one reader recorded: reader B read the 1998 CASTLES paper only, so the 2000 paper's values have one reading. They are listed in SECOND_READING.md. Where the kind readings differ, the kind is `A7` (ambiguous, not adjudicated).
+- **Redshift column.** It holds the printed z_l where every reading agrees on one value. Otherwise it holds the lowest printed value, so the D-066 test holds for every reading. All values are in properties (`z_l_all_readings`, `z_s_all_readings`). z_s is left empty where readings differ.
+
+**Not in the tables (33; `checks/not_tabulated.csv`).** Data standard §10 item 7 requires a redshift for each tabulated system.
 - FBQ0951+2635 (CASTLES): its lens redshift is a fundamental-plane estimate, not a measurement.
+- 9 more CASTLES lenses whose only printed lens redshift is an estimate (fundamental-plane or image-separation): B1127+385, BRI0952−0115, FSC10214+472, HE1104−1805, HE2149−2745, HST12531−2914, LBQS1009−025, Q1017−207, SBS1520+530.
+- 3 SL2S III lenses with no lens redshift printed: SL2SJ140533+550231, SL2SJ141917+511729, SL2SJ142321+572243.
 - 20 SLACS IX (R7) lenses outside the SLACS V adjudicated set. Their only inputs are R7's printed M_E (11 not printed). There is no θ_E, kind or redshift row, and SLACS IX new models have no stellar-mass default (REPRODUCTION.md).
 
 ## Tests (REPRODUCTION.md; details in SECOND_READING.md)
 
 | Test | Result |
 |---|---|
-| 1. Second reading | **PASS** (version 3): 1111 of 1111. 1101 found in both readings; 10 adjudicated at source with the adjudication cited. Version 2 failed on 4 numbers, the printed errors of R32's R_E in kpc, which only reader A had recorded. An independent second reader then read R32 Table 1 and found the same values (`reading/readings/second-reader-r32.csv`). The version 2 output is kept as `checks/second_reading_v2.csv`. |
-| 2. Transcription | PASS, 5927 of 5927 |
+| 1. Second reading | **PASS** (version 4): 1497 of 1497. 1451 found in both readings; 10 adjudicated at source with the adjudication cited; 36 epoch-gap numbers found in one reading only, on systems flagged `readers_differ` with both readings recorded. Version 4 adds the 386 epoch-gap numbers (D-066). Version 3 passed 1111 of 1111 (`checks/second_reading_v3.csv`). Version 2 failed on 4 numbers, the printed errors of R32's R_E in kpc, which only reader A had recorded. An independent second reader then read R32 Table 1 and found the same values (`reading/readings/second-reader-r32.csv`). The version 2 output is kept as `checks/second_reading_v2.csv`. |
+| 2. Transcription | PASS (version 3), 8503 of 8503. Version 3 adds the systems table: every column read back equals the row built in memory, and each reader's z_l and z_s for each epoch-gap system equal that reader's file. Version 2 passed 5927 of 5927 (`checks/transcription_v2.csv`). |
 | 3. Arithmetic | PASS, 1178 recomputations to 10⁻⁹, including the L × Υ products, the profile step and the gas term |
 | 4. Code (pytest) | PASS, 197 tests (pipeline suite, including the frozen `test_lensing.py` and 26 converter tests) |
 | Released files (in `convert.py`) | 972 of 972 tier-1 numbers found in the hash-verified VizieR and IOP files |
