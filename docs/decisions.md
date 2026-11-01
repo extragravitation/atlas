@@ -1521,3 +1521,42 @@ None was recorded or used. The gas numbers were computed by a committed script f
 - concept DOI (all versions) **10.5281/zenodo.23864355**.
 
 The Zenodo record shows the preliminary note.
+
+## D-078 — Competing-interests statement
+
+**Ruling (2026-11-01 15:07 MDT, JvH).** "Yes, I approve." **Proposed by** Claude (2026-11-01). **Adopted.**
+
+1. **The statement.** On the About page, in both language layers, and in the methods paper:
+   > "The maintainer also works independently on theoretical physics, including questions related to the acceleration discrepancy. None of that work is used in the Atlas, by rule, and the Atlas takes no side between the accounts of the discrepancy. The maintainer has no financial interests in this work."
+2. **It replaces a draft placeholder** that v0.1 was released with ("will appear here before release"). That release is corrected by this change on the live site; the archived v0.1 snapshot keeps the placeholder, and the next release carries the statement.
+3. **Zenodo metadata** for future releases:
+   - title "Atlas of Extra Gravitation — data release";
+   - "isDocumentedBy" the frozen selection protocol (10.5281/zenodo.23780203), so the two Atlas records are linked.
+
+   The v0.1 record gets the same link by a manual metadata edit (JvH).
+
+**Reason.**
+- Reviewers will look the maintainer up. A non-financial interest declared up front is standard practice and reads as integrity; discovered undeclared, it would read as an agenda.
+- The statement names no paper or theory, and says what a reader needs before trusting a neutral atlas.
+
+**Data seen.** Not applicable.
+
+## D-079 — Naming of the Atlas's Zenodo records
+
+**Ruling (2026-11-01 15:11 MDT, JvH).** "Approve." **Proposed by** Claude (2026-11-01). **Adopted.**
+
+1. **One pattern for every Atlas record on Zenodo:** "Atlas of Extra Gravitation — {what it is}". The version goes in Zenodo's Version field, never in the title.
+2. **Titles:**
+
+   | Record | Title | Version |
+   |---|---|---|
+   | Protocol (10.5281/zenodo.23780203) | Atlas of Extra Gravitation — selection protocol (pre-registered 2026-10-29) | 1.0 |
+   | Data release (concept 10.5281/zenodo.23864355; v0.1 10.5281/zenodo.23864356) | Atlas of Extra Gravitation — data release | v0.1 (preliminary) |
+   | Methods paper (when deposited) | Atlas of Extra Gravitation — methods | — |
+
+3. **The protocol rename is metadata only.** Its frozen files, their hashes, its DOI and its publication date (2026-10-29) do not change. Its previous title was "Atlas of Extra Gravitation: v1.0 taxonomy and selection protocol (frozen 2026-10-29)".
+4. **Who edits.** The existing records are edited by JvH (or by Claude in JvH's browser with his go-ahead), as metadata edits that create no new version. Future data releases take their title from `.zenodo.json` (D-078 item 3).
+
+**Reason.** "v1.0" in the protocol title next to a v0.1 data release, and a data release titled only with the Atlas's name, made the two records look like rival versions of one thing.
+
+**Data seen.** Not applicable.
