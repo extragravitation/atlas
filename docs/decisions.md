@@ -1216,3 +1216,42 @@ What the rule covers:
 **Reason.** It fixes every choice between published values before any value is read, as D-063 item 4 requires.
 
 **Data seen.** Search log A6 and the screening readings only. No lensing table was opened.
+
+## D-066 — The epoch cut for v1.0 plots (applies D-033 item 5)
+
+**Ruling (2026-10-31 18:49 MDT, JvH).** "Rule as recommended. Be a good scientist." **Proposed by** Claude (2026-10-31, option (a)). **Adopted.**
+
+1. **Per-system redshift.** A system with its own redshift (a lens galaxy, a cluster) is plotted in v1.0 only if that redshift, as printed by the source, is below 0.30 exactly.
+2. **Above the cut.** Systems at z ≥ 0.30 are recorded in full, flagged `epoch_gap_v1`, and counted on the Coverage page as part of the documented cosmic-epoch gap.
+3. **Scope.** The cut applies to every cell whose systems carry a per-system redshift: A6·strong lensing, A9, and later cells. It adds a condition to the who-is-plotted list of D-065 §1. The frozen file is not changed; this decision is the amendment.
+4. **Not covered: stacked samples whose bins span a redshift range** (the KiDS-1000 package and any A9 stacks under D-067 item 2). Changing what an existing package shows is a separate decision. Claude proposes it with the KiDS lens redshift distribution read at source, and it returns to JvH. Until then nothing already published changes.
+
+**Reason.** D-033 item 5 set the gap but not the line. An exact cut on the printed redshift is fixed before any value is seen, and leaves no case-by-case judgement after.
+
+**Alternatives rejected.** An approximate threshold decided per case.
+
+**Data seen.** Search logs A6 and A9 (redshift ranges as stated in the readings). No masses or results.
+
+## D-067 — A9 method rulings: joint fits, stacks, projection for clusters
+
+**Ruling (2026-10-31 18:49 MDT, JvH).** "Rule as recommended. Be a good scientist." **Proposed by** Claude (`docs/sources/screening-A9/adjudication.md`, QA1–QA3). **Adopted.**
+
+1. **Joint fits.** A lensing profile fitted jointly with stellar dynamics, X-ray hydrostatics or member-galaxy dynamics in one model is not used as the observed side. A record is usable only where the source also publishes a lensing-only (or dynamics-only) profile. Joint-fit products are recorded, not plotted. This follows the standard: channels are never merged by default.
+2. **Stacked profiles.** A stack is plotted only as a population average (content type `population_average`), and only where the baryonic side is stacked over the same clusters with the same weights. Otherwise it is recorded.
+3. **Projection for clusters** (extends D-064 to A9 lensing). The lensing side stays projected, and the gas is projected onto the same cylinders.
+   - The projection integrates only over the radial range the source measured.
+   - The contribution from beyond that range uses the source's own fitted model, as a registered assumption with its share shown per point.
+   - Points whose outer contribution cannot be bounded this way are recorded, not plotted.
+
+**Reason.**
+- Item 1 keeps the dynamics and lensing channels separate.
+- Item 2 compares like with like.
+- Item 3 keeps the comparison in projection without a mass-profile model on the lensing side, and makes the one unavoidable extrapolation explicit and visible.
+
+**Alternatives rejected.**
+- Joint fits as the observed side.
+- Stacks paired with per-cluster gas.
+- Deprojecting the lensing.
+- Silent extrapolation of the gas.
+
+**Data seen.** Search log A9 and the two screening readings: metadata and methods only.
