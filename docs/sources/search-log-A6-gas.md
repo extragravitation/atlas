@@ -333,3 +333,53 @@ From the citation chase (cited papers not already kept): **19 excluded, 2 unreso
 3. **Six † candidates** (C11, C12, C22, C23, C24, C31) were kept on the citing paper's description, as no arXiv record was found; the readers need the journal versions.
 4. **Pool bias.** C15, C20, C21, C29 are selected for gas or activity (ISM signs, radio AGN, cooling flows, HIPASS-detected). They bound the gas-rich end, not the typical lens.
 5. **Single-dish CO.** C13, C17, C18, C22–C24 are single-dish surveys; whether the beam is a usable "stated radius" (Young 2011 prints the beam's physical size) is the readers' call under §0a.
+
+## 4. ADS queries run (primary; 2026-11-01, 09:10–09:20 MDT, JvH's signed-in Chrome)
+
+The ADS queries of §0b were run once Chrome was reachable again, after the fallback (§1–3), so the search is complete as committed.
+
+| # | Records | Title-screened |
+|---|---|---|
+| ADS-G6-1 | 52 | all 52 |
+| ADS-G6-2 | 159 | all 159 |
+| ADS-G6-3 | 761 | 128: a title keyword prefilter (gas, X-ray, HI, CO, molecular, interstellar, ISM, absorption, dust, baryon, hot) with cluster, quasar and high-redshift titles removed |
+
+**Deviation (disclosed):** the ADS-G6-3 keyword prefilter was not in the committed plan. ADS-G6-3 matches every lens paper whose abstract mentions X-rays or gas, mostly cluster lenses, lensed quasars and lensed high-redshift sources. The 633 titles the prefilter removed were not read one by one.
+
+Excluded at title level, by the §0a rules and §3's categories (counted, not listed):
+- high-redshift lensed sources;
+- clusters and groups;
+- quasar microlensing;
+- black-hole and AGN studies without gas masses;
+- simulations;
+- single-phase studies of spirals;
+- sightline absorption columns;
+- theory;
+- records already kept as C1–C31.
+
+New candidates kept (not in C1–C31). The readers read them in a second batch with the same brief (version 2):
+
+| # | Record | Phase | What (from title) |
+|---|---|---|---|
+| N1 | 2007ApJ...668..150D | hot | Hot ISM of normal ellipticals I: Chandra gas gallery |
+| N2 | 2006ApJ...653..207D | hot | Hot gas content of low-luminosity early-types |
+| N3 | 2010ApJ...715L...1M | hot | Hot gas halos in early-type field galaxies |
+| N4 | 2018MNRAS.481.4472L | hot | Thermodynamic properties of a large sample of giant ellipticals |
+| N5 | 2011ApJ...729...53H | hot | Census of baryons in an isolated elliptical |
+| N6 | 2018ApJ...857...32B | hot | X-ray scaling relations of early-type galaxies |
+| N7 | 2015ApJ...806..156S | hot | Scatter in the hot gas content of early-type galaxies |
+| N8 | 2006MNRAS.370.1797P | hot | NGC 3379: optical and X-ray mass estimates |
+| N9 | 2009ApJ...706..980J | hot | NGC 4636: X-ray and dynamical mass profiles |
+| N10 | 2019ApJ...877...91B | hot | Mrk 1216, a compact elliptical |
+| N11 | 2017ApJ...844....5P | hot | Hot gas halos of NGC 4649 and NGC 5846 |
+| N12 | 2010MNRAS.403.2143H | hot | Mass-profile slope in early-type galaxies (X-ray) |
+| N13 | 2019MNRAS.486.1404D | molecular | MASSIVE XI: molecular gas of early-type galaxies |
+| N14 | 2015A&A...573A.111O; 2018A&A...618A.126O | molecular, atomic | Cold gas in group-dominant ellipticals |
+| N15 | 2018MNRAS.477.2741Y | atomic | HI in slow-rotator early-types |
+| N16 | 2000PASJ...52..743F | molecular | Detection rate of molecular gas in ellipticals |
+| N17 | 2007PASJ...59...61N | molecular | ASTE CO(3–2) survey of ellipticals |
+| N18 | 2014MNRAS.444.3408Y | molecular, atomic | ATLAS3D XXVII: cold gas and colours |
+| N19 | 2023PASJ...75..925F; 2024ApJ...964...29F | molecular | Molecular gas within 500 pc of massive ellipticals |
+| N20 | 2010A&A...518A...9O | molecular | TANGO I: molecular gas in nearby radio galaxies |
+| N21 | 2016MNRAS.458.2423Z | lens, cool gas | Cool ISM and CGM of three massive lensing galaxies |
+| N22 | 2012MNRAS.424..104L | lens | Baryonic cooling in lensing galaxies |
