@@ -228,9 +228,10 @@ function draw() {
         if (xy0) { const dx = x - xy0[0], dy = y - xy0[1], len = Math.hypot(dx, dy); if (len > 1.2) { g.strokeStyle = css('--range'); g.globalAlpha = 0.3; g.lineWidth = 0.6; g.beginPath(); g.moveTo(xy0[0], xy0[1]); g.lineTo(x, y); const a = Math.atan2(dy, dx), h = Math.min(4, len * 0.5); g.lineTo(x - h * Math.cos(a - 0.5), y - h * Math.sin(a - 0.5)); g.moveTo(x, y); g.lineTo(x - h * Math.cos(a + 0.5), y - h * Math.sin(a + 0.5)); g.stroke(); g.globalAlpha = 1; } }
       }
       if (r.r_kind === 'projected') {
-        // Projected value (strong lensing: both masses inside the cylinder of radius R_E, D-064 item 3): an open ring
-        // of its own, echoing an Einstein ring. One value per system, so it is never joined to another point.
-        const rad = state.pick === 'all' ? 4.2 : 4.8, dim = PROPS[state.col] && (propValue(d, r) === null || propValue(d, r) === undefined);
+        // Projected value (strong lensing: both masses inside the cylinder of radius R_E, D-064 item 3): a ring with a
+        // centre dot, read as a lens galaxy inside its Einstein ring. A plain thin ring means "flagged" everywhere on
+        // the map, so the dot keeps the two apart. One value per system, never joined to another point.
+        const rad = state.pick === 'all' ? 4.6 : 5.2, dim = PROPS[state.col] && (propValue(d, r) === null || propValue(d, r) === undefined);
         if (state.err && state.view === 'obs') {
           const [elo, ehi] = errOf(r, q);
           if (elo || ehi) {
@@ -242,8 +243,10 @@ function draw() {
             if (open) nOpen++;
           }
         }
-        g.strokeStyle = c; g.lineWidth = 1.6; g.globalAlpha = dim ? 0.25 : 0.95; g.beginPath(); g.arc(x, y, rad, 0, 6.2832); g.stroke(); g.globalAlpha = 1;
-        if (ringed(r.flags)) { g.strokeStyle = css('--flag'); g.lineWidth = 0.7; g.beginPath(); g.arc(x, y, rad + 2, 0, 6.2832); g.stroke(); }
+        g.strokeStyle = c; g.fillStyle = c; g.lineWidth = 1.9; g.globalAlpha = dim ? 0.25 : 0.95; g.beginPath(); g.arc(x, y, rad, 0, 6.2832); g.stroke();
+        g.beginPath(); g.arc(x, y, 2, 0, 6.2832); g.fill(); g.globalAlpha = 1;
+        // Flagged lens: the flag ring outside the lens ring, a clear gap between them.
+        if (ringed(r.flags)) { g.strokeStyle = css('--flag'); g.lineWidth = 1.1; g.beginPath(); g.arc(x, y, rad + 3.2, 0, 6.2832); g.stroke(); }
         if (r.system_id && state.per[r.system_id]) { g.strokeStyle = css('--range'); g.lineWidth = 1; g.strokeRect(x - rad - 1.5, y - rad - 1.5, 2 * rad + 3, 2 * rad + 3); }
         if (x >= L && x <= L + pw && y >= T && y <= T + ph) hits.push({ x, y, d, r, q });
         return;
@@ -315,12 +318,15 @@ function legend() {
   const items = D.datasets.map((d) => {
     const shape = d.rows[0].method_class, single = d.rows[0].kind === 'system_value', c = PROPS[state.col] ? '--muted' : COLOR[d.name] || '--sparc';
     const proj = d.rows[0].r_kind === 'projected';
-    const sw = proj ? `width:11px;height:11px;border-radius:50%;border:1.6px solid var(${state.col === 'channel' ? '--kids' : c});background:transparent` : shape === 'lensing' ? `width:8px;height:8px;border:1.5px solid var(${state.col === 'channel' ? '--kids' : c});transform:rotate(45deg)` : (single ? `width:9px;height:9px;border-radius:50%;border:1.5px solid var(${state.col === 'channel' ? '--sparc' : c});background:transparent` : `${shape === 'kinematic' ? 'border-radius:50%;' : ''}background:var(${state.col === 'channel' ? '--sparc' : c})`);
+    // Each swatch is the mark as drawn on the chart. Lens: ring with a centre dot. One value per system: a tinted disc
+    // with an outline. A plain thin ring is reserved for flags (below).
+    const cc = `var(${state.col === 'channel' ? (shape === 'lensing' ? '--kids' : '--sparc') : c})`;
+    const sw = proj ? `width:12px;height:12px;border-radius:50%;border:1.9px solid ${cc};background:radial-gradient(circle, ${cc} 0 2px, transparent 2.6px)` : shape === 'lensing' ? `width:8px;height:8px;border:1.5px solid ${cc};transform:rotate(45deg)` : (single ? `width:9px;height:9px;border-radius:50%;border:1.5px solid ${cc};background:color-mix(in srgb, ${cc} 35%, transparent)` : `${shape === 'kinematic' ? 'border-radius:50%;' : ''}background:${cc}`);
     const on = !state.hide.includes(d.key);
     return `<li><button type="button" class="item" data-leg="${d.key}" aria-pressed="${on}"><span class="sw" style="${sw}" aria-hidden="true"></span><span>${LBL.ds[d.key][+P]}${proj ? ' · ' : ': '}${LBL.weight[d.key]}</span></button></li>`;
   });
-  items.push(`<li><span class="item"><span class="sw" style="border-radius:50%;border:1.2px solid var(--flag)" aria-hidden="true"></span><span>${LBL.flagged}</span></span></li>`);
-  if (D.datasets.some((d) => !state.hide.includes(d.key) && d.rows.some((r) => r.limit === 'upper'))) items.push(`<li><span class="item"><span class="sw" style="width:9px;height:9px;border-radius:50%;border:1.5px solid var(--muted)" aria-hidden="true"></span><span>${P ? '↓ Upper limit: the true pull is at or below this point' : '↓ Upper limit on g_obs (dispersion given only as a limit)'}</span></span></li>`);
+  items.push(`<li><span class="item"><span class="sw" style="border-radius:50%;border:1.2px solid var(--flag)" aria-hidden="true"></span><span>${LBL.flagged[+P]}</span></span></li>`);
+  if (D.datasets.some((d) => !state.hide.includes(d.key) && d.rows.some((r) => r.limit === 'upper'))) items.push(`<li><span class="item"><svg class="sw" viewBox="0 0 12 16" style="height:16px" aria-hidden="true"><path d="M6 6v9M3 11.5 6 15l3-3.5" fill="none" stroke="var(--muted)" stroke-width="1.4"/><circle cx="6" cy="5" r="3.6" fill="var(--bg)" stroke="var(--muted)" stroke-width="1.4"/></svg><span>${P ? 'Upper limit: the true pull is at or below this point' : 'Upper limit on g_obs (dispersion given only as a limit)'}</span></span></li>`);
   if (Object.keys(state.per).length) items.push(`<li><span class="item"><span class="sw" style="border:1px solid var(--range)" aria-hidden="true"></span><span>${P ? 'Square: a system changed on its own page' : 'Square: distance or inclination changed for this system on its page'}</span></span></li>`);
   if (anyChange(D.datasets) && state.arrows !== false) items.push(`<li><span class="item"><span class="sw" style="height:2px;background:var(--range)" aria-hidden="true"></span><span>${P ? 'Arrow: where each point moved from' : 'Arrow: from the default position to the position at the changed assumptions'}</span></span></li>`);
   $('legend').innerHTML = items.join('');
@@ -339,7 +345,7 @@ function card() {
   if (!d) return;
   const s = d.sysById[state.sel], di = D.datasets.indexOf(d), rows = s.rows.map((i) => cache[di][i]).filter((q) => q.g_bar > 0);
   $('card-name').textContent = s.name_in_source;
-  $('card-meta').textContent = `${s.class_in_source} · ${d.title.split(':')[0]} · ${s.rows.length && s.rows.every((i) => d.rows[i].r_kind === 'projected') ? (plain() ? 'one value, measured in projection inside the ring' : 'one value, projected, inside the Einstein radius R_E') : s.rows.length && s.rows.every((i) => d.rows[i].kind === 'system_value') ? 'one value, at the 3D half-light radius' : rows.length + ' radii'}` + (state.pick !== 'all' ? ' · the map shows one of them (' + (state.pick === 'outer' ? 'the outermost' : 'the first at ≥ ' + LIGHT_K + ' × half-light radius') + ')' : '');
+  $('card-meta').textContent = `${d.kind_words && d.kind_words[s.system_id] ? d.kind_words[s.system_id][plain() ? 'p' : 't'] : s.class_in_source} · ${d.title.split(':')[0]} · ${s.rows.length && s.rows.every((i) => d.rows[i].r_kind === 'projected') ? (plain() ? 'one value, measured in projection inside the ring' : 'one value, projected, inside the Einstein radius R_E') : s.rows.length && s.rows.every((i) => d.rows[i].kind === 'system_value') ? 'one value, at the 3D half-light radius' : rows.length + ' radii'}` + (state.pick !== 'all' ? ' · the map shows one of them (' + (state.pick === 'outer' ? 'the outermost' : 'the first at ≥ ' + LIGHT_K + ' × half-light radius') + ')' : '');
   $('card-link').href = BASE + 'systems/' + s.system_id + '/';
   $('card-flags').textContent = s.rows.some((i) => ringed(d.rows[i].flags)) ? 'Some measurements are flagged; see Known issues.' : 'No flags on this system.';
   const prof = $('card-prof'), W = Math.max(220, prof.parentElement.clientWidth - 34), H = Math.round(W * 0.62), g = setup(prof, W, H);

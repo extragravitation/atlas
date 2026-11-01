@@ -50,14 +50,14 @@ const labels = {
   noRadius: ['Stacked lensing bins have no single radius and are not shown in this lens.', 'Averages over many galaxies have no single distance and are left out of this view.'],
   // Projected points (D-064 item 3): what the ring means in each lens, and in the tooltip.
   projected: {
-    obs: ['<b>Rings:</b> strong lensing, projected. Both sides are masses inside the same cylinder of radius R_E, as G M / R_E²; they are not 3D accelerations and are never joined to them.', '<b>Rings:</b> light-bending, measured in projection inside the ring of images. Both pulls count everything along the line of sight through the ring, so they are a different quantity from the other marks.'],
-    ex: ['<b>Rings:</b> strong lensing, projected at R_E (M_E / M_bar inside the same cylinder); not 3D values.', '<b>Rings:</b> light-bending, measured in projection inside the ring; a different quantity from the other marks.'],
-    mass: ['<b>Rings:</b> for strong lensing, g r² / G at R_E is the projected mass inside the cylinder, M_E, not a spherical enclosed mass.', '<b>Rings:</b> for light-bending, this is the mass inside a cylinder through the galaxy, not inside a ball.'],
-    rad: ['<b>Rings:</b> strong lensing, at the projected Einstein radius R_E.', '<b>Rings:</b> light-bending, at the radius of the ring of images, seen in projection.'],
-    speed: ['<b>Rings:</b> for strong lensing, √(g R_E) uses a projected acceleration; it is not a circular speed.', '<b>Rings:</b> for light-bending, this speed comes from a pull measured in projection; no orbit was measured.'],
+    obs: ['<b>Ring-and-dot marks:</b> strong lensing, projected. Both sides are masses inside the same cylinder of radius R_E, as G M / R_E²; they are not 3D accelerations and are never joined to them.', '<b>Ring-and-dot marks:</b> light-bending, measured in projection inside the ring of images. Both pulls count everything along the line of sight through the ring, so they are a different quantity from the other marks.'],
+    ex: ['<b>Ring-and-dot marks:</b> strong lensing, projected at R_E (M_E / M_bar inside the same cylinder); not 3D values.', '<b>Ring-and-dot marks:</b> light-bending, measured in projection inside the ring; a different quantity from the other marks.'],
+    mass: ['<b>Ring-and-dot marks:</b> for strong lensing, g r² / G at R_E is the projected mass inside the cylinder, M_E, not a spherical enclosed mass.', '<b>Ring-and-dot marks:</b> for light-bending, this is the mass inside a cylinder through the galaxy, not inside a ball.'],
+    rad: ['<b>Ring-and-dot marks:</b> strong lensing, at the projected Einstein radius R_E.', '<b>Ring-and-dot marks:</b> light-bending, at the radius of the ring of images, seen in projection.'],
+    speed: ['<b>Ring-and-dot marks:</b> for strong lensing, √(g R_E) uses a projected acceleration; it is not a circular speed.', '<b>Ring-and-dot marks:</b> for light-bending, this speed comes from a pull measured in projection; no orbit was measured.'],
   },
   projTip: ['Projected: G M / R_E² on both sides, inside the same cylinder (D-064)', 'Measured in projection inside the ring of images'],
-  ds, weight, flagged: `Ringed: ${flagged} measurements with a reproduction mismatch or the source’s own quality caveat (see Known issues)`, bin: 'Stacked lensing bin',
+  ds, weight, flagged: [`Thin ring around a mark: flagged. ${flagged} measurements with a reproduction mismatch or the source’s own quality caveat (see Known issues)`, `Thin ring around a mark: a measurement with a known issue (${flagged}; see Known issues)`], bin: 'Stacked lensing bin',
 };
 const sliders = atlas.datasets.flatMap((d) => d.assumptions.filter((a) => a.adjustable && a.status === 'confirmed' && a.scope === 'dataset').map((a) => ({ a, dataset: d.key })));
 const total = atlas.datasets.reduce((s, d) => s + d.measurements.rows.filter((r) => r.plotted !== 'false').length, 0);
@@ -150,7 +150,7 @@ const nWords = ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'ei
           <canvas id="fig" class="cv zoomable" role="img" aria-label="" tabindex="0"></canvas>
           <div class="tip" id="tip" hidden></div>
         </div>
-        <figcaption><b>Figure.</b> <L t="Each mark is one packaged measurement. Dashed line, where shown: g_obs = g_bar, Newtonian gravity on detected matter accounts for the observed acceleration. Rings: flagged measurements. No fitted relation is drawn (D-026)." p="Each mark is one measurement. On the dashed line, the detected matter explains all of the pull. Rings mark measurements with a known issue." /> <span id="caption-state"></span></figcaption>
+        <figcaption><b>Figure.</b> <L t="Each mark is one packaged measurement; the legend gives each mark one meaning. Dashed line, where shown: g_obs = g_bar, Newtonian gravity on detected matter accounts for the observed acceleration. A thin ring around a mark: a flagged measurement. A ring with a centre dot: a strong lens, projected value at R_E (D-064). No fitted relation is drawn (D-026)." p="Each mark is one measurement. On the dashed line, the detected matter explains all of the pull. A thin ring around a mark means it has a known issue. A ring with a dot in the middle is a galaxy that bends light, measured inside its ring of images." /> <span id="caption-state"></span></figcaption>
       </figure>
       <p class="hint" id="pick-note" hidden></p>
       <p class="hint" id="lens-note"></p>
