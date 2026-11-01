@@ -56,6 +56,11 @@ Reported checks (written to checks/, not pass/fail), computed only on a real run
                          masses inside R_E.
     overlap.csv          systems in more than one survey's default, side by side (none averaged).
     not_tabulated.csv    systems in the reading files that cannot enter the systems table, with why.
+
+Epoch gap (D-066 item 2): every lens read in the scopes at printed z_l >= 0.30 is recorded in the systems
+table straight from the two readings (reading/readings/reader-{a,b}-block{1,2,3}.csv; not adjudicated), with
+plotted = false, the reason "z_l >= 0.30 (D-066)" and the flag epoch_gap_v1; readers_differ where the two
+readings differ (both kept). No measurement or observable rows. See epoch_gap_lenses().
 """
 
 from __future__ import annotations
@@ -874,8 +879,13 @@ def convert(rows: list[dict], gas: GasTerm, synthetic: bool) -> dict:
                                   "reason": "no measured lens redshift in the inputs (data standard §10 item 7)"})
         else:
             keep.append(s)
+    real = not any(r["scope"].startswith("SYNTHETIC") for r in rows)
+    gap, gap_none, gap_low = epoch_gap_lenses({lens_key(s.name) for s in systems}) if real else ([], [], [])
+    if gap_low:  # every lens below the cut must already be in the adjudicated inputs
+        raise ValueError(f"lenses below z_l = {Z_CUT} in the readings but not in the inputs: {gap_low}")
+    not_tabulated += gap_none
     systems = keep
-    ids = registry([primary_name(s.scope, s.name) for s in systems], synthetic)
+    ids = registry([primary_name(s.scope, s.name) for s in systems] + [g.name for g in gap], synthetic)
     meas, obs, sysrows, used_rows = [], [], [], []
 
     def add_obs(sid, side, q, r, steps, param=""):
@@ -909,6 +919,7 @@ def convert(rows: list[dict], gas: GasTerm, synthetic: bool) -> dict:
                         "redshift": num(zrow["value"]), "redshift_err": num(zrow["err_minus"]), "distance_kinematic": "false",
                         "distance_ref": f"lens redshift {zrow['record']}: {zrow['location']}",
                         "properties": json.dumps({"scope": s.scope, "status": "plotted" if complete and not s.reasons else "recorded",
+                                                  "plotted": bool(complete and not s.reasons),
                                                   "reasons_not_plotted": s.reasons + s.incomplete,
                                                   "z_s": num(zsrow["value"]) if zsrow else None,
                                                   "gas_statement": s.gas_statement or None,
@@ -954,7 +965,9 @@ def convert(rows: list[dict], gas: GasTerm, synthetic: bool) -> dict:
             meas.append(measurement_row(mid, sid, s, Ia, ca, gas, o_ids, b_ids, role="alternative", zero_gas=zero,
                                         alternative_of=default_id,
                                         alt_note=f"{r['quantity']} = {r['value']} ({r['record']}; {r.get('note', '')[:120]})"))
-    return {"measurements": meas, "observables": obs, "systems": sysrows, "used_rows": used_rows,
+    for g in gap:  # D-066 item 2: recorded in full, flagged epoch_gap_v1; no measurement row
+        sysrows.append(gap_system_row(ids[g.name], g))
+    return {"measurements": meas, "observables": obs, "systems": sysrows, "used_rows": used_rows, "epoch_gap": gap,
             "formula_check": formula_check(systems, record_level), "profile_step": profile_step_check(systems),
             "overlap": overlap(systems), "not_tabulated": not_tabulated, "systems_obj": systems}
 
@@ -1057,6 +1070,278 @@ def arithmetic_check(meas_rows: list[dict]) -> int:
             gas += gc
         close(gs + gas, r["g_bar"], "g_bar", mid)
     return n
+
+
+# ----------------------------------------------------------------------------- epoch gap (D-066 item 2)
+# The adjudicated inputs hold only the systems below z_l = 0.30. D-066 item 2 records every system at or above
+# the cut in full, flagged epoch_gap_v1. These rows come straight from the two independent readings
+# (reading/readings/reader-{a,b}-block{1,2,3}.csv); nothing here is adjudicated. A value both readers recorded
+# identically is used; where they differ, both are recorded and the system is flagged readers_differ
+# (listed in SECOND_READING.md). No measurement or observable row is written for these systems.
+READINGS = HERE / "reading/readings"
+READING_BLOCKS = ("block1", "block2", "block3")
+EPOCH_REASON = "z_l ≥ 0.30 (D-066)"
+# Readers' spellings of one lens that the plain normalisation does not join (each checked by eye in the
+# two readings: same coordinates or the same name given in the other reader's parenthesis).
+LENS_ALIASES = {
+    "J010049.18181827.7": "J01001818",      # SDSS J0100+1818 = SDSS J010049.18+181827.7 (both readers say so)
+    "COSMICHORSESHOE": "J11481930",         # Cosmic Horseshoe = SDSS J1148+1930 (both readers say so)
+    "SL2SJ021760513": "J021737051329",      # SL2SJ02176-0513 (J2000 02:17:37.136 -05:13:29.41)
+    "J143607.49494313.2": "J14364943",      # MaNGA J1436+4943 (already in the tables)
+    "J170124.01372258.1": "J17013722",      # MaNGA J1701+3722 (already in the tables)
+}
+LENS_QUANTITIES = {"z_l", "z_s", "kind", "theta_E"}  # a key with none of these is a sample-level row, not a lens
+NOT_LENS_SCOPES = {"gas"}  # reader rows about gas statements, not a lens scope
+_ESTIMATE = re.compile(r"estimat|z_?FP\b|fundamental-plane", re.I)
+# Method classes, in the order searched; the earliest one found in the reader's text is the class.
+METHOD_CLASSES = (("not measured", "not measured"), ("not stated", "not stated"), ("tentative", "tentative"),
+                  ("estimat", "estimate"), ("derived", "estimate"), ("photometric", "photometric"),
+                  ("spectroscop", "spectroscopic"))
+_R5_MPH = {"E", "L", "U"}
+_R10_CODE = re.compile(r"\b([A-Z]-[A-Z]-[A-Z])\b")
+
+
+def _norm_id(s: str) -> str:
+    return re.sub(r"[\s_\-−–+]", "", s or "").upper().replace("SDSSJ", "J")
+
+
+def lens_key(system_id: str) -> str:
+    """One key per lens: the designation before any parenthesis, normalised; 12-digit J designations keyed on
+    the coordinates alone, so the same lens read in SL2S and in SuGOHI is one system."""
+    n = _norm_id(system_id.split("(")[0])
+    n = LENS_ALIASES.get(n, n)
+    m = re.fullmatch(r"[A-Z0-9]*?J(\d{6}\d{6})", n)
+    return f"J{m.group(1)}" if m else n
+
+
+def lens_display_name(system_id: str) -> str:
+    base = system_id.split("(")[0].strip().replace("−", "-").replace("–", "-")
+    n = _norm_id(base)
+    if n == "COSMICHORSESHOE":
+        return "SDSS J1148+1930"
+    if n.startswith("J010049"):
+        return "SDSS J0100+1818"
+    if n == "SL2SJ021760513":
+        return "SL2SJ021737-051329"
+    base = re.sub(r"\s+", "", base)
+    base = re.sub(r"^SDSSJ", "J", base)
+    return primary_name("", base)
+
+
+def _first_number(s: str) -> float | None:
+    m = re.search(r"[-+]?\d+(?:\.\d+)?(?:[eE][-+]?\d+)?", (s or "").replace("−", "-"))
+    return float(m.group(0)) if m else None
+
+
+def method_class(text: str) -> str:
+    t = (text or "").lower()
+    hits = [(t.find(k), v) for k, v in METHOD_CLASSES if k in t]
+    return min(hits)[1] if hits else (t.strip() or "")
+
+
+def _is_estimate(r: dict) -> bool:
+    return bool(_ESTIMATE.search(r.get("limit", "") or "") or _ESTIMATE.search(r.get("note", "") or "")
+                or "estimate" in (r.get("form", "") or ""))
+
+
+def load_readings() -> dict:
+    """lens key -> scope -> reader ('a'/'b') -> list of reading rows (in file order)."""
+    out: dict = {}
+    for block in READING_BLOCKS:
+        for reader in "ab":
+            with open(READINGS / f"reader-{reader}-{block}.csv", encoding="utf-8", newline="") as f:
+                for r in csv.DictReader(f):
+                    if r["system_id"].strip().startswith("(") or r["scope"].strip() in NOT_LENS_SCOPES:
+                        continue
+                    k = lens_key(r["system_id"])
+                    out.setdefault(k, {}).setdefault(r["scope"].strip(), {}).setdefault(reader, []).append(
+                        {**r, "_block": block, "_reader": reader})
+    return out
+
+
+def _reader_view(rows: list[dict]) -> dict:
+    """One reader's reading of one lens in one scope."""
+    def vals(q, measured_only=False):
+        xs = []
+        for r in rows:
+            if r["quantity"] != q:
+                continue
+            v = _first_number(r["value"])
+            if v is None or (measured_only and _is_estimate(r)):
+                continue
+            if v not in xs:
+                xs.append(v)
+        return xs
+
+    def texts(q):
+        xs = []
+        for r in rows:
+            t = re.sub(r"\s+", " ", (r["value"] or "")).strip()
+            if r["quantity"] == q and t and t not in xs:
+                xs.append(t)
+        return xs
+    zl_rows = [r for r in rows if r["quantity"] == "z_l" and _first_number(r["value"]) is not None]
+    return {
+        "z_l": vals("z_l", measured_only=True),
+        "z_l_estimates": [v for v in vals("z_l") if v not in vals("z_l", measured_only=True)],
+        "z_s": vals("z_s"),
+        "z_l_method": sorted({method_class(t) for t in texts("z_l_method")}),
+        "z_s_method": sorted({method_class(t) for t in texts("z_s_method")}),
+        "z_l_method_text": texts("z_l_method"), "z_s_method_text": texts("z_s_method"),
+        "kind_text": texts("kind"),
+        "records": sorted({r["record"] for r in rows if r["record"]}),
+        "ids": list(dict.fromkeys(r["system_id"].strip() for r in rows)),
+        "z_l_rows": zl_rows,
+    }
+
+
+def _kind_code(texts: list[str]) -> str | None:
+    """A classification code printed by the source (R5 Mph; R10 class code), if the reader recorded one."""
+    bare = [t for t in texts if t in _R5_MPH]
+    if len(bare) == 1:
+        return bare[0]
+    codes = sorted({m.group(1) for t in texts for m in _R10_CODE.finditer(t)})
+    return codes[0] if len(codes) == 1 else None
+
+
+def compare_kind(a: list[str], b: list[str]) -> tuple[str | None, str]:
+    """(agreed kind, how): identical recorded texts, or the same printed code; else (None, 'differ')."""
+    if a and sorted(a) == sorted(b):
+        return " | ".join(a), "identical text"
+    ca, cb = _kind_code(a), _kind_code(b)
+    if ca and ca == cb:
+        return ca, "same printed code"
+    return None, "differ"
+
+
+def _agree(a: list, b: list) -> bool:
+    return sorted(a) == sorted(b)
+
+
+@dataclass
+class GapLens:
+    key: str
+    name: str
+    ids: list
+    scopes: list
+    readings: dict             # scope -> {"a": view, "b": view, ...}
+    z_l: float | None = None
+    z_s: float | None = None
+    z_l_method: str = ""
+    z_s_method: str = ""
+    kind: tuple = ("A7", "", "")
+    flags: list = field(default_factory=list)
+    differences: list = field(default_factory=list)   # (scope, quantity, reader A, reader B)
+    z_ref: str = ""
+
+
+def epoch_gap_lenses(tabulated_keys: set) -> tuple[list[GapLens], list[dict], list[dict]]:
+    """Lenses read in the scopes but not in the adjudicated inputs.
+
+    Returns (lenses with a printed measured z_l >= 0.30, lenses with no printed measured z_l (not tabulated),
+    lenses with a printed z_l below 0.30 that are not in the inputs (reported; expected none))."""
+    raw = load_readings()
+    gap, none_z, low = [], [], []
+    for key, by_scope in raw.items():
+        if key in tabulated_keys:
+            continue
+        if not any(r["quantity"] in LENS_QUANTITIES for d in by_scope.values() for rs in d.values() for r in rs):
+            continue
+        readings = {sc: {rd: _reader_view(rs) for rd, rs in d.items()} for sc, d in by_scope.items()}
+        all_rows = [r for d in by_scope.values() for rs in d.values() for r in rs]
+        ids = list(dict.fromkeys(r["system_id"].strip() for r in all_rows))
+        first = next(r for r in all_rows)
+        name = lens_display_name(first["system_id"])
+        measured = sorted({v for d in readings.values() for v in (x for rd in d.values() for x in rd["z_l"])})
+        if not measured:
+            est = sorted({v for d in readings.values() for rd in d.values() for v in rd["z_l_estimates"]})
+            none_z.append({"scope": " | ".join(by_scope), "system": name,
+                           "reason": ("lens redshift printed only as an estimate (" + ", ".join(f"{v:g}" for v in est) +
+                                      "; fundamental-plane or image-separation), not a measurement (data standard §10 item 7)")
+                           if est else "no lens redshift printed (data standard §10 item 7)"})
+            continue
+        if any(v < Z_CUT for v in measured):
+            low.append({"system": name, "scopes": " | ".join(by_scope), "z_l": measured})
+            continue
+        g = GapLens(key, name, ids, list(by_scope), readings)
+        zls, zss, zlm, zsm, kinds = [], [], [], [], []
+        for sc, d in readings.items():
+            a, b = d.get("a"), d.get("b")
+            ea = {"z_l": [], "z_s": [], "z_l_method": [], "z_s_method": [], "kind_text": [], "z_l_estimates": []}
+            a, b = a or ea, b or ea
+            for q in ("z_l", "z_s", "z_l_method", "z_s_method"):
+                if not _agree(a[q], b[q]):
+                    g.differences.append((sc, q, a[q], b[q]))
+            if a["z_l_estimates"] != b["z_l_estimates"] and (a["z_l_estimates"] or b["z_l_estimates"]):
+                g.differences.append((sc, "z_l (estimate, not used)", a["z_l_estimates"], b["z_l_estimates"]))
+            kv, how = compare_kind(a["kind_text"], b["kind_text"])
+            if kv is None:
+                g.differences.append((sc, "kind", a["kind_text"], b["kind_text"]))
+            d["kind_agreed"], d["kind_how"] = kv, how
+            zls.append(sorted(set(a["z_l"]) | set(b["z_l"])))
+            zss.append(sorted(set(a["z_s"]) | set(b["z_s"])))
+            zlm.append(sorted(set(a["z_l_method"]) | set(b["z_l_method"])))
+            zsm.append(sorted(set(a["z_s_method"]) | set(b["z_s_method"])))
+            kinds.append(kv)
+        if any(q in ("z_l", "z_s", "z_l_method", "z_s_method", "kind") for _, q, _, _ in g.differences):
+            g.flags.append("readers_differ")
+        all_zl = sorted({v for x in zls for v in x})
+        all_zs = sorted({v for x in zss for v in x})
+        if len({tuple(x) for x in zls if x}) > 1 or len({tuple(x) for x in zss if x}) > 1:
+            g.flags.append("sources_differ")
+        # The redshift column holds the printed value where every reading agrees on one; otherwise the lowest
+        # printed value, so that the D-066 test holds for every reading. All readings are in properties.
+        g.z_l = all_zl[0]
+        g.z_s = all_zs[0] if len(all_zs) == 1 else None
+        g.z_l_method = " | ".join(sorted({m for x in zlm for m in x}))
+        g.z_s_method = " | ".join(sorted({m for x in zsm for m in x}))
+        agreed = [k for k in kinds if k is not None]
+        if agreed and len(agreed) == len(kinds) and len(set(agreed)) == 1:
+            tk, label, cls, _, _ = classify_kind(System("", "", rows=[{"quantity": "kind", "value": agreed[0],
+                                                                       "_role": "default", "note": ""}]))
+            g.kind = (tk, label, cls)
+        else:
+            texts = []
+            for sc, d in readings.items():
+                for rd in "ab":
+                    if rd in d:
+                        texts.append(f"reader {rd.upper()} ({sc}): " + (" | ".join(d[rd]["kind_text"]) or "no kind recorded"))
+            g.kind = ("A7", "ambiguous: the two readings of the kind differ (not adjudicated; SECOND_READING.md)",
+                      "; ".join(texts))
+        zr = next(r for d in by_scope.values() for rd in "ab" for r in d.get(rd, [])
+                  if r["quantity"] == "z_l" and _first_number(r["value"]) == g.z_l and not _is_estimate(r))
+        g.z_ref = f"lens redshift {zr['record']}: {zr['location']} ({zr['url']}), reader {zr['_reader'].upper()}"
+        g.flags.insert(0, "epoch_gap_v1")
+        gap.append(g)
+    gap.sort(key=lambda g: (g.scopes[0], g.name))
+    none_z.sort(key=lambda r: (r["scope"], r["system"]))
+    return gap, none_z, low
+
+
+def gap_system_row(sid: str, g: GapLens) -> dict:
+    readings = {}
+    for sc, d in g.readings.items():
+        e = {}
+        for rd in "ab":
+            v = d.get(rd)
+            e[f"reader_{rd}"] = None if v is None else {
+                "ids": v["ids"], "records": v["records"], "z_l": v["z_l"], "z_l_estimates": v["z_l_estimates"],
+                "z_s": v["z_s"], "z_l_method": v["z_l_method_text"], "z_s_method": v["z_s_method_text"],
+                "kind": v["kind_text"]}
+        e["kind_agreed"], e["kind_agreed_by"] = d.get("kind_agreed"), d.get("kind_how")
+        readings[sc] = e
+    props = {"scope": " | ".join(g.scopes), "status": "recorded", "plotted": False,
+             "reasons_not_plotted": [EPOCH_REASON], "z_s": g.z_s, "gas_statement": None,
+             "flags": g.flags, "identifiers": g.ids, "z_l_method": g.z_l_method, "z_s_method": g.z_s_method,
+             "z_l_all_readings": sorted({v for d in g.readings.values() for rd in "ab" if rd in d for v in d[rd]["z_l"]}),
+             "z_s_all_readings": sorted({v for d in g.readings.values() for rd in "ab" if rd in d for v in d[rd]["z_s"]}),
+             "readers_differ_on": sorted({f"{sc}: {q}" for sc, q, _, _ in g.differences}),
+             "readings": readings,
+             "note": "recorded from the two independent readings, not adjudicated (D-066 item 2); no measurement row"}
+    return {"system_id": sid, "name_in_source": g.name, "class_in_source": g.kind[2] or "not stated",
+            "taxonomy_kind": g.kind[0], "kind_label": g.kind[1], "host": "", "redshift": g.z_l, "redshift_err": None,
+            "distance_kinematic": "false", "distance_ref": g.z_ref,
+            "properties": json.dumps(props, ensure_ascii=False, sort_keys=True)}
 
 
 # ----------------------------------------------------------------------------- tables

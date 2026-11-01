@@ -1,5 +1,17 @@
 scope,system,reason
 CASTLES lenses,FBQ0951+2635,no measured lens redshift in the inputs (data standard §10 item 7)
+CASTLES lenses,B1127+385,"lens redshift printed only as an estimate (0.78; fundamental-plane or image-separation), not a measurement (data standard §10 item 7)"
+CASTLES lenses,BRI0952-0115,"lens redshift printed only as an estimate (0.41, 0.99; fundamental-plane or image-separation), not a measurement (data standard §10 item 7)"
+CASTLES lenses,FSC10214+472,"lens redshift printed only as an estimate (0.78; fundamental-plane or image-separation), not a measurement (data standard §10 item 7)"
+CASTLES lenses,HE1104-1805,"lens redshift printed only as an estimate (0.73; fundamental-plane or image-separation), not a measurement (data standard §10 item 7)"
+CASTLES lenses,HE2149-2745,"lens redshift printed only as an estimate (0.43; fundamental-plane or image-separation), not a measurement (data standard §10 item 7)"
+CASTLES lenses,HST12531-2914,"lens redshift printed only as an estimate (0.63; fundamental-plane or image-separation), not a measurement (data standard §10 item 7)"
+CASTLES lenses,LBQS1009-025,"lens redshift printed only as an estimate (0.88; fundamental-plane or image-separation), not a measurement (data standard §10 item 7)"
+CASTLES lenses,Q1017-207,"lens redshift printed only as an estimate (0.78; fundamental-plane or image-separation), not a measurement (data standard §10 item 7)"
+CASTLES lenses,SBS1520+530,"lens redshift printed only as an estimate (0.52; fundamental-plane or image-separation), not a measurement (data standard §10 item 7)"
+SL2S III sample,SL2SJ140533+550231,no lens redshift printed (data standard §10 item 7)
+SL2S III sample,SL2SJ141917+511729,no lens redshift printed (data standard §10 item 7)
+SL2S III sample,SL2SJ142321+572243,no lens redshift printed (data standard §10 item 7)
 "SLACS (R7 Table 4, not in the SLACS V adjudicated set)",J0808+4706,"R7 record-only lens outside the SLACS V adjudicated set: no theta_E, no kind and no redshift row in the inputs; SLACS IX new models have no stellar-mass default (REPRODUCTION.md, Surveys in v1)"
 "SLACS (R7 Table 4, not in the SLACS V adjudicated set)",J0819+4534,"R7 record-only lens outside the SLACS V adjudicated set: no theta_E, no kind and no redshift row in the inputs; SLACS IX new models have no stellar-mass default (REPRODUCTION.md, Surveys in v1)"
 "SLACS (R7 Table 4, not in the SLACS V adjudicated set)",J1029+6115,"R7 record-only lens outside the SLACS V adjudicated set: no theta_E, no kind and no redshift row in the inputs; SLACS IX new models have no stellar-mass default (REPRODUCTION.md, Surveys in v1)"
