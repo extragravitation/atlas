@@ -74,3 +74,7 @@ Counted, not listed.
 | S17 | 2010MNRAS.402..753M; 2011A&A...527A.101K; 2006AJ....132..347C | Shapley (ACCESS), A1367, nearby-cluster luminosity functions |
 | S18 | 2014MNRAS.437.1362B; 2013MNRAS.429.3288S; 2009ApJ...703..982G | Stellar fractions across groups and clusters |
 | S19 | 2017yCat..17940031T | A2255 membership (an X-COP modelled-star cluster) |
+
+## 2. Full-text screening (2026-10-31)
+
+Two readers, each in its own folder. Readings as returned: `screening-S9/reader-{a,b}.md`. Comparison: 44 of 49 agree. Final codes: E 13, P 11, X 23, — 1. One ruling is needed (QS4, summing member catalogues). The coverage of the five X-COP clusters is set out in `screening-S9/adjudication.md`.
