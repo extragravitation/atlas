@@ -44,3 +44,41 @@ Forward method relative to backward NFW, (M_forward / M_NFW − 1), median with 
 | R500 (Table 1) | −2.3 % (−8.4 / +1.6) | −4.7 % (−10.9 / −0.5) |
 
 The archive's medians sit 2.4 to 3.0 percentage points above Table 2's at every radius. Hydra A's absence and the three revised clusters may account for part of this; it cannot be resolved from the public files and is included in the question to the X-COP team. R200 was not computed (it would need a choice of method not specified in `REPRODUCTION.md`).
+
+## Source check of the three clusters (2026-11-01; exploratory, not part of the test)
+
+Test of the hypothesis that the archive holds a later, revised analysis for A644, A2029 and A2319. Run by Claude on the archive file this package is built from (SHA-256 `0edf5038…`) and on the LaTeX sources of X-COP papers from arXiv.
+
+**What the archive's file headers say** (identical in every file of each cluster):
+
+| Cluster | z | R500 (kpc) | M500 (10¹⁴ M☉) |
+|---|---|---|---|
+| A644 | 0.0704 | 1250 | 5.9408 |
+| A2029 | 0.0766 | 1414 | 8.6511 |
+| A2319 | 0.0557 | 1368 | 7.6781 |
+
+**Where those values are published:**
+
+- **A2029: published, in two papers of the same journal issue as the reference.**
+  - Ghirardini et al. 2019 (A&A 621, A41; arXiv:1805.00042v2), Table 1, gives z = 0.0766, M500 = 8.65 ± 0.29, R500 = 1414 ± 16 kpc.
+  - Eckert et al. 2019 (A&A 621, A40; arXiv:1805.00034v2), Table 2, gives M_HSE,500 = 8.65 ± 0.29.
+  - Ettori et al. 2019 (A&A 621, A39; arXiv:1805.00035v3), Table 1, the frozen reference, gives z = 0.0773, R500 = 1.423 ± 0.019 Mpc and M500 = 8.82 ± 0.35. The redshift differs as well as the mass.
+  - So the archive follows the Ghirardini/Eckert analysis of A2029, not the Ettori one. The difference is between two contemporaneous published X-COP analyses, not a later revision.
+- **A2319: published, in the cluster's own X-COP paper.**
+  - Ghirardini et al. 2018 (A&A 614, A7; arXiv:1708.02954v2) adopts R500 = 1368 kpc. Its mass table gives, for the backward method with P_SZ,NO3 + T_X (median), M500 = 7.7 ± 0.4 and R500 = 1368 ± 17 kpc.
+  - The same table's backward P_SZ + T_X (mean) row gives M500 = 7.3 ± 0.3 and R500 = 1346 ± 17 kpc. That is the value in Ettori et al. 2019 and Ghirardini et al. 2019 (7.31 ± 0.28, 1346 ± 17).
+  - So the archive follows the 2018 paper's adopted estimate.
+- **A644: not found.** R500 = 1250 kpc and M500 = 5.94 do not appear in any of the 17 X-COP papers searched (list below). The hydrostatic analyses that tabulate A644 give R500 = 1230 kpc and M500 = 5.66 (Eckert et al. 2019 also gives a non-thermal-corrected total mass of 6.03). The sample paper, Eckert et al. 2017 (arXiv:1611.05051), gives R500 = 1356 kpc in its master table, from before the hydrostatic analysis. A644 remains unexplained from public sources.
+
+**Papers searched** (arXiv LaTeX source, latest version, for 1250/1.250, 1368, 1414, 5.94 and every A644, A2029 and A2319 table row): 1611.05051, 1708.02954, 1805.00034, 1805.00035, 1805.00042, 1906.00977, 1906.10013, 1911.03206, 1911.05039, 2007.01084, 2111.01637, 2112.07554, 2205.01123, 2211.03082, 2303.15102, 2408.08102 (not by the X-COP team; it uses the archive) and 2503.13612. The search found them with arXiv's abstract search for "X-COP", plus the four 2018–19 papers by identifier. Papers without an arXiv source were not searched.
+
+**Conclusion.**
+- The hypothesis is **partly supported and partly corrected**. For A2029 and A2319, the archive's profiles carry published X-COP values, but from other papers than Ettori et al. 2019 Table 1. For A644 no source was found.
+- The archive therefore mixes analyses: nine clusters agree with Ettori et al. 2019 Table 1 and Ghirardini et al. 2019 Table 1; A2029 agrees with Ghirardini et al. 2019; A2319 agrees with Ghirardini et al. 2018; A644 agrees with none found.
+
+**Not changed:**
+- the frozen test and its result (FAILED for these three);
+- the `reproduction_mismatch` flags on all 264 rows;
+- the lock test.
+
+Whether the A2029 and A2319 rows should cite the paper they match is a question of how the Atlas states provenance, not of the test. It is for JvH, after the X-COP team's answer.
