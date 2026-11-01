@@ -1,0 +1,280 @@
+scope,system,record,quantity,a,b,status
+CASTLES lenses,00472808,R36,z_l,"(Decimal('0.48'), None, None, 'linear', '')",,only_a
+CASTLES lenses,00472808,R36,z_s,"(Decimal('3.60'), None, None, 'linear', '')",,only_a
+CASTLES lenses,B0218357,R36,z_l,"(Decimal('0.68'), None, None, 'linear', '')","(Decimal('0.68'), None, None, 'linear', '')",agree
+CASTLES lenses,B0218357,R36,z_s,"(Decimal('0.96'), None, None, 'linear', '')","(Decimal('0.96'), None, None, 'linear', '')",agree
+CASTLES lenses,B0712472,R36,z_l,"(Decimal('0.41'), None, None, 'linear', '');(Decimal('0.41'), None, None, 'linear', '')","(Decimal('0.41'), None, None, 'linear', '')",differ
+CASTLES lenses,B0712472,R36,z_s,"(Decimal('1.33'), None, None, 'linear', '');(Decimal('1.34'), None, None, 'linear', '')","(Decimal('1.33'), None, None, 'linear', '')",differ
+CASTLES lenses,B1030071,R36,z_l,"(Decimal('0.60'), None, None, 'linear', '')",,only_a
+CASTLES lenses,B1030071,R36,z_s,"(Decimal('1.54'), None, None, 'linear', '')",,only_a
+CASTLES lenses,B1127385,R36,z_l,"(Decimal('0.78'), None, None, 'linear', 'estimate (zFP), not a measured z_l')",,only_a
+CASTLES lenses,B1127385,R36,z_s,"(None, None, None, 'linear', '')",,only_a
+CASTLES lenses,B1422231,R36,z_l,"(Decimal('0.34'), None, None, 'linear', '');(Decimal('0.34'), None, None, 'linear', '')","(Decimal('0.34'), None, None, 'linear', '')",differ
+CASTLES lenses,B1422231,R36,z_s,"(Decimal('3.62'), None, None, 'linear', '');(Decimal('3.62'), None, None, 'linear', '')","(Decimal('3.62'), None, None, 'linear', '')",differ
+CASTLES lenses,B1600434,R36,z_l,"(Decimal('0.41'), None, None, 'linear', '')","(Decimal('0.41'), None, None, 'linear', '')",agree
+CASTLES lenses,B1600434,R36,z_s,"(Decimal('1.57'), None, None, 'linear', '')","(Decimal('1.57'), None, None, 'linear', '')",agree
+CASTLES lenses,B1608656,R36,z_l,"(Decimal('0.63'), None, None, 'linear', '');(Decimal('0.63'), None, None, 'linear', '')","(Decimal('0.63'), None, None, 'linear', '')",differ
+CASTLES lenses,B1608656,R36,z_s,"(Decimal('1.39'), None, None, 'linear', '');(Decimal('1.39'), None, None, 'linear', '')","(Decimal('1.39'), None, None, 'linear', '')",differ
+CASTLES lenses,B1933503,R36,z_l,"(Decimal('0.76'), None, None, 'linear', '')","(Decimal('0.76'), None, None, 'linear', '')",agree
+CASTLES lenses,B1933503,R36,z_s,"(None, None, None, 'linear', '')","(None, None, None, 'linear', '')",agree
+CASTLES lenses,B1938666,R36,z_l,"(Decimal('0.88'), None, None, 'linear', '')",,only_a
+CASTLES lenses,B1938666,R36,z_s,"(None, None, None, 'linear', '')",,only_a
+CASTLES lenses,B2045265,R36,z_l,"(Decimal('0.87'), None, None, 'linear', '')",,only_a
+CASTLES lenses,B2045265,R36,z_s,"(Decimal('1.28'), None, None, 'linear', '')",,only_a
+CASTLES lenses,B2319052,R36,z_l,"(Decimal('0.62'), None, None, 'linear', '')",,only_a
+CASTLES lenses,B2319052,R36,z_s,"(None, None, None, 'linear', '')",,only_a
+CASTLES lenses,BRI09520115,R36,z_l,"(Decimal('0.41'), None, None, 'linear', 'estimate (zFP), not a measured z_l');(Decimal('0.99'), None, None, 'linear', '')","(Decimal('0.99'), None, None, 'linear', '')",differ
+CASTLES lenses,BRI09520115,R36,z_s,"(Decimal('4.5'), None, None, 'linear', '');(Decimal('4.50'), None, None, 'linear', '')","(Decimal('4.5'), None, None, 'linear', '')",differ
+CASTLES lenses,FBQ09512635,R36,z_l,"(Decimal('0.21'), None, None, 'linear', 'estimate (zFP), not a measured z_l')",,only_a
+CASTLES lenses,FBQ09512635,R36,z_s,"(Decimal('1.24'), None, None, 'linear', '')",,only_a
+CASTLES lenses,FSC10214472,R36,z_l,"(Decimal('0.78'), None, None, 'linear', 'estimate (zFP), not a measured z_l')",,only_a
+CASTLES lenses,FSC10214472,R36,z_s,"(Decimal('2.29'), None, None, 'linear', '')",,only_a
+CASTLES lenses,HE11041805,R36,z_l,"(Decimal('0.73'), None, None, 'linear', 'estimate (zFP), not a measured z_l')",,only_a
+CASTLES lenses,HE11041805,R36,z_s,"(Decimal('2.32'), None, None, 'linear', '')",,only_a
+CASTLES lenses,HE21492745,R36,z_l,"(Decimal('0.43'), None, None, 'linear', 'estimate (zFP), not a measured z_l')",,only_a
+CASTLES lenses,HE21492745,R36,z_s,"(Decimal('2.03'), None, None, 'linear', '')",,only_a
+CASTLES lenses,HST125312914,R36,z_l,"(Decimal('0.63'), None, None, 'linear', 'estimate (zFP), not a measured z_l');(None, None, None, 'linear', '')","(None, None, None, 'linear', '')",differ
+CASTLES lenses,HST125312914,R36,z_s,"(None, None, None, 'linear', '');(None, None, None, 'linear', '')","(None, None, None, 'linear', '')",differ
+CASTLES lenses,HST14113521,R36,z_l,"(Decimal('0.46'), None, None, 'linear', '')",,only_a
+CASTLES lenses,HST14113521,R36,z_s,"(Decimal('2.81'), None, None, 'linear', '')",,only_a
+CASTLES lenses,HST141765226,R36,z_l,"(Decimal('0.81'), None, None, 'linear', '');(Decimal('0.81'), None, None, 'linear', '')","(Decimal('0.81'), None, None, 'linear', '')",differ
+CASTLES lenses,HST141765226,R36,z_s,"(Decimal('3.4'), None, None, 'linear', '');(Decimal('3.40'), None, None, 'linear', '')","(None, None, None, 'linear', '')",differ
+CASTLES lenses,LBQS1009025,R36,z_l,"(Decimal('0.88'), None, None, 'linear', 'estimate (zFP), not a measured z_l')",,only_a
+CASTLES lenses,LBQS1009025,R36,z_s,"(Decimal('2.74'), None, None, 'linear', '')",,only_a
+CASTLES lenses,MG04140534,R36,z_l,"(Decimal('0.44'), None, None, 'linear', '');(Decimal('0.96'), None, None, 'linear', '')","(Decimal('0.44'), None, None, 'linear', '')",differ
+CASTLES lenses,MG04140534,R36,z_s,"(Decimal('2.64'), None, None, 'linear', '');(Decimal('2.64'), None, None, 'linear', '')","(Decimal('2.64'), None, None, 'linear', '')",differ
+CASTLES lenses,MG07512716,R36,z_l,"(Decimal('0.35'), None, None, 'linear', '')","(Decimal('0.35'), None, None, 'linear', '')",agree
+CASTLES lenses,MG07512716,R36,z_s,"(None, None, None, 'linear', '')","(None, None, None, 'linear', '')",agree
+CASTLES lenses,MG11310456,R36,z_l,"(Decimal('0.84'), None, None, 'linear', '');(None, None, None, 'linear', '')","(None, None, None, 'linear', '')",differ
+CASTLES lenses,MG11310456,R36,z_s,"(None, None, None, 'linear', '');(None, None, None, 'linear', '')","(None, None, None, 'linear', '')",differ
+CASTLES lenses,MG15493047,R36,H0,"(Decimal('50'), None, None, 'linear', '')","(Decimal('50'), None, None, 'linear', '')",agree
+CASTLES lenses,MG15493047,R36,M_E,,"(None, None, None, 'linear', '')",only_b
+CASTLES lenses,MG15493047,R36,Om,"(None, None, None, 'linear', '')","(None, None, None, 'linear', '')",agree
+CASTLES lenses,MG15493047,R36,R_e,,"(None, None, None, 'linear', '')",only_b
+CASTLES lenses,MG15493047,R36,theta_E,"(Decimal('1.15'), None, None, 'linear', '')","(Decimal('1.15'), None, None, 'linear', '')",agree
+CASTLES lenses,MG15493047,R36,z_l,"(Decimal('0.11'), None, None, 'linear', '');(Decimal('0.11'), None, None, 'linear', '')","(Decimal('0.11'), None, None, 'linear', '')",differ
+CASTLES lenses,MG15493047,R36,z_s,"(None, None, None, 'linear', '');(None, None, None, 'linear', '')","(None, None, None, 'linear', '')",differ
+CASTLES lenses,MG15493047,R41,mstar,"(None, None, None, 'linear', '')","(None, None, None, 'linear', '')",agree
+CASTLES lenses,MG16541346,R36,H0,"(Decimal('50'), None, None, 'linear', '')","(Decimal('50'), None, None, 'linear', '')",agree
+CASTLES lenses,MG16541346,R36,M_E,,"(None, None, None, 'linear', '')",only_b
+CASTLES lenses,MG16541346,R36,Om,"(None, None, None, 'linear', '')","(None, None, None, 'linear', '')",agree
+CASTLES lenses,MG16541346,R36,R_e,,"(Decimal('1.80'), Decimal('0.02'), Decimal('0.02'), 'linear', '')",only_b
+CASTLES lenses,MG16541346,R36,theta_E,"(Decimal('0.98'), Decimal('0.01'), Decimal('0.01'), 'linear', '');(Decimal('0.98'), None, None, 'linear', '')","(Decimal('0.98'), Decimal('0.01'), Decimal('0.01'), 'linear', '');(Decimal('0.98'), None, None, 'linear', '')",agree
+CASTLES lenses,MG16541346,R36,z_l,"(Decimal('0.25'), None, None, 'linear', '');(Decimal('0.25'), None, None, 'linear', '')","(Decimal('0.25'), None, None, 'linear', '')",differ
+CASTLES lenses,MG16541346,R36,z_s,"(Decimal('1.74'), None, None, 'linear', '');(Decimal('1.74'), None, None, 'linear', '')","(Decimal('1.74'), None, None, 'linear', '')",differ
+CASTLES lenses,MG16541346,R41,mstar,"(None, None, None, 'linear', '')","(None, None, None, 'linear', '')",agree
+CASTLES lenses,MG2016112,R36,z_l,"(Decimal('1.01'), None, None, 'linear', '')",,only_a
+CASTLES lenses,MG2016112,R36,z_s,"(Decimal('3.27'), None, None, 'linear', '')",,only_a
+CASTLES lenses,PG1115080,R36,z_l,"(Decimal('0.31'), None, None, 'linear', '');(Decimal('0.31'), None, None, 'linear', '')","(Decimal('0.31'), None, None, 'linear', '')",differ
+CASTLES lenses,PG1115080,R36,z_s,"(Decimal('1.72'), None, None, 'linear', '');(Decimal('1.72'), None, None, 'linear', '')","(Decimal('1.72'), None, None, 'linear', '')",differ
+CASTLES lenses,Q0142100,R36,z_l,"(Decimal('0.49'), None, None, 'linear', '');(Decimal('0.49'), None, None, 'linear', '')","(Decimal('0.49'), None, None, 'linear', '')",differ
+CASTLES lenses,Q0142100,R36,z_s,"(Decimal('2.72'), None, None, 'linear', '');(Decimal('2.72'), None, None, 'linear', '')","(Decimal('2.72'), None, None, 'linear', '')",differ
+CASTLES lenses,Q0957561,R36,z_l,"(Decimal('0.36'), None, None, 'linear', '');(Decimal('0.36'), None, None, 'linear', '')","(Decimal('0.36'), None, None, 'linear', '')",differ
+CASTLES lenses,Q0957561,R36,z_s,"(Decimal('1.41'), None, None, 'linear', '');(Decimal('1.41'), None, None, 'linear', '')","(Decimal('1.41'), None, None, 'linear', '')",differ
+CASTLES lenses,Q1017207,R36,z_l,"(Decimal('0.78'), None, None, 'linear', 'estimate (zFP), not a measured z_l')",,only_a
+CASTLES lenses,Q1017207,R36,z_s,"(Decimal('2.55'), None, None, 'linear', '')",,only_a
+CASTLES lenses,Q2237030,R36,z_l,"(Decimal('0.04'), None, None, 'linear', '')",,only_a
+CASTLES lenses,Q2237030,R36,z_s,"(Decimal('1.69'), None, None, 'linear', '')",,only_a
+CASTLES lenses,Q2237030,R41,H0,"(Decimal('72'), None, None, 'linear', '')",,only_a
+CASTLES lenses,Q2237030,R41,Om,"(Decimal('0.3'), None, None, 'linear', '')",,only_a
+CASTLES lenses,Q2237030,R41,R_e,"(Decimal('1.090'), Decimal('0.014'), Decimal('0.014'), 'linear', '')",,only_a
+CASTLES lenses,Q2237030,R41,mstar,"(Decimal('1.15'), Decimal('0.12'), Decimal('0.12'), 'linear', '')",,only_a
+CASTLES lenses,Q2237030,R41,z_l,"(Decimal('0.039'), None, None, 'linear', '')",,only_a
+CASTLES lenses,Q2237030,R41,z_s,"(Decimal('1.7'), None, None, 'linear', '')",,only_a
+CASTLES lenses,RXJ09110551,R36,z_l,"(Decimal('0.77'), None, None, 'linear', '')",,only_a
+CASTLES lenses,RXJ09110551,R36,z_s,"(Decimal('2.80'), None, None, 'linear', '')",,only_a
+CASTLES lenses,SBS1520530,R36,z_l,"(Decimal('0.52'), None, None, 'linear', 'estimate (zFP), not a measured z_l')",,only_a
+CASTLES lenses,SBS1520530,R36,z_s,"(Decimal('1.86'), None, None, 'linear', '')",,only_a
+Cosmic Horseshoe,"COSMICHORSESHOE(PRINTEDINR60TITLEAS""J10044112"";R34:J11481930)",R60,z_l,,"(Decimal('0.44'), None, None, 'linear', '')",only_b
+Cosmic Horseshoe,"COSMICHORSESHOE(PRINTEDINR60TITLEAS""J10044112"";R34:J11481930)",R60,z_s,,"(Decimal('2.38'), None, None, 'linear', '')",only_b
+Cosmic Horseshoe,J11481930(COSMICHORSESHOE),R34,z_l,"(Decimal('0.444'), None, None, 'linear', '')",,only_a
+Cosmic Horseshoe,J11481930(COSMICHORSESHOE),R34,z_s,"(Decimal('2.38115'), Decimal('0.00012'), Decimal('0.00012'), 'linear', '')",,only_a
+Cosmic Horseshoe,J11481930(COSMICHORSESHOE),R60,z_l,"(Decimal('0.44'), None, None, 'linear', '')",,only_a
+Cosmic Horseshoe,J11481930(COSMICHORSESHOE),R60,z_s,"(Decimal('2.38'), None, None, 'linear', '')",,only_a
+Euclid NGC 6505,NGC6505,R30,H0,"(Decimal('67.8'), None, None, 'linear', '')",,only_a
+Euclid NGC 6505,NGC6505,R30,M_E,"(Decimal('1.53E+11'), None, None, 'linear', '')",,only_a
+Euclid NGC 6505,NGC6505,R30,Om,"(Decimal('0.308'), None, None, 'linear', '')",,only_a
+Euclid NGC 6505,NGC6505,R30,mstar,"(Decimal('1.06E+11'), Decimal('2E+9'), Decimal('2E+9'), 'linear', '')",,only_a
+Euclid NGC 6505,NGC6505,R30,theta_E,"(Decimal('2.500'), Decimal('0.001'), Decimal('0.001'), 'linear', '')",,only_a
+Euclid NGC 6505,NGC6505,R30,z_l,"(Decimal('0.041'), Decimal('0.001'), Decimal('0.001'), 'linear', '');(Decimal('0.04243'), Decimal('0.00003'), Decimal('0.00003'), 'linear', '')",,only_a
+Euclid NGC 6505,NGC6505,R30,z_s,"(Decimal('0.4058'), Decimal('0.003'), Decimal('0.003'), 'linear', '')",,only_a
+Euclid NGC 6505,"NGC6505(""ALTIERI'SLENS"";RA17H51M07.46S,DEC65°31'50.78"")",R30,H0,,"(Decimal('67.8'), None, None, 'linear', '')",only_b
+Euclid NGC 6505,"NGC6505(""ALTIERI'SLENS"";RA17H51M07.46S,DEC65°31'50.78"")",R30,Om,,"(Decimal('0.308'), None, None, 'linear', '')",only_b
+Euclid NGC 6505,"NGC6505(""ALTIERI'SLENS"";RA17H51M07.46S,DEC65°31'50.78"")",R30,mstar,,"(Decimal('1.06E+11'), Decimal('2E+9'), Decimal('2E+9'), 'linear', '');(Decimal('2.51E+10'), Decimal('6E+8'), Decimal('6E+8'), 'linear', '')",only_b
+Euclid NGC 6505,"NGC6505(""ALTIERI'SLENS"";RA17H51M07.46S,DEC65°31'50.78"")",R30,theta_E,,"(Decimal('2.500'), None, None, 'linear', '')",only_b
+Euclid NGC 6505,"NGC6505(""ALTIERI'SLENS"";RA17H51M07.46S,DEC65°31'50.78"")",R30,z_l,,"(Decimal('0.04243'), Decimal('0.00003'), Decimal('0.00003'), 'linear', '')",only_b
+Euclid NGC 6505,"NGC6505(""ALTIERI'SLENS"";RA17H51M07.46S,DEC65°31'50.78"")",R30,z_s,,"(Decimal('0.4058'), Decimal('0.003'), Decimal('0.003'), 'linear', '')",only_b
+J0100+1818 (A7),"J01001818(J010049.18181827.7;RA01:00:49.18,DEC18:18:27.79)",R47,z_l,,"(Decimal('0.581'), None, None, 'linear', '')",only_b
+J0100+1818 (A7),"J01001818(J010049.18181827.7;RA01:00:49.18,DEC18:18:27.79)",R47,z_s,,"(Decimal('1.880'), None, None, 'linear', '')",only_b
+J0100+1818 (A7),J010049.18181827.7(J01001818;CSWA15/CSWA115),R47,z_l,"(Decimal('0.581'), None, None, 'linear', '')",,only_a
+J0100+1818 (A7),J010049.18181827.7(J01001818;CSWA15/CSWA115),R47,z_s,"(Decimal('1.880'), None, None, 'linear', '')",,only_a
+J1436+4943,J143607.49494313.2(J14364943),R32,H0,,"(None, None, None, 'linear', '')",only_b
+J1436+4943,J143607.49494313.2(J14364943),R32,M_E,,"(Decimal('28.2'), Decimal('1.1'), Decimal('1.1'), 'linear', '')",only_b
+J1436+4943,J143607.49494313.2(J14364943),R32,Om,,"(None, None, None, 'linear', '')",only_b
+J1436+4943,J143607.49494313.2(J14364943),R32,R_e,,"(Decimal('3.78'), None, None, 'linear', '')",only_b
+J1436+4943,J143607.49494313.2(J14364943),R32,mstar,,"(Decimal('2.93'), Decimal('0.26'), Decimal('0.26'), 'linear', '');(Decimal('6.72'), Decimal('0.10'), Decimal('0.10'), 'linear', '')",only_b
+J1436+4943,J143607.49494313.2(J14364943),R32,theta_E,,"(Decimal('2.03'), Decimal('0.04'), Decimal('0.04'), 'linear', '')",only_b
+J1436+4943,J143607.49494313.2(J14364943),R32,z_l,,"(Decimal('0.125'), None, None, 'linear', '')",only_b
+J1436+4943,J143607.49494313.2(J14364943),R32,z_s,,"(Decimal('1.231'), None, None, 'linear', '')",only_b
+J1701+3722,J170124.01372258.1(J17013722),R32,H0,,"(None, None, None, 'linear', '')",only_b
+J1701+3722,J170124.01372258.1(J17013722),R32,M_E,,"(Decimal('18.8'), Decimal('3.7'), Decimal('3.7'), 'linear', '')",only_b
+J1701+3722,J170124.01372258.1(J17013722),R32,Om,,"(None, None, None, 'linear', '')",only_b
+J1701+3722,J170124.01372258.1(J17013722),R32,R_e,,"(Decimal('4.30'), None, None, 'linear', '')",only_b
+J1701+3722,J170124.01372258.1(J17013722),R32,mstar,,"(Decimal('2.93'), Decimal('0.26'), Decimal('0.26'), 'linear', '');(Decimal('5.56'), Decimal('0.35'), Decimal('0.35'), 'linear', '')",only_b
+J1701+3722,J170124.01372258.1(J17013722),R32,theta_E,,"(Decimal('1.63'), Decimal('0.16'), Decimal('0.16'), 'linear', '')",only_b
+J1701+3722,J170124.01372258.1(J17013722),R32,z_l,,"(Decimal('0.122'), None, None, 'linear', '')",only_b
+J1701+3722,J170124.01372258.1(J17013722),R32,z_s,,"(Decimal('0.791'), None, None, 'linear', '')",only_b
+KiDS J0233-3447,KIDSJ02333447(EINSTEIN'BLUEEYE'),R43,z_l,"(Decimal('0.9906'), Decimal('0.0001'), Decimal('0.0001'), 'linear', '')",,only_a
+KiDS J0233-3447,KIDSJ02333447(EINSTEIN'BLUEEYE'),R43,z_s,"(Decimal('2.823'), Decimal('0.001'), Decimal('0.001'), 'linear', '');(Decimal('2.8230'), Decimal('0.0001'), Decimal('0.0001'), 'linear', '')",,only_a
+KiDS J0233-3447,"KIDSJ02333447(RA02:33:41.29,DEC34:47:59.24;""BLUEEYE"")",R43,z_l,,"(Decimal('0.9906'), Decimal('0.0001'), Decimal('0.0001'), 'linear', '')",only_b
+KiDS J0233-3447,"KIDSJ02333447(RA02:33:41.29,DEC34:47:59.24;""BLUEEYE"")",R43,z_s,,"(Decimal('2.8230'), Decimal('0.0001'), Decimal('0.0001'), 'linear', '')",only_b
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R27,H0,"(Decimal('67.4'), None, None, 'linear', '')","(Decimal('67.4'), None, None, 'linear', '')",agree
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R27,Om,"(Decimal('0.315'), None, None, 'linear', '')","(Decimal('0.315'), None, None, 'linear', '')",agree
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R27,theta_E,"(Decimal('1.49'), None, None, 'linear', '')","(Decimal('1.49'), None, None, 'linear', '')",agree
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R27,z_l,"(Decimal('0.06655'), None, None, 'linear', '')","(Decimal('0.06655'), None, None, 'linear', '')",agree
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R27,z_s,"(Decimal('0.195'), None, None, 'linear', '')","(Decimal('0.195'), None, None, 'linear', '')",agree
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,H0,"(Decimal('70.4'), None, None, 'linear', '')","(Decimal('70.4'), None, None, 'linear', '')",agree
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,M_E,"(Decimal('1.064E+11'), Decimal('2.3E+9'), Decimal('2.3E+9'), 'linear', '')","(Decimal('10.64'), Decimal('0.23'), Decimal('0.23'), 'linear', '')",differ
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,Om,"(Decimal('0.272'), None, None, 'linear', '')",,only_a
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,R_e,"(Decimal('5.7'), None, None, 'linear', '')","(Decimal('5.7'), None, None, 'linear', '')",agree
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,mstar,"(Decimal('2.59'), Decimal('0.12'), Decimal('0.12'), 'linear', '');(Decimal('2.90'), Decimal('0.10'), Decimal('0.10'), 'linear', '');(Decimal('8.63E+10'), Decimal('5.4E+9'), Decimal('5.4E+9'), 'linear', '')","(Decimal('2.59'), Decimal('0.12'), Decimal('0.12'), 'linear', '');(Decimal('2.90'), Decimal('0.10'), Decimal('0.10'), 'linear', '')",b_subset
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,sersic_n,"(Decimal('4'), None, None, 'linear', 'approximate (≈)')","(Decimal('4'), None, None, 'linear', 'approximate (printed ""n ≈ 4"")')",differ
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,theta_E,"(Decimal('1.47'), Decimal('0.03'), Decimal('0.03'), 'linear', '')","(Decimal('1.47'), Decimal('0.03'), Decimal('0.03'), 'linear', '')",agree
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,z_l,"(Decimal('0.06569'), None, None, 'linear', '');(Decimal('0.06604'), None, None, 'linear', '');(Decimal('0.06655'), None, None, 'linear', '')",,only_a
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,z_s,"(Decimal('0.19130'), None, None, 'linear', '');(Decimal('0.19165'), None, None, 'linear', '')","(Decimal('0.19165'), None, None, 'linear', '')",differ
+MaNGA J1436+4943,J143607.49494313.2(J14364943),R32,H0,"(None, None, None, 'linear', '')",,only_a
+MaNGA J1436+4943,J143607.49494313.2(J14364943),R32,M_E,"(Decimal('28.2'), Decimal('1.1'), Decimal('1.1'), 'linear', '')",,only_a
+MaNGA J1436+4943,J143607.49494313.2(J14364943),R32,Om,"(None, None, None, 'linear', '')",,only_a
+MaNGA J1436+4943,J143607.49494313.2(J14364943),R32,R_e,"(Decimal('3.78'), None, None, 'linear', '')",,only_a
+MaNGA J1436+4943,J143607.49494313.2(J14364943),R32,mstar,"(Decimal('2.93'), Decimal('0.26'), Decimal('0.26'), 'linear', '');(Decimal('6.72'), Decimal('0.10'), Decimal('0.10'), 'linear', '')",,only_a
+MaNGA J1436+4943,J143607.49494313.2(J14364943),R32,theta_E,"(Decimal('2.03'), Decimal('0.04'), Decimal('0.04'), 'linear', '')",,only_a
+MaNGA J1436+4943,J143607.49494313.2(J14364943),R32,z_l,"(Decimal('0.125'), None, None, 'linear', '')",,only_a
+MaNGA J1436+4943,J143607.49494313.2(J14364943),R32,z_s,"(Decimal('1.231'), None, None, 'linear', '')",,only_a
+MaNGA J1701+3722,J170124.01372258.1(J17013722),R32,H0,"(None, None, None, 'linear', '')",,only_a
+MaNGA J1701+3722,J170124.01372258.1(J17013722),R32,M_E,"(Decimal('18.8'), Decimal('3.7'), Decimal('3.7'), 'linear', '')",,only_a
+MaNGA J1701+3722,J170124.01372258.1(J17013722),R32,Om,"(None, None, None, 'linear', '')",,only_a
+MaNGA J1701+3722,J170124.01372258.1(J17013722),R32,R_e,"(Decimal('4.30'), None, None, 'linear', '')",,only_a
+MaNGA J1701+3722,J170124.01372258.1(J17013722),R32,mstar,"(Decimal('2.93'), Decimal('0.26'), Decimal('0.26'), 'linear', '');(Decimal('5.56'), Decimal('0.35'), Decimal('0.35'), 'linear', '')",,only_a
+MaNGA J1701+3722,J170124.01372258.1(J17013722),R32,theta_E,"(Decimal('1.63'), Decimal('0.16'), Decimal('0.16'), 'linear', '')",,only_a
+MaNGA J1701+3722,J170124.01372258.1(J17013722),R32,z_l,"(Decimal('0.122'), None, None, 'linear', '')",,only_a
+MaNGA J1701+3722,J170124.01372258.1(J17013722),R32,z_s,"(Decimal('0.791'), None, None, 'linear', '')",,only_a
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R26,R_e,"(Decimal('9.8'), None, None, 'linear', '')","(Decimal('9.8'), None, None, 'linear', '')",agree
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R26,mstar,"(Decimal('2.84'), Decimal('0.06'), Decimal('0.06'), 'linear', '');(Decimal('4.04'), Decimal('0.10'), Decimal('0.10'), 'linear', '');(Decimal('6.24'), Decimal('1.00'), Decimal('1.12'), 'linear', '');(Decimal('6.36'), Decimal('0.71'), Decimal('0.80'), 'linear', '');(Decimal('7.41'), Decimal('0.86'), Decimal('0.99'), 'linear', '');(Decimal('7.58'), Decimal('0.64'), Decimal('0.69'), 'linear', '')","(Decimal('2.84'), Decimal('0.06'), Decimal('0.06'), 'linear', '');(Decimal('4.04'), Decimal('0.10'), Decimal('0.10'), 'linear', '')",b_subset
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R26,theta_E,"(Decimal('2.85'), None, None, 'linear', '')",,only_a
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R26,z_l,"(Decimal('0.034'), None, None, 'linear', '')",,only_a
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R28,H0,"(Decimal('70.4'), None, None, 'linear', '')","(Decimal('70.4'), None, None, 'linear', '')",agree
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R28,M_E,"(Decimal('1.44E+11'), None, None, 'linear', '');(Decimal('1.50E+11'), Decimal('6E+9'), Decimal('6E+9'), 'linear', '')","(Decimal('1.50E+11'), Decimal('6E+9'), Decimal('6E+9'), 'linear', '')",differ
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R28,Om,"(Decimal('0.272'), None, None, 'linear', '')","(Decimal('0.272'), None, None, 'linear', '')",agree
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R28,theta_E,"(Decimal('2.85'), None, None, 'linear', '')","(Decimal('2.85'), None, None, 'linear', '')",agree
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R28,z_l,"(Decimal('0.0339'), None, None, 'linear', '');(Decimal('0.0347'), None, None, 'linear', '')","(Decimal('0.0347'), None, None, 'linear', '')",differ
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R28,z_s,"(Decimal('2.141'), None, None, 'linear', '')","(Decimal('2.141'), None, None, 'linear', '')",agree
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R33,R_e,"(Decimal('2.15'), None, None, 'linear', '');(Decimal('3.49'), None, None, 'linear', '')","(Decimal('2.15'), None, None, 'linear', '');(Decimal('3.49'), None, None, 'linear', '')",agree
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R33,component_share,"(Decimal('0.022'), None, None, 'linear', '');(Decimal('0.075'), None, None, 'linear', '');(Decimal('0.093'), None, None, 'linear', '');(Decimal('0.212'), None, None, 'linear', '');(Decimal('0.491'), None, None, 'linear', '');(Decimal('0.500'), None, None, 'linear', '');(Decimal('0.500'), None, None, 'linear', '');(Decimal('0.503'), None, None, 'linear', '');(Decimal('0.517'), None, None, 'linear', '');(Decimal('0.612'), None, None, 'linear', '');(Decimal('0.700'), None, None, 'linear', '');(Decimal('0.740'), None, None, 'linear', '');(Decimal('0.812'), None, None, 'linear', '');(Decimal('0.846'), None, None, 'linear', '');(Decimal('0.900'), None, None, 'linear', '');(Decimal('0.900'), None, None, 'linear', '');(Decimal('0.900'), None, None, 'linear', '');(Decimal('1'), None, None, 'linear', '');(Decimal('1.279'), None, None, 'linear', '');(Decimal('1.396'), None, None, 'linear', '');(Decimal('109'), None, None, 'linear', '');(Decimal('11'), None, None, 'linear', '');(Decimal('111'), None, None, 'linear', '');(Decimal('135.44'), None, None, 'linear', '');(Decimal('18'), None, None, 'linear', '');(Decimal('2.268'), None, None, 'linear', '');(Decimal('21'), None, None, 'linear', '');(Decimal('21'), None, None, 'linear', '');(Decimal('241'), None, None, 'linear', '');(Decimal('3'), None, None, 'linear', '');(Decimal('3'), None, None, 'linear', '');(Decimal('3'), None, None, 'linear', '');(Decimal('3'), None, None, 'linear', '');(Decimal('3.426'), None, None, 'linear', '');(Decimal('40'), None, None, 'linear', '');(Decimal('43'), None, None, 'linear', '');(Decimal('520.74'), None, None, 'linear', '');(Decimal('551.26'), None, None, 'linear', '');(Decimal('6'), None, None, 'linear', '');(Decimal('66'), None, None, 'linear', '');(Decimal('665'), None, None, 'linear', '');(Decimal('7'), None, None, 'linear', '');(Decimal('712.15'), None, None, 'linear', '');(Decimal('8.168'), None, None, 'linear', '')","(Decimal('0.022'), None, None, 'linear', '');(Decimal('0.075'), None, None, 'linear', '');(Decimal('0.093'), None, None, 'linear', '');(Decimal('0.212'), None, None, 'linear', '');(Decimal('0.491'), None, None, 'linear', '');(Decimal('0.500'), None, None, 'linear', '');(Decimal('0.500'), None, None, 'linear', '');(Decimal('0.503'), None, None, 'linear', '');(Decimal('0.517'), None, None, 'linear', '');(Decimal('0.612'), None, None, 'linear', '');(Decimal('0.700'), None, None, 'linear', '');(Decimal('0.740'), None, None, 'linear', '');(Decimal('0.812'), None, None, 'linear', '');(Decimal('0.846'), None, None, 'linear', '');(Decimal('0.900'), None, None, 'linear', '');(Decimal('0.900'), None, None, 'linear', '');(Decimal('0.900'), None, None, 'linear', '');(Decimal('1'), None, None, 'linear', '');(Decimal('1.279'), None, None, 'linear', '');(Decimal('1.396'), None, None, 'linear', '');(Decimal('109'), None, None, 'linear', '');(Decimal('11'), None, None, 'linear', '');(Decimal('111'), None, None, 'linear', '');(Decimal('135.44'), None, None, 'linear', '');(Decimal('18'), None, None, 'linear', '');(Decimal('2.268'), None, None, 'linear', '');(Decimal('21'), None, None, 'linear', '');(Decimal('21'), None, None, 'linear', '');(Decimal('241'), None, None, 'linear', '');(Decimal('3'), None, None, 'linear', '');(Decimal('3'), None, None, 'linear', '');(Decimal('3'), None, None, 'linear', '');(Decimal('3'), None, None, 'linear', '');(Decimal('3.426'), None, None, 'linear', '');(Decimal('40'), None, None, 'linear', '');(Decimal('43'), None, None, 'linear', '');(Decimal('520.74'), None, None, 'linear', '');(Decimal('551.26'), None, None, 'linear', '');(Decimal('6'), None, None, 'linear', '');(Decimal('66'), None, None, 'linear', '');(Decimal('665'), None, None, 'linear', '');(Decimal('7'), None, None, 'linear', '');(Decimal('712.15'), None, None, 'linear', '');(Decimal('8.168'), None, None, 'linear', '')",agree
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R33,mstar,"(Decimal('11.01'), None, None, 'log10', '');(Decimal('11.23'), None, None, 'log10', '')","(Decimal('11.01'), None, None, 'log10', '');(Decimal('11.23'), None, None, 'log10', '')",agree
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R33,z_l,"(Decimal('0.0312'), None, None, 'linear', '')",,only_a
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R61,H0,"(Decimal('70.4'), None, None, 'linear', '')","(Decimal('70.4'), None, None, 'linear', '')",agree
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R61,M_E,"(Decimal('9.49E+10'), Decimal('1.5E+9'), Decimal('1.5E+9'), 'linear', '')","(Decimal('9.49'), Decimal('0.15'), Decimal('0.15'), 'linear', '')",differ
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R61,Om,"(Decimal('0.272'), None, None, 'linear', '')","(Decimal('0.272'), None, None, 'linear', '')",agree
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R61,theta_E,,"(Decimal('2.43'), Decimal('0.03'), Decimal('0.03'), 'linear', '')",only_b
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R61,z_l,"(Decimal('0.0312'), None, None, 'linear', '')","(Decimal('0.0312'), None, None, 'linear', '')",agree
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R61,z_s,"(Decimal('0.926'), None, None, 'linear', '')","(Decimal('0.926'), None, None, 'linear', '')",agree
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R61,H0,"(Decimal('70.4'), None, None, 'linear', '')","(Decimal('70.4'), None, None, 'linear', '')",agree
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R61,M_E,"(Decimal('1.259E+11'), Decimal('3.0E+9'), Decimal('3.0E+9'), 'linear', '')","(Decimal('12.59'), Decimal('0.30'), Decimal('0.30'), 'linear', '')",differ
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R61,Om,"(Decimal('0.272'), None, None, 'linear', '')","(Decimal('0.272'), None, None, 'linear', '')",agree
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R61,R_e,"(Decimal('3.25'), Decimal('0.03'), Decimal('0.03'), 'linear', '')","(Decimal('3.25'), Decimal('0.03'), Decimal('0.03'), 'linear', '')",agree
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R61,mstar,"(Decimal('2.59'), None, None, 'linear', '');(Decimal('3.86'), Decimal('0.07'), Decimal('0.07'), 'linear', '')","(Decimal('2.59'), None, None, 'linear', '');(Decimal('3.86'), Decimal('0.07'), Decimal('0.07'), 'linear', '')",agree
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R61,theta_E,,"(Decimal('2.30'), Decimal('0.03'), Decimal('0.03'), 'linear', '')",only_b
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R61,z_l,"(Decimal('0.0519'), None, None, 'linear', '')","(Decimal('0.0519'), None, None, 'linear', '')",agree
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R61,z_s,"(Decimal('1.969'), None, None, 'linear', '')","(Decimal('1.969'), None, None, 'linear', '')",agree
+SuGOHI CMASS lenses,HSCJ015618010747,R57,z_l,"(Decimal('0.542'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,HSCJ015618010747,R57,z_s,"(Decimal('1.167'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,"HSCJ015618010747(RA29.07554,DEC1.12977DEG)",R57,z_l,,"(Decimal('0.542'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,"HSCJ015618010747(RA29.07554,DEC1.12977DEG)",R57,z_s,,"(Decimal('1.167'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,HSCJ020241064611,R57,z_l,"(Decimal('0.502'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,HSCJ020241064611,R57,z_s,"(Decimal('2.748'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,"HSCJ020241064611(RA30.67247,DEC6.76979DEG)",R57,z_l,,"(Decimal('0.502'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,"HSCJ020241064611(RA30.67247,DEC6.76979DEG)",R57,z_s,,"(Decimal('2.748'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,HSCJ021411040502,R57,z_l,"(Decimal('0.609'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,HSCJ021411040502,R57,z_s,"(Decimal('1.880'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,"HSCJ021411040502(RA33.54670,DEC4.08411DEG)",R57,z_l,,"(Decimal('0.609'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,"HSCJ021411040502(RA33.54670,DEC4.08411DEG)",R57,z_s,,"(Decimal('1.880'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,HSCJ021737051329,R57,z_l,"(Decimal('0.646'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,HSCJ021737051329,R57,z_s,"(Decimal('1.847'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,"HSCJ021737051329(RA34.40492,DEC5.22482DEG)",R57,z_l,,"(Decimal('0.646'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,"HSCJ021737051329(RA34.40492,DEC5.22482DEG)",R57,z_s,,"(Decimal('1.847'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,HSCJ022346053418,R57,z_l,"(Decimal('0.499'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,HSCJ022346053418,R57,z_s,"(Decimal('1.444'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,"HSCJ022346053418(RA35.94227,DEC5.57180DEG)",R57,z_l,,"(Decimal('0.499'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,"HSCJ022346053418(RA35.94227,DEC5.57180DEG)",R57,z_s,,"(Decimal('1.444'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,HSCJ022610042011,R57,z_l,"(Decimal('0.496'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,HSCJ022610042011,R57,z_s,"(Decimal('1.232'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,"HSCJ022610042011(RA36.54440,DEC4.33656DEG)",R57,z_l,,"(Decimal('0.496'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,"HSCJ022610042011(RA36.54440,DEC4.33656DEG)",R57,z_s,,"(Decimal('1.232'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,HSCJ023307043838,R57,z_l,"(Decimal('0.671'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,HSCJ023307043838,R57,z_s,"(Decimal('1.869'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,"HSCJ023307043838(RA38.27945,DEC4.64396DEG)",R57,z_l,,"(Decimal('0.671'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,"HSCJ023307043838(RA38.27945,DEC4.64396DEG)",R57,z_s,,"(Decimal('1.869'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,HSCJ023817054555,R57,z_l,"(Decimal('0.599'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,HSCJ023817054555,R57,z_s,"(Decimal('1.763'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,"HSCJ023817054555(RA39.57402,DEC5.76542DEG)",R57,z_l,,"(Decimal('0.599'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,"HSCJ023817054555(RA39.57402,DEC5.76542DEG)",R57,z_s,,"(Decimal('1.763'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,HSCJ085855010208,R57,z_l,"(Decimal('0.468'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,HSCJ085855010208,R57,z_s,"(Decimal('1.421'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,"HSCJ085855010208(RA134.73330,DEC1.03567DEG)",R57,z_l,,"(Decimal('0.468'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,"HSCJ085855010208(RA134.73330,DEC1.03567DEG)",R57,z_s,,"(Decimal('1.421'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,HSCJ094427014742,R57,z_l,"(Decimal('0.539'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,HSCJ094427014742,R57,z_s,"(Decimal('1.179'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,"HSCJ094427014742(RA146.11446,DEC1.79511DEG)",R57,z_l,,"(Decimal('0.539'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,"HSCJ094427014742(RA146.11446,DEC1.79511DEG)",R57,z_s,,"(Decimal('1.179'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,HSCJ120623001507,R57,z_l,"(Decimal('0.563'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,HSCJ120623001507,R57,z_s,"(Decimal('3.120'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,"HSCJ120623001507(RA181.59937,DEC0.25199DEG)",R57,z_l,,"(Decimal('0.563'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,"HSCJ120623001507(RA181.59937,DEC0.25199DEG)",R57,z_s,,"(Decimal('3.120'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,HSCJ121052011905,R57,z_l,"(Decimal('0.700'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,HSCJ121052011905,R57,z_s,"(Decimal('2.295'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,"HSCJ121052011905(RA182.71869,DEC1.31810DEG)",R57,z_l,,"(Decimal('0.700'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,"HSCJ121052011905(RA182.71869,DEC1.31810DEG)",R57,z_s,,"(Decimal('2.295'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,HSCJ121504004726,R57,z_l,"(Decimal('0.642'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,HSCJ121504004726,R57,z_s,"(Decimal('1.297'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,"HSCJ121504004726(RA183.76850,DEC0.79056DEG)",R57,z_l,,"(Decimal('0.642'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,"HSCJ121504004726(RA183.76850,DEC0.79056DEG)",R57,z_s,,"(Decimal('1.297'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,HSCJ140929011410,R57,z_l,"(Decimal('0.584'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,HSCJ140929011410,R57,z_s,"(Decimal('2.302'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,"HSCJ140929011410(RA212.37381,DEC1.23631DEG)",R57,z_l,,"(Decimal('0.584'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,"HSCJ140929011410(RA212.37381,DEC1.23631DEG)",R57,z_s,,"(Decimal('2.302'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,HSCJ141300012608,R57,z_l,"(Decimal('0.749'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,HSCJ141300012608,R57,z_s,"(Decimal('2.666'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,"HSCJ141300012608(RA213.25030,DEC1.43560DEG)",R57,z_l,,"(Decimal('0.749'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,"HSCJ141300012608(RA213.25030,DEC1.43560DEG)",R57,z_s,,"(Decimal('2.666'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,HSCJ141815015832,R57,z_l,"(Decimal('0.556'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,HSCJ141815015832,R57,z_s,"(Decimal('2.139'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,"HSCJ141815015832(RA214.56556,DEC1.97564DEG)",R57,z_l,,"(Decimal('0.556'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,"HSCJ141815015832(RA214.56556,DEC1.97564DEG)",R57,z_s,,"(Decimal('2.139'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,HSCJ142449005321,R57,z_l,"(Decimal('0.795'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,HSCJ142449005321,R57,z_s,"(Decimal('1.302'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,"HSCJ142449005321(RA216.20420,DEC0.88934DEG)",R57,z_l,,"(Decimal('0.795'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,"HSCJ142449005321(RA216.20420,DEC0.88934DEG)",R57,z_s,,"(Decimal('1.302'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,HSCJ142720001916,R57,z_l,"(Decimal('0.551'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,HSCJ142720001916,R57,z_s,"(Decimal('1.266'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,"HSCJ142720001916(RA216.83562,DEC0.32114DEG)",R57,z_l,,"(Decimal('0.551'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,"HSCJ142720001916(RA216.83562,DEC0.32114DEG)",R57,z_s,,"(Decimal('1.266'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,HSCJ144307004056,R57,z_l,"(Decimal('0.500'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,HSCJ144307004056,R57,z_s,"(Decimal('1.071'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,"HSCJ144307004056(RA220.77985,DEC0.68225DEG)",R57,z_l,,"(Decimal('0.500'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,"HSCJ144307004056(RA220.77985,DEC0.68225DEG)",R57,z_s,,"(Decimal('1.071'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,HSCJ220506014703,R57,z_l,"(Decimal('0.476'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,HSCJ220506014703,R57,z_s,"(Decimal('2.526'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,"HSCJ220506014703(RA331.27884,DEC1.78441DEG)",R57,z_l,,"(Decimal('0.476'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,"HSCJ220506014703(RA331.27884,DEC1.78441DEG)",R57,z_s,,"(Decimal('2.526'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,HSCJ222801012805,R57,z_l,"(Decimal('0.647'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,HSCJ222801012805,R57,z_s,"(Decimal('2.462'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,"HSCJ222801012805(RA337.00824,DEC1.46826DEG)",R57,z_l,,"(Decimal('0.647'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,"HSCJ222801012805(RA337.00824,DEC1.46826DEG)",R57,z_s,,"(Decimal('2.462'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,HSCJ223733005015,R57,z_l,"(Decimal('0.604'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,HSCJ223733005015,R57,z_s,"(Decimal('2.143'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,"HSCJ223733005015(RA339.38973,DEC0.83772DEG)",R57,z_l,,"(Decimal('0.604'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,"HSCJ223733005015(RA339.38973,DEC0.83772DEG)",R57,z_s,,"(Decimal('2.143'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,HSCJ230335003703,R57,z_l,"(Decimal('0.458'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,HSCJ230335003703,R57,z_s,"(Decimal('0.936'), None, None, 'linear', '')",,only_a
+SuGOHI CMASS lenses,"HSCJ230335003703(RA345.89654,DEC0.61755DEG)",R57,z_l,,"(Decimal('0.458'), None, None, 'linear', '')",only_b
+SuGOHI CMASS lenses,"HSCJ230335003703(RA345.89654,DEC0.61755DEG)",R57,z_s,,"(Decimal('0.936'), None, None, 'linear', '')",only_b
