@@ -1332,3 +1332,39 @@ Safeguards:
 **Alternative rejected.** Keeping only sources that print stellar masses with an acceptable conversion (about 7 to 14 clusters).
 
 **Data seen.** The stellar-mass readings and the coverage table: names, codes, methods. No luminosities or masses.
+
+## D-072 — Round L rules: printed components, BCG by method, faint-end limit, magnitudes, deprojection, precedence
+
+**Ruling (2026-10-31 20:49 MDT, JvH).** "Proceed as recommended." **Proposed by** Claude (2026-10-31, QL1–QL6 in `docs/sources/screening-L9/adjudication.md`). **Adopted.**
+
+1. **Printed components (QL1).** The Atlas may add a source's own printed cluster-level components when the source defines them as disjoint and they share one aperture (e.g. BCG + red members + blue members). This is arithmetic on the source's cluster totals, not a sum over a member catalogue (D-069), and Test 3 checks it. A total is never recovered by dividing a printed luminosity by a printed fraction.
+2. **BCG not stated (QL2).**
+   - A direct sum over all galaxies or members in the aperture, with no stated exclusion, includes the BCG. It is flagged "BCG by method".
+   - A total that is only an analytic integral of a fitted Schechter function, with no separate BCG term, counts as members only and is not used.
+3. **Faint end (QL3).**
+   - Accepted: a sum truncated at a stated faint limit at least 2 mag fainter than M*, flagged with its limit. Where the source quantifies the missing faint light, it is shown as a range.
+   - Not used: bright-only sums (a limit brighter than M* + 1).
+   - The Atlas does not model missing light.
+4. **Magnitudes and evolution (QL4).**
+   - An absolute magnitude in a named band counts as a printed luminosity. It is converted with that band's solar absolute magnitude, read at source and registered.
+   - An observed-frame apparent magnitude does not count.
+   - A luminosity the source has evolution-corrected is paired with the stellar M/L for the epoch it was corrected to.
+5. **Deprojection (QL5).** A luminosity deprojected by the source's own model counts as 3D and pairs with row O. It is labelled `model_dependence` with the source's assumption.
+6. **Precedence (QL6),** written into `docs/methods/A9_PRECEDENCE.md`:
+   1. the source's measured stellar mass (route a), then luminosity × registered ratio (route b);
+   2. within route (b), near-infrared bands first;
+   3. a team's later analysis of the same data supersedes its earlier one;
+   4. projected values pair with row L, 3D values with row O.
+
+**Reason.**
+- Each rule keeps the light measured by the source and the conversion independent of the cluster's dynamics, consistent with D-069 and D-071.
+- QL2 follows what each method actually counts. A Schechter integral replaces the brightest galaxy, often the largest single component, with the fitted form.
+- Near-infrared first because the stellar-population ratio varies least there.
+
+**Effect on codes.**
+- E: L2, L8, LV3, S6 (QL2); L10, L23b, S3a (QL1).
+- X: L4, S4b, S4d (QL2); S10a (QL4).
+
+**Alternative rejected.** Strict QL2 (an explicit BCG statement required), which would also exclude L2, L8, LV3 and S6.
+
+**Data seen.** Names, codes, methods, column lists and text describing methods. No luminosities or masses.

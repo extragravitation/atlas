@@ -1,18 +1,18 @@
 row,final,how
 L1,E,"adjudicated: Disagreement settled at source (reader B): Table 2 note and §2 state BCG included. 3D by the source's NFW deprojection of galaxy counts (QL5). r500 from an M–T_X relation: radius only, flagged. LF integrated to a fixed faint limit (QL3 flag). Background relation cited as a private communication: provenance note."
-L2,P,"agreed P; settled at source where possible: QL2. §3 at source: 'summing the individual absolute luminosities of all galaxies' (then extrapolated below the completeness limit). A direct sum with no stated BCG exclusion. Projected circles of fixed metric radius and R_vir (own-dynamics radius, flagged)."
+L2,E,"agreed P; settled at source where possible: QL2. §3 at source: 'summing the individual absolute luminosities of all galaxies' (then extrapolated below the completeness limit). A direct sum with no stated BCG exclusion. Projected circles of fixed metric radius and R_vir (own-dynamics radius, flagged). Ruled by D-072."
 L3a,X,agreed
 L3b,X,agreed
-L4,P,"agreed P; settled at source where possible: QL2. §3.3 at source: total = analytic integral of the fitted Schechter function (0 to ∞); the BCG is not named, and an analytic Schechter total replaces the brightest galaxy by the fitted form. Under the recommended QL2 this is members-only (X). 3D by the source's correction (QL5)."
+L4,X,"agreed P; settled at source where possible: QL2. §3.3 at source: total = analytic integral of the fitted Schechter function (0 to ∞); the BCG is not named, and an analytic Schechter total replaces the brightest galaxy by the fitted form. Under the recommended QL2 this is members-only (X). 3D by the source's correction (QL5). Ruled by D-072."
 L5a,E,"adjudicated: Settled at source: §5.3 states the count-based estimate includes the BCG. Projected, fixed metric apertures. z range reaches 0.45; only clusters below 0.30 are used. ICL not measured (D-071 safeguard 4)."
 L5b,X,agreed
 L5c,E,"agreed P; settled at source where possible: QL2 settled by reference: the band is i (§4 and figure captions, read at source: 'The optical luminosity is computed in the i-band'); §2.2 refers to paper I for the method, where the count-based sum includes the BCG (L5a, §5.3). Code E. Sum within r200 from the cluster's own velocity dispersion: radius only, flagged. No faint-end extrapolation stated (QL3 flag)."
 L6,X,agreed
 L7a,X,agreed
 L7b,NS,agreed
-L8,P,"agreed P; settled at source where possible: QL2. §2 at source: sum over spectroscopic members to K*(z)+1.5, weighted for spectroscopic incompleteness, times a fixed faint-end factor; BCG not named. A direct member sum. Projected 1 Mpc and r500,WL (own lensing radius, flagged)."
+L8,E,"agreed P; settled at source where possible: QL2. §2 at source: sum over spectroscopic members to K*(z)+1.5, weighted for spectroscopic incompleteness, times a fixed faint-end factor; BCG not named. A direct member sum. Projected 1 Mpc and r500,WL (own lensing radius, flagged). Ruled by D-072."
 L9,E,"adjudicated: Settled at source: §3.1 magnitude window starts at K_BCG, so the BCG is in the sum. Projected; 1 Mpc and r500,WL apertures (r500,WL is the cluster's own lensing radius: radius only, flagged). ICL neglected (stated): registered range. No faint-end correction (QL3 flag). Kind per system (XLSSC includes groups, A8)."
-L10,P,"agreed P; settled at source where possible: QL1. Table 2 prints red members, blue members and the BCG separately in the same projected r500 aperture; no printed total."
+L10,E,"agreed P; settled at source where possible: QL1. Table 2 prints red members, blue members and the BCG separately in the same projected r500 aperture; no printed total. Ruled by D-072."
 L11,X,agreed
 L12a,NS,agreed
 L12b,NS,agreed
@@ -31,7 +31,7 @@ L21,X,agreed
 L22a,X,agreed
 L22b,X,"agreed P; settled at source where possible: Code X. Members-only satellite light with no membership or field-galaxy correction (sky background only), in a field-of-view aperture different from the BCG+ICL profile integral (L22a). Fails the D-071 membership-correction requirement whatever QL1 says."
 L23a,X,agreed
-L23b,P,"adjudicated: QL1. Erratum (ApJ 611, 1208) read at ADS: it corrects two appendix equations; 'the results in the paper remain unchanged'. Table 2 prints components (BCG, galaxies to a limit, residual diffuse light as an upper bound) in a projected 500 h⁻¹ kpc aperture; no printed total. Eligible if QL1 allows summing a source's own printed components."
+L23b,E,"adjudicated: QL1. Erratum (ApJ 611, 1208) read at ADS: it corrects two appendix equations; 'the results in the paper remain unchanged'. Table 2 prints components (BCG, galaxies to a limit, residual diffuse light as an upper bound) in a projected 500 h⁻¹ kpc aperture; no printed total. Eligible if QL1 allows summing a source's own printed components. Ruled by D-072."
 L24a,X,adjudicated: The total cluster light is not printed (only ICL magnitude and ICL fraction). Not used for luminosity. Kept as a source for the registered ICL range (D-071 safeguard 4).
 L24b,X,adjudicated: As L24a: totals not printed. Kept as a source for the registered ICL range.
 L24c,X,agreed
@@ -44,7 +44,7 @@ L28a,NS,agreed
 L28b,NS,adjudicated: Abstract only (both readers). No full text reachable.
 LV1,X,adjudicated: Paper read at source (both readers): Table 13 has no luminosity; only galaxy catalogues. Reader B's NS was for the ReadMe only.
 LV2,X,"adjudicated: Paper read at source (both readers): redshifts, members, dynamical and SZ masses; no optical luminosity."
-LV3,P,"adjudicated: QL2. Column list read by Claude at the GAVO registry mirror (ivo://CDS.VizieR/J/MNRAS/449/2345, table1): per-cluster logLg, logLr, logLi (and logLB, logLK converted), ID, coordinates, spectroscopic z, N. Paper §2.3–2.5: spectroscopic members within R200 (BCG-centred) plus statistically corrected faint galaxies; BCG inclusion by method, not stated. R200 from the cluster's own velocity dispersion: radius only, flagged. Kind per system (groups and clusters)."
+LV3,E,"adjudicated: QL2. Column list read by Claude at the GAVO registry mirror (ivo://CDS.VizieR/J/MNRAS/449/2345, table1): per-cluster logLg, logLr, logLi (and logLB, logLK converted), ID, coordinates, spectroscopic z, N. Paper §2.3–2.5: spectroscopic members within R200 (BCG-centred) plus statistically corrected faint galaxies; BCG inclusion by method, not stated. R200 from the cluster's own velocity dispersion: radius only, flagged. Kind per system (groups and clusters). Ruled by D-072."
 LV4,X,"adjudicated: FoF membership with no aperture; D-071 requires a stated aperture (one radius, safeguard 3)."
 LV5a,X,adjudicated: Sum of bright members only (M_r ≤ −21) with no faint-end completeness correction (D-071 requires the source's completeness correction; QL3 recommendation excludes bright-only sums).
 LV5b,X,"adjudicated: No luminosity column (R_L* is a richness in units of an evolving L*, bright members only, r200 from an empirical luminosity–radius relation)."
@@ -58,14 +58,14 @@ S1b,X,adjudicated: Reader A read the catalogue record at the GAVO mirror: per-ga
 S1c,X,agreed
 S2a,X,agreed
 S2b,E,"agreed: 3D by the source's NFW deprojection (QL5). r500 from an M–T_X relation: radius only, flagged."
-S3a,E,"agreed: QL1 and QL4: absolute I magnitudes in two printed columns (BCG+ICL; galaxies), extinction and k corrections printed separately. Superseded by S3b for the 12 clusters in both (same team, later analysis)."
+S3a,E,"agreed: QL1 and QL4: absolute I magnitudes in two printed columns (BCG+ICL; galaxies), extinction and k corrections printed separately. Superseded by S3b for the 12 clusters in both (same team, later analysis). Ruled by D-072."
 S3b,E,"agreed: Projected (Table 3 note: no deprojection); L_Total includes BCG, ICL and members; r500 from an M–T_X relation (radius only, flagged)."
 S4a,X,agreed
-S4b,P,"agreed P; settled at source where possible: QL2. Text read at source (arXiv:1108.3678) has no BCG statement; total = integral of a double-Schechter fit to M_i = −14. Under the recommended QL2 this is members-only (X). r500 from an M_gas–M relation: radius only, flagged."
+S4b,X,"agreed P; settled at source where possible: QL2. Text read at source (arXiv:1108.3678) has no BCG statement; total = integral of a double-Schechter fit to M_i = −14. Under the recommended QL2 this is members-only (X). r500 from an M_gas–M relation: radius only, flagged. Ruled by D-072."
 S4c,X,agreed
-S4d,P,agreed P; settled at source where possible: QL2. Total = LF extrapolated to zero luminosity; BCG not named in the text (arXiv:0804.1102 read at source). Under the recommended QL2: X. A2667's value is taken from the literature in another band: that cluster is excluded from this record in any case (originals first).
+S4d,X,agreed P; settled at source where possible: QL2. Total = LF extrapolated to zero luminosity; BCG not named in the text (arXiv:0804.1102 read at source). Under the recommended QL2: X. A2667's value is taken from the literature in another band: that cluster is excluded from this record in any case (originals first). Ruled by D-072.
 S5,X,agreed
-S6,P,"agreed P; settled at source where possible: QL2. Text read at source (arXiv:1901.11276 §2.5): L_K,tot is 'the total K-band luminosity of the cluster members' on the (J−K)/K ridge line within r500,WL, background-subtracted from 40 control apertures; described as measuring 'the total stellar content of a cluster'. A direct member sum, so the BCG is in it; L_K,BCG is printed separately and is not added. Projected; r500,WL is the cluster's own lensing radius (radius only, flagged). Truncated at K*(z)+2.5 (QL3 flag)."
+S6,E,"agreed P; settled at source where possible: QL2. Text read at source (arXiv:1901.11276 §2.5): L_K,tot is 'the total K-band luminosity of the cluster members' on the (J−K)/K ridge line within r500,WL, background-subtracted from 40 control apertures; described as measuring 'the total stellar content of a cluster'. A direct member sum, so the BCG is in it; L_K,BCG is printed separately and is not added. Projected; r500,WL is the cluster's own lensing radius (radius only, flagged). Truncated at K*(z)+2.5 (QL3 flag). Ruled by D-072."
 S7a,X,agreed
 S7b,X,agreed
 S8a,X,agreed
@@ -74,7 +74,7 @@ S8c,X,agreed
 S8d,X,agreed
 S9a,X,agreed
 S9b,X,agreed
-S10a,P,agreed P; settled at source where possible: QL4. Observed-frame apparent 3.6 µm magnitudes; the Atlas would have to apply k-corrections. Only one cluster is below z = 0.30. Recommended: X.
+S10a,X,agreed P; settled at source where possible: QL4. Observed-frame apparent 3.6 µm magnitudes; the Atlas would have to apply k-corrections. Only one cluster is below z = 0.30. Recommended: X. Ruled by D-072.
 S10b,X,agreed
 S11,X,agreed
 S12a,X,agreed

@@ -1,6 +1,6 @@
 # A9 galaxy clusters (lensing and member galaxies): which values are shown (draft for JvH's approval; frozen by hash once approved)
 
-Written 2026-10-31 under D-066, D-067, D-068, D-064 and D-071 (updated for D-071 the same day), before any A9 table has been opened. Sources are the eligible records of search log A9 (`docs/sources/screening-A9/final.csv`). Once approved, this file is hash-frozen in `data/frozen/` and changes only by a new decision.
+Written 2026-10-31 under D-066, D-067, D-068, D-064, D-071 and D-072 (updated for D-071 and D-072 the same day), before any A9 table has been opened. Sources are the eligible records of search log A9 (`docs/sources/screening-A9/final.csv`). Once approved, this file is hash-frozen in `data/frozen/` and changes only by a new decision.
 
 ## 1. Who is plotted
 
@@ -37,10 +37,15 @@ A cluster is plotted only if all of these hold. Otherwise it is recorded with th
 2. **Geometry.**
    - Row L: gas is projected onto the lensing cylinders (D-067 item 3). The contribution from beyond the measured range uses the source's own model, as a registered assumption shown per point.
    - Row O: 3D, against the 3D enclosed gas mass, with no projection.
-3. **Stars.** Two routes, both "measured" (D-034). Where a cluster has both, route (a) is the default and route (b) is shown as an alternative.
+3. **Stars.** Two routes, both "measured" (D-034). Where a cluster has both, route (a) is the default and route (b) is shown as an alternative (D-072 item 6).
    - **(a) Stellar mass from photometry** of the brightest cluster galaxy plus members (and intracluster light, where measured), with a named IMF. Chabrier or Kroupa is the default (D-039 item 2); the Salpeter value is the top of the range where the source gives it, or else the same model's ratio, read at source and registered.
    - **(b) Printed luminosity × registered ratio** (D-071). The source's printed luminosity of the brightest cluster galaxy plus members, with its own membership and completeness corrections, in a named band, times the Atlas's stellar-population mass-to-light ratio for that band: Chabrier or Kroupa default, Salpeter top, read at source and registered per band (D-039 family). The source's own conversion is not used if it is dynamical or tied to M500 or another scaling relation.
-   - **The source's sums only** (D-069; D-071 safeguard 1). The Atlas never sums member catalogues.
+   - **The source's sums only** (D-069; D-071 safeguard 1). The Atlas never sums member catalogues. It may add a source's own printed cluster-level components when the source defines them as disjoint in one aperture (D-072 item 1); it never recovers a total by dividing by a printed fraction.
+   - **BCG** (D-072 item 2). A direct sum over all galaxies or members in the aperture includes the BCG (flagged "BCG by method"). A total that is only a fitted Schechter integral with no separate BCG term is members only and is not used.
+   - **Faint end** (D-072 item 3). A stated faint limit at least 2 mag fainter than M* is accepted and flagged; bright-only sums are not used. Missing faint light is shown as a range only where the source quantifies it.
+   - **Magnitudes and epoch** (D-072 item 4). Absolute magnitudes in a named band count, converted with the registered solar absolute magnitude for that band; observed-frame apparent magnitudes do not. An evolution-corrected luminosity is paired with the ratio for the epoch it was corrected to.
+   - **Deprojection** (D-072 item 5). A luminosity deprojected by the source's own model is 3D, labelled `model_dependence` with the source's assumption.
+   - **Order for one cluster** (D-072 item 6): route (a) before route (b); within route (b), near-infrared bands first; a team's later analysis of the same data supersedes its earlier one; projected values pair with row L, 3D values with row O.
    - **One radius** (D-071 safeguard 3). For route (b), and for route (a) where the source gives only totals, the comparison is made only at the source's measured aperture; no stellar profile shape is assumed. Where the source gives a stellar profile, stars are taken inside the same radii as the gas: projected for row L, 3D for row O, by frozen and tested code. An aperture set by a scaling relation or by the cluster's own total mass (e.g. r500) is used as a radius only, and flagged.
    - **Intracluster light** (D-071 safeguard 4). Where the source did not measure it, it enters as a registered range (`icl_fraction`), default and range read at source before any A9 table is opened, and shown per point.
    - Masses from the Fundamental Plane, Faber–Jackson or other scaling relations are not used (§1.7).
