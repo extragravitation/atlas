@@ -1149,3 +1149,70 @@ No mass-to-light value, g_bar or g_obs of a dwarf had been computed.
 - Keeping ε = 0 for Pegasus IV, which would overstate R_h by up to ×1.30.
 
 **Data seen.** The computed tables of PR #83 (62 plotted g_obs and g_bar values). These rulings were proposed from the inputs, not from any acceleration.
+
+## D-063 — A6·strong lensing: eight method rulings
+
+**Ruling (2026-10-31 17:29 MDT, JvH).** "Rule as recommended." **Proposed by** Claude (search log A6 §2a). **Adopted** without change.
+
+1. **Stellar M/L from spectra.** A photometric luminosity times a stellar-population M/L fitted to spectra, with a fixed named IMF and named population models, is an accepted baryonic input. An M/L from an assumed age and metallicity range is also accepted, with the range carried as an assumption range. IMF-free spectral fits are never defaults. This clarifies "stellar mass from photometry" in protocol §2 (deviation #21).
+2. **Einstein radius from half the image separation** is accepted as a lens model, with `model_dependence` "SIS from image separation". Where a full model of the same system exists, that model is the default. Single-image limits are recorded, not plotted, in v1.0.
+3. **Priors that use the system's own velocity dispersion** count as inputs derived from the system's own kinematics (deviation #6).
+   - Stellar masses fitted with a metallicity prior from the σ–metallicity relation at the lens's own σ (SLACS IX) are recorded and shown as a flagged alternative, never the default.
+   - Systems whose source redshift used the velocity dispersion (SL2S) are recorded, not plotted.
+4. **Several lens models and stellar-mass sources for the same lenses.** The observed default is the Einstein mass, and other lens models are shown as alternatives. A precedence rule for both sides is written and hash-frozen before any table is opened.
+5. **Redshifts and confirmation.** An Einstein mass needs measured lens and source redshifts; systems without a spectroscopic source redshift are recorded, not plotted. Candidates count only when confirmed. Restricted releases are held until public.
+6. **Galaxy or group.** The source's own label is used where sources agree.
+   - A6: the model has one main deflector (with external shear or minor perturbers).
+   - A8: the source models several group members, or calls it a group lens.
+   - A7 "ambiguous": the sources disagree (as deviations #7 and #15).
+7. **Stellar mass printed as a fraction of the lens mass** (XLENS I). Fraction × the published Einstein mass is accepted, flagged.
+8. **Licence route for SLACS.** The original (SLACS IX and its VizieR table) is the source of record and is cited. The CC BY 4.0 copy on Zenodo is used for redistribution only after a value-by-value check that it matches.
+
+**Reason.**
+- Items 1 and 7: the protocol's wording was written to exclude lensing and dynamical masses, not to exclude population M/Ls measured from spectra.
+- Items 2, 4 and 5: every plotted point keeps a lens model, measured redshifts and a stated model dependence, with alternatives visible.
+- Item 3: applies deviation #6 consistently.
+- Item 6: follows the kind rules already used for star clusters and dwarfs.
+- Item 8: follows D-004.
+
+**Alternatives rejected.**
+- Excluding spectroscopic M/Ls, which would lose every lens below z ≈ 0.07.
+- Treating priors as minor and accepting them silently.
+- Choosing one lens model per system without showing the others.
+
+**Data seen.** Search log A6 and the two screening readings: metadata, abstracts, methods and table headings only. No data table was opened and no mass, M/L or result was read.
+
+**Still open.** The protocol §5 projection ruling (baryons projected, or lensing deprojected), which is needed before the first lensing package.
+
+## D-064 — Lensing projection: project the baryons (protocol §5)
+
+**Ruling (2026-10-31 17:40 MDT, JvH).** Option (a), as recommended. **Proposed by** Claude (2026-10-31, with option (b) set out beside it). **Adopted.** JvH's words: "Project the baryons. Compare the lensing mass with the stellar mass inside the same projected radius, and express both as G·M/R_E² labelled 'projected'."
+
+1. For galaxy-scale strong lensing (A6), the observed side is the projected mass inside the Einstein radius, M_E. The baryonic side is the projected baryonic mass inside the same cylinder of radius R_E. Both are expressed as G·M/R_E², labelled **projected**.
+2. g_obs/g_bar is then exactly M_E / M_bar(<R_E): no mass-profile model enters either side.
+3. Projected points carry their own mark and label on the map and in downloads (`projection = projected`). They are never merged with 3D accelerations without that mark.
+4. R_E in kpc and M_E use the source's own cosmology, registered where it enters (D-029); the ratio does not depend on it to first order, because both masses scale with the same distances.
+5. Applies to A6·strong lensing now. Other lensing cells (A8, A9) get their own ruling when they arrive, with this one as the starting proposal.
+
+**Reason.** It compares like with like (two measured masses in the same projected aperture), adds no profile assumption, and keeps the comparison exact. The cost, that these points are a different quantity from 3D accelerations, is handled by marking them, not by converting them.
+
+**Alternatives rejected.** (b) Deprojecting the lensing mass with an assumed density profile: every point would depend on the profile chosen.
+
+**Data seen.** Search log A6 and the screening readings: metadata and methods only. No lensing mass or stellar mass was read.
+
+**Note.** D-039 had named this ruling as the next blind one. D-040 since replaced blind rulings with recording the proposer, so it was ruled with a recommendation, recorded above.
+
+## D-065 — A6·strong lensing precedence rule (frozen)
+
+**Ruling (2026-10-31 17:43 MDT, JvH).** "Approved as written." **Proposed by** Claude (`docs/methods/A6S_PRECEDENCE.md`, under D-063 item 4 and D-064). **Adopted** without change. Frozen by hash in `data/frozen/a6s-precedence.json`.
+
+What the rule covers:
+- who is plotted;
+- which lens model is the default (originals first; full models over image-separation estimates);
+- which stellar mass is the default (inside R_E; Chabrier/Kroupa default with the Salpeter value as the top of the range; no priors using the lens's own σ; then more bands, a per-object fit, and the most recent);
+- the gas route;
+- the tests.
+
+**Reason.** It fixes every choice between published values before any value is read, as D-063 item 4 requires.
+
+**Data seen.** Search log A6 and the screening readings only. No lensing table was opened.
