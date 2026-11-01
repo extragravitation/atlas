@@ -3,6 +3,7 @@
 import Base from '../../layouts/Base.astro';
 import L from '../../components/L.astro';
 import { loadAtlas } from '../../lib/atlas.mjs';
+import { isLensing, kindWords } from '../../lib/lensing.mjs';
 import { datasetLabel } from '../../lib/labels.mjs';
 
 const atlas = loadAtlas();
@@ -13,7 +14,7 @@ const items = atlas.systems.map((s) => {
   const rows = s.rows.map((i) => d.measurements.rows[i]).filter((r) => r.plotted !== 'false');
   const ratio = rows.filter((r) => r.g_bar > 0).map((r) => r.g_obs / r.g_bar);
   const has = rows.length > 0 && ratio.length > 0;
-  return { id: s.id, name: s.name, ds: datasetLabel(d.name).t, cls: s.row.class_in_source, n: rows.length, has,
+  return { id: s.id, name: s.name, ds: datasetLabel(d.name).t, cls: isLensing(d) ? kindWords(s.row, s.props).t : s.row.class_in_source, n: rows.length, has,
     proj: rows.some((r) => r.r_kind === 'projected'),
     r0: has ? Math.min(...rows.map((r) => r.r_kpc)) : null, r1: has ? Math.max(...rows.map((r) => r.r_kpc)) : null,
     lo: has ? Math.min(...ratio) : null, hi: has ? Math.max(...ratio) : null, flags: [...new Set(rows.flatMap((r) => (r.flags || '').split(';').filter(Boolean)))].map((f) => f.replace(/_/g, ' ')).join(', ') };

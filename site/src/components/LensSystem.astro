@@ -5,7 +5,7 @@
 // package's accelerations into masses inside the same cylinder (M = g R_E² / G = g × M_E / g_obs).
 import L from './L.astro';
 import Layer from './Layer.astro';
-import { lensPackage, cosmologyRows } from '../lib/lensing.mjs';
+import { lensPackage, cosmologyRows, kindWords, surveyName } from '../lib/lensing.mjs';
 import { REPO } from '../lib/md.mjs';
 
 const { sys, d, lab } = Astro.props;
@@ -94,8 +94,20 @@ const QTY = { einstein_radius: ['Einstein radius θ_E', 'Ring size'], einstein_m
 const ROLE = { default: 'default', top: 'Salpeter top (slider)', alternative: 'alternative (not plotted)', alt_top: 'alternative, Salpeter' };
 const fmtV = (v) => (v === null || v === undefined ? '–' : Math.abs(v) >= 1e5 ? `${Number((v / 10 ** Math.floor(Math.log10(Math.abs(v)))).toPrecision(4))} × 10${String(Math.floor(Math.log10(Math.abs(v)))).replace(/[0-9]/g, (c) => '⁰¹²³⁴⁵⁶⁷⁸⁹'[c])}` : String(v));
 const zs = (P.z_s ?? def?.x_strong_lensing_z_s);
+const kw = kindWords(R, P);
+// Lenses recorded at z_l >= 0.30 (D-066 item 2): the two readings, side by side, as stored in properties.
+const gap = (P.flags || []).includes('epoch_gap_v1');
+const differ = gap && (P.flags || []).includes('readers_differ');
+const list = (a) => (a && a.length ? a.join('; ') : '–');
+const gapRows = gap ? Object.entries(P.readings || {}).flatMap(([scope, e]) => [
+  ['z_l', 'Lens redshift z_l', (x) => list(x?.z_l) + (x?.z_l_estimates?.length ? ` (estimate, not used: ${x.z_l_estimates.join('; ')})` : '')],
+  ['z_l_method', 'z_l method', (x) => list(x?.z_l_method)],
+  ['z_s', 'Source redshift z_s', (x) => list(x?.z_s)],
+  ['z_s_method', 'z_s method', (x) => list(x?.z_s_method)],
+  ['kind', 'Kind', (x) => list(x?.kind)],
+].map(([k, label, f]) => ({ scope, label, a: e.reader_a ? f(e.reader_a) : 'not read', b: e.reader_b ? f(e.reader_b) : 'not read', diff: (P.readers_differ_on || []).includes(`${scope}: ${k}`) }))) : [];
 ---
-<p class="lede"><L t={`${R.class_in_source}. ${lab.method_t}. ${plotted ? 'Plotted: one projected value at R_E, marked as projected.' : 'Recorded, not plotted.'}`} p={`${lab.one_p}. ${plotted ? 'Shown on the map as one open ring: the pull measured in projection inside the ring of images.' : 'Kept in the record but not shown on the map, for the reasons below.'}`} /></p>
+<p class="lede"><L t={`${kw.t}. ${gap ? 'Strong lens recorded at z_l ≥ 0.30 (epoch gap, D-066); no g_obs or g_bar computed.' : lab.method_t + '.'} ${plotted ? 'Plotted: one projected value at R_E, marked as projected.' : 'Recorded, not plotted.'}`} p={`${kw.p}. ${plotted ? 'Shown on the map as a ring with a dot in the centre: the pull measured in projection inside the ring of images.' : 'Kept in the record but not shown on the map, for the reasons below.'}`} /></p>
 
 <h2 id="status"><L t="Status" p="On the map?" /></h2>
 {plotted ? (
@@ -115,8 +127,21 @@ const zs = (P.z_s ?? def?.x_strong_lensing_z_s);
   <div class="boxed">
     <p><b><L t="Not plotted." p="Not on the map." /></b> <L t="Reasons, as recorded in the package:" p="Why:" /></p>
     <ul class="small">{(P.reasons_not_plotted || []).map((r) => <li>{r}</li>)}</ul>
-    <p class="small"><L t={`Survey: ${P.scope}. Lens redshift ${R.redshift ?? '–'}${zs != null ? `, source redshift ${zs}` : ''} (${R.distance_ref || 'as printed'}).`} p={`From ${P.scope}.`} /></p>
+    <p class="small"><L t={`Survey: ${P.scope}. Lens redshift ${R.redshift ?? '–'}${zs != null ? `, source redshift ${zs}` : ''} (${R.distance_ref || 'as printed'}).`} p={`From ${surveyName((P.scope || '').split(' | ')[0])}.`} /></p>
+    {gap && <p class="small"><L t={`Epoch gap (D-066 item 2): flagged epoch_gap_v1. No g_obs or g_bar is computed for lenses at z_l ≥ 0.30 in this version.${P.z_l_all_readings && P.z_l_all_readings.length > 1 ? ` The readings give z_l = ${P.z_l_all_readings.join(', ')}; the redshift column holds the lowest, so the cut holds for every reading.` : ''}`} p="This lens is far enough away that its light set out long ago. This version of the Atlas records it but leaves it off the map." /></p>}
   </div>
+)}
+
+{gap && (
+  <>
+    <h2 id="readings"><L t="As read" p="What the two readers recorded" /></h2>
+    <Layer as="p" class="small"><Fragment slot="t">{differ ? 'The two independent readings differ on at least one item (flag readers_differ). Both are kept; nothing was chosen between them, and differing rows are marked. ' : 'The two independent readings agree on every item below. '}Methods are shown as each reader wrote them. Identifiers: {(P.identifiers || []).join(' · ')}.</Fragment><Fragment slot="p">Two people read the paper separately. {differ ? 'Where they wrote different things, both are shown and marked.' : 'They wrote the same things.'}</Fragment></Layer>
+    <div tabindex="0" class="tablebox wrapcells" style="max-height:none;margin-top:8px" role="region" aria-label="Readings of this lens"><table>
+      <thead><tr><th class="l"><L t="Survey" p="From" /></th><th class="l"><L t="Item" p="What" /></th><th class="l"><L t="Reader A" p="First reader" /></th><th class="l"><L t="Reader B" p="Second reader" /></th><th class="l"><L t="Readers" p="Same?" /></th></tr></thead>
+      <tbody>{gapRows.map((r) => <tr><td class="l">{r.scope}</td><td class="l">{r.label}</td><td class="l">{r.a}</td><td class="l">{r.b}</td><td class="l">{r.diff ? <b><L t="differ" p="differ" /></b> : <L t="agree" p="same" />}</td></tr>)}</tbody>
+    </table></div>
+    <p class="small" style="margin-top:6px"><L t={`Kind used for this lens: ${R.taxonomy_kind}, ${R.kind_label}. Lens redshift from ${(R.distance_ref || '').replace(/^lens redshift /, '')}.`} p="Read straight from the papers; not yet checked by a third person." /> <a href={`${REPO}/blob/main/${repoDir}/SECOND_READING.md#epoch-gap-systems-d-066-item-2`}>SECOND_READING.md</a></p>
+  </>
 )}
 
 {plotted && fig && (
@@ -182,7 +207,7 @@ const zs = (P.z_s ?? def?.x_strong_lensing_z_s);
 <h2 id="inputs"><L t="Inputs" p="What went into the numbers" /></h2>
 {obs.length > 0 ? (
   <>
-    <div tabindex="0" class="tablebox"><table>
+    <div tabindex="0" class="tablebox inputs" role="region" aria-label="Inputs of this lens"><table>
       <thead><tr><th class="l">Quantity</th><th>Value</th><th>Error</th><th class="l">Unit</th><th class="l">Role</th><th class="l">Source · location</th><th class="l">As printed</th><th class="l">Reading note</th></tr></thead>
       <tbody>{obs.map((o) => { const s = src(o.source_ref), q = QTY[o.quantity] || [o.quantity, o.quantity]; return <tr>
         <td class="l">{o.side === 'observed' ? 'obs · ' : 'bar · '}<L t={q[0]} p={q[1]} /></td>
@@ -190,14 +215,14 @@ const zs = (P.z_s ?? def?.x_strong_lensing_z_s);
         <td>{errText(o.err_lo, o.err_hi, fmtV) || '–'}</td>
         <td class="l">{o.unit || '–'}{o.band ? ` (${o.band})` : ''}</td>
         <td class="l">{ROLE[o.x_strong_lensing_role] || o.x_strong_lensing_role}</td>
-        <td class="l" style="white-space:normal;min-width:240px">{s.rec}: {s.url ? <a href={s.url}>{s.loc}</a> : s.loc}</td>
-        <td class="l"><code>{o.x_strong_lensing_printed}</code></td>
-        <td class="l" style="white-space:normal;min-width:260px">{o.x_strong_lensing_parameter}</td>
+        <td class="l wrap">{s.rec}: {s.url ? <a href={s.url}>{s.loc}</a> : s.loc}</td>
+        <td class="l wrap"><code>{o.x_strong_lensing_printed}</code></td>
+        <td class="l wrap">{o.x_strong_lensing_parameter}</td>
       </tr>; })}</tbody>
     </table></div>
     <p class="small" style="margin-top:6px"><L t="Every input was read twice at source by independent readers and adjudicated at source where they differed (SECOND_READING.md; reading/adjudication.md). 'As printed' is the reader’s transcription: value, errors, form and unit." p="Two people read each number from the original paper separately; where they differed, a third checked the paper. 'As printed' shows the number exactly as the paper gives it." /> <a href={`${REPO}/blob/main/${repoDir}/SECOND_READING.md`}>SECOND_READING.md</a></p>
   </>
-) : <p class="small"><L t="No input of this lens is tabulated: it has no Einstein radius or Einstein mass in the inputs. Its readings are in the package's reading/ files." p="Nothing was converted for this lens." /></p>}
+) : gap ? <p class="small"><L t="No Einstein radius, mass or stellar mass is tabulated for lenses at z_l ≥ 0.30 (D-066 item 2). Their redshifts and kind are under As read; every reading is in the package's reading/ files." p="Nothing beyond the distance and type was converted for this lens." /></p> : <p class="small"><L t="No input of this lens is tabulated: it has no Einstein radius or Einstein mass in the inputs. Its readings are in the package's reading/ files." p="Nothing was converted for this lens." /></p>}
 
 {plotted && (
   <>

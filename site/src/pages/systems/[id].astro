@@ -106,7 +106,7 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
       : <p class="small" style="margin-top:6px"><L t="No sliders yet for this dataset: the stellar mass-to-light range (D-039) is added with its formulas in a later pull request." p="Sliders for this dataset come later." /></p>}
     <p class="cap" style="margin-top:14px">On this page</p>
     {isLens
-      ? <nav class="toc"><a href="#status">Status</a>{rows.some((r) => r.plotted === 'true') && <><a href="#figure"><L t="Inside R_E" p="Inside the ring" /></a></>}<a href="#inputs">Inputs</a>{rows.some((r) => r.plotted === 'true') && <><a href="#cosmology">Cosmology</a><a href="#gas">Gas</a></>}<a href="#cite">Cite</a></nav>
+      ? <nav class="toc"><a href="#status">Status</a>{rows.some((r) => r.plotted === 'true') && <><a href="#figure"><L t="Inside R_E" p="Inside the ring" /></a></>}{(P.flags || []).includes('epoch_gap_v1') && <a href="#readings"><L t="As read" p="As read" /></a>}<a href="#inputs">Inputs</a>{rows.some((r) => r.plotted === 'true') && <><a href="#cosmology">Cosmology</a><a href="#gas">Gas</a></>}<a href="#cite">Cite</a></nav>
       : d.name === 'aeg-d-dwarfs'
       ? <nav class="toc"><a href="#status">Status</a><a href="#inputs">Inputs</a><a href="#cite">Cite</a></nav>
       : <nav class="toc"><a href="#status">Status</a><a href="#measured"><L t="Profile" p="Profile" /></a><a href="#inputs">Inputs</a><a href="#repro"><L t="Reproduction" p="Re-derived?" /></a><a href="#cite">Cite</a></nav>}

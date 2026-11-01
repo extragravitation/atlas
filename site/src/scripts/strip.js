@@ -59,7 +59,7 @@ export async function start() {
   fig.addEventListener('mousemove', (ev) => {
     const { h, mx, my } = at(ev); if (!h) { tip.hidden = true; return; }
     const ex = h.q.map((q) => Math.log10(q.g_obs / q.g_bar));
-    showTip(tip, box, `<b>${h.s.name_in_source}</b><br>${h.s.class_in_source}<br>${h.q[0].r_kpc.toFixed(h.q[0].r_kpc < 10 ? 2 : 0)}–${h.q[h.q.length - 1].r_kpc.toFixed(h.q[h.q.length - 1].r_kpc < 100 ? 1 : 0)} kpc, ${h.q.length} radii<br>log (g_obs/g_bar) ${Math.min(...ex).toFixed(2)} to ${Math.max(...ex).toFixed(2)}<br><span class="muted">Click to open its page</span>`, mx, my);
+    showTip(tip, box, `<b>${h.s.name_in_source}</b><br>${h.d.kind_words && h.d.kind_words[h.s.system_id] ? h.d.kind_words[h.s.system_id][plain() ? 'p' : 't'] : h.s.class_in_source}<br>${h.q[0].r_kpc.toFixed(h.q[0].r_kpc < 10 ? 2 : 0)}–${h.q[h.q.length - 1].r_kpc.toFixed(h.q[h.q.length - 1].r_kpc < 100 ? 1 : 0)} kpc, ${h.q.length} radii<br>log (g_obs/g_bar) ${Math.min(...ex).toFixed(2)} to ${Math.max(...ex).toFixed(2)}<br><span class="muted">Click to open its page</span>`, mx, my);
   });
   fig.addEventListener('mouseleave', () => { tip.hidden = true; });
   fig.addEventListener('click', (ev) => { const { h } = at(ev); if (h) location.href = BASE + 'systems/' + h.s.system_id + '/'; });
