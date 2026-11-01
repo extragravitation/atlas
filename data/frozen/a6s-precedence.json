@@ -1,0 +1,9 @@
+{
+  "description": "A6 strong lensing precedence rule: who is plotted, default lens model and stellar mass, gas route, tests. Frozen before any lensing table is opened.",
+  "frozen_on": "2026-10-31",
+  "decision": "D-065",
+  "spec": "docs/methods/A6S_PRECEDENCE.md",
+  "files": {
+    "docs/methods/A6S_PRECEDENCE.md": "f103809eadac00dac657061982e963fdfe1e85f46d68188a73953c17dfe9b03d"
+  }
+}
