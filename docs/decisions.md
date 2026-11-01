@@ -1423,3 +1423,41 @@ What the rule covers:
 - Waiting for releases or author data.
 
 **Data seen.** Coverage and gas-coherence records only: names, redshifts, codes, centres, apertures and methods. No masses, luminosities or densities.
+
+## D-075 — A6 strong lensing: rulings on the adjudication (gas, fallback record, input forms, conventions, IMF and profiles)
+
+**Ruling (2026-11-01 08:29 MDT, JvH).** "Proceed as recommended." **Proposed by** Claude (2026-11-01, five decisions in reply to Q1–Q14 of `data/packages/aeg-d-strong-lensing/v1/reading/adjudication.md`). **Adopted.**
+
+1. **Gas.** No A6 point is plotted until the gas term inside R_E rests on a quoted literature measurement. Labelling g_bar "stars only" is rejected (protocol §1.7: no omission of a present component).
+   - Next, a logged search for measured gas masses (hot X-ray gas, HI, molecular gas) inside about the effective radius of early-type galaxies, with its plan committed before it is run.
+   - From it, a registered default and range is proposed to JvH and shown with a slider.
+   - The five systems whose sources state gas negligible (R28, R25, R32) keep those statements as quoted source assumptions (Q14).
+2. **Fallback record.** Where a system's default record cannot supply a quantity the frozen rules require, the next-ranked eligible record in the frozen ranking (inventory §2) is the default for that system, flagged `fallback_record`. This covers:
+   - J0946+1006 (R66 tPIEMD) → R13;
+   - J1538+5817 (R49 has no Chabrier or Kroupa value) → R13;
+   - J0403−0239: R29's matched pair (one radius, cosmology and redshifts), R27 shown as the alternative;
+   - SNL-1 (R33 MGE): the next eligible stellar-mass record.
+
+   No tPIEMD or MGE code is written for v1 (Q2, Q6, Q7, Q8).
+3. **Input forms already covered by D-063.**
+   - The SNELLS masses inside half the image separation, which the cited source uses as its Einstein radius (D-063 item 2), are accepted, flagged `model_dependence` (Q1).
+   - A stellar mass printed as luminosity × a stellar-population M/L with a named IMF (D-063 item 1) is computed by package code, flagged `mstar_from_L_times_ML`, and the product is added to Test 3 (Q3).
+4. **Conventions**, each flagged on the point:
+   - a printed Ω_Λ = 1 − Ω_m is flat;
+   - a cosmology given only by name or reference uses the numbers in the named paper, read at source;
+   - R5's stated survey-wide 2% error on θ_E is carried, flagged `sample_level_error`;
+   - where no error is printed, `no_uncertainty`;
+   - NGC 6505 uses its spectroscopic z = 0.04243 (Q4, Q12, Q13).
+5. **IMF and light profiles.**
+   - SLACS (R13): Chabrier–BC03 is the default, Salpeter–BC03 the top, and the Maraston 2005 pair an alternative (Q5).
+   - The Salpeter top elsewhere is the source's own printed conversion where it gives one; otherwise the model paper's ratio, read at source (Q11).
+   - S4TM uses R10's printed de Vaucouleurs fit for the profile step, flagged `mstar_in_RE_from_profile` and `profile_differs_from_mass_photometry` (Q9).
+   - SL2S uses the CFHT fit, the same photometry as its masses (Q10).
+   - **Profile-step check (reported, not pass/fail):** for SLACS, R13 prints both totals and masses inside R_E. The §3.1 profile step is run on the SLACS totals and compared with R13's printed values, and the result is shown on the S4TM and SL2S pages.
+
+**Reason.**
+- Each choice either applies a rule already frozen (D-063, D-065) or picks the option that keeps one cylinder, one cosmology and one source.
+- Item 2 replaces four case-by-case choices with one rule set before any value was seen.
+- The gas term is the one physical gap, so it is filled from measurements, not from a label.
+
+**Data seen.** The adjudicated input values of the systems below z = 0.30 (Einstein radii and masses, stellar masses, M/L, luminosities, profile parameters). No g_obs, g_bar or ratio was computed, and nothing was plotted.
