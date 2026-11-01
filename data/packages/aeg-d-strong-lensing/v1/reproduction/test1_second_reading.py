@@ -36,6 +36,16 @@ Version 3 (2026-11-01, after the version 2 run failed on 4 numbers; its output i
 checks/second_reading_v2.csv): the 4 failing numbers were R32's R_Ein errors in kpc, recorded by reader A
 only. An independent second reader read R32 Table 1 (reading/readings/second-reader-r32.csv). Version 3
 adds that reading as reader B's for R32 values that reader B had not recorded. Nothing else changed.
+Version 4 (2026-11-01, D-066 item 2; version 3 output kept as checks/second_reading_v3.csv): the systems at
+z_l >= 0.30 are now recorded in the systems table straight from the two readings (no adjudication; no
+measurement row). Version 4 adds their numbers: the lens redshift column, z_s, and every z_l and z_s value
+recorded in properties. Each is looked up in reader A's and reader B's z_l and z_s rows of the same lens
+(any of the identifiers recorded for it). Outcome per number:
+  both            found in both readings
+  readers_differ  found in one reading only, and the system is flagged readers_differ with both readers'
+                  values recorded in properties (listed in SECOND_READING.md; not adjudicated)
+  FAIL            otherwise (in neither reading, or in one without the flag)
+Nothing else changed.
 Writes checks/second_reading.csv (one row per number) and prints PASS or FAIL.
 """
 
@@ -161,6 +171,51 @@ def packaged_rows() -> list[tuple[dict, str]]:
     return out
 
 
+def _reader_z(letter: str) -> list[dict]:
+    out = []
+    for block in ("block1", "block2", "block3"):
+        for r in csv.DictReader(open(READINGS / f"reader-{letter}-{block}.csv", encoding="utf-8")):
+            if r["quantity"] in ("z_l", "z_s"):
+                nums = nums_of(r["value"])
+                if nums:
+                    out.append({"id": norm_sys(r["system_id"].split("(")[0]), "full": norm_sys(r["system_id"]),
+                                "quantity": r["quantity"], "v": nums[0]})
+    return out
+
+
+def epoch_gap_numbers() -> tuple[list[dict], int]:
+    """Version 4: the numbers of the systems recorded at z_l >= 0.30 (D-066 item 2), from the stored table."""
+    import json
+    zrows = {"A": _reader_z("a"), "B": _reader_z("b")}
+    out, bad = [], 0
+    for t in cv.read_back(PKG / "tables/systems.ecsv"):
+        p = json.loads(t["properties"])
+        if "epoch_gap_v1" not in p["flags"]:
+            continue
+        ids = {norm_sys(i.split("(")[0]) for i in p["identifiers"]} | {norm_sys(i) for i in p["identifiers"]}
+        numbers = [("z_l", "redshift", t["redshift"])]
+        if p.get("z_s") is not None:
+            numbers.append(("z_s", "properties.z_s", p["z_s"]))
+        numbers += [("z_l", "properties.z_l_all_readings", v) for v in p["z_l_all_readings"]]
+        numbers += [("z_s", "properties.z_s_all_readings", v) for v in p["z_s_all_readings"]]
+        for q, where, v in numbers:
+            hit = {rd: any((z["id"] in ids or z["full"] in ids) and z["quantity"] == q and abs(z["v"] - v) <= 1e-12
+                           for z in zrows[rd]) for rd in "AB"}
+            if hit["A"] and hit["B"]:
+                outcome = "both"
+            elif (hit["A"] or hit["B"]) and "readers_differ" in p["flags"]:
+                outcome = "readers_differ"
+            else:
+                outcome = "FAIL"
+                bad += 1
+            out.append({"scope": p["scope"], "system": t["name_in_source"], "record": "", "quantity": q, "part": where,
+                        "value": repr(v), "unit": "", "reader_a": "yes" if hit["A"] else "no",
+                        "reader_b": "yes" if hit["B"] else "no", "outcome": outcome,
+                        "adjudication_cited": "not adjudicated: both readings in properties (SECOND_READING.md)"
+                        if outcome == "readers_differ" else ""})
+    return out, bad
+
+
 def main() -> int:
     pools = load_pools()
     adj_text = {k: p.read_text(encoding="utf-8") for k, p in ADJ.items()}
@@ -198,6 +253,9 @@ def main() -> int:
                              "part": part, "value": raw, "unit": r.get("unit", ""), "reader_a": "yes" if a else "no",
                              "reader_b": ("second reader (R61)" if is_r61_snl1 else "yes") if b else "no",
                              "outcome": outcome, "adjudication_cited": cite})
+    gap_rows, gap_bad = epoch_gap_numbers()
+    rows_out += gap_rows
+    bad += gap_bad
     with open(PKG / "checks/second_reading.csv", "w", newline="", encoding="utf-8") as fo:
         w = csv.DictWriter(fo, fieldnames=list(rows_out[0]))
         w.writeheader()
@@ -205,8 +263,11 @@ def main() -> int:
     n = len(rows_out)
     nb = sum(r["outcome"] == "both" for r in rows_out)
     na = sum(r["outcome"] == "adjudicated" for r in rows_out)
+    nd = sum(r["outcome"] == "readers_differ" for r in rows_out)
+    ng = len(gap_rows)
     print(f"test 1: {n - bad} of {n} packaged numbers pass ({nb} in both readings, {na} adjudicated at source with "
-          f"the adjudication cited): {'PASS' if not bad else 'FAIL'}")
+          f"the adjudication cited, {nd} recorded from one reading and flagged readers_differ); of these, {ng} are "
+          f"epoch-gap numbers (D-066): {'PASS' if not bad else 'FAIL'}")
     for r in [x for x in rows_out if x["outcome"] == "FAIL"][:20]:
         print("  FAIL", r)
     return 0 if not bad else 1

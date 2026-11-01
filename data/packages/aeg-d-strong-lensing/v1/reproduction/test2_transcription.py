@@ -9,6 +9,11 @@ column must equal the adjudicated row's printed value, errors, form and unit. In
 the columns that carry transcribed numbers (theta_E, z_l, z_s, H0, Omega_m, printed M_E, printed R_E in kpc,
 the stellar mass as printed or L and M/L, R_e and n of the light profile) must equal the adjudicated values.
 Equality is exact (ECSV stores the float repr). Writes checks/transcription.csv and prints PASS or FAIL.
+Version 3 (2026-11-01, D-066 item 2; version 2 output kept as checks/transcription_v2.csv) adds
+tables/systems.ecsv: every column of every system row read back must equal the row built in memory, and for
+each system recorded at z_l >= 0.30, each reader's z_l and z_s values stored in properties must equal the
+measured (not estimated) z_l and the z_s values that reader recorded for that lens in
+reading/readings/reader-{a,b}-block{1,2,3}.csv. Nothing else changed.
 Version 2 (2026-11-01, after the first run; output kept as checks/transcription_v1.csv) fixes one defect of
 this script: read_back returns an empty string cell as None, so the 191 dimensionless redshift rows (unit "")
 were counted as unequal. An empty string and None now compare equal for text columns. No value changed.
@@ -40,6 +45,58 @@ def same(a, b) -> bool:
     if b is None:
         return False
     return a == b if not isinstance(a, float) else float(a) == float(b)
+
+
+def _reader_values(letter: str) -> dict:
+    """(lens key, scope) -> {"z_l": [...measured...], "z_s": [...]} as that reader recorded them."""
+    import re
+    out = {}
+    for block in ("block1", "block2", "block3"):
+        for r in csv.DictReader(open(PKG / f"reading/readings/reader-{letter}-{block}.csv", encoding="utf-8")):
+            if r["quantity"] not in ("z_l", "z_s") or r["system_id"].startswith("("):
+                continue
+            m = re.search(r"[-+]?\d+(?:\.\d+)?", (r["value"] or "").replace("−", "-"))
+            if not m:
+                continue
+            est = bool(re.search(r"estimat|z_?FP\b|fundamental-plane", (r.get("limit") or "") + " " + (r.get("note") or ""), re.I))
+            if r["quantity"] == "z_l" and est:
+                continue
+            d = out.setdefault((cv.lens_key(r["system_id"]), r["scope"].strip()), {"z_l": set(), "z_s": set()})
+            d[r["quantity"]].add(float(m.group(0)))
+    return out
+
+
+def systems_check(res) -> tuple[list[dict], int]:
+    import json
+    table = cv.read_back(PKG / "tables/systems.ecsv")
+    out, bad = [], 0
+    if len(table) != len(res["systems"]):
+        return [{"table": "systems", "row": "count", "column": "rows", "table_value": len(table),
+                 "reading_value": len(res["systems"]), "equal": "no"}], 1
+    for t, m in zip(table, res["systems"]):
+        for c in m:
+            if c == "system_id":
+                continue  # throw-away IDs in memory
+            ok = same(t[c], m[c])
+            bad += not ok
+            out.append({"table": "systems", "row": t["system_id"], "column": c, "table_value": t[c],
+                        "reading_value": m[c], "equal": "yes" if ok else "no"})
+    readers = {"a": _reader_values("a"), "b": _reader_values("b")}
+    for t in table:
+        p = json.loads(t["properties"])
+        if "epoch_gap_v1" not in p["flags"]:
+            continue
+        key = cv.lens_key(p["identifiers"][0])
+        for scope, e in p["readings"].items():
+            for rd in "ab":
+                got = e[f"reader_{rd}"] or {"z_l": [], "z_s": []}
+                want = readers[rd].get((key, scope), {"z_l": set(), "z_s": set()})
+                for q in ("z_l", "z_s"):
+                    ok = set(got[q]) == want[q]
+                    bad += not ok
+                    out.append({"table": "systems", "row": t["system_id"], "column": f"properties.readings[{scope}].reader_{rd}.{q}",
+                                "table_value": sorted(got[q]), "reading_value": sorted(want[q]), "equal": "yes" if ok else "no"})
+    return out, bad
 
 
 def main() -> int:
@@ -77,6 +134,9 @@ def main() -> int:
             bad += not ok
             out.append({"table": "measurements", "row": t["measurement_id"], "column": "r_kpc (printed R_E)",
                         "table_value": t["r_kpc"], "reading_value": m["r_kpc"], "equal": "yes" if ok else "no"})
+    sys_rows, sys_bad = systems_check(res)
+    out += sys_rows
+    bad += sys_bad
     with open(PKG / "checks/transcription.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=list(out[0]))
         w.writeheader()
