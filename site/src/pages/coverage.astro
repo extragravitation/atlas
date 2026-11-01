@@ -21,7 +21,7 @@ const f = (v, d = 2) => (v < 0.01 || v >= 1e4 ? v.toExponential(1) : Number(v.to
 const report = atlas.datasets.map((d) => {
   const rows = d.measurements.rows, sys = d.systems ? d.systems.rows : [];
   const props = sys.map((x) => (x.properties ? JSON.parse(x.properties) : {}));
-  const dist = rng(sys.map((x) => x.distance_mpc)), z = rng(props.map((p) => p.redshift));
+  const dist = rng(sys.map((x) => x.distance_mpc)), z = rng(sys.map((x, i) => x.redshift ?? props[i].redshift));
   const gb = rng(rows.filter((r) => r.g_bar > 0).map((r) => Math.log10(r.g_bar))), rr = rng(rows.map((r) => r.r_kpc));
   return { name: datasetLabel(d.name).t, systems: d.systems ? `${sys.length} ${datasetLabel(d.name).units}` : `${rows.length} stacked bins`, n: rows.length,
     where: z ? `z = ${z[0]}–${z[1]} (source)` : dist ? `${f(dist[0])}–${f(dist[1])} Mpc (source distances)` : 'lens redshifts not recorded in the package',
