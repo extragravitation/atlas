@@ -92,3 +92,47 @@ Under D-071, a printed cluster luminosity (BCG plus members, with the source's o
 | VIZ-L9 | `bibstem:yCat abs:("galaxy cluster" OR "galaxy clusters" OR "clusters of galaxies") abs:(luminosity OR luminosities) abs:("K-band" OR "near-infrared" OR 2MASS OR SDSS)` | date |
 
 Screening uses the brief `docs/sources/screening-brief-L9.md` with two readers, each in their own folder, and a comparison script committed first. The output is an updated coverage table.
+
+### 3a. ADS-L9-1 run and title screening (2026-10-31)
+
+Run 2026-10-31 through JvH's signed-in Chrome: **363 records** (7 theses, `PhDT`, hidden from the listing and not screened). VIZ-L9 is **not yet run**: the Chrome extension disconnected after ADS-L9-1 finished. It will be run, title-screened and read as a second batch (L-V entries), with the same brief and the same comparison script.
+
+Excluded at title level (counted, not listed), by the S9 rules (§1a) plus:
+- groups, compact groups and fossil groups (A8 leads, not A9);
+- radio, X-ray-source, quasar and AGN luminosity functions;
+- luminosity functions with no per-cluster total implied by the title, above z = 0.30;
+- ICL studies of single clusters above z = 0.30 (MACS J1206, Frontier Fields, CL0024, El Gordo and others);
+- records already listed in S1–S19 (Lin & Mohr 2003 and 2004b, Gonzalez 2007, Giodini 2009, Lagana 2008, CLASH and CLASH-VLT, Muzzin 2007, Shapley ACCESS, DES-ACT and XCS-HSC ICL, Frontier Fields ICL, Gonzalez 2020 Coma ICL, Kluge/Contini BCG+ICL 2021).
+
+| # | Record(s) | What (from title) |
+|---|---|---|
+| L1 | 2004ApJ...610..745L | K-band LF and radial distribution of 93 clusters (Lin, Mohr & Stanford) |
+| L2 | 2000ApJ...530...62G | Optical luminosities and mass-to-light ratios of nearby clusters |
+| L3 | 2002ApJ...569..101M; 2002ApJ...569...91M | Mass-to-light function and optical luminosity function of virialized systems |
+| L4 | 2000ApJ...543..521H | Mass-to-light ratios of groups and clusters |
+| L5 | 2004A&A...423..449P; 2007A&A...464..451P; 2007A&A...461..397P | RASS-SDSS cluster survey I, V, VII |
+| L6 | 2009ApJ...703.2232S | SDSS cluster weak-lensing cross-correlation III: mass-to-light (stacked; recorded for completeness) |
+| L7 | 2007ApJ...663..717M; 2008MPLA...23.1521M | A1689 luminous content from weak-lensing dilution |
+| L8 | 2014MNRAS.443.3309M | LoCuSS near-infrared luminosity and weak-lensing mass |
+| L9 | 2016A&A...592A...9Z | XXL K-band luminosity and weak-lensing mass |
+| L10 | 2009MNRAS.394..357L | ICM iron content and galaxy optical luminosity |
+| L11 | 2012A&A...548A..83A | Survey-based cluster mass proxy (Andreon) |
+| L12 | 2013AstL...39....1K; 2011AstL...37..219K | Hercules and Leo supercluster cluster properties (Kopylova & Kopylov) |
+| L13 | 2002AJ....123...66Y; 2002AJ....123...87Y | Luminosity functions of 10 nearby clusters, I and II |
+| L14 | 2003A&A...408...57M; 2008MNRAS.387.1374M | ABCG 209 luminosity functions; spectroscopic and photometric catalogue |
+| L15 | 2000A&A...353..479A | Coma near-infrared luminosity function |
+| L16 | 2009MNRAS.396.2367S | Norma cluster Ks luminosity function |
+| L17 | 2006AJ....131.1989C | Photometry of SARS clusters |
+| L18 | 2026MNRAS.550ag829B; 2026MNRAS.550g1017B | Separation of mass components in galaxy clusters (two papers) |
+| L19 | 2025MNRAS.537.3954M | Stellar mass composition of galaxy clusters |
+| L20 | 2025ApJ...988..229Y | Central regions of clusters from galaxies, gas and ICL |
+| L21 | 2025MNRAS.543.4020M | Clusters from deep optical observations |
+| L22 | 2020ApJS..247...43K; 2021ApJS..252...27K | BCG and ICL structure and photometry, local clusters (Kluge) |
+| L23 | 2005ApJ...618..195G; 2000ApJ...536..561G | ICL in nearby clusters; diffuse light in A1651 (Gonzalez) |
+| L24 | 2025A&A...694A.216J; 2025A&A...698A.134E; 2021ApJ...910...45M; 2016MNRAS.461..230E; 2017ApJ...849....6A | Single-cluster ICL below z = 0.30: Coma, A2390, A85, A85/A2457/A2670, one more |
+| L25 | 2015A&A...575A.108A | Dark and stellar mass in three massive clusters (redshift to check) |
+| L26 | 2023TJAA....4S.184A | Abell 1589 luminosity function |
+| L27 | 2020A&A...643A.136C | Clusters and early-type galaxies III: mass–radius relation |
+| L28 | 1991ChA&A..15..260Z; 1992ChA&A..16..257Z | Coma and Virgo virial mass and kinematics |
+
+The re-screen of S1–S19 (step 1) uses the S numbering of §1a; readers give one row per record, as in the S9 round.
