@@ -406,3 +406,215 @@ aeg-s-000404,Ursa Major I,aeg-d-dwarfs/v1,2026-10-31
 aeg-s-000405,Ursa Major II,aeg-d-dwarfs/v1,2026-10-31
 aeg-s-000406,Ursa Minor,aeg-d-dwarfs/v1,2026-10-31
 aeg-s-000407,Willman 1,aeg-d-dwarfs/v1,2026-10-31
+aeg-s-000408,SDSS J0029-0055,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000409,SDSS J0037-0942,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000410,SDSS J0044+0113,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000411,SDSS J0109+1500,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000412,SDSS J0252+0039,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000413,SDSS J0405-0455,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000414,SDSS J0728+3835,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000415,SDSS J0822+2652,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000416,SDSS J0841+3824,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000417,SDSS J0912+0029,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000418,SDSS J0936+0913,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000419,SDSS J0946+1006,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000420,SDSS J0955+0101,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000421,SDSS J0956+5100,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000422,SDSS J0959+0410,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000423,SDSS J0959+4416,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000424,SDSS J1016+3859,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000425,SDSS J1020+1122,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000426,SDSS J1023+4230,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000427,SDSS J1029+0420,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000428,SDSS J1032+5322,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000429,SDSS J1103+5322,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000430,SDSS J1106+5228,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000431,SDSS J1112+0826,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000432,SDSS J1134+6027,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000433,SDSS J1142+1001,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000434,SDSS J1143-0144,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000435,SDSS J1153+4612,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000436,SDSS J1204+0358,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000437,SDSS J1205+4910,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000438,SDSS J1213+6708,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000439,SDSS J1218+0830,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000440,SDSS J1250+0523,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000441,SDSS J1251-0208,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000442,SDSS J1402+6321,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000443,SDSS J1403+0006,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000444,SDSS J1416+5136,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000445,SDSS J1420+6019,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000446,SDSS J1430+4105,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000447,SDSS J1432+6317,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000448,SDSS J1436-0000,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000449,SDSS J1443+0304,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000450,SDSS J1451-0239,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000451,SDSS J1531-0105,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000452,SDSS J1538+5817,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000453,SDSS J1621+3931,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000454,SDSS J1627-0053,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000455,SDSS J1630+4520,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000456,SDSS J1636+4707,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000457,SDSS J2238-0754,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000458,SDSS J2300+0022,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000459,SDSS J2303+1422,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000460,SDSS J2321-0939,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000461,SDSS J2341+0000,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000462,SDSS J0143-1006,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000463,SDSS J0159-0006,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000464,SDSS J0753+3416,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000465,SDSS J0754+1927,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000466,SDSS J0757+1956,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000467,SDSS J0826+5630,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000468,SDSS J0847+2348,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000469,SDSS J0851+0505,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000470,SDSS J0920+3028,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000471,SDSS J0956+5539,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000472,SDSS J1010+3124,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000473,SDSS J1031+3026,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000474,SDSS J1040+3626,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000475,SDSS J1041+0112,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000476,SDSS J1048+1313,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000477,SDSS J1051+4439,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000478,SDSS J1056+4141,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000479,SDSS J1101+1523,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000480,SDSS J1116+0729,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000481,SDSS J1127+2312,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000482,SDSS J1137+1818,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000483,SDSS J1142+2509,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000484,SDSS J1144+0436,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000485,SDSS J1213+2930,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000486,SDSS J1301+0834,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000487,SDSS J1330+1750,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000488,SDSS J1403+3309,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000489,SDSS J1430+6104,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000490,SDSS J1433+2835,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000491,SDSS J1541+3642,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000492,SDSS J1543+2202,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000493,SDSS J1550+2020,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000494,SDSS J1553+3004,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000495,SDSS J1607+2147,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000496,SDSS J1633+1441,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000497,SDSS J2309-0039,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000498,SDSS J2324+0105,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000499,SL2SJ022511-045433,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000500,SL2SJ084959-025142,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000501,SL2SJ221929-001743,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000502,SL2SJ222012+010606,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000503,ESO 325-G004,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000504,ESO 286-G022,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000505,2MASX J01414232-0735281,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000506,2MASX J04035024-0239275,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000507,SDSS J1436+4943,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000508,SDSS J1701+3722,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000509,NGC 6505,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000510,Q2237+030,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000511,MG1549+3047,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000512,MG1654+1346,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000513,0047-2808,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000514,B0218+357,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000515,B0712+472,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000516,B1030+071,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000517,B1422+231,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000518,B1600+434,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000519,B1608+656,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000520,B1933+503,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000521,B1938+666,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000522,B2045+265,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000523,B2319+052,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000524,HST14113+521,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000525,HST14176+5226,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000526,MG0414+0534,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000527,MG0751+2716,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000528,MG1131+0456,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000529,MG2016+112,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000530,PG1115+080,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000531,Q0142-100,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000532,Q0957+561,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000533,RXJ0911+0551,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000534,SDSS J1148+1930,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000535,SDSS J0100+1818,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000536,KIDSJ0233-3447,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000537,SDSS J0324+0045,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000538,SDSS J0324-0110,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000539,SDSS J0955+3014,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000540,SL2SJ020833-071414,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000541,SL2SJ021206-075528,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000542,SL2SJ021247-055552,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000543,SL2SJ021325-074355,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000544,SL2SJ021411-040502,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000545,SL2SJ021737-051329,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000546,SL2SJ021801-080247,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000547,SL2SJ021902-082934,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000548,SL2SJ022046-094927,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000549,SL2SJ022056-063934,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000550,SL2SJ022346-053418,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000551,SL2SJ022357-065142,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000552,SL2SJ022610-042011,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000553,SL2SJ022648-040610,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000554,SL2SJ022648-090421,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000555,SL2SJ023251-040823,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000556,SL2SJ084847-035103,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000557,SL2SJ084909-041226,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000558,SL2SJ084934-043352,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000559,SL2SJ085019-034710,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000560,SL2SJ085327-023745,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000561,SL2SJ085540-014730,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000562,SL2SJ085559-040917,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000563,SL2SJ085826-014300,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000564,SL2SJ090106-025906,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000565,SL2SJ090407-005952,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000566,SL2SJ095921+020638,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000567,SL2SJ135847+545913,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000568,SL2SJ135949+553550,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000569,SL2SJ140123+555705,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000570,SL2SJ140156+554446,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000571,SL2SJ140221+550534,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000572,SL2SJ140454+520024,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000573,SL2SJ140546+524311,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000574,SL2SJ140614+520253,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000575,SL2SJ140650+522619,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000576,SL2SJ141137+565119,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000577,SL2SJ142003+523137,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000578,SL2SJ142031+525822,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000579,SL2SJ142059+563007,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000580,SL2SJ142731+551645,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000581,SL2SJ220329+020518,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000582,SL2SJ220506+014703,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000583,SL2SJ220629+005728,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000584,SL2SJ221326-000946,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000585,SL2SJ221407-180712,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000586,SL2SJ221852+014038,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000587,SL2SJ222148+011542,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000588,SL2SJ222217+001202,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000589,SL2SJ020457-110309,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000590,SL2SJ020524-093023,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000591,SL2SJ022708-065445,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000592,SL2SJ023307-043838,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000593,SL2SJ085317-020312,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000594,SDSS J0008-0004,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000595,SDSS J0157-0056,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000596,SDSS J0216-0813,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000597,SDSS J0330-0020,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000598,SDSS J0737+3216,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000599,SDSS J0903+4116,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000600,SDSS J0935-0003,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000601,SDSS J1100+5329,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000602,SDSS J1525+3327,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000603,HSCJ015618-010747,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000604,HSCJ020241-064611,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000605,HSCJ023817-054555,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000606,HSCJ085855-010208,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000607,HSCJ094427-014742,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000608,HSCJ120623+001507,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000609,HSCJ121052-011905,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000610,HSCJ121504+004726,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000611,HSCJ140929-011410,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000612,HSCJ141300-012608,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000613,HSCJ141815+015832,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000614,HSCJ142449-005321,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000615,HSCJ142720+001916,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000616,HSCJ144307-004056,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000617,HSCJ222801+012805,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000618,HSCJ223733+005015,aeg-d-strong-lensing/v1,2026-11-01
+aeg-s-000619,HSCJ230335+003703,aeg-d-strong-lensing/v1,2026-11-01

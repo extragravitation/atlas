@@ -1,0 +1,784 @@
+{
+  "name": "aeg-d-strong-lensing",
+  "version": "v1",
+  "title": "Galaxy-scale strong lenses: projected mass inside the Einstein radius against projected stars and gas in the same cylinder",
+  "description": "Atlas conversion of published galaxy-scale strong lenses whose lens is an early-type galaxy (A6) into one projected g_obs and g_bar per system at the Einstein radius (D-064): g_obs = G M_E / R_E^2 and g_bar = G (M* + M_gas)(<R_E) / R_E^2, both labelled projected and never merged with 3D values. Who is plotted and which record is the default follow the frozen precedence rule (docs/methods/A6S_PRECEDENCE.md, D-065), the epoch cut z_l < 0.30 (D-066) and the rulings D-063, D-075 and D-076. Every input was read twice at source and adjudicated (reading/). Stellar masses inside R_E as printed, as luminosity x population M/L, or as a printed total x the source's own light-profile fraction; Chabrier/Kroupa default with a Salpeter top (slider a6s_stellar_imf). Gas inside R_E from the registered term of D-076 item 1 (slider a6s_gas_in_RE). See REPRODUCTION.md, SECOND_READING.md and RESULT_SUMMARY.md.",
+  "standard_version": "2.1.0",
+  "x_standard_version": "2.1.0",
+  "x_licence_status": "Original papers and journal tables: values transcribed with citation, not redistributed (all rights reserved at the journal or arXiv non-exclusive licence, per the packaging inventory; R9 and R33 are CC BY on arXiv). VizieR and AAS machine-readable tables: linked and hash-verified, not redistributed. Atlas tables intended CC BY 4.0 under D-004, citing the sources.",
+  "licenses": [],
+  "sources": [
+    {
+      "title": "Bolton et al. 2008, ApJ 682, 964 (SLACS V): VizieR J/ApJ/682/964 tables 4 and 5; arXiv:0805.1931v1",
+      "path": "https://vizier.cfa.harvard.edu/viz-bin/VizieR?-source=J/ApJ/682/964"
+    },
+    {
+      "title": "Grillo et al. 2009, A&A 501, 461: VizieR J/A+A/501/461 (lens table); arXiv:0904.3282v2",
+      "path": "https://vizier.cfa.harvard.edu/viz-bin/VizieR?-source=J/A+A/501/461"
+    },
+    {
+      "title": "Shu et al. 2017, ApJ 851, 48 (S4TM): Tables 1-2; arXiv:1711.00072v2. Method: Shu et al. 2015, ApJ 803, 71 (arXiv:1407.2240v2)",
+      "path": "https://content.cld.iop.org/journals/0004-637X/851/1/48/revision1/apjaa9794t2_ascii.txt"
+    },
+    {
+      "title": "Sonnenfeld et al. 2013, ApJ 777, 97 (SL2S III), Tables 4, 6, 7; ApJ 777, 98 (SL2S IV), Table 2",
+      "path": "https://content.cld.iop.org/journals/0004-637X/777/2/97/revision1/apj485108t7_mrt.txt"
+    },
+    {
+      "title": "SNELLS: Smith & Lucey 2013 (arXiv:1306.4983v1); Smith, Lucey & Conroy 2015 (arXiv:1503.02661v1); Newman et al. 2017 (arXiv:1612.00065v2); Collier, Smith & Lucey 2018 (arXiv:1709.01931v1)",
+      "path": "sources.json"
+    },
+    {
+      "title": "MNELLS J0403-0239: Collier, Smith & Lucey 2018b (arXiv:1803.07082v1); Collier, Smith & Lucey 2020 (arXiv:2002.07191v1)",
+      "path": "sources.json"
+    },
+    {
+      "title": "MaNGA lenses: Smith et al. 2020, MNRAS 493, L33 (arXiv:1911.06338v1)",
+      "path": "https://arxiv.org/abs/1911.06338"
+    },
+    {
+      "title": "NGC 6505: O'Riordan et al. 2025, A&A 694, A145 (arXiv:2502.06505v1)",
+      "path": "https://arxiv.org/abs/2502.06505"
+    },
+    {
+      "title": "Auger et al. 2009, ApJ 705, 1099 (SLACS IX), Table 4: printed M_Ein for the reported formula check only",
+      "path": "https://content.cld.iop.org/journals/0004-637X/705/2/1099/revision1/apj326624t4_ascii.txt"
+    },
+    {
+      "title": "Gas term (D-076 item 1): measured gas and stellar masses in the same apertures of early-type galaxies",
+      "path": "reading/gas/adjudication_gas.md"
+    }
+  ],
+  "x_citation": "Observed side: Bolton et al. 2008 (SLACS V); Shu et al. 2017 (S4TM); Sonnenfeld et al. 2013a (SL2S III); Smith & Lucey 2013; Collier, Smith & Lucey 2018a, 2018b; Smith et al. 2020; O'Riordan et al. 2025. Redshifts: the same, and Sonnenfeld et al. 2013b (SL2S IV). Stellar masses: Grillo et al. 2009; Shu et al. 2015, 2017; Sonnenfeld et al. 2013a; Newman et al. 2017; Collier, Smith & Lucey 2018a, 2018b; Smith et al. 2020; O'Riordan et al. 2025. Gas: the sources listed in reading/gas/adjudication_gas.md §3. Every value's record and location is in source_ref.",
+  "x_selection": [
+    {
+      "quantity": "kind",
+      "condition": "==",
+      "value": "galaxy-scale lens with one main deflector, early-type at source (A6); other kinds recorded with the reason",
+      "citation": "D-063 item 6; A6S_PRECEDENCE §1"
+    },
+    {
+      "quantity": "confirmation",
+      "condition": "==",
+      "value": "confirmed lens (SLACS and S4TM grade A; SL2S grade A); grades B and C recorded, not plotted",
+      "citation": "D-063 item 5"
+    },
+    {
+      "quantity": "redshifts",
+      "condition": "==",
+      "value": "spectroscopic lens and source redshifts, neither derived from the system's own velocity dispersion",
+      "citation": "D-063 items 3 and 5"
+    },
+    {
+      "quantity": "lens redshift",
+      "condition": "<",
+      "value": "0.30 exactly, as printed; systems at or above it are recorded, flagged epoch_gap_v1",
+      "citation": "D-066"
+    },
+    {
+      "quantity": "observed side",
+      "condition": "==",
+      "value": "the default record's printed M_E, or M_E from theta_E by A6S_PRECEDENCE §2.4 in the source's cosmology; originals first, full models over image-separation estimates",
+      "citation": "A6S_PRECEDENCE §2; D-063 item 2; D-075 items 2-4"
+    },
+    {
+      "quantity": "stellar mass",
+      "condition": "==",
+      "value": "inside the same cylinder: printed inside R_E, or L(<R_E) x population M/L with a named IMF, or printed total x f(<R_E) from the source's own light profile; Chabrier/Kroupa default",
+      "citation": "A6S_PRECEDENCE §3; D-063 item 1; D-075 items 2, 3, 5; D-076 items 2, 3"
+    },
+    {
+      "quantity": "source wording",
+      "condition": "==",
+      "value": "SLACS: 'grade-A' lenses modelled in SLACS V; S4TM: 'grade-A' lenses; SL2S: grade A = 'definite lens' (R20 §2)",
+      "citation": "reading/adjudicated_inputs.csv"
+    }
+  ],
+  "x_baryon_inventory": [
+    {
+      "component": "stars",
+      "status": "measured",
+      "citation": "Population-synthesis stellar masses or M/L with a named IMF (D-063 item 1): Grillo et al. 2009 (BC03, Chabrier; Salpeter top), Shu et al. 2015/2017 (FSPS, Chabrier; Salpeter top from O'Riordan et al. 2025's printed factor, D-076 item 2), Sonnenfeld et al. 2013a (BC03, Chabrier; own Salpeter), Newman et al. 2017 and Collier et al. 2018a (Kroupa), Collier et al. 2018b (Kroupa; alpha = 1.55), Smith et al. 2020 (Kroupa; alpha ~ 1.65), O'Riordan et al. 2025 (Chabrier; / 0.61)"
+    },
+    {
+      "component": "stellar remnants",
+      "status": "modelled",
+      "citation": "Included in the population-synthesis masses and M/L"
+    },
+    {
+      "component": "hot gas",
+      "status": "modelled",
+      "citation": "Registered term a6s_gas_in_RE (D-076 item 1, option G1): 0.12% of M*(<R_E), range 0.015-2.5%, from 28 same-aperture X-ray gas and stellar measurements of early-type galaxies (reading/gas/adjudication_gas.md §3-5)"
+    },
+    {
+      "component": "molecular gas",
+      "status": "modelled",
+      "citation": "Registered term a6s_gas_in_RE, cold component (molecular plus atomic): default 0, range 0-2% of M*(<R_E) (D-076 item 1; reading/gas/adjudication_gas.md §5)"
+    },
+    {
+      "component": "atomic gas",
+      "status": "modelled",
+      "citation": "Included in the cold component of a6s_gas_in_RE (top from a flagged sample bound of about 1%, D-076 item 1)"
+    },
+    {
+      "component": "dust",
+      "status": "not_addressed",
+      "citation": "No source read for v1"
+    }
+  ],
+  "x_precedence": "docs/methods/A6S_PRECEDENCE.md (frozen, D-065) applied by docs/sources/screening-A6S/packaging-tools/rank_a6s.py to metadata before any value was read; fallback records by D-075 item 2 (J0946+1006 and J1538+5817 to R13; J0403-0239 to R29's matched pair; SNL-1 to R61, D-076 item 3), flagged fallback_record. Alternatives (Maraston 2005 pair for SLACS, ugriz-only fit and HST R_e for SL2S, z = 0.041 for NGC 6505) are role = alternative rows, never plotted.",
+  "x_checks": [
+    {
+      "check": "REPRODUCTION.md tests 1-4",
+      "freeze_record": "data/frozen/a6s-reproduction.json",
+      "result": "SECOND_READING.md; checks/second_reading.csv; checks/transcription.csv"
+    },
+    {
+      "check": "§2.4 formula check (reported, not pass/fail)",
+      "freeze_record": "data/frozen/a6s-reproduction.json",
+      "result": "checks/formula_check.ecsv"
+    },
+    {
+      "check": "D-075 item 5 profile-step check on SLACS (reported, not pass/fail)",
+      "freeze_record": "data/frozen/a6s-reproduction.json",
+      "result": "checks/profile_step.ecsv"
+    },
+    {
+      "check": "released-file check: every tier-1 number used found in its system's row of the released file",
+      "freeze_record": "data/frozen/a6s-reproduction.json",
+      "result": "checks/released_files.csv"
+    }
+  ],
+  "x_search_log": "docs/sources/search-log-A6.md; docs/sources/screening-A6S/ (final.csv, packaging-inventory.md: records R5, R7, R9, R10, R13, R20, R21, R25-R30, R32, R33, R36, R61)",
+  "x_second_reading": {
+    "by": "two independent agent readers (Claude) per block, in separate folders, without the conversion code; disagreements settled at source by a third session (reading/adjudication.md, reading/gas/adjudication_gas.md); R61 SNL-1 values by a further second reader (reading/readings/second-reader-r61-snl1.csv)",
+    "date": "2026-10-31 to 2026-11-01",
+    "result": "test 1 FAIL: 1107 of 1111 packaged numbers pass (1097 in both readings, 10 adjudicated at source); the 4 failures are the printed errors of R32's R_E in kpc, recorded by reader A only (they do not enter g_obs or g_bar); tests 2-4 pass (2: 5927 of 5927; 3: 1178 recomputations to 1e-9; 4: 197 pytest). The package is not shipped until test 1 passes.",
+    "file": "SECOND_READING.md",
+    "scripts": "reproduction/test1_second_reading.py; reproduction/test2_transcription.py"
+  },
+  "resources": [
+    {
+      "name": "measurements",
+      "path": "tables/measurements.ecsv",
+      "format": "ecsv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "dialect": {
+        "delimiter": ",",
+        "commentChar": "#",
+        "header": true
+      },
+      "schema": {
+        "fields": [
+          {
+            "name": "measurement_id",
+            "type": "string",
+            "description": "Measurement identifier (D-006)",
+            "ucd": "meta.id;meta.main"
+          },
+          {
+            "name": "system_id",
+            "type": "string",
+            "description": "Atlas system identifier (data/registry/systems.csv)",
+            "ucd": "meta.id"
+          },
+          {
+            "name": "kind",
+            "type": "string",
+            "description": "system_value: one value per system",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "channel",
+            "type": "string",
+            "description": "lensing",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "method_class",
+            "type": "string",
+            "description": "lensing",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "method",
+            "type": "string",
+            "description": "How g_obs and g_bar were obtained",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "measured_quantity",
+            "type": "string",
+            "description": "g_obs",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "r_kpc",
+            "type": "number",
+            "description": "Einstein radius R_E (projected)",
+            "ucd": "phys.size.radius",
+            "unit": "kpc"
+          },
+          {
+            "name": "r_kind",
+            "type": "string",
+            "description": "projected (D-064): never merged with 3D values",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "g_obs",
+            "type": "number",
+            "description": "Observed acceleration in projection, G M_E / R_E^2 (D-064)",
+            "ucd": "phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_obs_err_lo",
+            "type": "number",
+            "description": "From the M_E error at fixed R_E",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_obs_err_hi",
+            "type": "number",
+            "description": "From the M_E error at fixed R_E",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar",
+            "type": "number",
+            "description": "Baryonic acceleration in projection, G (M*(<R_E) + M_gas(<R_E)) / R_E^2 (D-064)",
+            "ucd": "phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar_err_lo",
+            "type": "number",
+            "description": "From the stellar-mass error only, at fixed R_E",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar_err_hi",
+            "type": "number",
+            "description": "From the stellar-mass error only, at fixed R_E",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar_stars",
+            "type": "number",
+            "description": "Stars inside the cylinder, default IMF",
+            "ucd": "phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar_gas_cold",
+            "type": "number",
+            "description": "Cold gas inside the cylinder (registered gas term, D-076 item 1)",
+            "ucd": "phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar_gas_hot",
+            "type": "number",
+            "description": "Hot gas inside the cylinder (registered gas term, D-076 item 1)",
+            "ucd": "phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "limit",
+            "type": "string",
+            "description": "none",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "stars_status",
+            "type": "string",
+            "description": "Stars: measured",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "gas_cold_status",
+            "type": "string",
+            "description": "Cold gas: modelled from the registered gas term",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "gas_hot_status",
+            "type": "string",
+            "description": "Hot gas: modelled from the registered gas term",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "observed_from",
+            "type": "string",
+            "description": "Observable IDs feeding g_obs",
+            "ucd": "meta.ref"
+          },
+          {
+            "name": "baryonic_from",
+            "type": "string",
+            "description": "Observable IDs feeding g_bar (including the IMF top where used)",
+            "ucd": "meta.ref"
+          },
+          {
+            "name": "model_dependence",
+            "type": "string",
+            "description": "total_mass_form where R_E is half the image separation (D-063 item 2)",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "evidence_tier",
+            "type": "string",
+            "description": "Highest (weakest) tier among the inputs (D-035)",
+            "ucd": "meta.code.qual"
+          },
+          {
+            "name": "role",
+            "type": "string",
+            "description": "default or alternative",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "alternative_of",
+            "type": "string",
+            "description": "Default measurement this row is an alternative to",
+            "ucd": "meta.id"
+          },
+          {
+            "name": "plotted",
+            "type": "string",
+            "description": "Plotted in the default view",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "not_plotted_reason",
+            "type": "string",
+            "description": "Why not plotted",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "assumptions",
+            "type": "string",
+            "description": "Registered assumptions (data/assumptions.json)",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "adjustable",
+            "type": "string",
+            "description": "Assumptions with a slider on this row",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "flags",
+            "type": "string",
+            "description": "Core flags (data standard §11)",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "source_ref",
+            "type": "string",
+            "description": "Default observed and stellar-mass records (inventory R numbers)",
+            "ucd": "meta.ref"
+          },
+          {
+            "name": "notes",
+            "type": "string",
+            "description": "Reasons not plotted, or what the alternative replaces",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "x_strong_lensing_projection",
+            "type": "string",
+            "description": "projected (D-064)",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "x_strong_lensing_scope",
+            "type": "string",
+            "description": "Inventory scope (survey)",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "x_strong_lensing_flags",
+            "type": "string",
+            "description": "Package flags (D-075, D-076), space-separated",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "x_strong_lensing_theta_e_arcsec",
+            "type": "number",
+            "description": "Einstein radius (or aperture taken as R_E)",
+            "ucd": "phys.angSize",
+            "unit": "arcsec"
+          },
+          {
+            "name": "x_strong_lensing_z_l",
+            "type": "number",
+            "description": "Lens redshift used",
+            "ucd": "src.redshift"
+          },
+          {
+            "name": "x_strong_lensing_z_s",
+            "type": "number",
+            "description": "Source redshift used",
+            "ucd": "src.redshift"
+          },
+          {
+            "name": "x_strong_lensing_h0",
+            "type": "number",
+            "description": "Source's H0",
+            "ucd": "phys.veloc.expansion",
+            "unit": "km / (Mpc s)"
+          },
+          {
+            "name": "x_strong_lensing_om",
+            "type": "number",
+            "description": "Source's Omega_m (flat)",
+            "ucd": "meta.number"
+          },
+          {
+            "name": "x_strong_lensing_m_e_msun",
+            "type": "number",
+            "description": "Projected mass inside R_E",
+            "ucd": "phys.mass",
+            "unit": "solMass"
+          },
+          {
+            "name": "x_strong_lensing_m_e_source",
+            "type": "string",
+            "description": "printed or computed (A6S_PRECEDENCE §2.4)",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "x_strong_lensing_r_e_source",
+            "type": "string",
+            "description": "printed (kpc, R32) or computed",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "x_strong_lensing_mstar_route",
+            "type": "string",
+            "description": "printed_in_RE, L_times_ML or profile",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "x_strong_lensing_mstar_msun",
+            "type": "number",
+            "description": "Stellar mass as printed (inside R_E or total) or L x M/L",
+            "ucd": "phys.mass",
+            "unit": "solMass"
+          },
+          {
+            "name": "x_strong_lensing_l_aperture_lsun",
+            "type": "number",
+            "description": "Luminosity inside R_E (band in observables)",
+            "ucd": "phys.luminosity",
+            "unit": "solLum"
+          },
+          {
+            "name": "x_strong_lensing_ml",
+            "type": "number",
+            "description": "Population M/L (named IMF)",
+            "ucd": "phys.composition.massLightRatio",
+            "unit": "solMass / solLum"
+          },
+          {
+            "name": "x_strong_lensing_r_eff_arcsec",
+            "type": "number",
+            "description": "Source's light-profile effective radius",
+            "ucd": "phys.angSize",
+            "unit": "arcsec"
+          },
+          {
+            "name": "x_strong_lensing_sersic_n",
+            "type": "number",
+            "description": "Sersic index of the source's light profile (4 = de Vaucouleurs)",
+            "ucd": "meta.number"
+          },
+          {
+            "name": "x_strong_lensing_profile_fraction",
+            "type": "number",
+            "description": "f(<R_E) from the source's light profile",
+            "ucd": "arith.factor"
+          },
+          {
+            "name": "x_strong_lensing_mstar_re_msun",
+            "type": "number",
+            "description": "Stellar mass inside R_E at the default IMF",
+            "ucd": "phys.mass",
+            "unit": "solMass"
+          },
+          {
+            "name": "x_strong_lensing_mstar_top_msun",
+            "type": "number",
+            "description": "Salpeter stellar mass inside R_E (IMF slider top); empty where not read",
+            "ucd": "phys.mass",
+            "unit": "solMass"
+          },
+          {
+            "name": "x_strong_lensing_mstar_top_source",
+            "type": "string",
+            "description": "Where the Salpeter top comes from",
+            "ucd": "meta.ref"
+          },
+          {
+            "name": "x_strong_lensing_gas_term",
+            "type": "string",
+            "description": "Registered gas term and its ruling",
+            "ucd": "meta.ref"
+          },
+          {
+            "name": "x_strong_lensing_gas_statement",
+            "type": "string",
+            "description": "The source's own gas statement, where it makes one",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "x_strong_lensing_gas_cold_frac",
+            "type": "number",
+            "description": "Cold gas as a fraction of M*(<R_E), default",
+            "ucd": "arith.factor"
+          },
+          {
+            "name": "x_strong_lensing_gas_cold_frac_min",
+            "type": "number",
+            "description": "Cold gas fraction, registered minimum",
+            "ucd": "arith.factor"
+          },
+          {
+            "name": "x_strong_lensing_gas_cold_frac_max",
+            "type": "number",
+            "description": "Cold gas fraction, registered maximum",
+            "ucd": "arith.factor"
+          },
+          {
+            "name": "x_strong_lensing_gas_hot_frac",
+            "type": "number",
+            "description": "Hot gas as a fraction of M*(<R_E), default",
+            "ucd": "arith.factor"
+          },
+          {
+            "name": "x_strong_lensing_gas_hot_frac_min",
+            "type": "number",
+            "description": "Hot gas fraction, registered minimum",
+            "ucd": "arith.factor"
+          },
+          {
+            "name": "x_strong_lensing_gas_hot_frac_max",
+            "type": "number",
+            "description": "Hot gas fraction, registered maximum",
+            "ucd": "arith.factor"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    },
+    {
+      "name": "observables",
+      "path": "tables/observables.ecsv",
+      "format": "ecsv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "dialect": {
+        "delimiter": ",",
+        "commentChar": "#",
+        "header": true
+      },
+      "schema": {
+        "fields": [
+          {
+            "name": "observable_id",
+            "type": "string",
+            "description": "Observable identifier",
+            "ucd": "meta.id;meta.main"
+          },
+          {
+            "name": "system_id",
+            "type": "string",
+            "description": "Atlas system identifier",
+            "ucd": "meta.id"
+          },
+          {
+            "name": "side",
+            "type": "string",
+            "description": "observed or baryonic",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "quantity",
+            "type": "string",
+            "description": "Data standard 2.1.0 §4a",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "value",
+            "type": "number",
+            "description": "Value in the unit of the row (log values converted to linear)",
+            "ucd": "meta.number"
+          },
+          {
+            "name": "err_lo",
+            "type": "number",
+            "description": "Lower error, same unit",
+            "ucd": "stat.error"
+          },
+          {
+            "name": "err_hi",
+            "type": "number",
+            "description": "Upper error, same unit",
+            "ucd": "stat.error"
+          },
+          {
+            "name": "unit",
+            "type": "string",
+            "description": "Astropy unit string",
+            "ucd": "meta.unit"
+          },
+          {
+            "name": "band",
+            "type": "string",
+            "description": "Photometric band as the source names it",
+            "ucd": "instr.bandpass"
+          },
+          {
+            "name": "limit",
+            "type": "string",
+            "description": "none",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "steps",
+            "type": "string",
+            "description": "Ladder steps (data standard §4b)",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "evidence_tier",
+            "type": "string",
+            "description": "D-035",
+            "ucd": "meta.code.qual"
+          },
+          {
+            "name": "source_ref",
+            "type": "string",
+            "description": "Record, location and address",
+            "ucd": "meta.ref"
+          },
+          {
+            "name": "x_strong_lensing_parameter",
+            "type": "string",
+            "description": "Reading note, or the alternative it is",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "x_strong_lensing_role",
+            "type": "string",
+            "description": "Role of the input row (D-075, D-076)",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "x_strong_lensing_printed",
+            "type": "string",
+            "description": "As printed: value, errors, form and unit",
+            "ucd": "meta.note"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    },
+    {
+      "name": "systems",
+      "path": "tables/systems.ecsv",
+      "format": "ecsv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "dialect": {
+        "delimiter": ",",
+        "commentChar": "#",
+        "header": true
+      },
+      "schema": {
+        "fields": [
+          {
+            "name": "system_id",
+            "type": "string",
+            "description": "Atlas system identifier",
+            "ucd": "meta.id;meta.main"
+          },
+          {
+            "name": "name_in_source",
+            "type": "string",
+            "description": "Name as printed by the source",
+            "ucd": "meta.id"
+          },
+          {
+            "name": "class_in_source",
+            "type": "string",
+            "description": "Source's own kind label",
+            "ucd": "src.class"
+          },
+          {
+            "name": "taxonomy_kind",
+            "type": "string",
+            "description": "A0-A10 (D-063 item 6)",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "kind_label",
+            "type": "string",
+            "description": "Kind in words",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "host",
+            "type": "string",
+            "description": "Host system (none)",
+            "ucd": "meta.id"
+          },
+          {
+            "name": "redshift",
+            "type": "number",
+            "description": "Lens redshift as printed (default record)",
+            "ucd": "src.redshift"
+          },
+          {
+            "name": "redshift_err",
+            "type": "number",
+            "description": "As printed",
+            "ucd": "stat.error;src.redshift"
+          },
+          {
+            "name": "distance_kinematic",
+            "type": "string",
+            "description": "false: spectroscopic redshifts, no kinematic distance",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "distance_ref",
+            "type": "string",
+            "description": "Where the lens redshift was read",
+            "ucd": "meta.ref"
+          },
+          {
+            "name": "properties",
+            "type": "string",
+            "description": "Scope, status, reasons not plotted, z_s, gas statement, flags (JSON)",
+            "ucd": "meta.note"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    }
+  ]
+}

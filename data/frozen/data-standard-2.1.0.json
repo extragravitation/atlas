@@ -1,0 +1,8 @@
+{
+  "description": "Data standard 2.1.0 (minor: adds the observed-side quantity einstein_mass, D-076 item 4). 2.0.0 and 1.3.0 texts stay frozen under data-standard-2.0.0.json. The validator is not frozen: it must keep implementing the frozen texts.",
+  "frozen_on": "2026-11-01",
+  "decision": "D-076",
+  "files": {
+    "docs/data-standard.md": "a7e18beaadc377df44dfaf66b27b21c4be041ed21d944993911c4d2a8fdadfed"
+  }
+}

@@ -61,6 +61,13 @@ test('labels format parameters', () => {
   assert.equal(fmtParam('sigma', -1), '−1.0σ');
   assert.equal(fmtParam('percent', 0.25), '25%');
   assert.equal(fmtParam('value', 0.5), '0.50');
+  assert.equal(fmtParam('imf', 0), 'Chabrier/Kroupa');
+  assert.equal(fmtParam('imf', 1), 'Salpeter');
+  assert.equal(fmtParam('imf', 0.5), '50% to Salpeter');
+  assert.equal(fmtParam('range', 0), 'default');
+  assert.equal(fmtParam('range', -1), 'minimum');
+  assert.equal(fmtParam('range', 1), 'maximum');
+  assert.equal(fmtParam('range', -0.25), '25% to minimum');
   assert.equal(sigFig(38300000000), '3.83 × 10¹⁰');
   assert.equal(sigFig(150.1), '150');
 });

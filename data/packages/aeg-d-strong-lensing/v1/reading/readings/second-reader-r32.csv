@@ -1,0 +1,7 @@
+system,quantity,value,err,unit,location,url,version
+SDSS J1436+4943,theta_Ein,2.03,0.04,arcsec,"Table 1 (as printed; body text calls it Table 5), row θEin, column J1436+4943",https://arxiv.org/pdf/1911.06338v1,arXiv v1
+SDSS J1436+4943,R_Ein,4.72,0.09,kpc,"Table 1, row REin, column J1436+4943",https://arxiv.org/pdf/1911.06338v1,arXiv v1
+SDSS J1436+4943,M_Ein,28.2,1.1,1e10 Msun,"Table 1, row MEin, column J1436+4943 (unit printed 10^10 M⊙; symbol lost in text extraction)",https://arxiv.org/pdf/1911.06338v1,arXiv v1
+SDSS J1701+3722,theta_Ein,1.63,0.16,arcsec,"Table 1 (as printed; body text calls it Table 5), row θEin, column J1701+3722",https://arxiv.org/pdf/1911.06338v1,arXiv v1
+SDSS J1701+3722,R_Ein,3.71,0.37,kpc,"Table 1, row REin, column J1701+3722",https://arxiv.org/pdf/1911.06338v1,arXiv v1
+SDSS J1701+3722,M_Ein,18.8,3.7,1e10 Msun,"Table 1, row MEin, column J1701+3722 (unit printed 10^10 M⊙; symbol lost in text extraction)",https://arxiv.org/pdf/1911.06338v1,arXiv v1

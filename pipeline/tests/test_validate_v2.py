@@ -23,13 +23,13 @@ def _col(t, name, values, ucd, desc="Synthetic test column.", unit=None, dtype=N
         t[name].unit = unit
 
 
-def _write(t, path):
-    t.meta["standard_version"] = "2.0.0"
+def _write(t, path, standard="2.0.0"):
+    t.meta["standard_version"] = standard
     path.parent.mkdir(parents=True, exist_ok=True)
     t.write(path, format="ascii.ecsv", overwrite=True)
 
 
-def make_pkg(root: Path, *, meas=None, obs=None, systems=None, desc=None, second=True) -> Path:
+def make_pkg(root: Path, *, meas=None, obs=None, systems=None, desc=None, second=True, standard="2.0.0") -> Path:
     pkg = root / "data/packages" / DS / VER
     m = {
         "measurement_id": [f"{DS}/{VER}/m000001"],
@@ -51,7 +51,7 @@ def make_pkg(root: Path, *, meas=None, obs=None, systems=None, desc=None, second
             "baryonic_from": "meta.ref", "not_plotted_reason": "meta.note", "delta_g": "phys.acceleration"}
     for k, v in m.items():
         _col(t, k, v, ucds.get(k, "meta.code"), unit="m / s2" if k in ("g_obs", "g_bar", "delta_g") else None)
-    _write(t, pkg / "tables/measurements.ecsv")
+    _write(t, pkg / "tables/measurements.ecsv", standard)
 
     o = {
         "observable_id": [f"{DS}/{VER}/o000001", f"{DS}/{VER}/o000002"],
@@ -67,7 +67,7 @@ def make_pkg(root: Path, *, meas=None, obs=None, systems=None, desc=None, second
     for k, v in o.items():
         _col(t, k, v, {"observable_id": "meta.id;meta.main", "system_id": "meta.id", "value": "meta.number",
                        "source_ref": "meta.ref", "evidence_tier": "meta.code.qual"}.get(k, "meta.code"))
-    _write(t, pkg / "tables/observables.ecsv")
+    _write(t, pkg / "tables/observables.ecsv", standard)
 
     s = {"system_id": ["aeg-s-900001"], "name_in_source": ["Synth 1"], "class_in_source": ["GC"],
          "taxonomy_kind": ["A3"], "kind_label": ["globular cluster"], "distance_mpc": [0.01],
@@ -79,9 +79,9 @@ def make_pkg(root: Path, *, meas=None, obs=None, systems=None, desc=None, second
         _col(t, k, v, {"system_id": "meta.id;meta.main", "name_in_source": "meta.id", "class_in_source": "src.class",
                        "distance_mpc": "pos.distance", "properties": "meta.note"}.get(k, "meta.code"),
              unit="Mpc" if k == "distance_mpc" else None)
-    _write(t, pkg / "tables/systems.ecsv")
+    _write(t, pkg / "tables/systems.ecsv", standard)
 
-    d = {"name": DS, "standard_version": "2.0.0",
+    d = {"name": DS, "standard_version": standard,
          "x_selection": [{"quantity": "members", "condition": ">=", "value": 10, "citation": "Synthetic"}],
          "x_baryon_inventory": [{"component": "stars", "status": "measured", "citation": "Synthetic"},
                                 {"component": "atomic gas", "status": "absent_literature_limit", "citation": "Synthetic"}],
@@ -139,3 +139,17 @@ def test_limit_without_errors_and_delta_g(root):
     assert V.validate(pkg) == []
     pkg = make_pkg(root, meas={"measured_quantity": ["delta_g"]})
     assert any("measures delta_g but delta_g is empty" in p for p in V.validate(pkg))
+
+
+def test_einstein_mass_only_from_2_1_0(root):
+    """D-076 item 4: einstein_mass is an observed-side quantity from standard 2.1.0; 2.0.0 packages still validate."""
+    lens = dict(obs={"quantity": ["einstein_mass", "luminosity"], "unit": ["solMass", "solLum"], "value": [1e11, 1e10],
+                     "steps": ["image_positions;lens_model;einstein_radius;projected_mass", "photometry;luminosity"]})
+    assert V.validate(make_pkg(root, standard="2.1.0", **lens)) == []
+    problems = V.validate(make_pkg(root, standard="2.0.0", **lens))
+    assert any("'einstein_mass' not allowed on the observed side" in p for p in problems), problems
+    assert V.validate(make_pkg(root, standard="2.0.0")) == []
+    assert V.validate(make_pkg(root, standard="2.1.0")) == []
+    # still observed side only
+    wrong = dict(obs={"quantity": ["sigma_los", "einstein_mass"]})
+    assert any("not allowed on the baryonic side" in p for p in V.validate(make_pkg(root, standard="2.1.0", **wrong)))

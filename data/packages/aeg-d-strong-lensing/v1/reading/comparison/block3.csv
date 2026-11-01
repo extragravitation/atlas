@@ -1,0 +1,697 @@
+scope,system,record,quantity,variant,value_a,value_b,err_a,err_b,form_a,form_b,status
+CASTLES lenses,00472808,R36,kind,,no per-system statement; sample described as early-type,,/,/,,,only_a
+CASTLES lenses,00472808,R36,z_l,,0.48,,/,/,linear,,only_a
+CASTLES lenses,00472808,R36,z_l_method,,not stated; listed beside fundamental-plane estimates zFP,,/,/,,,only_a
+CASTLES lenses,00472808,R36,z_s,,3.60,,/,/,linear,,only_a
+CASTLES lenses,B0218+357,R36,kind,,spiral (Sa colour; HI and molecular gas),"spiral (Sa-like colour, HI)",/,/,,,text
+CASTLES lenses,B0218+357,R36,z_l,,0.68,0.68,/,/,linear,linear,agree
+CASTLES lenses,B0218+357,R36,z_l_method,,not stated (reference column only),not stated in R36a (literature value; reference column),/,/,,,text
+CASTLES lenses,B0218+357,R36,z_s,,0.96,0.96,/,/,linear,linear,agree
+CASTLES lenses,B0218+357,R36,z_s_method,,not stated (reference column only),not stated in R36a (literature value),/,/,,,text
+CASTLES lenses,B0712+472,R36,kind,,no per-system statement; sample described as mostly early-type,"sample-level only: most lens galaxies early-type, a few spirals",/,/,,,text
+CASTLES lenses,B0712+472,R36,z_l,,0.41,0.41,/,/,linear,linear,agree
+CASTLES lenses,B0712+472,R36,z_l_method,,not stated (reference column only),not stated in R36a (literature value; reference column),/,/,,,text
+CASTLES lenses,B0712+472,R36,z_s,,1.33,1.33,/,/,linear,linear,agree
+CASTLES lenses,B0712+472,R36,z_s_method,,not stated (reference column only),not stated in R36a (literature value),/,/,,,text
+CASTLES lenses,B1030+071,R36,kind,,no per-system statement; sample described as early-type,,/,/,,,only_a
+CASTLES lenses,B1030+071,R36,z_l,,0.60,,/,/,linear,,only_a
+CASTLES lenses,B1030+071,R36,z_l_method,,not stated; listed beside fundamental-plane estimates zFP,,/,/,,,only_a
+CASTLES lenses,B1030+071,R36,z_s,,1.54,,/,/,linear,,only_a
+CASTLES lenses,B1127+385,R36,kind,,no per-system statement; sample described as early-type,,/,/,,,only_a
+CASTLES lenses,B1127+385,R36,z_l,,0.78,,/,/,linear,,only_a
+CASTLES lenses,B1127+385,R36,z_l_method,,derived (fundamental-plane/colour estimate); no measured z_l printed,,/,/,,,only_a
+CASTLES lenses,B1127+385,R36,z_s,,,,/,/,,,only_a
+CASTLES lenses,B1422+231,R36,kind,,no per-system statement; sample described as mostly early-type,galaxy in a small group,/,/,,,text
+CASTLES lenses,B1422+231,R36,z_l,,0.34,0.34,/,/,linear,linear,agree
+CASTLES lenses,B1422+231,R36,z_l_method,,not stated (reference column only),not stated in R36a (literature value; reference column),/,/,,,text
+CASTLES lenses,B1422+231,R36,z_s,,3.62,3.62,/,/,linear,linear,agree
+CASTLES lenses,B1422+231,R36,z_s_method,,not stated (reference column only),not stated in R36a (literature value),/,/,,,text
+CASTLES lenses,B1600+434,R36,kind,,late-type,late-type per R36 2000 paper; ambiguous in 1998,/,/,,,text
+CASTLES lenses,B1600+434,R36,z_l,,0.41,0.41,/,/,linear,linear,agree
+CASTLES lenses,B1600+434,R36,z_l_method,,not stated (reference column only),not stated in R36a (literature value; reference column),/,/,,,text
+CASTLES lenses,B1600+434,R36,z_s,,1.57,1.57,/,/,linear,linear,agree
+CASTLES lenses,B1600+434,R36,z_s_method,,not stated (reference column only),not stated in R36a (literature value),/,/,,,text
+CASTLES lenses,B1608+656,R36,kind,,no per-system statement; sample described as mostly early-type,colours more consistent with spiral models; luminosity fits early-type correlation,/,/,,,text
+CASTLES lenses,B1608+656,R36,z_l,,0.63,0.63,/,/,linear,linear,agree
+CASTLES lenses,B1608+656,R36,z_l_method,,not stated (reference column only),not stated in R36a (literature value; reference column),/,/,,,text
+CASTLES lenses,B1608+656,R36,z_s,,1.39,1.39,/,/,linear,linear,agree
+CASTLES lenses,B1608+656,R36,z_s_method,,not stated (reference column only),not stated in R36a (literature value),/,/,,,text
+CASTLES lenses,B1933+503,R36,kind,,no per-system statement; sample described as mostly early-type,colours more consistent with spiral models; luminosity fits early-type correlation,/,/,,,text
+CASTLES lenses,B1933+503,R36,z_l,,0.76,0.76,/,/,linear,linear,agree
+CASTLES lenses,B1933+503,R36,z_l_method,,not stated (reference column only),not stated in R36a (literature value; reference column),/,/,,,text
+CASTLES lenses,B1933+503,R36,z_s,,,,/,/,,,differ
+CASTLES lenses,B1938+666,R36,kind,,no per-system statement; sample described as early-type,,/,/,,,only_a
+CASTLES lenses,B1938+666,R36,z_l,,0.88,,/,/,linear,,only_a
+CASTLES lenses,B1938+666,R36,z_l_method,,not stated; listed beside fundamental-plane estimates zFP,,/,/,,,only_a
+CASTLES lenses,B1938+666,R36,z_s,,,,/,/,,,only_a
+CASTLES lenses,B2045+265,R36,kind,,no per-system statement; sample described as early-type,,/,/,,,only_a
+CASTLES lenses,B2045+265,R36,z_l,,0.87,,/,/,linear,,only_a
+CASTLES lenses,B2045+265,R36,z_l_method,,not stated; listed beside fundamental-plane estimates zFP,,/,/,,,only_a
+CASTLES lenses,B2045+265,R36,z_s,,1.28,,/,/,linear,,only_a
+CASTLES lenses,B2319+052,R36,kind,,no per-system statement; sample described as early-type,,/,/,,,only_a
+CASTLES lenses,B2319+052,R36,z_l,,0.62,,/,/,linear,,only_a
+CASTLES lenses,B2319+052,R36,z_l_method,,not stated; listed beside fundamental-plane estimates zFP,,/,/,,,only_a
+CASTLES lenses,B2319+052,R36,z_s,,,,/,/,,,only_a
+CASTLES lenses,BRI09520115,R36,kind,,no per-system statement; sample described as mostly early-type,"sample-level only: most lens galaxies early-type, a few spirals",/,/,,,text
+CASTLES lenses,BRI09520115,R36,z_l,,0.99,0.99,/,/,linear,linear,agree
+CASTLES lenses,BRI09520115,R36,z_l_method,,estimated from image separation (not measured),estimated from image separation (not measured),/,/,,,text
+CASTLES lenses,BRI09520115,R36,z_s,,4.5,4.5,/,/,linear,linear,agree
+CASTLES lenses,BRI09520115,R36,z_s_method,,not stated (reference column only),not stated in R36a (literature value),/,/,,,text
+CASTLES lenses,CASTLES(R41SAMPLE),R41,gas,,statement: expected small,,/,/,,,only_a
+CASTLES lenses,FBQ0951+2635,R36,kind,,no per-system statement; sample described as early-type,,/,/,,,only_a
+CASTLES lenses,FBQ0951+2635,R36,z_l,,0.21,,/,/,linear,,only_a
+CASTLES lenses,FBQ0951+2635,R36,z_l_method,,derived (fundamental-plane/colour estimate); no measured z_l printed,,/,/,,,only_a
+CASTLES lenses,FBQ0951+2635,R36,z_s,,1.24,,/,/,linear,,only_a
+CASTLES lenses,FSC10214+472,R36,kind,,no per-system statement; sample described as early-type,,/,/,,,only_a
+CASTLES lenses,FSC10214+472,R36,z_l,,0.78,,/,/,linear,,only_a
+CASTLES lenses,FSC10214+472,R36,z_l_method,,derived (fundamental-plane/colour estimate); no measured z_l printed,,/,/,,,only_a
+CASTLES lenses,FSC10214+472,R36,z_s,,2.29,,/,/,linear,,only_a
+CASTLES lenses,HE11041805,R36,kind,,no per-system statement; sample described as early-type,,/,/,,,only_a
+CASTLES lenses,HE11041805,R36,z_l,,0.73,,/,/,linear,,only_a
+CASTLES lenses,HE11041805,R36,z_l_method,,derived (fundamental-plane/colour estimate); no measured z_l printed,,/,/,,,only_a
+CASTLES lenses,HE11041805,R36,z_s,,2.32,,/,/,linear,,only_a
+CASTLES lenses,HE21492745,R36,kind,,no per-system statement; sample described as early-type,,/,/,,,only_a
+CASTLES lenses,HE21492745,R36,z_l,,0.43,,/,/,linear,,only_a
+CASTLES lenses,HE21492745,R36,z_l_method,,derived (fundamental-plane/colour estimate); no measured z_l printed,,/,/,,,only_a
+CASTLES lenses,HE21492745,R36,z_s,,2.03,,/,/,linear,,only_a
+CASTLES lenses,HST125312914,R36,kind,,no per-system statement; sample described as mostly early-type,"sample-level only: most lens galaxies early-type, a few spirals",/,/,,,text
+CASTLES lenses,HST125312914,R36,z_l,,,,/,/,,,differ
+CASTLES lenses,HST125312914,R36,z_l_method,,derived (fundamental-plane/colour estimate); no measured z_l printed,,/,/,,,only_a
+CASTLES lenses,HST125312914,R36,z_s,,,,/,/,,,differ
+CASTLES lenses,HST14113+521,R36,kind,,no per-system statement; sample described as early-type,,/,/,,,only_a
+CASTLES lenses,HST14113+521,R36,z_l,,0.46,,/,/,linear,,only_a
+CASTLES lenses,HST14113+521,R36,z_l_method,,not stated; listed beside fundamental-plane estimates zFP,,/,/,,,only_a
+CASTLES lenses,HST14113+521,R36,z_s,,2.81,,/,/,linear,,only_a
+CASTLES lenses,HST14176+5226,R36,kind,,no per-system statement; sample described as mostly early-type,"sample-level only: most lens galaxies early-type, a few spirals",/,/,,,text
+CASTLES lenses,HST14176+5226,R36,z_l,,0.81,0.81,/,/,linear,linear,agree
+CASTLES lenses,HST14176+5226,R36,z_l_method,,not stated (reference column only),not stated in R36a (literature value; reference column),/,/,,,text
+CASTLES lenses,HST14176+5226,R36,z_s,,3.4,(3.4),/,/,linear,linear,differ
+CASTLES lenses,HST14176+5226,R36,z_s_method,,tentative measurement,not stated in R36a (literature value); tentative,/,/,,,text
+CASTLES lenses,LBQS1009025,R36,kind,,no per-system statement; sample described as early-type,,/,/,,,only_a
+CASTLES lenses,LBQS1009025,R36,z_l,,0.88,,/,/,linear,,only_a
+CASTLES lenses,LBQS1009025,R36,z_l_method,,derived (fundamental-plane/colour estimate); no measured z_l printed,,/,/,,,only_a
+CASTLES lenses,LBQS1009025,R36,z_s,,2.74,,/,/,linear,,only_a
+CASTLES lenses,MG0414+0534,R36,kind,,no per-system statement; sample described as mostly early-type,"sample-level only: most lens galaxies early-type, a few spirals",/,/,,,text
+CASTLES lenses,MG0414+0534,R36,z_l,,0.44,0.44,/,/,linear,linear,agree
+CASTLES lenses,MG0414+0534,R36,z_l_method,,estimated from image separation (not measured),estimated from image separation (not measured),/,/,,,text
+CASTLES lenses,MG0414+0534,R36,z_s,,2.64,2.64,/,/,linear,linear,agree
+CASTLES lenses,MG0414+0534,R36,z_s_method,,not stated (reference column only),not stated in R36a (literature value),/,/,,,text
+CASTLES lenses,MG0751+2716,R36,kind,,no per-system statement; sample described as mostly early-type,galaxy in a small group,/,/,,,text
+CASTLES lenses,MG0751+2716,R36,z_l,,0.35,0.35,/,/,linear,linear,agree
+CASTLES lenses,MG0751+2716,R36,z_l_method,,not stated (reference column only),not stated in R36a (literature value; reference column),/,/,,,text
+CASTLES lenses,MG0751+2716,R36,z_s,,,,/,/,,,differ
+CASTLES lenses,MG1131+0456,R36,kind,,no per-system statement; sample described as mostly early-type,"sample-level only: most lens galaxies early-type, a few spirals",/,/,,,text
+CASTLES lenses,MG1131+0456,R36,z_l,,,,/,/,,,differ
+CASTLES lenses,MG1131+0456,R36,z_l_method,,not stated; listed beside fundamental-plane estimates zFP,,/,/,,,only_a
+CASTLES lenses,MG1131+0456,R36,z_s,,,,/,/,,,differ
+CASTLES lenses,MG1549+3047,R36,H0,,50,50,/,/,linear,,differ
+CASTLES lenses,MG1549+3047,R36,M_E,,,,/,/,,,only_b
+CASTLES lenses,MG1549+3047,R36,Om,,several discrete values,,/,/,,,differ
+CASTLES lenses,MG1549+3047,R36,R_e,,,(3.5),/,/,,linear,only_b
+CASTLES lenses,MG1549+3047,R36,aperture,,1.70,,/,/,linear,,only_a
+CASTLES lenses,MG1549+3047,R36,gas,,none,none,/,/,,,text
+CASTLES lenses,MG1549+3047,R36,kind,,no per-system statement; sample described as mostly early-type,"sample-level only: most lens galaxies early-type, a few spirals",/,/,,,text
+CASTLES lenses,MG1549+3047,R36,lens_model,,"SIS+shear and SIE (KKF98 Table 5, from literature)",SIS+shear and SIE (Table 5); radio ring modelled with LensClean,/,/,,,text
+CASTLES lenses,MG1549+3047,R36,theta_E,,1.15,1.15,/,/,linear,linear,agree
+CASTLES lenses,MG1549+3047,R36,z_l,,0.11,0.11,/,/,linear,linear,agree
+CASTLES lenses,MG1549+3047,R36,z_l_method,,not stated (reference column only),not stated in R36a (literature value; reference column),/,/,,,text
+CASTLES lenses,MG1549+3047,R36,z_s,,,,/,/,,,differ
+CASTLES lenses,MG1549+3047,R41,mstar,"system not in leier et al. 2011 table 1 (21 lenses, all with printed z_l ≥ 0.31 or blank); no stellar mass from the default record",,,/,/,,,only_b
+CASTLES lenses,MG1549+3047,R41,mstar,system not in r41 (21 castles lenses listed; mg1549 and mg1654 absent),,,/,/,,,only_a
+CASTLES lenses,MG1654+1346,R36,H0,,50,50,/,/,linear,,differ
+CASTLES lenses,MG1654+1346,R36,M_E,,,,/,/,,,only_b
+CASTLES lenses,MG1654+1346,R36,Om,,several discrete values,,/,/,,,differ
+CASTLES lenses,MG1654+1346,R36,R_e,,,1.80,/,0.02/0.02,,linear,only_b
+CASTLES lenses,MG1654+1346,R36,aperture,,2.10,,/,/,linear,,only_a
+CASTLES lenses,MG1654+1346,R36,gas,,none,none,/,/,,,text
+CASTLES lenses,MG1654+1346,R36,kind,,no per-system statement; sample described as mostly early-type,"sample-level only: most lens galaxies early-type, a few spirals",/,/,,,text
+CASTLES lenses,MG1654+1346,R36,lens_model,,"SIS+shear and SIE (KKF98 Table 5, from literature)",SIS+shear and SIE (Table 5); radio ring modelled with LensClean,/,/,,,text
+CASTLES lenses,MG1654+1346,R36,profile_type,,,de Vaucouleurs (elliptical),/,/,,,only_b
+CASTLES lenses,MG1654+1346,R36,theta_E,,0.98,0.98,0.01/0.01,0.01/0.01,linear,linear,agree
+CASTLES lenses,MG1654+1346,R36,z_l,,0.25,0.25,/,/,linear,linear,agree
+CASTLES lenses,MG1654+1346,R36,z_l_method,,not stated (reference column only),not stated in R36a (literature value; reference column),/,/,,,text
+CASTLES lenses,MG1654+1346,R36,z_s,,1.74,1.74,/,/,linear,linear,agree
+CASTLES lenses,MG1654+1346,R36,z_s_method,,not stated (reference column only),not stated in R36a (literature value),/,/,,,text
+CASTLES lenses,MG1654+1346,R41,mstar,"system not in leier et al. 2011 table 1 (21 lenses, all with printed z_l ≥ 0.31 or blank); no stellar mass from the default record",,,/,/,,,only_b
+CASTLES lenses,MG1654+1346,R41,mstar,system not in r41 (21 castles lenses listed; mg1549 and mg1654 absent),,,/,/,,,only_a
+CASTLES lenses,MG2016+112,R36,kind,,two lens galaxies at different redshifts (KKF98),,/,/,,,only_a
+CASTLES lenses,MG2016+112,R36,z_l,,1.01,,/,/,linear,,only_a
+CASTLES lenses,MG2016+112,R36,z_l_method,,not stated; listed beside fundamental-plane estimates zFP,,/,/,,,only_a
+CASTLES lenses,MG2016+112,R36,z_s,,3.27,,/,/,linear,,only_a
+CASTLES lenses,PG1115+080,R36,kind,,no per-system statement; sample described as mostly early-type,galaxy in a small group,/,/,,,text
+CASTLES lenses,PG1115+080,R36,z_l,,0.31,0.31,/,/,linear,linear,agree
+CASTLES lenses,PG1115+080,R36,z_l_method,,not stated (reference column only),not stated in R36a (literature value; reference column),/,/,,,text
+CASTLES lenses,PG1115+080,R36,z_s,,1.72,1.72,/,/,linear,linear,agree
+CASTLES lenses,PG1115+080,R36,z_s_method,,not stated (reference column only),not stated in R36a (literature value),/,/,,,text
+CASTLES lenses,Q0142100,R36,kind,,no per-system statement; sample described as mostly early-type,"sample-level only: most lens galaxies early-type, a few spirals",/,/,,,text
+CASTLES lenses,Q0142100,R36,z_l,,0.49,0.49,/,/,linear,linear,agree
+CASTLES lenses,Q0142100,R36,z_l_method,,not stated (reference column only),not stated in R36a (literature value; reference column),/,/,,,text
+CASTLES lenses,Q0142100,R36,z_s,,2.72,2.72,/,/,linear,linear,agree
+CASTLES lenses,Q0142100,R36,z_s_method,,not stated (reference column only),not stated in R36a (literature value),/,/,,,text
+CASTLES lenses,Q0957+561,R36,kind,,no per-system statement; sample described as mostly early-type,galaxy in a cluster,/,/,,,text
+CASTLES lenses,Q0957+561,R36,z_l,,0.36,0.36,/,/,linear,linear,agree
+CASTLES lenses,Q0957+561,R36,z_l_method,,not stated (reference column only),not stated in R36a (literature value; reference column),/,/,,,text
+CASTLES lenses,Q0957+561,R36,z_s,,1.41,1.41,/,/,linear,linear,agree
+CASTLES lenses,Q0957+561,R36,z_s_method,,not stated (reference column only),not stated in R36a (literature value),/,/,,,text
+CASTLES lenses,Q1017207,R36,kind,,no per-system statement; sample described as early-type,,/,/,,,only_a
+CASTLES lenses,Q1017207,R36,z_l,,0.78,,/,/,linear,,only_a
+CASTLES lenses,Q1017207,R36,z_l_method,,derived (fundamental-plane/colour estimate); no measured z_l printed,,/,/,,,only_a
+CASTLES lenses,Q1017207,R36,z_s,,2.55,,/,/,linear,,only_a
+CASTLES lenses,Q2237+030,R36,aperture,,1.76,,/,/,linear,,only_a
+CASTLES lenses,Q2237+030,R36,kind,,bulge of a nearby spiral,,/,/,,,only_a
+CASTLES lenses,Q2237+030,R36,z_l,,0.04,,/,/,linear,,only_a
+CASTLES lenses,Q2237+030,R36,z_l_method,,not stated; listed beside fundamental-plane estimates zFP,,/,/,,,only_a
+CASTLES lenses,Q2237+030,R36,z_s,,1.69,,/,/,linear,,only_a
+CASTLES lenses,Q2237+030,R41,H0,,72,,/,/,linear,,only_a
+CASTLES lenses,Q2237+030,R41,Om,,0.3,,/,/,linear,,only_a
+CASTLES lenses,Q2237+030,R41,R_e,,1.090,,0.014/0.014,/,linear,,only_a
+CASTLES lenses,Q2237+030,R41,aperture,,0.81,,0.01/0.01,/,linear,,only_a
+CASTLES lenses,Q2237+030,R41,bands,,"HST V (F555W), I (F814W), H (F160W)",,/,/,,,only_a
+CASTLES lenses,Q2237+030,R41,gas,,statement: deviations expected (bulge of a spiral),,/,/,,,only_a
+CASTLES lenses,Q2237+030,R41,imf,,Chabrier,,/,/,,,only_a
+CASTLES lenses,Q2237+030,R41,kind,,bulge of a spiral (late-type),,/,/,,,only_a
+CASTLES lenses,Q2237+030,R41,mstar,,1.15,,0.12/0.12,/,linear,,only_a
+CASTLES lenses,Q2237+030,R41,mstar_aperture,,"2Re (Re = 1.090 ± 0.014 arcsec, H-band Petrosian)",,/,/,,,only_a
+CASTLES lenses,Q2237+030,R41,pop_model,,"Bruzual & Charlot (2003), exponential SFH grid",,/,/,,,only_a
+CASTLES lenses,Q2237+030,R41,z_l,,0.039,,/,/,linear,,only_a
+CASTLES lenses,Q2237+030,R41,z_s,,1.7,,/,/,linear,,only_a
+CASTLES lenses,RXJ0911+0551,R36,kind,,no per-system statement; sample described as early-type,,/,/,,,only_a
+CASTLES lenses,RXJ0911+0551,R36,z_l,,0.77,,/,/,linear,,only_a
+CASTLES lenses,RXJ0911+0551,R36,z_l_method,,not stated; listed beside fundamental-plane estimates zFP,,/,/,,,only_a
+CASTLES lenses,RXJ0911+0551,R36,z_s,,2.80,,/,/,linear,,only_a
+CASTLES lenses,SBS1520+530,R36,kind,,no per-system statement; sample described as early-type,,/,/,,,only_a
+CASTLES lenses,SBS1520+530,R36,z_l,,0.52,,/,/,linear,,only_a
+CASTLES lenses,SBS1520+530,R36,z_l_method,,derived (fundamental-plane/colour estimate); no measured z_l printed,,/,/,,,only_a
+CASTLES lenses,SBS1520+530,R36,z_s,,1.86,,/,/,linear,,only_a
+Cosmic Horseshoe,"COSMICHORSESHOE(PRINTEDINR60TITLEAS""J1004+4112"";R34:J1148+1930)",R60,kind,,,Luminous Red Galaxy in a group or loose cluster,/,/,,,only_b
+Cosmic Horseshoe,"COSMICHORSESHOE(PRINTEDINR60TITLEAS""J1004+4112"";R34:J1148+1930)",R60,z_l,,,0.44,/,/,,linear,only_b
+Cosmic Horseshoe,"COSMICHORSESHOE(PRINTEDINR60TITLEAS""J1004+4112"";R34:J1148+1930)",R60,z_l_method,,,"spectroscopic (BTA long slit, Ca H and K absorption)",/,/,,,only_b
+Cosmic Horseshoe,"COSMICHORSESHOE(PRINTEDINR60TITLEAS""J1004+4112"";R34:J1148+1930)",R60,z_s,,,2.38,/,/,,linear,only_b
+Cosmic Horseshoe,"COSMICHORSESHOE(PRINTEDINR60TITLEAS""J1004+4112"";R34:J1148+1930)",R60,z_s_method,,,spectroscopic (Lyalpha emission and absorption in arc spectrum),/,/,,,only_b
+Cosmic Horseshoe,J1148+1930(COSMICHORSESHOE),R34,kind,,massive early-type galaxy,,/,/,,,only_a
+Cosmic Horseshoe,J1148+1930(COSMICHORSESHOE),R34,z_l,,0.444,,/,/,linear,,only_a
+Cosmic Horseshoe,J1148+1930(COSMICHORSESHOE),R34,z_s,,2.38115,,0.00012/0.00012,/,linear,,only_a
+Cosmic Horseshoe,J1148+1930(COSMICHORSESHOE),R34,z_s_method,,"spectroscopic (X-Shooter, footnote 2)",,/,/,,,only_a
+Cosmic Horseshoe,J1148+1930(COSMICHORSESHOE),R60,kind,,LRG in a galaxy group,,/,/,,,only_a
+Cosmic Horseshoe,J1148+1930(COSMICHORSESHOE),R60,z_l,,0.44,,/,/,linear,,only_a
+Cosmic Horseshoe,J1148+1930(COSMICHORSESHOE),R60,z_l_method,,spectroscopic (SAO BTA long slit),,/,/,,,only_a
+Cosmic Horseshoe,J1148+1930(COSMICHORSESHOE),R60,z_s,,2.38,,/,/,linear,,only_a
+Cosmic Horseshoe,J1148+1930(COSMICHORSESHOE),R60,z_s_method,,spectroscopic (Lyα features),,/,/,,,only_a
+Euclid NGC 6505,NGC6505,R30,H0,,67.8,,/,/,linear,,only_a
+Euclid NGC 6505,NGC6505,R30,M_E,,1.53e11,,/,/,linear,,only_a
+Euclid NGC 6505,NGC6505,R30,Om,,0.308,,/,/,linear,,only_a
+Euclid NGC 6505,NGC6505,R30,bands,,"Euclid IE, YE, JE, HE (Galfit models) for M* inside θE",,/,/,,,only_a
+Euclid NGC 6505,NGC6505,R30,flat,,not stated,,/,/,,,only_a
+Euclid NGC 6505,NGC6505,R30,gas,,cites X-ray evidence of a small group; no statement inside θE,,/,/,,,only_a
+Euclid NGC 6505,NGC6505,R30,imf,,Chabrier (only); conversion factor to Salpeter printed,,/,/,,,only_a
+Euclid NGC 6505,NGC6505,R30,kind,,elliptical,,/,/,,,only_a
+Euclid NGC 6505,NGC6505,R30,lens_model,,elliptical power law + external shear + m=4 multipole (highest evidence),,/,/,,,only_a
+Euclid NGC 6505,NGC6505,R30,mstar,,1.06e11,,0.02e11/0.02e11,/,linear,,only_a
+Euclid NGC 6505,NGC6505,R30,mstar_aperture,,inside the Einstein radius 2.5 arcsec (R30's own model),,/,/,,,only_a
+Euclid NGC 6505,NGC6505,R30,pop_model,,"Prospector with FSPS (MILES library, MIST isochrones), nonparametric SFH",,/,/,,,only_a
+Euclid NGC 6505,NGC6505,R30,theta_E,,2.500,,0.001/0.001,/,linear,,only_a
+Euclid NGC 6505,NGC6505,R30,z_l,,0.04243,,0.00003/0.00003,/,linear,,only_a
+Euclid NGC 6505,NGC6505,R30,z_l_method,,spectroscopic (Prospector fit to DESI spectrum + photometry),,/,/,,,only_a
+Euclid NGC 6505,NGC6505,R30,z_s,,0.4058,,0.003/0.003,/,linear,,only_a
+Euclid NGC 6505,NGC6505,R30,z_s_method,,spectroscopic (KCWI absorption lines),,/,/,,,only_a
+Euclid NGC 6505,"NGC6505(""ALTIERI'SLENS"";RA17H51M07.46S,DEC+65°31'50.78"")",R30,H0,,,67.8,/,/,,,only_b
+Euclid NGC 6505,"NGC6505(""ALTIERI'SLENS"";RA17H51M07.46S,DEC+65°31'50.78"")",R30,Om,,,0.308,/,/,,,only_b
+Euclid NGC 6505,"NGC6505(""ALTIERI'SLENS"";RA17H51M07.46S,DEC+65°31'50.78"")",R30,bands,,,"Euclid I_E, Y_E, J_E, H_E (Galfit model aperture photometry within theta_E)",/,/,,,only_b
+Euclid NGC 6505,"NGC6505(""ALTIERI'SLENS"";RA17H51M07.46S,DEC+65°31'50.78"")",R30,flat,,,,/,/,,,only_b
+Euclid NGC 6505,"NGC6505(""ALTIERI'SLENS"";RA17H51M07.46S,DEC+65°31'50.78"")",R30,gas,,,none inside theta_E; cites prior X-ray observation (Henry et al. 1995) only,/,/,,,only_b
+Euclid NGC 6505,"NGC6505(""ALTIERI'SLENS"";RA17H51M07.46S,DEC+65°31'50.78"")",R30,imf,,,"Chabrier (2003); Salpeter conversion factor stated, Salpeter value not printed",/,/,,,only_b
+Euclid NGC 6505,"NGC6505(""ALTIERI'SLENS"";RA17H51M07.46S,DEC+65°31'50.78"")",R30,kind,,,elliptical galaxy,/,/,,,only_b
+Euclid NGC 6505,"NGC6505(""ALTIERI'SLENS"";RA17H51M07.46S,DEC+65°31'50.78"")",R30,lens_model,,,elliptical power law (EPL) + external shear + m=4 multipole (pronto),/,/,,,only_b
+Euclid NGC 6505,"NGC6505(""ALTIERI'SLENS"";RA17H51M07.46S,DEC+65°31'50.78"")",R30,mstar,"central 1.5-arcsec-diameter desi aperture; u, g + four euclid bands + desi spectrum; not the default aperture",,2.51e10,/,0.06e10/0.06e10,,linear,only_b
+Euclid NGC 6505,"NGC6505(""ALTIERI'SLENS"";RA17H51M07.46S,DEC+65°31'50.78"")",R30,mstar,printed as (1.06 ± 0.02) × 10^11 m_sun,,1.06e11,/,0.02e11/0.02e11,,linear,only_b
+Euclid NGC 6505,"NGC6505(""ALTIERI'SLENS"";RA17H51M07.46S,DEC+65°31'50.78"")",R30,mstar_aperture,,,"within the Einstein radius (2.5 arcsec, from the strong lens modelling of Sect. 3.4)",/,/,,,only_b
+Euclid NGC 6505,"NGC6505(""ALTIERI'SLENS"";RA17H51M07.46S,DEC+65°31'50.78"")",R30,pop_model,,,"Prospector (FSPS-based physical model, 21 parameters, nonparametric SFH)",/,/,,,only_b
+Euclid NGC 6505,"NGC6505(""ALTIERI'SLENS"";RA17H51M07.46S,DEC+65°31'50.78"")",R30,theta_E,,,2.500,/,/,,linear,only_b
+Euclid NGC 6505,"NGC6505(""ALTIERI'SLENS"";RA17H51M07.46S,DEC+65°31'50.78"")",R30,z_l,,,0.04243,/,0.00003/0.00003,,linear,only_b
+Euclid NGC 6505,"NGC6505(""ALTIERI'SLENS"";RA17H51M07.46S,DEC+65°31'50.78"")",R30,z_l_method,,,spectroscopic (DESI spectrum fitted with Prospector),/,/,,,only_b
+Euclid NGC 6505,"NGC6505(""ALTIERI'SLENS"";RA17H51M07.46S,DEC+65°31'50.78"")",R30,z_s,,,0.4058,/,0.003/0.003,,linear,only_b
+Euclid NGC 6505,"NGC6505(""ALTIERI'SLENS"";RA17H51M07.46S,DEC+65°31'50.78"")",R30,z_s_method,,,"spectroscopic (KCWI absorption lines Ca K, G-band, Mg I b, Na I D)",/,/,,,only_b
+J0100+1818 (A7),"J0100+1818(J010049.18+181827.7;RA01:00:49.18,DEC+18:18:27.79)",R47,kind,,,ultra-massive early-type galaxy / elliptical; candidate fossil group,/,/,,,only_b
+J0100+1818 (A7),"J0100+1818(J010049.18+181827.7;RA01:00:49.18,DEC+18:18:27.79)",R47,z_l,,,0.581,/,/,,linear,only_b
+J0100+1818 (A7),"J0100+1818(J010049.18+181827.7;RA01:00:49.18,DEC+18:18:27.79)",R47,z_l_method,,,spectroscopic (VLT X-Shooter absorption lines),/,/,,,only_b
+J0100+1818 (A7),"J0100+1818(J010049.18+181827.7;RA01:00:49.18,DEC+18:18:27.79)",R47,z_s,,,1.880,/,/,,linear,only_b
+J0100+1818 (A7),"J0100+1818(J010049.18+181827.7;RA01:00:49.18,DEC+18:18:27.79)",R47,z_s_method,,,"spectroscopic (X-Shooter, low-S/N lines; joint fit for A and B)",/,/,,,only_b
+J0100+1818 (A7),J010049.18+181827.7(J0100+1818;CSWA15/CSWA115),R47,kind,,ultra-massive early-type galaxy; candidate fossil system / group,,/,/,,,only_a
+J0100+1818 (A7),J010049.18+181827.7(J0100+1818;CSWA15/CSWA115),R47,z_l,,0.581,,/,/,linear,,only_a
+J0100+1818 (A7),J010049.18+181827.7(J0100+1818;CSWA15/CSWA115),R47,z_l_method,,spectroscopic (X-Shooter absorption lines),,/,/,,,only_a
+J0100+1818 (A7),J010049.18+181827.7(J0100+1818;CSWA15/CSWA115),R47,z_s,,1.880,,/,/,linear,,only_a
+J0100+1818 (A7),J010049.18+181827.7(J0100+1818;CSWA15/CSWA115),R47,z_s_method,,spectroscopic (joint analysis of low-S/N [O II] lines),,/,/,,,only_a
+J1436+4943,J143607.49+494313.2(J1436+4943),R32,H0,,,,/,/,,,only_b
+J1436+4943,J143607.49+494313.2(J1436+4943),R32,M_E,,,28.2,/,1.1/1.1,,linear,only_b
+J1436+4943,J143607.49+494313.2(J1436+4943),R32,Om,,,,/,/,,,only_b
+J1436+4943,J143607.49+494313.2(J1436+4943),R32,R_e,,,3.78,/,/,,linear,only_b
+J1436+4943,J143607.49+494313.2(J1436+4943),R32,aperture,,,R_Ein = 4.72 kpc (theta_Ein),/,/,,,only_b
+J1436+4943,J143607.49+494313.2(J1436+4943),R32,bands,,,SDSS i band (Einstein-aperture photometry),/,/,,,only_b
+J1436+4943,J143607.49+494313.2(J1436+4943),R32,flat,,,,/,/,,,only_b
+J1436+4943,J143607.49+494313.2(J1436+4943),R32,gas,,,"""(and a central black hole, gas, etc but these are expected to be negligible)""",/,/,,,only_b
+J1436+4943,J143607.49+494313.2(J1436+4943),R32,imf,,,Kroupa,/,/,,,only_b
+J1436+4943,J143607.49+494313.2(J1436+4943),R32,kind,,,elliptical,/,/,,,only_b
+J1436+4943,J143607.49+494313.2(J1436+4943),R32,lens_model,,,"SIE (PyAutoLens), geometry fixed to lens light, with shear; Sérsic or pixelised source",/,/,,,only_b
+J1436+4943,J143607.49+494313.2(J1436+4943),R32,mstar,"not a stellar mass: kroupa reference m/l; 2-sigma interval = full model range 2.41–3.46 for ages 8–12 gyr, metallicity 1.0–1.5 solar (assumed range, supported by cvd12 fits favouring 9–10 gyr)",,2.93,/,0.26/0.26,,linear,only_b
+J1436+4943,J143607.49+494313.2(J1436+4943),R32,mstar,"not a stellar mass: luminosity inside theta_ein; record prints no population stellar mass, only l_ein and upsilon_ref",,6.72,/,0.10/0.10,,linear,only_b
+J1436+4943,J143607.49+494313.2(J1436+4943),R32,mstar_aperture,,,inside theta_Ein (Einstein aperture),/,/,,,only_b
+J1436+4943,J143607.49+494313.2(J1436+4943),R32,pop_model,,,"Conroy, Gunn & White (2009) via EzGal; assumed ages 8–12 Gyr, metallicity 1.0–1.5 solar",/,/,,,only_b
+J1436+4943,J143607.49+494313.2(J1436+4943),R32,theta_E,,,2.03,/,0.04/0.04,,linear,only_b
+J1436+4943,J143607.49+494313.2(J1436+4943),R32,z_l,,,0.125,/,/,,linear,only_b
+J1436+4943,J143607.49+494313.2(J1436+4943),R32,z_l_method,,,spectroscopic (single-fibre SDSS spectrum),/,/,,,only_b
+J1436+4943,J143607.49+494313.2(J1436+4943),R32,z_s,,,1.231,/,/,,linear,only_b
+J1436+4943,J143607.49+494313.2(J1436+4943),R32,z_s_method,,,spectroscopic (MaNGA / Subaru FOCAS IFU emission lines),/,/,,,only_b
+J1701+3722,J170124.01+372258.1(J1701+3722),R32,H0,,,,/,/,,,only_b
+J1701+3722,J170124.01+372258.1(J1701+3722),R32,M_E,,,18.8,/,3.7/3.7,,linear,only_b
+J1701+3722,J170124.01+372258.1(J1701+3722),R32,Om,,,,/,/,,,only_b
+J1701+3722,J170124.01+372258.1(J1701+3722),R32,R_e,,,4.30,/,/,,linear,only_b
+J1701+3722,J170124.01+372258.1(J1701+3722),R32,aperture,,,R_Ein = 3.71 kpc (theta_Ein),/,/,,,only_b
+J1701+3722,J170124.01+372258.1(J1701+3722),R32,bands,,,SDSS i band (Einstein-aperture photometry),/,/,,,only_b
+J1701+3722,J170124.01+372258.1(J1701+3722),R32,flat,,,,/,/,,,only_b
+J1701+3722,J170124.01+372258.1(J1701+3722),R32,gas,,,"""(and a central black hole, gas, etc but these are expected to be negligible)""",/,/,,,only_b
+J1701+3722,J170124.01+372258.1(J1701+3722),R32,imf,,,Kroupa,/,/,,,only_b
+J1701+3722,J170124.01+372258.1(J1701+3722),R32,kind,,,elliptical,/,/,,,only_b
+J1701+3722,J170124.01+372258.1(J1701+3722),R32,lens_model,,,"SIE (PyAutoLens), geometry fixed to lens light, with shear; Sérsic or pixelised source",/,/,,,only_b
+J1701+3722,J170124.01+372258.1(J1701+3722),R32,mstar,"not a stellar mass: kroupa reference m/l; 2-sigma interval = full model range 2.41–3.46 for ages 8–12 gyr, metallicity 1.0–1.5 solar (assumed range, supported by cvd12 fits favouring 9–10 gyr)",,2.93,/,0.26/0.26,,linear,only_b
+J1701+3722,J170124.01+372258.1(J1701+3722),R32,mstar,"not a stellar mass: luminosity inside theta_ein; record prints no population stellar mass, only l_ein and upsilon_ref",,5.56,/,0.35/0.35,,linear,only_b
+J1701+3722,J170124.01+372258.1(J1701+3722),R32,mstar_aperture,,,inside theta_Ein (Einstein aperture),/,/,,,only_b
+J1701+3722,J170124.01+372258.1(J1701+3722),R32,pop_model,,,"Conroy, Gunn & White (2009) via EzGal; assumed ages 8–12 Gyr, metallicity 1.0–1.5 solar",/,/,,,only_b
+J1701+3722,J170124.01+372258.1(J1701+3722),R32,theta_E,,,1.63,/,0.16/0.16,,linear,only_b
+J1701+3722,J170124.01+372258.1(J1701+3722),R32,z_l,,,0.122,/,/,,linear,only_b
+J1701+3722,J170124.01+372258.1(J1701+3722),R32,z_l_method,,,spectroscopic (single-fibre SDSS spectrum),/,/,,,only_b
+J1701+3722,J170124.01+372258.1(J1701+3722),R32,z_s,,,0.791,/,/,,linear,only_b
+J1701+3722,J170124.01+372258.1(J1701+3722),R32,z_s_method,,,spectroscopic (MaNGA / Subaru FOCAS IFU emission lines),/,/,,,only_b
+KiDS J0233-3447,KIDSJ02333447(EINSTEIN'BLUEEYE'),R43,kind,,early-type (elliptical),,/,/,,,only_a
+KiDS J0233-3447,KIDSJ02333447(EINSTEIN'BLUEEYE'),R43,z_l,,0.9906,,0.0001/0.0001,/,linear,,only_a
+KiDS J0233-3447,KIDSJ02333447(EINSTEIN'BLUEEYE'),R43,z_l_method,,"spectroscopic (X-Shooter, pPXF)",,/,/,,,only_a
+KiDS J0233-3447,KIDSJ02333447(EINSTEIN'BLUEEYE'),R43,z_s,,2.8230,,0.0001/0.0001,/,linear,,only_a
+KiDS J0233-3447,KIDSJ02333447(EINSTEIN'BLUEEYE'),R43,z_s_method,,spectroscopic (X-Shooter emission lines),,/,/,,,only_a
+KiDS J0233-3447,"KIDSJ02333447(RA02:33:41.29,DEC34:47:59.24;""BLUEEYE"")",R43,gas,,,none (kind-level remark only),/,/,,,only_b
+KiDS J0233-3447,"KIDSJ02333447(RA02:33:41.29,DEC34:47:59.24;""BLUEEYE"")",R43,kind,,,early-type galaxy (ETG); massive elliptical,/,/,,,only_b
+KiDS J0233-3447,"KIDSJ02333447(RA02:33:41.29,DEC34:47:59.24;""BLUEEYE"")",R43,z_l,,,0.9906,/,0.0001/0.0001,,linear,only_b
+KiDS J0233-3447,"KIDSJ02333447(RA02:33:41.29,DEC34:47:59.24;""BLUEEYE"")",R43,z_l_method,,,"spectroscopic (VLT X-Shooter, elliptical template)",/,/,,,only_b
+KiDS J0233-3447,"KIDSJ02333447(RA02:33:41.29,DEC34:47:59.24;""BLUEEYE"")",R43,z_s,,,2.8230,/,0.0001/0.0001,,linear,only_b
+KiDS J0233-3447,"KIDSJ02333447(RA02:33:41.29,DEC34:47:59.24;""BLUEEYE"")",R43,z_s_method,,,spectroscopic (X-Shooter; Lyalpha emitter),/,/,,,only_b
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R27,H0,,67.4,67.4,/,/,linear,,differ
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R27,Om,,0.315,0.315,/,/,linear,,differ
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R27,flat,,not stated in words; ΩΛ = 0.685 printed,"yes (Ωm = 0.315, ΩΛ = 0.685 stated; flatness not stated in words)",/,/,,,text
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R27,gas,,none (dust statement only),,/,/,,,only_a
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R27,kind,,isolated elliptical,ETG / isolated elliptical,/,/,,,text
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R27,lens_model,,PyAutoLens model of HST F390W; source Sérsic or pixelised; mass profile not named,PyAutoLens model of HST F390W imaging; source as Sérsic or pixelised inversion; lens mass profile not named,/,/,,,text
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R27,theta_E,,1.49,1.49,/,/,linear,linear,agree
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R27,z_l,,0.06655,0.06655,/,/,linear,linear,agree
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R27,z_s,,0.195,0.195,/,/,linear,linear,agree
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,H0,,70.4,70.4,/,/,linear,,differ
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,M_E,,10.64e10,10.64,0.23e10/0.23e10,0.23/0.23,linear,linear,differ
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,Om,,0.272,,/,/,linear,,only_a
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,R_e,,5.7,5.7,/,/,linear,linear,agree
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,bands,,Pan-STARRS PS1 i band; MUSE spectrum,Pan-STARRS PS1 i band (luminosity); MUSE spectrum inside R_Ein (age),/,/,,,text
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,gas,,statement: Balmer lines contaminated by gas emission (no mass),"spectrum ""contaminated by gas emission"" (no mass)",/,/,,,text
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,imf,,Kroupa (single IMF printed),Kroupa (2001),/,/,,,text
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,kind,,giant elliptical,"giant elliptical, isolated",/,/,,,text
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,mstar,factor 1 of 2 (i-band luminosity inside rein); stellar mass by sps not printed as a mass,2.59,,0.12/0.12,/,linear,,only_a
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,mstar,"factor 2 of 2: reference m/l, kroupa",2.90,,0.10/0.10,/,linear,,only_a
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,mstar,"not a stellar mass: i-band luminosity inside r_ein = 1.47 arcsec. the printed ""aperture stellar mass"" 8.63 ± 0.54 × 10^10 m_sun is lensing minus eagle dm, not population-based",,2.59,/,0.12/0.12,,linear,only_b
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,mstar,not a stellar mass: reference m/l; assumed old solar-metallicity population (zform = 3),,2.90,/,0.10/0.10,,linear,only_b
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,mstar,printed as m_ein^* = 8.63 ± 0.54 × 10^10 m⊙; not a stellar-population mass: lensing mass minus eagle dark-matter estimate,8.63e10,,0.54e10/0.54e10,/,linear,,only_a
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,mstar_aperture,,inside REin = 1.47 arcsec (half image separation),"inside R_Ein = 1.47 arcsec (half the image separation, R29)",/,/,,,text
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,pop_model,,Conroy et al. 2009 models via ezgal; age from CvD12 fit to MUSE,Conroy et al. (2009) models via ezgal (Upsilon_Ref); CvD12 single-burst fit for age,/,/,,,text
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,profile_type,,"Sérsic, n ≈ 4 (inner profile, PS1)","Sérsic, n ≈ 4 (inner profile, PS1)",/,/,,,text
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,sersic_n,,4,4,/,/,linear,linear,differ
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,theta_E,,1.47,1.47,0.03/0.03,0.03/0.03,linear,linear,agree
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,z_l,,0.06604,,/,/,linear,,only_a
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,z_l_method,,"spectroscopic (MUSE, ppxf)","spectroscopic (MUSE aperture spectrum, ppxf; 6dF value 0.06655)",/,/,,,text
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,z_s,,0.19165,0.19165,/,/,linear,linear,agree
+MNELLS J0403-0239,2MASXJ040350240239275(J04030239),R29,z_s_method,,spectroscopic (MUSE emission lines in both arcs),"spectroscopic (MUSE emission lines Halpha, [OIII], Hbeta in both images)",/,/,,,text
+MaNGA J1436+4943,J143607.49+494313.2(J1436+4943),R32,H0,,,,/,/,,,only_a
+MaNGA J1436+4943,J143607.49+494313.2(J1436+4943),R32,M_E,,28.2,,1.1/1.1,/,linear,,only_a
+MaNGA J1436+4943,J143607.49+494313.2(J1436+4943),R32,Om,,,,/,/,,,only_a
+MaNGA J1436+4943,J143607.49+494313.2(J1436+4943),R32,R_e,,3.78,,/,/,linear,,only_a
+MaNGA J1436+4943,J143607.49+494313.2(J1436+4943),R32,aperture,,4.72,,0.09/0.09,/,linear,,only_a
+MaNGA J1436+4943,J143607.49+494313.2(J1436+4943),R32,bands,,SDSS i band (Einstein-aperture magnitudes),,/,/,,,only_a
+MaNGA J1436+4943,J143607.49+494313.2(J1436+4943),R32,flat,,,,/,/,,,only_a
+MaNGA J1436+4943,J143607.49+494313.2(J1436+4943),R32,gas,,statement: expected negligible,,/,/,,,only_a
+MaNGA J1436+4943,J143607.49+494313.2(J1436+4943),R32,imf,,Kroupa (single IMF printed),,/,/,,,only_a
+MaNGA J1436+4943,J143607.49+494313.2(J1436+4943),R32,kind,,elliptical,,/,/,,,only_a
+MaNGA J1436+4943,J143607.49+494313.2(J1436+4943),R32,lens_model,,"SIE (PyAutoLens), with shear; pixelised and Sérsic sources",,/,/,,,only_a
+MaNGA J1436+4943,J143607.49+494313.2(J1436+4943),R32,mstar,factor 1 of 2: i-band luminosity inside the einstein aperture; mass not printed,6.72,,0.10/0.10,/,linear,,only_a
+MaNGA J1436+4943,J143607.49+494313.2(J1436+4943),R32,mstar,factor 2 of 2: kroupa reference m/l from an assumed age range (8-12 gyr) and metallicity 1.0-1.5 solar,2.93,,0.26/0.26,/,linear,,only_a
+MaNGA J1436+4943,J143607.49+494313.2(J1436+4943),R32,mstar_aperture,,Einstein aperture,,/,/,,,only_a
+MaNGA J1436+4943,J143607.49+494313.2(J1436+4943),R32,pop_model,,"Conroy, Gunn & White (2009) via EzGal; ages 8-12 Gyr assumed (supported by CvD12 fits)",,/,/,,,only_a
+MaNGA J1436+4943,J143607.49+494313.2(J1436+4943),R32,theta_E,,2.03,,0.04/0.04,/,linear,,only_a
+MaNGA J1436+4943,J143607.49+494313.2(J1436+4943),R32,z_l,,0.125,,/,/,linear,,only_a
+MaNGA J1436+4943,J143607.49+494313.2(J1436+4943),R32,z_l_method,,not stated explicitly; σ given 'from the single-fibre SDSS spectrum',,/,/,,,only_a
+MaNGA J1436+4943,J143607.49+494313.2(J1436+4943),R32,z_s,,1.231,,/,/,linear,,only_a
+MaNGA J1436+4943,J143607.49+494313.2(J1436+4943),R32,z_s_method,,"spectroscopic (IFU emission lines, MaNGA and FOCAS)",,/,/,,,only_a
+MaNGA J1701+3722,J170124.01+372258.1(J1701+3722),R32,H0,,,,/,/,,,only_a
+MaNGA J1701+3722,J170124.01+372258.1(J1701+3722),R32,M_E,,18.8,,3.7/3.7,/,linear,,only_a
+MaNGA J1701+3722,J170124.01+372258.1(J1701+3722),R32,Om,,,,/,/,,,only_a
+MaNGA J1701+3722,J170124.01+372258.1(J1701+3722),R32,R_e,,4.30,,/,/,linear,,only_a
+MaNGA J1701+3722,J170124.01+372258.1(J1701+3722),R32,aperture,,3.71,,0.37/0.37,/,linear,,only_a
+MaNGA J1701+3722,J170124.01+372258.1(J1701+3722),R32,bands,,SDSS i band (Einstein-aperture magnitudes),,/,/,,,only_a
+MaNGA J1701+3722,J170124.01+372258.1(J1701+3722),R32,flat,,,,/,/,,,only_a
+MaNGA J1701+3722,J170124.01+372258.1(J1701+3722),R32,gas,,statement: expected negligible,,/,/,,,only_a
+MaNGA J1701+3722,J170124.01+372258.1(J1701+3722),R32,imf,,Kroupa (single IMF printed),,/,/,,,only_a
+MaNGA J1701+3722,J170124.01+372258.1(J1701+3722),R32,kind,,elliptical,,/,/,,,only_a
+MaNGA J1701+3722,J170124.01+372258.1(J1701+3722),R32,lens_model,,"SIE (PyAutoLens), with shear; pixelised and Sérsic sources",,/,/,,,only_a
+MaNGA J1701+3722,J170124.01+372258.1(J1701+3722),R32,mstar,factor 1 of 2: i-band luminosity inside the einstein aperture; mass not printed,5.56,,0.35/0.35,/,linear,,only_a
+MaNGA J1701+3722,J170124.01+372258.1(J1701+3722),R32,mstar,factor 2 of 2: kroupa reference m/l from an assumed age range (8-12 gyr) and metallicity 1.0-1.5 solar,2.93,,0.26/0.26,/,linear,,only_a
+MaNGA J1701+3722,J170124.01+372258.1(J1701+3722),R32,mstar_aperture,,Einstein aperture,,/,/,,,only_a
+MaNGA J1701+3722,J170124.01+372258.1(J1701+3722),R32,pop_model,,"Conroy, Gunn & White (2009) via EzGal; ages 8-12 Gyr assumed (supported by CvD12 fits)",,/,/,,,only_a
+MaNGA J1701+3722,J170124.01+372258.1(J1701+3722),R32,theta_E,,1.63,,0.16/0.16,/,linear,,only_a
+MaNGA J1701+3722,J170124.01+372258.1(J1701+3722),R32,z_l,,0.122,,/,/,linear,,only_a
+MaNGA J1701+3722,J170124.01+372258.1(J1701+3722),R32,z_l_method,,not stated explicitly; σ given 'from the single-fibre SDSS spectrum',,/,/,,,only_a
+MaNGA J1701+3722,J170124.01+372258.1(J1701+3722),R32,z_s,,0.791,,/,/,linear,,only_a
+MaNGA J1701+3722,J170124.01+372258.1(J1701+3722),R32,z_s_method,,"spectroscopic (IFU emission lines, MaNGA and FOCAS)",,/,/,,,only_a
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R25,gas,,statement: neglected,"""Other possible non-stellar mass contributions within the Einstein radius, e.g. gas ... are neglected.""",/,/,,,text
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R25,kind,,central galaxy of a poor group; passive,,/,/,,,only_a
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R26,R_e,,9.8,9.8,/,/,linear,linear,agree
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R26,bands,,"SDSS r band (HST ACS F625W image for SNL-0); IMACS, X-shooter, FIRE spectra",r-band luminosity from HST ACS F625W (SNL-0); IMACS spectra for M/L,/,/,,,text
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R26,gas,,none,,/,/,,,only_a
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R26,imf,,"Kroupa (default); also 1PL, 2PL, 2PL+cut, nonparametric",Kroupa (2001),/,/,,,text
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R26,mstar,"factor 2 of 2: spectroscopic m*/l, kroupa (default imf); printed as snl-0",4.04,,0.10/0.10,/,linear,,only_a
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R26,mstar,"imf variant (imf fitted, not a fixed named imf); no salpeter column printed; printed as snl-0",7.58,,0.64/0.69,/,linear,,only_a
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R26,mstar,"not a stellar mass: r-band luminosity inside theta_ein; the record prints no stellar mass, only l_r,ein and (m*/l_r)_mw (next row). distance error not included (table note)",,2.84,/,0.06/0.06,,linear,only_b
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R26,mstar,"not a stellar mass: spectroscopic stellar m/l for kroupa imf; imf-free variants (1pl, 2pl, 2pl+cut, non-p) also printed in table 1 and are not defaults",,4.04,/,0.10/0.10,,linear,only_b
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R26,mstar,stellar mass not printed as a mass: factor 1 of 2 (luminosity inside θein); mass = l × (m*/l) not computed by reader; printed as snl-0,2.84,,0.06/0.06,/,linear,,only_a
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R26,mstar_aperture,,inside θEin = 2.85 arcsec (R25/S15 Einstein radius),"inside theta_Ein = 2.85 arcsec (θEin ""Denoted REin by S15"")",/,/,,,text
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R26,pop_model,,updated Conroy & van Dokkum SPS models,"models descended from Conroy & van Dokkum 2012 (CvD12), MIST isochrones, IRTF library",/,/,,,text
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R26,profile_type,,multi-Gaussian expansion (not tabulated); no Sérsic n printed,,/,/,,,only_a
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R26,theta_E,,2.85,,/,/,linear,,only_a
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R26,z_l,,0.034,,/,/,linear,,only_a
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R28,H0,,70.4,70.4,/,/,linear,,differ
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R28,M_E,,1.50e11,1.50e11,0.06e11/0.06e11,0.06e11/0.06e11,linear,linear,agree
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R28,Om,,0.272,0.272,/,/,linear,,differ
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R28,aperture,,,R_Ein = 2.85 arcsec (mass projected within R_Ein),/,/,,,only_b
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R28,flat,,not stated in words; ΩΛ = 0.728 printed,"yes (Ωm = 0.272, ΩΛ = 0.728 stated; flatness not stated in words)",/,/,,,text
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R28,gas,,statement: assumed negligible,"""We assume the gas mass projected within the Einstein radius is negligible.""",/,/,,,text
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R28,kind,,giant elliptical,giant elliptical,/,/,,,text
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R28,lens_model,,"SIS + external shear (R_Ein, S05); mass-follows-light + shear (M_E)","mass-follows-light (MFL) with linear shear, mass inside R_Ein from SIS(+shear) model of S05",/,/,,,text
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R28,theta_E,,2.85,2.85,/,/,linear,linear,agree
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R28,z_l,,0.0339,0.0347,/,/,linear,linear,differ
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R28,z_l_method,,spectroscopic (6dF),spectroscopic (6dF),/,/,,,text
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R28,z_s,,2.141,2.141,/,/,linear,linear,agree
+SNL-0 (ESO 325-G004),ESO325G004(SNL0;J1343331381033),R28,z_s_method,,spectroscopic (X-SHOOTER emission lines),spectroscopic (VLT X-Shooter emission lines),/,/,,,text
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R25,gas,,statement: neglected,"""Other possible non-stellar mass contributions within the Einstein radius ... are neglected.""",/,/,,,text
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R25,z_l_method,,spectroscopic (6dF Peculiar Velocity Survey),spectroscopic (6dF or SDSS DR7 redshift catalogue),/,/,,,text
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R25,z_s_method,,spectroscopic (SINFONI emission lines),"spectroscopic (SINFONI J-band; Halpha, [NII], [SII])",/,/,,,text
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R26,gas,,"statement: warm gas (nebular emission), no mass","nebular emission in SNL-1 ""likely driven by the presence of warm gas"" (no mass)",/,/,,,text
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R33,R_e,,3.49,3.49,/,/,linear,linear,agree
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R33,bands,,HST ACS F814W imaging; MUSE spectra,HST ACS F814W photometry; VLT MUSE spectra (spatially resolved M*/L_F814W),/,/,,,text
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R33,component_share,,"665,322.22","665,322.22",/,/,linear,linear,differ
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R33,gas,,none,,/,/,,,only_a
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R33,imf,,revised Kroupa (2001),"revised Kroupa (2001), fixed",/,/,,,text
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R33,mstar,"3d/intrinsic enclosed profile from the schwarzschild model (text: ""intrinsic enclosed mass profiles""); no error printed; not inside theta_ein",,11.01,/,/,,log10,only_b
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R33,mstar,no error printed; intrinsic (de-projected) enclosed profile; rmax = 9.67 arcsec (6.01 kpc),11.23,,/,/,log10,,only_a
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R33,mstar,no error printed; intrinsic enclosed profile,11.01,,/,/,log10,,only_a
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R33,mstar,within r_max = 9.67 arcsec (6.01 kpc); no error printed,,11.23,/,/,,log10,only_b
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R33,mstar_aperture,,rmax (6.01 kpc) and Re; no stellar mass printed inside θEin,"within R_e (R_e F814W = 3.49 arcsec, 2.15 kpc); intrinsic enclosed profile, not projected",/,/,,,text
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R33,pop_model,,E-MILES SSP (BaSTI isochrones) fitted with pPXF,"E-MILES SSP templates (Vazdekis et al. 2016), BaSTI isochrones, base abundances; fitted with pPXF",/,/,,,text
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R33,profile_type,,"MGE (11 Gaussians, Table A1)","MGE (multi-Gaussian expansion): MGE_Sigma (stellar mass) and MGE_mu (luminosity), 11 Gaussians, common widths/axis ratios, fixed PA",/,/,,,text
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R33,z_l,,0.0312,,/,/,linear,,only_a
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R61,H0,,70.4,70.4,/,/,linear,,differ
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R61,M_E,,9.49e10,9.49,0.15e10/0.15e10,0.15/0.15,linear,linear,differ
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R61,Om,,0.272,0.272,/,/,linear,,differ
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R61,aperture,,2.38,"R_ap = 2.38 arcsec (""the half-image separation derived by SLC15"")",/,/,linear,,text
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R61,flat,,not stated in words; ΩΛ = 0.728 printed,"yes (Ωm = 0.272, ΩΛ = 0.728 stated; flatness not stated in words)",/,/,,,text
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R61,gas,,statement: dust suggests small cold ISM disc (no mass),"dust within ~1 arcsec ""suggests the presence of a small cold ISM disc"" (not quantified)",/,/,,,text
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R61,kind,,E/S0,elliptical; regular E/S0 morphology; fast rotator with central dust,/,/,,,text
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R61,lens_model,,SIE+γ and MFL+γ (lensmodel),"adopted from SIE+shear and MFL+shear models (lensmodel), constrained by flux ratio and positions",/,/,,,text
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R61,theta_E,,,2.43,/,0.03/0.03,,linear,only_b
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R61,z_l,,0.0312,0.0312,/,/,linear,linear,agree
+SNL-1 (ESO 286-G022),ESO286G022(SNL1;J2100286422523),R61,z_s,,0.926,0.926,/,/,linear,linear,agree
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R25,gas,,statement: neglected,"""Other possible non-stellar mass contributions within the Einstein radius ... are neglected.""",/,/,,,text
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R25,z_l_method,,spectroscopic (6dF Peculiar Velocity Survey),spectroscopic (6dF or SDSS DR7 redshift catalogue),/,/,,,text
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R25,z_s_method,,spectroscopic (SINFONI [O III] doublet),"spectroscopic (SINFONI H-band, [OIII] 4959/5007 doublet)",/,/,,,text
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R61,H0,,70.4,70.4,/,/,linear,,differ
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R61,M_E,,12.59e10,12.59,0.30e10/0.30e10,0.30/0.30,linear,linear,differ
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R61,Om,,0.272,0.272,/,/,linear,,differ
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R61,R_e,,3.25,3.25,0.03/0.03,0.03/0.03,linear,linear,agree
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R61,aperture,,2.21,"R_ap = 2.21 arcsec (SLC15, SINFONI-based)",/,/,linear,,text
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R61,bands,,HST WFC3 F814W (luminosity); r-band M/L converted,HST WFC3/UVIS F814W (luminosity),/,/,,,text
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R61,flat,,not stated in words; ΩΛ = 0.728 printed,"yes (Ωm = 0.272, ΩΛ = 0.728 stated; flatness not stated in words)",/,/,,,text
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R61,gas,,none,,/,/,,,only_a
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R61,imf,,Kroupa,Kroupa (via Newman et al. 2017 reference M/L),/,/,,,text
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R61,kind,,elliptical (in a pair with a companion),elliptical; in a pair with an edge-on late-type companion (G2) in a common halo,/,/,,,text
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R61,lens_model,,"MFL+SIS and MFL+SIE (primary + companion), lensmodel","two-component: MFL primary + SIS or SIE companion (lensmodel), flux ratio and positions",/,/,,,text
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R61,mstar,"factor 2 of 2: kroupa reference m/l from newman et al. 2017, converted to f814w; no error printed",2.59,,/,/,linear,,only_a
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R61,mstar,"not a stellar mass: f814w luminosity inside r_ap, extinction and band-shifting corrected; r61 prints no stellar-population stellar mass",,3.86,/,0.07/0.07,,linear,only_b
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R61,mstar,"not a stellar mass: kroupa reference m/l from newman et al. 2017 table 1 converted to i_f814w with ezgal; no error printed. upsilon_rap = 2.49 ± 0.15 is lensing-minus-eagle-dm, not population-based",,2.59,/,/,,linear,only_b
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R61,mstar,stellar mass not printed as a mass: factor 1 of 2 (luminosity inside r_ap),3.86,,0.07/0.07,/,linear,,only_a
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R61,mstar_aperture,,inside R_ap = 2.21 arcsec,inside R_ap = 2.21 arcsec,/,/,,,text
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R61,pop_model,,"Newman et al. 2017 spectroscopic fit, converted r to F814W with ezgal","Newman et al. 2017 SPS (r band), converted to I_F814W with ezgal",/,/,,,text
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R61,profile_type,,aperture summation plus 1D Sérsic fit to outer profile; n not printed,aperture flux + 1D Sérsic fit to outer profile (n not printed),/,/,,,text
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R61,theta_E,,,2.30,/,0.03/0.03,,linear,only_b
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R61,z_l,,0.0519,0.0519,/,/,linear,linear,agree
+SNL-2,2MASXJ014142320735281(SNL2;J0141423073528),R61,z_s,,1.969,1.969,/,/,linear,linear,agree
+SuGOHI CMASS lenses,HSCJ015618010747,R57,kind,,massive CMASS galaxy; no per-system morphology printed,,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ015618010747,R57,z_l,,0.542,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ015618010747,R57,z_l_method,,spectroscopic (BOSS),,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ015618010747,R57,z_s,,1.167,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ015618010747,R57,z_s_method,,"spectroscopic, from the literature",,/,/,,,only_a
+SuGOHI CMASS lenses,"HSCJ015618010747(RA29.07554,DEC1.12977DEG)",R57,kind,,,"BOSS CMASS galaxy (sample-level morphology: keywords ""elliptical and lenticular, cD"")",/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ015618010747(RA29.07554,DEC1.12977DEG)",R57,z_l,,,0.542,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ015618010747(RA29.07554,DEC1.12977DEG)",R57,z_l_method,,,spectroscopic (BOSS catalogue),/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ015618010747(RA29.07554,DEC1.12977DEG)",R57,z_s,,,1.167,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ015618010747(RA29.07554,DEC1.12977DEG)",R57,z_s_method,,,spectroscopic (from the literature; Table 1 references: Paper II),/,/,,,only_b
+SuGOHI CMASS lenses,HSCJ020241064611,R57,kind,,massive CMASS galaxy; no per-system morphology printed,,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ020241064611,R57,z_l,,0.502,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ020241064611,R57,z_l_method,,spectroscopic (BOSS),,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ020241064611,R57,z_s,,2.748,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ020241064611,R57,z_s_method,,"spectroscopic, from the literature",,/,/,,,only_a
+SuGOHI CMASS lenses,"HSCJ020241064611(RA30.67247,DEC6.76979DEG)",R57,kind,,,"BOSS CMASS galaxy (sample-level morphology: keywords ""elliptical and lenticular, cD"")",/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ020241064611(RA30.67247,DEC6.76979DEG)",R57,z_l,,,0.502,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ020241064611(RA30.67247,DEC6.76979DEG)",R57,z_l_method,,,spectroscopic (BOSS catalogue),/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ020241064611(RA30.67247,DEC6.76979DEG)",R57,z_s,,,2.748,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ020241064611(RA30.67247,DEC6.76979DEG)",R57,z_s_method,,,spectroscopic (from the literature; Table 1 references: Paper I),/,/,,,only_b
+SuGOHI CMASS lenses,HSCJ021411040502,R57,kind,,massive CMASS galaxy; no per-system morphology printed,,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ021411040502,R57,z_l,,0.609,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ021411040502,R57,z_l_method,,spectroscopic (BOSS),,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ021411040502,R57,z_s,,1.880,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ021411040502,R57,z_s_method,,"spectroscopic, from the literature",,/,/,,,only_a
+SuGOHI CMASS lenses,"HSCJ021411040502(RA33.54670,DEC4.08411DEG)",R57,kind,,,"BOSS CMASS galaxy (sample-level morphology: keywords ""elliptical and lenticular, cD"")",/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ021411040502(RA33.54670,DEC4.08411DEG)",R57,z_l,,,0.609,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ021411040502(RA33.54670,DEC4.08411DEG)",R57,z_l_method,,,spectroscopic (BOSS catalogue),/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ021411040502(RA33.54670,DEC4.08411DEG)",R57,z_s,,,1.880,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ021411040502(RA33.54670,DEC4.08411DEG)",R57,z_s_method,,,spectroscopic (from the literature; Table 1 references: Ruff et al. (2011); Gavazzi et al. (2012)),/,/,,,only_b
+SuGOHI CMASS lenses,HSCJ021737051329,R57,kind,,massive CMASS galaxy; no per-system morphology printed,,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ021737051329,R57,z_l,,0.646,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ021737051329,R57,z_l_method,,spectroscopic (BOSS),,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ021737051329,R57,z_s,,1.847,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ021737051329,R57,z_s_method,,"spectroscopic, from the literature",,/,/,,,only_a
+SuGOHI CMASS lenses,"HSCJ021737051329(RA34.40492,DEC5.22482DEG)",R57,kind,,,"BOSS CMASS galaxy (sample-level morphology: keywords ""elliptical and lenticular, cD"")",/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ021737051329(RA34.40492,DEC5.22482DEG)",R57,z_l,,,0.646,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ021737051329(RA34.40492,DEC5.22482DEG)",R57,z_l_method,,,spectroscopic (BOSS catalogue),/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ021737051329(RA34.40492,DEC5.22482DEG)",R57,z_s,,,1.847,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ021737051329(RA34.40492,DEC5.22482DEG)",R57,z_s_method,,,spectroscopic (from the literature; Table 1 references: Ruff et al. (2011); Gavazzi et al. (2012)),/,/,,,only_b
+SuGOHI CMASS lenses,HSCJ022346053418,R57,kind,,massive CMASS galaxy; no per-system morphology printed,,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ022346053418,R57,z_l,,0.499,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ022346053418,R57,z_l_method,,spectroscopic (BOSS),,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ022346053418,R57,z_s,,1.444,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ022346053418,R57,z_s_method,,"spectroscopic, from the literature",,/,/,,,only_a
+SuGOHI CMASS lenses,"HSCJ022346053418(RA35.94227,DEC5.57180DEG)",R57,kind,,,"BOSS CMASS galaxy (sample-level morphology: keywords ""elliptical and lenticular, cD"")",/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ022346053418(RA35.94227,DEC5.57180DEG)",R57,z_l,,,0.499,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ022346053418(RA35.94227,DEC5.57180DEG)",R57,z_l_method,,,spectroscopic (BOSS catalogue),/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ022346053418(RA35.94227,DEC5.57180DEG)",R57,z_s,,,1.444,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ022346053418(RA35.94227,DEC5.57180DEG)",R57,z_s_method,,,"spectroscopic (from the literature; Table 1 references: Sonnenfeld et al. (2013a,b))",/,/,,,only_b
+SuGOHI CMASS lenses,HSCJ022610042011,R57,kind,,massive CMASS galaxy; no per-system morphology printed,,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ022610042011,R57,z_l,,0.496,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ022610042011,R57,z_l_method,,spectroscopic (BOSS),,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ022610042011,R57,z_s,,1.232,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ022610042011,R57,z_s_method,,"spectroscopic, from the literature",,/,/,,,only_a
+SuGOHI CMASS lenses,"HSCJ022610042011(RA36.54440,DEC4.33656DEG)",R57,kind,,,"BOSS CMASS galaxy (sample-level morphology: keywords ""elliptical and lenticular, cD"")",/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ022610042011(RA36.54440,DEC4.33656DEG)",R57,z_l,,,0.496,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ022610042011(RA36.54440,DEC4.33656DEG)",R57,z_l_method,,,spectroscopic (BOSS catalogue),/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ022610042011(RA36.54440,DEC4.33656DEG)",R57,z_s,,,1.232,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ022610042011(RA36.54440,DEC4.33656DEG)",R57,z_s_method,,,"spectroscopic (from the literature; Table 1 references: Sonnenfeld et al. (2013a,b))",/,/,,,only_b
+SuGOHI CMASS lenses,HSCJ023307043838,R57,kind,,massive CMASS galaxy; no per-system morphology printed,,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ023307043838,R57,z_l,,0.671,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ023307043838,R57,z_l_method,,spectroscopic (BOSS),,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ023307043838,R57,z_s,,1.869,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ023307043838,R57,z_s_method,,"spectroscopic, from the literature",,/,/,,,only_a
+SuGOHI CMASS lenses,"HSCJ023307043838(RA38.27945,DEC4.64396DEG)",R57,kind,,,"BOSS CMASS galaxy (sample-level morphology: keywords ""elliptical and lenticular, cD"")",/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ023307043838(RA38.27945,DEC4.64396DEG)",R57,z_l,,,0.671,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ023307043838(RA38.27945,DEC4.64396DEG)",R57,z_l_method,,,spectroscopic (BOSS catalogue),/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ023307043838(RA38.27945,DEC4.64396DEG)",R57,z_s,,,1.869,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ023307043838(RA38.27945,DEC4.64396DEG)",R57,z_s_method,,,spectroscopic (from the literature; Table 1 references: More et al. (2012); Sonnenfeld et al. (2015)),/,/,,,only_b
+SuGOHI CMASS lenses,HSCJ023817054555,R57,kind,,massive CMASS galaxy; no per-system morphology printed,,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ023817054555,R57,z_l,,0.599,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ023817054555,R57,z_l_method,,spectroscopic (BOSS),,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ023817054555,R57,z_s,,1.763,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ023817054555,R57,z_s_method,,"spectroscopic (VLT X-Shooter emission lines, this paper)",,/,/,,,only_a
+SuGOHI CMASS lenses,"HSCJ023817054555(RA39.57402,DEC5.76542DEG)",R57,kind,,,"BOSS CMASS galaxy (sample-level morphology: keywords ""elliptical and lenticular, cD"")",/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ023817054555(RA39.57402,DEC5.76542DEG)",R57,z_l,,,0.599,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ023817054555(RA39.57402,DEC5.76542DEG)",R57,z_l_method,,,spectroscopic (BOSS catalogue),/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ023817054555(RA39.57402,DEC5.76542DEG)",R57,z_s,,,1.763,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ023817054555(RA39.57402,DEC5.76542DEG)",R57,z_s_method,,,"spectroscopic (VLT X-Shooter emission lines, this paper)",/,/,,,only_b
+SuGOHI CMASS lenses,HSCJ085855010208,R57,kind,,massive CMASS galaxy; no per-system morphology printed,,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ085855010208,R57,z_l,,0.468,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ085855010208,R57,z_l_method,,spectroscopic (BOSS),,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ085855010208,R57,z_s,,1.421,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ085855010208,R57,z_s_method,,"spectroscopic, from the literature",,/,/,,,only_a
+SuGOHI CMASS lenses,"HSCJ085855010208(RA134.73330,DEC1.03567DEG)",R57,kind,,,"BOSS CMASS galaxy (sample-level morphology: keywords ""elliptical and lenticular, cD"")",/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ085855010208(RA134.73330,DEC1.03567DEG)",R57,z_l,,,0.468,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ085855010208(RA134.73330,DEC1.03567DEG)",R57,z_l_method,,,spectroscopic (BOSS catalogue),/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ085855010208(RA134.73330,DEC1.03567DEG)",R57,z_s,,,1.421,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ085855010208(RA134.73330,DEC1.03567DEG)",R57,z_s_method,,,spectroscopic (from the literature; Table 1 references: Paper I),/,/,,,only_b
+SuGOHI CMASS lenses,HSCJ094427014742,R57,kind,,massive CMASS galaxy; no per-system morphology printed,,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ094427014742,R57,z_l,,0.539,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ094427014742,R57,z_l_method,,spectroscopic (BOSS),,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ094427014742,R57,z_s,,1.179,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ094427014742,R57,z_s_method,,"spectroscopic, from the literature",,/,/,,,only_a
+SuGOHI CMASS lenses,"HSCJ094427014742(RA146.11446,DEC1.79511DEG)",R57,kind,,,"BOSS CMASS galaxy (sample-level morphology: keywords ""elliptical and lenticular, cD"")",/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ094427014742(RA146.11446,DEC1.79511DEG)",R57,z_l,,,0.539,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ094427014742(RA146.11446,DEC1.79511DEG)",R57,z_l_method,,,spectroscopic (BOSS catalogue),/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ094427014742(RA146.11446,DEC1.79511DEG)",R57,z_s,,,1.179,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ094427014742(RA146.11446,DEC1.79511DEG)",R57,z_s_method,,,spectroscopic (from the literature; Table 1 references: Brownstein et al. (2012)),/,/,,,only_b
+SuGOHI CMASS lenses,HSCJ120623+001507,R57,kind,,massive CMASS galaxy; no per-system morphology printed,,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ120623+001507,R57,z_l,,0.563,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ120623+001507,R57,z_l_method,,spectroscopic (BOSS),,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ120623+001507,R57,z_s,,3.120,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ120623+001507,R57,z_s_method,,"spectroscopic, from the literature",,/,/,,,only_a
+SuGOHI CMASS lenses,"HSCJ120623+001507(RA181.59937,DEC0.25199DEG)",R57,kind,,,"BOSS CMASS galaxy (sample-level morphology: keywords ""elliptical and lenticular, cD"")",/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ120623+001507(RA181.59937,DEC0.25199DEG)",R57,z_l,,,0.563,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ120623+001507(RA181.59937,DEC0.25199DEG)",R57,z_l_method,,,spectroscopic (BOSS catalogue),/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ120623+001507(RA181.59937,DEC0.25199DEG)",R57,z_s,,,3.120,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ120623+001507(RA181.59937,DEC0.25199DEG)",R57,z_s_method,,,spectroscopic (from the literature; Table 1 references: Paper I),/,/,,,only_b
+SuGOHI CMASS lenses,HSCJ121052011905,R57,kind,,massive CMASS galaxy; no per-system morphology printed,,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ121052011905,R57,z_l,,0.700,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ121052011905,R57,z_l_method,,spectroscopic (BOSS),,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ121052011905,R57,z_s,,2.295,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ121052011905,R57,z_s_method,,"spectroscopic (VLT X-Shooter emission lines, this paper)",,/,/,,,only_a
+SuGOHI CMASS lenses,"HSCJ121052011905(RA182.71869,DEC1.31810DEG)",R57,kind,,,"BOSS CMASS galaxy (sample-level morphology: keywords ""elliptical and lenticular, cD"")",/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ121052011905(RA182.71869,DEC1.31810DEG)",R57,z_l,,,0.700,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ121052011905(RA182.71869,DEC1.31810DEG)",R57,z_l_method,,,spectroscopic (BOSS catalogue),/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ121052011905(RA182.71869,DEC1.31810DEG)",R57,z_s,,,2.295,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ121052011905(RA182.71869,DEC1.31810DEG)",R57,z_s_method,,,"spectroscopic (VLT X-Shooter emission lines, this paper)",/,/,,,only_b
+SuGOHI CMASS lenses,HSCJ121504+004726,R57,kind,,massive CMASS galaxy; no per-system morphology printed,,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ121504+004726,R57,z_l,,0.642,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ121504+004726,R57,z_l_method,,spectroscopic (BOSS),,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ121504+004726,R57,z_s,,1.297,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ121504+004726,R57,z_s_method,,"spectroscopic, from the literature",,/,/,,,only_a
+SuGOHI CMASS lenses,"HSCJ121504+004726(RA183.76850,DEC0.79056DEG)",R57,kind,,,"BOSS CMASS galaxy (sample-level morphology: keywords ""elliptical and lenticular, cD"")",/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ121504+004726(RA183.76850,DEC0.79056DEG)",R57,z_l,,,0.642,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ121504+004726(RA183.76850,DEC0.79056DEG)",R57,z_l_method,,,spectroscopic (BOSS catalogue),/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ121504+004726(RA183.76850,DEC0.79056DEG)",R57,z_s,,,1.297,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ121504+004726(RA183.76850,DEC0.79056DEG)",R57,z_s_method,,,spectroscopic (from the literature; Table 1 references: Brownstein et al. (2012)),/,/,,,only_b
+SuGOHI CMASS lenses,HSCJ140929011410,R57,kind,,massive CMASS galaxy; no per-system morphology printed,,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ140929011410,R57,z_l,,0.584,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ140929011410,R57,z_l_method,,spectroscopic (BOSS),,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ140929011410,R57,z_s,,2.302,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ140929011410,R57,z_s_method,,"spectroscopic (VLT X-Shooter emission lines, this paper)",,/,/,,,only_a
+SuGOHI CMASS lenses,"HSCJ140929011410(RA212.37381,DEC1.23631DEG)",R57,kind,,,"BOSS CMASS galaxy (sample-level morphology: keywords ""elliptical and lenticular, cD"")",/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ140929011410(RA212.37381,DEC1.23631DEG)",R57,z_l,,,0.584,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ140929011410(RA212.37381,DEC1.23631DEG)",R57,z_l_method,,,spectroscopic (BOSS catalogue),/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ140929011410(RA212.37381,DEC1.23631DEG)",R57,z_s,,,2.302,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ140929011410(RA212.37381,DEC1.23631DEG)",R57,z_s_method,,,"spectroscopic (VLT X-Shooter emission lines, this paper)",/,/,,,only_b
+SuGOHI CMASS lenses,HSCJ141300012608,R57,kind,,massive CMASS galaxy; no per-system morphology printed,,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ141300012608,R57,z_l,,0.749,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ141300012608,R57,z_l_method,,spectroscopic (BOSS),,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ141300012608,R57,z_s,,2.666,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ141300012608,R57,z_s_method,,"spectroscopic (VLT X-Shooter emission lines, this paper)",,/,/,,,only_a
+SuGOHI CMASS lenses,"HSCJ141300012608(RA213.25030,DEC1.43560DEG)",R57,kind,,,"BOSS CMASS galaxy (sample-level morphology: keywords ""elliptical and lenticular, cD"")",/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ141300012608(RA213.25030,DEC1.43560DEG)",R57,z_l,,,0.749,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ141300012608(RA213.25030,DEC1.43560DEG)",R57,z_l_method,,,spectroscopic (BOSS catalogue),/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ141300012608(RA213.25030,DEC1.43560DEG)",R57,z_s,,,2.666,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ141300012608(RA213.25030,DEC1.43560DEG)",R57,z_s_method,,,"spectroscopic (VLT X-Shooter emission lines, this paper)",/,/,,,only_b
+SuGOHI CMASS lenses,HSCJ141815+015832,R57,kind,,massive CMASS galaxy; no per-system morphology printed,,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ141815+015832,R57,z_l,,0.556,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ141815+015832,R57,z_l_method,,spectroscopic (BOSS),,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ141815+015832,R57,z_s,,2.139,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ141815+015832,R57,z_s_method,,"spectroscopic, from the literature",,/,/,,,only_a
+SuGOHI CMASS lenses,"HSCJ141815+015832(RA214.56556,DEC1.97564DEG)",R57,kind,,,"BOSS CMASS galaxy (sample-level morphology: keywords ""elliptical and lenticular, cD"")",/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ141815+015832(RA214.56556,DEC1.97564DEG)",R57,z_l,,,0.556,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ141815+015832(RA214.56556,DEC1.97564DEG)",R57,z_l_method,,,spectroscopic (BOSS catalogue),/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ141815+015832(RA214.56556,DEC1.97564DEG)",R57,z_s,,,2.139,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ141815+015832(RA214.56556,DEC1.97564DEG)",R57,z_s_method,,,spectroscopic (from the literature; Table 1 references: Paper I),/,/,,,only_b
+SuGOHI CMASS lenses,HSCJ142449005321,R57,kind,,most probable brightest galaxy of a rich cluster,,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ142449005321,R57,z_l,,0.795,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ142449005321,R57,z_l_method,,spectroscopic (BOSS),,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ142449005321,R57,z_s,,1.302,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ142449005321,R57,z_s_method,,"spectroscopic, from the literature",,/,/,,,only_a
+SuGOHI CMASS lenses,"HSCJ142449005321(RA216.20420,DEC0.88934DEG)",R57,kind,,,"BOSS CMASS galaxy (sample-level morphology: keywords ""elliptical and lenticular, cD"")",/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ142449005321(RA216.20420,DEC0.88934DEG)",R57,z_l,,,0.795,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ142449005321(RA216.20420,DEC0.88934DEG)",R57,z_l_method,,,spectroscopic (BOSS catalogue),/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ142449005321(RA216.20420,DEC0.88934DEG)",R57,z_s,,,1.302,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ142449005321(RA216.20420,DEC0.88934DEG)",R57,z_s_method,,,spectroscopic (from the literature; Table 1 references: Tanaka et al. (2016)),/,/,,,only_b
+SuGOHI CMASS lenses,HSCJ142720+001916,R57,kind,,massive CMASS galaxy; no per-system morphology printed,,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ142720+001916,R57,z_l,,0.551,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ142720+001916,R57,z_l_method,,spectroscopic (BOSS),,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ142720+001916,R57,z_s,,1.266,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ142720+001916,R57,z_s_method,,"spectroscopic (VLT X-Shooter emission lines, this paper)",,/,/,,,only_a
+SuGOHI CMASS lenses,"HSCJ142720+001916(RA216.83562,DEC0.32114DEG)",R57,kind,,,"BOSS CMASS galaxy (sample-level morphology: keywords ""elliptical and lenticular, cD"")",/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ142720+001916(RA216.83562,DEC0.32114DEG)",R57,z_l,,,0.551,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ142720+001916(RA216.83562,DEC0.32114DEG)",R57,z_l_method,,,spectroscopic (BOSS catalogue),/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ142720+001916(RA216.83562,DEC0.32114DEG)",R57,z_s,,,1.266,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ142720+001916(RA216.83562,DEC0.32114DEG)",R57,z_s_method,,,"spectroscopic (VLT X-Shooter emission lines, this paper)",/,/,,,only_b
+SuGOHI CMASS lenses,HSCJ144307004056,R57,kind,,massive CMASS galaxy; no per-system morphology printed,,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ144307004056,R57,z_l,,0.500,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ144307004056,R57,z_l_method,,spectroscopic (BOSS),,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ144307004056,R57,z_s,,1.071,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ144307004056,R57,z_s_method,,"spectroscopic, from the literature",,/,/,,,only_a
+SuGOHI CMASS lenses,"HSCJ144307004056(RA220.77985,DEC0.68225DEG)",R57,kind,,,"BOSS CMASS galaxy (sample-level morphology: keywords ""elliptical and lenticular, cD"")",/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ144307004056(RA220.77985,DEC0.68225DEG)",R57,z_l,,,0.500,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ144307004056(RA220.77985,DEC0.68225DEG)",R57,z_l_method,,,spectroscopic (BOSS catalogue),/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ144307004056(RA220.77985,DEC0.68225DEG)",R57,z_s,,,1.071,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ144307004056(RA220.77985,DEC0.68225DEG)",R57,z_s_method,,,spectroscopic (from the literature; Table 1 references: Paper I),/,/,,,only_b
+SuGOHI CMASS lenses,HSCJ220506+014703,R57,kind,,massive CMASS galaxy; no per-system morphology printed,,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ220506+014703,R57,z_l,,0.476,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ220506+014703,R57,z_l_method,,spectroscopic (BOSS),,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ220506+014703,R57,z_s,,2.526,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ220506+014703,R57,z_s_method,,"spectroscopic, from the literature",,/,/,,,only_a
+SuGOHI CMASS lenses,"HSCJ220506+014703(RA331.27884,DEC1.78441DEG)",R57,kind,,,"BOSS CMASS galaxy (sample-level morphology: keywords ""elliptical and lenticular, cD"")",/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ220506+014703(RA331.27884,DEC1.78441DEG)",R57,z_l,,,0.476,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ220506+014703(RA331.27884,DEC1.78441DEG)",R57,z_l_method,,,spectroscopic (BOSS catalogue),/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ220506+014703(RA331.27884,DEC1.78441DEG)",R57,z_s,,,2.526,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ220506+014703(RA331.27884,DEC1.78441DEG)",R57,z_s_method,,,"spectroscopic (from the literature; Table 1 references: More et al. (2012); Sonnenfeld et al. (2013a,b))",/,/,,,only_b
+SuGOHI CMASS lenses,HSCJ222801+012805,R57,kind,,massive CMASS galaxy; no per-system morphology printed,,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ222801+012805,R57,z_l,,0.647,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ222801+012805,R57,z_l_method,,spectroscopic (BOSS),,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ222801+012805,R57,z_s,,2.462,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ222801+012805,R57,z_s_method,,"spectroscopic (VLT X-Shooter emission lines, this paper)",,/,/,,,only_a
+SuGOHI CMASS lenses,"HSCJ222801+012805(RA337.00824,DEC1.46826DEG)",R57,kind,,,"BOSS CMASS galaxy (sample-level morphology: keywords ""elliptical and lenticular, cD"")",/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ222801+012805(RA337.00824,DEC1.46826DEG)",R57,z_l,,,0.647,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ222801+012805(RA337.00824,DEC1.46826DEG)",R57,z_l_method,,,spectroscopic (BOSS catalogue),/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ222801+012805(RA337.00824,DEC1.46826DEG)",R57,z_s,,,2.462,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ222801+012805(RA337.00824,DEC1.46826DEG)",R57,z_s_method,,,"spectroscopic (VLT X-Shooter emission lines, this paper)",/,/,,,only_b
+SuGOHI CMASS lenses,HSCJ223733+005015,R57,kind,,massive CMASS galaxy; no per-system morphology printed,,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ223733+005015,R57,z_l,,0.604,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ223733+005015,R57,z_l_method,,spectroscopic (BOSS),,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ223733+005015,R57,z_s,,2.143,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ223733+005015,R57,z_s_method,,"spectroscopic (VLT X-Shooter emission lines, this paper)",,/,/,,,only_a
+SuGOHI CMASS lenses,"HSCJ223733+005015(RA339.38973,DEC0.83772DEG)",R57,kind,,,"BOSS CMASS galaxy (sample-level morphology: keywords ""elliptical and lenticular, cD"")",/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ223733+005015(RA339.38973,DEC0.83772DEG)",R57,z_l,,,0.604,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ223733+005015(RA339.38973,DEC0.83772DEG)",R57,z_l_method,,,spectroscopic (BOSS catalogue),/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ223733+005015(RA339.38973,DEC0.83772DEG)",R57,z_s,,,2.143,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ223733+005015(RA339.38973,DEC0.83772DEG)",R57,z_s_method,,,"spectroscopic (VLT X-Shooter emission lines, this paper)",/,/,,,only_b
+SuGOHI CMASS lenses,HSCJ230335+003703,R57,kind,,massive CMASS galaxy; no per-system morphology printed,,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ230335+003703,R57,z_l,,0.458,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ230335+003703,R57,z_l_method,,spectroscopic (BOSS),,/,/,,,only_a
+SuGOHI CMASS lenses,HSCJ230335+003703,R57,z_s,,0.936,,/,/,linear,,only_a
+SuGOHI CMASS lenses,HSCJ230335+003703,R57,z_s_method,,"spectroscopic, from the literature",,/,/,,,only_a
+SuGOHI CMASS lenses,"HSCJ230335+003703(RA345.89654,DEC0.61755DEG)",R57,kind,,,"BOSS CMASS galaxy (sample-level morphology: keywords ""elliptical and lenticular, cD"")",/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ230335+003703(RA345.89654,DEC0.61755DEG)",R57,z_l,,,0.458,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ230335+003703(RA345.89654,DEC0.61755DEG)",R57,z_l_method,,,spectroscopic (BOSS catalogue),/,/,,,only_b
+SuGOHI CMASS lenses,"HSCJ230335+003703(RA345.89654,DEC0.61755DEG)",R57,z_s,,,0.936,/,/,,linear,only_b
+SuGOHI CMASS lenses,"HSCJ230335+003703(RA345.89654,DEC0.61755DEG)",R57,z_s_method,,,spectroscopic (from the literature; Table 1 references: Brownstein et al. (2012)),/,/,,,only_b
+gas,(KIND)EARLYTYPEGALAXIES(SLACS),R37,gas,,,hot and cold gas or dust contribute a small fraction of the baryon budget,/,/,,,only_b
+gas,"(KIND)EARLYTYPEGALAXIES,ATLAS3D",S12,gas,,,HI detected in ~40% of non-Virgo ETGs; small discs M(HI) < 10^8 M_sun within stellar body; large discs up to 5e9 M_sun extend tens of kpc,/,/,,,only_b
+gas,"(KIND)EARLYTYPEGALAXIES,ATLAS3D",Y11,gas,,,CO detection rate 0.22 ± 0.03; a few CO-rich ETGs with H2 masses ≳ 10^9 M_sun,/,/,,,only_b
+gas,(KIND)ELLIPTICALGALAXIES,R31,gas,,,"""In most cases, the gas content in elliptical galaxies can be safely neglected""",/,/,,,only_b
+gas,(KIND)MASSIVEELLIPTICALGALAXIES,MB03,gas,,,"total hot gas up to several 10^10 M_sun, about ≲1 percent of total stellar mass",/,/,,,only_b
+gas,(KIND)NORMALELLIPTICALGALAXIES,DS07,gas,,,none,/,/,,,only_b
+gas,(KIND)SLACSEARLYTYPEGALAXIES,R64,gas,,,X-ray observations show residual gas is a small fraction of stellar mass,/,/,,,only_b
+gas,(KIND)SLACSEARLYTYPEGALAXIES,R8,gas,,,"""any gas is effectively treated as dark matter""",/,/,,,only_b
+gas,J1430+4105(KIND:ELLIPTICAL/GROUP),R49,gas,,,gas incorporated in DM or de Vaucouleurs component; M(H2) ≤ 10^9 M_sun (<1%); hot gas up to 10% of total central mass,/,/,,,only_b
+gas,J1430+4105/KIND,R49,gas,,statement: gas absorbed in DM or de Vaucouleurs component; ≈10% uncertainty,,/,/,,,only_a
+gas,KIND:EARLYTYPEGALAXIES,R37,gas,,statement: small fraction of baryon budget,,/,/,,,only_a
+gas,KIND:EARLYTYPEGALAXIES,Roberts & Haynes 1994,gas,,not located,,/,/,,,only_a
+gas,KIND:EARLYTYPEGALAXIES(ATLAS3D),Serra et al. 2012,gas,,"statement: HI detected in ~40% outside Virgo, ~10% inside",,/,/,,,only_a
+gas,KIND:EARLYTYPEGALAXIES(ATLAS3D),Young et al. 2011,gas,,0.22,,0.03/0.03,/,linear,,only_a
+gas,KIND:ELLIPTICALGALAXIES,Diehl & Statler 2007,gas,,none (no gas-mass statement located),,/,/,,,only_a
+gas,KIND:ELLIPTICALGALAXIES,Mathews & Brighenti 2003,gas,,1,,/,/,linear,,only_a
+gas,KIND:ELLIPTICALGALAXIES,R31,gas,,statement: gas content usually negligible,,/,/,,,only_a
+gas,KIND:ELLIPTICALGALAXIES,R64,gas,,"statement: residual gas a small fraction of stellar mass (X-ray, cited)",,/,/,,,only_a
+gas,MG2016+112,R35,gas,,statement: no evidence for hot X-ray gas (cited Chandra),,/,/,,,only_a
+gas,MG2016+112(LSD;OUTSIDEBLOCK3SCOPES),R35,gas,,,Chandra shows no evidence for hot X-ray gas (cluster claim refuted),/,/,,,only_b
+gas,SLACS(KIND),R8,gas,,statement: gas treated as dark matter,,/,/,,,only_a

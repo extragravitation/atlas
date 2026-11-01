@@ -1,6 +1,6 @@
 {
   "description": "aeg-d-strong-lensing/v1 reproduction test and the strong-lensing conversion code (Einstein mass, distances, Sersic enclosed light, projected accelerations), frozen before any A6 lens value is opened.",
-  "frozen_on": "on merge",
+  "frozen_on": "2026-10-31",
   "decision": "D-065",
   "spec": "data/packages/aeg-d-strong-lensing/v1/REPRODUCTION.md",
   "files": {

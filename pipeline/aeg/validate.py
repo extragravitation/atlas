@@ -17,7 +17,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-KNOWN_STANDARD_VERSIONS = {"1.0.0", "1.1.0", "1.2.0", "1.2.1", "1.3.0", "2.0.0"}
+KNOWN_STANDARD_VERSIONS = {"1.0.0", "1.1.0", "1.2.0", "1.2.1", "1.3.0", "2.0.0", "2.1.0"}
 
 FLAGS = {"no_uncertainty", "beyond_source_range", "inner_resolution_limited", "source_quality_low", "reproduction_mismatch"}
 CLOSED = {
@@ -127,6 +127,25 @@ CORE_SYS_V2 = CORE_SYS | {"taxonomy_kind", "kind_label", "host", "distance_kinem
 TAXONOMY_KINDS = {f"A{i}" for i in range(11)}
 INVENTORY_STATUS = {"measured", "modelled", "known_unmeasured", "stated_negligible", "absent_limit",
                     "absent_literature_limit", "not_addressed"}
+# Quantities added by minor versions of 2.x (docs/data-standard.md §4a), accepted only in packages
+# that state that version or a later one.
+QUANTITIES_ADDED = {
+    "2.1.0": {"observed": {"einstein_mass"}},  # D-076 item 4
+}
+
+
+def quantities_for(standard_version: str) -> dict[str, set[str]]:
+    """The closed §4a lists as they stand in the given 2.x version."""
+    def key(v):
+        return tuple(int(x) for x in v.split("."))
+    out = {side: set(q) for side, q in QUANTITIES.items()}
+    for v, added in QUANTITIES_ADDED.items():
+        if key(str(standard_version)) >= key(v):
+            for side, q in added.items():
+                out[side] |= q
+    return out
+
+
 UNITS_V2 = {**UNITS, "delta_g": "m / s2", "delta_g_err_lo": "m / s2", "delta_g_err_hi": "m / s2",
             "r_in_kpc": "kpc", "r_out_kpc": "kpc"}
 
@@ -142,6 +161,7 @@ def validate_v2(pkg: Path, meas) -> list[str]:
     short = dataset.removeprefix("aeg-d-").replace("-", "_")
     where = f"{dataset}/{version}"
     problems: list[str] = []
+    quantities = quantities_for(meas.meta.get("standard_version", "2.0.0"))
 
     for c in REQUIRED_MEAS_V2:
         if c not in meas.colnames:
@@ -176,9 +196,9 @@ def validate_v2(pkg: Path, meas) -> list[str]:
             for r in orows:
                 oid, side = str(r["observable_id"]), r["side"]
                 obs_ids[oid] = side
-                if side not in QUANTITIES:
+                if side not in quantities:
                     problems.append(f"{ow}: {oid} side {side!r} not in the closed list")
-                elif r["quantity"] not in QUANTITIES[side]:
+                elif r["quantity"] not in quantities[side]:
                     problems.append(f"{ow}: {oid} quantity {r['quantity']!r} not allowed on the {side} side")
                 bad_steps = [s for s in str(r["steps"] or "").split(";") if s and s not in LADDER_STEPS]
                 if bad_steps or not r["steps"]:
