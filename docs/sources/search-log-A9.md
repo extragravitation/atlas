@@ -116,3 +116,18 @@ Counted, not listed.
 | Records identified (per query, not deduplicated) | ADS 572 + 84 + 117; VizieR 154; Zenodo 200 scanned; GitHub 8 |
 | Passed to full-text screening | 30 entries (C1–C30), grouping about 110 records |
 | Full-text screening | pending: two independent readers, brief `docs/sources/screening-brief-A9.md` |
+
+## 2. Full-text screening (2026-10-31)
+
+Two independent AI readers screened C1–C30 to `docs/sources/screening-brief-A9.md`, in two blocks each. Their tables are kept as returned in `docs/sources/screening-A9/`.
+
+**Comparison** (`adjudication.md`):
+- v1 (by row letter): 49 of 115 rows agree. Row letters were misaligned because the readers handled catalogue rows differently.
+- v2 (by record identifier; written after v1 was read, and disclosed): 54 of 126 pairs agree.
+- Most disagreements were one coding convention ("E-pair" against "E" when a gas pairing is named). They were settled by the brief's own definition.
+- An independence breach is disclosed: the readers shared a scratchpad folder, and reader B opened two of reader A's abstract files.
+
+**Final codes** (`final.csv`): E 28, E-pair 33, P 16, X 28, NS 2, reviews 2.
+
+**Questions for JvH** (`adjudication.md`): QA1 joint lensing–dynamics fits; QA2 stacked profiles; QA3 projection for clusters; QA4 the epoch cut.
+

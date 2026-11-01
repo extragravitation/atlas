@@ -1,0 +1,110 @@
+row_a,row_b,decision_a,decision_b,final,reason
+C1a,C1a,E-pair,E,E,R1: observed side present; both readers name CLASH-X (C3a) as the gas pairing; the brief codes that E.
+C1b,C1b,E-pair,E,E,"R1, as C1a."
+C1c,C1c,E-pair,E,E,"R1, as C1a."
+C1d,C1d,X,X,X,agreed
+C1e,C1e,X,X,X,agreed
+C2a,C2a,X,X,X,agreed
+C2a,C2b,X,X,X,agreed
+C2b,C2c,X,X,X,agreed
+C3a,C3a,E-pair,E-pair,E-pair,agreed
+C4a,C4a,E-pair,E,E,R1: pairing CLASH-X (C3a) named by both.
+C5a,C5a,E-pair,E,E,R1: pairing C3a.
+C5b,C5b,E-pair,E,E,R1: pairing C3a.
+C5c,C5c,E-pair,E,E,R1: pairing C3a.
+C5d,C5d,NS,P,P,"Read by reader B only (abstract): Manjón-García et al. 2020, free-form strong lensing of MACS J1206; full text not found."
+C5e,C5e,E-pair,P,X,Kind: reader A reports the source describes MACS J0717 as merging. A10 lead.
+C5f,C5f,E-pair,E,E,"R1: pairing C3a named by reader B; reader A notes CLASH-X coverage of MACS J2129 is unverified, to check at packaging."
+C6a,C6a,E,E-pair,E-pair,"Observed side only: both readers say the X-ray information is model-based (B: a single aperture), not a gas profile."
+C6b,C6c,E-pair,E-pair,E-pair,agreed
+C6c,C6d,E-pair,E-pair,E-pair,agreed
+C6d,C6e,NS,X,X,Not circular: stacked shear rescaled with NFW parameters from X-ray mass-proxy relations (reader B; reader A could not identify the record).
+C7a,C7a,E-pair,E-pair,E-pair,agreed
+C7b,C7b,E-pair,E-pair,E-pair,agreed
+C8a,C8a,E-pair,P,P,QA1 (lensing combined with BCG stellar kinematics in one profile).
+C8b,C8b,X,X,X,agreed
+C8c,C8c,E-pair,P,P,"QA1, as C8a."
+C8d,C8d,E-pair,P,P,"QA1, as C8a."
+C9a,C9a,E-pair,E,E,R1: pairing Peng et al. 2009 (C9h) for A1689 named by both.
+C9b,C9b,E-pair,E,E,"R1, as C9a."
+C9c,C9c,E-pair,E,E,"R1, as C9a. New strong-lensing model; its weak-lensing part re-uses C9b. Member masses from the Fundamental Plane are not used."
+C9d,C9e,E-pair,E,E,"R1, as C9a (Umetsu & Broadhurst 2008; rows aligned by arXiv id)."
+C9e,C9f,E-pair,E,E,"R1, as C9a (Umetsu et al. 2011a)."
+C9f,C9g,E-pair,P,E,"R1: reader A read Table 1 (mean binned profile, tier 2); reader B did not open the paper. Pairing C9h."
+C9g,C9h,E,E,E,agreed
+C9h,C9i,E-pair,E-pair,E-pair,agreed
+C10a,C10a,X,E-pair,X,Duplicate: both readers say it stacks profiles from C9e and published strong lensing.
+C10b,C10b,X,X,X,agreed
+C11a,C11a,E,E,E,agreed
+C11b,C11b,E,E,E,agreed
+C11c,C11c,E-pair,E-pair,E-pair,agreed
+C12a,C12a,P,E-pair,P,QA2 (stacked profiles).
+C12b,C12b,NS,P,NS,"Neither reader could read the full text (Dahle et al. 2002, ApJS 139, 313; no arXiv)."
+C12c,C12c,E-pair,E-pair,E-pair,agreed
+C12d,C12d,E-pair,E-pair,E-pair,agreed
+C12e,C12e,E-pair,E-pair,E-pair,agreed
+C12f,C12f,E-pair,E-pair,E-pair,agreed
+C13a,C13a,E-pair,E-pair,E-pair,agreed
+C13b,C13b,E-pair,E-pair,E-pair,agreed
+C13c,C13c,E-pair,E-pair,E-pair,agreed
+C13d,C13d,E,X,X,Kind: both readers report the source calls A2465 a pre-merger double cluster. A10 lead.
+C13e,C13e,E-pair,P,P,QA1 (lensing combined with dynamics in one model).
+C13f,C13f,E,E,E,agreed
+C13g,C13g,E-pair,E,E,"R1: pairing Okabe et al. 2014 (C11b) for both clusters, named by both."
+C13h,C13h,NS,E,E,"Read by reader B only: Huang et al. 2011, A383 weak lensing; pairing C3a."
+C13i,C13i,E,P,P,QA1 (lensing and X-ray in one joint triaxial model).
+C13j,C13j,E-pair,E,E,"Gas profile new (Chandra); observed side from Lombardi et al. 2000 (pairing, a lead to read)."
+C14a,C14a,E-pair,E-pair,E-pair,agreed
+C14b,C14b,E-pair,E-pair,E-pair,agreed
+C15a,C15a,E-pair,E-pair,E-pair,agreed
+C15b,C15b,E,E,E,agreed
+C15c,C15c,E-pair,E-pair,E-pair,agreed
+C15d,C15d,E,P,X,Kind: reader A reports the source calls A370 a post-major merger. A10 lead.
+C15e,C15e,E,X,X,Kind: both readers report the source calls MACS J0416 merging. A10 lead.
+C15f,C15f,E-pair,X,X,Kind: same merging cluster as C15e; observed side duplicates C15e. A10 lead.
+C16a,C16a,P,P,P,agreed
+C16b,unmatched,—,missing,X,Code repository with no data (both readers).
+C17a,C17a,E,P,P,"QA1 (gas, stars and total from one model); release of the model unverified."
+C17b,C17b,E,P,P,"QA1, and kind: reader B reports the source describes an ongoing merger (A10 question)."
+C17c,C17c,NS,P,P,"Read by reader B only: Sereno et al. 2010, AC 114; core-only fit parameters; ""dynamically active"" (A10 question)."
+C18a,C18a,X,P,X,Not circular (§1.3): profiles rescaled by masses from observable–mass relations (both readers).
+C18b,C18b,E-pair,P,X,Not circular: radial units from a richness scaling relation (reader B); stacked only. Rows aligned by letter.
+C18c,C18c,E-pair,E-pair,E-pair,agreed
+C18d,C18d,E-pair,E-pair,E-pair,agreed
+C19a,C19a,E-pair,NS,E-pair,"Observed side (strong-lensing core); reader A read the Zenodo record, reader B could not. z ≳ 0.3."
+C19b,C19b,E-pair,NS,E-pair,As C19a. z ≳ 0.3.
+C19c,C19c,X,X,X,Agreed X (rows aligned by letter).
+C20a,C20a,E-pair,E,E,R1: pairing CHeCS (C20c) named by both.
+C20b,C20b,NS,NS,NS,agreed
+C20c,C20c,E,P,E,Both readers: per-cluster parametric Chandra gas density models and caustic profiles. Whether per-cluster values are released is checked at packaging (tier).
+C20d,C20d,E-pair,E-pair,E-pair,Agreed E-pair (rows aligned by letter).
+C21a,C21a,E-pair,E-pair,E-pair,agreed
+C21b,C21b,E-pair,E-pair,E-pair,agreed
+C21c,C21c,E-pair,E-pair,E-pair,agreed
+C21d,C21d,X,X,X,agreed
+C22,C22a,E-pair,E-pair,E-pair,agreed
+C23a,C23a,E-pair,E-pair,E-pair,agreed
+C23b,C23b,E-pair,E-pair,E-pair,agreed
+C23c,C23c,E,E,E,agreed
+C23d,C23d,E-pair,P,P,"Whether the paper gives a caustic mass profile: reader A says a new profile, reader B could not confirm. Settle at second reading."
+C23e,C23e,X,X,X,agreed
+C23f,C23f,P,E-pair,P,Whether a radial ICL profile is tabulated (both unsure).
+C24a,C24a,E-pair,E-pair,E-pair,agreed
+C24b,C24b,X,NS,X,"Reader A: the observed-side mass is X-ray hydrostatic from the literature, not dynamics (reader B could not identify the record)."
+C24c,C24c,NS,X,X,"Reader B: method study, not observational data (reader A could not identify the record)."
+C25,C25a,P,P,P,agreed
+C26,C26a,E-pair,E-pair,E-pair,agreed
+C27a,C27a,E-pair,E-pair,E-pair,agreed
+C27b,C27b,E,P,P,Kind: AS1063 is reported as merging in C17b (A10 question). Otherwise reader A read gas-mass and stellar profiles (E).
+C27c,unmatched,X,missing,X,"Row O: the observed-side mass is taken from lensing, not dynamics (reader A; reader B could not identify the record)."
+C27d,C27d,X,X,X,agreed
+C27e,C27e,P,P,P,agreed
+C27f,C27f,NS,X,X,Duplicate: re-analysis of C27a dynamics and CLASH lensing (reader B; reader A could not identify the record).
+C28a,C28a,E-pair,E,E,"R1: pairing named by reader B (Akamatsu et al. 2011; X-COP A2142, already an Atlas package). Use the dynamics-only profile, not the combined one (both readers); corrigendum to be read."
+C28b,C28b,X,P,X,No new mass profile (reader A read it; reader B asked the same question).
+C28c,C28c,X,X,X,agreed
+C28d,C28d,X,X,X,agreed
+C29a,C29a,E,E,E,agreed
+C29b,C29b,E-pair,E,E,R1: pairing CHEX-MATE XMM-Newton gas for the same clusters (both readers). SZ-calibrated comparison masses are not used. Rows aligned by letter.
+C30a,C30a,—,—,—,agreed
+C30b,C30b,—,—,—,agreed
