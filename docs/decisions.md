@@ -1280,3 +1280,17 @@ What the rule covers:
 **Correction recorded.** Claude's recommendation said the X-COP stars would be replaced "with measured stellar masses (Ghizzardi et al. 2020)". On checking D-022: Ghizzardi et al. 2020 covers the 7 clusters that are already measured, not the 5 modelled ones. Item 3 above states the plan correctly.
 
 **Data seen.** D-022 and D-023 and the X-COP package's status columns (counts of measured and modelled rows). No masses were read.
+
+## D-069 — No summing of member-galaxy catalogues for cluster stellar masses (v1.0)
+
+**Ruling (2026-10-31 19:49 MDT, JvH).** "We'll do no for summing member catalogues." **Proposed by** Claude (`docs/sources/screening-S9/adjudication.md`, QS4, option (a)). **Adopted.**
+
+In v1.0, the Atlas does not build a cluster's stellar mass by summing a published catalogue of member galaxies, or by integrating a published stellar mass function. Such records are kept as inputs and leads, coded X for the baryonic side.
+
+**Reason.** Summing needs the Atlas's own membership and completeness corrections, which is new analysis, not reading. The same line was drawn for star clusters and dwarfs, where velocity dispersions are never computed from individual stars.
+
+**Effect.**
+- A1644 (X-COP) has no eligible measured stellar mass.
+- S1b, S1c, S19, S13b and S13f become X for the baryonic side.
+
+**Data seen.** The stellar-mass screening readings: metadata and methods only.
