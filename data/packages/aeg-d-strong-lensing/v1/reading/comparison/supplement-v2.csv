@@ -1,0 +1,399 @@
+scope,system,record,quantity,a,b,status
+MNELLS,(RECORD),R29,H0,,"(Decimal('70.4'), None, None, 'linear', '')",only_b
+MNELLS,(RECORD),R29,Om,,"(Decimal('0.272'), None, None, 'linear', '')",only_b
+S1 R29 cosmology,(RECORD),R29,H0,"(Decimal('70.4'), None, None, 'linear', '')",,only_a
+S1 R29 cosmology,(RECORD),R29,Om,"(Decimal('0.272'), None, None, 'linear', '')",,only_a
+S2 SNL-1,SNL1(ESO286G022;J2100286422523),R25,mstar,"(None, None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J00290055,R13,R_e,"(Decimal('2.16'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J00290055,R13,mstar,"(Decimal('17'), Decimal('5'), Decimal('8'), 'linear', '');(Decimal('31'), Decimal('9'), Decimal('14'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J00370942,R13,R_e,"(Decimal('2.19'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J00370942,R13,mstar,"(Decimal('31'), Decimal('12'), Decimal('6'), 'linear', '');(Decimal('54'), Decimal('20'), Decimal('11'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J00440113,R13,R_e,"(Decimal('2.61'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J00440113,R13,mstar,"(Decimal('15'), Decimal('6'), Decimal('5'), 'linear', '');(Decimal('23'), Decimal('6'), Decimal('11'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J01091500,R13,R_e,"(Decimal('1.38'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J01091500,R13,mstar,"(Decimal('26'), Decimal('6'), Decimal('5'), 'linear', '');(Decimal('44'), Decimal('8'), Decimal('11'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J02520039,R13,R_e,"(Decimal('1.39'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J02520039,R13,mstar,"(Decimal('12'), Decimal('5'), Decimal('2'), 'linear', '');(Decimal('22'), Decimal('10'), Decimal('2'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J04050455,R13,R_e,"(Decimal('1.36'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J04050455,R13,mstar,"(Decimal('3'), Decimal('1'), Decimal('2'), 'linear', '');(Decimal('5'), Decimal('2'), Decimal('3'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J07283835,R13,R_e,"(Decimal('1.78'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J07283835,R13,mstar,"(Decimal('14'), Decimal('1'), Decimal('8'), 'linear', '');(Decimal('25'), Decimal('3'), Decimal('12'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J08222652,R13,R_e,"(Decimal('1.82'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J08222652,R13,mstar,"(Decimal('33'), Decimal('6'), Decimal('1'), 'linear', '');(Decimal('58'), Decimal('8'), Decimal('2'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J09120029,R13,R_e,"(Decimal('3.87'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J09120029,R13,mstar,"(Decimal('43'), Decimal('8'), Decimal('8'), 'linear', '');(Decimal('73'), Decimal('11'), Decimal('14'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J09360913,R13,R_e,"(Decimal('2.11'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J09360913,R13,mstar,"(Decimal('18'), Decimal('4'), Decimal('5'), 'linear', '');(Decimal('32'), Decimal('7'), Decimal('9'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J09461006,R13,R_e,"(Decimal('2.35'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J09461006,R13,mstar,"(Decimal('24'), Decimal('6'), Decimal('1'), 'linear', '');(Decimal('41'), Decimal('8'), Decimal('2'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J09565100,R13,R_e,"(Decimal('2.19'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J09565100,R13,mstar,"(Decimal('43'), Decimal('19'), Decimal('4'), 'linear', '');(Decimal('75'), Decimal('33'), Decimal('8'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J09590410,R13,R_e,"(Decimal('1.39'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J09590410,R13,mstar,"(Decimal('12'), Decimal('3'), Decimal('2'), 'linear', '');(Decimal('7'), Decimal('2'), Decimal('2'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J09594416,R13,R_e,"(Decimal('1.98'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J09594416,R13,mstar,"(Decimal('28'), Decimal('7'), Decimal('1'), 'linear', '');(Decimal('44'), Decimal('10'), Decimal('9'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J10163859,R13,R_e,"(Decimal('1.46'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J10163859,R13,mstar,"(Decimal('13'), Decimal('3'), Decimal('3'), 'linear', '');(Decimal('22'), Decimal('6'), Decimal('5'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J10201122,R13,R_e,"(Decimal('1.59'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J10201122,R13,mstar,"(Decimal('24'), Decimal('8'), Decimal('6'), 'linear', '');(Decimal('37'), Decimal('9'), Decimal('15'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J10234230,R13,R_e,"(Decimal('1.77'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J10234230,R13,mstar,"(Decimal('22'), Decimal('4'), Decimal('1'), 'linear', '');(Decimal('38'), Decimal('7'), Decimal('3'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J10290420,R13,R_e,"(Decimal('1.56'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J10290420,R13,mstar,"(Decimal('13'), Decimal('4'), Decimal('5'), 'linear', '');(Decimal('8'), Decimal('3'), Decimal('4'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J11065228,R13,R_e,"(Decimal('1.68'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J11065228,R13,mstar,"(Decimal('13'), Decimal('3'), Decimal('4'), 'linear', '');(Decimal('22'), Decimal('6'), Decimal('8'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J11120826,R13,R_e,"(Decimal('1.50'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J11120826,R13,mstar,"(Decimal('36'), Decimal('3'), Decimal('4'), 'linear', '');(Decimal('63'), Decimal('7'), Decimal('7'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J11346027,R13,R_e,"(Decimal('2.02'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J11346027,R13,mstar,"(Decimal('15'), Decimal('7'), Decimal('4'), 'linear', '');(Decimal('24'), Decimal('9'), Decimal('10'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J11421001,R13,R_e,"(Decimal('1.91'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J11421001,R13,mstar,"(Decimal('19'), Decimal('6'), Decimal('6'), 'linear', '');(Decimal('30'), Decimal('6'), Decimal('12'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J11430144,R13,R_e,"(Decimal('4.80'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J11430144,R13,mstar,"(Decimal('22'), Decimal('2'), Decimal('3'), 'linear', '');(Decimal('37'), Decimal('3'), Decimal('6'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J11534612,R13,R_e,"(Decimal('1.16'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J11534612,R13,mstar,"(Decimal('12'), Decimal('1'), Decimal('8'), 'linear', '');(Decimal('7'), Decimal('1'), Decimal('5'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J12040358,R13,R_e,"(Decimal('1.47'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J12040358,R13,mstar,"(Decimal('10'), Decimal('2'), Decimal('2'), 'linear', '');(Decimal('16'), Decimal('4'), Decimal('5'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J12054910,R13,R_e,"(Decimal('2.59'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J12054910,R13,mstar,"(Decimal('29'), Decimal('9'), Decimal('8'), 'linear', '');(Decimal('50'), Decimal('15'), Decimal('15'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J12136708,R13,R_e,"(Decimal('3.23'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J12136708,R13,mstar,"(Decimal('21'), Decimal('4'), Decimal('5'), 'linear', '');(Decimal('35'), Decimal('8'), Decimal('10'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J12180830,R13,R_e,"(Decimal('3.18'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J12180830,R13,mstar,"(Decimal('21'), Decimal('4'), Decimal('6'), 'linear', '');(Decimal('35'), Decimal('7'), Decimal('11'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J12500523,R13,R_e,"(Decimal('1.81'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J12500523,R13,mstar,"(Decimal('29'), Decimal('7'), Decimal('5'), 'linear', '');(Decimal('50'), Decimal('15'), Decimal('12'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J14026321,R13,R_e,"(Decimal('2.70'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J14026321,R13,mstar,"(Decimal('37'), Decimal('5'), Decimal('7'), 'linear', '');(Decimal('65'), Decimal('9'), Decimal('10'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J14030006,R13,R_e,"(Decimal('1.46'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J14030006,R13,mstar,"(Decimal('14'), Decimal('6'), Decimal('3'), 'linear', '');(Decimal('23'), Decimal('8'), Decimal('7'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J14165136,R13,R_e,"(Decimal('1.43'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J14165136,R13,mstar,"(Decimal('32'), Decimal('7'), Decimal('1'), 'linear', '');(Decimal('56'), Decimal('11'), Decimal('3'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J14206019,R13,R_e,"(Decimal('2.06'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J14206019,R13,mstar,"(Decimal('12'), Decimal('4'), Decimal('5'), 'linear', '');(Decimal('7'), Decimal('2'), Decimal('3'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J14304105,R13,R_e,"(Decimal('2.55'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J14304105,R13,mstar,"(Decimal('32'), Decimal('11'), Decimal('4'), 'linear', '');(Decimal('56'), Decimal('18'), Decimal('8'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J14360000,R13,R_e,"(Decimal('2.24'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J14360000,R13,mstar,"(Decimal('32'), Decimal('13'), Decimal('8'), 'linear', '');(Decimal('55'), Decimal('21'), Decimal('16'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J14430304,R13,R_e,"(Decimal('0.94'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J14430304,R13,mstar,"(Decimal('13'), Decimal('6'), Decimal('4'), 'linear', '');(Decimal('7'), Decimal('3'), Decimal('2'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J14510239,R13,R_e,"(Decimal('2.48'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J14510239,R13,mstar,"(Decimal('18'), Decimal('10'), Decimal('2'), 'linear', '');(Decimal('29'), Decimal('14'), Decimal('6'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J15310105,R13,R_e,"(Decimal('2.50'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J15310105,R13,mstar,"(Decimal('29'), Decimal('5'), Decimal('5'), 'linear', '');(Decimal('48'), Decimal('8'), Decimal('9'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J15385817,R13,R_e,"(Decimal('1.58'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J15385817,R13,mstar,"(Decimal('11'), Decimal('1'), Decimal('1'), 'linear', '');(Decimal('20'), Decimal('4'), Decimal('1'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J16213931,R13,R_e,"(Decimal('2.14'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J16213931,R13,mstar,"(Decimal('34'), Decimal('10'), Decimal('4'), 'linear', '');(Decimal('60'), Decimal('19'), Decimal('8'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J16270053,R13,R_e,"(Decimal('1.98'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J16270053,R13,mstar,"(Decimal('21'), Decimal('3'), Decimal('4'), 'linear', '');(Decimal('37'), Decimal('7'), Decimal('6'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J16304520,R13,R_e,"(Decimal('1.96'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J16304520,R13,mstar,"(Decimal('40'), Decimal('4'), Decimal('1'), 'linear', '');(Decimal('71'), Decimal('8'), Decimal('3'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J16364707,R13,R_e,"(Decimal('1.68'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J16364707,R13,mstar,"(Decimal('16'), Decimal('4'), Decimal('4'), 'linear', '');(Decimal('27'), Decimal('5'), Decimal('8'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J22380754,R13,R_e,"(Decimal('2.33'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J22380754,R13,mstar,"(Decimal('14'), Decimal('5'), Decimal('5'), 'linear', '');(Decimal('24'), Decimal('9'), Decimal('9'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J23000022,R13,R_e,"(Decimal('1.83'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J23000022,R13,mstar,"(Decimal('24'), Decimal('4'), Decimal('2'), 'linear', '');(Decimal('45'), Decimal('7'), Decimal('2'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J23031422,R13,R_e,"(Decimal('3.28'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J23031422,R13,mstar,"(Decimal('31'), Decimal('3'), Decimal('5'), 'linear', '');(Decimal('53'), Decimal('5'), Decimal('10'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J23210939,R13,R_e,"(Decimal('4.11'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J23210939,R13,mstar,"(Decimal('24'), Decimal('4'), Decimal('9'), 'linear', '');(Decimal('41'), Decimal('7'), Decimal('11'), 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J23410000,R13,R_e,"(Decimal('3.15'), None, None, 'linear', '')",,only_a
+S3 R13 SLACS z_l<0.30,J23410000,R13,mstar,"(Decimal('31'), Decimal('14'), Decimal('5'), 'linear', '');(Decimal('55'), Decimal('20'), Decimal('8'), 'linear', '')",,only_a
+S4 R7 SLACS z_l<0.30,(RECORD),R7,Om,"(Decimal('0.3'), None, None, 'linear', '')",,only_a
+S4 R7 SLACS z_l<0.30,J00290055,R7,M_E,"(Decimal('11.08'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J00370942,R7,M_E,"(Decimal('11.47'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J00440113,R7,M_E,"(Decimal('10.96'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J01091500,R7,M_E,"(Decimal('11.12'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J02520039,R7,M_E,"(Decimal('11.25'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J04050455,R7,M_E,"(Decimal('10.41'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J07283835,R7,M_E,"(Decimal('11.30'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J08084706,R7,M_E,"(None, None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J08194534,R7,M_E,"(Decimal('11.04'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J08222652,R7,M_E,"(Decimal('11.38'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J08413824,R7,M_E,"(Decimal('11.12'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J09120029,R7,M_E,"(Decimal('11.60'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J09360913,R7,M_E,"(Decimal('11.17'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J09461006,R7,M_E,"(Decimal('11.46'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J09550101,R7,M_E,"(Decimal('10.83'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J09565100,R7,M_E,"(Decimal('11.57'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J09590410,R7,M_E,"(Decimal('10.88'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J09594416,R7,M_E,"(Decimal('11.23'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J10163859,R7,M_E,"(Decimal('11.17'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J10201122,R7,M_E,"(Decimal('11.54'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J10234230,R7,M_E,"(Decimal('11.37'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J10290420,R7,M_E,"(Decimal('10.78'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J10296115,R7,M_E,"(None, None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J10325322,R7,M_E,"(Decimal('11.05'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J11035322,R7,M_E,"(Decimal('10.98'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J11065228,R7,M_E,"(Decimal('10.96'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J11120826,R7,M_E,"(Decimal('11.65'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J11346027,R7,M_E,"(Decimal('11.10'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J11421001,R7,M_E,"(Decimal('11.22'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J11430144,R7,M_E,"(Decimal('11.29'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J11534612,R7,M_E,"(Decimal('11.05'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J12040358,R7,M_E,"(Decimal('11.24'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J12054910,R7,M_E,"(Decimal('11.40'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J12136708,R7,M_E,"(Decimal('11.16'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J12180830,R7,M_E,"(Decimal('11.21'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J12500135,R7,M_E,"(None, None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J12500523,R7,M_E,"(Decimal('11.26'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J12510208,R7,M_E,"(Decimal('10.98'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J12596134,R7,M_E,"(None, None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J13060600,R7,M_E,"(Decimal('11.33'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J13130506,R7,M_E,"(None, None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J13134615,R7,M_E,"(Decimal('11.38'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J13180313,R7,M_E,"(Decimal('11.50'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J13191504,R7,M_E,"(None, None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J13300148,R7,M_E,"(Decimal('10.52'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J14026321,R7,M_E,"(Decimal('11.46'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J14030006,R7,M_E,"(Decimal('10.98'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J14165136,R7,M_E,"(Decimal('11.56'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J14206019,R7,M_E,"(Decimal('10.59'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J14304105,R7,M_E,"(Decimal('11.73'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J14326317,R7,M_E,"(Decimal('11.05'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J14360000,R7,M_E,"(Decimal('11.36'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J14363640,R7,M_E,"(None, None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J14430304,R7,M_E,"(Decimal('10.78'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J14510239,R7,M_E,"(Decimal('10.92'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J15310105,R7,M_E,"(Decimal('11.43'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J15385817,R7,M_E,"(Decimal('10.95'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J16144522,R7,M_E,"(Decimal('10.86'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J16184353,R7,M_E,"(None, None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J16213931,R7,M_E,"(Decimal('11.47'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J16270053,R7,M_E,"(Decimal('11.36'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J16304520,R7,M_E,"(Decimal('11.69'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J16364707,R7,M_E,"(Decimal('11.25'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J16442625,R7,M_E,"(Decimal('11.12'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J17186424,R7,M_E,"(None, None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J17192939,R7,M_E,"(Decimal('11.28'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J21410001,R7,M_E,"(None, None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J22380754,R7,M_E,"(Decimal('11.11'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J23000022,R7,M_E,"(Decimal('11.47'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J23020840,R7,M_E,"(None, None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J23031422,R7,M_E,"(Decimal('11.42'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J23210939,R7,M_E,"(Decimal('11.08'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J23410000,R7,M_E,"(Decimal('11.35'), None, None, 'log10', '')",,only_a
+S4 R7 SLACS z_l<0.30,J23430030,R7,M_E,"(Decimal('11.49'), None, None, 'log10', '')",,only_a
+SLACS V-modelled lenses,(RECORD),R7,H0,,"(None, None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J00290055,R13,R_e,,"(Decimal('2.16'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J00290055,R13,mstar,,"(Decimal('17'), Decimal('5'), Decimal('8'), 'linear', '');(Decimal('31'), Decimal('9'), Decimal('14'), 'linear', '')",only_b
+SLACS V-modelled lenses,J00290055,R13,z_l,,"(Decimal('0.227'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J00290055,R7,M_E,,"(Decimal('11.08'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J00370942,R13,R_e,,"(Decimal('2.19'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J00370942,R13,mstar,,"(Decimal('31'), Decimal('12'), Decimal('6'), 'linear', '');(Decimal('54'), Decimal('20'), Decimal('11'), 'linear', '')",only_b
+SLACS V-modelled lenses,J00370942,R13,z_l,,"(Decimal('0.196'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J00370942,R7,M_E,,"(Decimal('11.47'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J00440113,R13,R_e,,"(Decimal('2.61'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J00440113,R13,mstar,,"(Decimal('15'), Decimal('6'), Decimal('5'), 'linear', '');(Decimal('23'), Decimal('6'), Decimal('11'), 'linear', '')",only_b
+SLACS V-modelled lenses,J00440113,R13,z_l,,"(Decimal('0.120'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J00440113,R7,M_E,,"(Decimal('10.96'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J01091500,R13,R_e,,"(Decimal('1.38'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J01091500,R13,mstar,,"(Decimal('26'), Decimal('6'), Decimal('5'), 'linear', '');(Decimal('44'), Decimal('8'), Decimal('11'), 'linear', '')",only_b
+SLACS V-modelled lenses,J01091500,R13,z_l,,"(Decimal('0.294'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J01091500,R7,M_E,,"(Decimal('11.12'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J02520039,R13,R_e,,"(Decimal('1.39'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J02520039,R13,mstar,,"(Decimal('12'), Decimal('5'), Decimal('2'), 'linear', '');(Decimal('22'), Decimal('10'), Decimal('2'), 'linear', '')",only_b
+SLACS V-modelled lenses,J02520039,R13,z_l,,"(Decimal('0.280'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J02520039,R7,M_E,,"(Decimal('11.25'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J04050455,R13,R_e,,"(Decimal('1.36'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J04050455,R13,mstar,,"(Decimal('3'), Decimal('1'), Decimal('2'), 'linear', '');(Decimal('5'), Decimal('2'), Decimal('3'), 'linear', '')",only_b
+SLACS V-modelled lenses,J04050455,R13,z_l,,"(Decimal('0.075'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J04050455,R7,M_E,,"(Decimal('10.41'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J07283835,R13,R_e,,"(Decimal('1.78'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J07283835,R13,mstar,,"(Decimal('14'), Decimal('1'), Decimal('8'), 'linear', '');(Decimal('25'), Decimal('3'), Decimal('12'), 'linear', '')",only_b
+SLACS V-modelled lenses,J07283835,R13,z_l,,"(Decimal('0.206'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J07283835,R7,M_E,,"(Decimal('11.30'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J08084706,R7,M_E,,"(None, None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J08194534,R7,M_E,,"(Decimal('11.04'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J08222652,R13,R_e,,"(Decimal('1.82'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J08222652,R13,mstar,,"(Decimal('33'), Decimal('6'), Decimal('1'), 'linear', '');(Decimal('58'), Decimal('8'), Decimal('2'), 'linear', '')",only_b
+SLACS V-modelled lenses,J08222652,R13,z_l,,"(Decimal('0.241'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J08222652,R7,M_E,,"(Decimal('11.38'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J08413824,R7,M_E,,"(Decimal('11.12'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J09120029,R13,R_e,,"(Decimal('3.87'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J09120029,R13,mstar,,"(Decimal('43'), Decimal('8'), Decimal('8'), 'linear', '');(Decimal('73'), Decimal('11'), Decimal('14'), 'linear', '')",only_b
+SLACS V-modelled lenses,J09120029,R13,z_l,,"(Decimal('0.164'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J09120029,R7,M_E,,"(Decimal('11.60'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J09360913,R13,R_e,,"(Decimal('2.11'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J09360913,R13,mstar,,"(Decimal('18'), Decimal('4'), Decimal('5'), 'linear', '');(Decimal('32'), Decimal('7'), Decimal('9'), 'linear', '')",only_b
+SLACS V-modelled lenses,J09360913,R13,z_l,,"(Decimal('0.190'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J09360913,R7,M_E,,"(Decimal('11.17'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J09461006,R13,R_e,,"(Decimal('2.35'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J09461006,R13,mstar,,"(Decimal('24'), Decimal('6'), Decimal('1'), 'linear', '');(Decimal('41'), Decimal('8'), Decimal('2'), 'linear', '')",only_b
+SLACS V-modelled lenses,J09461006,R13,z_l,,"(Decimal('0.222'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J09461006,R7,M_E,,"(Decimal('11.46'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J09550101,R7,M_E,,"(Decimal('10.83'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J09565100,R13,R_e,,"(Decimal('2.19'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J09565100,R13,mstar,,"(Decimal('43'), Decimal('19'), Decimal('4'), 'linear', '');(Decimal('75'), Decimal('33'), Decimal('8'), 'linear', '')",only_b
+SLACS V-modelled lenses,J09565100,R13,z_l,,"(Decimal('0.240'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J09565100,R7,M_E,,"(Decimal('11.57'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J09590410,R13,R_e,,"(Decimal('1.39'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J09590410,R13,mstar,,"(Decimal('12'), Decimal('3'), Decimal('2'), 'linear', '');(Decimal('7'), Decimal('2'), Decimal('2'), 'linear', '')",only_b
+SLACS V-modelled lenses,J09590410,R13,z_l,,"(Decimal('0.126'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J09590410,R7,M_E,,"(Decimal('10.88'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J09594416,R13,R_e,,"(Decimal('1.98'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J09594416,R13,mstar,,"(Decimal('28'), Decimal('7'), Decimal('1'), 'linear', '');(Decimal('44'), Decimal('10'), Decimal('9'), 'linear', '')",only_b
+SLACS V-modelled lenses,J09594416,R13,z_l,,"(Decimal('0.237'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J09594416,R7,M_E,,"(Decimal('11.23'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J10163859,R13,R_e,,"(Decimal('1.46'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J10163859,R13,mstar,,"(Decimal('13'), Decimal('3'), Decimal('3'), 'linear', '');(Decimal('22'), Decimal('6'), Decimal('5'), 'linear', '')",only_b
+SLACS V-modelled lenses,J10163859,R13,z_l,,"(Decimal('0.168'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J10163859,R7,M_E,,"(Decimal('11.17'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J10201122,R13,R_e,,"(Decimal('1.59'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J10201122,R13,mstar,,"(Decimal('24'), Decimal('8'), Decimal('6'), 'linear', '');(Decimal('37'), Decimal('9'), Decimal('15'), 'linear', '')",only_b
+SLACS V-modelled lenses,J10201122,R13,z_l,,"(Decimal('0.282'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J10201122,R7,M_E,,"(Decimal('11.54'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J10234230,R13,R_e,,"(Decimal('1.77'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J10234230,R13,mstar,,"(Decimal('22'), Decimal('4'), Decimal('1'), 'linear', '');(Decimal('38'), Decimal('7'), Decimal('3'), 'linear', '')",only_b
+SLACS V-modelled lenses,J10234230,R13,z_l,,"(Decimal('0.191'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J10234230,R7,M_E,,"(Decimal('11.37'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J10290420,R13,R_e,,"(Decimal('1.56'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J10290420,R13,mstar,,"(Decimal('13'), Decimal('4'), Decimal('5'), 'linear', '');(Decimal('8'), Decimal('3'), Decimal('4'), 'linear', '')",only_b
+SLACS V-modelled lenses,J10290420,R13,z_l,,"(Decimal('0.104'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J10290420,R7,M_E,,"(Decimal('10.78'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J10296115,R7,M_E,,"(None, None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J10325322,R7,M_E,,"(Decimal('11.05'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J11035322,R7,M_E,,"(Decimal('10.98'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J11065228,R13,R_e,,"(Decimal('1.68'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J11065228,R13,mstar,,"(Decimal('13'), Decimal('3'), Decimal('4'), 'linear', '');(Decimal('22'), Decimal('6'), Decimal('8'), 'linear', '')",only_b
+SLACS V-modelled lenses,J11065228,R13,z_l,,"(Decimal('0.096'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J11065228,R7,M_E,,"(Decimal('10.96'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J11120826,R13,R_e,,"(Decimal('1.50'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J11120826,R13,mstar,,"(Decimal('36'), Decimal('3'), Decimal('4'), 'linear', '');(Decimal('63'), Decimal('7'), Decimal('7'), 'linear', '')",only_b
+SLACS V-modelled lenses,J11120826,R13,z_l,,"(Decimal('0.273'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J11120826,R7,M_E,,"(Decimal('11.65'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J11346027,R13,R_e,,"(Decimal('2.02'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J11346027,R13,mstar,,"(Decimal('15'), Decimal('7'), Decimal('4'), 'linear', '');(Decimal('24'), Decimal('9'), Decimal('10'), 'linear', '')",only_b
+SLACS V-modelled lenses,J11346027,R13,z_l,,"(Decimal('0.153'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J11346027,R7,M_E,,"(Decimal('11.10'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J11421001,R13,R_e,,"(Decimal('1.91'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J11421001,R13,mstar,,"(Decimal('19'), Decimal('6'), Decimal('6'), 'linear', '');(Decimal('30'), Decimal('6'), Decimal('12'), 'linear', '')",only_b
+SLACS V-modelled lenses,J11421001,R13,z_l,,"(Decimal('0.222'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J11421001,R7,M_E,,"(Decimal('11.22'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J11430144,R13,R_e,,"(Decimal('4.80'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J11430144,R13,mstar,,"(Decimal('22'), Decimal('2'), Decimal('3'), 'linear', '');(Decimal('37'), Decimal('3'), Decimal('6'), 'linear', '')",only_b
+SLACS V-modelled lenses,J11430144,R13,z_l,,"(Decimal('0.106'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J11430144,R7,M_E,,"(Decimal('11.29'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J11534612,R13,R_e,,"(Decimal('1.16'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J11534612,R13,mstar,,"(Decimal('12'), Decimal('1'), Decimal('8'), 'linear', '');(Decimal('7'), Decimal('1'), Decimal('5'), 'linear', '')",only_b
+SLACS V-modelled lenses,J11534612,R13,z_l,,"(Decimal('0.180'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J11534612,R7,M_E,,"(Decimal('11.05'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J12040358,R13,R_e,,"(Decimal('1.47'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J12040358,R13,mstar,,"(Decimal('10'), Decimal('2'), Decimal('2'), 'linear', '');(Decimal('16'), Decimal('4'), Decimal('5'), 'linear', '')",only_b
+SLACS V-modelled lenses,J12040358,R13,z_l,,"(Decimal('0.164'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J12040358,R7,M_E,,"(Decimal('11.24'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J12054910,R13,R_e,,"(Decimal('2.59'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J12054910,R13,mstar,,"(Decimal('29'), Decimal('9'), Decimal('8'), 'linear', '');(Decimal('50'), Decimal('15'), Decimal('15'), 'linear', '')",only_b
+SLACS V-modelled lenses,J12054910,R13,z_l,,"(Decimal('0.215'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J12054910,R7,M_E,,"(Decimal('11.40'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J12136708,R13,R_e,,"(Decimal('3.23'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J12136708,R13,mstar,,"(Decimal('21'), Decimal('4'), Decimal('5'), 'linear', '');(Decimal('35'), Decimal('8'), Decimal('10'), 'linear', '')",only_b
+SLACS V-modelled lenses,J12136708,R13,z_l,,"(Decimal('0.123'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J12136708,R7,M_E,,"(Decimal('11.16'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J12180830,R13,R_e,,"(Decimal('3.18'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J12180830,R13,mstar,,"(Decimal('21'), Decimal('4'), Decimal('6'), 'linear', '');(Decimal('35'), Decimal('7'), Decimal('11'), 'linear', '')",only_b
+SLACS V-modelled lenses,J12180830,R13,z_l,,"(Decimal('0.135'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J12180830,R7,M_E,,"(Decimal('11.21'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J12500135,R7,M_E,,"(None, None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J12500523,R13,R_e,,"(Decimal('1.81'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J12500523,R13,mstar,,"(Decimal('29'), Decimal('7'), Decimal('5'), 'linear', '');(Decimal('50'), Decimal('15'), Decimal('12'), 'linear', '')",only_b
+SLACS V-modelled lenses,J12500523,R13,z_l,,"(Decimal('0.232'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J12500523,R7,M_E,,"(Decimal('11.26'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J12510208,R7,M_E,,"(Decimal('10.98'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J12596134,R7,M_E,,"(None, None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J13060600,R7,M_E,,"(Decimal('11.33'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J13130506,R7,M_E,,"(None, None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J13134615,R7,M_E,,"(Decimal('11.38'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J13180313,R7,M_E,,"(Decimal('11.50'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J13191504,R7,M_E,,"(None, None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J13300148,R7,M_E,,"(Decimal('10.52'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J14026321,R13,R_e,,"(Decimal('2.70'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J14026321,R13,mstar,,"(Decimal('37'), Decimal('5'), Decimal('7'), 'linear', '');(Decimal('65'), Decimal('9'), Decimal('10'), 'linear', '')",only_b
+SLACS V-modelled lenses,J14026321,R13,z_l,,"(Decimal('0.205'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J14026321,R7,M_E,,"(Decimal('11.46'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J14030006,R13,R_e,,"(Decimal('1.46'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J14030006,R13,mstar,,"(Decimal('14'), Decimal('6'), Decimal('3'), 'linear', '');(Decimal('23'), Decimal('8'), Decimal('7'), 'linear', '')",only_b
+SLACS V-modelled lenses,J14030006,R13,z_l,,"(Decimal('0.189'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J14030006,R7,M_E,,"(Decimal('10.98'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J14165136,R13,R_e,,"(Decimal('1.43'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J14165136,R13,mstar,,"(Decimal('32'), Decimal('7'), Decimal('1'), 'linear', '');(Decimal('56'), Decimal('11'), Decimal('3'), 'linear', '')",only_b
+SLACS V-modelled lenses,J14165136,R13,z_l,,"(Decimal('0.299'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J14165136,R7,M_E,,"(Decimal('11.56'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J14206019,R13,R_e,,"(Decimal('2.06'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J14206019,R13,mstar,,"(Decimal('12'), Decimal('4'), Decimal('5'), 'linear', '');(Decimal('7'), Decimal('2'), Decimal('3'), 'linear', '')",only_b
+SLACS V-modelled lenses,J14206019,R13,z_l,,"(Decimal('0.063'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J14206019,R7,M_E,,"(Decimal('10.59'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J14304105,R13,R_e,,"(Decimal('2.55'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J14304105,R13,mstar,,"(Decimal('32'), Decimal('11'), Decimal('4'), 'linear', '');(Decimal('56'), Decimal('18'), Decimal('8'), 'linear', '')",only_b
+SLACS V-modelled lenses,J14304105,R13,z_l,,"(Decimal('0.285'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J14304105,R7,M_E,,"(Decimal('11.73'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J14326317,R7,M_E,,"(Decimal('11.05'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J14360000,R13,R_e,,"(Decimal('2.24'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J14360000,R13,mstar,,"(Decimal('32'), Decimal('13'), Decimal('8'), 'linear', '');(Decimal('55'), Decimal('21'), Decimal('16'), 'linear', '')",only_b
+SLACS V-modelled lenses,J14360000,R13,z_l,,"(Decimal('0.285'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J14360000,R7,M_E,,"(Decimal('11.36'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J14363640,R7,M_E,,"(None, None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J14430304,R13,R_e,,"(Decimal('0.94'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J14430304,R13,mstar,,"(Decimal('13'), Decimal('6'), Decimal('4'), 'linear', '');(Decimal('7'), Decimal('3'), Decimal('2'), 'linear', '')",only_b
+SLACS V-modelled lenses,J14430304,R13,z_l,,"(Decimal('0.134'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J14430304,R7,M_E,,"(Decimal('10.78'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J14510239,R13,R_e,,"(Decimal('2.48'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J14510239,R13,mstar,,"(Decimal('18'), Decimal('10'), Decimal('2'), 'linear', '');(Decimal('29'), Decimal('14'), Decimal('6'), 'linear', '')",only_b
+SLACS V-modelled lenses,J14510239,R13,z_l,,"(Decimal('0.125'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J14510239,R7,M_E,,"(Decimal('10.92'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J15310105,R13,R_e,,"(Decimal('2.50'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J15310105,R13,mstar,,"(Decimal('29'), Decimal('5'), Decimal('5'), 'linear', '');(Decimal('48'), Decimal('8'), Decimal('9'), 'linear', '')",only_b
+SLACS V-modelled lenses,J15310105,R13,z_l,,"(Decimal('0.160'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J15310105,R7,M_E,,"(Decimal('11.43'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J15385817,R13,R_e,,"(Decimal('1.58'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J15385817,R13,mstar,,"(Decimal('11'), Decimal('1'), Decimal('1'), 'linear', '');(Decimal('20'), Decimal('4'), Decimal('1'), 'linear', '')",only_b
+SLACS V-modelled lenses,J15385817,R13,z_l,,"(Decimal('0.143'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J15385817,R7,M_E,,"(Decimal('10.95'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J16144522,R7,M_E,,"(Decimal('10.86'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J16184353,R7,M_E,,"(None, None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J16213931,R13,R_e,,"(Decimal('2.14'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J16213931,R13,mstar,,"(Decimal('34'), Decimal('10'), Decimal('4'), 'linear', '');(Decimal('60'), Decimal('19'), Decimal('8'), 'linear', '')",only_b
+SLACS V-modelled lenses,J16213931,R13,z_l,,"(Decimal('0.245'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J16213931,R7,M_E,,"(Decimal('11.47'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J16270053,R13,R_e,,"(Decimal('1.98'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J16270053,R13,mstar,,"(Decimal('21'), Decimal('3'), Decimal('4'), 'linear', '');(Decimal('37'), Decimal('7'), Decimal('6'), 'linear', '')",only_b
+SLACS V-modelled lenses,J16270053,R13,z_l,,"(Decimal('0.208'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J16270053,R7,M_E,,"(Decimal('11.36'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J16304520,R13,R_e,,"(Decimal('1.96'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J16304520,R13,mstar,,"(Decimal('40'), Decimal('4'), Decimal('1'), 'linear', '');(Decimal('71'), Decimal('8'), Decimal('3'), 'linear', '')",only_b
+SLACS V-modelled lenses,J16304520,R13,z_l,,"(Decimal('0.248'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J16304520,R7,M_E,,"(Decimal('11.69'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J16364707,R13,R_e,,"(Decimal('1.68'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J16364707,R13,mstar,,"(Decimal('16'), Decimal('4'), Decimal('4'), 'linear', '');(Decimal('27'), Decimal('5'), Decimal('8'), 'linear', '')",only_b
+SLACS V-modelled lenses,J16364707,R13,z_l,,"(Decimal('0.228'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J16364707,R7,M_E,,"(Decimal('11.25'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J16442625,R7,M_E,,"(Decimal('11.12'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J17186424,R7,M_E,,"(None, None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J17192939,R7,M_E,,"(Decimal('11.28'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J21410001,R7,M_E,,"(None, None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J22380754,R13,R_e,,"(Decimal('2.33'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J22380754,R13,mstar,,"(Decimal('14'), Decimal('5'), Decimal('5'), 'linear', '');(Decimal('24'), Decimal('9'), Decimal('9'), 'linear', '')",only_b
+SLACS V-modelled lenses,J22380754,R13,z_l,,"(Decimal('0.137'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J22380754,R7,M_E,,"(Decimal('11.11'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J23000022,R13,R_e,,"(Decimal('1.83'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J23000022,R13,mstar,,"(Decimal('24'), Decimal('4'), Decimal('2'), 'linear', '');(Decimal('45'), Decimal('7'), Decimal('2'), 'linear', '')",only_b
+SLACS V-modelled lenses,J23000022,R13,z_l,,"(Decimal('0.229'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J23000022,R7,M_E,,"(Decimal('11.47'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J23020840,R7,M_E,,"(None, None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J23031422,R13,R_e,,"(Decimal('3.28'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J23031422,R13,mstar,,"(Decimal('31'), Decimal('3'), Decimal('5'), 'linear', '');(Decimal('53'), Decimal('5'), Decimal('10'), 'linear', '')",only_b
+SLACS V-modelled lenses,J23031422,R13,z_l,,"(Decimal('0.155'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J23031422,R7,M_E,,"(Decimal('11.42'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J23210939,R13,R_e,,"(Decimal('4.11'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J23210939,R13,mstar,,"(Decimal('24'), Decimal('4'), Decimal('9'), 'linear', '');(Decimal('41'), Decimal('7'), Decimal('11'), 'linear', '')",only_b
+SLACS V-modelled lenses,J23210939,R13,z_l,,"(Decimal('0.082'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J23210939,R7,M_E,,"(Decimal('11.08'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J23410000,R13,R_e,,"(Decimal('3.15'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J23410000,R13,mstar,,"(Decimal('31'), Decimal('14'), Decimal('5'), 'linear', '');(Decimal('55'), Decimal('20'), Decimal('8'), 'linear', '')",only_b
+SLACS V-modelled lenses,J23410000,R13,z_l,,"(Decimal('0.186'), None, None, 'linear', '')",only_b
+SLACS V-modelled lenses,J23410000,R7,M_E,,"(Decimal('11.35'), None, None, 'log10', '')",only_b
+SLACS V-modelled lenses,J23430030,R7,M_E,,"(Decimal('11.49'), None, None, 'log10', '')",only_b
+SNELLS,SNL1(ESO286G022;J2100286422523),R25,M_E,,"(Decimal('8.9'), Decimal('0.4'), Decimal('0.4'), 'linear', '')",only_b
+SNELLS,SNL1(ESO286G022;J2100286422523),R25,mstar,,"(None, None, None, 'linear', '')",only_b
+SNELLS,SNL1(ESO286G022;J2100286422523),R26,mstar,,"(None, None, None, 'linear', '')",only_b

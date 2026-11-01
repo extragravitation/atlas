@@ -1,0 +1,191 @@
+candidate,galaxy,quantity,radius,radius_unit,a,b,status
+C1,,none_in_radius,None,,[],"[(None, '', 'linear')]",only_b
+C1,SAMPLE(53E),catalogue_location,10,kpc,"[(None, '', 'linear')]",[],only_a
+C10,NGC6482;NGC1553,none_in_radius,None,,[],"[(None, '', 'linear')]",only_b
+C10,SAMPLE(66SYSTEMS),none_printed,None,,"[(None, '', 'linear')]",[],only_a
+C11,,NS,None,,"[(None, '', 'linear')]","[(None, '', 'linear')]",agree
+C12,,NS,None,,"[(None, '', 'linear')]","[(None, '', 'linear')]",agree
+C13,ATLAS3D(259WITHCODATA),sample_statistic,None,,[],"[(Decimal('56'), '', 'fraction')]",only_b
+C13,ATLAS3D(260),catalogue_location,22,"arcsec (central, beam)",[],"[(None, '', 'linear')]",only_b
+C13,ATLAS3DBRIGHTERTHANMK=24.4,sample_statistic,None,,[],"[(Decimal('6'), '', 'fraction')]",only_b
+C13,SAMPLE,catalogue_location,22,arcsec (diameter),"[(None, '', 'log')]",[],only_a
+C13,SAMPLE(259WITHCODATA),sample_statistic,22,arcsec (diameter; 2.2 kpc at 20 Mpc),"[(Decimal('56'), '', 'linear')]",[],only_a
+C13,SUBSAMPLEMK<24.4(M*>1E11ATM*/LK=0.82),sample_statistic,22,arcsec (diameter),"[(Decimal('6'), '', 'linear')]",[],only_a
+C13,SUBSAMPLEMK<25,sample_statistic,22,arcsec (diameter),"[(Decimal('1'), '', 'linear')]",[],only_a
+C14,"CARMAATLAS3D(30)+NGC2697,NGC4292",gas_total_no_radius,None,,[],"[(None, '', 'linear')]",only_b
+C14,CARMASAMPLE,sample_statistic,21.6,arcsec (IRAM beam),"[(Decimal('7'), '', 'linear')]",[],only_a
+C14,CARMASAMPLE,sample_statistic,None,,"[(Decimal('1'), '', 'linear')]",[],only_a
+C14,SAMPLE(32INTABLE3),catalogue_location,None,,"[(None, '', 'log')]",[],only_a
+C15,IC0310,gas_mass_in_radius,21.3,arcsec (CO(1-0) beam FWHM),[],"[(Decimal('9.02'), '', 'log')]",only_b
+C15,IC0310,gas_mass_in_radius,21.3,"arcsec (CO(1-0) beam FWHM, diameter)","[(Decimal('9.02'), '', 'log')]",[],only_a
+C15,NGC0665,gas_mass_in_radius,21.3,arcsec (CO(1-0) beam FWHM),[],"[(Decimal('9.18'), '', 'log')]",only_b
+C15,NGC0665,gas_mass_in_radius,21.3,"arcsec (CO(1-0) beam FWHM, diameter)","[(Decimal('9.18'), '', 'log')]",[],only_a
+C15,NGC0708,gas_total_no_radius,None,,"[(Decimal('8.83'), '', 'log')]",[],only_a
+C15,"NGC0708,NGC1167,NGC2320,NGC7052",gas_total_no_radius,None,,[],"[(None, '', 'linear')]",only_b
+C15,NGC0997,gas_mass_in_radius,21.3,arcsec (CO(1-0) beam FWHM),[],"[(Decimal('9.26'), '', 'log')]",only_b
+C15,NGC0997,gas_mass_in_radius,21.3,"arcsec (CO(1-0) beam FWHM, diameter)","[(Decimal('9.26'), '', 'log')]",[],only_a
+C15,NGC1132,gas_mass_in_radius,21.3,arcsec (CO(1-0) beam FWHM),[],"[(Decimal('8.61'), '<', 'log')]",only_b
+C15,NGC1132,gas_mass_in_radius,21.3,"arcsec (CO(1-0) beam FWHM, diameter)","[(Decimal('8.61'), '<', 'log')]",[],only_a
+C15,NGC1167,gas_total_no_radius,None,,"[(Decimal('8.52'), '', 'log')]",[],only_a
+C15,NGC1497,gas_mass_in_radius,21.3,arcsec (CO(1-0) beam FWHM),[],"[(Decimal('9.10'), '', 'log')]",only_b
+C15,NGC1497,gas_mass_in_radius,21.3,"arcsec (CO(1-0) beam FWHM, diameter)","[(Decimal('9.10'), '', 'log')]",[],only_a
+C15,NGC1684,gas_mass_in_radius,21.3,arcsec (CO(1-0) beam FWHM),[],"[(Decimal('9.20'), '', 'log')]",only_b
+C15,NGC1684,gas_mass_in_radius,21.3,"arcsec (CO(1-0) beam FWHM, diameter)","[(Decimal('9.20'), '', 'log')]",[],only_a
+C15,NGC2258,gas_mass_in_radius,21.3,arcsec (CO(1-0) beam FWHM),[],"[(Decimal('8.81'), '<', 'log')]",only_b
+C15,NGC2258,gas_mass_in_radius,21.3,"arcsec (CO(1-0) beam FWHM, diameter)","[(Decimal('8.81'), '<', 'log')]",[],only_a
+C15,NGC2320,gas_total_no_radius,None,,"[(Decimal('8.41'), '', 'log')]",[],only_a
+C15,NGC5208,gas_mass_in_radius,21.3,arcsec (CO(1-0) beam FWHM),[],"[(Decimal('9.49'), '', 'log')]",only_b
+C15,NGC5208,gas_mass_in_radius,21.3,"arcsec (CO(1-0) beam FWHM, diameter)","[(Decimal('9.49'), '', 'log')]",[],only_a
+C15,NGC5252,gas_mass_in_radius,21.3,arcsec (CO(1-0) beam FWHM),[],"[(Decimal('8.86'), '<', 'log')]",only_b
+C15,NGC5252,gas_mass_in_radius,21.3,"arcsec (CO(1-0) beam FWHM, diameter)","[(Decimal('8.86'), '<', 'log')]",[],only_a
+C15,NGC6482,gas_mass_in_radius,21.3,arcsec (CO(1-0) beam FWHM),[],"[(Decimal('8.62'), '<', 'log')]",only_b
+C15,NGC6482,gas_mass_in_radius,21.3,"arcsec (CO(1-0) beam FWHM, diameter)","[(Decimal('8.62'), '<', 'log')]",[],only_a
+C15,NGC7052,gas_total_no_radius,None,,"[(Decimal('9.63'), '', 'log')]",[],only_a
+C15,NGC7556,gas_mass_in_radius,21.3,arcsec (CO(1-0) beam FWHM),[],"[(Decimal('8.56'), '<', 'log')]",only_b
+C15,NGC7556,gas_mass_in_radius,21.3,"arcsec (CO(1-0) beam FWHM, diameter)","[(Decimal('8.56'), '<', 'log')]",[],only_a
+C16,NGC3656,gas_mass_in_radius,3.7,"kpc (outer edge of CO disc, Table 5 R)","[(Decimal('47'), '', 'linear')]",[],only_a
+C16,NGC3656,gas_mass_in_radius,3.7,"kpc (outer edge of CO disc, Table 5 col R)",[],"[(Decimal('47'), '', 'linear')]",only_b
+C16,NGC4476,gas_mass_in_radius,1.2,"kpc (outer edge of CO disc, Table 5 R)","[(Decimal('1.1'), '', 'linear')]",[],only_a
+C16,NGC4476,gas_mass_in_radius,1.2,"kpc (outer edge of CO disc, Table 5 col R)",[],"[(Decimal('1.1'), '', 'linear')]",only_b
+C16,NGC4649,gas_mass_in_radius,22.5,arcsec (side of square region),"[(Decimal('0.68'), '<', 'linear')]","[(Decimal('0.68'), '<', 'linear')]",agree
+C16,NGC5666,gas_mass_in_radius,2.4,"kpc (outer edge of CO disc, Table 5 R)","[(Decimal('5.7'), '', 'linear')]",[],only_a
+C16,NGC5666,gas_mass_in_radius,2.4,"kpc (outer edge of CO disc, Table 5 col R)",[],"[(Decimal('5.7'), '', 'linear')]",only_b
+C16,NGC7468,gas_mass_in_radius,22.5,arcsec (side of square region),"[(Decimal('0.57'), '<', 'linear')]","[(Decimal('0.57'), '<', 'linear')]",agree
+C16,NGC807,gas_mass_in_radius,6.2,"kpc (outer edge of CO disc, Table 5 R)","[(Decimal('14'), '', 'linear')]",[],only_a
+C16,NGC807,gas_mass_in_radius,6.2,"kpc (outer edge of CO disc, Table 5 col R)",[],"[(Decimal('14'), '', 'linear')]",only_b
+C16,UGC1503,gas_mass_in_radius,5.5,"kpc (outer edge of CO disc, Table 5 R)","[(Decimal('18'), '', 'linear')]",[],only_a
+C16,UGC1503,gas_mass_in_radius,5.5,"kpc (outer edge of CO disc, Table 5 col R)",[],"[(Decimal('18'), '', 'linear')]",only_b
+C17,NGC1023,gas_mass_in_radius,1.15,"kpc (CO(1-0) beam diameter, Table 2 col 5)",[],"[(Decimal('0.04'), '<', 'linear')]",only_b
+C17,NGC2768,gas_mass_in_radius,23,arcsec (CO(1-0) beam FWHM),"[(Decimal('0.41'), '', 'linear')]",[],only_a
+C17,NGC2768,gas_mass_in_radius,23,arcsec (CO(1-0) beam),[],"[(Decimal('0.41'), '', 'linear')]",only_b
+C17,NGC4374,gas_mass_in_radius,1.82,"kpc (CO(1-0) beam diameter, Table 2 col 5)","[(Decimal('0.11'), '<', 'linear')]","[(Decimal('0.11'), '<', 'linear')]",agree
+C17,NGC4382,gas_mass_in_radius,1.82,"kpc (CO(1-0) beam diameter, Table 2 col 5)","[(Decimal('0.17'), '<', 'linear')]","[(Decimal('0.17'), '<', 'linear')]",agree
+C17,NGC4486,gas_mass_in_radius,1.82,"kpc (CO(1-0) beam diameter, Table 2 col 5)","[(Decimal('0.11'), '<', 'linear')]","[(Decimal('0.11'), '<', 'linear')]",agree
+C17,NGC4526,gas_mass_in_radius,23,arcsec (CO(1-0) beam FWHM),"[(Decimal('3.69'), '', 'linear')]",[],only_a
+C17,NGC4526,gas_mass_in_radius,23,arcsec (CO(1-0) beam),[],"[(Decimal('3.69'), '', 'linear')]",only_b
+C17,NGC4552,gas_mass_in_radius,1.82,"kpc (CO(1-0) beam diameter, Table 2 col 5)","[(Decimal('0.17'), '<', 'linear')]","[(Decimal('0.17'), '<', 'linear')]",agree
+C17,NGC474,gas_mass_in_radius,3.53,"kpc (CO(1-0) beam diameter, Table 2 col 5)",[],"[(Decimal('0.38'), '<', 'linear')]",only_b
+C17,NGC5813,gas_mass_in_radius,2.93,"kpc (CO(1-0) beam diameter, Table 2 col 5)","[(Decimal('0.29'), '<', 'linear')]","[(Decimal('0.29'), '<', 'linear')]",agree
+C17,NGC5846,gas_mass_in_radius,2.78,"kpc (CO(1-0) beam diameter, Table 2 col 5)","[(Decimal('0.52'), '<', 'linear')]","[(Decimal('0.52'), '<', 'linear')]",agree
+C17,NGC5982,gas_mass_in_radius,4.76,"kpc (CO(1-0) beam diameter, Table 2 col 5)","[(Decimal('0.37'), '<', 'linear')]","[(Decimal('0.37'), '<', 'linear')]",agree
+C17,SAMPLE(43OBSERVED),sample_statistic,23,arcsec (beam diameter; 2.3 kpc at 20 Mpc),"[(Decimal('12'), '', 'linear')]",[],only_a
+C17,SAMPLE(48INTABLE3),catalogue_location,None,,"[(None, '', 'linear')]",[],only_a
+C17,SAURONE/S0(43),sample_statistic,None,,[],"[(Decimal('12'), '', 'fraction')]",only_b
+C17,SAURONE/S0(48ROWS),catalogue_location,None,,[],"[(None, '', 'linear')]",only_b
+C18,18OBSERVED,sample_statistic,None,,[],"[(Decimal('6'), '', 'count')]",only_b
+C18,18OBSERVEDELLIPTICALS,gas_total_no_radius,None,,[],"[(None, '', 'linear')]",only_b
+C18,SAMPLE(18),catalogue_location,None,,"[(None, '', 'linear')]",[],only_a
+C18,SAMPLE(18OBSERVEDOF46),sample_statistic,None,,"[(Decimal('6'), '', 'linear')]",[],only_a
+C19,27FIELDS0S,gas_total_no_radius,None,,[],"[(None, '', 'linear')]",only_b
+C19,27FIELDS0S,sample_statistic,None,,[],"[(Decimal('78'), '', 'linear')]",only_b
+C19,7S0SWITHI21/I10>1,sample_statistic,None,,"[(Decimal('0.7'), '', 'linear')]",[],only_a
+C19,7S0SWITHMULTIPOINTINGDATA,sample_statistic,None,,"[(Decimal('2.8'), '', 'linear')]",[],only_a
+C19,SAMPLE(27),catalogue_location,None,,"[(None, '', 'linear')]",[],only_a
+C19,SAMPLE(27),sample_statistic,None,,"[(Decimal('78'), '', 'linear')]",[],only_a
+C2,,none_in_radius,100,kpc,[],"[(None, '', 'linear')]",only_b
+C2,SAMPLE(7E),none_printed,None,,"[(None, '', 'linear')]",[],only_a
+C20,18,sample_statistic,None,,[],"[(Decimal('8'), '', 'fraction')]",only_b
+C20,18NEARBYRADIOGALAXIES,gas_total_no_radius,None,,[],"[(None, '', 'linear')]",only_b
+C20,SAMPLE(18RADIOGALAXIES),sample_statistic,None,,"[(Decimal('8'), '', 'linear')]",[],only_a
+C21,32,sample_statistic,None,,[],"[(Decimal('6'), '', 'count')]",only_b
+C21,32CENTRALCLUSTERGALAXIES,catalogue_location,22,arcsec (CO(1-0) beam),[],"[(None, '', 'linear')]",only_b
+C21,A1068(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('4.2E+10'), '', 'linear')]",[],only_a
+C21,A1668(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('1.5E+9'), '≤', 'linear')]",[],only_a
+C21,A1795(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('4.8E+9'), '', 'linear')]",[],only_a
+C21,A2029(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('1.7E+9'), '≤', 'linear')]",[],only_a
+C21,A2142(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('1.8E+9'), '≤', 'linear')]",[],only_a
+C21,A2146(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('8.6E+9'), '≤', 'linear')]",[],only_a
+C21,A2147(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('4.3E+8'), '≤', 'linear')]",[],only_a
+C21,A2151(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('3.1E+8'), '≤', 'linear')]",[],only_a
+C21,A2199(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('2.6E+8'), '≤', 'linear')]",[],only_a
+C21,A2261(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('1.3E+10'), '≤', 'linear')]",[],only_a
+C21,A2319(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('6.6E+8'), '≤', 'linear')]",[],only_a
+C21,A2462(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('1.6E+9'), '≤', 'linear')]",[],only_a
+C21,A2597(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('1.8E+9'), '≤', 'linear')]",[],only_a
+C21,A262(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('2.3E+8'), '', 'linear')]",[],only_a
+C21,A2626(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('7.6E+8'), '≤', 'linear')]",[],only_a
+C21,A2634(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('3.2E+8'), '≤', 'linear')]",[],only_a
+C21,A2657(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('2.9E+8'), '', 'linear')]",[],only_a
+C21,A2665(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('7.9E+8'), '≤', 'linear')]",[],only_a
+C21,A291(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('1.1E+10'), '≤', 'linear')]",[],only_a
+C21,A496(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('4.3E+8'), '', 'linear')]",[],only_a
+C21,A644(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('1.1E+9'), '≤', 'linear')]",[],only_a
+C21,A646(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('7.9E+9'), '', 'linear')]",[],only_a
+C21,A780(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('2.0E+9'), '', 'linear')]",[],only_a
+C21,A85(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('8.8E+8'), '≤', 'linear')]",[],only_a
+C21,A978(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('9.3E+8'), '≤', 'linear')]",[],only_a
+C21,CYGA(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('1.4E+9'), '≤', 'linear')]",[],only_a
+C21,MKW3S(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('5.2E+8'), '≤', 'linear')]",[],only_a
+C21,PKS0745191(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('4.0E+9'), '', 'linear')]",[],only_a
+C21,RXJ0439+05(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('9.8E+9'), '≤', 'linear')]",[],only_a
+C21,RXJ0821+07(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('1.3E+10'), '', 'linear')]",[],only_a
+C21,Z235(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('2.5E+9'), '≤', 'linear')]",[],only_a
+C21,Z8193(CENTRALCLUSTERGALAXY),gas_mass_in_radius,22,arcsec (CO(1-0) beam),"[(Decimal('1.5E+10'), '', 'linear')]",[],only_a
+C22,,NS,None,,"[(None, '', 'linear')]","[(None, '', 'linear')]",agree
+C23,,NS,None,,"[(None, '', 'linear')]","[(None, '', 'linear')]",agree
+C24,,NS,None,,"[(None, '', 'linear')]","[(None, '', 'linear')]",agree
+C25,5S0SWITHMULTIPOSITIONCO,sample_statistic,None,,"[(Decimal('57'), '', 'linear')]",[],only_a
+C25,E(N=27),sample_statistic,None,,[],"[(Decimal('19'), '', 'linear')]",only_b
+C25,EANDS0SAMPLES,sample_statistic,1.8,kpc (median diameter of 30m CO(1-0) beam region),"[(None, '', 'linear')]",[],only_a
+C25,EANDS0SAMPLES,sample_statistic,None,,[],"[(Decimal('1.8'), '', 'linear')]",only_b
+C25,ESUBSET(27),sample_statistic,None,,"[(None, '', 'linear')]",[],only_a
+C25,SAMPLE(46INTABLE3),catalogue_location,None,,"[(None, '', 'linear')]",[],only_a
+C25,VOLUMELIMITEDELLIPTICALS,gas_total_no_radius,None,,[],"[(None, '', 'linear')]",only_b
+C26,12,sample_statistic,None,,[],"[(Decimal('8'), '', 'count')]",only_b
+C26,NGC4150,gas_mass_in_radius,4,"kpc (HI diameter, Table 2 col 7)",[],"[(Decimal('2.5'), '', 'linear')]",only_b
+C26,NGC4150,gas_mass_in_radius,4,kpc (diameter of HI disc),"[(Decimal('2.5'), '', 'linear')]",[],only_a
+C26,OTHER11,gas_total_no_radius,None,,[],"[(None, '', 'linear')]",only_b
+C26,"SAMPLE(12SAURONE/S0,DEC>23)",catalogue_location,None,,"[(None, '', 'linear')]",[],only_a
+C27,13GALAXIES,catalogue_location,None,,"[(None, '', 'linear')]","[(None, '', 'linear')]",agree
+C27,CENTRALREGIONS,sample_statistic,None,,[],"[(Decimal('10'), '≃', 'linear')]",only_b
+C27,DETECTIONS,gas_total_no_radius,None,,[],"[(None, '', 'linear')]",only_b
+C27,GALAXIESWITHINNERGASDISCS,sample_statistic,None,,"[(None, '', 'linear')]",[],only_a
+C27,NGC3377,gas_mass_in_radius,73,"arcsec (synthesised beam, Table 1 col 7)",[],"[(Decimal('1.8'), '<', 'linear')]",only_b
+C27,NGC3379,gas_mass_in_radius,73,"arcsec (synthesised beam, Table 1 col 7)",[],"[(Decimal('1.8'), '<', 'linear')]",only_b
+C27,NGC4374,gas_mass_in_radius,59,"arcsec (synthesised beam, Table 1 col 7)",[],"[(Decimal('9.3'), '<', 'linear')]",only_b
+C27,NGC4382,gas_mass_in_radius,59,"arcsec (synthesised beam, Table 1 col 7)",[],"[(Decimal('5.0'), '<', 'linear')]",only_b
+C27,NGC4387,gas_mass_in_radius,67,"arcsec (synthesised beam, Table 1 col 7)",[],"[(Decimal('1.2'), '<', 'linear')]",only_b
+C27,NGC4458,gas_mass_in_radius,71,"arcsec (synthesised beam, Table 1 col 7)",[],"[(Decimal('4.6'), '<', 'linear')]",only_b
+C27,NGC4459,gas_mass_in_radius,69,"arcsec (synthesised beam, Table 1 col 7)",[],"[(Decimal('3.9'), '<', 'linear')]",only_b
+C27,NGC4473,gas_mass_in_radius,71,"arcsec (synthesised beam, Table 1 col 7)",[],"[(Decimal('3.9'), '<', 'linear')]",only_b
+C27,NGC4477,gas_mass_in_radius,71,"arcsec (synthesised beam, Table 1 col 7)",[],"[(Decimal('4.1'), '<', 'linear')]",only_b
+C27,NGC4550,gas_mass_in_radius,74,"arcsec (synthesised beam, Table 1 col 7)",[],"[(Decimal('3.7'), '<', 'linear')]",only_b
+C27,NGC4552,gas_mass_in_radius,78,"arcsec (synthesised beam, Table 1 col 7)",[],"[(Decimal('5.3'), '<', 'linear')]",only_b
+C27,NGC4564,gas_mass_in_radius,76,"arcsec (synthesised beam, Table 1 col 7)",[],"[(Decimal('5.8'), '<', 'linear')]",only_b
+C27,NGC4621,gas_mass_in_radius,76,"arcsec (synthesised beam, Table 1 col 7)",[],"[(Decimal('4.9'), '<', 'linear')]",only_b
+C27,NGC4660,gas_mass_in_radius,77,"arcsec (synthesised beam, Table 1 col 7)",[],"[(Decimal('2.4'), '<', 'linear')]",only_b
+C27,NGC821,gas_mass_in_radius,72,"arcsec (synthesised beam, Table 1 col 7)",[],"[(Decimal('4.4'), '<', 'linear')]",only_b
+C27,SAMPLE(33),catalogue_location,None,,"[(None, '', 'linear')]",[],only_a
+C27,SAMPLE(33SAURONETGS),sample_statistic,None,,"[(Decimal('2'), '', 'linear')]",[],only_a
+C28,"NGC1947,NGC3108,ESO263G48,NGC7049,NGC7070A",gas_total_no_radius,None,,[],"[(None, '', 'linear')]",only_b
+C28,SAMPLE(5DUSTLANEE),catalogue_location,None,,"[(None, '', 'linear')]",[],only_a
+C29,30HIPASSSELECTEDETGS,gas_total_no_radius,None,,[],"[(None, '', 'linear')]",only_b
+C29,SAMPLE(30HIPASSSELECTEDETGS),catalogue_location,None,,"[(None, '', 'linear')]",[],only_a
+C3,NGC1521,none_in_radius,121,kpc (R2500),[],"[(None, '', 'linear')]",only_b
+C3,NGC1521,none_printed,None,,"[(None, '', 'linear')]",[],only_a
+C30,166ETGS,catalogue_location,None,,[],"[(None, '', 'linear')]",only_b
+C30,166ETGS(MK<21.5),sample_statistic,None,,[],"[(Decimal('4'), '', 'fraction')]",only_b
+C30,CLASSD(10GALAXIES),sample_statistic,None,(not numeric),"[(Decimal('10'), '<', 'linear')]",[],only_a
+C30,CLASSDDETECTEDINCO(8),sample_statistic,None,,"[(Decimal('10'), '', 'linear')]",[],only_a
+C30,DCLASS(SMALLDISCS),sample_statistic,None,,[],"[(Decimal('10'), '<', 'linear')]",only_b
+C30,SAMPLE(166),catalogue_location,None,,"[(None, '', 'log')]",[],only_a
+C30,SAMPLE(166),sample_statistic,None,,"[(Decimal('53'), '', 'linear')]",[],only_a
+C31,,NS,None,,"[(None, '', 'linear')]","[(None, '', 'linear')]",agree
+C4,"NGC1399,1407,4472,4649,5846(ALLEXCEPTNGC4486)",gas_total_no_radius,None,,"[(Decimal('0.04'), '<', 'linear')]",[],only_a
+C4,NGC4486,gas_total_no_radius,None,,"[(Decimal('0.4'), '~', 'linear')]",[],only_a
+C4,NGC4486,sample_statistic,None,,[],"[(Decimal('0.4'), '~', 'linear')]",only_b
+C4,SAMPLEOF6(ALLEXCEPTNGC4486),sample_statistic,None,,[],"[(Decimal('0.04'), '<', 'linear')]",only_b
+C5,,none_in_radius,None,,[],"[(None, '', 'linear')]",only_b
+C5,SAMPLE(22ETGS),none_printed,None,,"[(None, '', 'linear')]",[],only_a
+C6,,none_in_radius,None,,[],"[(None, '', 'linear')]",only_b
+C6,SAMPLE(70ETGS),none_printed,None,,"[(None, '', 'linear')]",[],only_a
+C7,"NGC4649,NGC5846",none_printed,None,,"[(None, '', 'linear')]",[],only_a
+C7,NGC4649;NGC5846,none_in_radius,None,,[],"[(None, '', 'linear')]",only_b
+C8,"NGC3607,3665,4382,5353,1961",catalogue_location,11.7,kpc (Rmax),[],"[(None, '', 'linear')]",only_b
+C8,NGC4459,gas_mass_in_radius,9.3,kpc (Rmax),[],"[(Decimal('0.12'), '', 'linear')]",only_b
+C8,NGC4459,gas_mass_in_radius,9.3,"kpc (Rmax, outer edge of last annulus)","[(Decimal('0.12'), '', 'linear')]",[],only_a
+C8,NGC4526,gas_mass_in_radius,8.5,kpc (Rmax),[],"[(Decimal('0.15'), '', 'linear')]",only_b
+C8,NGC4526,gas_mass_in_radius,8.5,"kpc (Rmax, outer edge of last annulus)","[(Decimal('0.15'), '', 'linear')]",[],only_a
+C8,SAMPLE(6S0+1SPIRAL),catalogue_location,None,,"[(None, '', 'linear')]",[],only_a
+C9,"NGC1399,4472,4636",none_printed,None,,"[(None, '', 'linear')]",[],only_a
+C9,NGC1399;NGC4472;NGC4636,none_in_radius,None,,[],"[(None, '', 'linear')]",only_b
