@@ -1099,21 +1099,21 @@ SNL-2,2MASX J01414232-0735281 (SNL-2),R61,Om,value,0.272,,yes,yes,both,
 MNELLS J0403-0239,2MASX J04035024-0239275,R29,H0,value,70.4,km s-1 Mpc-1,yes,yes,both,
 Euclid NGC 6505,NGC 6505,R30,H0,value,67.8,km s-1 Mpc-1,yes,yes,both,
 Euclid NGC 6505,NGC 6505,R30,Om,value,0.308,,yes,yes,both,
-SL2S III sample,(record),R20,H0,value,70,km s-1 Mpc-1,yes,yes,both,
-SL2S III sample,(record),R20,Om,value,0.3,,yes,yes,both,
 MNELLS J0403-0239,(record),R29,H0,value,70.4,km s-1 Mpc-1,yes,yes,both,
 MNELLS J0403-0239,(record),R29,Om,value,0.272,,yes,yes,both,
 SLACS V-modelled lenses,(record),R5,H0,value,70,km s-1 Mpc-1,yes,yes,both,
 SLACS V-modelled lenses,(record),R5,Om,value,0.3,,yes,yes,both,
 S4TM lenses,(record),R10,H0,value,70,km s-1 Mpc-1,yes,yes,both,
 S4TM lenses,(record),R10,Om,value,0.274,,yes,yes,both,
+SL2S III sample,(record),R20,H0,value,70,km s-1 Mpc-1,yes,yes,both,
+SL2S III sample,(record),R20,Om,value,0.3,,yes,yes,both,
 Euclid NGC 6505,(record),R30,chab_to_salp_factor,value,0.61,,yes,yes,both,
 MNELLS J0403-0239,(record),R29,salpeter_alpha,value,1.55,,yes,yes,both,
 MaNGA,(record),R32,salpeter_alpha,value,1.65,,yes,yes,both,
-CASTLES lenses,0047-2808,,z_l,redshift,0.48,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
-CASTLES lenses,0047-2808,,z_s,properties.z_s,3.6,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
-CASTLES lenses,0047-2808,,z_l,properties.z_l_all_readings,0.48,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
-CASTLES lenses,0047-2808,,z_s,properties.z_s_all_readings,3.6,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
+CASTLES lenses,0047-2808,,z_l,redshift,0.48,,yes,second reader (epoch-gap z),both,
+CASTLES lenses,0047-2808,,z_s,properties.z_s,3.6,,yes,second reader (epoch-gap z),both,
+CASTLES lenses,0047-2808,,z_l,properties.z_l_all_readings,0.48,,yes,second reader (epoch-gap z),both,
+CASTLES lenses,0047-2808,,z_s,properties.z_s_all_readings,3.6,,yes,second reader (epoch-gap z),both,
 CASTLES lenses,B0218+357,,z_l,redshift,0.68,,yes,yes,both,
 CASTLES lenses,B0218+357,,z_s,properties.z_s,0.96,,yes,yes,both,
 CASTLES lenses,B0218+357,,z_l,properties.z_l_all_readings,0.68,,yes,yes,both,
@@ -1121,11 +1121,11 @@ CASTLES lenses,B0218+357,,z_s,properties.z_s_all_readings,0.96,,yes,yes,both,
 CASTLES lenses,B0712+472,,z_l,redshift,0.41,,yes,yes,both,
 CASTLES lenses,B0712+472,,z_l,properties.z_l_all_readings,0.41,,yes,yes,both,
 CASTLES lenses,B0712+472,,z_s,properties.z_s_all_readings,1.33,,yes,yes,both,
-CASTLES lenses,B0712+472,,z_s,properties.z_s_all_readings,1.34,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
-CASTLES lenses,B1030+071,,z_l,redshift,0.6,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
-CASTLES lenses,B1030+071,,z_s,properties.z_s,1.54,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
-CASTLES lenses,B1030+071,,z_l,properties.z_l_all_readings,0.6,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
-CASTLES lenses,B1030+071,,z_s,properties.z_s_all_readings,1.54,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
+CASTLES lenses,B0712+472,,z_s,properties.z_s_all_readings,1.34,,yes,second reader (epoch-gap z),both,
+CASTLES lenses,B1030+071,,z_l,redshift,0.6,,yes,second reader (epoch-gap z),both,
+CASTLES lenses,B1030+071,,z_s,properties.z_s,1.54,,yes,second reader (epoch-gap z),both,
+CASTLES lenses,B1030+071,,z_l,properties.z_l_all_readings,0.6,,yes,second reader (epoch-gap z),both,
+CASTLES lenses,B1030+071,,z_s,properties.z_s_all_readings,1.54,,yes,second reader (epoch-gap z),both,
 CASTLES lenses,B1422+231,,z_l,redshift,0.34,,yes,yes,both,
 CASTLES lenses,B1422+231,,z_s,properties.z_s,3.62,,yes,yes,both,
 CASTLES lenses,B1422+231,,z_l,properties.z_l_all_readings,0.34,,yes,yes,both,
@@ -1140,34 +1140,34 @@ CASTLES lenses,B1608+656,,z_l,properties.z_l_all_readings,0.63,,yes,yes,both,
 CASTLES lenses,B1608+656,,z_s,properties.z_s_all_readings,1.39,,yes,yes,both,
 CASTLES lenses,B1933+503,,z_l,redshift,0.76,,yes,yes,both,
 CASTLES lenses,B1933+503,,z_l,properties.z_l_all_readings,0.76,,yes,yes,both,
-CASTLES lenses,B1938+666,,z_l,redshift,0.88,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
-CASTLES lenses,B1938+666,,z_l,properties.z_l_all_readings,0.88,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
-CASTLES lenses,B2045+265,,z_l,redshift,0.87,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
-CASTLES lenses,B2045+265,,z_s,properties.z_s,1.28,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
-CASTLES lenses,B2045+265,,z_l,properties.z_l_all_readings,0.87,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
-CASTLES lenses,B2045+265,,z_s,properties.z_s_all_readings,1.28,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
-CASTLES lenses,B2319+052,,z_l,redshift,0.62,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
-CASTLES lenses,B2319+052,,z_l,properties.z_l_all_readings,0.62,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
-CASTLES lenses,HST14113+521,,z_l,redshift,0.46,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
-CASTLES lenses,HST14113+521,,z_s,properties.z_s,2.81,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
-CASTLES lenses,HST14113+521,,z_l,properties.z_l_all_readings,0.46,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
-CASTLES lenses,HST14113+521,,z_s,properties.z_s_all_readings,2.81,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
+CASTLES lenses,B1938+666,,z_l,redshift,0.88,,yes,second reader (epoch-gap z),both,
+CASTLES lenses,B1938+666,,z_l,properties.z_l_all_readings,0.88,,yes,second reader (epoch-gap z),both,
+CASTLES lenses,B2045+265,,z_l,redshift,0.87,,yes,second reader (epoch-gap z),both,
+CASTLES lenses,B2045+265,,z_s,properties.z_s,1.28,,yes,second reader (epoch-gap z),both,
+CASTLES lenses,B2045+265,,z_l,properties.z_l_all_readings,0.87,,yes,second reader (epoch-gap z),both,
+CASTLES lenses,B2045+265,,z_s,properties.z_s_all_readings,1.28,,yes,second reader (epoch-gap z),both,
+CASTLES lenses,B2319+052,,z_l,redshift,0.62,,yes,second reader (epoch-gap z),both,
+CASTLES lenses,B2319+052,,z_l,properties.z_l_all_readings,0.62,,yes,second reader (epoch-gap z),both,
+CASTLES lenses,HST14113+521,,z_l,redshift,0.46,,yes,second reader (epoch-gap z),both,
+CASTLES lenses,HST14113+521,,z_s,properties.z_s,2.81,,yes,second reader (epoch-gap z),both,
+CASTLES lenses,HST14113+521,,z_l,properties.z_l_all_readings,0.46,,yes,second reader (epoch-gap z),both,
+CASTLES lenses,HST14113+521,,z_s,properties.z_s_all_readings,2.81,,yes,second reader (epoch-gap z),both,
 CASTLES lenses,HST14176+5226,,z_l,redshift,0.81,,yes,yes,both,
 CASTLES lenses,HST14176+5226,,z_s,properties.z_s,3.4,,yes,yes,both,
 CASTLES lenses,HST14176+5226,,z_l,properties.z_l_all_readings,0.81,,yes,yes,both,
 CASTLES lenses,HST14176+5226,,z_s,properties.z_s_all_readings,3.4,,yes,yes,both,
-CASTLES lenses,MG0414+0534,,z_l,redshift,0.96,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
+CASTLES lenses,MG0414+0534,,z_l,redshift,0.96,,yes,second reader (epoch-gap z),both,
 CASTLES lenses,MG0414+0534,,z_s,properties.z_s,2.64,,yes,yes,both,
-CASTLES lenses,MG0414+0534,,z_l,properties.z_l_all_readings,0.96,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
+CASTLES lenses,MG0414+0534,,z_l,properties.z_l_all_readings,0.96,,yes,second reader (epoch-gap z),both,
 CASTLES lenses,MG0414+0534,,z_s,properties.z_s_all_readings,2.64,,yes,yes,both,
 CASTLES lenses,MG0751+2716,,z_l,redshift,0.35,,yes,yes,both,
 CASTLES lenses,MG0751+2716,,z_l,properties.z_l_all_readings,0.35,,yes,yes,both,
-CASTLES lenses,MG1131+0456,,z_l,redshift,0.84,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
-CASTLES lenses,MG1131+0456,,z_l,properties.z_l_all_readings,0.84,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
-CASTLES lenses,MG2016+112,,z_l,redshift,1.01,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
-CASTLES lenses,MG2016+112,,z_s,properties.z_s,3.27,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
-CASTLES lenses,MG2016+112,,z_l,properties.z_l_all_readings,1.01,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
-CASTLES lenses,MG2016+112,,z_s,properties.z_s_all_readings,3.27,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
+CASTLES lenses,MG1131+0456,,z_l,redshift,0.84,,yes,second reader (epoch-gap z),both,
+CASTLES lenses,MG1131+0456,,z_l,properties.z_l_all_readings,0.84,,yes,second reader (epoch-gap z),both,
+CASTLES lenses,MG2016+112,,z_l,redshift,1.01,,yes,second reader (epoch-gap z),both,
+CASTLES lenses,MG2016+112,,z_s,properties.z_s,3.27,,yes,second reader (epoch-gap z),both,
+CASTLES lenses,MG2016+112,,z_l,properties.z_l_all_readings,1.01,,yes,second reader (epoch-gap z),both,
+CASTLES lenses,MG2016+112,,z_s,properties.z_s_all_readings,3.27,,yes,second reader (epoch-gap z),both,
 CASTLES lenses,PG1115+080,,z_l,redshift,0.31,,yes,yes,both,
 CASTLES lenses,PG1115+080,,z_s,properties.z_s,1.72,,yes,yes,both,
 CASTLES lenses,PG1115+080,,z_l,properties.z_l_all_readings,0.31,,yes,yes,both,
@@ -1180,15 +1180,15 @@ CASTLES lenses,Q0957+561,,z_l,redshift,0.36,,yes,yes,both,
 CASTLES lenses,Q0957+561,,z_s,properties.z_s,1.41,,yes,yes,both,
 CASTLES lenses,Q0957+561,,z_l,properties.z_l_all_readings,0.36,,yes,yes,both,
 CASTLES lenses,Q0957+561,,z_s,properties.z_s_all_readings,1.41,,yes,yes,both,
-CASTLES lenses,RXJ0911+0551,,z_l,redshift,0.77,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
-CASTLES lenses,RXJ0911+0551,,z_s,properties.z_s,2.8,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
-CASTLES lenses,RXJ0911+0551,,z_l,properties.z_l_all_readings,0.77,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
-CASTLES lenses,RXJ0911+0551,,z_s,properties.z_s_all_readings,2.8,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
+CASTLES lenses,RXJ0911+0551,,z_l,redshift,0.77,,yes,second reader (epoch-gap z),both,
+CASTLES lenses,RXJ0911+0551,,z_s,properties.z_s,2.8,,yes,second reader (epoch-gap z),both,
+CASTLES lenses,RXJ0911+0551,,z_l,properties.z_l_all_readings,0.77,,yes,second reader (epoch-gap z),both,
+CASTLES lenses,RXJ0911+0551,,z_s,properties.z_s_all_readings,2.8,,yes,second reader (epoch-gap z),both,
 Cosmic Horseshoe,SDSS J1148+1930,,z_l,redshift,0.44,,yes,yes,both,
 Cosmic Horseshoe,SDSS J1148+1930,,z_l,properties.z_l_all_readings,0.44,,yes,yes,both,
-Cosmic Horseshoe,SDSS J1148+1930,,z_l,properties.z_l_all_readings,0.444,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
+Cosmic Horseshoe,SDSS J1148+1930,,z_l,properties.z_l_all_readings,0.444,,yes,second reader (epoch-gap z),both,
 Cosmic Horseshoe,SDSS J1148+1930,,z_s,properties.z_s_all_readings,2.38,,yes,yes,both,
-Cosmic Horseshoe,SDSS J1148+1930,,z_s,properties.z_s_all_readings,2.38115,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
+Cosmic Horseshoe,SDSS J1148+1930,,z_s,properties.z_s_all_readings,2.38115,,yes,second reader (epoch-gap z),both,
 J0100+1818 (A7),SDSS J0100+1818,,z_l,redshift,0.581,,yes,yes,both,
 J0100+1818 (A7),SDSS J0100+1818,,z_s,properties.z_s,1.88,,yes,yes,both,
 J0100+1818 (A7),SDSS J0100+1818,,z_l,properties.z_l_all_readings,0.581,,yes,yes,both,
@@ -1230,7 +1230,6 @@ SL2S III sample | SL2SJ02176-0513 | SuGOHI CMASS lenses,SL2SJ021737-051329,,z_l,
 SL2S III sample | SL2SJ02176-0513 | SuGOHI CMASS lenses,SL2SJ021737-051329,,z_l,properties.z_l_all_readings,0.646,,yes,yes,both,
 SL2S III sample | SL2SJ02176-0513 | SuGOHI CMASS lenses,SL2SJ021737-051329,,z_s,properties.z_s_all_readings,1.847,,yes,yes,both,
 SL2S III sample | SL2SJ02176-0513 | SuGOHI CMASS lenses,SL2SJ021737-051329,,z_s,properties.z_s_all_readings,1.85,,yes,yes,both,
-SL2S III sample | SL2SJ02176-0513 | SuGOHI CMASS lenses,SL2SJ021737-051329,,z_s,properties.z_s_all_readings,2.9,,yes,no,readers_differ,not adjudicated: both readings in properties (SECOND_READING.md)
 SL2S III sample,SL2SJ021801-080247,,z_l,redshift,0.884,,yes,yes,both,
 SL2S III sample,SL2SJ021801-080247,,z_s,properties.z_s,2.06,,yes,yes,both,
 SL2S III sample,SL2SJ021801-080247,,z_l,properties.z_l_all_readings,0.884,,yes,yes,both,

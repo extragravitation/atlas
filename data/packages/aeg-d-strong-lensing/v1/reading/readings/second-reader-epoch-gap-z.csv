@@ -1,0 +1,46 @@
+paper,system,quantity,value_as_printed,location,version
+Kochanek et al. 2000 ApJ 543 131,0047-2808,z_l,0.48,"Table 5 (Lens Galaxy Redshift Estimates), p.37, row 0047-2808, col z_l",arXiv astro-ph/9909018v2
+Kochanek et al. 2000 ApJ 543 131,0047-2808,z_s,3.60,"Table 5 (Lens Galaxy Redshift Estimates), p.37, row 0047-2808, col z_s",arXiv astro-ph/9909018v2
+Kochanek et al. 2000 ApJ 543 131,B0712+472,z_l,0.41,"Table 5 (Lens Galaxy Redshift Estimates), p.37, row B0712+472, col z_l",arXiv astro-ph/9909018v2
+Kochanek et al. 2000 ApJ 543 131,B0712+472,z_s,1.34,"Table 5 (Lens Galaxy Redshift Estimates), p.37, row B0712+472, col z_s",arXiv astro-ph/9909018v2
+Kochanek et al. 2000 ApJ 543 131,B1030+071,z_l,0.60,"Table 5 (Lens Galaxy Redshift Estimates), p.37, row B1030+071, col z_l",arXiv astro-ph/9909018v2
+Kochanek et al. 2000 ApJ 543 131,B1030+071,z_s,1.54,"Table 5 (Lens Galaxy Redshift Estimates), p.37, row B1030+071, col z_s",arXiv astro-ph/9909018v2
+Kochanek et al. 2000 ApJ 543 131,B1938+666,z_l,0.88,"Table 5 (Lens Galaxy Redshift Estimates), p.37, row B1938+666, col z_l",arXiv astro-ph/9909018v2
+Kochanek et al. 2000 ApJ 543 131,B1938+666,z_s,(blank),"Table 5 (Lens Galaxy Redshift Estimates), p.37, row B1938+666, col z_s",arXiv astro-ph/9909018v2
+Kochanek et al. 2000 ApJ 543 131,B2045+265,z_l,0.87,"Table 5 (Lens Galaxy Redshift Estimates), p.37, row B2045+265, col z_l",arXiv astro-ph/9909018v2
+Kochanek et al. 2000 ApJ 543 131,B2045+265,z_s,1.28,"Table 5 (Lens Galaxy Redshift Estimates), p.37, row B2045+265, col z_s",arXiv astro-ph/9909018v2
+Kochanek et al. 2000 ApJ 543 131,B2319+052,z_l,0.62,"Table 5 (Lens Galaxy Redshift Estimates), p.37, row B2319+052, col z_l",arXiv astro-ph/9909018v2
+Kochanek et al. 2000 ApJ 543 131,B2319+052,z_s,(blank),"Table 5 (Lens Galaxy Redshift Estimates), p.37, row B2319+052, col z_s",arXiv astro-ph/9909018v2
+Kochanek et al. 2000 ApJ 543 131,HST14113+521,z_l,0.46,"Table 5 (Lens Galaxy Redshift Estimates), p.37, row HST14113+521, col z_l",arXiv astro-ph/9909018v2
+Kochanek et al. 2000 ApJ 543 131,HST14113+521,z_s,2.81,"Table 5 (Lens Galaxy Redshift Estimates), p.37, row HST14113+521, col z_s",arXiv astro-ph/9909018v2
+Kochanek et al. 2000 ApJ 543 131,MG0414+0534,z_l,0.96,"Table 5 (Lens Galaxy Redshift Estimates), p.37, row MG0414+0534, col z_l",arXiv astro-ph/9909018v2
+Kochanek et al. 2000 ApJ 543 131,MG0414+0534,z_s,2.64,"Table 5 (Lens Galaxy Redshift Estimates), p.37, row MG0414+0534, col z_s",arXiv astro-ph/9909018v2
+Kochanek et al. 2000 ApJ 543 131,MG1131+0456,z_l,0.84,"Table 5 (Lens Galaxy Redshift Estimates), p.37, row MG1131+0456, col z_l",arXiv astro-ph/9909018v2
+Kochanek et al. 2000 ApJ 543 131,MG1131+0456,z_s,(blank),"Table 5 (Lens Galaxy Redshift Estimates), p.37, row MG1131+0456, col z_s",arXiv astro-ph/9909018v2
+Kochanek et al. 2000 ApJ 543 131,MG2016+112,z_l,1.01,"Table 5 (Lens Galaxy Redshift Estimates), p.37, row MG2016+112, col z_l",arXiv astro-ph/9909018v2
+Kochanek et al. 2000 ApJ 543 131,MG2016+112,z_s,3.27,"Table 5 (Lens Galaxy Redshift Estimates), p.37, row MG2016+112, col z_s",arXiv astro-ph/9909018v2
+Kochanek et al. 2000 ApJ 543 131,RXJ0911+0551,z_l,0.77,"Table 5 (Lens Galaxy Redshift Estimates), p.37, row RXJ0911+0551, col z_l",arXiv astro-ph/9909018v2
+Kochanek et al. 2000 ApJ 543 131,RXJ0911+0551,z_s,2.80,"Table 5 (Lens Galaxy Redshift Estimates), p.37, row RXJ0911+0551, col z_s",arXiv astro-ph/9909018v2
+"Keeton, Kochanek & Falco 1998 ApJ 509 561",MG 0414+0534,z_s,2.64,"Table 1 (Gravitational Lens Geometries, Galactic Extinctions, and Redshifts), p.27, row MG 0414+0534, col z_s",arXiv astro-ph/9708161v1
+"Keeton, Kochanek & Falco 1998 ApJ 509 561",MG 0414+0534,z_l,"0.44^{0.85‡}_{0.15} (superscript 0.85‡, subscript 0.15; ‡ = estimated median lens redshift and 90% CI from image separation, not measured)","Table 1 (Gravitational Lens Geometries, Galactic Extinctions, and Redshifts), p.27, row MG 0414+0534, col z_l",arXiv astro-ph/9708161v1
+"Keeton, Kochanek & Falco 1998 ApJ 509 561",B 0712+472,z_s,1.33,"Table 1 (Gravitational Lens Geometries, Galactic Extinctions, and Redshifts), p.27, row B 0712+472, col z_s",arXiv astro-ph/9708161v1
+"Keeton, Kochanek & Falco 1998 ApJ 509 561",B 0712+472,z_l,0.41,"Table 1 (Gravitational Lens Geometries, Galactic Extinctions, and Redshifts), p.27, row B 0712+472, col z_l",arXiv astro-ph/9708161v1
+"Keeton, Kochanek & Falco 1998 ApJ 509 561",MG 1131+0456,z_s,(blank),"Table 1 (Gravitational Lens Geometries, Galactic Extinctions, and Redshifts), p.27, row MG 1131+0456, col z_s",arXiv astro-ph/9708161v1
+"Keeton, Kochanek & Falco 1998 ApJ 509 561",MG 1131+0456,z_l,(blank),"Table 1 (Gravitational Lens Geometries, Galactic Extinctions, and Redshifts), p.27, row MG 1131+0456, col z_l",arXiv astro-ph/9708161v1
+"Keeton, Kochanek & Falco 1998 ApJ 509 561",0047-2808,z_l and z_s,not listed,"Table 1 (Gravitational Lens Geometries, Galactic Extinctions, and Redshifts), p.27",arXiv astro-ph/9708161v1
+"Keeton, Kochanek & Falco 1998 ApJ 509 561",B1030+071,z_l and z_s,not listed,"Table 1 (Gravitational Lens Geometries, Galactic Extinctions, and Redshifts), p.27",arXiv astro-ph/9708161v1
+"Keeton, Kochanek & Falco 1998 ApJ 509 561",B1938+666,z_l and z_s,not listed,"Table 1 (Gravitational Lens Geometries, Galactic Extinctions, and Redshifts), p.27",arXiv astro-ph/9708161v1
+"Keeton, Kochanek & Falco 1998 ApJ 509 561",B2045+265,z_l and z_s,not listed,"Table 1 (Gravitational Lens Geometries, Galactic Extinctions, and Redshifts), p.27",arXiv astro-ph/9708161v1
+"Keeton, Kochanek & Falco 1998 ApJ 509 561",B2319+052,z_l and z_s,not listed,"Table 1 (Gravitational Lens Geometries, Galactic Extinctions, and Redshifts), p.27",arXiv astro-ph/9708161v1
+"Keeton, Kochanek & Falco 1998 ApJ 509 561",HST14113+521,z_l and z_s,not listed,"Table 1 (Gravitational Lens Geometries, Galactic Extinctions, and Redshifts), p.27",arXiv astro-ph/9708161v1
+"Keeton, Kochanek & Falco 1998 ApJ 509 561",MG2016+112,z_l and z_s,not listed,"Table 1 (Gravitational Lens Geometries, Galactic Extinctions, and Redshifts), p.27",arXiv astro-ph/9708161v1
+"Keeton, Kochanek & Falco 1998 ApJ 509 561",RXJ0911+0551,z_l and z_s,not listed,"Table 1 (Gravitational Lens Geometries, Galactic Extinctions, and Redshifts), p.27",arXiv astro-ph/9708161v1
+Dye et al. 2008,SDSS J1148+1930 (Cosmic Horseshoe),z_l,0.44,"Sec 1 p.2 ('a redshift of 0.44'); Sec 2 p.2 ('z = 0.44', Ca H&K)",arXiv 0804.4002v2
+Dye et al. 2008,SDSS J1148+1930 (Cosmic Horseshoe),z_s,2.379,"Sec 1 p.2 ('with a redshift of 2.379', from Belokurov et al. 2007)",arXiv 0804.4002v2
+Dye et al. 2008,SDSS J1148+1930 (Cosmic Horseshoe),z_s,2.38,"Sec 2 p.2 ('lies at a redshift of z = 2.38', Lya)",arXiv 0804.4002v2
+Spiniello et al. 2011,SDSS J1148+1930 (Cosmic Horseshoe),z_l,0.444,"Table 1 p.3, Lens Galaxy / Redshift; also abstract",arXiv 1103.4773v2
+Spiniello et al. 2011,SDSS J1148+1930 (Cosmic Horseshoe),z_s,2.38115 ± 0.00012,"Table 1 p.3, Source / Redshift",arXiv 1103.4773v2
+Spiniello et al. 2011,SDSS J1148+1930 (Cosmic Horseshoe),z_s,2.3811,Table 1 footnote 1 p.3 (Belokurov 2007 value 2.379 shifted),arXiv 1103.4773v2
+Sonnenfeld et al. 2013 SL2S III,SL2SJ021737-051329,z_s,"not printed (only z = 0.646 lens, Table 7)",Tables 1-7 searched,arXiv 1307.4764v1
+Sonnenfeld et al. 2013 SL2S IV,SL2SJ021737-051329,z_s,1.85,"Table 2 p.6, row SL2SJ021737-051329, col zs (zd 0.646)",arXiv 1307.4759v1
+Sonnenfeld et al. 2019 SuGOHI III,HSCJ021737-051329,z_s,1.847,"Table 1 p.3, row HSCJ021737-051329, col zs (zd 0.646)",arXiv 1904.10465v2

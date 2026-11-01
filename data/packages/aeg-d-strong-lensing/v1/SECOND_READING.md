@@ -183,3 +183,10 @@ See `RESULT_SUMMARY.md` for the summary statistics.
 ## Disclosure
 
 While building the released-file check, the converter's author saw a few rows of R7 Table 4 in the terminal. These included R7's f*,Ein columns (lensing-based stellar fractions, which the Atlas does not use). None was recorded or used.
+
+
+## Test 1 version 5 and test 2 version 4 (2026-11-01)
+
+- **Test 1 v4 weakened the test, and that is reversed.** Version 4 let 36 epoch-gap redshifts, each found in one reading only, pass under a new outcome `readers_differ`. Version 5 removes that outcome. An independent second reading of those redshifts (`reading/readings/second-reader-epoch-gap-z.csv`: Kochanek et al. 2000 Table 5, Keeton, Kochanek & Falco 1998, Dye et al. 2008, Spiniello et al. 2011, SL2S IV, SuGOHI III) supplies the missing reader. The version 4 output is kept as `checks/second_reading_v4.csv`.
+- **Version 5 found one converter defect, now fixed.** The photometric redshift of a second lensed source of SL2SJ021737−051329 (Tu et al. 2009 Table 1, "Double system", z ≈ 2.9) had been merged into that lens's source-redshift readings. The converter now leaves out rows whose table location names a second source, and test 2 v4 applies the same rule (version 3 output kept).
+- **Results:** test 1 v5 PASS, 1496 of 1496; test 2 v4 PASS, 8503 of 8503; test 3 passes; pytest 197 pass.

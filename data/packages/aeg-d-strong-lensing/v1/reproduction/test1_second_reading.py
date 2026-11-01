@@ -46,6 +46,11 @@ recorded in properties. Each is looked up in reader A's and reader B's z_l and z
                   values recorded in properties (listed in SECOND_READING.md; not adjudicated)
   FAIL            otherwise (in neither reading, or in one without the flag)
 Nothing else changed.
+Version 5 (2026-11-01; version 4 output kept as checks/second_reading_v4.csv): version 4 had added an outcome
+"readers_differ" that let a number found in one reading only pass. That weakened the frozen test, and it is
+removed. Such a number now fails unless an independent second reading confirms it.
+reading/readings/second-reader-epoch-gap-z.csv is that second reading, for the 36 epoch-gap redshifts
+version 4 had from one reader.
 Writes checks/second_reading.csv (one row per number) and prints PASS or FAIL.
 """
 
@@ -183,10 +188,21 @@ def _reader_z(letter: str) -> list[dict]:
     return out
 
 
+def _second_reader_z() -> list[dict]:
+    """Version 5: the independent second reading of the epoch-gap redshifts that version 4 had from one reader."""
+    out = []
+    for r in csv.DictReader(open(READINGS / "second-reader-epoch-gap-z.csv", encoding="utf-8")):
+        q = r["quantity"].strip()
+        nums = nums_of(r.get("value_as_printed"))
+        if nums and q in ("z_l", "z_s"):
+            out.append({"id": norm_sys(r["system"].split("(")[0]), "full": norm_sys(r["system"]), "quantity": q, "v": nums[0]})
+    return out
+
+
 def epoch_gap_numbers() -> tuple[list[dict], int]:
     """Version 4: the numbers of the systems recorded at z_l >= 0.30 (D-066 item 2), from the stored table."""
     import json
-    zrows = {"A": _reader_z("a"), "B": _reader_z("b")}
+    zrows = {"A": _reader_z("a"), "B": _reader_z("b"), "S": _second_reader_z()}
     out, bad = [], 0
     for t in cv.read_back(PKG / "tables/systems.ecsv"):
         p = json.loads(t["properties"])
@@ -200,17 +216,17 @@ def epoch_gap_numbers() -> tuple[list[dict], int]:
         numbers += [("z_s", "properties.z_s_all_readings", v) for v in p["z_s_all_readings"]]
         for q, where, v in numbers:
             hit = {rd: any((z["id"] in ids or z["full"] in ids) and z["quantity"] == q and abs(z["v"] - v) <= 1e-12
-                           for z in zrows[rd]) for rd in "AB"}
+                           for z in zrows[rd]) for rd in "ABS"}
             if hit["A"] and hit["B"]:
                 outcome = "both"
-            elif (hit["A"] or hit["B"]) and "readers_differ" in p["flags"]:
-                outcome = "readers_differ"
+            elif (hit["A"] or hit["B"]) and hit["S"]:
+                outcome = "both"  # version 5: the second reading supplies the missing reader
             else:
                 outcome = "FAIL"
                 bad += 1
             out.append({"scope": p["scope"], "system": t["name_in_source"], "record": "", "quantity": q, "part": where,
                         "value": repr(v), "unit": "", "reader_a": "yes" if hit["A"] else "no",
-                        "reader_b": "yes" if hit["B"] else "no", "outcome": outcome,
+                        "reader_b": "yes" if hit["B"] else ("second reader (epoch-gap z)" if hit["S"] else "no"), "outcome": outcome,
                         "adjudication_cited": "not adjudicated: both readings in properties (SECOND_READING.md)"
                         if outcome == "readers_differ" else ""})
     return out, bad
