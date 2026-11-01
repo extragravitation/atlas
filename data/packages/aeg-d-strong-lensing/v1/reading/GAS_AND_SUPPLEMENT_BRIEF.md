@@ -1,4 +1,11 @@
-# A6: gas and supplement reading brief (2026-11-01), as given to the AI readers
+# A6: gas and supplement reading brief (2026-11-01), as given to the AI readers — version 2
+
+**Version 2 (2026-11-01 09:05).** The first run of this brief was stopped by JvH before it finished, and its partial outputs are not used. Version 2 changes only the scope of part G, to keep each reading manageable:
+- per-galaxy rows only for small samples or massive galaxies;
+- large catalogues are described by table and column, not transcribed;
+- parts G and S are read in separate runs.
+
+Nothing else changed.
 
 You transcribe published values for an atlas that compares the observed gravitational acceleration of systems with the Newtonian acceleration from their detected ordinary matter. You are a reader: copy what sources print, exactly. You do not compute or judge.
 
@@ -15,14 +22,16 @@ For each candidate record:
 - the phase (hot X-ray, HI, molecular);
 - the sample: number of galaxies, their selection, the stellar-mass or luminosity range as printed, and the distance or redshift range;
 - the method: for X-ray, deprojection or modelling, and the metallicity assumed; for CO, the conversion factor; for HI, the beam and sensitivity;
-- **every per-galaxy or per-sample gas mass, or upper limit, inside a stated radius of 10 kpc or less, or inside a stated multiple of R_e of 2 or less.** Give the radius as printed (kpc, arcsec, or in R_e) and the value with its errors or limit type. Where the paper gives a gas-to-stellar mass ratio in such a radius, record that. Where it gives both the gas mass and the stellar mass in the same radius, record both.
+- **gas masses, or upper limits, inside a stated radius of 10 kpc or less, or inside a stated multiple of R_e of 2 or less.** Give the radius as printed (kpc, arcsec, or in R_e) and the value with its errors or limit type. Where the paper gives a gas-to-stellar mass ratio in such a radius, record that. Where it gives both the gas mass and the stellar mass in the same radius, record both.
+  - **Per-galaxy rows** only where the sample has 40 galaxies or fewer, or for galaxies whose printed stellar mass is at least 10^11 M_sun (or whose printed K-band luminosity or absolute magnitude is the sample's brightest quarter, where no stellar mass is printed).
+  - **Larger samples:** one row per sample-level statistic the paper prints (median, mean, range, detection rate with its limit), plus one row `quantity = catalogue_location` naming the table, the columns and how many galaxies it holds, so the values can be taken from the machine-readable table later.
 - whole-galaxy totals only as `quantity = gas_total_no_radius` (recorded, not used).
 
 Output `gas_reading.csv` with the columns:
 
 `candidate, citation, phase, galaxy, radius_value, radius_unit, quantity, value, err_minus, err_plus, limit, unit, form, stellar_mass_same_radius, stellar_mass_unit, location, quote, url, version, note`
 
-where `quantity` is one of `gas_mass_in_radius`, `gas_to_stellar_in_radius`, `gas_total_no_radius`.
+where `quantity` is one of `gas_mass_in_radius`, `gas_to_stellar_in_radius`, `sample_statistic`, `catalogue_location`, `gas_total_no_radius`.
 
 ## Part S: supplement for the lens package (from `adjudication.md` and the conversion code)
 
