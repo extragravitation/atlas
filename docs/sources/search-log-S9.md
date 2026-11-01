@@ -78,3 +78,17 @@ Counted, not listed.
 ## 2. Full-text screening (2026-10-31)
 
 Two readers, each in its own folder. Readings as returned: `screening-S9/reader-{a,b}.md`. Comparison: 44 of 49 agree. Final codes: E 13, P 11, X 23, — 1. One ruling is needed (QS4, summing member catalogues). The coverage of the five X-COP clusters is set out in `screening-S9/adjudication.md`.
+
+## 3. Round L: printed cluster luminosities (D-071), plan committed before any query or reading (2026-10-31)
+
+Under D-071, a printed cluster luminosity (BCG plus members, with the source's own membership and completeness corrections) counts as measured stars once multiplied by the Atlas's registered ratio. Two steps:
+
+1. **Re-screen S1–S19** for printed per-cluster luminosities (band, aperture, projected or 3D, components), whatever their own conversion to mass. Records coded X only for their conversion (S2b, S3a, S3b, S5, S18b, S4c and others) are re-read for this. The three disputed central-galaxy readings (S4a, S4b, S9b) are settled at source in the same pass.
+2. **Supplementary search** for sources that print cluster luminosities but not stellar masses:
+
+| # | Query | Sort |
+|---|---|---|
+| ADS-L9-1 | `abs:("galaxy cluster" OR "galaxy clusters" OR "clusters of galaxies") abs:("total luminosity" OR "total luminosities" OR "K-band luminosity" OR "near-infrared luminosity" OR "optical luminosity" OR "cluster light" OR "luminosity content") abs:("brightest cluster galaxy" OR "member galaxies" OR members OR "luminosity function") collection:astronomy property:refereed year:1990-2026` | citations |
+| VIZ-L9 | `bibstem:yCat abs:("galaxy cluster" OR "galaxy clusters" OR "clusters of galaxies") abs:(luminosity OR luminosities) abs:("K-band" OR "near-infrared" OR 2MASS OR SDSS)` | date |
+
+Screening uses the brief `docs/sources/screening-brief-L9.md` with two readers, each in their own folder, and a comparison script committed first. The output is an updated coverage table.
