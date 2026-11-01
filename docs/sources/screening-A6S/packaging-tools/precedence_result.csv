@@ -1,0 +1,31 @@
+survey,scope,observed_default,observed_alternatives,observed_flags,stellar_default,stellar_alternatives,stellar_flags,redshift_from,n_both_upper_bound
+SLACS,V-modelled lenses,R5,R12; R3; R37; R41; R63; R67; R7,,R13,R37; R41; R7,"R7 excluded as default: prior uses the lens's own sigma (§3.3; D-063 item 3) | R9 excluded as default: not usable: N (no per-lens table for SLACS lenses) | R41 excluded as default: IMF fitted, not a fixed named IMF (D-063 item 1)",,57
+SLACS,IX new models,R7,,,,R7,no eligible default stellar mass | R7 excluded: prior uses the lens's own sigma (§3.3; D-063 item 3),,0
+SLACS,J1538+5817,R5,R49,conditional: membership of this system in R5 not checked,R49,R13,mstar_in_RE_from_profile needed (default prints total) | single IMF printed: range from the model paper's Chabrier-to-Salpeter ratio (§3.2),,1
+SLACS,J1430+4105,R5,R49,conditional: membership of this system in R5 not checked,R13,R49,conditional: membership of this system in R13 not checked,,1
+SLACS,J0946+1006,R5,R50,conditional: membership of this system in R5 not checked,R66,R13,mstar_in_RE_from_profile needed (default prints total (per light component)),,1
+S4TM,S4TM lenses,R10,,,R10,,mstar_in_RE_from_profile needed (default prints total),,40
+BELLS,BELLS lenses,R15,R63,,,,no stellar-mass source,,0
+BELLS GALLERY,GALLERY lenses,R17,R12,,,,no stellar-mass source,,0
+SL2S,SL2S III sample,R20,R18; R19; R24; R63,,R20,R19,mstar_in_RE_from_profile needed (default prints total),R21,36
+SL2S,SL2S V added,R22,,,R22,R20,band count order undetermined between R20 and R22 (outcome depends on per-system band counts): provisional | mstar_in_RE_from_profile needed (default prints total),R22,5
+SL2S,SL2SJ02176-0513,R20,R49,conditional: membership of this system in R20 not checked,R20,R49,mstar_in_RE_from_profile needed (default prints total) | conditional: membership of this system in R20 not checked,,1
+SNELLS,SNL-0 (ESO 325-G004),R28,R25,,R26,R25; R28,aperture is 'inside θ_Ein of R25 (luminosity × M/L)': check it matches the default R_E,,1
+SNELLS,SNL-1 (ESO 286-G022),R61,R25; R31,,R33,R25; R26; R61,mstar_in_RE_from_profile needed (default prints profile (MGE)),,1
+SNELLS,SNL-2,R61,R25,,R61,R25; R26,aperture is 'inside R_ap (luminosity × M/L)': check it matches the default R_E,,1
+MNELLS,J0403-0239,R27,R29,,R29,,aperture is 'inside R_E of R29 (luminosity × M/L)': check it matches the default R_E,,1
+MaNGA,J1436+4943,R32,,,R32,,,,1
+MaNGA,J1701+3722,R32,R32-2017,,R32,,,,1
+Euclid NGC 6505,NGC 6505,R30,,,R30,,,,1
+KiDS,J0233-3447,R43,,,R43,,mstar_in_RE_from_profile needed (default prints total),,1
+SuGOHI,CMASS lenses,R57,,,R57,,aperture disputed between readers: read at source before packaging,,23
+Cosmic Horseshoe,J1148+1930,R60,,,R34,,,,1
+J0100+1818 (A7),J0100+1818,R47,,,R47,,mstar_in_RE_from_profile needed (default prints total) | single IMF printed: range from the model paper's Chabrier-to-Salpeter ratio (§3.2),,1
+LSD,LSD lenses,R35,,,,,no stellar-mass source,,0
+CASTLES,CASTLES lenses,R36,R37; R41,,R41,R37,band count not read for R41 or R37: order provisional | aperture is 'same radii as the model': check it matches the default R_E,,17
+COSMOS,COSMOS lenses,,,no usable observed-side source,,R38,no eligible default stellar mass | R38 excluded: not usable: N (P: IMF unverified),,0
+AGEL,AGEL pilot,R46,,,,,no stellar-mass source,,0
+H-ATLAS SDP,SDP lenses,R69c,R69a,,,R69a; R69c,no eligible default stellar mass | R69a excluded: not usable: N (IMF not stated) | R69c excluded: not usable: N (source not screened),,0
+Herschel ALMA,ALMA lenses,R69f,R55; R69d; R69e,,,,no stellar-mass source,,0
+Herschel HST,HST snapshot lenses,R53,,,,,no stellar-mass source,,0
+iPTF16geu,iPTF16geu,R56,,,,,no stellar-mass source,,0
