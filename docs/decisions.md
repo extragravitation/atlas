@@ -1216,3 +1216,170 @@ What the rule covers:
 **Reason.** It fixes every choice between published values before any value is read, as D-063 item 4 requires.
 
 **Data seen.** Search log A6 and the screening readings only. No lensing table was opened.
+
+## D-066 — The epoch cut for v1.0 plots (applies D-033 item 5)
+
+**Ruling (2026-10-31 18:49 MDT, JvH).** "Rule as recommended. Be a good scientist." **Proposed by** Claude (2026-10-31, option (a)). **Adopted.**
+
+1. **Per-system redshift.** A system with its own redshift (a lens galaxy, a cluster) is plotted in v1.0 only if that redshift, as printed by the source, is below 0.30 exactly.
+2. **Above the cut.** Systems at z ≥ 0.30 are recorded in full, flagged `epoch_gap_v1`, and counted on the Coverage page as part of the documented cosmic-epoch gap.
+3. **Scope.** The cut applies to every cell whose systems carry a per-system redshift: A6·strong lensing, A9, and later cells. It adds a condition to the who-is-plotted list of D-065 §1. The frozen file is not changed; this decision is the amendment.
+4. **Not covered: stacked samples whose bins span a redshift range** (the KiDS-1000 package and any A9 stacks under D-067 item 2). Changing what an existing package shows is a separate decision. Claude proposes it with the KiDS lens redshift distribution read at source, and it returns to JvH. Until then nothing already published changes.
+
+**Reason.** D-033 item 5 set the gap but not the line. An exact cut on the printed redshift is fixed before any value is seen, and leaves no case-by-case judgement after.
+
+**Alternatives rejected.** An approximate threshold decided per case.
+
+**Data seen.** Search logs A6 and A9 (redshift ranges as stated in the readings). No masses or results.
+
+## D-067 — A9 method rulings: joint fits, stacks, projection for clusters
+
+**Ruling (2026-10-31 18:49 MDT, JvH).** "Rule as recommended. Be a good scientist." **Proposed by** Claude (`docs/sources/screening-A9/adjudication.md`, QA1–QA3). **Adopted.**
+
+1. **Joint fits.** A lensing profile fitted jointly with stellar dynamics, X-ray hydrostatics or member-galaxy dynamics in one model is not used as the observed side. A record is usable only where the source also publishes a lensing-only (or dynamics-only) profile. Joint-fit products are recorded, not plotted. This follows the standard: channels are never merged by default.
+2. **Stacked profiles.** A stack is plotted only as a population average (content type `population_average`), and only where the baryonic side is stacked over the same clusters with the same weights. Otherwise it is recorded.
+3. **Projection for clusters** (extends D-064 to A9 lensing). The lensing side stays projected, and the gas is projected onto the same cylinders.
+   - The projection integrates only over the radial range the source measured.
+   - The contribution from beyond that range uses the source's own fitted model, as a registered assumption with its share shown per point.
+   - Points whose outer contribution cannot be bounded this way are recorded, not plotted.
+
+**Reason.**
+- Item 1 keeps the dynamics and lensing channels separate.
+- Item 2 compares like with like.
+- Item 3 keeps the comparison in projection without a mass-profile model on the lensing side, and makes the one unavoidable extrapolation explicit and visible.
+
+**Alternatives rejected.**
+- Joint fits as the observed side.
+- Stacks paired with per-cluster gas.
+- Deprojecting the lensing.
+- Silent extrapolation of the gas.
+
+**Data seen.** Search log A9 and the two screening readings: metadata and methods only.
+
+## D-068 — Stars in clusters: measured, searched for, never silently modelled; X-COP's modelled stars reported
+
+**Ruling (2026-10-31 19:03 MDT, JvH).** "I agree on all fronts. Please proceed." **Proposed by** Claude (2026-10-31, in answer to "as a good scientist, what do you recommend?"). **Adopted.**
+
+1. **A9 needs measured stars.** Before the A9 precedence rule is frozen, a logged search for stellar-mass sources covering the eligible A9 clusters below z = 0.30 is run, with its brief committed first. The five X-COP clusters with modelled stars are added to that search. Only clusters still without measured stars afterwards are recorded, not plotted.
+2. **Modelled stars** (D-034) are shown only as a labelled alternative, never the default, and only where the model does not use the cluster's own total mass.
+3. **X-COP.**
+   - The modelled stars of A1644, A2255, A3158, A3266 and RXC1825 are normalised by the hydrostatic M500 (D-022 item 3). That conflicts with deviation #6, which was ruled the day after D-022.
+   - The conflict is reported as known issue #91 and appears on the Known issues page.
+   - Where measured stellar masses are found, they replace the model in the data standard 2.0 re-issue. Where none are found, JvH rules whether those rows stay plotted as labelled "modelled" or become recorded only.
+   - The 7 clusters with measured stars (Ghizzardi et al. 2020) are unaffected.
+4. **Site.**
+   - Clusters measured by several channels (X-ray hydrostatic, lensing, member galaxies) get a system page showing each channel's profile side by side, each marked, never averaged.
+   - Every point shows whether it is projected or 3D, and whether its stars are measured or modelled, by mark, legend and tooltip.
+
+**Reason.**
+- Leaving stars out, or modelling them from the total mass, biases g_bar in a known direction or makes it circular.
+- Searching before excluding keeps coverage without lowering the standard.
+- A problem found in one's own published data is reported at once.
+- Showing channels side by side is both the honest display and the most informative one.
+
+**Correction recorded.** Claude's recommendation said the X-COP stars would be replaced "with measured stellar masses (Ghizzardi et al. 2020)". On checking D-022: Ghizzardi et al. 2020 covers the 7 clusters that are already measured, not the 5 modelled ones. Item 3 above states the plan correctly.
+
+**Data seen.** D-022 and D-023 and the X-COP package's status columns (counts of measured and modelled rows). No masses were read.
+
+## D-069 — No summing of member-galaxy catalogues for cluster stellar masses (v1.0)
+
+**Ruling (2026-10-31 19:49 MDT, JvH).** "We'll do no for summing member catalogues." **Proposed by** Claude (`docs/sources/screening-S9/adjudication.md`, QS4, option (a)). **Adopted.**
+
+In v1.0, the Atlas does not build a cluster's stellar mass by summing a published catalogue of member galaxies, or by integrating a published stellar mass function. Such records are kept as inputs and leads, coded X for the baryonic side.
+
+**Reason.** Summing needs the Atlas's own membership and completeness corrections, which is new analysis, not reading. The same line was drawn for star clusters and dwarfs, where velocity dispersions are never computed from individual stars.
+
+**Effect.**
+- A1644 (X-COP) has no eligible measured stellar mass.
+- S1b, S1c, S19, S13b and S13f become X for the baryonic side.
+
+**Data seen.** The stellar-mass screening readings: metadata and methods only.
+
+## D-070 — X-COP clusters without measured stars: recorded, not plotted (2.0 re-issue)
+
+**Ruling (2026-10-31 19:50 MDT, JvH).** "I'll say yes." **Proposed by** Claude. **Adopted.**
+
+1. **RXC1825 and A1644** (no measured stellar mass found; D-068, D-069) are **recorded, not plotted**, in the data standard 2.0 re-issue of `aeg-d-xcop`. Their only available stellar model is normalised by the cluster's own hydrostatic M500, which D-068 item 2 forbids even as an alternative. Leaving stars out is forbidden by protocol §1.7. Each system page states the reason. A cluster returns to the map if measured stellar masses are published.
+2. **A2255** gets measured stars from Laganá et al. 2011. Their Salpeter values are converted to the Chabrier default by a registered ratio, read at source. This waits on a check of whether the sources call A2255 a merger (A10).
+3. **A3158 and A3266** get measured stars from the OmegaWINGS profiles, once the IMF is confirmed at source (QS2).
+4. **Until the re-issue,** the current v1 rows stay as published and are marked by known issue #91. The pre-release data are not patched by hand.
+
+**Reason.** Neither a circular model nor an omission may stand in for measured stars. Recording the cluster with its reason keeps it visible and honest.
+
+**Data seen.** The stellar-mass screening and coverage table (names, codes); D-022 and D-023.
+
+## D-071 — Cluster stars from printed luminosity × the Atlas's registered stellar M/L
+
+**Ruling (2026-10-31 20:17 MDT, JvH).** "Yes." **Proposed by** Claude (2026-10-31, option (a)). **Adopted.**
+
+A cluster's stellar mass counts as **measured** (D-034) when it is the luminosity printed by the source times the Atlas's own registered stellar-population mass-to-light ratio. The luminosity covers the brightest cluster galaxy plus members, with the source's own membership and completeness corrections. The ratio follows the D-039 model family: Chabrier or Kroupa default, Salpeter as the top of the range, read at source and registered per band. The source's own conversion to mass is not used where it is dynamical, or tied to M500 or another scaling relation.
+
+Safeguards:
+1. **The source's light and the source's sums only.** The Atlas sums nothing (D-069).
+2. **Matched geometry.** A projected luminosity is paired only with lensing (row L), a 3D luminosity only with member-galaxy dynamics (row O), unless the source gives both. Otherwise the cluster is recorded, not plotted.
+3. **One radius.** The comparison is made only at the aperture where the luminosity is measured; no stellar profile shape is assumed. An aperture set by a scaling relation is used as a radius and flagged.
+4. **Missing light.** Intracluster light the source did not measure gets a registered range, as `icl_fraction` for X-COP. Its default and range are read at source.
+
+**Reason.**
+- It is the method already used for star clusters and dwarfs.
+- It removes the circularity at its root: the light is measured, and the conversion does not use the cluster's dynamics.
+- At the radii compared, gas dominates the detected baryons, so the stellar ratio's range moves g_bar modestly. The slider shows by how much, computed from the data.
+
+**Cost.**
+- Most clusters get one point, at their measured aperture.
+- The stellar-mass sources are re-screened for printed luminosities, under a brief committed first.
+
+**Alternative rejected.** Keeping only sources that print stellar masses with an acceptable conversion (about 7 to 14 clusters).
+
+**Data seen.** The stellar-mass readings and the coverage table: names, codes, methods. No luminosities or masses.
+
+## D-072 — Round L rules: printed components, BCG by method, faint-end limit, magnitudes, deprojection, precedence
+
+**Ruling (2026-10-31 20:49 MDT, JvH).** "Proceed as recommended." **Proposed by** Claude (2026-10-31, QL1–QL6 in `docs/sources/screening-L9/adjudication.md`). **Adopted.**
+
+1. **Printed components (QL1).** The Atlas may add a source's own printed cluster-level components when the source defines them as disjoint and they share one aperture (e.g. BCG + red members + blue members). This is arithmetic on the source's cluster totals, not a sum over a member catalogue (D-069), and Test 3 checks it. A total is never recovered by dividing a printed luminosity by a printed fraction.
+2. **BCG not stated (QL2).**
+   - A direct sum over all galaxies or members in the aperture, with no stated exclusion, includes the BCG. It is flagged "BCG by method".
+   - A total that is only an analytic integral of a fitted Schechter function, with no separate BCG term, counts as members only and is not used.
+3. **Faint end (QL3).**
+   - Accepted: a sum truncated at a stated faint limit at least 2 mag fainter than M*, flagged with its limit. Where the source quantifies the missing faint light, it is shown as a range.
+   - Not used: bright-only sums (a limit brighter than M* + 1).
+   - The Atlas does not model missing light.
+4. **Magnitudes and evolution (QL4).**
+   - An absolute magnitude in a named band counts as a printed luminosity. It is converted with that band's solar absolute magnitude, read at source and registered.
+   - An observed-frame apparent magnitude does not count.
+   - A luminosity the source has evolution-corrected is paired with the stellar M/L for the epoch it was corrected to.
+5. **Deprojection (QL5).** A luminosity deprojected by the source's own model counts as 3D and pairs with row O. It is labelled `model_dependence` with the source's assumption.
+6. **Precedence (QL6),** written into `docs/methods/A9_PRECEDENCE.md`:
+   1. the source's measured stellar mass (route a), then luminosity × registered ratio (route b);
+   2. within route (b), near-infrared bands first;
+   3. a team's later analysis of the same data supersedes its earlier one;
+   4. projected values pair with row L, 3D values with row O.
+
+**Reason.**
+- Each rule keeps the light measured by the source and the conversion independent of the cluster's dynamics, consistent with D-069 and D-071.
+- QL2 follows what each method actually counts. A Schechter integral replaces the brightest galaxy, often the largest single component, with the fitted form.
+- Near-infrared first because the stellar-population ratio varies least there.
+
+**Effect on codes.**
+- E: L2, L8, LV3, S6 (QL2); L10, L23b, S3a (QL1).
+- X: L4, S4b, S4d (QL2); S10a (QL4).
+
+**Alternative rejected.** Strict QL2 (an explicit BCG statement required), which would also exclude L2, L8, LV3 and S6.
+
+**Data seen.** Names, codes, methods, column lists and text describing methods. No luminosities or masses.
+
+## D-073 — A9 galaxy-cluster precedence rule (frozen)
+
+**Ruling (2026-10-31 21:09 MDT, JvH).** "Approved." **Proposed by** Claude (`docs/methods/A9_PRECEDENCE.md`, under D-064, D-066, D-067, D-068, D-071 and D-072). **Adopted** without change. Frozen by hash in `data/frozen/a9-precedence.json`.
+
+What the rule covers:
+- **Who is plotted:** A9 kind, printed z < 0.30, a lensing-only (row L) or dynamics-only (row O) observed side, measured gas, measured stars, star geometry matched to the channel, and no scaling-relation inputs.
+- **The observed side:** originals first; binned before fitted; rows L and O never averaged.
+- **The gas:** X-COP, then CHEX-MATE, then the survey's own source; projected for row L, 3D for row O.
+- **The stars:** route (a), stellar mass from photometry, or route (b), printed luminosity × the registered ratio, with the D-069, D-071 and D-072 rules and the per-cluster order; intracluster light as a registered range; modelled stars only as labelled alternatives (#91).
+- **The tests.**
+
+**Reason.** It fixes every choice between published values before any A9 value is read. The coverage table (`docs/sources/screening-L9/coverage-A9-v3.md`) shows the rule leaves about 79 clusters with stars that can be paired with an observed side, before the gas check.
+
+**Data seen.** The search logs, screening readings, coverage tables (names, redshifts, codes, methods) and catalogue column lists. No A9 table, luminosity or mass was opened.
