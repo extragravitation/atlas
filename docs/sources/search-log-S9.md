@@ -129,7 +129,7 @@ Excluded at title level (counted, not listed), by the S9 rules (§1a) plus:
 | L21 | 2025MNRAS.543.4020M | Clusters from deep optical observations |
 | L22 | 2020ApJS..247...43K; 2021ApJS..252...27K | BCG and ICL structure and photometry, local clusters (Kluge) |
 | L23 | 2005ApJ...618..195G; 2000ApJ...536..561G | ICL in nearby clusters; diffuse light in A1651 (Gonzalez) |
-| L24 | 2025A&A...694A.216J; 2025A&A...698A.134E; 2021ApJ...910...45M; 2016MNRAS.461..230E; 2017ApJ...849....6A | Single-cluster ICL below z = 0.30: Coma, A2390, A85, A85/A2457/A2670, one more |
+| L24 | 2025A&A...694A.216J; 2025A&A...698A.134E; 2021ApJ...910...45M; 2016MNRAS.461..230E; 2017ApJ...849....6A | Single-cluster ICL below z = 0.30: Coma, A2390, A85, A85/A2457/IIZw108 (corrected from the readings), one more |
 | L25 | 2015A&A...575A.108A | Dark and stellar mass in three massive clusters (redshift to check) |
 | L26 | 2023TJAA....4S.184A | Abell 1589 luminosity function |
 | L27 | 2020A&A...643A.136C | Clusters and early-type galaxies III: mass–radius relation |
@@ -149,5 +149,9 @@ The re-screen of S1–S19 (step 1) uses the S numbering of §1a; readers give on
 | LV4 | 2012yCat..35420036E | Rich clusters from SDSS DR8 (Einasto) |
 | LV5 | 2010yCat..21830197W; 2014yCat..74360275W | Clusters from SDSS-DR6; relaxation parameter of 2092 rich clusters (Wen) |
 | LV6 | 2003yCat..21480243B | Catalogue of clusters from SDSS (Bahcall) |
-| LV7 | 2016yCat..35880014T; 2018yCat..36180081T | Friends-of-friends group catalogues, SDSS and 2MRS (Tempel), which include rich clusters |
+| LV7 | 2016yCat..35880014T; 2018yCat..36180081T | Friends-of-friends group catalogues from 2MRS and combined local surveys (Tempel; corrected from the readings), which include rich clusters |
 | LV8 | 2013yCat..35580075T; 2014yCat..35640054T | 2XMMi/SDSS cluster survey II and III (Takey) |
+
+### 3c. Round L screening result (2026-10-31)
+
+Six readings (two readers × three blocks, separate folders): `screening-L9/reader-{a,b}-{S,L1,L2}.md`. Comparison: 83 of 104 agree. Adjudication and six rule questions (QL1–QL6, for JvH): `screening-L9/adjudication.md`. Final codes (`screening-L9/final.csv`): E 8, P 10, X 79, NS 6, — 1.
