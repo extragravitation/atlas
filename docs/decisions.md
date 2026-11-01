@@ -1294,3 +1294,16 @@ In v1.0, the Atlas does not build a cluster's stellar mass by summing a publishe
 - S1b, S1c, S19, S13b and S13f become X for the baryonic side.
 
 **Data seen.** The stellar-mass screening readings: metadata and methods only.
+
+## D-070 — X-COP clusters without measured stars: recorded, not plotted (2.0 re-issue)
+
+**Ruling (2026-10-31 19:50 MDT, JvH).** "I'll say yes." **Proposed by** Claude. **Adopted.**
+
+1. **RXC1825 and A1644** (no measured stellar mass found; D-068, D-069) are **recorded, not plotted**, in the data standard 2.0 re-issue of `aeg-d-xcop`. Their only available stellar model is normalised by the cluster's own hydrostatic M500, which D-068 item 2 forbids even as an alternative. Leaving stars out is forbidden by protocol §1.7. Each system page states the reason. A cluster returns to the map if measured stellar masses are published.
+2. **A2255** gets measured stars from Laganá et al. 2011. Their Salpeter values are converted to the Chabrier default by a registered ratio, read at source. This waits on a check of whether the sources call A2255 a merger (A10).
+3. **A3158 and A3266** get measured stars from the OmegaWINGS profiles, once the IMF is confirmed at source (QS2).
+4. **Until the re-issue,** the current v1 rows stay as published and are marked by known issue #91. The pre-release data are not patched by hand.
+
+**Reason.** Neither a circular model nor an omission may stand in for measured stars. Recording the cluster with its reason keeps it visible and honest.
+
+**Data seen.** The stellar-mass screening and coverage table (names, codes); D-022 and D-023.
