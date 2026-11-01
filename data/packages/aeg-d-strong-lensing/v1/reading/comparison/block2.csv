@@ -1,0 +1,1194 @@
+scope,system,record,quantity,variant,value_a,value_b,err_a,err_b,form_a,form_b,status
+S4TM lenses,(RECORD),R10,H0,,70,,/,/,,,only_a
+S4TM lenses,(RECORD),R10,Om,,0.274,,/,/,,,only_a
+S4TM lenses,(RECORD),R10,flat,,Omega_Lambda = 0.726 printed; 'flat' not stated in words,,/,/,,,only_a
+S4TM lenses,(RECORDLEVEL),R10,H0,,,70,/,/,,,only_b
+S4TM lenses,(RECORDLEVEL),R10,Om,,,0.274,/,/,,,only_b
+S4TM lenses,(RECORDLEVEL),R10,flat,,,not stated in words; Omega_Lambda = 0.726 printed,/,/,,,only_b
+S4TM lenses,J01431006,R10,M_E,,11.26,11.26,/,/,log10,log10,agree
+S4TM lenses,J01431006,R10,R_e,,3.24,3.24,/,/,linear,linear,agree
+S4TM lenses,J01431006,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J01431006,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J01431006,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J01431006,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J01431006,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J01431006,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J01431006,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.53,/,/,,log10,only_b
+S4TM lenses,J01431006,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.53,,/,/,log10,,only_a
+S4TM lenses,J01431006,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J01431006,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J01431006,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J01431006,R10,theta_E,,1.23,1.23,/,/,linear,linear,agree
+S4TM lenses,J01431006,R10,z_l,,0.2210,0.2210,/,/,linear,,differ
+S4TM lenses,J01431006,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J01431006,R10,z_s,,1.1046,1.1046,/,/,linear,,differ
+S4TM lenses,J01431006,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J01431006,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J01590006,R10,M_E,,10.89,10.89,/,/,log10,log10,agree
+S4TM lenses,J01590006,R10,R_e,,1.58,1.58,/,/,linear,linear,agree
+S4TM lenses,J01590006,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J01590006,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J01590006,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J01590006,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J01590006,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J01590006,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J01590006,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.03,/,/,,log10,only_b
+S4TM lenses,J01590006,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.03,,/,/,log10,,only_a
+S4TM lenses,J01590006,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J01590006,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J01590006,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J01590006,R10,theta_E,,0.92,0.92,/,/,linear,linear,agree
+S4TM lenses,J01590006,R10,z_l,,0.1584,0.1584,/,/,linear,,differ
+S4TM lenses,J01590006,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J01590006,R10,z_s,,0.7477,0.7477,/,/,linear,,differ
+S4TM lenses,J01590006,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J01590006,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J0324+0045,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J0324+0045,R10,z_l,,0.3210,0.3210,/,/,linear,,differ
+S4TM lenses,J0324+0045,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J0324+0045,R10,z_s,,0.9199,0.9199,/,/,linear,,differ
+S4TM lenses,J0324+0045,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J03240110,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J03240110,R10,z_l,,0.4456,0.4456,/,/,linear,,differ
+S4TM lenses,J03240110,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J03240110,R10,z_s,,0.6239,0.6239,/,/,linear,,differ
+S4TM lenses,J03240110,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J0753+3416,R10,M_E,,11.05,11.05,/,/,log10,log10,agree
+S4TM lenses,J0753+3416,R10,R_e,,1.89,1.89,/,/,linear,linear,agree
+S4TM lenses,J0753+3416,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J0753+3416,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J0753+3416,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J0753+3416,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J0753+3416,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J0753+3416,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J0753+3416,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.23,/,/,,log10,only_b
+S4TM lenses,J0753+3416,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.23,,/,/,log10,,only_a
+S4TM lenses,J0753+3416,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J0753+3416,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J0753+3416,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J0753+3416,R10,theta_E,,1.23,1.23,/,/,linear,linear,agree
+S4TM lenses,J0753+3416,R10,z_l,,0.1371,0.1371,/,/,linear,,differ
+S4TM lenses,J0753+3416,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J0753+3416,R10,z_s,,0.9628,0.9628,/,/,linear,,differ
+S4TM lenses,J0753+3416,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J0753+3416,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J0754+1927,R10,M_E,,10.99,10.99,/,/,log10,log10,agree
+S4TM lenses,J0754+1927,R10,R_e,,1.46,1.46,/,/,linear,linear,agree
+S4TM lenses,J0754+1927,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J0754+1927,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J0754+1927,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J0754+1927,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J0754+1927,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J0754+1927,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J0754+1927,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.13,/,/,,log10,only_b
+S4TM lenses,J0754+1927,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.13,,/,/,log10,,only_a
+S4TM lenses,J0754+1927,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J0754+1927,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J0754+1927,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J0754+1927,R10,theta_E,,1.04,1.04,/,/,linear,linear,agree
+S4TM lenses,J0754+1927,R10,z_l,,0.1534,0.1534,/,/,linear,,differ
+S4TM lenses,J0754+1927,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J0754+1927,R10,z_s,,0.7401,0.7401,/,/,linear,,differ
+S4TM lenses,J0754+1927,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J0754+1927,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J0757+1956,R10,M_E,,11.24,11.24,/,/,log10,log10,agree
+S4TM lenses,J0757+1956,R10,R_e,,3.67,3.67,/,/,linear,linear,agree
+S4TM lenses,J0757+1956,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J0757+1956,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J0757+1956,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J0757+1956,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J0757+1956,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J0757+1956,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J0757+1956,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.34,/,/,,log10,only_b
+S4TM lenses,J0757+1956,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.34,,/,/,log10,,only_a
+S4TM lenses,J0757+1956,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J0757+1956,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J0757+1956,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J0757+1956,R10,theta_E,,1.62,1.62,/,/,linear,linear,agree
+S4TM lenses,J0757+1956,R10,z_l,,0.1206,0.1206,/,/,linear,,differ
+S4TM lenses,J0757+1956,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J0757+1956,R10,z_s,,0.8326,0.8326,/,/,linear,,differ
+S4TM lenses,J0757+1956,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J0757+1956,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J0826+5630,R10,M_E,,10.85,10.85,/,/,log10,log10,agree
+S4TM lenses,J0826+5630,R10,R_e,,1.64,1.64,/,/,linear,linear,agree
+S4TM lenses,J0826+5630,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J0826+5630,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J0826+5630,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J0826+5630,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J0826+5630,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J0826+5630,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J0826+5630,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.38,/,/,,log10,only_b
+S4TM lenses,J0826+5630,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.38,,/,/,log10,,only_a
+S4TM lenses,J0826+5630,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J0826+5630,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J0826+5630,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J0826+5630,R10,theta_E,,1.01,1.01,/,/,linear,linear,agree
+S4TM lenses,J0826+5630,R10,z_l,,0.1318,0.1318,/,/,linear,,differ
+S4TM lenses,J0826+5630,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J0826+5630,R10,z_s,,1.2907,1.2907,/,/,linear,,differ
+S4TM lenses,J0826+5630,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J0826+5630,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J0847+2348,R10,M_E,,10.97,10.97,/,/,log10,log10,agree
+S4TM lenses,J0847+2348,R10,R_e,,1.54,1.54,/,/,linear,linear,agree
+S4TM lenses,J0847+2348,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J0847+2348,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J0847+2348,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J0847+2348,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J0847+2348,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J0847+2348,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J0847+2348,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.19,/,/,,log10,only_b
+S4TM lenses,J0847+2348,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.19,,/,/,log10,,only_a
+S4TM lenses,J0847+2348,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J0847+2348,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J0847+2348,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J0847+2348,R10,theta_E,,0.96,0.96,/,/,linear,linear,agree
+S4TM lenses,J0847+2348,R10,z_l,,0.1551,0.1551,/,/,linear,,differ
+S4TM lenses,J0847+2348,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J0847+2348,R10,z_s,,0.5327,0.5327,/,/,linear,,differ
+S4TM lenses,J0847+2348,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J0847+2348,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J0851+0505,R10,M_E,,10.79,10.79,/,/,log10,log10,agree
+S4TM lenses,J0851+0505,R10,R_e,,1.35,1.35,/,/,linear,linear,agree
+S4TM lenses,J0851+0505,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J0851+0505,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J0851+0505,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J0851+0505,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J0851+0505,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J0851+0505,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J0851+0505,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.05,/,/,,log10,only_b
+S4TM lenses,J0851+0505,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.05,,/,/,log10,,only_a
+S4TM lenses,J0851+0505,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J0851+0505,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J0851+0505,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J0851+0505,R10,theta_E,,0.91,0.91,/,/,linear,linear,agree
+S4TM lenses,J0851+0505,R10,z_l,,0.1276,0.1276,/,/,linear,,differ
+S4TM lenses,J0851+0505,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J0851+0505,R10,z_s,,0.6371,0.6371,/,/,linear,,differ
+S4TM lenses,J0851+0505,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J0851+0505,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J0920+3028,R10,M_E,,11.34,11.34,/,/,log10,log10,agree
+S4TM lenses,J0920+3028,R10,R_e,,4.25,4.25,/,/,linear,linear,agree
+S4TM lenses,J0920+3028,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J0920+3028,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J0920+3028,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J0920+3028,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J0920+3028,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J0920+3028,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J0920+3028,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,12.08,/,/,,log10,only_b
+S4TM lenses,J0920+3028,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",12.08,,/,/,log10,,only_a
+S4TM lenses,J0920+3028,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J0920+3028,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J0920+3028,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J0920+3028,R10,theta_E,,0.70,0.70,/,/,linear,linear,agree
+S4TM lenses,J0920+3028,R10,z_l,,0.2881,0.2881,/,/,linear,,differ
+S4TM lenses,J0920+3028,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J0920+3028,R10,z_s,,0.3918,0.3918,/,/,linear,,differ
+S4TM lenses,J0920+3028,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J0920+3028,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J0955+3014,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J0955+3014,R10,z_l,,0.3214,0.3214,/,/,linear,,differ
+S4TM lenses,J0955+3014,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J0955+3014,R10,z_s,,0.4671,0.4671,/,/,linear,,differ
+S4TM lenses,J0955+3014,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J0956+5539,R10,M_E,,11.19,11.19,/,/,log10,log10,agree
+S4TM lenses,J0956+5539,R10,R_e,,1.96,1.96,/,/,linear,linear,agree
+S4TM lenses,J0956+5539,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J0956+5539,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J0956+5539,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J0956+5539,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J0956+5539,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J0956+5539,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J0956+5539,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.46,/,/,,log10,only_b
+S4TM lenses,J0956+5539,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.46,,/,/,log10,,only_a
+S4TM lenses,J0956+5539,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J0956+5539,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J0956+5539,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J0956+5539,R10,theta_E,,1.17,1.17,/,/,linear,linear,agree
+S4TM lenses,J0956+5539,R10,z_l,,0.1959,0.1959,/,/,linear,,differ
+S4TM lenses,J0956+5539,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J0956+5539,R10,z_s,,0.8483,0.8483,/,/,linear,,differ
+S4TM lenses,J0956+5539,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J0956+5539,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J1010+3124,R10,M_E,,11.21,11.21,/,/,log10,log10,agree
+S4TM lenses,J1010+3124,R10,R_e,,3.26,3.26,/,/,linear,linear,agree
+S4TM lenses,J1010+3124,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J1010+3124,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J1010+3124,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J1010+3124,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J1010+3124,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J1010+3124,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J1010+3124,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.68,/,/,,log10,only_b
+S4TM lenses,J1010+3124,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.68,,/,/,log10,,only_a
+S4TM lenses,J1010+3124,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J1010+3124,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J1010+3124,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J1010+3124,R10,theta_E,,1.14,1.14,/,/,linear,linear,agree
+S4TM lenses,J1010+3124,R10,z_l,,0.1668,0.1668,/,/,linear,,differ
+S4TM lenses,J1010+3124,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1010+3124,R10,z_s,,0.4245,0.4245,/,/,linear,,differ
+S4TM lenses,J1010+3124,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1010+3124,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J1031+3026,R10,M_E,,10.88,10.88,/,/,log10,log10,agree
+S4TM lenses,J1031+3026,R10,R_e,,1.04,1.04,/,/,linear,linear,agree
+S4TM lenses,J1031+3026,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J1031+3026,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J1031+3026,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J1031+3026,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J1031+3026,R10,kind,,classification code E-U-A (morphology E),E-U-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J1031+3026,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J1031+3026,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.22,/,/,,log10,only_b
+S4TM lenses,J1031+3026,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.22,,/,/,log10,,only_a
+S4TM lenses,J1031+3026,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J1031+3026,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J1031+3026,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J1031+3026,R10,theta_E,,0.88,0.88,/,/,linear,linear,agree
+S4TM lenses,J1031+3026,R10,z_l,,0.1671,0.1671,/,/,linear,,differ
+S4TM lenses,J1031+3026,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1031+3026,R10,z_s,,0.7469,0.7469,/,/,linear,,differ
+S4TM lenses,J1031+3026,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1031+3026,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J1040+3626,R10,M_E,,10.54,10.54,/,/,log10,log10,agree
+S4TM lenses,J1040+3626,R10,R_e,,1.30,1.30,/,/,linear,linear,agree
+S4TM lenses,J1040+3626,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J1040+3626,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J1040+3626,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J1040+3626,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J1040+3626,R10,kind,,classification code E-U-A (morphology E),E-U-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J1040+3626,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J1040+3626,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,10.99,/,/,,log10,only_b
+S4TM lenses,J1040+3626,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",10.99,,/,/,log10,,only_a
+S4TM lenses,J1040+3626,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J1040+3626,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J1040+3626,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J1040+3626,R10,theta_E,,0.59,0.59,/,/,linear,linear,agree
+S4TM lenses,J1040+3626,R10,z_l,,0.1225,0.1225,/,/,linear,,differ
+S4TM lenses,J1040+3626,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1040+3626,R10,z_s,,0.2846,0.2846,/,/,linear,,differ
+S4TM lenses,J1040+3626,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1040+3626,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J1041+0112,R10,M_E,,10.50,10.50,/,/,log10,log10,agree
+S4TM lenses,J1041+0112,R10,R_e,,2.50,2.50,/,/,linear,linear,agree
+S4TM lenses,J1041+0112,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J1041+0112,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J1041+0112,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J1041+0112,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J1041+0112,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J1041+0112,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J1041+0112,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.07,/,/,,log10,only_b
+S4TM lenses,J1041+0112,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.07,,/,/,log10,,only_a
+S4TM lenses,J1041+0112,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J1041+0112,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J1041+0112,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J1041+0112,R10,theta_E,,0.60,0.60,/,/,linear,linear,agree
+S4TM lenses,J1041+0112,R10,z_l,,0.1006,0.1006,/,/,linear,,differ
+S4TM lenses,J1041+0112,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1041+0112,R10,z_s,,0.2172,0.2172,/,/,linear,,differ
+S4TM lenses,J1041+0112,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1041+0112,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J1048+1313,R10,M_E,,11.03,11.03,/,/,log10,log10,agree
+S4TM lenses,J1048+1313,R10,R_e,,1.90,1.90,/,/,linear,linear,agree
+S4TM lenses,J1048+1313,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J1048+1313,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J1048+1313,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J1048+1313,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J1048+1313,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J1048+1313,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J1048+1313,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.22,/,/,,log10,only_b
+S4TM lenses,J1048+1313,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.22,,/,/,log10,,only_a
+S4TM lenses,J1048+1313,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J1048+1313,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J1048+1313,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J1048+1313,R10,theta_E,,1.18,1.18,/,/,linear,linear,agree
+S4TM lenses,J1048+1313,R10,z_l,,0.1330,0.1330,/,/,linear,,differ
+S4TM lenses,J1048+1313,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1048+1313,R10,z_s,,0.6679,0.6679,/,/,linear,,differ
+S4TM lenses,J1048+1313,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1048+1313,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J1051+4439,R10,M_E,,11.02,11.02,/,/,log10,log10,agree
+S4TM lenses,J1051+4439,R10,R_e,,1.66,1.66,/,/,linear,linear,agree
+S4TM lenses,J1051+4439,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J1051+4439,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J1051+4439,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J1051+4439,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J1051+4439,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J1051+4439,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J1051+4439,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.16,/,/,,log10,only_b
+S4TM lenses,J1051+4439,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.16,,/,/,log10,,only_a
+S4TM lenses,J1051+4439,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J1051+4439,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J1051+4439,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J1051+4439,R10,theta_E,,0.99,0.99,/,/,linear,linear,agree
+S4TM lenses,J1051+4439,R10,z_l,,0.1634,0.1634,/,/,linear,,differ
+S4TM lenses,J1051+4439,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1051+4439,R10,z_s,,0.5380,0.5380,/,/,linear,,differ
+S4TM lenses,J1051+4439,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1051+4439,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J1056+4141,R10,M_E,,10.59,10.59,/,/,log10,log10,agree
+S4TM lenses,J1056+4141,R10,R_e,,1.81,1.81,/,/,linear,linear,agree
+S4TM lenses,J1056+4141,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J1056+4141,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J1056+4141,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J1056+4141,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J1056+4141,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J1056+4141,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J1056+4141,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.12,/,/,,log10,only_b
+S4TM lenses,J1056+4141,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.12,,/,/,log10,,only_a
+S4TM lenses,J1056+4141,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J1056+4141,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J1056+4141,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J1056+4141,R10,theta_E,,0.72,0.72,/,/,linear,linear,agree
+S4TM lenses,J1056+4141,R10,z_l,,0.1343,0.1343,/,/,linear,,differ
+S4TM lenses,J1056+4141,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1056+4141,R10,z_s,,0.8318,0.8318,/,/,linear,,differ
+S4TM lenses,J1056+4141,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1056+4141,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J1101+1523,R10,M_E,,11.23,11.23,/,/,log10,log10,agree
+S4TM lenses,J1101+1523,R10,R_e,,0.89,0.89,/,/,linear,linear,agree
+S4TM lenses,J1101+1523,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J1101+1523,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J1101+1523,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J1101+1523,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J1101+1523,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J1101+1523,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J1101+1523,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.23,/,/,,log10,only_b
+S4TM lenses,J1101+1523,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.23,,/,/,log10,,only_a
+S4TM lenses,J1101+1523,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J1101+1523,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J1101+1523,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J1101+1523,R10,theta_E,,1.18,1.18,/,/,linear,linear,agree
+S4TM lenses,J1101+1523,R10,z_l,,0.1780,0.1780,/,/,linear,,differ
+S4TM lenses,J1101+1523,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1101+1523,R10,z_s,,0.5169,0.5169,/,/,linear,,differ
+S4TM lenses,J1101+1523,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1101+1523,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J1116+0729,R10,M_E,,10.83,10.83,/,/,log10,log10,agree
+S4TM lenses,J1116+0729,R10,R_e,,2.44,2.44,/,/,linear,linear,agree
+S4TM lenses,J1116+0729,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J1116+0729,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J1116+0729,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J1116+0729,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J1116+0729,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J1116+0729,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J1116+0729,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.29,/,/,,log10,only_b
+S4TM lenses,J1116+0729,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.29,,/,/,log10,,only_a
+S4TM lenses,J1116+0729,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J1116+0729,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J1116+0729,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J1116+0729,R10,theta_E,,0.82,0.82,/,/,linear,linear,agree
+S4TM lenses,J1116+0729,R10,z_l,,0.1697,0.1697,/,/,linear,,differ
+S4TM lenses,J1116+0729,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1116+0729,R10,z_s,,0.6860,0.6860,/,/,linear,,differ
+S4TM lenses,J1116+0729,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1116+0729,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J1127+2312,R10,M_E,,11.18,11.18,/,/,log10,log10,agree
+S4TM lenses,J1127+2312,R10,R_e,,2.69,2.69,/,/,linear,linear,agree
+S4TM lenses,J1127+2312,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J1127+2312,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J1127+2312,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J1127+2312,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J1127+2312,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J1127+2312,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J1127+2312,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.44,/,/,,log10,only_b
+S4TM lenses,J1127+2312,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.44,,/,/,log10,,only_a
+S4TM lenses,J1127+2312,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J1127+2312,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J1127+2312,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J1127+2312,R10,theta_E,,1.25,1.25,/,/,linear,linear,agree
+S4TM lenses,J1127+2312,R10,z_l,,0.1303,0.1303,/,/,linear,,differ
+S4TM lenses,J1127+2312,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1127+2312,R10,z_s,,0.3610,0.3610,/,/,linear,,differ
+S4TM lenses,J1127+2312,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1127+2312,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J1137+1818,R10,M_E,,11.12,11.12,/,/,log10,log10,agree
+S4TM lenses,J1137+1818,R10,R_e,,1.79,1.79,/,/,linear,linear,agree
+S4TM lenses,J1137+1818,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J1137+1818,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J1137+1818,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J1137+1818,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J1137+1818,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J1137+1818,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J1137+1818,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.31,/,/,,log10,only_b
+S4TM lenses,J1137+1818,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.31,,/,/,log10,,only_a
+S4TM lenses,J1137+1818,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J1137+1818,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J1137+1818,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J1137+1818,R10,theta_E,,1.29,1.29,/,/,linear,linear,agree
+S4TM lenses,J1137+1818,R10,z_l,,0.1241,0.1241,/,/,linear,,differ
+S4TM lenses,J1137+1818,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1137+1818,R10,z_s,,0.4627,0.4627,/,/,linear,,differ
+S4TM lenses,J1137+1818,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1137+1818,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J1142+2509,R10,M_E,,10.80,10.80,/,/,log10,log10,agree
+S4TM lenses,J1142+2509,R10,R_e,,1.51,1.51,/,/,linear,linear,agree
+S4TM lenses,J1142+2509,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J1142+2509,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J1142+2509,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J1142+2509,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J1142+2509,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J1142+2509,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J1142+2509,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.21,/,/,,log10,only_b
+S4TM lenses,J1142+2509,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.21,,/,/,log10,,only_a
+S4TM lenses,J1142+2509,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J1142+2509,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J1142+2509,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J1142+2509,R10,theta_E,,0.79,0.79,/,/,linear,linear,agree
+S4TM lenses,J1142+2509,R10,z_l,,0.1640,0.1640,/,/,linear,,differ
+S4TM lenses,J1142+2509,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1142+2509,R10,z_s,,0.6595,0.6595,/,/,linear,,differ
+S4TM lenses,J1142+2509,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1142+2509,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J1144+0436,R10,M_E,,10.68,10.68,/,/,log10,log10,agree
+S4TM lenses,J1144+0436,R10,R_e,,1.22,1.22,/,/,linear,linear,agree
+S4TM lenses,J1144+0436,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J1144+0436,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J1144+0436,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J1144+0436,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J1144+0436,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J1144+0436,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J1144+0436,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,10.74,/,/,,log10,only_b
+S4TM lenses,J1144+0436,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",10.74,,/,/,log10,,only_a
+S4TM lenses,J1144+0436,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J1144+0436,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J1144+0436,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J1144+0436,R10,theta_E,,0.76,0.76,/,/,linear,linear,agree
+S4TM lenses,J1144+0436,R10,z_l,,0.1036,0.1036,/,/,linear,,differ
+S4TM lenses,J1144+0436,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1144+0436,R10,z_s,,0.2551,0.2551,/,/,linear,,differ
+S4TM lenses,J1144+0436,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1144+0436,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J1213+2930,R10,M_E,,10.98,10.98,/,/,log10,log10,agree
+S4TM lenses,J1213+2930,R10,R_e,,1.73,1.73,/,/,linear,linear,agree
+S4TM lenses,J1213+2930,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J1213+2930,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J1213+2930,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J1213+2930,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J1213+2930,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J1213+2930,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J1213+2930,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.09,/,/,,log10,only_b
+S4TM lenses,J1213+2930,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.09,,/,/,log10,,only_a
+S4TM lenses,J1213+2930,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J1213+2930,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J1213+2930,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J1213+2930,R10,theta_E,,1.35,1.35,/,/,linear,linear,agree
+S4TM lenses,J1213+2930,R10,z_l,,0.0906,0.0906,/,/,linear,,differ
+S4TM lenses,J1213+2930,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1213+2930,R10,z_s,,0.5954,0.5954,/,/,linear,,differ
+S4TM lenses,J1213+2930,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1213+2930,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J1301+0834,R10,M_E,,10.72,10.72,/,/,log10,log10,agree
+S4TM lenses,J1301+0834,R10,R_e,,1.25,1.25,/,/,linear,linear,agree
+S4TM lenses,J1301+0834,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J1301+0834,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J1301+0834,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J1301+0834,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J1301+0834,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J1301+0834,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J1301+0834,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,10.92,/,/,,log10,only_b
+S4TM lenses,J1301+0834,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",10.92,,/,/,log10,,only_a
+S4TM lenses,J1301+0834,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J1301+0834,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J1301+0834,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J1301+0834,R10,theta_E,,1.00,1.00,/,/,linear,linear,agree
+S4TM lenses,J1301+0834,R10,z_l,,0.0902,0.0902,/,/,linear,,differ
+S4TM lenses,J1301+0834,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1301+0834,R10,z_s,,0.5331,0.5331,/,/,linear,,differ
+S4TM lenses,J1301+0834,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1301+0834,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J1330+1750,R10,M_E,,11.32,11.32,/,/,log10,log10,agree
+S4TM lenses,J1330+1750,R10,R_e,,2.85,2.85,/,/,linear,linear,agree
+S4TM lenses,J1330+1750,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J1330+1750,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J1330+1750,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J1330+1750,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J1330+1750,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J1330+1750,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J1330+1750,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.74,/,/,,log10,only_b
+S4TM lenses,J1330+1750,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.74,,/,/,log10,,only_a
+S4TM lenses,J1330+1750,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J1330+1750,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J1330+1750,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J1330+1750,R10,theta_E,,1.01,1.01,/,/,linear,linear,agree
+S4TM lenses,J1330+1750,R10,z_l,,0.2074,0.2074,/,/,linear,,differ
+S4TM lenses,J1330+1750,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1330+1750,R10,z_s,,0.3717,0.3717,/,/,linear,,differ
+S4TM lenses,J1330+1750,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1330+1750,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J1403+3309,R10,M_E,,10.55,10.55,/,/,log10,log10,agree
+S4TM lenses,J1403+3309,R10,R_e,,2.00,2.00,/,/,linear,linear,agree
+S4TM lenses,J1403+3309,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J1403+3309,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J1403+3309,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J1403+3309,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J1403+3309,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J1403+3309,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J1403+3309,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,10.78,/,/,,log10,only_b
+S4TM lenses,J1403+3309,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",10.78,,/,/,log10,,only_a
+S4TM lenses,J1403+3309,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J1403+3309,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J1403+3309,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J1403+3309,R10,theta_E,,1.02,1.02,/,/,linear,linear,agree
+S4TM lenses,J1403+3309,R10,z_l,,0.0625,0.0625,/,/,linear,,differ
+S4TM lenses,J1403+3309,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1403+3309,R10,z_s,,0.7720,0.7720,/,/,linear,,differ
+S4TM lenses,J1403+3309,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1403+3309,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J1430+6104,R10,M_E,,11.01,11.01,/,/,log10,log10,agree
+S4TM lenses,J1430+6104,R10,R_e,,2.24,2.24,/,/,linear,linear,agree
+S4TM lenses,J1430+6104,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J1430+6104,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J1430+6104,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J1430+6104,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J1430+6104,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J1430+6104,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J1430+6104,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.32,/,/,,log10,only_b
+S4TM lenses,J1430+6104,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.32,,/,/,log10,,only_a
+S4TM lenses,J1430+6104,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J1430+6104,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J1430+6104,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J1430+6104,R10,theta_E,,1.00,1.00,/,/,linear,linear,agree
+S4TM lenses,J1430+6104,R10,z_l,,0.1688,0.1688,/,/,linear,,differ
+S4TM lenses,J1430+6104,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1430+6104,R10,z_s,,0.6537,0.6537,/,/,linear,,differ
+S4TM lenses,J1430+6104,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1430+6104,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J1433+2835,R10,M_E,,11.12,11.12,/,/,log10,log10,agree
+S4TM lenses,J1433+2835,R10,R_e,,3.23,3.23,/,/,linear,linear,agree
+S4TM lenses,J1433+2835,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J1433+2835,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J1433+2835,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J1433+2835,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J1433+2835,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J1433+2835,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J1433+2835,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.45,/,/,,log10,only_b
+S4TM lenses,J1433+2835,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.45,,/,/,log10,,only_a
+S4TM lenses,J1433+2835,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J1433+2835,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J1433+2835,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J1433+2835,R10,theta_E,,1.53,1.53,/,/,linear,linear,agree
+S4TM lenses,J1433+2835,R10,z_l,,0.0912,0.0912,/,/,linear,,differ
+S4TM lenses,J1433+2835,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1433+2835,R10,z_s,,0.4115,0.4115,/,/,linear,,differ
+S4TM lenses,J1433+2835,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1433+2835,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J1541+3642,R10,M_E,,11.04,11.04,/,/,log10,log10,agree
+S4TM lenses,J1541+3642,R10,R_e,,1.55,1.55,/,/,linear,linear,agree
+S4TM lenses,J1541+3642,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J1541+3642,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J1541+3642,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J1541+3642,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J1541+3642,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J1541+3642,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J1541+3642,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.25,/,/,,log10,only_b
+S4TM lenses,J1541+3642,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.25,,/,/,log10,,only_a
+S4TM lenses,J1541+3642,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J1541+3642,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J1541+3642,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J1541+3642,R10,theta_E,,1.17,1.17,/,/,linear,linear,agree
+S4TM lenses,J1541+3642,R10,z_l,,0.1406,0.1406,/,/,linear,,differ
+S4TM lenses,J1541+3642,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1541+3642,R10,z_s,,0.7389,0.7389,/,/,linear,,differ
+S4TM lenses,J1541+3642,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1541+3642,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J1543+2202,R10,M_E,,11.32,11.32,/,/,log10,log10,agree
+S4TM lenses,J1543+2202,R10,R_e,,2.32,2.32,/,/,linear,linear,agree
+S4TM lenses,J1543+2202,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J1543+2202,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J1543+2202,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J1543+2202,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J1543+2202,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J1543+2202,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J1543+2202,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.74,/,/,,log10,only_b
+S4TM lenses,J1543+2202,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.74,,/,/,log10,,only_a
+S4TM lenses,J1543+2202,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J1543+2202,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J1543+2202,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J1543+2202,R10,theta_E,,0.78,0.78,/,/,linear,linear,agree
+S4TM lenses,J1543+2202,R10,z_l,,0.2681,0.2681,/,/,linear,,differ
+S4TM lenses,J1543+2202,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1543+2202,R10,z_s,,0.3966,0.3966,/,/,linear,,differ
+S4TM lenses,J1543+2202,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1543+2202,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J1550+2020,R10,M_E,,11.02,11.02,/,/,log10,log10,agree
+S4TM lenses,J1550+2020,R10,R_e,,1.68,1.68,/,/,linear,linear,agree
+S4TM lenses,J1550+2020,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J1550+2020,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J1550+2020,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J1550+2020,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J1550+2020,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J1550+2020,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J1550+2020,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.30,/,/,,log10,only_b
+S4TM lenses,J1550+2020,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.30,,/,/,log10,,only_a
+S4TM lenses,J1550+2020,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J1550+2020,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J1550+2020,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J1550+2020,R10,theta_E,,1.01,1.01,/,/,linear,linear,agree
+S4TM lenses,J1550+2020,R10,z_l,,0.1351,0.1351,/,/,linear,,differ
+S4TM lenses,J1550+2020,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1550+2020,R10,z_s,,0.3501,0.3501,/,/,linear,,differ
+S4TM lenses,J1550+2020,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1550+2020,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J1553+3004,R10,M_E,,10.86,10.86,/,/,log10,log10,agree
+S4TM lenses,J1553+3004,R10,R_e,,2.15,2.15,/,/,linear,linear,agree
+S4TM lenses,J1553+3004,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J1553+3004,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J1553+3004,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J1553+3004,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J1553+3004,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J1553+3004,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J1553+3004,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.26,/,/,,log10,only_b
+S4TM lenses,J1553+3004,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.26,,/,/,log10,,only_a
+S4TM lenses,J1553+3004,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J1553+3004,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J1553+3004,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J1553+3004,R10,theta_E,,0.84,0.84,/,/,linear,linear,agree
+S4TM lenses,J1553+3004,R10,z_l,,0.1604,0.1604,/,/,linear,,differ
+S4TM lenses,J1553+3004,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1553+3004,R10,z_s,,0.5663,0.5663,/,/,linear,,differ
+S4TM lenses,J1553+3004,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1553+3004,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J1607+2147,R10,M_E,,10.71,10.71,/,/,log10,log10,agree
+S4TM lenses,J1607+2147,R10,R_e,,2.63,2.63,/,/,linear,linear,agree
+S4TM lenses,J1607+2147,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J1607+2147,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J1607+2147,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J1607+2147,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J1607+2147,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J1607+2147,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J1607+2147,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.55,/,/,,log10,only_b
+S4TM lenses,J1607+2147,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.55,,/,/,log10,,only_a
+S4TM lenses,J1607+2147,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J1607+2147,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J1607+2147,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J1607+2147,R10,theta_E,,0.57,0.57,/,/,linear,linear,agree
+S4TM lenses,J1607+2147,R10,z_l,,0.2089,0.2089,/,/,linear,,differ
+S4TM lenses,J1607+2147,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1607+2147,R10,z_s,,0.4865,0.4865,/,/,linear,,differ
+S4TM lenses,J1607+2147,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1607+2147,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J1633+1441,R10,M_E,,11.17,11.17,/,/,log10,log10,agree
+S4TM lenses,J1633+1441,R10,R_e,,2.39,2.39,/,/,linear,linear,agree
+S4TM lenses,J1633+1441,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J1633+1441,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J1633+1441,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J1633+1441,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J1633+1441,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J1633+1441,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J1633+1441,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.39,/,/,,log10,only_b
+S4TM lenses,J1633+1441,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.39,,/,/,log10,,only_a
+S4TM lenses,J1633+1441,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J1633+1441,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J1633+1441,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J1633+1441,R10,theta_E,,1.39,1.39,/,/,linear,linear,agree
+S4TM lenses,J1633+1441,R10,z_l,,0.1281,0.1281,/,/,linear,,differ
+S4TM lenses,J1633+1441,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1633+1441,R10,z_s,,0.5804,0.5804,/,/,linear,,differ
+S4TM lenses,J1633+1441,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J1633+1441,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J23090039,R10,M_E,,11.35,11.35,/,/,log10,log10,agree
+S4TM lenses,J23090039,R10,R_e,,2.08,2.08,/,/,linear,linear,agree
+S4TM lenses,J23090039,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J23090039,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J23090039,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J23090039,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J23090039,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J23090039,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J23090039,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.68,/,/,,log10,only_b
+S4TM lenses,J23090039,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.68,,/,/,log10,,only_a
+S4TM lenses,J23090039,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J23090039,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J23090039,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J23090039,R10,theta_E,,1.14,1.14,/,/,linear,linear,agree
+S4TM lenses,J23090039,R10,z_l,,0.2905,0.2905,/,/,linear,,differ
+S4TM lenses,J23090039,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J23090039,R10,z_s,,1.0048,1.0048,/,/,linear,,differ
+S4TM lenses,J23090039,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J23090039,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+S4TM lenses,J2324+0105,R10,M_E,,10.97,10.97,/,/,log10,log10,agree
+S4TM lenses,J2324+0105,R10,R_e,,1.10,1.10,/,/,linear,linear,agree
+S4TM lenses,J2324+0105,R10,aperture,,Einstein radius,Einstein radius (b_SIE of the SIE model),/,/,,,text
+S4TM lenses,J2324+0105,R10,bands,,HST F814W,HST F814W (single band),/,/,,,text
+S4TM lenses,J2324+0105,R10,gas,,none,none,/,/,,,text
+S4TM lenses,J2324+0105,R10,imf,,Chabrier,Chabrier,/,/,,,text
+S4TM lenses,J2324+0105,R10,kind,,classification code E-S-A (morphology E),E-S-A (E = early-type (elliptical and S0)),/,/,,,text
+S4TM lenses,J2324+0105,R10,lens_model,,SIE,"SIE (singular isothermal ellipsoid), no external shear",/,/,,,text
+S4TM lenses,J2324+0105,R10,mstar,"chabrier; no error printed; values originate in r9 (shu et al. 2015, slacs xii)",,11.32,/,/,,log10,only_b
+S4TM lenses,J2324+0105,R10,mstar,"no error printed; values from shu et al. 2015, apj 803, 71 (r9)",11.32,,/,/,log10,,only_a
+S4TM lenses,J2324+0105,R10,mstar_aperture,,total,total,/,/,,,text
+S4TM lenses,J2324+0105,R10,pop_model,,"FSPS SSP; reference model tform = 4 Gyr, solar metallicity, no dust",,/,/,,,only_a
+S4TM lenses,J2324+0105,R10,profile_type,,de Vaucouleurs,"de Vaucouleurs (elliptical, 2D)",/,/,,,text
+S4TM lenses,J2324+0105,R10,theta_E,,0.59,0.59,/,/,linear,linear,agree
+S4TM lenses,J2324+0105,R10,z_l,,0.1899,0.1899,/,/,linear,,differ
+S4TM lenses,J2324+0105,R10,z_l_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J2324+0105,R10,z_s,,0.2775,0.2775,/,/,linear,,differ
+S4TM lenses,J2324+0105,R10,z_s_method,,spectroscopic,spectroscopic (SDSS spectrum),/,/,,,text
+S4TM lenses,J2324+0105,R9,pop_model,,,"FSPS simple stellar population; reference model t_form = 4 Gyr, solar metallicity, no dust",/,/,,,only_b
+SL2S III sample,(RECORD),R20,H0,,70,,/,/,,,only_a
+SL2S III sample,(RECORD),R20,Om,,0.3,,/,/,,,only_a
+SL2S III sample,(RECORD),R20,flat,,Omega_Lambda = 0.7 printed ('ΛCDM'); 'flat' not stated in words,,/,/,,,only_a
+SL2S III sample,(RECORDLEVEL),R20,H0,,,70,/,/,,,only_b
+SL2S III sample,(RECORDLEVEL),R20,Om,,,0.3,/,/,,,only_b
+SL2S III sample,(RECORDLEVEL),R20,flat,,,not stated in words; Omega_Lambda = 0.7 printed,/,/,,,only_b
+SL2S III sample,(RECORDLEVEL),R21,H0,,,70,/,/,,,only_b
+SL2S III sample,SL2SJ020833071414,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ020833071414,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ020833071414,R21,z_l,,0.428,0.428,/,/,linear,,differ
+SL2S III sample,SL2SJ020833071414,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ020833071414,R21,z_s,,...,...,/,/,linear,,differ
+SL2S III sample,SL2SJ020833071414,R21,z_s_method,,not measured,not measured,/,/,,,text
+SL2S III sample,SL2SJ021206075528,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ021206075528,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ021206075528,R21,z_l,,0.460,0.460,/,/,linear,,differ
+SL2S III sample,SL2SJ021206075528,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ021206075528,R21,z_s,,...,...,/,/,linear,,differ
+SL2S III sample,SL2SJ021206075528,R21,z_s_method,,not measured,not measured,/,/,,,text
+SL2S III sample,SL2SJ021247055552,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ021247055552,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ021247055552,R21,z_l,,0.750,0.750,/,/,linear,,differ
+SL2S III sample,SL2SJ021247055552,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ021247055552,R21,z_s,,2.74,2.74,/,/,linear,,differ
+SL2S III sample,SL2SJ021247055552,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ021325074355,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ021325074355,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ021325074355,R21,z_l,,0.717,0.717,/,/,linear,,differ
+SL2S III sample,SL2SJ021325074355,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ021325074355,R21,z_s,,3.48,3.48,/,/,linear,,differ
+SL2S III sample,SL2SJ021325074355,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ021411040502,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ021411040502,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ021411040502,R21,z_l,,0.609,0.609,/,/,linear,,differ
+SL2S III sample,SL2SJ021411040502,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ021411040502,R21,z_s,,1.88,1.88,/,/,linear,,differ
+SL2S III sample,SL2SJ021411040502,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ021737051329,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ021737051329,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ021737051329,R21,z_l,,0.646,0.646,/,/,linear,,differ
+SL2S III sample,SL2SJ021737051329,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ021737051329,R21,z_s,,1.85,1.85,/,/,linear,,differ
+SL2S III sample,SL2SJ021737051329,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ021801080247,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ021801080247,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ021801080247,R21,z_l,,...,...,/,/,linear,,differ
+SL2S III sample,SL2SJ021801080247,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ021801080247,R21,z_s,,2.06,2.06,/,/,linear,,differ
+SL2S III sample,SL2SJ021801080247,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ021801080247,R22,kind,,upgraded to grade A,,/,/,,,only_a
+SL2S III sample,SL2SJ021801080247,R22,z_l,,0.884,0.884,/,/,linear,,differ
+SL2S III sample,SL2SJ021801080247,R22,z_l_method,,spectroscopic,,/,/,,,only_a
+SL2S III sample,SL2SJ021801080247,R22,z_s,,2.06,2.06,/,/,linear,,differ
+SL2S III sample,SL2SJ021801080247,R22,z_s_method,,spectroscopic,,/,/,,,only_a
+SL2S III sample,SL2SJ021902082934,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ021902082934,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ021902082934,R21,z_l,,0.389,0.389,/,/,linear,,differ
+SL2S III sample,SL2SJ021902082934,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ021902082934,R21,z_s,,2.15,2.15,/,/,linear,,differ
+SL2S III sample,SL2SJ021902082934,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ022046094927,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ022046094927,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ022046094927,R21,z_l,,0.572,0.572,/,/,linear,,differ
+SL2S III sample,SL2SJ022046094927,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ022046094927,R21,z_s,,...,...,/,/,linear,,differ
+SL2S III sample,SL2SJ022046094927,R21,z_s_method,,not measured,not measured,/,/,,,text
+SL2S III sample,SL2SJ022046094927,R22,kind,,upgraded to grade A,,/,/,,,only_a
+SL2S III sample,SL2SJ022046094927,R22,z_l,,0.572,0.572,/,/,linear,,differ
+SL2S III sample,SL2SJ022046094927,R22,z_l_method,,spectroscopic,,/,/,,,only_a
+SL2S III sample,SL2SJ022046094927,R22,z_s,,2.61,2.61,/,/,linear,,differ
+SL2S III sample,SL2SJ022046094927,R22,z_s_method,,spectroscopic,,/,/,,,only_a
+SL2S III sample,SL2SJ022056063934,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ022056063934,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ022056063934,R21,z_l,,0.330,0.330,/,/,linear,,differ
+SL2S III sample,SL2SJ022056063934,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ022056063934,R21,z_s,,...,...,/,/,linear,,differ
+SL2S III sample,SL2SJ022056063934,R21,z_s_method,,not measured,not measured,/,/,,,text
+SL2S III sample,SL2SJ022346053418,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ022346053418,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ022346053418,R21,z_l,,0.499,0.499,/,/,linear,,differ
+SL2S III sample,SL2SJ022346053418,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ022346053418,R21,z_s,,1.44,1.44,/,/,linear,,differ
+SL2S III sample,SL2SJ022346053418,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ022357065142,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ022357065142,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ022357065142,R21,z_l,,0.473,0.473,/,/,linear,,differ
+SL2S III sample,SL2SJ022357065142,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ022357065142,R21,z_s,,...,...,/,/,linear,,differ
+SL2S III sample,SL2SJ022357065142,R21,z_s_method,,not measured,not measured,/,/,,,text
+SL2S III sample,SL2SJ022511045433,R20,M_E,,,not printed,/,/,,,only_b
+SL2S III sample,SL2SJ022511045433,R20,R_e,,2.12,2.12,/,/,linear,linear,agree
+SL2S III sample,SL2SJ022511045433,R20,bands,,"CFHT ugriz; NIR version adds J, H, Ks (WIRDS)","CFHT ugriz; NIR version adds J, H, Ks",/,/,,,text
+SL2S III sample,SL2SJ022511045433,R20,gas,,none,none,/,/,,,text
+SL2S III sample,SL2SJ022511045433,R20,imf,,Chabrier; Salpeter,Chabrier and Salpeter (both printed),/,/,,,text
+SL2S III sample,SL2SJ022511045433,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ022511045433,R20,lens_model,,SIE,SIE (singular isothermal ellipsoid),/,/,,,text
+SL2S III sample,SL2SJ022511045433,R20,mstar,"chabrier; cfht ugriz + nir. column identity per arxiv table 7 header (chab, chab nir, salp, salp nir); mrt byte labels differ - see questions.md",,11.59,/,0.07/0.07,,log10,only_b
+SL2S III sample,SL2SJ022511045433,R20,mstar,"chabrier; cfht ugriz. column identity per arxiv table 7 header (chab, chab nir, salp, salp nir); mrt byte labels differ - see questions.md",,11.57,/,0.09/0.09,,log10,only_b
+SL2S III sample,SL2SJ022511045433,R20,mstar,"imf chabrier; bands cfht ugriz + nir j, h, ks (wirds). mrt byte labels: 26-30 logmchab, 37-41 logmsalp, 48-52 logmchabnir, 59-63 logmsalpnir; arxiv v1 table 7 header order is chab, chab(nir), salp, salp(nir). imf assignment here follows the paper header (see questions.md)",11.59,,0.07/0.07,/,log10,,only_a
+SL2S III sample,SL2SJ022511045433,R20,mstar,"imf chabrier; bands cfht ugriz. mrt byte labels: 26-30 logmchab, 37-41 logmsalp, 48-52 logmchabnir, 59-63 logmsalpnir; arxiv v1 table 7 header order is chab, chab(nir), salp, salp(nir). imf assignment here follows the paper header (see questions.md)",11.57,,0.09/0.09,/,log10,,only_a
+SL2S III sample,SL2SJ022511045433,R20,mstar,"imf salpeter; bands cfht ugriz + nir j, h, ks (wirds). mrt byte labels: 26-30 logmchab, 37-41 logmsalp, 48-52 logmchabnir, 59-63 logmsalpnir; arxiv v1 table 7 header order is chab, chab(nir), salp, salp(nir). imf assignment here follows the paper header (see questions.md)",11.84,,0.07/0.07,/,log10,,only_a
+SL2S III sample,SL2SJ022511045433,R20,mstar,"imf salpeter; bands cfht ugriz. mrt byte labels: 26-30 logmchab, 37-41 logmsalp, 48-52 logmchabnir, 59-63 logmsalpnir; arxiv v1 table 7 header order is chab, chab(nir), salp, salp(nir). imf assignment here follows the paper header (see questions.md)",11.81,,0.09/0.09,/,log10,,only_a
+SL2S III sample,SL2SJ022511045433,R20,mstar,"salpeter; cfht ugriz + nir. column identity per arxiv table 7 header (chab, chab nir, salp, salp nir); mrt byte labels differ - see questions.md",,11.84,/,0.07/0.07,,log10,only_b
+SL2S III sample,SL2SJ022511045433,R20,mstar,"salpeter; cfht ugriz. column identity per arxiv table 7 header (chab, chab nir, salp, salp nir); mrt byte labels differ - see questions.md",,11.81,/,0.09/0.09,,log10,only_b
+SL2S III sample,SL2SJ022511045433,R20,mstar_aperture,,not stated in words; SPS fit to magnitudes of de Vaucouleurs model fits (Table 4),not stated (SPS fit to de Vaucouleurs-model magnitudes; no radius given),/,/,,,text
+SL2S III sample,SL2SJ022511045433,R20,pop_model,,"Bruzual & Charlot (2003) composite populations, exponentially declining SFH (Auger et al. 2009 implementation)",Bruzual & Charlot (2003) composite populations; exponentially declining SFH; Auger et al. (2009) code,/,/,,,text
+SL2S III sample,SL2SJ022511045433,R20,profile_type,,de Vaucouleurs,de Vaucouleurs,/,/,,,text
+SL2S III sample,SL2SJ022511045433,R20,theta_E,,1.76,1.76,0.05/0.05,0.05/0.05,linear,linear,agree
+SL2S III sample,SL2SJ022511045433,R21,R_e,,,8.59,/,/,,linear,only_b
+SL2S III sample,SL2SJ022511045433,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ022511045433,R21,z_l,,0.238,0.238,/,/,linear,,differ
+SL2S III sample,SL2SJ022511045433,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ022511045433,R21,z_s,,1.20,1.20,/,/,linear,,differ
+SL2S III sample,SL2SJ022511045433,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ022610042011,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ022610042011,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ022610042011,R21,z_l,,0.494,0.494,/,/,linear,,differ
+SL2S III sample,SL2SJ022610042011,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ022610042011,R21,z_s,,1.23,1.23,/,/,linear,,differ
+SL2S III sample,SL2SJ022610042011,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ022648040610,R20,kind,,disky,early-type (sample statement); Table 6 note: disky,/,/,,,text
+SL2S III sample,SL2SJ022648040610,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ022648040610,R21,z_l,,0.766,0.766,/,/,linear,,differ
+SL2S III sample,SL2SJ022648040610,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ022648040610,R21,z_s,,...,...,/,/,linear,,differ
+SL2S III sample,SL2SJ022648040610,R21,z_s_method,,not measured,not measured,/,/,,,text
+SL2S III sample,SL2SJ022648040610,R22,z_l,,0.766,0.766,/,/,linear,,differ
+SL2S III sample,SL2SJ022648040610,R22,z_l_method,,spectroscopic,,/,/,,,only_a
+SL2S III sample,SL2SJ022648040610,R22,z_s,,...,...,/,/,linear,,differ
+SL2S III sample,SL2SJ022648090421,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ022648090421,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ022648090421,R21,z_l,,0.456,0.456,/,/,linear,,differ
+SL2S III sample,SL2SJ022648090421,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ022648090421,R21,z_s,,...,...,/,/,linear,,differ
+SL2S III sample,SL2SJ022648090421,R21,z_s_method,,not measured,not measured,/,/,,,text
+SL2S III sample,SL2SJ023251040823,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ023251040823,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ023251040823,R21,z_l,,0.352,0.352,/,/,linear,,differ
+SL2S III sample,SL2SJ023251040823,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ023251040823,R21,z_s,,2.34,2.34,/,/,linear,,differ
+SL2S III sample,SL2SJ023251040823,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ084847035103,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ084847035103,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ084847035103,R21,z_l,,0.682,0.682,/,/,linear,,differ
+SL2S III sample,SL2SJ084847035103,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ084847035103,R21,z_s,,1.55,1.55,/,/,linear,,differ
+SL2S III sample,SL2SJ084847035103,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ084909041226,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ084909041226,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ084909041226,R21,z_l,,0.722,0.722,/,/,linear,,differ
+SL2S III sample,SL2SJ084909041226,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ084909041226,R21,z_s,,1.54,1.54,/,/,linear,,differ
+SL2S III sample,SL2SJ084909041226,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ084934043352,R20,kind,,,early-type (sample statement); Table 6 note: Fixed PA,/,/,,,only_b
+SL2S III sample,SL2SJ084934043352,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ084934043352,R21,z_l,,0.373,0.373,/,/,linear,,differ
+SL2S III sample,SL2SJ084934043352,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ084934043352,R21,z_s,,...,...,/,/,linear,,differ
+SL2S III sample,SL2SJ084934043352,R21,z_s_method,,not measured,not measured,/,/,,,text
+SL2S III sample,SL2SJ084959025142,R20,M_E,,,not printed,/,/,,,only_b
+SL2S III sample,SL2SJ084959025142,R20,R_e,,1.34,1.34,/,/,linear,linear,agree
+SL2S III sample,SL2SJ084959025142,R20,bands,,CFHT ugriz; NIR version adds Ks (11BF01),CFHT ugriz; NIR version adds Ks,/,/,,,text
+SL2S III sample,SL2SJ084959025142,R20,gas,,none,none,/,/,,,text
+SL2S III sample,SL2SJ084959025142,R20,imf,,Chabrier; Salpeter,Chabrier and Salpeter (both printed),/,/,,,text
+SL2S III sample,SL2SJ084959025142,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ084959025142,R20,lens_model,,SIE,SIE (singular isothermal ellipsoid),/,/,,,text
+SL2S III sample,SL2SJ084959025142,R20,mstar,"chabrier; cfht ugriz + nir. column identity per arxiv table 7 header (chab, chab nir, salp, salp nir); mrt byte labels differ - see questions.md",,11.27,/,0.07/0.07,,log10,only_b
+SL2S III sample,SL2SJ084959025142,R20,mstar,"chabrier; cfht ugriz. column identity per arxiv table 7 header (chab, chab nir, salp, salp nir); mrt byte labels differ - see questions.md",,11.27,/,0.09/0.09,,log10,only_b
+SL2S III sample,SL2SJ084959025142,R20,mstar,"imf chabrier; bands cfht ugriz + nir ks (11bf01). mrt byte labels: 26-30 logmchab, 37-41 logmsalp, 48-52 logmchabnir, 59-63 logmsalpnir; arxiv v1 table 7 header order is chab, chab(nir), salp, salp(nir). imf assignment here follows the paper header (see questions.md)",11.27,,0.07/0.07,/,log10,,only_a
+SL2S III sample,SL2SJ084959025142,R20,mstar,"imf chabrier; bands cfht ugriz. mrt byte labels: 26-30 logmchab, 37-41 logmsalp, 48-52 logmchabnir, 59-63 logmsalpnir; arxiv v1 table 7 header order is chab, chab(nir), salp, salp(nir). imf assignment here follows the paper header (see questions.md)",11.27,,0.09/0.09,/,log10,,only_a
+SL2S III sample,SL2SJ084959025142,R20,mstar,"imf salpeter; bands cfht ugriz + nir ks (11bf01). mrt byte labels: 26-30 logmchab, 37-41 logmsalp, 48-52 logmchabnir, 59-63 logmsalpnir; arxiv v1 table 7 header order is chab, chab(nir), salp, salp(nir). imf assignment here follows the paper header (see questions.md)",11.51,,0.07/0.07,/,log10,,only_a
+SL2S III sample,SL2SJ084959025142,R20,mstar,"imf salpeter; bands cfht ugriz. mrt byte labels: 26-30 logmchab, 37-41 logmsalp, 48-52 logmchabnir, 59-63 logmsalpnir; arxiv v1 table 7 header order is chab, chab(nir), salp, salp(nir). imf assignment here follows the paper header (see questions.md)",11.52,,0.09/0.09,/,log10,,only_a
+SL2S III sample,SL2SJ084959025142,R20,mstar,"salpeter; cfht ugriz + nir. column identity per arxiv table 7 header (chab, chab nir, salp, salp nir); mrt byte labels differ - see questions.md",,11.51,/,0.07/0.07,,log10,only_b
+SL2S III sample,SL2SJ084959025142,R20,mstar,"salpeter; cfht ugriz. column identity per arxiv table 7 header (chab, chab nir, salp, salp nir); mrt byte labels differ - see questions.md",,11.52,/,0.09/0.09,,log10,only_b
+SL2S III sample,SL2SJ084959025142,R20,mstar_aperture,,not stated in words; SPS fit to magnitudes of de Vaucouleurs model fits (Table 4),not stated (SPS fit to de Vaucouleurs-model magnitudes; no radius given),/,/,,,text
+SL2S III sample,SL2SJ084959025142,R20,pop_model,,"Bruzual & Charlot (2003) composite populations, exponentially declining SFH (Auger et al. 2009 implementation)",Bruzual & Charlot (2003) composite populations; exponentially declining SFH; Auger et al. (2009) code,/,/,,,text
+SL2S III sample,SL2SJ084959025142,R20,profile_type,,de Vaucouleurs,de Vaucouleurs,/,/,,,text
+SL2S III sample,SL2SJ084959025142,R20,theta_E,,1.16,1.16,0.04/0.04,0.04/0.04,linear,linear,agree
+SL2S III sample,SL2SJ084959025142,R21,R_e,,,6.11,/,/,,linear,only_b
+SL2S III sample,SL2SJ084959025142,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ084959025142,R21,z_l,,0.274,0.274,/,/,linear,,differ
+SL2S III sample,SL2SJ084959025142,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ084959025142,R21,z_s,,2.09,2.09,/,/,linear,,differ
+SL2S III sample,SL2SJ084959025142,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ085019034710,R20,kind,,disky,disk galaxy,/,/,,,text
+SL2S III sample,SL2SJ085019034710,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ085019034710,R21,z_l,,0.337,0.337,/,/,linear,,differ
+SL2S III sample,SL2SJ085019034710,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ085019034710,R21,z_s,,3.25,3.25,/,/,linear,,differ
+SL2S III sample,SL2SJ085019034710,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ085327023745,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ085327023745,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ085327023745,R21,z_l,,0.774,0.774,/,/,linear,,differ
+SL2S III sample,SL2SJ085327023745,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ085327023745,R21,z_s,,2.44,2.44,/,/,linear,,differ
+SL2S III sample,SL2SJ085327023745,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ085540014730,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ085540014730,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ085540014730,R21,z_l,,0.365,0.365,/,/,linear,,differ
+SL2S III sample,SL2SJ085540014730,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ085540014730,R21,z_s,,3.39,3.39,/,/,linear,,differ
+SL2S III sample,SL2SJ085540014730,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ085559040917,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ085559040917,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ085559040917,R21,z_l,,0.419,0.419,/,/,linear,,differ
+SL2S III sample,SL2SJ085559040917,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ085559040917,R21,z_s,,2.95,2.95,/,/,linear,,differ
+SL2S III sample,SL2SJ085559040917,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ085826014300,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ085826014300,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ085826014300,R21,z_l,,0.580,0.580,/,/,linear,,differ
+SL2S III sample,SL2SJ085826014300,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ085826014300,R21,z_s,,...,...,/,/,linear,,differ
+SL2S III sample,SL2SJ085826014300,R21,z_s_method,,not measured,not measured,/,/,,,text
+SL2S III sample,SL2SJ090106025906,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ090106025906,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ090106025906,R21,z_l,,0.670,0.670,/,/,linear,,differ
+SL2S III sample,SL2SJ090106025906,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ090106025906,R21,z_s,,1.19,1.19,/,/,linear,,differ
+SL2S III sample,SL2SJ090106025906,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ090407005952,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ090407005952,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ090407005952,R21,z_l,,0.611,0.611,/,/,linear,,differ
+SL2S III sample,SL2SJ090407005952,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ090407005952,R21,z_s,,2.36,2.36,/,/,linear,,differ
+SL2S III sample,SL2SJ090407005952,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ095921+020638,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ095921+020638,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ095921+020638,R21,z_l,,0.552,0.552,/,/,linear,,differ
+SL2S III sample,SL2SJ095921+020638,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ095921+020638,R21,z_s,,3.35,3.35,/,/,linear,,differ
+SL2S III sample,SL2SJ095921+020638,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ135847+545913,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ135847+545913,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ135847+545913,R21,z_l,,0.510,0.510,/,/,linear,,differ
+SL2S III sample,SL2SJ135847+545913,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ135847+545913,R21,z_s,,...,...,/,/,linear,,differ
+SL2S III sample,SL2SJ135847+545913,R21,z_s_method,,not measured,not measured,/,/,,,text
+SL2S III sample,SL2SJ135949+553550,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ135949+553550,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ135949+553550,R21,z_l,,0.783,0.783,/,/,linear,,differ
+SL2S III sample,SL2SJ135949+553550,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ135949+553550,R21,z_s,,2.77,2.77,/,/,linear,,differ
+SL2S III sample,SL2SJ135949+553550,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ140123+555705,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ140123+555705,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ140123+555705,R21,z_l,,0.527,0.527,/,/,linear,,differ
+SL2S III sample,SL2SJ140123+555705,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ140123+555705,R21,z_s,,...,...,/,/,linear,,differ
+SL2S III sample,SL2SJ140123+555705,R21,z_s_method,,not measured,not measured,/,/,,,text
+SL2S III sample,SL2SJ140156+554446,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ140156+554446,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ140156+554446,R21,z_l,,0.464,0.464,/,/,linear,,differ
+SL2S III sample,SL2SJ140156+554446,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ140156+554446,R21,z_s,,...,...,/,/,linear,,differ
+SL2S III sample,SL2SJ140156+554446,R21,z_s_method,,not measured,not measured,/,/,,,text
+SL2S III sample,SL2SJ140221+550534,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ140221+550534,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ140221+550534,R21,z_l,,0.412,0.412,/,/,linear,,differ
+SL2S III sample,SL2SJ140221+550534,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ140221+550534,R21,z_s,,...,...,/,/,linear,,differ
+SL2S III sample,SL2SJ140221+550534,R21,z_s_method,,not measured,not measured,/,/,,,text
+SL2S III sample,SL2SJ140454+520024,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ140454+520024,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ140454+520024,R21,z_l,,0.456,0.456,/,/,linear,,differ
+SL2S III sample,SL2SJ140454+520024,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ140454+520024,R21,z_s,,1.59,1.59,/,/,linear,,differ
+SL2S III sample,SL2SJ140454+520024,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ140533+550231,R20,kind,,double,two lens galaxies,/,/,,,text
+SL2S III sample,SL2SJ140533+550231,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ140533+550231,R21,z_l,,,not printed,/,/,,,differ
+SL2S III sample,SL2SJ140533+550231,R21,z_s,,,not printed,/,/,,,only_b
+SL2S III sample,SL2SJ140546+524311,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ140546+524311,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ140546+524311,R21,z_l,,0.526,0.526,/,/,linear,,differ
+SL2S III sample,SL2SJ140546+524311,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ140546+524311,R21,z_s,,3.01,3.01,/,/,linear,,differ
+SL2S III sample,SL2SJ140546+524311,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ140614+520253,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ140614+520253,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ140614+520253,R21,z_l,,0.480,0.480,/,/,linear,,differ
+SL2S III sample,SL2SJ140614+520253,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ140614+520253,R21,z_s,,...,...,/,/,linear,,differ
+SL2S III sample,SL2SJ140614+520253,R21,z_s_method,,not measured,not measured,/,/,,,text
+SL2S III sample,SL2SJ140650+522619,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ140650+522619,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ140650+522619,R21,z_l,,0.716,0.716,/,/,linear,,differ
+SL2S III sample,SL2SJ140650+522619,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ140650+522619,R21,z_s,,1.47,1.47,/,/,linear,,differ
+SL2S III sample,SL2SJ140650+522619,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ141137+565119,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ141137+565119,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ141137+565119,R21,z_l,,0.322,0.322,/,/,linear,,differ
+SL2S III sample,SL2SJ141137+565119,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ141137+565119,R21,z_s,,1.42,1.42,/,/,linear,,differ
+SL2S III sample,SL2SJ141137+565119,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ141917+511729,R20,kind,,group-scale,group-scale lens,/,/,,,text
+SL2S III sample,SL2SJ141917+511729,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ141917+511729,R21,z_l,,,not printed,/,/,,,differ
+SL2S III sample,SL2SJ141917+511729,R21,z_s,,,not printed,/,/,,,only_b
+SL2S III sample,SL2SJ142003+523137,R20,kind,,disky,disk galaxy,/,/,,,text
+SL2S III sample,SL2SJ142003+523137,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ142003+523137,R21,z_l,,0.354,0.354,/,/,linear,,differ
+SL2S III sample,SL2SJ142003+523137,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ142003+523137,R21,z_s,,1.41,1.41,/,/,linear,,differ
+SL2S III sample,SL2SJ142003+523137,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ142031+525822,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ142031+525822,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ142031+525822,R21,z_l,,0.380,0.380,/,/,linear,,differ
+SL2S III sample,SL2SJ142031+525822,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ142031+525822,R21,z_s,,0.99,0.99,/,/,linear,,differ
+SL2S III sample,SL2SJ142031+525822,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ142059+563007,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ142059+563007,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ142059+563007,R21,z_l,,0.483,0.483,/,/,linear,,differ
+SL2S III sample,SL2SJ142059+563007,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ142059+563007,R21,z_s,,3.12,3.12,/,/,linear,,differ
+SL2S III sample,SL2SJ142059+563007,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ142321+572243,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ142321+572243,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ142321+572243,R21,z_l,,,not printed,/,/,,,differ
+SL2S III sample,SL2SJ142321+572243,R21,z_s,,,not printed,/,/,,,only_b
+SL2S III sample,SL2SJ142731+551645,R20,kind,,disky,disky galaxy,/,/,,,text
+SL2S III sample,SL2SJ142731+551645,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ142731+551645,R21,z_l,,0.511,0.511,/,/,linear,,differ
+SL2S III sample,SL2SJ142731+551645,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ142731+551645,R21,z_s,,2.58,2.58,/,/,linear,,differ
+SL2S III sample,SL2SJ142731+551645,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ220329+020518,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ220329+020518,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ220329+020518,R21,z_l,,0.400,0.400,/,/,linear,,differ
+SL2S III sample,SL2SJ220329+020518,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ220329+020518,R21,z_s,,2.15,2.15,/,/,linear,,differ
+SL2S III sample,SL2SJ220329+020518,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ220506+014703,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ220506+014703,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ220506+014703,R21,z_l,,0.476,0.476,/,/,linear,,differ
+SL2S III sample,SL2SJ220506+014703,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ220506+014703,R21,z_s,,2.53,2.53,/,/,linear,,differ
+SL2S III sample,SL2SJ220506+014703,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ220629+005728,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ220629+005728,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ220629+005728,R21,z_l,,0.704,0.704,/,/,linear,,differ
+SL2S III sample,SL2SJ220629+005728,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ220629+005728,R21,z_s,,...,...,/,/,linear,,differ
+SL2S III sample,SL2SJ220629+005728,R21,z_s_method,,not measured,not measured,/,/,,,text
+SL2S III sample,SL2SJ221326000946,R20,kind,,disky,disky lens,/,/,,,text
+SL2S III sample,SL2SJ221326000946,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ221326000946,R21,z_l,,0.338,0.338,/,/,linear,,differ
+SL2S III sample,SL2SJ221326000946,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ221326000946,R21,z_s,,3.45,3.45,/,/,linear,,differ
+SL2S III sample,SL2SJ221326000946,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ221407180712,R20,kind,,,early-type (sample statement); Table 6 note: Fixed PA,/,/,,,only_b
+SL2S III sample,SL2SJ221407180712,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ221407180712,R21,z_l,,0.651,0.651,/,/,linear,,differ
+SL2S III sample,SL2SJ221407180712,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ221407180712,R21,z_s,,...,...,/,/,linear,,differ
+SL2S III sample,SL2SJ221407180712,R21,z_s_method,,not measured,not measured,/,/,,,text
+SL2S III sample,SL2SJ221852+014038,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ221852+014038,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ221852+014038,R21,z_l,,0.564,0.564,/,/,linear,,differ
+SL2S III sample,SL2SJ221852+014038,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ221852+014038,R21,z_s,,...,...,/,/,linear,,differ
+SL2S III sample,SL2SJ221852+014038,R21,z_s_method,,not measured,not measured,/,/,,,text
+SL2S III sample,SL2SJ221929001743,R20,M_E,,,not printed,/,/,,,only_b
+SL2S III sample,SL2SJ221929001743,R20,R_e,,1.01,1.01,/,/,linear,linear,agree
+SL2S III sample,SL2SJ221929001743,R20,bands,,CFHT ugriz,CFHT ugriz; no NIR,/,/,,,text
+SL2S III sample,SL2SJ221929001743,R20,gas,,none,none,/,/,,,text
+SL2S III sample,SL2SJ221929001743,R20,imf,,Chabrier; Salpeter,Chabrier and Salpeter (both printed),/,/,,,text
+SL2S III sample,SL2SJ221929001743,R20,kind,,,early-type (sample statement); Table 6 note: Fixed PA,/,/,,,only_b
+SL2S III sample,SL2SJ221929001743,R20,lens_model,,SIE,SIE (singular isothermal ellipsoid),/,/,,,text
+SL2S III sample,SL2SJ221929001743,R20,mstar,"chabrier; cfht ugriz. column identity per arxiv table 7 header (chab, chab nir, salp, salp nir); mrt byte labels differ - see questions.md",,11.32,/,0.09/0.09,,log10,only_b
+SL2S III sample,SL2SJ221929001743,R20,mstar,"imf chabrier; bands cfht ugriz. mrt byte labels: 26-30 logmchab, 37-41 logmsalp, 48-52 logmchabnir, 59-63 logmsalpnir; arxiv v1 table 7 header order is chab, chab(nir), salp, salp(nir). imf assignment here follows the paper header (see questions.md)",11.32,,0.09/0.09,/,log10,,only_a
+SL2S III sample,SL2SJ221929001743,R20,mstar,"imf salpeter; bands cfht ugriz. mrt byte labels: 26-30 logmchab, 37-41 logmsalp, 48-52 logmchabnir, 59-63 logmsalpnir; arxiv v1 table 7 header order is chab, chab(nir), salp, salp(nir). imf assignment here follows the paper header (see questions.md)",11.56,,0.09/0.09,/,log10,,only_a
+SL2S III sample,SL2SJ221929001743,R20,mstar,"salpeter; cfht ugriz. column identity per arxiv table 7 header (chab, chab nir, salp, salp nir); mrt byte labels differ - see questions.md",,11.56,/,0.09/0.09,,log10,only_b
+SL2S III sample,SL2SJ221929001743,R20,mstar_aperture,,not stated in words; SPS fit to magnitudes of de Vaucouleurs model fits (Table 4),not stated (SPS fit to de Vaucouleurs-model magnitudes; no radius given),/,/,,,text
+SL2S III sample,SL2SJ221929001743,R20,pop_model,,"Bruzual & Charlot (2003) composite populations, exponentially declining SFH (Auger et al. 2009 implementation)",Bruzual & Charlot (2003) composite populations; exponentially declining SFH; Auger et al. (2009) code,/,/,,,text
+SL2S III sample,SL2SJ221929001743,R20,profile_type,,de Vaucouleurs,de Vaucouleurs,/,/,,,text
+SL2S III sample,SL2SJ221929001743,R20,theta_E,,0.52,0.52,0.13/0.13,0.13/0.13,linear,linear,agree
+SL2S III sample,SL2SJ221929001743,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ221929001743,R21,z_l,,0.289,0.289,/,/,linear,,differ
+SL2S III sample,SL2SJ221929001743,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ221929001743,R21,z_s,,1.02,1.02,/,/,linear,,differ
+SL2S III sample,SL2SJ221929001743,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ222012+010606,R20,M_E,,,not printed,/,/,,,only_b
+SL2S III sample,SL2SJ222012+010606,R20,R_e,,0.80,0.80,/,/,linear,linear,agree
+SL2S III sample,SL2SJ222012+010606,R20,bands,,CFHT ugriz; NIR version adds Ks (MIRACLES),CFHT ugriz; NIR version adds Ks,/,/,,,text
+SL2S III sample,SL2SJ222012+010606,R20,gas,,none,none,/,/,,,text
+SL2S III sample,SL2SJ222012+010606,R20,imf,,Chabrier; Salpeter,Chabrier and Salpeter (both printed),/,/,,,text
+SL2S III sample,SL2SJ222012+010606,R20,kind,,grade C: possible lens,early-type (sample statement),/,/,,,text
+SL2S III sample,SL2SJ222012+010606,R20,lens_model,,SIE,SIE (singular isothermal ellipsoid),/,/,,,text
+SL2S III sample,SL2SJ222012+010606,R20,mstar,"chabrier; cfht ugriz + nir. column identity per arxiv table 7 header (chab, chab nir, salp, salp nir); mrt byte labels differ - see questions.md",,10.72,/,0.07/0.07,,log10,only_b
+SL2S III sample,SL2SJ222012+010606,R20,mstar,"chabrier; cfht ugriz. column identity per arxiv table 7 header (chab, chab nir, salp, salp nir); mrt byte labels differ - see questions.md",,10.73,/,0.10/0.10,,log10,only_b
+SL2S III sample,SL2SJ222012+010606,R20,mstar,"imf chabrier; bands cfht ugriz + nir ks (miracles). mrt byte labels: 26-30 logmchab, 37-41 logmsalp, 48-52 logmchabnir, 59-63 logmsalpnir; arxiv v1 table 7 header order is chab, chab(nir), salp, salp(nir). imf assignment here follows the paper header (see questions.md)",10.72,,0.07/0.07,/,log10,,only_a
+SL2S III sample,SL2SJ222012+010606,R20,mstar,"imf chabrier; bands cfht ugriz. mrt byte labels: 26-30 logmchab, 37-41 logmsalp, 48-52 logmchabnir, 59-63 logmsalpnir; arxiv v1 table 7 header order is chab, chab(nir), salp, salp(nir). imf assignment here follows the paper header (see questions.md)",10.73,,0.10/0.10,/,log10,,only_a
+SL2S III sample,SL2SJ222012+010606,R20,mstar,"imf salpeter; bands cfht ugriz + nir ks (miracles). mrt byte labels: 26-30 logmchab, 37-41 logmsalp, 48-52 logmchabnir, 59-63 logmsalpnir; arxiv v1 table 7 header order is chab, chab(nir), salp, salp(nir). imf assignment here follows the paper header (see questions.md)",10.96,,0.06/0.06,/,log10,,only_a
+SL2S III sample,SL2SJ222012+010606,R20,mstar,"imf salpeter; bands cfht ugriz. mrt byte labels: 26-30 logmchab, 37-41 logmsalp, 48-52 logmchabnir, 59-63 logmsalpnir; arxiv v1 table 7 header order is chab, chab(nir), salp, salp(nir). imf assignment here follows the paper header (see questions.md)",10.97,,0.09/0.09,/,log10,,only_a
+SL2S III sample,SL2SJ222012+010606,R20,mstar,"salpeter; cfht ugriz + nir. column identity per arxiv table 7 header (chab, chab nir, salp, salp nir); mrt byte labels differ - see questions.md",,10.96,/,0.06/0.06,,log10,only_b
+SL2S III sample,SL2SJ222012+010606,R20,mstar,"salpeter; cfht ugriz. column identity per arxiv table 7 header (chab, chab nir, salp, salp nir); mrt byte labels differ - see questions.md",,10.97,/,0.09/0.09,,log10,only_b
+SL2S III sample,SL2SJ222012+010606,R20,mstar_aperture,,not stated in words; SPS fit to magnitudes of de Vaucouleurs model fits (Table 4),not stated (SPS fit to de Vaucouleurs-model magnitudes; no radius given),/,/,,,text
+SL2S III sample,SL2SJ222012+010606,R20,pop_model,,"Bruzual & Charlot (2003) composite populations, exponentially declining SFH (Auger et al. 2009 implementation)",Bruzual & Charlot (2003) composite populations; exponentially declining SFH; Auger et al. (2009) code,/,/,,,text
+SL2S III sample,SL2SJ222012+010606,R20,profile_type,,de Vaucouleurs,de Vaucouleurs,/,/,,,text
+SL2S III sample,SL2SJ222012+010606,R20,theta_E,,2.16,2.16,0.07/0.07,0.07/0.07,linear,linear,agree
+SL2S III sample,SL2SJ222012+010606,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ222012+010606,R21,z_l,,0.232,0.232,/,/,linear,,differ
+SL2S III sample,SL2SJ222012+010606,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ222012+010606,R21,z_s,,1.07,1.07,/,/,linear,,differ
+SL2S III sample,SL2SJ222012+010606,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ222148+011542,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ222148+011542,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ222148+011542,R21,z_l,,0.325,0.325,/,/,linear,,differ
+SL2S III sample,SL2SJ222148+011542,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ222148+011542,R21,z_s,,2.35,2.35,/,/,linear,,differ
+SL2S III sample,SL2SJ222148+011542,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S III sample,SL2SJ222217+001202,R20,kind,,,early-type (sample statement),/,/,,,only_b
+SL2S III sample,SL2SJ222217+001202,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2S III sample,SL2SJ222217+001202,R21,z_l,,0.436,0.436,/,/,linear,,differ
+SL2S III sample,SL2SJ222217+001202,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit to absorption-line spectrum),/,/,,,text
+SL2S III sample,SL2SJ222217+001202,R21,z_s,,1.36,1.36,/,/,linear,,differ
+SL2S III sample,SL2SJ222217+001202,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2S V added,(RECORD),R22,H0,,70,,/,/,,,only_a
+SL2S V added,(RECORD),R22,Om,,0.3,,/,/,,,only_a
+SL2S V added,(RECORD),R22,flat,,Omega_Lambda = 0.7 printed ('concordance cosmology'); 'flat' not stated in words,,/,/,,,only_a
+SL2S V added,(RECORDLEVEL),R22,H0,,,70,/,/,,,only_b
+SL2S V added,(RECORDLEVEL),R22,Om,,,0.3,/,/,,,only_b
+SL2S V added,(RECORDLEVEL),R22,flat,,,not stated in words; Omega_Lambda = 0.7 printed,/,/,,,only_b
+SL2S V added,SL2SJ020457110309,R22,kind,,early-type (sample statement),early-type,/,/,,,text
+SL2S V added,SL2SJ020457110309,R22,z_l,,0.609,0.609,/,/,linear,,differ
+SL2S V added,SL2SJ020457110309,R22,z_l_method,,spectroscopic,spectroscopic,/,/,,,text
+SL2S V added,SL2SJ020457110309,R22,z_s,,1.89,1.89,/,/,linear,,differ
+SL2S V added,SL2SJ020457110309,R22,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source; Fig. 2),/,/,,,text
+SL2S V added,SL2SJ020524093023,R22,kind,,early-type (sample statement),early-type (sample statement),/,/,,,text
+SL2S V added,SL2SJ020524093023,R22,z_l,,0.557,0.557,/,/,linear,,differ
+SL2S V added,SL2SJ020524093023,R22,z_l_method,,spectroscopic,spectroscopic,/,/,,,text
+SL2S V added,SL2SJ020524093023,R22,z_s,,1.33,1.33,/,/,linear,,differ
+SL2S V added,SL2SJ020524093023,R22,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source; Fig. 2),/,/,,,text
+SL2S V added,SL2SJ022708065445,R22,kind,,early-type (sample statement),early-type; disky,/,/,,,text
+SL2S V added,SL2SJ022708065445,R22,z_l,,0.561,0.561,/,/,linear,,differ
+SL2S V added,SL2SJ022708065445,R22,z_l_method,,spectroscopic,spectroscopic,/,/,,,text
+SL2S V added,SL2SJ022708065445,R22,z_s,,...,...,/,/,linear,,differ
+SL2S V added,SL2SJ022708065445,R22,z_s_method,,,not measured,/,/,,,only_b
+SL2S V added,SL2SJ023307043838,R22,kind,,early-type (sample statement),early-type (sample statement),/,/,,,text
+SL2S V added,SL2SJ023307043838,R22,z_l,,0.671,0.671,/,/,linear,,differ
+SL2S V added,SL2SJ023307043838,R22,z_l_method,,spectroscopic,spectroscopic,/,/,,,text
+SL2S V added,SL2SJ023307043838,R22,z_s,,1.87,1.87,/,/,linear,,differ
+SL2S V added,SL2SJ023307043838,R22,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source; Fig. 2),/,/,,,text
+SL2S V added,SL2SJ085317020312,R22,kind,,early-type (sample statement),early-type (sample statement),/,/,,,text
+SL2S V added,SL2SJ085317020312,R22,z_l,,0.698,0.698,/,/,linear,,differ
+SL2S V added,SL2SJ085317020312,R22,z_l_method,,spectroscopic,spectroscopic,/,/,,,text
+SL2S V added,SL2SJ085317020312,R22,z_s,,...,...,/,/,linear,,differ
+SL2S V added,SL2SJ085317020312,R22,z_s_method,,,not measured,/,/,,,only_b
+SL2SJ02176-0513,SL2SJ021737051329,R20,kind,,,early-type (sample statement); cusp configuration,/,/,,,only_b
+SL2SJ02176-0513,SL2SJ021737051329,R20,z_l,,0.646,0.646,/,/,linear,,differ
+SL2SJ02176-0513,SL2SJ021737051329,R21,kind,,early-type (sample statement),,/,/,,,only_a
+SL2SJ02176-0513,SL2SJ021737051329,R21,z_l,,0.646,0.646,/,/,linear,,differ
+SL2SJ02176-0513,SL2SJ021737051329,R21,z_l_method,,spectroscopic,spectroscopic (stellar-template fit),/,/,,,text
+SL2SJ02176-0513,SL2SJ021737051329,R21,z_s,,1.85,1.85,/,/,linear,,differ
+SL2SJ02176-0513,SL2SJ021737051329,R21,z_s_method,,spectroscopic,spectroscopic (emission lines of the lensed source),/,/,,,text
+SL2SJ02176-0513,SL2SJ021760513,R49,kind,,,elliptical lens; massive early-type galaxy ~400 kpc from a galaxy-group centre,/,/,,,only_b
+SL2SJ02176-0513,SL2SJ021760513,R49,z_l,,,0.6459,/,0.0003/0.0003,,,only_b
+SL2SJ02176-0513,SL2SJ021760513,R49,z_l_method,,,spectroscopic (Keck/LRIS absorption features),/,/,,,only_b
+SL2SJ02176-0513,SL2SJ021760513,R49,z_s,,,1.8470,/,0.0003/0.0003,,,only_b
+SL2SJ02176-0513,SL2SJ021760513,R49,z_s_method,,,spectroscopic (emission lines),/,/,,,only_b
+SL2SJ02176-0513,SL2SJ021760513(J200002:17:37.13605:13:29.41),R49,H0,,70 h70,,/,/,,,only_a
+SL2SJ02176-0513,SL2SJ021760513(J200002:17:37.13605:13:29.41),R49,kind,,elliptical,,/,/,,,only_a
+SL2SJ02176-0513,SL2SJ021760513(J200002:17:37.13605:13:29.41),R49,z_l,,0.6459,,0.0003/0.0003,/,linear,,only_a
+SL2SJ02176-0513,SL2SJ021760513(J200002:17:37.13605:13:29.41),R49,z_l_method,,spectroscopic,,/,/,,,only_a
+SL2SJ02176-0513,SL2SJ021760513(J200002:17:37.13605:13:29.41),R49,z_s,,1.8470,,0.0003/0.0003,/,linear,,only_a
+SL2SJ02176-0513,SL2SJ021760513(J200002:17:37.13605:13:29.41),R49,z_s_method,,spectroscopic,,/,/,,,only_a
