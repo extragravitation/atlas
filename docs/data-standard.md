@@ -1,6 +1,6 @@
 # Atlas data standard
 
-**Version 2.0.0 — FROZEN 2026-10-29** (D-029, D-041; incorporates D-033 to D-039). Frozen by hash in `data/frozen/data-standard-2.0.0.json` before the first 2.0 package was converted; `python -m aeg.check` fails if this file changes. The next change is a new version with its own file and freeze record. Version 1.3.0 is kept unchanged in `docs/data-standard-1.3.0.md`; packages that state 1.x are valid under that text and are never edited (references to "docs/data-standard.md §7" inside 1.x packages mean the 1.3.0 text).
+**Version 2.1.0 — FROZEN 2026-11-01** (D-076 item 4; minor version of 2.0.0, D-029, D-041). Frozen by hash in `data/frozen/data-standard-2.1.0.json`; `python -m aeg.check` fails if this file changes. The next change is a new version with its own file and freeze record. Version 2.0.0 is kept unchanged in `docs/data-standard-2.0.0.md` (its freeze record, `data/frozen/data-standard-2.0.0.json`, keeps the same hash at that path), and version 1.3.0 in `docs/data-standard-1.3.0.md`. Packages that state 2.0.0 or 1.x are valid under those texts and are never edited (references to "docs/data-standard.md §7" inside 1.x packages mean the 1.3.0 text).
 
 What changed from 1.3.0, in one line: every measurement now keeps **what was observed** (observables table) as well as g_obs and g_bar, and records how it was selected, how strong the evidence is, how much it leans on fitted forms, whether it is plotted and why not, and which value is the default when several exist.
 
@@ -14,6 +14,7 @@ Semantic versioning, MAJOR.MINOR.PATCH, as in 1.x: **patch** = wording with no e
 |---|---|---|---|
 | 1.0.0–1.3.0 | 2026-10-28 | D-015, D-018, D-019, D-014 | See `docs/data-standard-1.3.0.md` |
 | 2.0.0 | 2026-10-29 | D-029, D-041 (with D-033–D-039) | Observables table; selection, baryon inventory and precedence in the descriptor; evidence tier, model dependence, limits and confidence levels; plotted/not-plotted with reason; default and alternative values; kind and label per system; distance or redshift required and never kinematic; per-star table; frozen checks referenced; second reading recorded |
+| 2.1.0 | 2026-11-01 | D-076 | One observed-side quantity added to §4a: `einstein_mass` (unit M_sun), the projected mass inside the Einstein radius as printed by a strong-lensing source or computed from θ_E (A6). Nothing else changes; packages stating 2.0.0 stay valid |
 
 ## 1. Package layout
 
@@ -124,7 +125,7 @@ One row per published value of what was observed or of a quantity the comparison
 
 ### 4a. Quantities (closed list; new values by minor version)
 
-Observed side: `v_rot`, `sigma_los`, `sigma_los_second_moment` (includes rotation; D-038 2A), `sigma_los_about_rotation`, `sigma_pm`, `velocity_gradient`, `temperature_x`, `density_e`, `pressure_e`, `mass_hse`, `delta_sigma`, `kappa`, `einstein_radius`, `binary_sep_proj`, `binary_dv_proj`, `delta_g_bound`, `extra_mass_bound`, `perihelion_precession_extra`.
+Observed side: `v_rot`, `sigma_los`, `sigma_los_second_moment` (includes rotation; D-038 2A), `sigma_los_about_rotation`, `sigma_pm`, `velocity_gradient`, `temperature_x`, `density_e`, `pressure_e`, `mass_hse`, `delta_sigma`, `kappa`, `einstein_radius`, `binary_sep_proj`, `binary_dv_proj`, `delta_g_bound`, `extra_mass_bound`, `perihelion_precession_extra`, and from 2.1.0 `einstein_mass` (projected mass inside the Einstein radius, unit `solMass`; D-076 item 4).
 Baryonic side: `luminosity`, `apparent_magnitude`, `absolute_magnitude`, `surface_brightness`, `structural_param` (with the parameter named in `source_ref`, e.g. King r_c, r_t; Plummer a; Sérsic R_e, n), `half_light_radius`, `metallicity_feh`, `age`, `stellar_ml_population` (a stellar-population mass-to-light ratio, D-039), `star_formation_history_ml`, `mass_star`, `mass_star_counted` (D-036 #3), `surface_density_hi`, `mass_hi`, `mass_gas`, `mass_gas_limit`, `line_flux_co`, `known_mass` (Solar System bodies, as used in an ephemeris).
 Both sides: `distance`, `redshift`.
 
@@ -208,7 +209,7 @@ Formula language and combination rules: unchanged from 1.3.0 (D-014).
 
 | Key | Required | Content |
 |---|---|---|
-| `standard_version` | yes | `2.0.0` |
+| `standard_version` | yes | `2.1.0` (or `2.0.0` for packages issued under that version) |
 | `licenses` | yes | Per source record, read at source (CDS records vary); derived tables follow share-alike terms where they apply |
 | `x_selection` | yes | The sample's selection as structured entries (`quantity`, `condition`, `value`, `citation`) plus the source's own wording; for population bins, the bin definitions and the lenses' redshift range or distribution (D-029 2d, D-033) |
 | `x_baryon_inventory` | yes | One entry per component (stars by population, atomic gas, helium, molecular gas, ionised gas, hot gas, intracluster light, dust, remnants as relevant), each with status `measured`, `modelled`, `known_unmeasured`, `stated_negligible` (quoted), `absent_limit` (a measured upper limit, system-specific), `absent_literature_limit` (the kind's literature limit, D-036 #4) or `not_addressed`, and the citation where it was read |
