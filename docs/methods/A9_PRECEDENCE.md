@@ -1,6 +1,6 @@
 # A9 galaxy clusters (lensing and member galaxies): which values are shown (draft for JvH's approval; frozen by hash once approved)
 
-Written 2026-10-31 under D-066, D-067 and D-064, before any A9 table has been opened. Sources are the eligible records of search log A9 (`docs/sources/screening-A9/final.csv`). Once approved, this file is hash-frozen in `data/frozen/` and changes only by a new decision.
+Written 2026-10-31 under D-066, D-067, D-068 and D-064, before any A9 table has been opened. Sources are the eligible records of search log A9 (`docs/sources/screening-A9/final.csv`). Once approved, this file is hash-frozen in `data/frozen/` and changes only by a new decision.
 
 ## 1. Who is plotted
 
@@ -10,7 +10,7 @@ A cluster is plotted only if all of these hold. Otherwise it is recorded with th
 2. **Redshift.** The cluster redshift as printed is below 0.30 (D-066).
 3. **Observed side.** A lensing-only profile (row L) or a member-galaxy-only mass profile (row O), never a joint fit (D-067 item 1).
 4. **Baryonic side: gas.** Measured gas for the same cluster over the same radii: X-ray or SZ density in radial bins, or the source's fitted density model within its measured range.
-5. **Baryonic side: stars.** Stars are measured for the same cluster (§3.3). Stars are present in every cluster, so a cluster with no stellar measurement is recorded, not plotted (protocol §1.7).
+5. **Baryonic side: stars.** Stars measured for the same cluster (§3.3). Stars are present in every cluster, and leaving them out always biases g_bar low (protocol §1.7). A cluster still without measured stars after the logged stellar-mass search (D-068) is recorded, not plotted. Modelled stars are never the default (§3.4).
 6. **No scaling relations.** No input on either side comes from a scaling relation, or from the cluster's own total mass (radii such as r_500 may be used as radii, and are flagged).
 
 ## 2. Observed side
@@ -41,7 +41,8 @@ A cluster is plotted only if all of these hold. Otherwise it is recorded with th
    - Chabrier or Kroupa is the default (D-039 item 2). The Salpeter value is the top of the range where the source gives it, or else the same model's ratio, read at source and registered.
    - Masses from the Fundamental Plane, Faber–Jackson or other scaling relations are not used (§1.3).
    - Stars inside the same radii as the gas: projected for row L, 3D for row O, by the source's own profile, frozen and tested code before use.
-4. **Cold gas and other components:** a cited, quoted statement for the kind, read at source before conversion (deviation #4).
+4. **Modelled stars** (D-034 status "modelled") are shown only as a labelled alternative, never as the default. A model qualifies only if it does not use the cluster's own total mass (deviation #6); a model normalised by a hydrostatic or lensing M500 does not qualify (issue #91).
+5. **Cold gas and other components:** a cited, quoted statement for the kind, read at source before conversion (deviation #4).
 
 ## 4. Tests frozen with this rule
 

@@ -1255,3 +1255,28 @@ What the rule covers:
 - Silent extrapolation of the gas.
 
 **Data seen.** Search log A9 and the two screening readings: metadata and methods only.
+
+## D-068 — Stars in clusters: measured, searched for, never silently modelled; X-COP's modelled stars reported
+
+**Ruling (2026-10-31 19:03 MDT, JvH).** "I agree on all fronts. Please proceed." **Proposed by** Claude (2026-10-31, in answer to "as a good scientist, what do you recommend?"). **Adopted.**
+
+1. **A9 needs measured stars.** Before the A9 precedence rule is frozen, a logged search for stellar-mass sources covering the eligible A9 clusters below z = 0.30 is run, with its brief committed first. The five X-COP clusters with modelled stars are added to that search. Only clusters still without measured stars afterwards are recorded, not plotted.
+2. **Modelled stars** (D-034) are shown only as a labelled alternative, never the default, and only where the model does not use the cluster's own total mass.
+3. **X-COP.**
+   - The modelled stars of A1644, A2255, A3158, A3266 and RXC1825 are normalised by the hydrostatic M500 (D-022 item 3). That conflicts with deviation #6, which was ruled the day after D-022.
+   - The conflict is reported as known issue #91 and appears on the Known issues page.
+   - Where measured stellar masses are found, they replace the model in the data standard 2.0 re-issue. Where none are found, JvH rules whether those rows stay plotted as labelled "modelled" or become recorded only.
+   - The 7 clusters with measured stars (Ghizzardi et al. 2020) are unaffected.
+4. **Site.**
+   - Clusters measured by several channels (X-ray hydrostatic, lensing, member galaxies) get a system page showing each channel's profile side by side, each marked, never averaged.
+   - Every point shows whether it is projected or 3D, and whether its stars are measured or modelled, by mark, legend and tooltip.
+
+**Reason.**
+- Leaving stars out, or modelling them from the total mass, biases g_bar in a known direction or makes it circular.
+- Searching before excluding keeps coverage without lowering the standard.
+- A problem found in one's own published data is reported at once.
+- Showing channels side by side is both the honest display and the most informative one.
+
+**Correction recorded.** Claude's recommendation said the X-COP stars would be replaced "with measured stellar masses (Ghizzardi et al. 2020)". On checking D-022: Ghizzardi et al. 2020 covers the 7 clusters that are already measured, not the 5 modelled ones. Item 3 above states the plan correctly.
+
+**Data seen.** D-022 and D-023 and the X-COP package's status columns (counts of measured and modelled rows). No masses were read.
