@@ -95,7 +95,7 @@ Screening uses the brief `docs/sources/screening-brief-L9.md` with two readers, 
 
 ### 3a. ADS-L9-1 run and title screening (2026-10-31)
 
-Run 2026-10-31 through JvH's signed-in Chrome: **363 records** (7 theses, `PhDT`, hidden from the listing and not screened). VIZ-L9 is **not yet run**: the Chrome extension disconnected after ADS-L9-1 finished. It will be run, title-screened and read as a second batch (L-V entries), with the same brief and the same comparison script.
+Run 2026-10-31 through JvH's signed-in Chrome: **363 records** (7 theses, `PhDT`, hidden from the listing and not screened). VIZ-L9 was run at 20:25 MDT, after the Chrome extension reconnected (it had disconnected after ADS-L9-1): **77 records**, screened in §3b.
 
 Excluded at title level (counted, not listed), by the S9 rules (§1a) plus:
 - groups, compact groups and fossil groups (A8 leads, not A9);
@@ -136,3 +136,18 @@ Excluded at title level (counted, not listed), by the S9 rules (§1a) plus:
 | L28 | 1991ChA&A..15..260Z; 1992ChA&A..16..257Z | Coma and Virgo virial mass and kinematics |
 
 The re-screen of S1–S19 (step 1) uses the S numbering of §1a; readers give one row per record, as in the S9 round.
+
+### 3b. VIZ-L9 title screening (2026-10-31)
+
+77 records. Excluded at title level (counted, not listed), by the rules of §1a and §3a plus: catalogues of single-galaxy properties, stellar clusters, quasars, voids, X-ray-only or richness-only cluster catalogues, and high-redshift samples. Already listed: WINGS-SPE (S1), MaNGA BCGs (S15), RASS-SDSS V (L5).
+
+| # | Record(s) | What (from title) |
+|---|---|---|
+| LV1 | 2026yCat..75222223H | VSCL clusters and galaxies properties |
+| LV2 | 2016yCat..18190063R | HeCS-SZ Hectospec survey of SZ clusters (an A9 observed-side survey; re-read for printed luminosities) |
+| LV3 | 2015yCat..74492345P | Mass and luminosity of maxBCG groups |
+| LV4 | 2012yCat..35420036E | Rich clusters from SDSS DR8 (Einasto) |
+| LV5 | 2010yCat..21830197W; 2014yCat..74360275W | Clusters from SDSS-DR6; relaxation parameter of 2092 rich clusters (Wen) |
+| LV6 | 2003yCat..21480243B | Catalogue of clusters from SDSS (Bahcall) |
+| LV7 | 2016yCat..35880014T; 2018yCat..36180081T | Friends-of-friends group catalogues, SDSS and 2MRS (Tempel), which include rich clusters |
+| LV8 | 2013yCat..35580075T; 2014yCat..35640054T | 2XMMi/SDSS cluster survey II and III (Takey) |
