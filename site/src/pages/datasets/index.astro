@@ -2,8 +2,10 @@
 import Base from '../../layouts/Base.astro';
 import L from '../../components/L.astro';
 import { loadAtlas } from '../../lib/atlas.mjs';
-import { datasetLabel } from '../../lib/labels.mjs';
+import { datasetLabel, systemsText } from '../../lib/labels.mjs';
 import { resultLine } from '../../lib/md.mjs';
+// The map's dataset colours (scripts/map.js), so a card's label matches its marks.
+const DS_COLOR = { 'aeg-d-sparc': '--sparc', 'aeg-d-gc-baumgardt': '--gc', 'aeg-d-dwarfs': '--dw', 'aeg-d-strong-lensing': '--sl', 'aeg-d-xcop': '--xcop', 'aeg-d-kids1000-rar': '--kids' };
 const atlas = loadAtlas();
 const base = import.meta.env.BASE_URL;
 ---
@@ -16,10 +18,10 @@ const base = import.meta.env.BASE_URL;
       {atlas.datasets.map((d) => {
         const lab = datasetLabel(d.name), rr = resultLine(d.md.reproductionResult);
         return <a class="card dscard" href={`${base}datasets/${d.name}/${d.version}/`}>
-          <p class="cap" style={`color:var(--${d.short.startsWith('kids') ? 'kids' : d.short})`}>{lab.t} · {d.version}</p>
+          <p class="cap" style={`color:var(${DS_COLOR[d.name] || '--muted'})`}>{lab.t} · {d.version}</p>
           <h2 style="font-size:20px">{d.title}</h2>
           <p class="meta"><L t={lab.method_t} p={lab.method_p} /></p>
-          <p class="small">{d.measurements.rows.length.toLocaleString('en')} measurements{d.systems ? ` · ${d.systems.rows.length} ${lab.units}` : ''}{d.hasCovariance ? ' · covariance' : ''}</p>
+          <p class="small">{d.measurements.rows.length.toLocaleString('en')} measurements{d.systems ? ` · ${systemsText(d)}` : ''}{d.hasCovariance ? ' · covariance' : ''}</p>
           {rr && <p style="margin:8px 0 0"><span class={'badge ' + (rr.pass ? 'ok' : 'fail')}>Reproduction: {rr.text.split(/[ (]/)[0]}</span></p>}
           {rr && !rr.pass && <p class="small" style="margin-top:6px">{d.measurements.rows.filter((r) => /reproduction_mismatch/.test(r.flags || '')).length} measurements that do not reproduce are flagged and ringed; the rest ship under decision D-019.</p>}
           <p class="small" style="margin-top:8px">{d.citation.split(';')[0]}</p>

@@ -6,13 +6,17 @@ import Base from '../layouts/Base.astro';
 import L from '../components/L.astro';
 import Layer from '../components/Layer.astro';
 import { loadAtlas } from '../lib/atlas.mjs';
-import { datasetLabel, assumptionLabel, fmtParam } from '../lib/labels.mjs';
+import { datasetLabel, assumptionLabel, fmtParam, datasetCount, countWord, joinAnd } from '../lib/labels.mjs';
 const atlas = loadAtlas();
 const base = import.meta.env.BASE_URL;
 const REPO = 'https://github.com/extragravitation/atlas';
 const D = 'https://github.com/extragravitation/atlas/blob/main/docs/decisions.md';
 const adj = atlas.datasets.flatMap((d) => d.assumptions.filter((a) => a.adjustable && a.status === 'confirmed').map((a) => ({ a, d, e: a.datasets[d.key], k: assumptionLabel(a.id).kind })));
 const nAll = atlas.datasets.reduce((n, d) => n + d.measurements.rows.length, 0), nSparc = atlas.datasets.filter((d) => d.name === 'aeg-d-sparc').reduce((n, d) => n + d.measurements.rows.length, 0);
+const nDs = datasetCount(atlas.datasets);
+// Lensing datasets, counted and described from the packages: stacked (no systems) or individual (projected at R_E).
+const lensDs = atlas.datasets.filter((d) => d.measurements.rows.some((r) => r.method_class === 'lensing'));
+const lensText = lensDs.length === 0 ? 'No lensing dataset yet.' : `${countWord(lensDs.length).replace(/^./, (c) => c.toUpperCase())} lensing dataset${lensDs.length === 1 ? '' : 's'}: ${joinAnd(lensDs.map((d) => `${datasetLabel(d.name).t} (${d.systems ? 'individual systems' + (d.measurements.rows.some((r) => r.r_kind === 'projected') ? ', projected values at the Einstein radius' : '') : 'stacked averages'})`))}.`;
 const toc = [['stance', 'Stance'], ['quantities', 'What is measured'], ['baseline', 'The baseline'], ['channels', 'Two channels'], ['datasets', 'Each dataset'], ['assumptions', 'Assumptions'], ['uncertainties', 'Uncertainties'], ['flags', 'Flags and known issues'], ['tests', 'Frozen tests'], ['lenses', 'Lenses'], ['display', 'Display choices'], ['speed', 'Orbital-speed view'], ['gaps', 'Limitations and gaps'], ['vocabulary', 'Vocabulary']];
 ---
 <Base title="Methods" active="methods">
@@ -152,9 +156,9 @@ const toc = [['stance', 'Stance'], ['quantities', 'What is measured'], ['baselin
       <h2 id="gaps"><L t="Limitations and gaps" p="What is missing" /></h2>
       <Layer><Fragment slot="t">
         <ul>
-          <li>Four datasets so far. The first public release (v1.0) covers every kind of system in the taxonomy, each packaged or shown as a documented gap, including controls where Newtonian gravity on detected matter is expected to suffice and the lowest-acceleration individual systems (D-028; see <a href={`${base}coverage/`}>Coverage</a>).</li>
+          <li>{nDs.replace(/^./, (c) => c.toUpperCase())} so far. The first public release (v1.0) covers every kind of system in the taxonomy, each packaged or shown as a documented gap, including controls where Newtonian gravity on detected matter is expected to suffice and the lowest-acceleration individual systems (D-028; see <a href={`${base}coverage/`}>Coverage</a>).</li>
           <li>Disc galaxies dominate the current measurements ({nSparc.toLocaleString('en')} of {nAll.toLocaleString('en')}).</li>
-          <li>One lensing dataset, of stacked averages; no lensing of individual systems yet.</li>
+          <li>{lensText}</li>
           <li>KiDS-bright: the authors state their isolation criterion becomes unreliable for g_bar ≲ 10⁻¹³ m s⁻².</li>
           <li>X-COP: hydrostatic masses assume the hot gas is in balance; the bias slider spans the published range.</li>
         </ul>

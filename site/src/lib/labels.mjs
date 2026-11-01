@@ -18,8 +18,8 @@ export const ASSUMPTION = {
   xray_hse_bias: { short: 'hydrostatic bias b', t: 'X-ray hydrostatic bias, b', p: 'Support of the hot gas not counted by assuming pressure balance from heat alone', kind: 'value' },
   gc_stellar_ml: { short: 'Υ_V (clusters)', t: 'Cluster stellar mass-to-light, Υ_V', p: 'How much mass each unit of cluster starlight stands for', kind: 'span' },
   dw_stellar_ml: { short: 'Υ_V (dwarfs)', t: 'Dwarf stellar mass-to-light, Υ_V', p: 'How much mass each unit of dwarf-galaxy starlight stands for', kind: 'span' },
-  a6s_stellar_imf: { short: 'IMF (lenses)', t: 'Stellar initial mass function, Chabrier/Kroupa to Salpeter', p: 'How many faint, low-mass stars there are for each bright one', kind: 'imf' },
-  a6s_gas_in_RE: { short: 'gas in R_E', t: 'Gas inside the Einstein radius, as a fraction of the stars', p: 'How much gas sits inside the ring, compared with the stars', kind: 'range' },
+  a6s_stellar_imf: { short: 'IMF (lenses)', t: 'Lens stellar IMF, Chabrier/Kroupa to Salpeter', p: 'Lenses: how many faint stars there are for each bright one', kind: 'imf' },
+  a6s_gas_in_RE: { short: 'gas in R_E', t: 'Lens gas inside R_E, as a fraction of the stars', p: 'Lenses: how much gas sits inside the ring, compared with the stars', kind: 'range' },
   icl_fraction: { short: 'intracluster light', t: 'Intracluster light', p: 'Starlight between the galaxies that the star counts leave out', kind: 'percent' },
 };
 
@@ -67,3 +67,15 @@ export function sigFig(v, n = 3) {
   if (e < 4) return Number(v.toPrecision(n)).toString();
   return Number((v / 10 ** e).toPrecision(n)) + ' × 10' + String(e).replace(/[0-9]/g, (c) => SUP[c]);
 }
+
+// Counts in prose come from the data, never typed in: "six datasets (SPARC, …)".
+const WORDS = ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
+export function countWord(n) { return n < WORDS.length ? WORDS[n] : String(n); }
+export function joinAnd(xs) { return xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} and ${xs[xs.length - 1]}`; }
+// Dataset names in package order; layer 'p' gives the plain names.
+export function datasetNames(datasets, layer = 't') { return joinAnd(datasets.map((d) => datasetLabel(d.name)[layer])); }
+export function datasetCount(datasets) { const n = datasets.length; return `${countWord(n)} dataset${n === 1 ? '' : 's'}`; }
+
+// Systems with at least one plotted measurement (the rest are recorded, not plotted: D-029, D-066).
+export function plottedSystemCount(d) { const ids = new Set(d.measurements.rows.filter((r) => r.plotted !== 'false').map((r) => r.system_id)); return d.systems ? d.systems.rows.filter((s) => ids.has(s.system_id)).length : 0; }
+export function systemsText(d) { const n = d.systems.rows.length, p = plottedSystemCount(d), u = datasetLabel(d.name).units; return p < n ? `${n} ${u} (${p} plotted)` : `${n} ${u}`; }

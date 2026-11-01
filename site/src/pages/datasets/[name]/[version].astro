@@ -4,8 +4,10 @@
 import Base from '../../../layouts/Base.astro';
 import L from '../../../components/L.astro';
 import { loadAtlas } from '../../../lib/atlas.mjs';
-import { datasetLabel, assumptionLabel, fmtParam } from '../../../lib/labels.mjs';
+import { datasetLabel, assumptionLabel, fmtParam, systemsText } from '../../../lib/labels.mjs';
 import { md, resultLine, REPO } from '../../../lib/md.mjs';
+import LensDataset from '../../../components/LensDataset.astro';
+import { isLensing } from '../../../lib/lensing.mjs';
 
 export function getStaticPaths() {
   return loadAtlas().datasets.map((d) => ({ params: { name: d.name, version: d.version } }));
@@ -23,7 +25,8 @@ const dl = (f) => `${base}downloads/${d.name}/${d.version}/${f}`;
 const counts = {};
 for (const r of d.measurements.rows) for (const f of (r.flags || '').split(';').filter(Boolean)) counts[f] = (counts[f] || 0) + 1;
 const channels = [...new Set(d.measurements.rows.map((r) => r.channel))];
-const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(d.name === 'aeg-d-kids1000-rar' ? [['measured', 'As measured']] : []), ['assumptions', 'Assumptions'], ['issues', 'Known issues and flags'], ['files', 'Files and checksums'], ['columns', 'Columns'], ['source', 'Source and conversion']];
+const lens = isLensing(d);
+const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(lens ? [['tests', 'Tests'], ['funnel', 'From read to plotted'], ['check-formula', 'Check: Einstein mass'], ['check-profile', 'Check: profile step']] : []), ...(d.name === 'aeg-d-kids1000-rar' ? [['measured', 'As measured']] : []), ['assumptions', 'Assumptions'], ['issues', 'Known issues and flags'], ['files', 'Files and checksums'], ['columns', 'Columns'], ['source', 'Source and conversion']];
 ---
 <Base title={`${lab.t} ${d.version}`} description={d.title} active="datasets">
   <div class="doc">
@@ -37,7 +40,7 @@ const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(d.name ==
         <div><dt><L t="Method" p="How it was measured" /></dt><dd><L t={lab.method_t} p={lab.method_p} /></dd></div>
         <div><dt>Channel</dt><dd>{channels.join(', ')}</dd></div>
         <div><dt>Measurements</dt><dd>{d.measurements.rows.length.toLocaleString('en')}</dd></div>
-        {d.systems && <div><dt>Systems</dt><dd>{d.systems.rows.length} {lab.units}</dd></div>}
+        {d.systems && <div><dt>Systems</dt><dd>{systemsText(d)}</dd></div>}
         <div><dt>Data standard</dt><dd>{d.dp.x_standard_version}</dd></div>
         {d.hasCovariance && <div><dt>Covariance</dt><dd>included</dd></div>}
       </dl>
@@ -51,7 +54,8 @@ const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(d.name ==
       {rr && !rr.pass && <p class="small">{counts.reproduction_mismatch || 0} measurements that do not reproduce are flagged <code>reproduction_mismatch</code> and ringed on every figure; the package ships under decision D-019 because conversion integrity passes.</p>}
       {mt && <p><span class={'badge ' + (mt.pass ? 'ok' : 'fail')}>Modelled-star test: {mt.text}</span></p>}
       <p class="small"><L t="Each test was written and frozen by hash before it was run; the result is published whether it passed or failed." p="We wrote each test down and locked it before looking at the result, and we show the result either way." /> <a href={`${REPO}/blob/main/${repoDir}/REPRODUCTION.md`}>Frozen test</a>{d.md.modelTest && <> · <a href={`${REPO}/blob/main/${repoDir}/MODEL_TEST.md`}>Frozen modelled-star test</a></>}</p>
-      <details><summary>Reproduction result in full</summary><div class="prose" set:html={md(d.md.reproductionResult, repoDir)} /></details>
+      {d.md.reproductionResult && <details><summary>Reproduction result in full</summary><div class="prose" set:html={md(d.md.reproductionResult, repoDir)} /></details>}
+      {lens && <LensDataset d={d} />}
       {d.md.modelTestResult && <details><summary>Modelled-star test result in full</summary><div class="prose" set:html={md(d.md.modelTestResult, repoDir)} /></details>}
 
       {d.name === 'aeg-d-kids1000-rar' && <>

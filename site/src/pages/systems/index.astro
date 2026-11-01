@@ -3,17 +3,21 @@
 import Base from '../../layouts/Base.astro';
 import L from '../../components/L.astro';
 import { loadAtlas } from '../../lib/atlas.mjs';
+import { isLensing, kindWords } from '../../lib/lensing.mjs';
 import { datasetLabel } from '../../lib/labels.mjs';
 
 const atlas = loadAtlas();
 const base = import.meta.env.BASE_URL;
 const items = atlas.systems.map((s) => {
   const d = atlas.datasets.find((x) => x.key === s.dataset);
-  const rows = s.rows.map((i) => d.measurements.rows[i]);
+  // Plotted rows only: alternatives and recorded values are not the sources' defaults (they are on each system page).
+  const rows = s.rows.map((i) => d.measurements.rows[i]).filter((r) => r.plotted !== 'false');
   const ratio = rows.filter((r) => r.g_bar > 0).map((r) => r.g_obs / r.g_bar);
-  return { id: s.id, name: s.name, ds: datasetLabel(d.name).t, cls: s.row.class_in_source, n: rows.length,
-    r0: Math.min(...rows.map((r) => r.r_kpc)), r1: Math.max(...rows.map((r) => r.r_kpc)),
-    lo: Math.min(...ratio), hi: Math.max(...ratio), flags: [...new Set(rows.flatMap((r) => (r.flags || '').split(';').filter(Boolean)))].map((f) => f.replace(/_/g, ' ')).join(', ') };
+  const has = rows.length > 0 && ratio.length > 0;
+  return { id: s.id, name: s.name, ds: datasetLabel(d.name).t, cls: isLensing(d) ? kindWords(s.row, s.props).t : s.row.class_in_source, n: rows.length, has,
+    proj: rows.some((r) => r.r_kind === 'projected'),
+    r0: has ? Math.min(...rows.map((r) => r.r_kpc)) : null, r1: has ? Math.max(...rows.map((r) => r.r_kpc)) : null,
+    lo: has ? Math.min(...ratio) : null, hi: has ? Math.max(...ratio) : null, flags: [...new Set(rows.flatMap((r) => (r.flags || '').split(';').filter(Boolean)))].map((f) => f.replace(/_/g, ' ')).join(', ') };
 });
 const fr = (r) => (r < 10 ? r.toFixed(2) : r < 100 ? r.toFixed(1) : Math.round(r).toString());
 const pops = atlas.datasets.filter((d) => !d.systems);
@@ -42,8 +46,8 @@ const pops = atlas.datasets.filter((d) => !d.systems);
           <th class="l">Flags</th>
         </tr></thead>
         <tbody>
-          {items.map((s) => <tr data-name={s.name} data-ds={s.ds} data-cls={s.cls} data-n={s.n} data-r0={s.r0} data-r1={s.r1} data-lo={s.lo} data-hi={s.hi}>
-            <td class="l"><a href={`${base}systems/${s.id}/`}>{s.name}</a></td><td class="l">{s.ds}</td><td class="l">{s.cls}</td><td>{s.n}</td><td>{fr(s.r0)}</td><td>{fr(s.r1)}</td><td>{s.lo.toFixed(2)}</td><td>{s.hi.toFixed(2)}</td><td class="l">{s.flags}</td>
+          {items.map((s) => <tr data-name={s.name} data-ds={s.ds} data-cls={s.cls} data-n={s.n} data-r0={s.has ? s.r0 : -1} data-r1={s.has ? s.r1 : -1} data-lo={s.has ? s.lo : -1} data-hi={s.has ? s.hi : -1}>
+            <td class="l"><a href={`${base}systems/${s.id}/`}>{s.name}</a></td><td class="l">{s.ds}</td><td class="l">{s.cls}</td><td>{s.n}</td><td>{s.has ? fr(s.r0) : '–'}{s.proj ? ' (R_E)' : ''}</td><td>{s.has ? fr(s.r1) : '–'}{s.proj ? ' (R_E)' : ''}</td><td>{s.has ? s.lo.toFixed(2) : '–'}{s.proj ? ' (proj.)' : ''}</td><td>{s.has ? s.hi.toFixed(2) : '–'}{s.proj ? ' (proj.)' : ''}</td><td class="l">{s.has ? s.flags : (s.n === 0 ? 'recorded, not plotted' : s.flags)}</td>
           </tr>)}
         </tbody>
       </table>

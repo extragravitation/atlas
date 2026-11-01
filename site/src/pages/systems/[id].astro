@@ -7,6 +7,8 @@ import Layer from '../../components/Layer.astro';
 import Slider from '../../components/Slider.astro';
 import DispersionSystem from '../../components/DispersionSystem.astro';
 import DwarfSystem from '../../components/DwarfSystem.astro';
+import LensSystem from '../../components/LensSystem.astro';
+import { isLensing } from '../../lib/lensing.mjs';
 import { loadAtlas, ringed } from '../../lib/atlas.mjs';
 import { datasetLabel, assumptionLabel, sigFig } from '../../lib/labels.mjs';
 
@@ -22,6 +24,7 @@ const lab = datasetLabel(d.name);
 const rows = sys.rows.map((i) => d.measurements.rows[i]);
 const base = import.meta.env.BASE_URL;
 const isDisp = !!d.observables && d.measurements.rows.every((r) => r.kind === 'system_value');
+const isLens = isLensing(d);
 const P = sys.props, R = sys.row;
 const applies = (a) => rows.some((r) => (r.adjustable || '').split(';').includes(a.id));
 const adj = d.assumptions.filter((a) => a.adjustable && a.status === 'confirmed' && applies(a));
@@ -83,24 +86,28 @@ const cfg = {
 const desc = `${sys.name}: ${lab.kind_t.toLowerCase()} in ${lab.t}. Observed acceleration against Newtonian gravity on detected matter at ${rows.length} radii.`;
 const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.name}), dataset ${d.name} ${d.version}. https://extragravitation.org/systems/${sys.id}/. Source: ${d.citation}`;
 ---
-<Base title={sys.name} description={isDisp ? `${sys.name}: ${lab.kind_t.toLowerCase()} in ${lab.t}. Observed acceleration against Newtonian gravity on detected matter at the half-light radius.` : desc} active="systems" figures={true}>
+<Base title={sys.name} description={isLens ? `${sys.name}: ${lab.kind_t.toLowerCase()} in ${lab.t}. Projected mass inside the Einstein radius against detected stars and gas in the same cylinder.` : isDisp ? `${sys.name}: ${lab.kind_t.toLowerCase()} in ${lab.t}. Observed acceleration against Newtonian gravity on detected matter at the half-light radius.` : desc} active="systems" figures={true}>
   {isDisp ? (
   <div class="olayout"><main class="split"><div class="pre">
     <p class="kicker"><a href={`${base}systems/`} style="color:inherit">Systems</a> · {lab.t} · {sys.id}</p>
     <h1>{sys.name}</h1>
-    {d.name === 'aeg-d-dwarfs' ? <DwarfSystem sys={sys} d={d} lab={lab} /> : <DispersionSystem sys={sys} d={d} lab={lab} />}
+    {isLens ? <LensSystem sys={sys} d={d} lab={lab} /> : d.name === 'aeg-d-dwarfs' ? <DwarfSystem sys={sys} d={d} lab={lab} /> : <DispersionSystem sys={sys} d={d} lab={lab} />}
     <h2 id="cite"><L t="Cite" p="How to cite" /></h2>
     <p class="boxed" style="font-family:var(--mono);font-size:13px">{cite}</p>
     <p class="small"><a href={`${base}datasets/${d.name}/${d.version}/`}>{d.title}</a> · <a href={`${base}downloads/${d.name}/${d.version}/measurements.csv`}>CSV</a></p>
   </div></main>
   <aside class="side" aria-label="Assumptions for this system"><div>
-    <p class="cap"><L t="Fixed assumptions" p="Assumptions" /></p>
-    <ul class="small" style="padding-left:18px;margin:0">{d.assumptions.map((a) => <li><L t={a.name_technical} p={a.name_plain || a.name_technical} /> · <span class="muted">{a.status}</span></li>)}</ul>
-    {d.name === 'aeg-d-dwarfs'
+    <p class="cap">{isLens ? <L t="Assumptions" p="Assumptions" /> : <L t="Fixed assumptions" p="Assumptions" />}</p>
+    <ul class="small" style="padding-left:18px;margin:0">{d.assumptions.map((a) => <li><L t={a.name_technical} p={a.name_plain || a.name_technical} /> · <span class="muted">{isLens ? (a.adjustable && a.status === 'confirmed' ? (rows.some((r) => r.plotted === 'true' && (r.adjustable || '').split(';').includes(a.id)) ? 'slider on the map' : 'slider on the map; not offered for this lens') : 'fixed') : a.status}</span></li>)}</ul>
+    {isLens
+      ? <p class="small" style="margin-top:6px"><L t="The IMF (a6s_stellar_imf) and gas (a6s_gas_in_RE) sliders are on the map and the scale strip; they move every lens together. This page shows the defaults, with both ranges in the figure." p="The star and gas assumptions can be changed on the map. This page shows the default values, with the ranges in the figure." /> <a href={`${base}?hide=${atlas.datasets.filter((x) => x.key !== d.key).map((x) => x.key).join(',')}&sel=${sys.id}`}><L t="Lenses on the map" p="See the lenses on the map" /></a></p>
+      : d.name === 'aeg-d-dwarfs'
       ? <p class="small" style="margin-top:6px"><L t="The stellar mass-to-light range (D-060) is a slider on the map; its default and range for this galaxy are under Status." p="How much the starlight weighs can be changed on the map." /></p>
       : <p class="small" style="margin-top:6px"><L t="No sliders yet for this dataset: the stellar mass-to-light range (D-039) is added with its formulas in a later pull request." p="Sliders for this dataset come later." /></p>}
     <p class="cap" style="margin-top:14px">On this page</p>
-    {d.name === 'aeg-d-dwarfs'
+    {isLens
+      ? <nav class="toc"><a href="#status">Status</a>{rows.some((r) => r.plotted === 'true') && <><a href="#figure"><L t="Inside R_E" p="Inside the ring" /></a></>}{(P.flags || []).includes('epoch_gap_v1') && <a href="#readings"><L t="As read" p="As read" /></a>}<a href="#inputs">Inputs</a>{rows.some((r) => r.plotted === 'true') && <><a href="#cosmology">Cosmology</a><a href="#gas">Gas</a></>}<a href="#cite">Cite</a></nav>
+      : d.name === 'aeg-d-dwarfs'
       ? <nav class="toc"><a href="#status">Status</a><a href="#inputs">Inputs</a><a href="#cite">Cite</a></nav>
       : <nav class="toc"><a href="#status">Status</a><a href="#measured"><L t="Profile" p="Profile" /></a><a href="#inputs">Inputs</a><a href="#repro"><L t="Reproduction" p="Re-derived?" /></a><a href="#cite">Cite</a></nav>}
   </div></aside></div>

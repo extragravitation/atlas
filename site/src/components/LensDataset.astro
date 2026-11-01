@@ -1,0 +1,91 @@
+---
+// Dataset-page sections for the strong-lensing package: the funnel from lenses read to lenses plotted,
+// the test results, and the two reported checks (D-075 item 5; REPRODUCTION.md 'Reported'). Every number
+// is read or counted from the package files at build time.
+import fs from 'node:fs';
+import path from 'node:path';
+import L from './L.astro';
+import Layer from './Layer.astro';
+import { lensPackage } from '../lib/lensing.mjs';
+import { md, REPO } from '../lib/md.mjs';
+
+const { d } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const pkg = lensPackage(d), F = pkg.funnel;
+const repoDir = `data/packages/${d.name}/${d.version}`;
+const sysByName = Object.fromEntries(d.systems.rows.map((s) => [s.name_in_source, s.system_id]));
+const pctW = (n) => `${((n / F.read) * 100).toFixed(3)}%`;
+const f3 = (v) => (v === null || v === undefined ? '–' : v.toFixed(3));
+// The "Tests" section of RESULT_SUMMARY.md (the package's own record of tests 1-4).
+const summary = fs.readFileSync(path.join(d.dir, 'RESULT_SUMMARY.md'), 'utf8');
+const testsMd = (summary.match(/\n## Tests[^\n]*\n([\s\S]*?)(?=\n## )/) || [])[1] || '';
+const FC_LABEL = { R7: 'R7 (SLACS IX)', R10: 'R10 (S4TM)', R28: 'R28 (SNL-0)', R29: 'R29 (J0403−0239)', R30: 'R30 (NGC 6505)' };
+const TH_LABEL = { R5: 'R5 (SLACS V)' };
+---
+<h2 id="tests"><L t="Tests" p="Was the conversion checked?" /></h2>
+<Layer as="p" class="small"><Fragment slot="t">From the package’s RESULT_SUMMARY.md. Tests 1–4 were frozen before the conversion was run (REPRODUCTION.md, D-065). Test 1 failed in version 2 on four numbers; that result stays on record. Version 3 adds one independent second reading and nothing else; version 4 adds the numbers of the lenses recorded at z_l ≥ 0.30.</Fragment><Fragment slot="p">Every number was read twice, copied, recomputed and tested by rules written down before the work started. One test failed at first on four numbers; the failure is kept on record, and an extra independent reading then settled them.</Fragment></Layer>
+<div class="prose" set:html={md(testsMd, repoDir)} />
+
+<h2 id="funnel"><L t="From lenses read to lenses plotted" p="Which lenses are on the map, and why the others are not" /></h2>
+<figure>
+  <div class="funnel" role="img" aria-label={`${F.read} lenses read in the A6 surveys: ${F.plotted} plotted, ${F.recorded} recorded below z = 0.30 but not plotted, ${F.gap} recorded at z ≥ 0.30 (epoch gap), ${F.notTabulated} not tabulated`}>
+    <span class="fn-seg fn-plot" style={`width:${pctW(F.plotted)}`}></span><span class="fn-seg fn-rec" style={`width:${pctW(F.recorded)}`}></span><span class="fn-seg fn-gap" style={`width:${pctW(F.gap)}`}></span><span class="fn-seg fn-not" style={`width:${pctW(F.notTabulated)}`}></span>
+  </div>
+  <ul class="legend">
+    <li><span class="sw" style="background:var(--sl)" aria-hidden="true"></span><span><L t="Plotted" p="On the map" /> · {F.plotted}</span></li>
+    <li><span class="sw fn-rec-sw" aria-hidden="true"></span><span><L t="Recorded, not plotted (z < 0.30)" p="Kept, not on the map" /> · {F.recorded}</span></li>
+    <li><span class="sw fn-gap-sw" aria-hidden="true"></span><span><L t="Recorded, z ≥ 0.30 (epoch gap, D-066)" p="Kept: too far back in time for this version" /> · {F.gap}</span></li>
+    <li><span class="sw fn-not-sw" aria-hidden="true"></span><span><L t="Not tabulated" p="Not in the tables" /> · {F.notTabulated}</span></li>
+  </ul>
+  <figcaption><b>Figure.</b> <L t={`The ${F.read} lenses read by both readers in the A6 surveys, counted from the package files: ${F.tabulated} in the systems table and ${F.notTabulated} in checks/not_tabulated.csv. ${F.adjudicated} were adjudicated at source (the ${F.below} below z_l = 0.30 and ${F.adjudicated - F.below} without a usable redshift); the ${F.gap} at z_l ≥ 0.30 and ${F.notTabulated - (F.adjudicated - F.below)} more without a measured z_l come straight from the two readings.`} p={`All ${F.read} lenses whose numbers were read from the papers.`} /></figcaption>
+</figure>
+<div tabindex="0" class="tablebox" style="max-height:none;margin-top:12px"><table>
+  <thead><tr><th class="l"><L t="Stage" p="Step" /></th><th>N</th><th class="l"><L t="Rule" p="Why" /></th></tr></thead>
+  <tbody>
+    <tr><td class="l"><L t="Lenses read" p="Lenses read from the papers" /></td><td>{F.read}</td><td class="l" style="white-space:normal;min-width:260px"><L t="Every lens read by two independent readers in the A6 surveys (reading/readings/)." p="Each read twice, by two people separately." /></td></tr>
+    <tr><td class="l"><L t="With a measured z_l (tabulated)" p="With a measured distance" /></td><td>{F.tabulated}</td><td class="l" style="white-space:normal;min-width:260px"><L t="Data standard §10 item 7: each tabulated system needs a redshift." p="A lens needs a measured distance to go in the tables." /></td></tr>
+    <tr><td class="l">&nbsp;&nbsp;<L t="z_l below 0.30" p="Near enough (redshift below 0.30)" /></td><td>{F.below}</td><td class="l" style="white-space:normal;min-width:260px"><L t="D-066: printed lens redshift below 0.30 exactly. Adjudicated at source where the readers differed." p="Only these can be on the map in this version." /></td></tr>
+    <tr><td class="l">&nbsp;&nbsp;&nbsp;&nbsp;<L t="Plotted" p="On the map" /></td><td>{F.plotted}</td><td class="l" style="white-space:normal;min-width:260px">{Object.entries(F.plottedByScope).map(([k, n]) => `${k} ${n}`).join(' · ')}</td></tr>
+    <tr><td class="l">&nbsp;&nbsp;&nbsp;&nbsp;<L t="Recorded, not plotted" p="Kept, not on the map" /></td><td>{F.recorded}</td><td class="l" style="white-space:normal;min-width:260px"><L t="Reasons below (D-063 items 5 and 6)." p="Reasons below." /></td></tr>
+    <tr><td class="l">&nbsp;&nbsp;<L t="z_l ≥ 0.30: epoch gap" p="Farther away (redshift 0.30 or more)" /></td><td>{F.gap}</td><td class="l" style="white-space:normal;min-width:260px"><L t={`D-066 item 2: recorded in full, flagged epoch_gap_v1, not plotted, counted on the Coverage page. ${Object.entries(F.gapByScope).sort((a, b) => b[1] - a[1]).map(([k, n]) => `${k} ${n}`).join(' · ')}.`} p="Kept in the record and counted as part of a gap: how things looked earlier in the history of the universe." /></td></tr>
+    <tr><td class="l"><L t="Not tabulated" p="Not in the tables" /></td><td>{F.notTabulated}</td><td class="l" style="white-space:normal;min-width:260px"><L t="No measured lens redshift (data standard §10 item 7), or no input at all for the lens; checks/not_tabulated.csv." p="No measured distance for the lens." /></td></tr>
+  </tbody>
+</table></div>
+<h3><L t="Recorded below z = 0.30, not plotted: reasons" p="Why these nearby lenses are not on the map" /></h3>
+<ul class="small">{F.recordedGroups.map((g) => <li><b>{g.items.length}</b> · {g.reason}: {g.items.map((it, i) => <>{i ? ', ' : ''}<a href={`${base}systems/${it.id}/`}>{it.name}</a> <span class="muted">(<L t={it.words.t} p={it.words.p} />)</span></>)}</li>)}</ul>
+<h3 id="epoch-gap"><L t="Recorded at z ≥ 0.30 (epoch gap)" p="Lenses farther back in time" /></h3>
+<Layer as="p" class="small"><Fragment slot="t">{F.gap} lenses with a printed, measured z_l of 0.30 or more (D-066 item 2). They are recorded straight from the two independent readings, not adjudicated: identifiers, z_l and z_s with their methods, and the kind as read. Where the readers differ ({F.gapDiffer} lenses, flag readers_differ), both readings are kept on the lens page and listed in SECOND_READING.md. No g_obs or g_bar is computed for them.</Fragment><Fragment slot="p">These {F.gap} lenses are farther away, so we see them as they were longer ago. This version of the Atlas keeps them in the record without putting them on the map.</Fragment></Layer>
+<details class="more small"><summary><L t={`All ${F.gap} lenses, by lens redshift`} p={`Show all ${F.gap}`} /></summary>
+<ul class="small gaplist">{[...F.gapItems].sort((a, b) => a.z - b.z).map((it) => <li><a href={`${base}systems/${it.id}/`}>{it.name}</a> <span class="muted">z_l {it.z}{it.differ ? ' · readers differ' : ''}</span></li>)}</ul>
+</details>
+<h3><L t="Not tabulated: reasons" p="Why these lenses are not in the tables" /></h3>
+<ul class="small">{F.notTabGroups.map((g) => <li><b>{g.names.length}</b> · {g.scope}: {g.reason}. <span class="muted">{g.names.join(', ')}</span></li>)}</ul>
+
+<h2 id="check-formula"><L t="Reported check: the Einstein-mass formula" p="Check: mass worked out from the ring size" /></h2>
+<Layer as="p"><Fragment slot="t">M_E computed from the printed θ_E with the frozen formula (A6S_PRECEDENCE §2.4, M_E = θ_E² c² D_s D_l / (4 G D_ls)), in the source’s own cosmology, divided by the M_E the source prints. Reported, not pass/fail ({pkg.formulaMeta.reported_not_pass_fail}). The printed M_E values of R7 and R10 are rounded to 0.01 dex. R32 is not checked, because its cosmology is named but its numbers are not printed. For SNL-0 the printed M_E is from the MFL model, while θ_E is that of the SIS(+shear) model.</Fragment><Fragment slot="p">The Atlas works out each lens’s mass from the size of its ring and compares it with the mass the paper prints. They should agree closely; this shows how closely they do.</Fragment></Layer>
+<div tabindex="0" class="tablebox" style="max-height:none"><table>
+  <thead><tr><th class="l"><L t="Printed M_E from" p="Paper’s mass from" /></th><th class="l"><L t="θ_E from" p="Ring size from" /></th><th>N</th><th>min</th><th>median</th><th>max</th><th>mean</th><th>SD</th></tr></thead>
+  <tbody>{pkg.formulaGroups.map((g) => { const [rm, rt] = g.key.split('|'); return <tr><td class="l">{FC_LABEL[rm] || rm}</td><td class="l">{TH_LABEL[rt] || rt}</td><td>{g.stats.n}</td><td>{f3(g.stats.min)}</td><td>{g.stats.n > 1 ? f3(g.stats.median) : ''}</td><td>{g.stats.n > 1 ? f3(g.stats.max) : ''}</td><td>{g.stats.n > 1 ? f3(g.stats.mean) : ''}</td><td>{g.stats.n > 1 ? f3(g.stats.sd) : ''}</td></tr>; })}</tbody>
+</table></div>
+<p class="small" style="margin-top:6px"><L t="Ratio = computed / printed M_E. SD is the population standard deviation (÷ N), as in RESULT_SUMMARY.md. Computed from checks/formula_check.ecsv at build." p="1.000 means exact agreement." /></p>
+<details style="margin-top:8px"><summary><L t={`Every lens (${pkg.formula.rows.length})`} p={`Every lens (${pkg.formula.rows.length})`} /></summary>
+  <div tabindex="0" class="tablebox"><table>
+    <thead><tr><th class="l">Lens</th><th class="l">Survey</th><th>θ_E (″)</th><th>z_l</th><th>z_s</th><th>H0</th><th>Ω_m</th><th>M_E computed (M☉)</th><th>M_E printed (M☉)</th><th class="l">printed as</th><th>ratio</th></tr></thead>
+    <tbody>{pkg.formula.rows.map((r) => <tr><td class="l">{sysByName[r.name] ? <a href={`${base}systems/${sysByName[r.name]}/`}>{r.name}</a> : r.name}</td><td class="l">{r.scope}</td><td>{r.theta_arcsec}</td><td>{r.z_l}</td><td>{r.z_s}</td><td>{r.h0}</td><td>{r.om}</td><td>{r.m_e_computed.toExponential(4)}</td><td>{r.m_e_printed.toExponential(4)}</td><td class="l">{r.printed_form} {r.printed_value}</td><td>{f3(r.ratio)}</td></tr>)}</tbody>
+  </table></div>
+</details>
+
+<h2 id="check-profile"><L t="Reported check: the profile step, on SLACS" p="Check: share of the stars inside the ring" /></h2>
+<Layer as="p"><Fragment slot="t">Where a source prints only a total stellar mass (S4TM, SL2S), the mass inside R_E is the total × the fraction of the source’s light profile inside R_E (A6S_PRECEDENCE §3.1). R13 prints both totals and masses inside R_E for SLACS, so the same step is run on R13’s totals (de Vaucouleurs fraction inside θ_E from R13’s printed θ_e) and compared with R13’s printed masses inside R_E (D-075 item 5). Reported, not pass/fail. R13 prints its masses as integers in units of 10¹⁰ M☉, so part of the spread is rounding.</Fragment><Fragment slot="p">For some lenses only the total mass of the stars is known, so the Atlas works out the share inside the ring from how the light is spread. One survey prints both numbers, so the method is tried there and compared.</Fragment></Layer>
+<div tabindex="0" class="tablebox" style="max-height:none"><table>
+  <thead><tr><th class="l">IMF (BC03)</th><th>N</th><th>min</th><th>median</th><th>max</th><th>mean</th><th>SD</th><th><L t="within ±10%" p="within 10%" /></th></tr></thead>
+  <tbody>{pkg.profileGroups.map((g) => <tr><td class="l">{g.key}</td><td>{g.stats.n}</td><td>{f3(g.stats.min)}</td><td>{f3(g.stats.median)}</td><td>{f3(g.stats.max)}</td><td>{f3(g.stats.mean)}</td><td>{f3(g.stats.sd)}</td><td>{g.stats.within}</td></tr>)}</tbody>
+</table></div>
+<p class="small" style="margin-top:6px"><L t="Ratio = computed / printed mass inside R_E. Computed from checks/profile_step.ecsv at build. Shown on the S4TM and SL2S lens pages, which use this step." p="1.000 means exact agreement." /></p>
+<details style="margin-top:8px"><summary><L t={`Every row (${pkg.profile.rows.length})`} p={`Every row (${pkg.profile.rows.length})`} /></summary>
+  <div tabindex="0" class="tablebox"><table>
+    <thead><tr><th class="l">Lens</th><th class="l">IMF</th><th>θ_E (″)</th><th>θ_e (″)</th><th>n</th><th>f(&lt;θ_E)</th><th>M* total (M☉)</th><th>M*(&lt;R_E) computed</th><th>M*(&lt;R_E) printed</th><th>ratio</th></tr></thead>
+    <tbody>{pkg.profile.rows.map((r) => <tr><td class="l">{sysByName[r.name] ? <a href={`${base}systems/${sysByName[r.name]}/`}>{r.name}</a> : r.name}</td><td class="l">{r.imf}</td><td>{r.theta_arcsec}</td><td>{r.r_eff_arcsec}</td><td>{r.sersic_n}</td><td>{f3(r.fraction)}</td><td>{r.mstar_total_msun.toExponential(3)}</td><td>{r.mstar_in_re_computed.toExponential(3)}</td><td>{r.mstar_in_re_printed.toExponential(3)}</td><td>{f3(r.ratio)}</td></tr>)}</tbody>
+  </table></div>
+</details>
+<p class="small" style="margin-top:8px"><a href={`${REPO}/blob/main/${repoDir}/RESULT_SUMMARY.md`}>RESULT_SUMMARY.md</a> · <a href={`${REPO}/blob/main/${repoDir}/SECOND_READING.md`}>SECOND_READING.md</a> · <a href={`${REPO}/blob/main/${repoDir}/REPRODUCTION.md`}>REPRODUCTION.md</a> (<L t="frozen" p="written first" />)</p>
