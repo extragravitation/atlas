@@ -1540,3 +1540,23 @@ The Zenodo record shows the preliminary note.
 - The statement names no paper or theory, and says what a reader needs before trusting a neutral atlas.
 
 **Data seen.** Not applicable.
+
+## D-079 — Naming of the Atlas's Zenodo records
+
+**Ruling (2026-11-01 15:11 MDT, JvH).** "Approve." **Proposed by** Claude (2026-11-01). **Adopted.**
+
+1. **One pattern for every Atlas record on Zenodo:** "Atlas of Extra Gravitation — {what it is}". The version goes in Zenodo's Version field, never in the title.
+2. **Titles:**
+
+   | Record | Title | Version |
+   |---|---|---|
+   | Protocol (10.5281/zenodo.23780203) | Atlas of Extra Gravitation — selection protocol (pre-registered 2026-10-29) | 1.0 |
+   | Data release (concept 10.5281/zenodo.23864355; v0.1 10.5281/zenodo.23864356) | Atlas of Extra Gravitation — data release | v0.1 (preliminary) |
+   | Methods paper (when deposited) | Atlas of Extra Gravitation — methods | — |
+
+3. **The protocol rename is metadata only.** Its frozen files, their hashes, its DOI and its publication date (2026-10-29) do not change. Its previous title was "Atlas of Extra Gravitation: v1.0 taxonomy and selection protocol (frozen 2026-10-29)".
+4. **Who edits.** The existing records are edited by JvH (or by Claude in JvH's browser with his go-ahead), as metadata edits that create no new version. Future data releases take their title from `.zenodo.json` (D-078 item 3).
+
+**Reason.** "v1.0" in the protocol title next to a v0.1 data release, and a data release titled only with the Atlas's name, made the two records look like rival versions of one thing.
+
+**Data seen.** Not applicable.
