@@ -1,0 +1,19 @@
+{
+  "assumption_id": "a6s_gas_in_RE",
+  "decision": "D-076 item 1",
+  "form": "fraction_of_mstar_in_RE",
+  "components": {
+    "gas_hot": {
+      "default": 0.0012,
+      "min": 0.00015,
+      "max": 0.025
+    },
+    "gas_cold": {
+      "default": 0.0,
+      "min": 0.0,
+      "max": 0.02
+    }
+  },
+  "ref": "data/packages/aeg-d-strong-lensing/v1/reading/gas/adjudication_gas.md (option G1): measured gas and stellar masses in the same apertures of early-type galaxies",
+  "source_negligible": "registered"
+}

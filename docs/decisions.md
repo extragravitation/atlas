@@ -1461,3 +1461,41 @@ What the rule covers:
 - The gas term is the one physical gap, so it is filled from measurements, not from a label.
 
 **Data seen.** The adjudicated input values of the systems below z = 0.30 (Einstein radii and masses, stellar masses, M/L, luminosities, profile parameters). No g_obs, g_bar or ratio was computed, and nothing was plotted.
+
+## D-076 — A6 strong lensing: gas term, Salpeter top for S4TM, SNL-1 record, data standard 2.1.0
+
+**Ruling (2026-11-01 09:49 MDT, JvH).** "Proceed as recommended." **Proposed by** Claude (2026-11-01, from `data/packages/aeg-d-strong-lensing/v1/reading/gas/adjudication_gas.md`). **Adopted.**
+
+1. **Gas term (option G1).** For every A6 system, as a fraction of M*(<R_E):
+
+   | Component | Default | Range | Evidence |
+   |---|---|---|---|
+   | hot X-ray gas | 0.12% | 0.015–2.5% | 28 same-aperture gas and stellar measurements of early-type galaxies, 25 detected |
+   | cold gas (molecular plus atomic) | 0 | 0–2% | molecular: 56 measurements, 16 detected, top from a published bound of about 1%; atomic: top from a flagged sample bound of about 1% |
+   | **total** | **0.12%** | **0.015–4.5%** | |
+
+   Radii are never rescaled. A single-dish beam counts as half its printed width, flagged. Non-detections are kept as limits.
+
+   - The term is registered as an assumption with a slider, with the measurement table and quotes in the adjudication file.
+   - The five systems whose sources call gas negligible (SNL-0, SNL-1, SNL-2, J1436+4943, J1701+3722) take the same term; the source statements are shown as notes.
+   - Rejected: G2, a hot-gas default of 0.38% from lens-mass galaxies only, whose masses are high by method.
+2. **Salpeter top for S4TM.** R30's printed FSPS factor (Chabrier masses divided by 0.61, i.e. × 1.64), read at source. The other printed conversions span 1.55–1.71. SL2S uses its own printed Salpeter masses.
+3. **SNL-1.** D-075 item 2 applied as written: the next-ranked record in the frozen ranking is R61. Its two values (L_F814W and Υ_ref) are confirmed by a second reader before conversion.
+4. **Data standard 2.1.0.** One quantity, `einstein_mass`, is added to the observed side (§4a), with a validator test. Nothing else changes.
+
+**Disclosure (proposer not fully blind).** While checking table layouts, the gas adjudicator saw a few lens-related printed values in its terminal:
+- the first eight rows of R7 Table 4, including R7's f*,Ein from its σ-prior alternative masses;
+- R61's lensing-based Υ_Rap;
+- one M_DM entry in R32;
+- R9's qualitative text.
+
+None was recorded or used. The gas numbers were computed by a committed script from literature galaxies only. JvH was offered a fully blind re-derivation and ruled to proceed.
+
+**Reason.**
+- The gas term rests on measured gas and stars in the same apertures of early-type galaxies, which is what D-075 item 1 required.
+- The range runs from the lowest measured value to an upper bound, so the slider shows how far gas can move g_bar.
+- The Salpeter factor is printed by a source for the same model family.
+
+**Data seen.**
+- The gas measurements of the literature galaxies, and the lens inputs.
+- No lens g_obs, g_bar or ratio has been computed. The adjudicator's exposures are as disclosed above.
