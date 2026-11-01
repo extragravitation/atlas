@@ -1515,3 +1515,9 @@ None was recorded or used. The gas numbers were computed by a committed script f
 **Reason.** It is the project plan's first goal, a citable, versioned snapshot of what is live, labelled so nobody mistakes it for a reviewed result.
 
 **Data seen.** Not applicable.
+
+**Done (2026-11-01 12:24 MDT).** JvH published the GitHub release; this session is not permitted to create releases. Tag `v0.1` is on commit 3edbcd0, marked pre-release. Zenodo archived it:
+- version DOI **10.5281/zenodo.23864356**;
+- concept DOI (all versions) **10.5281/zenodo.23864355**.
+
+The Zenodo record shows the preliminary note.

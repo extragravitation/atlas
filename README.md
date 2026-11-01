@@ -4,7 +4,11 @@
 
 The Atlas describes where and how the observed gravitational acceleration (g_obs) exceeds what Newtonian gravity predicts from detected baryonic matter (g_bar). It is a field guide, not an argument: it takes no side between the competing accounts of the discrepancy, and every number traces to a published source.
 
-**Status:** pre-release. Building toward v0.1. No data have been released yet.
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23864356.svg)](https://doi.org/10.5281/zenodo.23864356)
+
+**Status:** version 0.1, a **preliminary pre-release, not peer reviewed** (2026-11-01). Six datasets are live at https://extragravitation.org. The v1.0 release gates (#16) are not met.
+
+**Cite:** van Hemert, J. (2026). *Atlas of Extra Gravitation*, version 0.1 (preliminary, not peer reviewed). Zenodo. https://doi.org/10.5281/zenodo.23864356. All versions: https://doi.org/10.5281/zenodo.23864355. Also cite the original sources of any data you use (listed on each dataset page).
 
 ## Principles
 
