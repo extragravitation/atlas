@@ -1,0 +1,234 @@
+---
+// System page for a galaxy-scale strong lens (aeg-d-strong-lensing): one projected value per system at
+// the Einstein radius R_E (D-064), with the inputs as read at source, the cosmology, the gas term and the
+// reported checks. Everything shown is read from the package files; the only arithmetic here turns the
+// package's accelerations into masses inside the same cylinder (M = g R_E² / G = g × M_E / g_obs).
+import L from './L.astro';
+import Layer from './Layer.astro';
+import { lensPackage, cosmologyRows } from '../lib/lensing.mjs';
+import { REPO } from '../lib/md.mjs';
+
+const { sys, d, lab } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const pkg = lensPackage(d);
+const P = sys.props, R = sys.row;
+const meas = d.measurements.rows.filter((r) => r.system_id === sys.id);
+const def = meas.find((r) => r.plotted === 'true');
+const alts = meas.filter((r) => r.role === 'alternative');
+const obs = (d.observables?.rows || []).filter((o) => o.system_id === sys.id);
+const plotted = P.status === 'plotted' && !!def;
+const repoDir = `data/packages/${d.name}/${d.version}`;
+const dsPage = `${base}datasets/${d.name}/${d.version}/`;
+
+const e10 = (v) => (v === null || v === undefined ? '–' : (v / 1e-10).toPrecision(3));
+const m10 = (v) => (v === null || v === undefined ? '–' : (v / 1e10).toPrecision(3));
+const m10e = (v) => (v === null || v === undefined ? '–' : (v / 1e10).toPrecision(2));
+const pct = (f) => `${Number((f * 100).toPrecision(2))}%`;
+const errText = (lo, hi, f) => (lo == null && hi == null ? null : lo === hi ? `± ${f(lo)}` : `−${f(lo)} / +${f(hi)}`);
+
+// Masses inside the cylinder of radius R_E, from the package's own columns.
+let fig = null;
+if (plotted) {
+  const k = def.x_strong_lensing_m_e_msun / def.g_obs; // R_E² / G, exactly as the package used it
+  const ME = def.x_strong_lensing_m_e_msun;
+  const MEe = def.g_obs_err_lo == null ? null : [def.g_obs_err_lo * k, def.g_obs_err_hi * k];
+  const Ms = def.x_strong_lensing_mstar_re_msun;
+  const Mse = def.g_bar_err_lo == null ? null : [def.g_bar_err_lo * k, def.g_bar_err_hi * k];
+  const Mtop = def.x_strong_lensing_mstar_top_msun;
+  const gas = ((def.g_bar_gas_hot || 0) + (def.g_bar_gas_cold || 0)) * k;
+  const fr = (a, b) => (def[a] || 0) + (def[b] || 0);
+  const gasMin = Ms * fr('x_strong_lensing_gas_hot_frac_min', 'x_strong_lensing_gas_cold_frac_min');
+  const gasMax = Ms * fr('x_strong_lensing_gas_hot_frac_max', 'x_strong_lensing_gas_cold_frac_max');
+  const top = Math.max(ME + (MEe ? MEe[1] : 0), (Mtop || Ms) + gasMax, Ms + (Mse ? Mse[1] : 0));
+  const step = (() => { const r = top / 5, e = 10 ** Math.floor(Math.log10(r)), m = r / e; return (m < 1.5 ? 1 : m < 3.5 ? 2 : m < 7.5 ? 5 : 10) * e; })();
+  const max = Math.ceil((top * 1.04) / step) * step;
+  const x = (v) => `${Math.max(0, Math.min(100, (v / max) * 100)).toFixed(3)}%`;
+  const w = (a, b) => `${Math.max(0, ((b - a) / max) * 100).toFixed(3)}%`;
+  const ticks = []; for (let v = 0; v <= max + 1e-9 * max; v += step) ticks.push(v);
+  fig = { ME, MEe, Ms, Mse, Mtop, gas, gasMin, gasMax, max, x, w, ticks, k };
+}
+
+// Flags, explained in both layers. Core flags and the package's own flags (D-075, D-076).
+const FLAG = {
+  no_uncertainty: ['At least one input has no printed error (shown as – in the inputs table). It is carried without one; the missing uncertainty is not guessed, so the error on the affected side is incomplete or absent.', 'The paper gives no uncertainty for at least one of these numbers, so none is shown for it.'],
+  flat_from_omega_lambda: ['The source prints Ω_Λ = 1 − Ω_m, so its cosmology is taken as flat (D-075 item 4).', 'The paper’s model of the expanding universe is flat, so it is used as flat.'],
+  sample_level_error: ['SLACS V prints no per-lens error on θ_E, only a survey-wide 2%; that 2% is carried for every SLACS lens (D-075 item 4).', 'The survey gives one typical uncertainty (2%) for the size of all its rings, not one for each lens; that is used here.'],
+  mstar_in_RE_from_profile: ['Only a total stellar mass is printed. The share inside R_E is the fraction of the source’s own light profile inside R_E, assuming the stars’ mass follows their light (A6S_PRECEDENCE §3.1). This step is checked on SLACS: see the profile-step check below.', 'The paper gives the mass of all the stars. The share inside the ring is worked out from how the galaxy’s light is spread out.'],
+  profile_differs_from_mass_photometry: ['The light profile used for that share (R10’s de Vaucouleurs fit) is not from the same photometry as the stellar masses (R9) (D-075 item 5).', 'The light profile and the star mass come from different measurements of the galaxy.'],
+  salpeter_top_from_other_source_same_model_family: ['The Salpeter top of the IMF slider uses R30’s printed FSPS factor, Chabrier ÷ 0.61 (× 1.64); the other printed conversions span 1.55–1.71 (D-076 item 2).', 'The upper end of the star-mass range uses a conversion printed in another paper that used the same family of star models.'],
+  fallback_record: ['The first-ranked record could not supply a quantity the frozen rules require, so the next-ranked eligible record in the frozen ranking is the default (D-075 item 2; D-076 item 3).', 'The first-choice paper lacked a number the fixed rules need, so the next paper in the fixed order was used.'],
+  mstar_from_L_times_ML: ['The stellar mass is computed by the package as luminosity × a stellar-population mass-to-light ratio with a named IMF (D-063 item 1; D-075 item 3).', 'The star mass is the galaxy’s brightness times how much mass each unit of its light stands for.'],
+  gas_negligible_source_assumption: ['The source states that gas inside R_E is negligible. That is a source assumption, not a measurement, so the registered gas term applies here as everywhere (D-076 item 1); the statement is shown under Gas.', 'The paper says there is too little gas to matter. The Atlas still adds the same small, measured gas share as for every lens.'],
+  imf_top_not_read: ['No Salpeter value or printed conversion was read for this source, so this lens has no IMF slider and no Salpeter top in the figure.', 'No upper value for the star mass was found, so it cannot be changed with the slider.'],
+  model_dependence_half_image_separation: ['R_E is half the separation of the lensed images, which the cited source uses as its Einstein radius (D-063 item 2); the row carries model_dependence = total_mass_form.', 'The ring size is half the distance between the lensed images. That depends a little on the shape assumed for the galaxy’s mass.'],
+  aperture_as_RE_half_image_separation: ['R61’s fiducial aperture R_ap, equal to R25’s half image separation, is taken as R_E (D-075 item 3).', 'The paper’s measuring circle, the same size as the ring, is used as the ring.'],
+  R_E_printed_kpc: ['The source prints R_E in kpc; it is used as printed.', 'The paper gives the ring size in kiloparsecs; it is used as given.'],
+  cosmology_named_only: ['The source names its cosmology (Planck 2018) without printing its numbers; the numbers of the named paper are used, read at source (D-075 item 4). This lens is not in the Einstein-mass formula check.', 'The paper names its model of the expanding universe without printing its numbers; they were taken from the paper it names.'],
+  salpeter_factor_approx_printed: ['The source prints its Salpeter conversion as approximate (α ≈ 1.65).', 'The paper gives the conversion to the upper star-mass value only roughly.'],
+  cosmology_by_reference: ['The stellar-mass source adopts the distances of another paper (R25); that paper’s cosmology is used (D-075 item 4).', 'The paper takes its distances from another paper, so that paper’s model of the expanding universe is used.'],
+  flatness_not_stated: ['The source prints H0 and Ω_m only. Flatness is not stated; the conversion uses a flat cosmology with the printed values, as for every lens (assumption a6s_source_cosmology).', 'The paper does not say whether its model universe is flat; a flat one is used, as for every lens.'],
+};
+// What the fallback replaced, per lens (D-075 item 2; D-076 item 3).
+const FALLBACK = [
+  [/J0946\+1006/, ['First-ranked record: R66, whose tPIEMD model is not converted in v1 (no tPIEMD code is written). Default: SLACS V (R5) and R13.', 'The first-choice paper used a mass model the Atlas does not convert yet, so the SLACS papers are used.']],
+  [/J1538\+5817/, ['First-ranked record: R49, which prints no Chabrier or Kroupa stellar mass. Default: R13.', 'The first-choice paper gave no star mass of the standard kind, so the next paper was used.']],
+  [/J04035024-0239275/, ['R29’s matched pair is the default (one radius, one cosmology and one set of redshifts); R27 is shown as the alternative.', 'The paper whose numbers all fit together is used; the other is kept as an alternative.']],
+  [/SNL-1/, ['First-ranked record: R33, whose MGE model is not converted in v1. Default: the next-ranked record, R61 (its L_F814W and Υ_ref confirmed by a second reader, D-076 item 3).', 'The first-choice paper used a model the Atlas does not convert yet, so the next paper was used, after a second person checked its numbers.']],
+];
+const fallback = FALLBACK.find(([re]) => re.test(sys.name))?.[1];
+const pkgFlags = (def?.x_strong_lensing_flags || '').split(/\s+/).filter(Boolean);
+const coreFlags = (def?.flags || '').split(';').filter(Boolean);
+const flags = [...new Set([...coreFlags, ...pkgFlags])];
+
+// Records: "observed R5; stellar R13".
+const recs = Object.fromEntries((def?.source_ref || '').split(';').map((x) => x.trim().split(' ')).filter((a) => a.length === 2));
+const cosmo = def ? cosmologyRows(pkg, P.scope, sys.name, recs.observed) : [];
+// The formula check row for this lens (where a printed M_E exists to compare with).
+const fc = pkg.formula.rows.find((r) => r.name === sys.name && r.scope === P.scope);
+const usesProfile = pkgFlags.includes('mstar_in_RE_from_profile');
+const ps = pkg.profileGroups;
+
+// Inputs: record, location and address from the source_ref text "R13: location (https://…)".
+const src = (t) => { const m = (t || '').match(/^([^:]+):\s*(.*?)\s*\((https?:\/\/[^\s)]+)[^)]*\)?\)?\s*$/); return m ? { rec: m[1], loc: m[2], url: m[3] } : { rec: '', loc: t || '', url: null }; };
+const QTY = { einstein_radius: ['Einstein radius θ_E', 'Ring size'], einstein_mass: ['Einstein mass M_E', 'Mass inside the ring'], redshift: ['Redshift', 'Redshift'], mass_star: ['Stellar mass', 'Star mass'], half_light_radius: ['Half-light radius', 'Size holding half the light'], luminosity: ['Luminosity', 'Brightness'], stellar_ml_population: ['Population M/L', 'Mass per unit of light'] };
+const ROLE = { default: 'default', top: 'Salpeter top (slider)', alternative: 'alternative (not plotted)', alt_top: 'alternative, Salpeter' };
+const fmtV = (v) => (v === null || v === undefined ? '–' : Math.abs(v) >= 1e5 ? `${Number((v / 10 ** Math.floor(Math.log10(Math.abs(v)))).toPrecision(4))} × 10${String(Math.floor(Math.log10(Math.abs(v)))).replace(/[0-9]/g, (c) => '⁰¹²³⁴⁵⁶⁷⁸⁹'[c])}` : String(v));
+const zs = (P.z_s ?? def?.x_strong_lensing_z_s);
+---
+<p class="lede"><L t={`${R.class_in_source}. ${lab.method_t}. ${plotted ? 'Plotted: one projected value at R_E, marked as projected.' : 'Recorded, not plotted.'}`} p={`${lab.one_p}. ${plotted ? 'Shown on the map as one open ring: the pull measured in projection inside the ring of images.' : 'Kept in the record but not shown on the map, for the reasons below.'}`} /></p>
+
+<h2 id="status"><L t="Status" p="On the map?" /></h2>
+{plotted ? (
+  <>
+    <dl class="facts">
+      <div><dt><L t="g_obs at R_E, projected" p="Observed pull, in projection" /></dt><dd>{e10(def.g_obs)} × 10⁻¹⁰ m s⁻² <span class="small">{def.g_obs_err_lo == null ? '(no printed error)' : `(${errText(def.g_obs_err_lo, def.g_obs_err_hi, e10)}, from M_E at fixed R_E)`}</span></dd></div>
+      <div><dt><L t="g_bar at R_E, projected" p="Pull from detected matter, in projection" /></dt><dd>{e10(def.g_bar)} × 10⁻¹⁰ m s⁻² <span class="small">{def.g_bar_err_lo == null ? '(no printed error)' : `(${errText(def.g_bar_err_lo, def.g_bar_err_hi, e10)}, from the stellar mass only)`}</span></dd></div>
+      <div><dt><L t="g_bar: stars / gas" p="From stars / from gas" /></dt><dd>{e10(def.g_bar_stars)} / {e10((def.g_bar_gas_hot || 0) + (def.g_bar_gas_cold || 0))} × 10⁻¹⁰ m s⁻²</dd></div>
+      <div><dt><L t="g_obs / g_bar (projected)" p="Observed ÷ detected" /></dt><dd>{(def.g_obs / def.g_bar).toFixed(2)}</dd></div>
+      <div><dt><L t="R_E (projected)" p="Ring radius" /></dt><dd>{def.r_kpc.toFixed(2)} kpc <span class="small">(θ_E = {def.x_strong_lensing_theta_e_arcsec}″{def.x_strong_lensing_r_e_source === 'printed' ? ', R_E printed in kpc' : ''})</span></dd></div>
+      <div><dt>z_l / z_s</dt><dd>{def.x_strong_lensing_z_l} / {def.x_strong_lensing_z_s}</dd></div>
+      <div><dt><L t="Survey · records" p="Where from" /></dt><dd>{P.scope} <span class="small">· {def.source_ref}</span></dd></div>
+    </dl>
+    <p class="small" style="margin-top:8px"><L t="Projected (D-064): both sides are masses inside the same cylinder of radius R_E, expressed as G M / R_E². They are a different quantity from the 3D accelerations elsewhere in the Atlas and are never merged with them; g_obs / g_bar = M_E / M_bar(<R_E) exactly." p="Both pulls count everything inside a cylinder through the galaxy, the width of the ring. That is a different measurement from the other systems in the Atlas, so it keeps its own mark." /></p>
+  </>
+) : (
+  <div class="boxed">
+    <p><b><L t="Not plotted." p="Not on the map." /></b> <L t="Reasons, as recorded in the package:" p="Why:" /></p>
+    <ul class="small">{(P.reasons_not_plotted || []).map((r) => <li>{r}</li>)}</ul>
+    <p class="small"><L t={`Survey: ${P.scope}. Lens redshift ${R.redshift ?? '–'}${zs != null ? `, source redshift ${zs}` : ''} (${R.distance_ref || 'as printed'}).`} p={`From ${P.scope}.`} /></p>
+  </div>
+)}
+
+{plotted && fig && (
+  <>
+    <h2 id="figure"><L t="Inside the Einstein radius" p="Inside the ring: light-bending against detected matter" /></h2>
+    <figure class="lensfig">
+      <div class="lf-row">
+        <div class="lf-lab"><L t="Lensing mass inside R_E, M_E" p="Mass that bends the light, inside the ring" /></div>
+        <div class="lf-track" aria-hidden="true">
+          <span class="lf-seg lf-lens" style={`left:0;width:${fig.x(fig.ME)}`}></span>
+          {fig.MEe && <span class="lf-err" style={`left:${fig.x(fig.ME - fig.MEe[0])};width:${fig.w(fig.ME - fig.MEe[0], fig.ME + fig.MEe[1])}`}></span>}
+        </div>
+        <div class="lf-val">{m10(fig.ME)}{fig.MEe ? ` (${errText(fig.MEe[0], fig.MEe[1], m10e)})` : ' (no printed error)'}</div>
+      </div>
+      <div class="lf-row">
+        <div class="lf-lab"><L t="Detected baryons inside R_E: stars + gas" p="Detected matter inside the ring: stars and gas" /></div>
+        <div class="lf-track" aria-hidden="true">
+          {fig.Mtop && <span class="lf-range" style={`left:${fig.x(fig.Ms)};width:${fig.w(fig.Ms, fig.Mtop)}`}></span>}
+          <span class="lf-seg lf-stars" style={`left:0;width:${fig.x(fig.Ms)}`}></span>
+          <span class="lf-seg lf-gas" style={`left:${fig.x(fig.Ms)};width:${fig.w(fig.Ms, fig.Ms + fig.gas)}`}></span>
+          {fig.Mse && <span class="lf-err" style={`left:${fig.x(fig.Ms - fig.Mse[0])};width:${fig.w(fig.Ms - fig.Mse[0], fig.Ms + fig.Mse[1])}`}></span>}
+          <span class="lf-gasrange" style={`left:${fig.x(fig.Ms + fig.gasMin)};width:${fig.w(fig.Ms + fig.gasMin, fig.Ms + fig.gasMax)}`}></span>
+        </div>
+        <div class="lf-val">{m10(fig.Ms + fig.gas)}</div>
+      </div>
+      <div class="lf-row lf-axis" aria-hidden="true">
+        <div class="lf-lab"></div>
+        <div class="lf-track lf-ticks">{fig.ticks.map((v) => <span style={`left:${fig.x(v)}`}>{Number((v / 1e10).toPrecision(3))}</span>)}</div>
+        <div class="lf-val"></div>
+      </div>
+      <p class="lf-unit small"><L t="Mass inside the cylinder of radius R_E (10¹⁰ M☉), linear scale" p="Mass inside the ring (10¹⁰ times the Sun’s mass)" /></p>
+      <ul class="legend lf-legend">
+        <li><span class="sw" style="background:var(--sl)" aria-hidden="true"></span><span><L t="M_E" p="Light-bending mass" /> {m10(fig.ME)}{fig.MEe ? ` ${errText(fig.MEe[0], fig.MEe[1], m10e)}` : ''}</span></li>
+        <li><span class="sw" style="background:var(--stars)" aria-hidden="true"></span><span><L t="Stars, M*(<R_E), default IMF" p="Stars" /> {m10(fig.Ms)}{fig.Mse ? ` ${errText(fig.Mse[0], fig.Mse[1], m10e)}` : ' (no printed error)'}</span></li>
+        {fig.Mtop ? <li><span class="sw" style="border:1.5px dashed var(--range)" aria-hidden="true"></span><span><L t="Salpeter top (IMF slider)" p="Stars, upper value" /> {m10(fig.Mtop)}</span></li> : <li><span class="sw" style="border:1px solid var(--line)" aria-hidden="true"></span><span><L t="No Salpeter top read (imf_top_not_read)" p="No upper star value" /></span></li>}
+        <li><span class="sw" style="background:var(--gas)" aria-hidden="true"></span><span><L t="Gas, default" p="Gas" /> {m10(fig.gas)} <span class="muted">(<L t="range" p="could be" /> {m10e(fig.gasMin)}–{m10e(fig.gasMax)}, <L t="the bracket under the bar" p="the thin bracket" />)</span></span></li>
+      </ul>
+      <figcaption><b>Figure.</b> <L t={`Masses inside the same projected cylinder of radius R_E = ${def.r_kpc.toFixed(2)} kpc, in 10¹⁰ M☉, from the package row ${def.measurement_id}: M_E with the error carried on g_obs; stars at the default IMF with the error carried on g_bar and the Salpeter top as a dashed outline; gas at the registered default (${pct((def.x_strong_lensing_gas_hot_frac || 0) + (def.x_strong_lensing_gas_cold_frac || 0))} of the stars) with its registered range (${pct((def.x_strong_lensing_gas_hot_frac_min || 0) + (def.x_strong_lensing_gas_cold_frac_min || 0))}–${pct((def.x_strong_lensing_gas_hot_frac_max || 0) + (def.x_strong_lensing_gas_cold_frac_max || 0))}). The gas is too small to see at the default. The ratio of the two bars at their defaults is g_obs / g_bar.`} p="Top bar: the mass inside the ring measured by light-bending, with its uncertainty. Bottom bar: the mass of the stars and gas detected inside the same ring. The dashed outline shows how far the star mass could go with a different assumption about faint stars; the gas is a very thin sliver at the end." /></figcaption>
+    </figure>
+  </>
+)}
+
+{alts.length > 0 && (
+  <>
+    <h3><L t="Other values (not plotted)" p="Other values kept in the record" /></h3>
+    <div tabindex="0" class="tablebox"><table>
+      <thead><tr><th class="l">Alternative</th><th>g_obs (10⁻¹⁰ m s⁻²)</th><th>g_bar</th><th>g_obs / g_bar</th><th>R_E (kpc)</th></tr></thead>
+      <tbody>{alts.map((r) => <tr><td class="l" style="white-space:normal;min-width:280px">{(r.notes || '').replace(/^alternative:\s*/, '')}</td><td>{e10(r.g_obs)}</td><td>{e10(r.g_bar)}</td><td>{(r.g_obs / r.g_bar).toFixed(2)}</td><td>{r.r_kpc.toFixed(2)}</td></tr>)}</tbody>
+    </table></div>
+    <p class="small" style="margin-top:6px"><L t="Alternatives are kept with role = alternative and never plotted (D-065)." p="These were worked out the same way from other published numbers; only the default is on the map." /></p>
+  </>
+)}
+
+{flags.length > 0 && (
+  <>
+    <h3 id="flags"><L t="Flags on this lens" p="Notes on this lens’s numbers" /></h3>
+    <ul class="small flaglist">
+      {flags.map((f) => <li><code>{f}</code>: <L t={(FLAG[f] || ['See the dataset page.'])[0]} p={(FLAG[f] || ['', 'See the dataset page.'])[1]} />{f === 'fallback_record' && fallback && <> <L t={fallback[0]} p={fallback[1]} /></>}</li>)}
+    </ul>
+  </>
+)}
+
+<h2 id="inputs"><L t="Inputs" p="What went into the numbers" /></h2>
+{obs.length > 0 ? (
+  <>
+    <div tabindex="0" class="tablebox"><table>
+      <thead><tr><th class="l">Quantity</th><th>Value</th><th>Error</th><th class="l">Unit</th><th class="l">Role</th><th class="l">Source · location</th><th class="l">As printed</th><th class="l">Reading note</th></tr></thead>
+      <tbody>{obs.map((o) => { const s = src(o.source_ref), q = QTY[o.quantity] || [o.quantity, o.quantity]; return <tr>
+        <td class="l">{o.side === 'observed' ? 'obs · ' : 'bar · '}<L t={q[0]} p={q[1]} /></td>
+        <td>{fmtV(o.value)}</td>
+        <td>{errText(o.err_lo, o.err_hi, fmtV) || '–'}</td>
+        <td class="l">{o.unit || '–'}{o.band ? ` (${o.band})` : ''}</td>
+        <td class="l">{ROLE[o.x_strong_lensing_role] || o.x_strong_lensing_role}</td>
+        <td class="l" style="white-space:normal;min-width:240px">{s.rec}: {s.url ? <a href={s.url}>{s.loc}</a> : s.loc}</td>
+        <td class="l"><code>{o.x_strong_lensing_printed}</code></td>
+        <td class="l" style="white-space:normal;min-width:260px">{o.x_strong_lensing_parameter}</td>
+      </tr>; })}</tbody>
+    </table></div>
+    <p class="small" style="margin-top:6px"><L t="Every input was read twice at source by independent readers and adjudicated at source where they differed (SECOND_READING.md; reading/adjudication.md). 'As printed' is the reader’s transcription: value, errors, form and unit." p="Two people read each number from the original paper separately; where they differed, a third checked the paper. 'As printed' shows the number exactly as the paper gives it." /> <a href={`${REPO}/blob/main/${repoDir}/SECOND_READING.md`}>SECOND_READING.md</a></p>
+  </>
+) : <p class="small"><L t="No input of this lens is tabulated: it has no Einstein radius or Einstein mass in the inputs. Its readings are in the package's reading/ files." p="Nothing was converted for this lens." /></p>}
+
+{plotted && (
+  <>
+    <h2 id="cosmology"><L t="Cosmology" p="Model of the expanding universe" /></h2>
+    <Layer as="p" class="small"><Fragment slot="t">R_E in kpc and M_E use the cosmology of the source of the observed side (D-064 item 4, D-029), registered as a6s_source_cosmology. The ratio g_obs / g_bar does not depend on it to first order, because both masses scale with the same distances.</Fragment><Fragment slot="p">Turning the ring’s angle into a size needs the distance, which comes from each paper’s own model of the expanding universe. The comparison between the two bars hardly depends on it.</Fragment></Layer>
+    <dl class="facts">
+      <div><dt>H0</dt><dd>{def.x_strong_lensing_h0} km s⁻¹ Mpc⁻¹</dd></div>
+      <div><dt>Ω_m</dt><dd>{def.x_strong_lensing_om} <span class="small">(flat, Ω_Λ = 1 − Ω_m)</span></dd></div>
+      <div><dt><L t="Read from" p="From" /></dt><dd>{recs.observed}</dd></div>
+    </dl>
+    {cosmo.length > 0 && <ul class="small" style="margin-top:8px">{cosmo.map((c) => <li><b>{c.quantity}</b> = {c.value} · {c.location}{c.note ? <> · <span class="muted">{c.note}</span></> : ''}{c.url && <> · <a href={c.url}>source</a></>}</li>)}</ul>}
+    {['flat_from_omega_lambda', 'cosmology_named_only', 'cosmology_by_reference', 'flatness_not_stated'].filter((f) => pkgFlags.includes(f)).map((f) => <p class="small flagnote" style="margin-top:4px"><code>{f}</code>: <L t={FLAG[f][0]} p={FLAG[f][1]} /></p>)}
+
+    <h2 id="gas"><L t="Gas inside R_E" p="Gas inside the ring" /></h2>
+    <Layer as="p" class="small"><Fragment slot="t">No lens in this package has a measured gas mass inside its own Einstein radius. Every lens therefore carries the registered gas term a6s_gas_in_RE (D-076 item 1, option G1): fractions of M*(&lt;R_E) at the default IMF, from measured gas and stellar masses in the same apertures of other early-type galaxies. Radii are never rescaled; non-detections are kept as limits.</Fragment><Fragment slot="p">Nobody has measured the gas inside the ring of these lenses. So each lens gets the same small gas share, taken from measurements of gas and stars in similar galaxies.</Fragment></Layer>
+    <div tabindex="0" class="tablebox" style="max-height:none;margin-top:8px"><table>
+      <thead><tr><th class="l"><L t="Component" p="Kind of gas" /></th><th><L t="Default (of M*)" p="Default share" /></th><th><L t="Range (slider)" p="Could be" /></th><th><L t="Mass here (10¹⁰ M☉)" p="Mass here (10¹⁰ Suns)" /></th></tr></thead>
+      <tbody>
+        <tr><td class="l"><L t="Hot X-ray gas" p="Hot gas" /></td><td>{pct(def.x_strong_lensing_gas_hot_frac)}</td><td>{pct(def.x_strong_lensing_gas_hot_frac_min)}–{pct(def.x_strong_lensing_gas_hot_frac_max)}</td><td>{m10((def.g_bar_gas_hot || 0) * fig.k)}</td></tr>
+        <tr><td class="l"><L t="Cold gas (molecular + atomic)" p="Cold gas" /></td><td>{pct(def.x_strong_lensing_gas_cold_frac)}</td><td>{pct(def.x_strong_lensing_gas_cold_frac_min)}–{pct(def.x_strong_lensing_gas_cold_frac_max)}</td><td>{m10((def.g_bar_gas_cold || 0) * fig.k)}</td></tr>
+      </tbody>
+    </table></div>
+    {def.x_strong_lensing_gas_statement && <p class="small" style="margin-top:8px"><b><L t="Source statement:" p="What the paper says:" /></b> {def.x_strong_lensing_gas_statement}</p>}
+    <p class="small" style="margin-top:8px"><L t="Evidence:" p="Where the gas share comes from:" /> <a href={`${REPO}/blob/main/${repoDir}/reading/gas/adjudication_gas.md`}>reading/gas/adjudication_gas.md</a> (<L t="measurement table and quotes" p="the measurements and quotes" />) · <a href={`${REPO}/blob/main/docs/decisions.md#d-076--a6-strong-lensing-gas-term-salpeter-top-for-s4tm-snl-1-record-data-standard-210`}>D-076</a> · <a href={`${dsPage}#assumptions`}><L t="registry entry" p="all assumptions" /></a></p>
+  </>
+)}
+
+{plotted && (fc || usesProfile) && (
+  <>
+    <h2 id="checks"><L t="Reported checks" p="Cross-checks" /></h2>
+    {fc && <p class="small"><b><L t="Einstein-mass formula." p="Mass from the ring size." /></b> <L t={`M_E computed from θ_E = ${fc.theta_arcsec}″ (${fc.record_theta}) with the frozen formula, in the source’s cosmology, divided by the M_E printed by ${fc.record_m_e}: ${fc.ratio.toFixed(3)}${fc.printed_form === 'log10' ? ` (printed as log10 M_E = ${fc.printed_value}, rounded to 0.01 dex)` : ''}. Reported, not pass/fail.`} p={`The mass worked out from the ring size agrees with the paper’s own number to within ${Math.abs((fc.ratio - 1) * 100).toFixed(1)}%.`} /> <a href={`${dsPage}#check-formula`}><L t="All lenses" p="All lenses" /></a></p>}
+    {usesProfile && <p class="small" style="margin-top:6px"><b><L t="Profile step." p="Share of the stars inside the ring." /></b> <L t={`This lens’s stellar mass inside R_E comes from the profile step (a printed total × the light-profile fraction). The same step, run on the SLACS totals, gives ${ps.map((g) => `${g.key}: median ${g.stats.median.toFixed(3)}, range ${g.stats.min.toFixed(3)}–${g.stats.max.toFixed(3)}, ${g.stats.within} of ${g.stats.n} within ±10%`).join('; ')} of R13’s printed masses inside R_E (D-075 item 5). Reported, not pass/fail.`} p="The way the star mass inside the ring is worked out here was tested on another survey that prints both numbers; the results are on the dataset page." /> <a href={`${dsPage}#check-profile`}><L t="The check in full" p="See the check" /></a></p>}
+  </>
+)}
