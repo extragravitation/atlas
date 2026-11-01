@@ -1383,3 +1383,43 @@ What the rule covers:
 **Reason.** It fixes every choice between published values before any A9 value is read. The coverage table (`docs/sources/screening-L9/coverage-A9-v3.md`) shows the rule leaves about 79 clusters with stars that can be paired with an observed side, before the gas check.
 
 **Data seen.** The search logs, screening readings, coverage tables (names, redshifts, codes, methods) and catalogue column lists. No A9 table, luminosity or mass was opened.
+
+## D-074 — A9 route: case studies, a LoCuSS one-radius layer, and a CHEX-MATE watch
+
+**Ruling (2026-10-31 22:07 MDT, JvH).** "Proceed as recommended in this analysis." **Proposed by** Claude (2026-10-31, option E, after `docs/sources/screening-L9/gas-coherence-A9.md`). **Adopted.**
+
+1. **No A9 population profiles for now.** No programme supplies an observed side, stars and a gas density profile for the same clusters below z = 0.30 (gas-coherence record, PR #92).
+2. **Case studies** (content type "case study"), about eight clusters whose inputs are all published:
+   - Member dynamics with X-COP baryons: A85, A2142, ZwCl 1215.
+   - Lensing: A1689, A1835, A2390, MS 1455+22.
+   - Coma: both channels.
+   - Each page shows every channel, every baryon component, and every centre and aperture with their offsets. A case study is never merged into the population map.
+3. **LoCuSS layer, one point per cluster at r500,WL**, with two scoped rule changes that apply to this layer only:
+   - (a) **3D comparison.** The observed side is the source's 3D lensing mass from its NFW profile fit, labelled `model_dependence`. This replaces D-067 item 3 (project the baryons) for LoCuSS, whose gas is published only as 3D masses within the aperture.
+   - (b) **Stars as an upper bound.** The projected K-band light (S6) × the registered ratio is used as an upper bound on the 3D stars, flagged as a one-sided bias (g_bar slightly high, so the discrepancy slightly low). This replaces D-071 safeguard 2 for this layer.
+   - The aperture comes from the cluster's own lensing mass: radius only, flagged.
+   - The points carry their own mark ("one radius").
+   - A spec is written and hash-frozen before any LoCuSS table is opened.
+4. **CHEX-MATE watch.** When its density profiles are released, a coherent lensing population (19 clusters) is screened as a later version.
+5. **Funnel page.** It shows the A9 counts from the search to the plot, with the reason at each step.
+
+**Order:**
+1. A6 packaging.
+2. The X-COP case studies.
+3. The LoCuSS spec, frozen, then packaged.
+4. The other case studies.
+5. The funnel page.
+
+**Reason.**
+- Coherent sources over a mosaic. LoCuSS is the most coherent sample found: one team, one BCG centre, one aperture, all inputs printed in tables.
+- Case studies give depth that can be checked by hand.
+- Every departure from the general rules is scoped to one layer, labelled, and one-sided where it biases.
+
+**Disclosure.** The two LoCuSS rule changes were proposed after the coverage (names, codes and methods) was seen, not after any value.
+
+**Alternatives rejected.**
+- Case studies only: too thin to show the cluster regime.
+- XXL from figures: tier 3, and its centres differ in kind.
+- Waiting for releases or author data.
+
+**Data seen.** Coverage and gas-coherence records only: names, redshifts, codes, centres, apertures and methods. No masses, luminosities or densities.
