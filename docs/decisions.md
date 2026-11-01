@@ -1307,3 +1307,28 @@ In v1.0, the Atlas does not build a cluster's stellar mass by summing a publishe
 **Reason.** Neither a circular model nor an omission may stand in for measured stars. Recording the cluster with its reason keeps it visible and honest.
 
 **Data seen.** The stellar-mass screening and coverage table (names, codes); D-022 and D-023.
+
+## D-071 — Cluster stars from printed luminosity × the Atlas's registered stellar M/L
+
+**Ruling (2026-10-31 20:17 MDT, JvH).** "Yes." **Proposed by** Claude (2026-10-31, option (a)). **Adopted.**
+
+A cluster's stellar mass counts as **measured** (D-034) when it is the luminosity printed by the source times the Atlas's own registered stellar-population mass-to-light ratio. The luminosity covers the brightest cluster galaxy plus members, with the source's own membership and completeness corrections. The ratio follows the D-039 model family: Chabrier or Kroupa default, Salpeter as the top of the range, read at source and registered per band. The source's own conversion to mass is not used where it is dynamical, or tied to M500 or another scaling relation.
+
+Safeguards:
+1. **The source's light and the source's sums only.** The Atlas sums nothing (D-069).
+2. **Matched geometry.** A projected luminosity is paired only with lensing (row L), a 3D luminosity only with member-galaxy dynamics (row O), unless the source gives both. Otherwise the cluster is recorded, not plotted.
+3. **One radius.** The comparison is made only at the aperture where the luminosity is measured; no stellar profile shape is assumed. An aperture set by a scaling relation is used as a radius and flagged.
+4. **Missing light.** Intracluster light the source did not measure gets a registered range, as `icl_fraction` for X-COP. Its default and range are read at source.
+
+**Reason.**
+- It is the method already used for star clusters and dwarfs.
+- It removes the circularity at its root: the light is measured, and the conversion does not use the cluster's dynamics.
+- At the radii compared, gas dominates the detected baryons, so the stellar ratio's range moves g_bar modestly. The slider shows by how much, computed from the data.
+
+**Cost.**
+- Most clusters get one point, at their measured aperture.
+- The stellar-mass sources are re-screened for printed luminosities, under a brief committed first.
+
+**Alternative rejected.** Keeping only sources that print stellar masses with an acceptable conversion (about 7 to 14 clusters).
+
+**Data seen.** The stellar-mass readings and the coverage table: names, codes, methods. No luminosities or masses.
