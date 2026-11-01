@@ -1368,3 +1368,18 @@ Safeguards:
 **Alternative rejected.** Strict QL2 (an explicit BCG statement required), which would also exclude L2, L8, LV3 and S6.
 
 **Data seen.** Names, codes, methods, column lists and text describing methods. No luminosities or masses.
+
+## D-073 — A9 galaxy-cluster precedence rule (frozen)
+
+**Ruling (2026-10-31 21:09 MDT, JvH).** "Approved." **Proposed by** Claude (`docs/methods/A9_PRECEDENCE.md`, under D-064, D-066, D-067, D-068, D-071 and D-072). **Adopted** without change. Frozen by hash in `data/frozen/a9-precedence.json`.
+
+What the rule covers:
+- **Who is plotted:** A9 kind, printed z < 0.30, a lensing-only (row L) or dynamics-only (row O) observed side, measured gas, measured stars, star geometry matched to the channel, and no scaling-relation inputs.
+- **The observed side:** originals first; binned before fitted; rows L and O never averaged.
+- **The gas:** X-COP, then CHEX-MATE, then the survey's own source; projected for row L, 3D for row O.
+- **The stars:** route (a), stellar mass from photometry, or route (b), printed luminosity × the registered ratio, with the D-069, D-071 and D-072 rules and the per-cluster order; intracluster light as a registered range; modelled stars only as labelled alternatives (#91).
+- **The tests.**
+
+**Reason.** It fixes every choice between published values before any A9 value is read. The coverage table (`docs/sources/screening-L9/coverage-A9-v3.md`) shows the rule leaves about 79 clusters with stars that can be paired with an observed side, before the gas check.
+
+**Data seen.** The search logs, screening readings, coverage tables (names, redshifts, codes, methods) and catalogue column lists. No A9 table, luminosity or mass was opened.

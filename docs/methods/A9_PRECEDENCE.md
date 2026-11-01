@@ -1,4 +1,4 @@
-# A9 galaxy clusters (lensing and member galaxies): which values are shown (draft for JvH's approval; frozen by hash once approved)
+# A9 galaxy clusters (lensing and member galaxies): which values are shown (approved by JvH 2026-10-31 21:09 MDT; frozen by hash, D-073)
 
 Written 2026-10-31 under D-066, D-067, D-068, D-064, D-071 and D-072 (updated for D-071 and D-072 the same day), before any A9 table has been opened. Sources are the eligible records of search log A9 (`docs/sources/screening-A9/final.csv`). Once approved, this file is hash-frozen in `data/frozen/` and changes only by a new decision.
 

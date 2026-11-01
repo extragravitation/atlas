@@ -1,0 +1,9 @@
+{
+  "description": "A9 galaxy-cluster precedence rule: who is plotted, observed side, gas and stars (stellar mass or printed luminosity x registered ratio), ICL range, tests. Frozen before any A9 table is opened.",
+  "frozen_on": "2026-10-31",
+  "decision": "D-073",
+  "spec": "docs/methods/A9_PRECEDENCE.md",
+  "files": {
+    "docs/methods/A9_PRECEDENCE.md": "6551499c0dd786177d8adfa615bc52c4939e2db3c8fac1d2b5047396630c28d7"
+  }
+}
