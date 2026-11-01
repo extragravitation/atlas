@@ -9,6 +9,10 @@ column must equal the adjudicated row's printed value, errors, form and unit. In
 the columns that carry transcribed numbers (theta_E, z_l, z_s, H0, Omega_m, printed M_E, printed R_E in kpc,
 the stellar mass as printed or L and M/L, R_e and n of the light profile) must equal the adjudicated values.
 Equality is exact (ECSV stores the float repr). Writes checks/transcription.csv and prints PASS or FAIL.
+Version 4 (2026-11-01; version 3 output kept as checks/transcription_v3.csv): test 1 v5 found a converter defect.
+The photometric redshift of a second lensed source of SL2SJ021737-051329 (Tu et al. 2009, Table 1 "Double
+system", z ~ 2.9) had been merged into that lens's z_s readings. The converter now leaves such rows out, and
+version 4 applies the same rule, named by the table location, to the reading side. No other change.
 Version 3 (2026-11-01, D-066 item 2; version 2 output kept as checks/transcription_v2.csv) adds
 tables/systems.ecsv: every column of every system row read back must equal the row built in memory, and for
 each system recorded at z_l >= 0.30, each reader's z_l and z_s values stored in properties must equal the
@@ -60,6 +64,10 @@ def _reader_values(letter: str) -> dict:
                 continue
             est = bool(re.search(r"estimat|z_?FP\b|fundamental-plane", (r.get("limit") or "") + " " + (r.get("note") or ""), re.I))
             if r["quantity"] == "z_l" and est:
+                continue
+            # version 4: a z_s whose table location names a second lensed source ("Double system", "photom.")
+            # is not this lens's source redshift (convert.py _is_other_source; SECOND_READING.md)
+            if r["quantity"] == "z_s" and re.search(r"double system|photom", r.get("location") or "", re.I):
                 continue
             d = out.setdefault((cv.lens_key(r["system_id"]), r["scope"].strip()), {"z_l": set(), "z_s": set()})
             d[r["quantity"]].add(float(m.group(0)))

@@ -1144,6 +1144,16 @@ def _is_estimate(r: dict) -> bool:
                 or "estimate" in (r.get("form", "") or ""))
 
 
+_OTHER_SOURCE = re.compile(r"double system|photom", re.I)
+
+
+def _is_other_source(r: dict) -> bool:
+    """A redshift the reader marked as belonging to a second lensed source, not the source used for the lens
+    (fix 2026-11-01: test 1 v5 found such a value, Tu et al. 2009's photometric z of a second source,
+    merged into the z_s readings of SL2SJ021737-051329)."""
+    return bool(_OTHER_SOURCE.search(r.get("location") or ""))  # the table location names the second source
+
+
 def load_readings() -> dict:
     """lens key -> scope -> reader ('a'/'b') -> list of reading rows (in file order)."""
     out: dict = {}
@@ -1168,6 +1178,8 @@ def _reader_view(rows: list[dict]) -> dict:
                 continue
             v = _first_number(r["value"])
             if v is None or (measured_only and _is_estimate(r)):
+                continue
+            if q == "z_s" and _is_other_source(r):
                 continue
             if v not in xs:
                 xs.append(v)
