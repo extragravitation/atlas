@@ -28,6 +28,12 @@
       "relation": "isDocumentedBy",
       "scheme": "doi",
       "resource_type": "other"
+    },
+    {
+      "identifier": "https://extragravitation.org",
+      "relation": "isSupplementTo",
+      "scheme": "url",
+      "resource_type": "other"
     }
   ],
   "notes": "Version 0.1 is a preliminary pre-release: not peer reviewed and not externally reviewed. The v1.0 release gates (issue #16) are not met. Values and methods may change; corrections are logged publicly in the repository (CHANGELOG.md, docs/decisions.md)."
