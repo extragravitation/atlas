@@ -1560,3 +1560,17 @@ The Zenodo record shows the preliminary note.
 **Reason.** "v1.0" in the protocol title next to a v0.1 data release, and a data release titled only with the Atlas's name, made the two records look like rival versions of one thing.
 
 **Data seen.** Not applicable.
+
+## D-080 — Review readiness: freeze new datasets, fidelity first
+
+**Ruling (2026-11-01, JvH).** "1. Freeze new datasets. 2. Draft the sparc courtesy note. 3. Order: fidelity first." **Proposed by** Claude (2026-11-01). **Adopted.**
+
+1. **Freeze.** No new dataset work (A9 clusters, A3, A5, A8 and the rest of #48) until `docs/plans/REVIEW_READINESS_PLAN.md` work packages 1–6 are done, or JvH lifts the freeze. Fixes to shipped datasets are not frozen.
+2. **SPARC courtesy note.** The draft is refreshed in Dropbox (`07 AEG/05 Correspondence/Drafts/`), outside this repository. JvH sends it. The hold on author correspondence (2026-10-29) is lifted for this note only.
+3. **Order.** Fidelity first (#8, #19, #9, a SPARC RAR selection view, a Reproduction page), then the error budget, an independent audit, methods, reproducibility, open issues, and outside review, as set out in the plan.
+
+**Reason.**
+- The first thing a specialist will do is compare the Atlas with the published numbers they know best. An unexplained mismatch in SPARC, the most-used dataset in this field, would be enough to dismiss everything else.
+- More datasets widen the surface for that kind of error; finishing the shipped ones narrows it.
+
+**Data seen.** Not applicable.
