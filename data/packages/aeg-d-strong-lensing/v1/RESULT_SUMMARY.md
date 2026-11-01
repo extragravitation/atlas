@@ -33,7 +33,7 @@ Plotted points use printed lens redshifts z_l < 0.30 (D-066). Each plotted syste
 
 | Test | Result |
 |---|---|
-| 1. Second reading | **FAIL:** 1107 of 1111. 1097 found in both readings; 10 adjudicated at source with the adjudication cited. **4 fail:** the printed errors of R32's R_E in kpc (J1436+4943 ± 0.09, J1701+3722 ± 0.37) were recorded by reader A only. They do not enter g_obs or g_bar. |
+| 1. Second reading | **PASS** (version 3): 1111 of 1111. 1101 found in both readings; 10 adjudicated at source with the adjudication cited. Version 2 failed on 4 numbers, the printed errors of R32's R_E in kpc, which only reader A had recorded. An independent second reader then read R32 Table 1 and found the same values (`reading/readings/second-reader-r32.csv`). The version 2 output is kept as `checks/second_reading_v2.csv`. |
 | 2. Transcription | PASS, 5927 of 5927 |
 | 3. Arithmetic | PASS, 1178 recomputations to 10⁻⁹, including the L × Υ products, the profile step and the gas term |
 | 4. Code (pytest) | PASS, 197 tests (pipeline suite, including the frozen `test_lensing.py` and 26 converter tests) |

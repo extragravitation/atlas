@@ -32,6 +32,10 @@ Outcome per number:
   adjudicated   not found in both, and the adjudicated row says it was settled or verified at source;
                 the adjudication file cited must name the system (or record, for record-level values)
   FAIL          otherwise
+Version 3 (2026-11-01, after the version 2 run failed on 4 numbers; its output is kept as
+checks/second_reading_v2.csv): the 4 failing numbers were R32's R_Ein errors in kpc, recorded by reader A
+only. An independent second reader read R32 Table 1 (reading/readings/second-reader-r32.csv). Version 3
+adds that reading as reader B's for R32 values that reader B had not recorded. Nothing else changed.
 Writes checks/second_reading.csv (one row per number) and prints PASS or FAIL.
 """
 
@@ -99,6 +103,12 @@ def load_pools() -> dict:
         for c in ("value", "err"):
             for v in nums_of(r.get(c)):
                 pools["S"].setdefault(key, set()).update({v, v * f})
+    for r in csv.DictReader(open(READINGS / "second-reader-r32.csv", encoding="utf-8")):
+        key = ("R32", system_key(r["system"]))
+        for c in ("value", "err"):
+            for v in nums_of(r.get(c)):
+                pools["S32"] = pools.get("S32", {})
+                pools["S32"].setdefault(key, set()).add(v)
     return pools
 
 
@@ -171,6 +181,8 @@ def main() -> int:
             base = v * f
             a = found(pools["A"], r["record"], r["system"], v, base)
             b = found(pools["B"], r["record"], r["system"], v, base)
+            if not b and r["record"] == "R32" and "S32" in pools:
+                b = found(pools["S32"], "R32", r["system"], v, base)
             if is_r61_snl1:
                 b = found(pools["S"], "R61", r["system"], v, base)
                 a = bool(cites)  # the adjudicator's own reading at source (gas/adjudication_gas.md §1)

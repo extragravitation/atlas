@@ -11,7 +11,9 @@ Run 2026-11-01. Method in `REPRODUCTION.md` (frozen, D-065); readings and adjudi
 | 3. Arithmetic integrity | **PASS:** 1178 recomputations from the stored columns agree to 10⁻⁹, in memory and again on the table read back (run inside `convert.py`). They cover M_E where computed, R_E, the L × Υ products, f(<R_E), M*(<R_E), g_obs, g_bar_stars, each gas component and g_bar. |
 | 4. Code | **PASS:** `pipeline/tests/test_lensing.py` (frozen) and the full pipeline suite, 197 passed; the converter's own synthetic tests (`pipeline/tests/test_a6_convert.py`, 26) are part of it. |
 
-Under REPRODUCTION.md, the package passes only if tests 1–4 all hold. **Test 1 fails, so the package does not ship.** The failure is published here, and the test has not been changed to pass.
+Under REPRODUCTION.md, the package passes only if tests 1–4 all hold. **Test 1, version 2, failed** on 4 numbers, and that failure stays on record here. The test was not changed. The 4 numbers were R32's R_E errors in kpc, which only reader A had recorded. An independent second reader then read R32 Table 1 (`reading/readings/second-reader-r32.csv`) and found the same values: ±0.09 kpc and ±0.37 kpc.
+- **Test 1, version 3**, adds that reading and nothing else: **PASS, 1111 of 1111.**
+- The version 2 output is kept as `checks/second_reading_v2.csv`.
 
 ### The 4 numbers that fail test 1
 
