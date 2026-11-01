@@ -626,6 +626,211 @@
       },
       "scope": "dataset",
       "role": "baryonic_inference"
+    },
+    {
+      "id": "a6s_gr_lensing",
+      "name_technical": "Light deflection by the projected mass inside the Einstein radius as in general relativity: M_E = θ_E² c² D_s D_l / (4 G D_ls) (A6S_PRECEDENCE §2.4)",
+      "name_plain": "Light-bending measures the pull of everything inside the ring of the lensed images",
+      "adjustable": false,
+      "status": "draft",
+      "parameter": {
+        "unit": "method"
+      },
+      "datasets": {
+        "aeg-d-strong-lensing/v1": {
+          "default": "GR lensing",
+          "default_ref": "A6S_PRECEDENCE §2.4 (frozen, D-065); aeg.lensing.einstein_mass_msun (frozen)",
+          "effects": []
+        }
+      },
+      "scope": "dataset",
+      "role": "observed_inference",
+      "not_adjustable_reason": "assumed by the method; not tested by the Atlas"
+    },
+    {
+      "id": "a6s_source_cosmology",
+      "name_technical": "Distances in the flat ΛCDM cosmology stated by the source of each θ_E (H0, Ω_m; Ω_Λ = 1 − Ω_m as printed, D-075 item 4)",
+      "name_plain": "Distances to the lens and the background galaxy from each paper's own expansion model",
+      "adjustable": false,
+      "status": "draft",
+      "parameter": {
+        "unit": "method"
+      },
+      "datasets": {
+        "aeg-d-strong-lensing/v1": {
+          "default": "source cosmology",
+          "default_ref": "D-064 item 4; D-075 item 4; adjudication.md §3b",
+          "effects": [],
+          "note": "Enters M_E and R_E; g_obs/g_bar does not depend on it to first order (D-064 item 4). No slider."
+        }
+      },
+      "scope": "dataset",
+      "role": "observed_inference",
+      "not_adjustable_reason": "assumed by the method; not tested by the Atlas"
+    },
+    {
+      "id": "a6s_projected_cylinder",
+      "name_technical": "Both sides are masses inside the same projected cylinder of radius R_E, expressed as G M / R_E² and labelled projected (D-064)",
+      "name_plain": "Both pulls are measured through the same cylinder, seen in projection",
+      "adjustable": false,
+      "status": "draft",
+      "parameter": {
+        "unit": "method"
+      },
+      "datasets": {
+        "aeg-d-strong-lensing/v1": {
+          "default": "projected",
+          "default_ref": "D-064 (option a)",
+          "effects": []
+        }
+      },
+      "scope": "dataset",
+      "role": "observed_inference",
+      "not_adjustable_reason": "assumed by the method; not tested by the Atlas"
+    },
+    {
+      "id": "a6s_redshifts_spectroscopic",
+      "name_technical": "Lens and source redshifts measured spectroscopically, neither derived from the lens's velocity dispersion (D-063 items 3, 5)",
+      "name_plain": "Both distances come from measured spectra",
+      "adjustable": false,
+      "status": "draft",
+      "parameter": {
+        "unit": "method"
+      },
+      "datasets": {
+        "aeg-d-strong-lensing/v1": {
+          "default": "spectroscopic",
+          "default_ref": "D-063 items 3 and 5; A6S_PRECEDENCE §1",
+          "effects": []
+        }
+      },
+      "scope": "dataset",
+      "role": "selection",
+      "not_adjustable_reason": "assumed by the method; not tested by the Atlas"
+    },
+    {
+      "id": "a6s_mstar_population",
+      "name_technical": "Stellar mass from photometry and a stellar-population model with a named IMF (printed mass, or luminosity × population M/L; D-063 item 1, D-075 item 3)",
+      "name_plain": "How much mass the starlight stands for, from models of how stars age",
+      "adjustable": false,
+      "status": "draft",
+      "parameter": {
+        "unit": "method"
+      },
+      "datasets": {
+        "aeg-d-strong-lensing/v1": {
+          "default": "source's population model",
+          "default_ref": "D-063 item 1; D-075 item 3; A6S_PRECEDENCE §3.1-3.3",
+          "effects": []
+        }
+      },
+      "scope": "dataset",
+      "role": "baryonic_inference",
+      "not_adjustable_reason": "assumed by the method; not tested by the Atlas"
+    },
+    {
+      "id": "a6s_mstar_profile",
+      "name_technical": "Where only a total stellar mass is printed: the fraction inside R_E from the source's own light profile (de Vaucouleurs or Sérsic; aeg.lensing.sersic_projected_fraction), assuming mass follows light (A6S_PRECEDENCE §3.1)",
+      "name_plain": "The share of the starlight that falls inside the ring, from the galaxy's measured light profile",
+      "adjustable": false,
+      "status": "draft",
+      "parameter": {
+        "unit": "method"
+      },
+      "datasets": {
+        "aeg-d-strong-lensing/v1": {
+          "default": "source's light profile",
+          "default_ref": "A6S_PRECEDENCE §3.1; D-075 item 5 (S4TM R10 fit; SL2S CFHT fit)",
+          "effects": [],
+          "note": "Checked on SLACS against R13's printed masses inside R_E (checks/profile_step.ecsv; reported, not pass/fail)."
+        }
+      },
+      "scope": "dataset",
+      "role": "baryonic_inference",
+      "not_adjustable_reason": "assumed by the method; not tested by the Atlas"
+    },
+    {
+      "id": "a6s_stellar_imf",
+      "name_technical": "Stellar initial mass function: Chabrier/Kroupa as printed (default) to Salpeter (top), from the same source's printed Salpeter mass or printed conversion; S4TM from R30's printed FSPS factor (Chabrier / 0.61)",
+      "name_plain": "How many faint, low-mass stars there are for each bright one",
+      "adjustable": true,
+      "status": "confirmed",
+      "scope": "dataset",
+      "role": "baryonic_inference",
+      "parameter": {
+        "unit": "position: 0 = Chabrier/Kroupa as printed (default), 1 = Salpeter"
+      },
+      "datasets": {
+        "aeg-d-strong-lensing/v1": {
+          "default": 0,
+          "min": 0,
+          "max": 1,
+          "default_ref": "A6S_PRECEDENCE §3.2 (frozen); D-075 item 5 (SLACS Chabrier-BC03 default)",
+          "range_ref": "Top: Salpeter value printed by the same source (R13 Salpeter-BC03; R20 Salpeter), else the source's printed conversion (R29 α = 1.55; R32 α ≈ 1.65, flag salpeter_factor_approx_printed; R30 ÷ 0.61), and for S4TM R30's printed FSPS factor ÷ 0.61 = × 1.64 (D-076 item 2; other printed conversions span 1.55-1.71, reading/gas/adjudication_gas.md §6). Rows without a top (SNELLS: none read) are not offered the slider (flag imf_top_not_read).",
+          "range_basis": {
+            "min": "the source's own Chabrier/Kroupa value (default)",
+            "max": "the Salpeter value or printed conversion (A6S_PRECEDENCE §3.2; D-076 item 2)"
+          },
+          "effects": [
+            {
+              "column": "g_bar_stars",
+              "formula": "g_bar_stars * (1 + (x_strong_lensing_mstar_top_msun / x_strong_lensing_mstar_re_msun - 1) * p)"
+            },
+            {
+              "column": "g_bar_err_lo",
+              "formula": "g_bar_err_lo * (1 + (x_strong_lensing_mstar_top_msun / x_strong_lensing_mstar_re_msun - 1) * p)"
+            },
+            {
+              "column": "g_bar_err_hi",
+              "formula": "g_bar_err_hi * (1 + (x_strong_lensing_mstar_top_msun / x_strong_lensing_mstar_re_msun - 1) * p)"
+            },
+            {
+              "column": "g_bar",
+              "formula": "g_bar + g_bar_stars * (x_strong_lensing_mstar_top_msun / x_strong_lensing_mstar_re_msun - 1) * p"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "a6s_gas_in_RE",
+      "name_technical": "Gas inside R_E as fractions of M*(<R_E) at the default IMF: hot X-ray gas default 0.12% (range 0.015-2.5%), cold gas (molecular plus atomic) default 0 (range 0-2%); total 0.12% (0.015-4.5%) (D-076 item 1, option G1)",
+      "name_plain": "How much gas sits inside the ring, compared with the stars",
+      "adjustable": true,
+      "status": "confirmed",
+      "scope": "dataset",
+      "role": "baryonic_inference",
+      "parameter": {
+        "unit": "position in the registered range: −1 = minimum, 0 = default, +1 = maximum (each component)"
+      },
+      "datasets": {
+        "aeg-d-strong-lensing/v1": {
+          "default": 0,
+          "min": -1,
+          "max": 1,
+          "default_ref": "D-076 item 1 (option G1): hot default 0.12% = median of 28 same-aperture X-ray gas and stellar measurements of early-type galaxies (25 detected); cold default 0 (molecular: 40 of 56 are limits; atomic: central HI undetected in 85% of high-mass ATLAS3D early-types). gas_term.json; reading/gas/adjudication_gas.md §3-5",
+          "range_ref": "Hot: lowest measured 0.015% to highest measured 2.5%; cold: 0 to 2% (molecular top from a published bound of about 1%, atomic top from a flagged sample bound of about 1%). Radii never rescaled; single-dish beams at half their printed width; non-detections kept as limits (D-076 item 1).",
+          "range_basis": {
+            "min": "lowest measured value (hot); zero (cold, allowed by the limits)",
+            "max": "highest measured value (hot); published bounds (cold)"
+          },
+          "effects": [
+            {
+              "column": "g_bar_gas_hot",
+              "formula": "g_obs * x_strong_lensing_mstar_re_msun / x_strong_lensing_m_e_msun * (x_strong_lensing_gas_hot_frac + (x_strong_lensing_gas_hot_frac_max - x_strong_lensing_gas_hot_frac_min) / 2 * p + (x_strong_lensing_gas_hot_frac_max + x_strong_lensing_gas_hot_frac_min - 2 * x_strong_lensing_gas_hot_frac) / 2 * abs(p))"
+            },
+            {
+              "column": "g_bar_gas_cold",
+              "formula": "g_obs * x_strong_lensing_mstar_re_msun / x_strong_lensing_m_e_msun * (x_strong_lensing_gas_cold_frac + (x_strong_lensing_gas_cold_frac_max - x_strong_lensing_gas_cold_frac_min) / 2 * p + (x_strong_lensing_gas_cold_frac_max + x_strong_lensing_gas_cold_frac_min - 2 * x_strong_lensing_gas_cold_frac) / 2 * abs(p))"
+            },
+            {
+              "column": "g_bar",
+              "formula": "g_bar - g_bar_gas_hot - g_bar_gas_cold + g_obs * x_strong_lensing_mstar_re_msun / x_strong_lensing_m_e_msun * ((x_strong_lensing_gas_hot_frac + (x_strong_lensing_gas_hot_frac_max - x_strong_lensing_gas_hot_frac_min) / 2 * p + (x_strong_lensing_gas_hot_frac_max + x_strong_lensing_gas_hot_frac_min - 2 * x_strong_lensing_gas_hot_frac) / 2 * abs(p)) + (x_strong_lensing_gas_cold_frac + (x_strong_lensing_gas_cold_frac_max - x_strong_lensing_gas_cold_frac_min) / 2 * p + (x_strong_lensing_gas_cold_frac_max + x_strong_lensing_gas_cold_frac_min - 2 * x_strong_lensing_gas_cold_frac) / 2 * abs(p)))"
+            }
+          ],
+          "note": "The five systems whose sources state gas negligible (SNL-0, SNL-1, SNL-2, J1436+4943, J1701+3722) take the same term; the statements are kept as notes (D-076 item 1)."
+        }
+      }
     }
   ]
 }
