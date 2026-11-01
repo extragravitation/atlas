@@ -1521,3 +1521,22 @@ None was recorded or used. The gas numbers were computed by a committed script f
 - concept DOI (all versions) **10.5281/zenodo.23864355**.
 
 The Zenodo record shows the preliminary note.
+
+## D-078 — Competing-interests statement
+
+**Ruling (2026-11-01 15:07 MDT, JvH).** "Yes, I approve." **Proposed by** Claude (2026-11-01). **Adopted.**
+
+1. **The statement.** On the About page, in both language layers, and in the methods paper:
+   > "The maintainer also works independently on theoretical physics, including questions related to the acceleration discrepancy. None of that work is used in the Atlas, by rule, and the Atlas takes no side between the accounts of the discrepancy. The maintainer has no financial interests in this work."
+2. **It replaces a draft placeholder** that v0.1 was released with ("will appear here before release"). That release is corrected by this change on the live site; the archived v0.1 snapshot keeps the placeholder, and the next release carries the statement.
+3. **Zenodo metadata** for future releases:
+   - title "Atlas of Extra Gravitation — data release";
+   - "isDocumentedBy" the frozen selection protocol (10.5281/zenodo.23780203), so the two Atlas records are linked.
+
+   The v0.1 record gets the same link by a manual metadata edit (JvH).
+
+**Reason.**
+- Reviewers will look the maintainer up. A non-financial interest declared up front is standard practice and reads as integrity; discovered undeclared, it would read as an agenda.
+- The statement names no paper or theory, and says what a reader needs before trusting a neutral atlas.
+
+**Data seen.** Not applicable.

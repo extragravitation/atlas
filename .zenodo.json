@@ -1,5 +1,5 @@
 {
-  "title": "Atlas of Extra Gravitation",
+  "title": "Atlas of Extra Gravitation — data release",
   "upload_type": "dataset",
   "description": "An open, theory-neutral atlas of the acceleration discrepancy: where and how the observed gravitational acceleration exceeds what Newtonian gravity predicts from detected baryonic matter, from star clusters to galaxy clusters. Every value traces to a published source; cite the original sources of any data you use (listed on each dataset page). Text, figures and Atlas-produced data: CC BY 4.0; code: MIT (see LICENSE and LICENSE-CONTENT.md). Prepared with AI assistance (Claude, Anthropic), disclosed in the repository.",
   "creators": [
@@ -22,6 +22,12 @@
       "identifier": "https://github.com/extragravitation/atlas",
       "relation": "isSupplementTo",
       "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.23780203",
+      "relation": "isDocumentedBy",
+      "scheme": "doi",
+      "resource_type": "other"
     }
   ],
   "notes": "Version 0.1 is a preliminary pre-release: not peer reviewed and not externally reviewed. The v1.0 release gates (issue #16) are not met. Values and methods may change; corrections are logged publicly in the repository (CHANGELOG.md, docs/decisions.md)."

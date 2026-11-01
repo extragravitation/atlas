@@ -32,7 +32,7 @@
 
 ## Start here next
 
-0. **Release naming (JvH).** No release or tag exists yet; v0.1 was never tagged. JvH decides the first tag (proposed: v0.1, now, with the five live datasets plus A6), then turns on Zenodo for a DOI.
+0. **v0.1 released (D-077):** pre-release, Zenodo DOI 10.5281/zenodo.23864356 (all versions 10.5281/zenodo.23864355). Competing interests are stated (D-078). Next: the review-readiness plan (awaiting JvH's answers: freeze new datasets, author contact, order).
 1. **A6 packaging (done)** in the worktree `../atlas-a6`, branch `data/a6-strong-lensing`, to the frozen A6 rule:
    1. a source list and licences;
    2. REPRODUCTION.md frozen before conversion;
