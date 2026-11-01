@@ -3,6 +3,10 @@ import Base from '../layouts/Base.astro';
 import L from '../components/L.astro';
 import Layer from '../components/Layer.astro';
 import { REPO } from '../lib/md.mjs';
+import { loadAtlas } from '../lib/atlas.mjs';
+import { datasetCount, datasetNames } from '../lib/labels.mjs';
+const atlas = loadAtlas();
+const nDs = datasetCount(atlas.datasets);
 const base = import.meta.env.BASE_URL;
 ---
 <Base title="For data providers" active="">
@@ -11,7 +15,7 @@ const base = import.meta.env.BASE_URL;
       <p class="kicker"><L t="For data providers" p="For data providers" /></p>
       <h1><L t="How the Atlas would use your data" p="How we would use your data" /></h1>
       <Layer as="p" class="lede"><Fragment slot="t">The Atlas of Extra Gravitation compiles published measurements in which the observed acceleration can be compared with Newtonian gravity on detected baryons, across every kind of system from the Solar System to colliding clusters. It takes no side on the cause of any discrepancy. This page explains what we do with a dataset and what we ask for.</Fragment><Fragment slot="p">This Atlas collects published measurements of how strongly things are pulled, and compares them with what the detected matter should do. It takes no side on why they differ. Here is what we would do with your data.</Fragment></Layer>
-      <p class="boxed"><L t="This is a pre-release preview: four datasets are in (SPARC, Milky Way globular clusters, X-COP, KiDS-1000). Explore them on the map and the system pages to see how a dataset is presented." p="This is an early preview with four datasets. Have a look around the map and the pages for single galaxies and clusters." /> <a href={`${base}`}>Map</a> · <a href={`${base}coverage/`}>Coverage</a> · <a href={`${base}datasets/`}>Datasets</a></p>
+      <p class="boxed"><L t={`This is a pre-release preview: ${nDs} are in (${datasetNames(atlas.datasets)}). Explore them on the map and the system pages to see how a dataset is presented.`} p={`This is an early preview with ${nDs}. Have a look around the map and the pages for single galaxies and clusters.`} /> <a href={`${base}`}>Map</a> · <a href={`${base}coverage/`}>Coverage</a> · <a href={`${base}datasets/`}>Datasets</a></p>
 
       <h2><L t="What we do with a dataset" p="What we do" /></h2>
       <ol>

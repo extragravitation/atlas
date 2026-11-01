@@ -4,7 +4,7 @@
 import Base from '../../../layouts/Base.astro';
 import L from '../../../components/L.astro';
 import { loadAtlas } from '../../../lib/atlas.mjs';
-import { datasetLabel, assumptionLabel, fmtParam } from '../../../lib/labels.mjs';
+import { datasetLabel, assumptionLabel, fmtParam, systemsText } from '../../../lib/labels.mjs';
 import { md, resultLine, REPO } from '../../../lib/md.mjs';
 import LensDataset from '../../../components/LensDataset.astro';
 import { isLensing } from '../../../lib/lensing.mjs';
@@ -40,7 +40,7 @@ const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(lens ? [[
         <div><dt><L t="Method" p="How it was measured" /></dt><dd><L t={lab.method_t} p={lab.method_p} /></dd></div>
         <div><dt>Channel</dt><dd>{channels.join(', ')}</dd></div>
         <div><dt>Measurements</dt><dd>{d.measurements.rows.length.toLocaleString('en')}</dd></div>
-        {d.systems && <div><dt>Systems</dt><dd>{d.systems.rows.length} {lab.units}</dd></div>}
+        {d.systems && <div><dt>Systems</dt><dd>{systemsText(d)}</dd></div>}
         <div><dt>Data standard</dt><dd>{d.dp.x_standard_version}</dd></div>
         {d.hasCovariance && <div><dt>Covariance</dt><dd>included</dd></div>}
       </dl>

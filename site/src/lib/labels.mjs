@@ -67,3 +67,15 @@ export function sigFig(v, n = 3) {
   if (e < 4) return Number(v.toPrecision(n)).toString();
   return Number((v / 10 ** e).toPrecision(n)) + ' × 10' + String(e).replace(/[0-9]/g, (c) => SUP[c]);
 }
+
+// Counts in prose come from the data, never typed in: "six datasets (SPARC, …)".
+const WORDS = ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
+export function countWord(n) { return n < WORDS.length ? WORDS[n] : String(n); }
+export function joinAnd(xs) { return xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} and ${xs[xs.length - 1]}`; }
+// Dataset names in package order; layer 'p' gives the plain names.
+export function datasetNames(datasets, layer = 't') { return joinAnd(datasets.map((d) => datasetLabel(d.name)[layer])); }
+export function datasetCount(datasets) { const n = datasets.length; return `${countWord(n)} dataset${n === 1 ? '' : 's'}`; }
+
+// Systems with at least one plotted measurement (the rest are recorded, not plotted: D-029, D-066).
+export function plottedSystemCount(d) { const ids = new Set(d.measurements.rows.filter((r) => r.plotted !== 'false').map((r) => r.system_id)); return d.systems ? d.systems.rows.filter((s) => ids.has(s.system_id)).length : 0; }
+export function systemsText(d) { const n = d.systems.rows.length, p = plottedSystemCount(d), u = datasetLabel(d.name).units; return p < n ? `${n} ${u} (${p} plotted)` : `${n} ${u}`; }

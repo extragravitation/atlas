@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import L from '../components/L.astro';
 import Slider from '../components/Slider.astro';
 import { loadAtlas } from '../lib/atlas.mjs';
-import { datasetLabel } from '../lib/labels.mjs';
+import { datasetLabel, plottedSystemCount } from '../lib/labels.mjs';
 
 const atlas = loadAtlas();
 const withSystems = atlas.datasets.filter((d) => d.systems);
@@ -38,7 +38,7 @@ const sliders = atlas.datasets.flatMap((d) => d.assumptions.filter((a) => a.adju
     <aside class="side">
       <div>
         <p class="cap">Datasets</p>
-        {withSystems.map((d) => <label class="check"><input type="checkbox" id={'ds-' + d.short} checked /><span>{datasetLabel(d.name).t} · {d.systems.rows.length} {datasetLabel(d.name).units}</span></label>)}
+        {withSystems.map((d) => <label class="check"><input type="checkbox" id={'ds-' + d.short} checked /><span>{datasetLabel(d.name).t} · {plottedSystemCount(d)} {datasetLabel(d.name).units}</span></label>)}
       </div>
       <div class="scope">
         <p class="cap"><L t="Assumptions · whole datasets" p="Assumptions you can change" /></p>

@@ -7,8 +7,9 @@ import Base from '../layouts/Base.astro';
 import L from '../components/L.astro';
 import Layer from '../components/Layer.astro';
 import { ROOT, loadAtlas } from '../lib/atlas.mjs';
-import { datasetLabel } from '../lib/labels.mjs';
+import { datasetLabel, datasetCount } from '../lib/labels.mjs';
 import { md, REPO } from '../lib/md.mjs';
+import { surveyName } from '../lib/lensing.mjs';
 
 const text = fs.readFileSync(path.join(ROOT, 'docs/plans/TAXONOMY.md'), 'utf8');
 const sec = (n) => { const m = text.match(new RegExp('\\n## ' + n + '\\.[^\\n]*\\n([\\s\\S]*?)(?=\\n## \\d|$)')); return m ? m[1] : ''; };
@@ -18,15 +19,27 @@ const base = import.meta.env.BASE_URL;
 const atlas = loadAtlas();
 const rng = (a) => { const v = a.filter((x) => x !== null && x !== undefined && isFinite(x)); return v.length ? [Math.min(...v), Math.max(...v)] : null; };
 const f = (v, d = 2) => (v < 0.01 || v >= 1e4 ? v.toExponential(1) : Number(v.toPrecision(3)).toString());
+const nDs = datasetCount(atlas.datasets);
+// Systems at or above the epoch cut (D-066 item 2): recorded in full, flagged epoch_gap_v1, not plotted.
+const isGap = (x) => (x.properties ? JSON.parse(x.properties).flags || [] : []).includes('epoch_gap_v1');
 const report = atlas.datasets.map((d) => {
-  const rows = d.measurements.rows, sys = d.systems ? d.systems.rows : [];
+  const rows = d.measurements.rows, all = d.systems ? d.systems.rows : [];
+  const sys = all.filter((x) => !isGap(x)), nGap = all.length - sys.length;
   const props = sys.map((x) => (x.properties ? JSON.parse(x.properties) : {}));
   const dist = rng(sys.map((x) => x.distance_mpc)), z = rng(sys.map((x, i) => x.redshift ?? props[i].redshift));
   const gb = rng(rows.filter((r) => r.g_bar > 0).map((r) => Math.log10(r.g_bar))), rr = rng(rows.map((r) => r.r_kpc));
-  return { name: datasetLabel(d.name).t, systems: d.systems ? `${sys.length} ${datasetLabel(d.name).units}` : `${rows.length} stacked bins`, n: rows.length,
+  return { name: datasetLabel(d.name).t, systems: d.systems ? `${sys.length} ${datasetLabel(d.name).units}${nGap ? ` (+ ${nGap} in the epoch gap)` : ''}` : `${rows.length} stacked bins`, n: rows.length,
     where: z ? `z = ${z[0]}–${z[1]} (source)` : dist ? `${f(dist[0])}–${f(dist[1])} Mpc (source distances)` : 'lens redshifts not recorded in the package',
     radius: rr ? `${f(rr[0])}–${f(rr[1])} kpc` : 'no single radius (binned in g_bar)', gbar: gb ? `${gb[0].toFixed(1)} to ${gb[1].toFixed(1)}` : '–' };
 });
+// Epoch-gap counts per dataset and survey, from the systems tables (D-066 item 2).
+const gapRows = atlas.datasets.flatMap((d) => {
+  if (!d.systems) return [];
+  const by = new Map();
+  for (const x of d.systems.rows.filter(isGap)) { const p = JSON.parse(x.properties); const k = surveyName((p.scope || '').split(' | ')[0]); if (!by.has(k)) by.set(k, []); by.get(k).push(x.redshift); }
+  return [...by.entries()].sort((a, b) => b[1].length - a[1].length).map(([survey, zs]) => ({ d, survey, n: zs.length, z: Math.min(...zs) === Math.max(...zs) ? String(zs[0]) : `${Math.min(...zs)}–${Math.max(...zs)}` }));
+});
+const gapTotal = gapRows.reduce((n, g) => n + g.n, 0);
 ---
 <Base title="Coverage" active="coverage">
   <div class="doc">
@@ -34,7 +47,7 @@ const report = atlas.datasets.map((d) => {
       <p class="kicker"><L t="Coverage · kinds of system" p="Coverage" /></p>
       <h1><L t="Every kind of system, and what the Atlas covers" p="Where we can compare the pull, and how far we have got" /></h1>
       <Layer as="p" class="lede"><Fragment slot="t">The first public release (v1.0) covers every kind of system in which observed and baryonic acceleration can be compared: each cell below either holds a data package or is shown as a documented gap (D-028). Kinds are defined by what a system is, never by its measured discrepancy, and they organise coverage only, never the findings.</Fragment><Fragment slot="p">The Atlas aims to cover every kind of object where the pull can be compared with the matter we detect: from the Solar System and pairs of stars to colliding clusters of galaxies. This page shows what is already in, what is coming, and what is missing.</Fragment></Layer>
-      <p class="boxed"><L t="Status: this preview holds four datasets (● below). The other cells list candidates from a source survey of 2026-10-28; none has been selected yet. Selection follows a protocol fixed before any new data are converted (§ Selection)." p="Right now four datasets are in. Everything marked ○ or ◐ is a candidate still to be checked and chosen by fixed rules." /> <a href={`${base}for-data-providers/`}><L t="For data providers" p="Have data that fits?" /></a></p>
+      <p class="boxed"><L t={`Status: this preview holds ${nDs} (● below). The other cells list candidates from a source survey of 2026-10-28; none has been selected yet. Selection follows a protocol fixed before any new data are converted (§ Selection).`} p={`Right now ${nDs} are in. Everything marked ○ or ◐ is a candidate still to be checked and chosen by fixed rules.`} /> <a href={`${base}for-data-providers/`}><L t="For data providers" p="Have data that fits?" /></a></p>
       <h2 id="kinds"><L t="Kinds of system" p="The kinds of object" /></h2>
       <div class="prose wide" set:html={md(kinds, 'docs/plans')} />
       <h2 id="matrix"><L t="Coverage matrix" p="What we have and what we need" /></h2>
@@ -44,6 +57,16 @@ const report = atlas.datasets.map((d) => {
       <div class="tablebox" tabindex="0" style="max-height:none"><table><thead><tr><th class="l">Dataset</th><th class="l">Systems</th><th>Measurements</th><th class="l">Distance or redshift</th><th class="l">Radius</th><th class="l">log g_bar (m s⁻²)</th></tr></thead><tbody>
         {report.map((r) => <tr><td class="l">{r.name}</td><td class="l">{r.systems}</td><td>{r.n.toLocaleString('en')}</td><td class="l">{r.where}</td><td class="l">{r.radius}</td><td class="l">{r.gbar}</td></tr>)}
       </tbody></table></div>
+      <p class="small" style="margin-top:6px"><L t="Distance or redshift: systems below the epoch cut only. Systems at z ≥ 0.30 are counted in the next section." p="Distances here are for the systems on the map." /></p>
+
+      <h2 id="epoch-gap"><L t="The cosmic-epoch gap" p="Earlier in the history of the universe" /></h2>
+      <Layer as="p"><Fragment slot="t">v1.0 plots a system with its own redshift only if that redshift, as printed by the source, is below 0.30 (D-066). Systems at or above it are recorded in full, flagged epoch_gap_v1, and counted here as part of the documented gap in cosmic epoch (D-033 item 5). They have no point on the map. Stacked samples whose bins span a range of redshift are not covered by this count (D-066 item 4).</Fragment><Fragment slot="p">This version only puts on the map objects near enough (redshift below 0.30). Farther objects, whose light set out longer ago, are kept in the record and counted here, so the gap is visible.</Fragment></Layer>
+      {gapRows.length > 0 ? (
+        <div class="tablebox" tabindex="0" style="max-height:none;margin-top:8px" role="region" aria-label="Systems in the epoch gap"><table><thead><tr><th class="l">Dataset</th><th class="l"><L t="Survey" p="From" /></th><th><L t="Systems at z ≥ 0.30" p="Farther objects" /></th><th class="l"><L t="Redshift range (as printed)" p="Redshift range" /></th></tr></thead><tbody>
+          {gapRows.map((g) => <tr><td class="l"><a href={`${base}datasets/${g.d.name}/${g.d.version}/#epoch-gap`}>{datasetLabel(g.d.name).t}</a></td><td class="l">{g.survey}</td><td>{g.n}</td><td class="l">{g.z}</td></tr>)}
+          <tr><td class="l"><b>Total</b></td><td class="l"></td><td><b>{gapTotal}</b></td><td class="l"></td></tr>
+        </tbody></table></div>
+      ) : <p class="small"><L t="No system is recorded at z ≥ 0.30 yet." p="None yet." /></p>}
 
       <h2 id="selection"><L t="Selection protocol (draft)" p="How data are chosen" /></h2>
       <div class="prose" set:html={md(protocol, 'docs/plans')} />
@@ -51,6 +74,6 @@ const report = atlas.datasets.map((d) => {
       <div class="prose" set:html={md(gate, 'docs/plans')} />
       <p class="small"><L t="Source of this page:" p="Full document:" /> <a href={`${REPO}/blob/main/docs/plans/TAXONOMY.md`}>docs/plans/TAXONOMY.md</a> · <a href={`${REPO}/blob/main/docs/sources/survey-2026-10-28.md`}>source survey</a></p>
     </main>
-    <aside class="toc"><p class="cap">On this page</p><a href="#kinds">Kinds</a><a href="#matrix">Coverage matrix</a><a href="#continuous">Continuous axes</a><a href="#selection">Selection protocol</a><a href="#gate">Release gate</a></aside>
+    <aside class="toc"><p class="cap">On this page</p><a href="#kinds">Kinds</a><a href="#matrix">Coverage matrix</a><a href="#continuous">Continuous axes</a><a href="#epoch-gap">Epoch gap</a><a href="#selection">Selection protocol</a><a href="#gate">Release gate</a></aside>
   </div>
 </Base>
