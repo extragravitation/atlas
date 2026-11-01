@@ -1499,3 +1499,19 @@ None was recorded or used. The gas numbers were computed by a committed script f
 **Data seen.**
 - The gas measurements of the literature galaxies, and the lens inputs.
 - No lens g_obs, g_bar or ratio has been computed. The adjudicator's exposures are as disclosed above.
+
+## D-077 — First release: v0.1, marked preliminary
+
+**Ruling (2026-11-01 11:51 MDT, JvH).** "Tag v0.1 as recommended." **Proposed by** Claude (2026-11-01). **Adopted.**
+
+1. **The tag.** The first tag is **v0.1**, on `main` after the changelog for A6 is merged. No earlier release or tag exists.
+2. **Marked preliminary everywhere it appears.**
+   - The GitHub release is marked "pre-release" and titled "v0.1 — preliminary (not peer reviewed)".
+   - The release notes open by saying that the data are preliminary and pre-review, and that the v1.0 gates (#16) are not met.
+   - The site keeps its pre-release banner.
+3. **DOI.** The release is made after JvH connects Zenodo to the GitHub organisation, so it can be archived with a DOI. If Zenodo does not archive GitHub pre-releases, a separate ruling is needed: an ordinary release with "preliminary" in its title and notes, or no DOI for v0.1.
+4. **Content.** The six live datasets: SPARC, KiDS-1000, X-COP, Baumgardt globular clusters, Local Group dwarfs, and A6 strong lenses.
+
+**Reason.** It is the project plan's first goal, a citable, versioned snapshot of what is live, labelled so nobody mistakes it for a reviewed result.
+
+**Data seen.** Not applicable.

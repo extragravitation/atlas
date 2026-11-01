@@ -1,6 +1,6 @@
 # Continuation guide
 
-**State at 2026-10-31, 22:15 MDT.** Read this first in the next session, then `docs/decisions.md` (D-001 to D-074). Superseded by the next session's update; the git history keeps every version.
+**State at 2026-11-01, 11:45 MDT.** Read this first in the next session, then `docs/decisions.md` (D-001 to D-076). Superseded by the next session's update; the git history keeps every version.
 
 ## Done 2026-10-31 (evening): A6 and A9 searches, rules frozen, A9 route chosen. PRs #88–#90 merged, #92 open
 
@@ -21,9 +21,19 @@
   - a LoCuSS one-radius layer at r500,WL, with two scoped rule changes: a 3D NFW-fit lensing mass, and projected stars as an upper bound. Its spec is to be frozen before any table is opened;
   - a CHEX-MATE watch and a funnel page.
 
+## Done 2026-11-01: A6 strong lensing shipped (PRs #93, #94, #95)
+
+- **Package and site.** `aeg-d-strong-lensing/v1` is live on the map and on lens pages: 94 plotted lenses, 212 recorded (CHANGELOG).
+- **Rulings.** D-075 and D-076; data standard 2.1.0.
+- **Lessons.**
+  - In a git worktree, run the pipeline with `PYTHONPATH=<worktree>/pipeline`; the installed `aeg` points at /home/claude/atlas.
+  - Never let a build agent add a passing outcome to a frozen test; check every test change.
+  - Tell JvH before long background runs: a stop pressed from the phone kills subagents.
+
 ## Start here next
 
-1. **A6 packaging** in the worktree `../atlas-a6`, branch `data/a6-strong-lensing`, to the frozen A6 rule:
+0. **Release naming (JvH).** No release or tag exists yet; v0.1 was never tagged. JvH decides the first tag (proposed: v0.1, now, with the five live datasets plus A6), then turns on Zenodo for a DOI.
+1. **A6 packaging (done)** in the worktree `../atlas-a6`, branch `data/a6-strong-lensing`, to the frozen A6 rule:
    1. a source list and licences;
    2. REPRODUCTION.md frozen before conversion;
    3. two-reader input reading;
