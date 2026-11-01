@@ -46,3 +46,29 @@ Status under D-017: referred to the maintainer; whether SPARC v1 ships is decide
 ## Status under D-019 (2026-10-28)
 
 The test result remains **FAILED**. SPARC v1 may ship: conversion integrity is exact. The four measurements are flagged `reproduction_mismatch` and linked to known issue [#8](https://github.com/extragravitation/atlas/issues/8). In the test suite, checks 1 and 2 are unchanged and marked as strict expected failures; `test_known_mismatch_is_exactly_as_documented` fails the build if the discrepancy changes in any way.
+
+## Archival comparison (2026-11-01; exploratory, not part of the test)
+
+Test of the hypothesis in diagnosis B. Run by Claude in JvH's Chrome, in the page, on files fetched in the same session.
+
+**Files compared:**
+- **Served today:** `MassModels_Lelli2016c.mrt` and `SPARC_Lelli2016c.mrt` from https://astroweb.case.edu/SPARC/. The mass-model file's SHA-256 was `9108994b…`, the same file this package is built from (`sources.json`).
+- **Archival:** CDS catalogue J/AJ/152/157 (Lelli et al. 2016), tables `table2` (mass models, 3 391 rows) and `table1` (galaxy sample, 175 rows), read as tab-separated output from the VizieR mirror at vizier.idia.ac.za. CDS's own server was not reachable.
+
+**Method:**
+- Mass models: rows compared in order, all ten columns (galaxy, distance, R, V_obs, δV_obs, V_gas, V_disk, V_bul, Σ_disk, Σ_bul), each value rounded to two decimals, the table's published precision.
+- Galaxy sample: matched by name; all numeric columns compared as numbers, plus the name.
+
+**Result:**
+- Mass models: **3 391 of 3 391 rows identical.**
+- Galaxy sample: **175 of 175 galaxies identical.** This includes UGC00128, UGC07524 and UGC09133: distance, inclination and quality flag are the same in both.
+
+**Conclusion.**
+- The hypothesis that the reference file was built from a different version of the published SPARC tables is **not supported**. The archival 2016 tables and the tables served today are the same.
+- The four mismatches remain unexplained. What remains possible:
+  - the 2017 reference file was built from values that were never published in these tables;
+  - the 2017 analysis treated these points differently from its stated selection;
+  - the reference file contains entries that differ from the tables.
+- These cannot be told apart from the public files. The question goes to the SPARC maintainers (issue #8).
+
+**Not changed:** the test result (FAILED), the four `reproduction_mismatch` flags, and the strict expected-failure tests.
