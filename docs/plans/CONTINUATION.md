@@ -1,8 +1,39 @@
 # Continuation guide
 
-**State at 2026-10-31.** Read this first in the next session, then `docs/decisions.md` (D-001 to D-062). Superseded by the next session's update; the git history keeps every version.
+**State at 2026-10-31, 22:15 MDT.** Read this first in the next session, then `docs/decisions.md` (D-001 to D-074). Superseded by the next session's update; the git history keeps every version.
 
-## Done 2026-10-31: A5 dwarf galaxies complete and on the site, PRs #82–#86 and this one
+## Done 2026-10-31 (evening): A6 and A9 searches, rules frozen, A9 route chosen. PRs #88–#90 merged, #92 open
+
+- **Accessibility first pass (#88, merged).** Report: `docs/reviews/2026-10-31-accessibility-pass-1.md`. Four findings remain open:
+  1. keyboard selection of map points;
+  2. the ends of the colour ramp in the light theme;
+  3. translucent single points;
+  4. the map payload (about 540 kB gzipped).
+- **A6 strong lensing (#89, merged).** Search log A6, screening (E 21, E-pair 28, P 2, X 21). D-063 (eight rules), D-064 (project the baryons: G·M/R_E², "projected", own mark), D-065 (precedence frozen, `data/frozen/a6s-precedence.json`).
+- **A9 clusters (#90, merged).**
+  - Search log A9, screening (E 28, E-pair 33).
+  - Epoch cut z < 0.30 (D-066); joint fits and stacks (D-067); measured stars, issue #91 for X-COP modelled stars (D-068); no summing of member catalogues (D-069); RXC1825/A1644/A2255/A3158/A3266 plan (D-070).
+  - Printed luminosity × registered ratio counts as measured (D-071). Round L screened (`docs/sources/screening-L9/`, E 14).
+  - Round L rules QL1–QL6 (D-072); A9 precedence frozen (D-073, `data/frozen/a9-precedence.json`).
+  - Coverage v3: 116 of 319 clusters below z = 0.30 have measured stars; 79 can be paired with an observed side.
+- **A9 gas coherence (#92, open).** No programme supplies an observed side, stars and gas density profiles for the same clusters. D-074 sets the A9 route:
+  - case studies: A85, A2142 and ZwCl 1215 (dynamics plus X-COP baryons); A1689, A1835, A2390 and MS 1455+22 (lensing); Coma (both);
+  - a LoCuSS one-radius layer at r500,WL, with two scoped rule changes: a 3D NFW-fit lensing mass, and projected stars as an upper bound. Its spec is to be frozen before any table is opened;
+  - a CHEX-MATE watch and a funnel page.
+
+## Start here next
+
+1. **A6 packaging** in the worktree `../atlas-a6`, branch `data/a6-strong-lensing`, to the frozen A6 rule:
+   1. a source list and licences;
+   2. REPRODUCTION.md frozen before conversion;
+   3. two-reader input reading;
+   4. tests 1–3.
+2. **A9 X-COP case studies:** A85, A2142, ZwCl 1215. The baryons are already in `aeg-d-xcop`; the caustic profiles come from the SAO team.
+3. **LoCuSS spec** (D-074 item 3): write it and freeze it, then package.
+4. **Remaining case studies, then the funnel page;** tag v0.2 after A6 and v0.3 with the cluster layers.
+5. **Still open from before:** #24 (A5 D-037 check); #23 (A3 R39, R83); SPARC #9 (CDS licence); accessibility findings 1–4; Zenodo switch-on (JvH); author data requests on hold (JvH).
+
+## Done 2026-10-31 (earlier): A5 dwarf galaxies complete and on the site, PRs #82–#86 and this one
 
 - **Package `aeg-d-dwarfs/v1` (#82, #83).** 65 systems; 64 plotted as one value each at the 3D half-light radius (one, And XII, as an upper limit under D-062); And XIII recorded, not plotted. 586 observables.
   - Gas (D-058): Putman 2021 HI rescaled to the package distance by (D_pkg/D_Putman)², helium 1.33, half inside r½.
@@ -16,27 +47,15 @@
 - **D-038 3A consistency check (this branch).** Frozen before it was run: 13 pairs, none beyond 2σ, median z −0.03. Consistent. Reported in `SECOND_READING.md`.
 - **#64 (this branch).** The KiDS dataset page says the `no_uncertainty` flag refers to g_bar only. The flag itself is renamed in the 2.0.0 re-issue.
 
-## Start here next
-
-1. **#24 (A5).** The D-037 reproduction check from released per-star velocities: freeze a per-source membership configuration before opening any velocity table, then run `aeg.repro_dispersion.reproduce`. Then close #24.
-2. **#23 (A3).** R39 and R83 are still pending.
-3. **Accessibility and performance first pass (#14):** contrast in both themes, keyboard use of the map, labels, page weight; a written report.
-4. **#48 searches,** A9 (CLASH) and A8 (X-GAP) first, then A6, A4, A10, A1, A2, A7.
-5. **Waiting on others.**
-   - **SPARC #9 (release blocker):** the CDS licence line for J/AJ/152/157. CDS is unreachable from here and from Chrome; retry when it recovers, and do #8 (the CDS table comparison) on the same visit.
-   - **Rulings JvH could make:** record #19 (X-COP) and #8 (SPARC) as known issues for the outside reader.
-   - **Zenodo:** `.zenodo.json` is ready; JvH switches on the integration.
-   - **Author data requests:** on hold by JvH.
-
 ## Where things stand
 
 - **Repository** `github.com/extragravitation/atlas`, `main` protected (pull request plus required checks `checks` and `packages`). Preview site live at https://extragravitation.org (pre-release banner, not indexed).
 - **Protocol** frozen and deposited on Zenodo: DOI 10.5281/zenodo.23780203. Data-freeze date 2026-12-24.
-- **Frozen by hash** (`python -m aeg.check`): all files in `data/frozen/`, D-036 to D-062 inclusive where a method was frozen, and data standard 2.0.0.
+- **Frozen by hash** (`python -m aeg.check`): all files in `data/frozen/` (including the A6 and A9 precedence rules, D-065 and D-073), D-036 to D-073 where a method was frozen, and data standard 2.0.0.
 - **Packages:** SPARC, KiDS-1000, X-COP v1 (standard 1.x); `aeg-d-gc-baumgardt/v1` and `aeg-d-dwarfs/v1` (2.0.0).
 - **Release v1.0 (#16): not clear.** Open gates: every cell filled (#48), the data freeze, neutrality and outside review, accessibility (#14), the SPARC licence (#9), Zenodo, the release changelog.
 - **For the outside reader at v1.0:** D-046, D-049, D-049a, D-051, and the Simon 2019 differences logged under D-053.
-- **Open issues:** #8, #9, #13, #14, #16, #19, #21, #23, #24, #48, #64.
+- **Open issues:** #8, #9, #13, #14, #16, #19, #21, #23, #24, #48, #64, #91.
 
 ## Working notes
 
