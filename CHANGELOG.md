@@ -4,6 +4,13 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
 
 ## Unreleased
 
+- A9 galaxy clusters:
+  - search and screening (#90);
+  - epoch cut z < 0.30 (D-066); joint fits and stacks (D-067); measured stars (D-068, issue #91); no summing of member catalogues (D-069); X-COP modelled-star clusters (D-070);
+  - printed luminosity × registered ratio counts as measured stars (D-071), screened in Round L with rules QL1–QL6 (D-072);
+  - precedence rule frozen (D-073); 116 of 319 clusters below z = 0.30 have measured stars (coverage v3);
+  - gas-coherence record (#92) and the A9 route: case studies, a LoCuSS one-radius layer and a CHEX-MATE watch (D-074).
+- A6 strong lensing: search and screening (#89); eight rules (D-063); baryons projected into the Einstein cylinder (D-064); precedence rule frozen (D-065).
 - Accessibility first pass (#14, `docs/reviews/2026-10-31-accessibility-pass-1.md`): focus ring on the search box, 24 px download links, keyboard-reachable command block, no sideways scrolling at 320 px; axe-core reports 0 violations on 68 page runs. Four findings left for a ruling or a later pass.
 - `aeg-d-dwarfs/v1` (A5 dwarf galaxies, data standard 2.0.0): 65 systems, 64 plotted as one value each at the 3D half-light radius (And XII as an upper limit, D-062), And XIII recorded only. Gas (D-058), metallicity (D-059), Υ_V envelope with slider `dw_stellar_ml` (D-060), inputs (D-061, D-062). Tests 1–4 pass (test 1: 534 of 534 numbers found as printed). D-050 version-of-record and errata checks: all plotted values agree. D-038 3A consistency with Geha et al. 2026, frozen before it was run: 13 pairs, none beyond 2σ, consistent (reported, not pass/fail). Printed m_V,0 errors carried into g_bar.
 - D-049 to D-057 (A5 readings): kind-basis rule v2 (after-result); the version of record is the original, arXiv labelled per value where it cannot be read (D-050); member coverage from the source's own table (after-result, D-051); which printed structure, distance and magnitude is used (D-052); compilation entries resolved to their originals (D-053); centre for the coverage check (D-054); nine cases the frozen rules could not settle (D-055); RC3 conversions (D-056); metallicity for the mass-to-light interpolation (D-057).

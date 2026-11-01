@@ -1,0 +1,3127 @@
+{
+ "rows": [
+  {
+   "name": "A85",
+   "z": "0.055 (C20d)",
+   "pair": "O",
+   "gas": [
+    "X-COP"
+   ],
+   "chx": null,
+   "ch": {
+    "O": {
+     "obs": [
+      "C20d"
+     ],
+     "stars": [
+      "L1",
+      "S2b",
+      "S12b"
+     ],
+     "best": [
+      [
+       2,
+       true,
+       false
+      ],
+      "C20d",
+      "S12b",
+      "X-COP",
+      2
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A209",
+   "z": "0.206 (C1a, C1b, C3a, C12d, C18d); 0.21 (C1c); 0.2060 (C6c/C6d); readings: ~0.2 (reader A); 0.2 (reader B) (C13c)",
+   "pair": "L",
+   "gas": [
+    "CHEX-MATE",
+    "C3a CLASH-X",
+    "Martino+2014",
+    "Mulroy+2019 gas",
+    "Nagarajan+2018 (APEX-SZ)"
+   ],
+   "chx": [
+    "PSZ2 G159.91-73.50",
+    "2",
+    false,
+    "position (0.0′ from mulroy19 position; Δz ≤ 0.02)"
+   ],
+   "ch": {
+    "L": {
+     "obs": [
+      "C1a",
+      "C1b",
+      "C1c",
+      "C6c/C6d",
+      "C12d",
+      "C13c",
+      "C18d"
+     ],
+     "stars": [
+      "L8",
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6c/C6d",
+      "L8",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A1367",
+   "z": "0.0217 [= cz/c, cz 6495 km/s] (C21a, C21b)",
+   "pair": "O",
+   "gas": [],
+   "chx": null,
+   "ch": {
+    "O": {
+     "obs": [
+      "C21a",
+      "C21b"
+     ],
+     "stars": [
+      "L1",
+      "S2b"
+     ],
+     "best": [
+      [
+       1,
+       false,
+       false
+      ],
+      "C21a",
+      "L1",
+      "(none)",
+      1
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A1650",
+   "z": "0.084 (C20d)",
+   "pair": "O",
+   "gas": [],
+   "chx": null,
+   "ch": {
+    "O": {
+     "obs": [
+      "C20d"
+     ],
+     "stars": [
+      "L1",
+      "S2b"
+     ],
+     "best": [
+      [
+       1,
+       false,
+       false
+      ],
+      "C20d",
+      "L1",
+      "(none)",
+      1
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A2142",
+   "z": "0.089 (C20d); readings: \"z 0.091–0.228 ... all 4 below 0.3\" (C11a, reader A); 0.09 (reader A); 0.090 (reader B) (C28a)",
+   "pair": "O",
+   "gas": [
+    "X-COP",
+    "CHEX-MATE",
+    "C11a Umetsu+2009 (AMiBA)",
+    "Akamatsu+2011"
+   ],
+   "chx": [
+    "PSZ2 G044.20+48.66",
+    "12",
+    false,
+    "position (1.7′ from pizzardo21 position; Δz ≤ 0.02)"
+   ],
+   "ch": {
+    "O": {
+     "obs": [
+      "C20d",
+      "C28a"
+     ],
+     "stars": [
+      "L1",
+      "S12b"
+     ],
+     "best": [
+      [
+       2,
+       true,
+       false
+      ],
+      "C20d",
+      "S12b",
+      "X-COP",
+      2
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A2199",
+   "z": "0.031 (C20d); 0.0304 [= cz/c, cz 9101 km/s] (C21a, C21b)",
+   "pair": "O",
+   "gas": [],
+   "chx": null,
+   "ch": {
+    "O": {
+     "obs": [
+      "C20d",
+      "C21a",
+      "C21b",
+      "C21c"
+     ],
+     "stars": [
+      "L1"
+     ],
+     "best": [
+      [
+       1,
+       false,
+       false
+      ],
+      "C20d",
+      "L1",
+      "(none)",
+      1
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A2255",
+   "z": "0.080 (C20d)",
+   "pair": "O",
+   "gas": [
+    "X-COP"
+   ],
+   "chx": null,
+   "ch": {
+    "O": {
+     "obs": [
+      "C20d"
+     ],
+     "stars": [
+      "L1",
+      "S2b"
+     ],
+     "best": [
+      [
+       1,
+       true,
+       false
+      ],
+      "C20d",
+      "L1",
+      "X-COP",
+      1
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "Coma (A1656)",
+   "z": "0.0233 [= cz/c, cz 6973 km/s] (C21a, C21b); readings: ~0.024 (reader A); 0.024 (reader B) (C13a); ≈ 0.023 (C23c reader A, citing C23d text)",
+   "pair": "both",
+   "gas": [
+    "Mirakhor & Walker 2020"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C13a"
+     ],
+     "stars": [
+      "L2"
+     ],
+     "best": [
+      [
+       1,
+       false,
+       false
+      ],
+      "C13a",
+      "L2",
+      "Mirakhor & Walker 2020",
+      1
+     ]
+    },
+    "O": {
+     "obs": [
+      "C21a",
+      "C21b",
+      "C23a",
+      "C23b",
+      "C23c"
+     ],
+     "stars": [
+      "L1"
+     ],
+     "best": [
+      [
+       1,
+       false,
+       false
+      ],
+      "C21a",
+      "L1",
+      "Mirakhor & Walker 2020",
+      1
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "MKW04",
+   "z": "0.020 (C20d)",
+   "pair": "O",
+   "gas": [],
+   "chx": null,
+   "ch": {
+    "O": {
+     "obs": [
+      "C20d"
+     ],
+     "stars": [
+      "L1"
+     ],
+     "best": [
+      [
+       1,
+       false,
+       false
+      ],
+      "C20d",
+      "L1",
+      "(none)",
+      1
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "MKW08",
+   "z": "0.027 (C20d)",
+   "pair": "O",
+   "gas": [],
+   "chx": null,
+   "ch": {
+    "O": {
+     "obs": [
+      "C20d"
+     ],
+     "stars": [
+      "L1"
+     ],
+     "best": [
+      [
+       1,
+       false,
+       false
+      ],
+      "C20d",
+      "L1",
+      "(none)",
+      1
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "PSZ2 G266.04-21.25",
+   "z": "0.2965 (C29b)",
+   "pair": "O",
+   "gas": [
+    "CHEX-MATE"
+   ],
+   "chx": [
+    "PSZ2 G266.04-21.25",
+    "2",
+    false,
+    "name"
+   ],
+   "ch": {
+    "O": {
+     "obs": [
+      "C29b"
+     ],
+     "stars": [
+      "S10b"
+     ],
+     "best": [
+      [
+       2,
+       false,
+       false
+      ],
+      "C29b",
+      "S10b",
+      "CHEX-MATE",
+      2
+     ]
+    }
+   },
+   "has_pos": false
+  },
+  {
+   "name": "Zw1215p0400",
+   "z": "0.077 (C20d); 0.0773 (C29a)",
+   "pair": "O",
+   "gas": [
+    "X-COP",
+    "C29a Li+2024"
+   ],
+   "chx": null,
+   "ch": {
+    "O": {
+     "obs": [
+      "C20d",
+      "C29a"
+     ],
+     "stars": [
+      "S12b"
+     ],
+     "best": [
+      [
+       2,
+       true,
+       false
+      ],
+      "C20d",
+      "S12b",
+      "X-COP",
+      2
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A115",
+   "z": "0.1971 (C6c/C6d)",
+   "pair": "L",
+   "gas": [
+    "Martino+2014",
+    "Mulroy+2019 gas"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C6c/C6d"
+     ],
+     "stars": [
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6c/C6d",
+      "S6",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A119",
+   "z": "0.044 (C20d); 0.0443 [= cz/c, cz 13268 km/s] (C21a, C21b)",
+   "pair": "O",
+   "gas": [],
+   "chx": null,
+   "ch": {
+    "O": {
+     "obs": [
+      "C20d",
+      "C21a",
+      "C21b"
+     ],
+     "stars": [
+      "L1",
+      "S2b"
+     ],
+     "best": [
+      [
+       1,
+       false,
+       false
+      ],
+      "C20d",
+      "L1",
+      "(none)",
+      1
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A168",
+   "z": "0.045 (C20d); 0.0447 [= cz/c, cz 13395 km/s] (C21a, C21b)",
+   "pair": "O",
+   "gas": [],
+   "chx": null,
+   "ch": {
+    "O": {
+     "obs": [
+      "C20d",
+      "C21a",
+      "C21b"
+     ],
+     "stars": [
+      "L1"
+     ],
+     "best": [
+      [
+       1,
+       false,
+       false
+      ],
+      "C20d",
+      "L1",
+      "(none)",
+      1
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A267",
+   "z": "0.2300 (C6c/C6d); 0.230 (C12d); 0.2291 (C20a); 0.229 (C20d)",
+   "pair": "L",
+   "gas": [
+    "Martino+2014",
+    "Mulroy+2019 gas"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C6c/C6d",
+      "C12d"
+     ],
+     "stars": [
+      "L10",
+      "L5a",
+      "L8",
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6c/C6d",
+      "L8",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A383",
+   "z": "0.187 (C1a, C1b, C3a, C12d, C18d); 0.189 (C1c); 0.1883 (C6a, C6c/C6d); readings: 0.187 (C13h, reader B)",
+   "pair": "L",
+   "gas": [
+    "C3a CLASH-X",
+    "Martino+2014",
+    "Nagarajan+2018 (APEX-SZ)"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C1a",
+      "C1b",
+      "C1c",
+      "C6a",
+      "C6c/C6d",
+      "C12d",
+      "C13h",
+      "C18d"
+     ],
+     "stars": [
+      "L8"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6a",
+      "L8",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A586",
+   "z": "0.1710 (C6c/C6d)",
+   "pair": "L",
+   "gas": [
+    "CHEX-MATE",
+    "Martino+2014",
+    "Mulroy+2019 gas"
+   ],
+   "chx": [
+    "PSZ2 G187.53+21.92",
+    "1",
+    false,
+    "position (0.0′ from mulroy19 position; Δz ≤ 0.02)"
+   ],
+   "ch": {
+    "L": {
+     "obs": [
+      "C6c/C6d"
+     ],
+     "stars": [
+      "L8",
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6c/C6d",
+      "L8",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A697",
+   "z": "0.2820 (C6c/C6d); 0.2812 (C20a, C20c); 0.282 (C20d)",
+   "pair": "L",
+   "gas": [
+    "CHEX-MATE",
+    "Martino+2014",
+    "Mulroy+2019 gas",
+    "C20c CHeCS"
+   ],
+   "chx": [
+    "PSZ2 G186.37+37.26",
+    "2",
+    false,
+    "position (0.1′ from mulroy19 position; Δz ≤ 0.02)"
+   ],
+   "ch": {
+    "L": {
+     "obs": [
+      "C6c/C6d"
+     ],
+     "stars": [
+      "L5a",
+      "L8",
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6c/C6d",
+      "L8",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A773",
+   "z": "0.2170 (C6a, C6c/C6d); 0.2173 (C20a, C20c); 0.218 (C20d)",
+   "pair": "L",
+   "gas": [
+    "Martino+2014",
+    "Mulroy+2019 gas",
+    "C20c CHeCS"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C6a",
+      "C6c/C6d"
+     ],
+     "stars": [
+      "L10",
+      "L5a",
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6a",
+      "S6",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A781",
+   "z": "0.2984 (C6c/C6d)",
+   "pair": "L",
+   "gas": [
+    "Martino+2014",
+    "Mulroy+2019 gas"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C6c/C6d"
+     ],
+     "stars": [
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6c/C6d",
+      "S6",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A1413",
+   "z": "0.1427 (C6a); 0.1412 (C20a, C20c); 0.141 (C20d)",
+   "pair": "L",
+   "gas": [
+    "CHEX-MATE",
+    "C20c CHeCS"
+   ],
+   "chx": [
+    "PSZ2 G226.18+76.79",
+    "1",
+    false,
+    "position (0.2′ from checs position; Δz ≤ 0.02)"
+   ],
+   "ch": {
+    "L": {
+     "obs": [
+      "C6a"
+     ],
+     "stars": [
+      "L10"
+     ],
+     "best": [
+      [
+       1,
+       false,
+       true
+      ],
+      "C6a",
+      "L10",
+      "C20c CHeCS",
+      1
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A1682",
+   "z": "0.2260 (C6c/C6d); 0.2272 (C20a, C20c); 0.227 (C20d)",
+   "pair": "L",
+   "gas": [
+    "Martino+2014",
+    "Mulroy+2019 gas",
+    "C20c CHeCS"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C6c/C6d"
+     ],
+     "stars": [
+      "L10",
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6c/C6d",
+      "S6",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A1689",
+   "z": "0.1832 (C6a, C6c/C6d); 0.184 (C12d, C20d); 0.183 (C18d); 0.1842 (C20a, C20c); readings: 0.183 (C9b reader A; C9a reader B); \"z 0.091–0.228 ... all 4 below 0.3\" (C11a, reader A); \"all below 0.3\" (C11b, reader A)",
+   "pair": "L",
+   "gas": [
+    "CHEX-MATE",
+    "Martino+2014",
+    "Mulroy+2019 gas",
+    "C20c CHeCS",
+    "C9h/C9i Peng+2009",
+    "C9g/C9h CHEX-MATE A1689",
+    "C11b Okabe+2014",
+    "C11a Umetsu+2009 (AMiBA)",
+    "Nagarajan+2018 (APEX-SZ)"
+   ],
+   "chx": [
+    "PSZ2 G313.33+61.13",
+    "2",
+    true,
+    "position (0.1′ from mulroy19 position; Δz ≤ 0.02)"
+   ],
+   "ch": {
+    "L": {
+     "obs": [
+      "C6a",
+      "C6c/C6d",
+      "C9a",
+      "C9b",
+      "C9c",
+      "C9d/C9e",
+      "C9e/C9f",
+      "C9f/C9g",
+      "C9g/C9h",
+      "C11a",
+      "C11b",
+      "C12c",
+      "C12d",
+      "C18d"
+     ],
+     "stars": [
+      "L10",
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6a",
+      "S6",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A1763",
+   "z": "0.2279 (C6c/C6d); 0.228 (C12d); 0.2312 (C20a, C20c); 0.231 (C20d)",
+   "pair": "L",
+   "gas": [
+    "CHEX-MATE",
+    "Martino+2014",
+    "Mulroy+2019 gas",
+    "C20c CHeCS"
+   ],
+   "chx": [
+    "PSZ2 G092.71+73.46",
+    "2",
+    false,
+    "position (0.1′ from martino14 position; Δz ≤ 0.02)"
+   ],
+   "ch": {
+    "L": {
+     "obs": [
+      "C6c/C6d",
+      "C12d"
+     ],
+     "stars": [
+      "L10",
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6c/C6d",
+      "S6",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A1914",
+   "z": "0.1712 (C6c/C6d); 0.1660 (C20a, C20c); 0.166 (C20d)",
+   "pair": "L",
+   "gas": [
+    "CHEX-MATE",
+    "Martino+2014",
+    "Mulroy+2019 gas",
+    "C20c CHeCS"
+   ],
+   "chx": [
+    "PSZ2 G067.17+67.46",
+    "1",
+    false,
+    "position (0.2′ from checs position; Δz ≤ 0.02)"
+   ],
+   "ch": {
+    "L": {
+     "obs": [
+      "C6c/C6d"
+     ],
+     "stars": [
+      "L10",
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6c/C6d",
+      "S6",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A2111",
+   "z": "0.2290 (C6c/C6d); 0.2291 (C20a, C20c); 0.230 (C20d)",
+   "pair": "L",
+   "gas": [
+    "Martino+2014",
+    "Mulroy+2019 gas",
+    "C20c CHeCS"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C6c/C6d"
+     ],
+     "stars": [
+      "L10",
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6c/C6d",
+      "S6",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A2261",
+   "z": "0.224 (C1a, C1b, C3a); 0.225 (C1c, C20d); 0.2240 (C6c/C6d); 0.2242 (C20a, C20c); readings: 0.225 (C5a, both readers); \"z 0.091–0.228 ... all 4 below 0.3\" (C11a, reader A)",
+   "pair": "L",
+   "gas": [
+    "CHEX-MATE",
+    "C3a CLASH-X",
+    "Martino+2014",
+    "Mulroy+2019 gas",
+    "C20c CHeCS",
+    "C11a Umetsu+2009 (AMiBA)"
+   ],
+   "chx": [
+    "PSZ2 G055.59+31.85",
+    "2",
+    false,
+    "position (0.1′ from mulroy19 position; Δz ≤ 0.02)"
+   ],
+   "ch": {
+    "L": {
+     "obs": [
+      "C1a",
+      "C1b",
+      "C1c",
+      "C5a",
+      "C6c/C6d",
+      "C11a"
+     ],
+     "stars": [
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6c/C6d",
+      "S6",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A2593",
+   "z": "0.042 (C20d)",
+   "pair": "O",
+   "gas": [],
+   "chx": null,
+   "ch": {
+    "O": {
+     "obs": [
+      "C20d"
+     ],
+     "stars": [
+      "L1",
+      "S2b"
+     ],
+     "best": [
+      [
+       1,
+       false,
+       false
+      ],
+      "C20d",
+      "L1",
+      "(none)",
+      1
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A2631",
+   "z": "0.2779 (C6c/C6d); 0.2765 (C20a); 0.277 (C20d)",
+   "pair": "L",
+   "gas": [
+    "CHEX-MATE",
+    "Martino+2014",
+    "Mulroy+2019 gas"
+   ],
+   "chx": [
+    "PSZ2 G087.03-57.37",
+    "2",
+    false,
+    "position (0.3′ from martino14 position; Δz ≤ 0.02)"
+   ],
+   "ch": {
+    "L": {
+     "obs": [
+      "C6c/C6d"
+     ],
+     "stars": [
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6c/C6d",
+      "S6",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "MS 1455.0+2232",
+   "z": "0.2578 (C6c/C6d); 0.2570 (C15a)",
+   "pair": "L",
+   "gas": [
+    "Martino+2014",
+    "Mulroy+2019 gas",
+    "C15a Hicks+2006"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C6c/C6d"
+     ],
+     "stars": [
+      "L8",
+      "S16b",
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6c/C6d",
+      "L8",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "RXCJ 1504.1-0248",
+   "z": "0.2153 (C6c/C6d); 0.215 (C18d); 0.2168 (C20a, C20c); 0.216 (C20d)",
+   "pair": "L",
+   "gas": [
+    "Martino+2014",
+    "Mulroy+2019 gas",
+    "C20c CHeCS",
+    "Nagarajan+2018 (APEX-SZ)"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C6c/C6d",
+      "C18d"
+     ],
+     "stars": [
+      "L10",
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6c/C6d",
+      "S6",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "RXJ1720.1+2638",
+   "z": "0.1640 (C6a, C6c/C6d); 0.1604 (C20a, C20c); 0.160 (C20d); 0.1606 (C29b)",
+   "pair": "L",
+   "gas": [
+    "CHEX-MATE",
+    "Martino+2014",
+    "Mulroy+2019 gas",
+    "C20c CHeCS"
+   ],
+   "chx": [
+    "PSZ2 G049.22+30.87",
+    "1",
+    false,
+    "name"
+   ],
+   "ch": {
+    "L": {
+     "obs": [
+      "C6a",
+      "C6c/C6d"
+     ],
+     "stars": [
+      "L10",
+      "L8",
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6a",
+      "L8",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "RXJ2129.6+0005",
+   "z": "0.234 (C1a, C1b, C1c, C3a, C20d); 0.2350 (C6a, C6c/C6d); 0.2339 (C20a, C20c); readings: \"1 below 0.3 (RX J2129.7+0005)\" (C4a, reader A); no value printed",
+   "pair": "L",
+   "gas": [
+    "C3a CLASH-X",
+    "Martino+2014",
+    "Mulroy+2019 gas",
+    "C20c CHeCS"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C1a",
+      "C1b",
+      "C1c",
+      "C4a",
+      "C6a",
+      "C6c/C6d"
+     ],
+     "stars": [
+      "L10",
+      "L8",
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6a",
+      "L8",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A68",
+   "z": "0.2546 (C6a, C6c/C6d); 0.255 (C12d)",
+   "pair": "L",
+   "gas": [
+    "Martino+2014",
+    "Mulroy+2019 gas"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C6a",
+      "C6c/C6d",
+      "C12d"
+     ],
+     "stars": [
+      "L8",
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6a",
+      "L8",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A496",
+   "z": "0.0330 [= cz/c, cz 9900 km/s] (C21a, C21b)",
+   "pair": "O",
+   "gas": [],
+   "chx": null,
+   "ch": {
+    "O": {
+     "obs": [
+      "C21a",
+      "C21b"
+     ],
+     "stars": [
+      "L1",
+      "S2b"
+     ],
+     "best": [
+      [
+       1,
+       false,
+       false
+      ],
+      "C21a",
+      "L1",
+      "(none)",
+      1
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A611",
+   "z": "0.288 (C1a, C1b, C3a); 0.29 (C1c); 0.2850 (C6a); 0.2880 (C6c/C6d)",
+   "pair": "L",
+   "gas": [
+    "C3a CLASH-X",
+    "Martino+2014",
+    "Mulroy+2019 gas"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C1a",
+      "C1b",
+      "C1c",
+      "C6a",
+      "C6c/C6d"
+     ],
+     "stars": [
+      "L5a",
+      "L8",
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6a",
+      "L8",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A750",
+   "z": "0.1630 (C6c/C6d); 0.1640 (C20a); 0.164 (C20d)",
+   "pair": "L",
+   "gas": [
+    "CHEX-MATE",
+    "Martino+2014",
+    "Mulroy+2019 gas"
+   ],
+   "chx": [
+    "PSZ2 G218.81+35.51",
+    "1",
+    false,
+    "position (0.1′ from mulroy19 position; Δz ≤ 0.02)"
+   ],
+   "ch": {
+    "L": {
+     "obs": [
+      "C6c/C6d"
+     ],
+     "stars": [
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6c/C6d",
+      "S6",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A963",
+   "z": "0.2050 (C6a, C6c/C6d); 0.206 (C12d); 0.2041 (C20a, C20c); 0.204 (C20d)",
+   "pair": "L",
+   "gas": [
+    "Martino+2014",
+    "Mulroy+2019 gas",
+    "C20c CHeCS"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C6a",
+      "C6c/C6d",
+      "C12d"
+     ],
+     "stars": [
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6a",
+      "S6",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A1423",
+   "z": "0.213 (C1c, C3a); 0.2130 (C6c/C6d); 0.2142 (C20a, C20c); 0.214 (C20d)",
+   "pair": "L",
+   "gas": [
+    "C3a CLASH-X",
+    "Martino+2014",
+    "Mulroy+2019 gas",
+    "C20c CHeCS"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C1c",
+      "C6c/C6d"
+     ],
+     "stars": [
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6c/C6d",
+      "S6",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A1835",
+   "z": "0.2528 (C6a, C6c/C6d); 0.253 (C12d, C18d); 0.2506 (C20a, C20c); 0.252 (C20d); readings: \"all below 0.3\" (C11b, reader A); 0.252 (C12f, reader A)",
+   "pair": "L",
+   "gas": [
+    "CHEX-MATE",
+    "Martino+2014",
+    "Mulroy+2019 gas",
+    "C20c CHeCS",
+    "C11b Okabe+2014",
+    "Nagarajan+2018 (APEX-SZ)"
+   ],
+   "chx": [
+    "PSZ2 G340.36+60.58",
+    "2",
+    false,
+    "position (0.0′ from mulroy19 position; Δz ≤ 0.02)"
+   ],
+   "ch": {
+    "L": {
+     "obs": [
+      "C6a",
+      "C6c/C6d",
+      "C11b",
+      "C12d",
+      "C12f",
+      "C18d"
+     ],
+     "stars": [
+      "L8",
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6a",
+      "L8",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A2390",
+   "z": "0.2329 (C6a, C6c/C6d); 0.233 (C12d); 0.2279 (C15a); 0.228 (C18d); readings: \"z 0.091–0.228 ... all 4 below 0.3\" (C11a, reader A); 0.228 (C14a, both readers); 0.228 (C14b, both readers)",
+   "pair": "L",
+   "gas": [
+    "CHEX-MATE",
+    "Martino+2014",
+    "Mulroy+2019 gas",
+    "C15a Hicks+2006",
+    "C11a Umetsu+2009 (AMiBA)",
+    "Nagarajan+2018 (APEX-SZ)"
+   ],
+   "chx": [
+    "PSZ2 G073.97-27.82",
+    "2",
+    false,
+    "position (0.0′ from hicks06 position; Δz ≤ 0.02)"
+   ],
+   "ch": {
+    "L": {
+     "obs": [
+      "C6a",
+      "C6c/C6d",
+      "C11a",
+      "C12d",
+      "C14a",
+      "C14b",
+      "C18d"
+     ],
+     "stars": [
+      "L8",
+      "S16b",
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6a",
+      "L8",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A2552",
+   "z": "0.2998 (C6c/C6d)",
+   "pair": "L",
+   "gas": [
+    "Martino+2014",
+    "Mulroy+2019 gas"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C6c/C6d"
+     ],
+     "stars": [
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6c/C6d",
+      "S6",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A141",
+   "z": "0.2300 (C6c/C6d)",
+   "pair": "L",
+   "gas": [
+    "Martino+2014",
+    "Mulroy+2019 gas"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C6c/C6d"
+     ],
+     "stars": [
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6c/C6d",
+      "S6",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A194",
+   "z": "0.0178 [= cz/c, cz 5341 km/s] (C21a, C21b)",
+   "pair": "O",
+   "gas": [],
+   "chx": null,
+   "ch": {
+    "O": {
+     "obs": [
+      "C21a",
+      "C21b"
+     ],
+     "stars": [
+      "L1"
+     ],
+     "best": [
+      [
+       1,
+       false,
+       false
+      ],
+      "C21a",
+      "L1",
+      "(none)",
+      1
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A291",
+   "z": "0.1960 (C6c/C6d)",
+   "pair": "L",
+   "gas": [
+    "Martino+2014",
+    "Mulroy+2019 gas"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C6c/C6d"
+     ],
+     "stars": [
+      "L8",
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6c/C6d",
+      "L8",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A521",
+   "z": "0.2475 (C6a, C6c/C6d)",
+   "pair": "L",
+   "gas": [
+    "CHEX-MATE",
+    "Martino+2014",
+    "Mulroy+2019 gas"
+   ],
+   "chx": [
+    "PSZ2 G208.80-30.67",
+    "2",
+    false,
+    "position (0.3′ from mulroy19 position; Δz ≤ 0.02)"
+   ],
+   "ch": {
+    "L": {
+     "obs": [
+      "C6a",
+      "C6c/C6d"
+     ],
+     "stars": [
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6a",
+      "S6",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A539",
+   "z": "0.0291 [= cz/c, cz 8717 km/s] (C21a, C21b)",
+   "pair": "O",
+   "gas": [],
+   "chx": null,
+   "ch": {
+    "O": {
+     "obs": [
+      "C21a",
+      "C21b"
+     ],
+     "stars": [
+      "L1"
+     ],
+     "best": [
+      [
+       1,
+       false,
+       false
+      ],
+      "C21a",
+      "L1",
+      "(none)",
+      1
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A576",
+   "z": "0.0384 [= cz/c, cz 11510 km/s] (C21a, C21b)",
+   "pair": "O",
+   "gas": [],
+   "chx": null,
+   "ch": {
+    "O": {
+     "obs": [
+      "C21a",
+      "C21b"
+     ],
+     "stars": [
+      "L1"
+     ],
+     "best": [
+      [
+       1,
+       false,
+       false
+      ],
+      "C21a",
+      "L1",
+      "(none)",
+      1
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A779",
+   "z": "0.023 (C20d)",
+   "pair": "O",
+   "gas": [],
+   "chx": null,
+   "ch": {
+    "O": {
+     "obs": [
+      "C20d"
+     ],
+     "stars": [
+      "L1"
+     ],
+     "best": [
+      [
+       1,
+       false,
+       false
+      ],
+      "C20d",
+      "L1",
+      "(none)",
+      1
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A907",
+   "z": "0.1669 (C6c/C6d); 0.153 (C18d)",
+   "pair": "L",
+   "gas": [
+    "Martino+2014",
+    "Mulroy+2019 gas",
+    "Nagarajan+2018 (APEX-SZ)"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C6c/C6d",
+      "C18d"
+     ],
+     "stars": [
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6c/C6d",
+      "S6",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A1142",
+   "z": "0.036 (C20d)",
+   "pair": "O",
+   "gas": [],
+   "chx": null,
+   "ch": {
+    "O": {
+     "obs": [
+      "C20d"
+     ],
+     "stars": [
+      "L1"
+     ],
+     "best": [
+      [
+       1,
+       false,
+       false
+      ],
+      "C20d",
+      "L1",
+      "(none)",
+      1
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A1314",
+   "z": "0.033 (C20d)",
+   "pair": "O",
+   "gas": [],
+   "chx": null,
+   "ch": {
+    "O": {
+     "obs": [
+      "C20d"
+     ],
+     "stars": [
+      "L1"
+     ],
+     "best": [
+      [
+       1,
+       false,
+       false
+      ],
+      "C20d",
+      "L1",
+      "(none)",
+      1
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A1451",
+   "z": "0.1992 (C6c/C6d)",
+   "pair": "L",
+   "gas": [
+    "Martino+2014",
+    "Mulroy+2019 gas"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C6c/C6d"
+     ],
+     "stars": [
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6c/C6d",
+      "S6",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A1767",
+   "z": "0.071 (C20d)",
+   "pair": "O",
+   "gas": [],
+   "chx": null,
+   "ch": {
+    "O": {
+     "obs": [
+      "C20d"
+     ],
+     "stars": [
+      "L1",
+      "S2b"
+     ],
+     "best": [
+      [
+       1,
+       false,
+       false
+      ],
+      "C20d",
+      "L1",
+      "(none)",
+      1
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A2009",
+   "z": "0.1530 (C6c/C6d); 0.1522 (C20a, C20c); 0.152 (C20d)",
+   "pair": "L",
+   "gas": [
+    "CHEX-MATE",
+    "Martino+2014",
+    "Mulroy+2019 gas",
+    "C20c CHeCS"
+   ],
+   "chx": [
+    "PSZ2 G028.89+60.13",
+    "1",
+    false,
+    "position (0.0′ from mulroy19 position; Δz ≤ 0.02)"
+   ],
+   "ch": {
+    "L": {
+     "obs": [
+      "C6c/C6d"
+     ],
+     "stars": [
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6c/C6d",
+      "S6",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A2204",
+   "z": "0.1524 (C6a, C6c/C6d); 0.152 (C18d); readings: 0.152 (C12f, reader A)",
+   "pair": "L",
+   "gas": [
+    "CHEX-MATE",
+    "Martino+2014",
+    "Mulroy+2019 gas",
+    "Nagarajan+2018 (APEX-SZ)"
+   ],
+   "chx": [
+    "PSZ2 G021.10+33.24",
+    "12",
+    false,
+    "position (0.3′ from mulroy19 position; Δz ≤ 0.02)"
+   ],
+   "ch": {
+    "L": {
+     "obs": [
+      "C6a",
+      "C6c/C6d",
+      "C12f",
+      "C18d"
+     ],
+     "stars": [
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6a",
+      "S6",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A2219",
+   "z": "0.2281 (C6a, C6c/C6d); 0.228 (C12d); 0.2257 (C20a, C20c); 0.226 (C20d)",
+   "pair": "L",
+   "gas": [
+    "CHEX-MATE",
+    "Martino+2014",
+    "Mulroy+2019 gas",
+    "C20c CHeCS"
+   ],
+   "chx": [
+    "PSZ2 G072.62+41.46",
+    "2",
+    true,
+    "position (0.0′ from mulroy19 position; Δz ≤ 0.02)"
+   ],
+   "ch": {
+    "L": {
+     "obs": [
+      "C6a",
+      "C6c/C6d",
+      "C12d"
+     ],
+     "stars": [
+      "L8",
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6a",
+      "L8",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A2485",
+   "z": "0.2472 (C6c/C6d)",
+   "pair": "L",
+   "gas": [
+    "Martino+2014"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C6c/C6d"
+     ],
+     "stars": [
+      "L8"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6c/C6d",
+      "L8",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A2537",
+   "z": "0.2966 (C6c/C6d); 0.297 (C18d)",
+   "pair": "L",
+   "gas": [
+    "Martino+2014",
+    "Mulroy+2019 gas",
+    "Nagarajan+2018 (APEX-SZ)"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C6c/C6d",
+      "C18d"
+     ],
+     "stars": [
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6c/C6d",
+      "S6",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "A2670",
+   "z": "0.076 (C20d)",
+   "pair": "O",
+   "gas": [],
+   "chx": null,
+   "ch": {
+    "O": {
+     "obs": [
+      "C20d"
+     ],
+     "stars": [
+      "L1"
+     ],
+     "best": [
+      [
+       1,
+       false,
+       false
+      ],
+      "C20d",
+      "L1",
+      "(none)",
+      1
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "NGC6338",
+   "z": "0.029 (C20d)",
+   "pair": "O",
+   "gas": [],
+   "chx": null,
+   "ch": {
+    "O": {
+     "obs": [
+      "C20d"
+     ],
+     "stars": [
+      "L1"
+     ],
+     "best": [
+      [
+       1,
+       false,
+       false
+      ],
+      "C20d",
+      "L1",
+      "(none)",
+      1
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "RXCJ2102.1-2431",
+   "z": "0.1880 (C6c/C6d)",
+   "pair": "L",
+   "gas": [
+    "Martino+2014",
+    "Mulroy+2019 gas"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C6c/C6d"
+     ],
+     "stars": [
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6c/C6d",
+      "S6",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "XLSSC 027",
+   "z": "0.295 (C18c)",
+   "pair": "L",
+   "gas": [
+    "Eckert+2016 (XXL XIII)"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C18c"
+     ],
+     "stars": [
+      "L9"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C18c",
+      "L9",
+      "Eckert+2016 (XXL XIII)",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "XLSSC 054",
+   "z": "0.054 (C18c)",
+   "pair": "L",
+   "gas": [
+    "Eckert+2016 (XXL XIII)"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C18c"
+     ],
+     "stars": [
+      "L9"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C18c",
+      "L9",
+      "Eckert+2016 (XXL XIII)",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "XLSSC 055",
+   "z": "0.232 (C18c)",
+   "pair": "L",
+   "gas": [
+    "Eckert+2016 (XXL XIII)"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C18c"
+     ],
+     "stars": [
+      "L9"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C18c",
+      "L9",
+      "Eckert+2016 (XXL XIII)",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "XLSSC 060",
+   "z": "0.139 (C18c)",
+   "pair": "L",
+   "gas": [
+    "Eckert+2016 (XXL XIII)"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C18c"
+     ],
+     "stars": [
+      "L9"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C18c",
+      "L9",
+      "Eckert+2016 (XXL XIII)",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "XLSSC 061",
+   "z": "0.259 (C18c)",
+   "pair": "L",
+   "gas": [
+    "Eckert+2016 (XXL XIII)"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C18c"
+     ],
+     "stars": [
+      "L9"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C18c",
+      "L9",
+      "Eckert+2016 (XXL XIII)",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "XLSSC 087",
+   "z": "0.141 (C18c)",
+   "pair": "L",
+   "gas": [
+    "Eckert+2016 (XXL XIII)"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C18c"
+     ],
+     "stars": [
+      "L9"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C18c",
+      "L9",
+      "Eckert+2016 (XXL XIII)",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "XLSSC 088",
+   "z": "0.295 (C18c)",
+   "pair": "L",
+   "gas": [
+    "Eckert+2016 (XXL XIII)"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C18c"
+     ],
+     "stars": [
+      "L9"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C18c",
+      "L9",
+      "Eckert+2016 (XXL XIII)",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "XLSSC 091",
+   "z": "0.186 (C18c)",
+   "pair": "L",
+   "gas": [
+    "Eckert+2016 (XXL XIII)"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C18c"
+     ],
+     "stars": [
+      "L9"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C18c",
+      "L9",
+      "Eckert+2016 (XXL XIII)",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "XLSSC 098",
+   "z": "0.297 (C18c)",
+   "pair": "L",
+   "gas": [
+    "Eckert+2016 (XXL XIII)"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C18c"
+     ],
+     "stars": [
+      "L9"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C18c",
+      "L9",
+      "Eckert+2016 (XXL XIII)",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "XLSSC 103",
+   "z": "0.233 (C18c)",
+   "pair": "L",
+   "gas": [
+    "Eckert+2016 (XXL XIII)"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C18c"
+     ],
+     "stars": [
+      "L9"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C18c",
+      "L9",
+      "Eckert+2016 (XXL XIII)",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "XLSSC 104",
+   "z": "0.294 (C18c)",
+   "pair": "L",
+   "gas": [
+    "Eckert+2016 (XXL XIII)"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C18c"
+     ],
+     "stars": [
+      "L9"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C18c",
+      "L9",
+      "Eckert+2016 (XXL XIII)",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "XLSSC 112",
+   "z": "0.139 (C18c)",
+   "pair": "L",
+   "gas": [
+    "Eckert+2016 (XXL XIII)"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C18c"
+     ],
+     "stars": [
+      "L9"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C18c",
+      "L9",
+      "Eckert+2016 (XXL XIII)",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "ZwCl0857.9+2107",
+   "z": "0.2347 (C6c/C6d)",
+   "pair": "L",
+   "gas": [
+    "Martino+2014",
+    "Mulroy+2019 gas"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C6c/C6d"
+     ],
+     "stars": [
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6c/C6d",
+      "S6",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "ZwCl1231.4+1007",
+   "z": "0.2290 (C6c/C6d)",
+   "pair": "L",
+   "gas": [
+    "Martino+2014",
+    "Mulroy+2019 gas"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C6c/C6d"
+     ],
+     "stars": [
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6c/C6d",
+      "S6",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "ZwCl 0949.6+5207",
+   "z": "0.2140 (C6a, C6c/C6d); 0.2160 (C20a, C20c); 0.215 (C20d)",
+   "pair": "L",
+   "gas": [
+    "Martino+2014",
+    "Mulroy+2019 gas",
+    "C20c CHeCS"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C6a",
+      "C6c/C6d"
+     ],
+     "stars": [
+      "L5a",
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6a",
+      "S6",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  },
+  {
+   "name": "ZwCl 1021.0+0426",
+   "z": "0.2906 (C6c/C6d); 0.280 (C18d); 0.2894 (C20a, C20c); 0.290 (C20d)",
+   "pair": "L",
+   "gas": [
+    "Martino+2014",
+    "Mulroy+2019 gas",
+    "C20c CHeCS",
+    "Nagarajan+2018 (APEX-SZ)"
+   ],
+   "chx": null,
+   "ch": {
+    "L": {
+     "obs": [
+      "C6c/C6d",
+      "C18d"
+     ],
+     "stars": [
+      "L5a",
+      "S6"
+     ],
+     "best": [
+      [
+       3,
+       false,
+       false
+      ],
+      "C6c/C6d",
+      "S6",
+      "Martino+2014",
+      3
+     ]
+    }
+   },
+   "has_pos": true
+  }
+ ],
+ "OBS": {
+  "C1a": [
+   "CLASH",
+   "BCG (Umetsu+2014 §, Table 1)",
+   "Subaru WL 0.9′–16′, 10 log bins"
+  ],
+  "C1b": [
+   "CLASH",
+   "BCG (Umetsu+2016 Table 1 note a)",
+   "HST SL bins + Subaru WL 0.9′–16′"
+  ],
+  "C1c": [
+   "CLASH",
+   "n/a (2D lens model)",
+   "HST field of view only"
+  ],
+  "C4a": [
+   "CLASH",
+   "n/a (SL model)",
+   "core, ≲ 0.2 R200c"
+  ],
+  "C5a": [
+   "CLASH",
+   "not read",
+   "to ≈ 3 Mpc/h70"
+  ],
+  "C6a": [
+   "LoCuSS",
+   "n/a (SL core model)",
+   "core, R < 250 kpc"
+  ],
+  "C6c/C6d": [
+   "LoCuSS",
+   "BCG (optical centroid of the BCG; Okabe & Smith 2016 §)",
+   "per-cluster shear profiles; NFW fits (tier 2)"
+  ],
+  "C9a": [
+   "A1689 (Broadhurst/Umetsu)",
+   "not read",
+   "SL core"
+  ],
+  "C9b": [
+   "A1689 (Broadhurst/Umetsu)",
+   "not read",
+   "WL r < 2 Mpc/h"
+  ],
+  "C9c": [
+   "A1689 (Halkola)",
+   "not read",
+   "SL ≤ 0.3 Mpc/h70 + WL to ≈ 2.5 Mpc"
+  ],
+  "C9d/C9e": [
+   "A1689 (Broadhurst/Umetsu)",
+   "not read",
+   "WL + SL"
+  ],
+  "C9e/C9f": [
+   "A1689 (Broadhurst/Umetsu)",
+   "not read",
+   "WL beyond r_vir"
+  ],
+  "C9f/C9g": [
+   "A1689 (Diego)",
+   "not read",
+   "SL + WL, binned mean profile"
+  ],
+  "C9g/C9h": [
+   "CHEX-MATE",
+   "not read (gas: X-ray peak)",
+   "WL"
+  ],
+  "C11a": [
+   "AMiBA/Subaru (Umetsu+2009)",
+   "not read",
+   "Subaru WL"
+  ],
+  "C11b": [
+   "Suzaku/Subaru (Okabe+2014)",
+   "not confirmed",
+   "WL to virial radius"
+  ],
+  "C12c": [
+   "CFH12k (Bardeau)",
+   "not read",
+   "WL"
+  ],
+  "C12d": [
+   "CFH12k (Bardeau)",
+   "BCG (Bardeau+2007 §)",
+   "WL shear profiles"
+  ],
+  "C12f": [
+   "WFI (Clowe & Schneider)",
+   "not read",
+   "WL"
+  ],
+  "C13a": [
+   "Coma WL (Gavazzi)",
+   "convergence-map peak (Gavazzi+2009)",
+   "WL"
+  ],
+  "C13c": [
+   "A209 WL (Paulin-Henriksson)",
+   "not read",
+   "WL"
+  ],
+  "C13h": [
+   "A383 WL (Huang)",
+   "not read",
+   "WL"
+  ],
+  "C14a": [
+   "Euclid ERO",
+   "not read",
+   "SL + WL"
+  ],
+  "C14b": [
+   "Euclid ERO",
+   "not read",
+   "WL to 3.07 Mpc"
+  ],
+  "C18c": [
+   "XXL",
+   "X-ray peak (Umetsu+2020 §)",
+   "HSC ΔΣ 0.3–3 h⁻¹ Mpc comoving, 8 bins"
+  ],
+  "C18d": [
+   "APEX-SZ",
+   "BCG (Klein+2019 §3.4)",
+   "WFI/Suprime-Cam shear; NFW fits"
+  ],
+  "C20a": [
+   "SAO caustic team (HeCS)",
+   "hierarchical centre (Rines+2013 §3)",
+   "caustic, to infall region"
+  ],
+  "C20c": [
+   "SAO caustic team (HeCS/CHeCS)",
+   "caustic centre from the caustic analysis (Logan+2022 §)",
+   "caustic profiles (figures)"
+  ],
+  "C20d": [
+   "SAO caustic team (CIRS+HeCS)",
+   "not stated in text searched",
+   "caustic, to ≈ 3 R200"
+  ],
+  "C21a": [
+   "SAO caustic team (CAIRNS)",
+   "hierarchical centre (Rines+2003 Table 9)",
+   "caustic, to 5–10 Mpc"
+  ],
+  "C21b": [
+   "SAO caustic team (CAIRNS)",
+   "as C21a",
+   "as C21a"
+  ],
+  "C21c": [
+   "SAO caustic team (A2199)",
+   "not read",
+   "caustic, to ≈ 8 h⁻¹ Mpc"
+  ],
+  "C23a": [
+   "SAO caustic team (Coma)",
+   "not read",
+   "caustic to 10 h⁻¹ Mpc"
+  ],
+  "C23b": [
+   "SAO caustic team (Coma)",
+   "not read",
+   "caustic"
+  ],
+  "C23c": [
+   "DESI Coma (Pedratti)",
+   "NGC 4874 (Pedratti+2026 §)",
+   "Jeans, R 0.10–2.30 Mpc"
+  ],
+  "C28a": [
+   "A2142 (Munari)",
+   "X-ray centre of De Grandi & Molendi 2002 (Munari+2014 §)",
+   "caustic/MAMPOSSt"
+  ],
+  "C29a": [
+   "eRASS1 (Li+2024)",
+   "not determined (BCG and X-ray centre both listed)",
+   "Jeans, ≈ 68–3820 kpc"
+  ],
+  "C29b": [
+   "CHEX-MATE",
+   "not stated in text searched",
+   "MAMPOSSt 0.05 Mpc–1.1 r200"
+  ]
+ },
+ "STARS": {
+  "L1": [
+   "Lin & Mohr (2MASS)",
+   "X-ray centre (archival ROSAT or literature; Lin+2004 §2)",
+   "r500 and r200 from the M–T_X relation; 3D (NFW deprojection)"
+  ],
+  "S2b": [
+   "Lin & Mohr (2MASS)",
+   "not stated in text searched",
+   "r500 from the M–T_X relation; 3D (NFW c = 5)"
+  ],
+  "L2": [
+   "Girardi+2000",
+   "G98 centres (not read)",
+   "0.5/1.0/1.5 h⁻¹ Mpc and R_vir (G98 virial); projected"
+  ],
+  "L5a": [
+   "RASS-SDSS (Popesso)",
+   "X-ray (L9 reader B)",
+   "fixed metric, 1.0 h70⁻¹ Mpc printed (20 apertures in catalogue); projected"
+  ],
+  "L5c": [
+   "RASS-SDSS (Popesso)",
+   "X-ray centre where definable (Popesso+2007 §)",
+   "r200 from σ (virial); projected"
+  ],
+  "L8": [
+   "LoCuSS",
+   "not stated in text searched",
+   "1 Mpc and r500,WL (Okabe weak lensing); projected"
+  ],
+  "S6": [
+   "LoCuSS",
+   "BCG (Mulroy+2019 §2.4)",
+   "r500,WL (Okabe & Smith 2016); projected"
+  ],
+  "L9": [
+   "XXL",
+   "X-ray centroid (Ziparo+2016 §3.1)",
+   "r500,WL (XXL Paper IV) and 1 Mpc; projected"
+  ],
+  "L10": [
+   "Laganá+2009",
+   "X-ray centre of Maughan+2008 (Laganá+2009 §)",
+   "r500 from Maughan+2008 (X-ray); projected"
+  ],
+  "S16b": [
+   "CNOC (Muzzin)",
+   "not stated in text searched",
+   "R200 from σ; projected"
+  ],
+  "S8d": [
+   "CLASH-VLT (Annunziatella)",
+   "not read",
+   "stellar-mass density profile; geometry not stated"
+  ],
+  "S10b": [
+   "SPT (Chiu)",
+   "not stated in text searched",
+   "R500 from SZ mass; 3D"
+  ],
+  "S12b": [
+   "X-COP",
+   "X-ray centroid (Ghizzardi+2021 §)",
+   "cumulative profile + R500 (hydrostatic); 3D"
+  ],
+  "S4b": [
+   "—",
+   "—",
+   "not stated"
+  ]
+ },
+ "GAS": {
+  "X-COP": [
+   "X-COP",
+   "X-ray peak (Ghirardini+2019 §)",
+   "binned deprojected profiles, public release (Atlas package aeg-d-xcop/v1)",
+   "eligible"
+  ],
+  "CHEX-MATE": [
+   "CHEX-MATE",
+   "X-ray peak (CHEX-MATE 2021 Table B.1 coordinates)",
+   "per-cluster density profiles not found published (DR1: temperature profiles only, CDS)",
+   "not yet available"
+  ],
+  "C3a CLASH-X": [
+   "CLASH",
+   "not stated in text searched",
+   "JACO parametric + non-parametric annuli; profiles in figures, inputs on MAST (tier 3)",
+   "eligible (tier 3)"
+  ],
+  "Martino+2014": [
+   "LoCuSS",
+   "X-ray centroid (Martino+2014 §3)",
+   "gas mass at r2500, r1000, r500 (hydrostatic radii) only; density model not tabulated",
+   "aperture only"
+  ],
+  "Mulroy+2019 gas": [
+   "LoCuSS",
+   "BCG (Mulroy+2019 §2.4)",
+   "gas mass within r500,WL only (from fitted density templates)",
+   "aperture only"
+  ],
+  "C20c CHeCS": [
+   "SAO caustic team (HeCS/CHeCS)",
+   "X-ray centroid (Logan+2022 §)",
+   "parametric 3D density (Vikhlinin 2006); per-cluster parameters not seen in tables",
+   "fit; release unverified"
+  ],
+  "C15a Hicks+2006": [
+   "CNOC (Hicks)",
+   "fitted X-ray centroid (Hicks+2006 §)",
+   "single and double β-model fits (Table 2)",
+   "fit (eligible within range)"
+  ],
+  "C9h/C9i Peng+2009": [
+   "A1689 (Peng)",
+   "not confirmed",
+   "annuli + parametric fits (Tables 10–11)",
+   "eligible"
+  ],
+  "C9g/C9h CHEX-MATE A1689": [
+   "CHEX-MATE",
+   "X-ray peak (Chappuis+2025 §)",
+   "XMM density (hydromass)",
+   "eligible (E record)"
+  ],
+  "C11b Okabe+2014": [
+   "Suzaku/Subaru (Okabe+2014)",
+   "not confirmed",
+   "fits in tables, binned in figures",
+   "eligible (E record)"
+  ],
+  "C11a Umetsu+2009 (AMiBA)": [
+   "AMiBA/Subaru (Umetsu+2009)",
+   "not read",
+   "SZ β/NFW model fit only",
+   "fit only (E record)"
+  ],
+  "C29a Li+2024": [
+   "eRASS1 (Li+2024)",
+   "best-fit X-ray centre (Li+2024 Table 1)",
+   "parametric density (MBProj2D), best-fit parameters Table 2",
+   "fit (E record)"
+  ],
+  "Mirakhor & Walker 2020": [
+   "Coma XMM+Planck",
+   "X-ray peak (Mirakhor & Walker 2020 §2)",
+   "onion-peeling deprojected profile; figures (tabulation not checked)",
+   "binned (figures)"
+  ],
+  "Eckert+2016 (XXL XIII)": [
+   "XXL",
+   "X-ray (best-fit position / peak; Eckert+2016 §2)",
+   "density profiles in Fig. 1 only; aperture r500,MT (M–T relation)",
+   "figures only"
+  ],
+  "Akamatsu+2011": [
+   "A2142 (Suzaku)",
+   "not read",
+   "named by C28a; not read",
+   "not read"
+  ],
+  "Nagarajan+2018 (APEX-SZ)": [
+   "APEX-SZ",
+   "not read",
+   "SZ analysis named by Klein+2019; not read; not stated as a density profile",
+   "not read"
+  ]
+ }
+}

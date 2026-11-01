@@ -1,0 +1,2839 @@
+[
+ {
+  "name": "A85",
+  "forms": [
+   "A0085"
+  ],
+  "z": "0.055 (C20d)",
+  "recs": [
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L1",
+    "3D"
+   ],
+   [
+    "L2",
+    "projected"
+   ],
+   [
+    "L5a",
+    "projected"
+   ],
+   [
+    "S2b",
+    "3D"
+   ],
+   [
+    "S4b",
+    "not stated"
+   ],
+   [
+    "S12b",
+    "3D"
+   ]
+  ],
+  "star_names": {
+   "L1": "a0085",
+   "L2": "A85",
+   "L5a": "RXCJ0041.8-0918",
+   "S2b": "A85",
+   "S4b": "A85"
+  },
+  "pair": "O"
+ },
+ {
+  "name": "A209",
+  "forms": [
+   "A 209",
+   "ABELL0209",
+   "Abell 209"
+  ],
+  "z": "0.206 (C1a, C1b, C3a, C12d, C18d); 0.21 (C1c); 0.2060 (C6c/C6d); readings: ~0.2 (reader A); 0.2 (reader B) (C13c)",
+  "recs": [
+   [
+    "C1a",
+    "L"
+   ],
+   [
+    "C1b",
+    "L"
+   ],
+   [
+    "C1c",
+    "L"
+   ],
+   [
+    "C3a",
+    "gas side"
+   ],
+   [
+    "C6c/C6d",
+    "L"
+   ],
+   [
+    "C12d",
+    "L"
+   ],
+   [
+    "C13c",
+    "L"
+   ],
+   [
+    "C18d",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "L8",
+    "projected"
+   ],
+   [
+    "S6",
+    "projected"
+   ],
+   [
+    "S8d",
+    "not stated"
+   ]
+  ],
+  "star_names": {
+   "L8": "ABELL0209",
+   "S6": "Abell0209"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A1367",
+  "forms": [],
+  "z": "0.0217 [= cz/c, cz 6495 km/s] (C21a, C21b)",
+  "recs": [
+   [
+    "C21a",
+    "O"
+   ],
+   [
+    "C21b",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L1",
+    "3D"
+   ],
+   [
+    "S2b",
+    "3D"
+   ],
+   [
+    "S4b",
+    "not stated"
+   ]
+  ],
+  "star_names": {
+   "L1": "a1367",
+   "S2b": "A1367",
+   "S4b": "A1367"
+  },
+  "pair": "O"
+ },
+ {
+  "name": "A1650",
+  "forms": [],
+  "z": "0.084 (C20d)",
+  "recs": [
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L1",
+    "3D"
+   ],
+   [
+    "L5c",
+    "projected"
+   ],
+   [
+    "S2b",
+    "3D"
+   ],
+   [
+    "S4b",
+    "not stated"
+   ]
+  ],
+  "star_names": {
+   "L1": "a1650",
+   "L5c": "a1650",
+   "S2b": "A1650",
+   "S4b": "A1650"
+  },
+  "pair": "O"
+ },
+ {
+  "name": "A2142",
+  "forms": [],
+  "z": "0.089 (C20d); readings: \"z 0.091–0.228 ... all 4 below 0.3\" (C11a, reader A); 0.09 (reader A); 0.090 (reader B) (C28a)",
+  "recs": [
+   [
+    "C11a",
+    "L"
+   ],
+   [
+    "C20d",
+    "O"
+   ],
+   [
+    "C28a",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L1",
+    "3D"
+   ],
+   [
+    "S4b",
+    "not stated"
+   ],
+   [
+    "S12b",
+    "3D"
+   ]
+  ],
+  "star_names": {
+   "L1": "a2142",
+   "S4b": "A2142"
+  },
+  "pair": "O"
+ },
+ {
+  "name": "A2199",
+  "forms": [],
+  "z": "0.031 (C20d); 0.0304 [= cz/c, cz 9101 km/s] (C21a, C21b)",
+  "recs": [
+   [
+    "C20d",
+    "O"
+   ],
+   [
+    "C21a",
+    "O"
+   ],
+   [
+    "C21b",
+    "O"
+   ],
+   [
+    "C21c",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L1",
+    "3D"
+   ],
+   [
+    "S4b",
+    "not stated"
+   ]
+  ],
+  "star_names": {
+   "L1": "a2199",
+   "L4": "A2199",
+   "S4b": "A2199"
+  },
+  "pair": "O"
+ },
+ {
+  "name": "A2255",
+  "forms": [],
+  "z": "0.080 (C20d)",
+  "recs": [
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L1",
+    "3D"
+   ],
+   [
+    "L5c",
+    "projected"
+   ],
+   [
+    "S2b",
+    "3D"
+   ],
+   [
+    "S4b",
+    "not stated"
+   ]
+  ],
+  "star_names": {
+   "L1": "a2255",
+   "L5c": "a2255",
+   "S2b": "A2255",
+   "S4b": "A2255"
+  },
+  "pair": "O"
+ },
+ {
+  "name": "Coma (A1656)",
+  "forms": [
+   "A1656",
+   "Coma"
+  ],
+  "z": "0.0233 [= cz/c, cz 6973 km/s] (C21a, C21b); readings: ~0.024 (reader A); 0.024 (reader B) (C13a); ≈ 0.023 (C23c reader A, citing C23d text)",
+  "recs": [
+   [
+    "C13a",
+    "L"
+   ],
+   [
+    "C21a",
+    "O"
+   ],
+   [
+    "C21b",
+    "O"
+   ],
+   [
+    "C23a",
+    "O"
+   ],
+   [
+    "C23b",
+    "O"
+   ],
+   [
+    "C23c",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L1",
+    "3D"
+   ],
+   [
+    "L2",
+    "projected"
+   ],
+   [
+    "S4b",
+    "not stated"
+   ]
+  ],
+  "star_names": {
+   "L1": "a1656",
+   "L2": "A1656b",
+   "S4b": "Coma"
+  },
+  "pair": "both"
+ },
+ {
+  "name": "MKW04",
+  "forms": [
+   "MKW4"
+  ],
+  "z": "0.020 (C20d)",
+  "recs": [
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L1",
+    "3D"
+   ],
+   [
+    "L2",
+    "projected"
+   ],
+   [
+    "S4b",
+    "not stated"
+   ]
+  ],
+  "star_names": {
+   "L1": "mkw04",
+   "L2": "MKW4",
+   "S4b": "MKW4"
+  },
+  "pair": "O"
+ },
+ {
+  "name": "MKW08",
+  "forms": [
+   "MKW8"
+  ],
+  "z": "0.027 (C20d)",
+  "recs": [
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L1",
+    "3D"
+   ],
+   [
+    "S4b",
+    "not stated"
+   ]
+  ],
+  "star_names": {
+   "L1": "mkw08",
+   "S4b": "MKW8"
+  },
+  "pair": "O"
+ },
+ {
+  "name": "PSZ2 G266.04-21.25",
+  "forms": [
+   "SPT-CL J0658-5556",
+   "XMMXCSJ065829.1-555641.5"
+  ],
+  "z": "0.2965 (C29b)",
+  "recs": [
+   [
+    "C29b",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "S10b",
+    "3D"
+   ]
+  ],
+  "star_names": {},
+  "pair": "O"
+ },
+ {
+  "name": "Zw1215p0400",
+  "forms": [
+   "1eRASS J121741.6+033931",
+   "ZW1215",
+   "Zw1215",
+   "ZwCl1215"
+  ],
+  "z": "0.077 (C20d); 0.0773 (C29a)",
+  "recs": [
+   [
+    "C20d",
+    "O"
+   ],
+   [
+    "C29a",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "S4b",
+    "not stated"
+   ],
+   [
+    "S12b",
+    "3D"
+   ]
+  ],
+  "star_names": {
+   "S4b": "ZwCl1215"
+  },
+  "pair": "O"
+ },
+ {
+  "name": "A115",
+  "forms": [
+   "ABELL0115"
+  ],
+  "z": "0.1971 (C6c/C6d)",
+  "recs": [
+   [
+    "C6c/C6d",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "S6": "Abell0115"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A119",
+  "forms": [
+   "A0119"
+  ],
+  "z": "0.044 (C20d); 0.0443 [= cz/c, cz 13268 km/s] (C21a, C21b)",
+  "recs": [
+   [
+    "C20d",
+    "O"
+   ],
+   [
+    "C21a",
+    "O"
+   ],
+   [
+    "C21b",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L1",
+    "3D"
+   ],
+   [
+    "L2",
+    "projected"
+   ],
+   [
+    "S2b",
+    "3D"
+   ]
+  ],
+  "star_names": {
+   "L1": "a0119",
+   "L2": "A119",
+   "S2b": "A119"
+  },
+  "pair": "O"
+ },
+ {
+  "name": "A168",
+  "forms": [
+   "A0168"
+  ],
+  "z": "0.045 (C20d); 0.0447 [= cz/c, cz 13395 km/s] (C21a, C21b)",
+  "recs": [
+   [
+    "C20d",
+    "O"
+   ],
+   [
+    "C21a",
+    "O"
+   ],
+   [
+    "C21b",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L1",
+    "3D"
+   ],
+   [
+    "L5a",
+    "projected"
+   ],
+   [
+    "L5c",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L1": "a0168",
+   "L5a": "RXCJ0114.9+0022",
+   "L5c": "a0168"
+  },
+  "pair": "O"
+ },
+ {
+  "name": "A267",
+  "forms": [
+   "A 267",
+   "A0267",
+   "ABELL0267"
+  ],
+  "z": "0.2300 (C6c/C6d); 0.230 (C12d); 0.2291 (C20a); 0.229 (C20d)",
+  "recs": [
+   [
+    "C6c/C6d",
+    "L"
+   ],
+   [
+    "C12d",
+    "L"
+   ],
+   [
+    "C20a",
+    "O"
+   ],
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L10",
+    "projected"
+   ],
+   [
+    "L5a",
+    "projected"
+   ],
+   [
+    "L8",
+    "projected"
+   ],
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L5a": "RXCJ0152.7+0100",
+   "L8": "ABELL0267",
+   "L10": "A267",
+   "S6": "Abell0267"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A383",
+  "forms": [
+   "A 383",
+   "ABELL0383",
+   "Abell 383"
+  ],
+  "z": "0.187 (C1a, C1b, C3a, C12d, C18d); 0.189 (C1c); 0.1883 (C6a, C6c/C6d); readings: 0.187 (C13h, reader B)",
+  "recs": [
+   [
+    "C1a",
+    "L"
+   ],
+   [
+    "C1b",
+    "L"
+   ],
+   [
+    "C1c",
+    "L"
+   ],
+   [
+    "C3a",
+    "gas side"
+   ],
+   [
+    "C6a",
+    "L"
+   ],
+   [
+    "C6c/C6d",
+    "L"
+   ],
+   [
+    "C12d",
+    "L"
+   ],
+   [
+    "C13h",
+    "L"
+   ],
+   [
+    "C18d",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "L8",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L8": "ABELL0383"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A586",
+  "forms": [
+   "ABELL0586"
+  ],
+  "z": "0.1710 (C6c/C6d)",
+  "recs": [
+   [
+    "C6c/C6d",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "L8",
+    "projected"
+   ],
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L8": "ABELL0586",
+   "S6": "Abell0586"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A697",
+  "forms": [
+   "A0697",
+   "ABELL0697",
+   "Abell 0697"
+  ],
+  "z": "0.2820 (C6c/C6d); 0.2812 (C20a, C20c); 0.282 (C20d)",
+  "recs": [
+   [
+    "C6c/C6d",
+    "L"
+   ],
+   [
+    "C20a",
+    "O"
+   ],
+   [
+    "C20c",
+    "O"
+   ],
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L5a",
+    "projected"
+   ],
+   [
+    "L8",
+    "projected"
+   ],
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L5a": "RXCJ0842.9+3621",
+   "L8": "ABELL0697",
+   "S6": "Abell0697"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A773",
+  "forms": [
+   "A 773",
+   "A0773",
+   "ABELL0773",
+   "Abell 0773"
+  ],
+  "z": "0.2170 (C6a, C6c/C6d); 0.2173 (C20a, C20c); 0.218 (C20d)",
+  "recs": [
+   [
+    "C6a",
+    "L"
+   ],
+   [
+    "C6c/C6d",
+    "L"
+   ],
+   [
+    "C20a",
+    "O"
+   ],
+   [
+    "C20c",
+    "O"
+   ],
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L10",
+    "projected"
+   ],
+   [
+    "L5a",
+    "projected"
+   ],
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L5a": "RXCJ0917.8+5143",
+   "L10": "A773",
+   "S6": "Abell0773"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A781",
+  "forms": [
+   "ABELL0781"
+  ],
+  "z": "0.2984 (C6c/C6d)",
+  "recs": [
+   [
+    "C6c/C6d",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "S6": "Abell0781"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A1413",
+  "forms": [
+   "A 1413",
+   "Abell 1413"
+  ],
+  "z": "0.1427 (C6a); 0.1412 (C20a, C20c); 0.141 (C20d)",
+  "recs": [
+   [
+    "C6a",
+    "L"
+   ],
+   [
+    "C20a",
+    "O"
+   ],
+   [
+    "C20c",
+    "O"
+   ],
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L10",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L10": "A1413"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A1682",
+  "forms": [
+   "ABELL1682",
+   "Abell 1682"
+  ],
+  "z": "0.2260 (C6c/C6d); 0.2272 (C20a, C20c); 0.227 (C20d)",
+  "recs": [
+   [
+    "C6c/C6d",
+    "L"
+   ],
+   [
+    "C20a",
+    "O"
+   ],
+   [
+    "C20c",
+    "O"
+   ],
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L10",
+    "projected"
+   ],
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L10": "A1682",
+   "S6": "Abell1682"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A1689",
+  "forms": [
+   "A 1689",
+   "ABELL1689",
+   "Abell 1689",
+   "Abell1689"
+  ],
+  "z": "0.1832 (C6a, C6c/C6d); 0.184 (C12d, C20d); 0.183 (C18d); 0.1842 (C20a, C20c); readings: 0.183 (C9b reader A; C9a reader B); \"z 0.091–0.228 ... all 4 below 0.3\" (C11a, reader A); \"all below 0.3\" (C11b, reader A)",
+  "recs": [
+   [
+    "C6a",
+    "L"
+   ],
+   [
+    "C6c/C6d",
+    "L"
+   ],
+   [
+    "C9a",
+    "L"
+   ],
+   [
+    "C9b",
+    "L"
+   ],
+   [
+    "C9c",
+    "L"
+   ],
+   [
+    "C9d/C9e",
+    "L"
+   ],
+   [
+    "C9e/C9f",
+    "L"
+   ],
+   [
+    "C9f/C9g",
+    "L"
+   ],
+   [
+    "C9g/C9h",
+    "L"
+   ],
+   [
+    "C9h/C9i",
+    "gas side"
+   ],
+   [
+    "C11a",
+    "L"
+   ],
+   [
+    "C11b",
+    "L"
+   ],
+   [
+    "C12c",
+    "L"
+   ],
+   [
+    "C12d",
+    "L"
+   ],
+   [
+    "C18d",
+    "L"
+   ],
+   [
+    "C20a",
+    "O"
+   ],
+   [
+    "C20c",
+    "O"
+   ],
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L10",
+    "projected"
+   ],
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L10": "A1689",
+   "S4d": "A1689",
+   "S6": "Abell1689"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A1763",
+  "forms": [
+   "A 1763",
+   "ABELL1763",
+   "Abell 1763"
+  ],
+  "z": "0.2279 (C6c/C6d); 0.228 (C12d); 0.2312 (C20a, C20c); 0.231 (C20d)",
+  "recs": [
+   [
+    "C6c/C6d",
+    "L"
+   ],
+   [
+    "C12d",
+    "L"
+   ],
+   [
+    "C20a",
+    "O"
+   ],
+   [
+    "C20c",
+    "O"
+   ],
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L10",
+    "projected"
+   ],
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L10": "A1763",
+   "S6": "Abell1763"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A1914",
+  "forms": [
+   "ABELL1914",
+   "Abell 1914"
+  ],
+  "z": "0.1712 (C6c/C6d); 0.1660 (C20a, C20c); 0.166 (C20d)",
+  "recs": [
+   [
+    "C6c/C6d",
+    "L"
+   ],
+   [
+    "C20a",
+    "O"
+   ],
+   [
+    "C20c",
+    "O"
+   ],
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L10",
+    "projected"
+   ],
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L10": "A1914",
+   "S6": "Abell1914"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A2111",
+  "forms": [
+   "ABELL2111",
+   "Abell 2111"
+  ],
+  "z": "0.2290 (C6c/C6d); 0.2291 (C20a, C20c); 0.230 (C20d)",
+  "recs": [
+   [
+    "C6c/C6d",
+    "L"
+   ],
+   [
+    "C20a",
+    "O"
+   ],
+   [
+    "C20c",
+    "O"
+   ],
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L10",
+    "projected"
+   ],
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L10": "A2111",
+   "S6": "Abell2111"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A2261",
+  "forms": [
+   "ABELL2261",
+   "Abell 2261"
+  ],
+  "z": "0.224 (C1a, C1b, C3a); 0.225 (C1c, C20d); 0.2240 (C6c/C6d); 0.2242 (C20a, C20c); readings: 0.225 (C5a, both readers); \"z 0.091–0.228 ... all 4 below 0.3\" (C11a, reader A)",
+  "recs": [
+   [
+    "C1a",
+    "L"
+   ],
+   [
+    "C1b",
+    "L"
+   ],
+   [
+    "C1c",
+    "L"
+   ],
+   [
+    "C3a",
+    "gas side"
+   ],
+   [
+    "C5a",
+    "L"
+   ],
+   [
+    "C6c/C6d",
+    "L"
+   ],
+   [
+    "C11a",
+    "L"
+   ],
+   [
+    "C20a",
+    "O"
+   ],
+   [
+    "C20c",
+    "O"
+   ],
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "S6": "Abell2261"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A2593",
+  "forms": [],
+  "z": "0.042 (C20d)",
+  "recs": [
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L1",
+    "3D"
+   ],
+   [
+    "L2",
+    "projected"
+   ],
+   [
+    "L5c",
+    "projected"
+   ],
+   [
+    "S2b",
+    "3D"
+   ]
+  ],
+  "star_names": {
+   "L1": "a2593",
+   "L2": "A2593",
+   "L5c": "a2593",
+   "S2b": "A2593"
+  },
+  "pair": "O"
+ },
+ {
+  "name": "A2631",
+  "forms": [
+   "ABELL2631",
+   "Abell2631"
+  ],
+  "z": "0.2779 (C6c/C6d); 0.2765 (C20a); 0.277 (C20d)",
+  "recs": [
+   [
+    "C6c/C6d",
+    "L"
+   ],
+   [
+    "C20a",
+    "O"
+   ],
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "S4d": "A2631",
+   "S6": "Abell2631"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "MS 1455.0+2232",
+  "forms": [
+   "MS1455+22",
+   "MS1455.0+2232",
+   "ZwCl1454.8+2233"
+  ],
+  "z": "0.2578 (C6c/C6d); 0.2570 (C15a)",
+  "recs": [
+   [
+    "C6c/C6d",
+    "L"
+   ],
+   [
+    "C15a",
+    "gas side"
+   ]
+  ],
+  "stars": [
+   [
+    "L8",
+    "projected"
+   ],
+   [
+    "S16b",
+    "projected"
+   ],
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L8": "ZwCl1454.8+2233",
+   "S6": "ZwCl1454.8+2233",
+   "S16b": "MS1455+22"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "RXCJ 1504.1-0248",
+  "forms": [
+   "RXCJ1504.1-0248",
+   "RXJ1504",
+   "RXJ1504-0248"
+  ],
+  "z": "0.2153 (C6c/C6d); 0.215 (C18d); 0.2168 (C20a, C20c); 0.216 (C20d)",
+  "recs": [
+   [
+    "C6c/C6d",
+    "L"
+   ],
+   [
+    "C18d",
+    "L"
+   ],
+   [
+    "C20a",
+    "O"
+   ],
+   [
+    "C20c",
+    "O"
+   ],
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L10",
+    "projected"
+   ],
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L10": "RXJ1504-0248",
+   "S6": "RXCJ1504.1-0248"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "RXJ1720.1+2638",
+  "forms": [
+   "PSZ2 G049.22+30.87",
+   "RX J1720",
+   "RX-J1720.1+2638",
+   "RXCJ 1720+2638",
+   "RXJ1720"
+  ],
+  "z": "0.1640 (C6a, C6c/C6d); 0.1604 (C20a, C20c); 0.160 (C20d); 0.1606 (C29b)",
+  "recs": [
+   [
+    "C6a",
+    "L"
+   ],
+   [
+    "C6c/C6d",
+    "L"
+   ],
+   [
+    "C20a",
+    "O"
+   ],
+   [
+    "C20c",
+    "O"
+   ],
+   [
+    "C20d",
+    "O"
+   ],
+   [
+    "C29b",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L10",
+    "projected"
+   ],
+   [
+    "L8",
+    "projected"
+   ],
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L8": "RXJ1720.1+2638",
+   "L10": "RXJ1720.1+2638",
+   "S6": "RXJ1720.1+2638"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "RXJ2129.6+0005",
+  "forms": [
+   "ACT-CL-J2129.6+0005",
+   "RX J2129",
+   "RX J2129.7+0005",
+   "RXCJ 2129+0005",
+   "RXJ2129",
+   "RXJ2129+0005",
+   "RXJ2129.7+0005"
+  ],
+  "z": "0.234 (C1a, C1b, C1c, C3a, C20d); 0.2350 (C6a, C6c/C6d); 0.2339 (C20a, C20c); readings: \"1 below 0.3 (RX J2129.7+0005)\" (C4a, reader A); no value printed",
+  "recs": [
+   [
+    "C1a",
+    "L"
+   ],
+   [
+    "C1b",
+    "L"
+   ],
+   [
+    "C1c",
+    "L"
+   ],
+   [
+    "C3a",
+    "gas side"
+   ],
+   [
+    "C4a",
+    "L"
+   ],
+   [
+    "C6a",
+    "L"
+   ],
+   [
+    "C6c/C6d",
+    "L"
+   ],
+   [
+    "C20a",
+    "O"
+   ],
+   [
+    "C20c",
+    "O"
+   ],
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L10",
+    "projected"
+   ],
+   [
+    "L8",
+    "projected"
+   ],
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L8": "RXJ2129.6+0005",
+   "L10": "RXJ2129.6+0005",
+   "S6": "RXJ2129.6+0005"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A68",
+  "forms": [
+   "A 68",
+   "ABELL0068",
+   "Abell68"
+  ],
+  "z": "0.2546 (C6a, C6c/C6d); 0.255 (C12d)",
+  "recs": [
+   [
+    "C6a",
+    "L"
+   ],
+   [
+    "C6c/C6d",
+    "L"
+   ],
+   [
+    "C12d",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "L8",
+    "projected"
+   ],
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L8": "ABELL0068",
+   "S6": "Abell0068"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A496",
+  "forms": [
+   "Abell496"
+  ],
+  "z": "0.0330 [= cz/c, cz 9900 km/s] (C21a, C21b)",
+  "recs": [
+   [
+    "C21a",
+    "O"
+   ],
+   [
+    "C21b",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L1",
+    "3D"
+   ],
+   [
+    "L2",
+    "projected"
+   ],
+   [
+    "S2b",
+    "3D"
+   ]
+  ],
+  "star_names": {
+   "L1": "a0496",
+   "L2": "A496",
+   "S2b": "A496",
+   "S4d": "A496"
+  },
+  "pair": "O"
+ },
+ {
+  "name": "A611",
+  "forms": [
+   "A 611",
+   "ABELL0611",
+   "Abell 611"
+  ],
+  "z": "0.288 (C1a, C1b, C3a); 0.29 (C1c); 0.2850 (C6a); 0.2880 (C6c/C6d)",
+  "recs": [
+   [
+    "C1a",
+    "L"
+   ],
+   [
+    "C1b",
+    "L"
+   ],
+   [
+    "C1c",
+    "L"
+   ],
+   [
+    "C3a",
+    "gas side"
+   ],
+   [
+    "C6a",
+    "L"
+   ],
+   [
+    "C6c/C6d",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "L5a",
+    "projected"
+   ],
+   [
+    "L8",
+    "projected"
+   ],
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L5a": "RXCJ0800.9+3602",
+   "L8": "ABELL0611",
+   "S6": "Abell0611"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A750",
+  "forms": [
+   "A0750",
+   "ABELL0750",
+   "Abell750"
+  ],
+  "z": "0.1630 (C6c/C6d); 0.1640 (C20a); 0.164 (C20d)",
+  "recs": [
+   [
+    "C6c/C6d",
+    "L"
+   ],
+   [
+    "C20a",
+    "O"
+   ],
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "S6": "Abell0750"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A963",
+  "forms": [
+   "A 963",
+   "A0963",
+   "ABELL0963",
+   "Abell 0963",
+   "Abell963"
+  ],
+  "z": "0.2050 (C6a, C6c/C6d); 0.206 (C12d); 0.2041 (C20a, C20c); 0.204 (C20d)",
+  "recs": [
+   [
+    "C6a",
+    "L"
+   ],
+   [
+    "C6c/C6d",
+    "L"
+   ],
+   [
+    "C12d",
+    "L"
+   ],
+   [
+    "C20a",
+    "O"
+   ],
+   [
+    "C20c",
+    "O"
+   ],
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "S6": "Abell0963"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A1423",
+  "forms": [
+   "ABELL1423",
+   "Abell 1423",
+   "Abell1423"
+  ],
+  "z": "0.213 (C1c, C3a); 0.2130 (C6c/C6d); 0.2142 (C20a, C20c); 0.214 (C20d)",
+  "recs": [
+   [
+    "C1c",
+    "L"
+   ],
+   [
+    "C3a",
+    "gas side"
+   ],
+   [
+    "C6c/C6d",
+    "L"
+   ],
+   [
+    "C20a",
+    "O"
+   ],
+   [
+    "C20c",
+    "O"
+   ],
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "S6": "Abell1423"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A1835",
+  "forms": [
+   "A 1835",
+   "ABELL1835",
+   "Abell 1835",
+   "Abell1835"
+  ],
+  "z": "0.2528 (C6a, C6c/C6d); 0.253 (C12d, C18d); 0.2506 (C20a, C20c); 0.252 (C20d); readings: \"all below 0.3\" (C11b, reader A); 0.252 (C12f, reader A)",
+  "recs": [
+   [
+    "C6a",
+    "L"
+   ],
+   [
+    "C6c/C6d",
+    "L"
+   ],
+   [
+    "C11b",
+    "L"
+   ],
+   [
+    "C12d",
+    "L"
+   ],
+   [
+    "C12f",
+    "L"
+   ],
+   [
+    "C18d",
+    "L"
+   ],
+   [
+    "C20a",
+    "O"
+   ],
+   [
+    "C20c",
+    "O"
+   ],
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L8",
+    "projected"
+   ],
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L8": "ABELL1835",
+   "S6": "Abell1835"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A2390",
+  "forms": [
+   "A 2390",
+   "ABELL2390",
+   "Abell 2390",
+   "Abell2390"
+  ],
+  "z": "0.2329 (C6a, C6c/C6d); 0.233 (C12d); 0.2279 (C15a); 0.228 (C18d); readings: \"z 0.091–0.228 ... all 4 below 0.3\" (C11a, reader A); 0.228 (C14a, both readers); 0.228 (C14b, both readers)",
+  "recs": [
+   [
+    "C6a",
+    "L"
+   ],
+   [
+    "C6c/C6d",
+    "L"
+   ],
+   [
+    "C11a",
+    "L"
+   ],
+   [
+    "C12d",
+    "L"
+   ],
+   [
+    "C14a",
+    "L"
+   ],
+   [
+    "C14b",
+    "L"
+   ],
+   [
+    "C15a",
+    "gas side"
+   ],
+   [
+    "C18d",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "L8",
+    "projected"
+   ],
+   [
+    "S16b",
+    "projected"
+   ],
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L8": "ABELL2390",
+   "S6": "Abell2390",
+   "S16b": "A2390"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A2552",
+  "forms": [
+   "ABELL2552",
+   "Abell2552"
+  ],
+  "z": "0.2998 (C6c/C6d)",
+  "recs": [
+   [
+    "C6c/C6d",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "S6": "Abell2552"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A141",
+  "forms": [
+   "ABELL0141"
+  ],
+  "z": "0.2300 (C6c/C6d)",
+  "recs": [
+   [
+    "C6c/C6d",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "S6": "Abell0141"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A194",
+  "forms": [],
+  "z": "0.0178 [= cz/c, cz 5341 km/s] (C21a, C21b)",
+  "recs": [
+   [
+    "C21a",
+    "O"
+   ],
+   [
+    "C21b",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L1",
+    "3D"
+   ],
+   [
+    "L2",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L1": "a0194",
+   "L2": "A194"
+  },
+  "pair": "O"
+ },
+ {
+  "name": "A291",
+  "forms": [
+   "ABELL0291"
+  ],
+  "z": "0.1960 (C6c/C6d)",
+  "recs": [
+   [
+    "C6c/C6d",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "L8",
+    "projected"
+   ],
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L8": "ABELL0291",
+   "S6": "Abell0291"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A521",
+  "forms": [
+   "A 521",
+   "ABELL0521"
+  ],
+  "z": "0.2475 (C6a, C6c/C6d)",
+  "recs": [
+   [
+    "C6a",
+    "L"
+   ],
+   [
+    "C6c/C6d",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "S6": "Abell0521"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A539",
+  "forms": [],
+  "z": "0.0291 [= cz/c, cz 8717 km/s] (C21a, C21b)",
+  "recs": [
+   [
+    "C21a",
+    "O"
+   ],
+   [
+    "C21b",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L1",
+    "3D"
+   ],
+   [
+    "L2",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L1": "a0539",
+   "L2": "A539"
+  },
+  "pair": "O"
+ },
+ {
+  "name": "A576",
+  "forms": [],
+  "z": "0.0384 [= cz/c, cz 11510 km/s] (C21a, C21b)",
+  "recs": [
+   [
+    "C21a",
+    "O"
+   ],
+   [
+    "C21b",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L1",
+    "3D"
+   ],
+   [
+    "L2",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L1": "a0576",
+   "L2": "A576"
+  },
+  "pair": "O"
+ },
+ {
+  "name": "A779",
+  "forms": [
+   "A0779"
+  ],
+  "z": "0.023 (C20d)",
+  "recs": [
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L1",
+    "3D"
+   ]
+  ],
+  "star_names": {
+   "L1": "a0779"
+  },
+  "pair": "O"
+ },
+ {
+  "name": "A907",
+  "forms": [
+   "ABELL0907"
+  ],
+  "z": "0.1669 (C6c/C6d); 0.153 (C18d)",
+  "recs": [
+   [
+    "C6c/C6d",
+    "L"
+   ],
+   [
+    "C18d",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "S6": "Abell0907"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A1142",
+  "forms": [],
+  "z": "0.036 (C20d)",
+  "recs": [
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L1",
+    "3D"
+   ]
+  ],
+  "star_names": {
+   "L1": "a1142"
+  },
+  "pair": "O"
+ },
+ {
+  "name": "A1314",
+  "forms": [],
+  "z": "0.033 (C20d)",
+  "recs": [
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L1",
+    "3D"
+   ],
+   [
+    "L2",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L1": "a1314",
+   "L2": "A1314"
+  },
+  "pair": "O"
+ },
+ {
+  "name": "A1451",
+  "forms": [
+   "ABELL1451"
+  ],
+  "z": "0.1992 (C6c/C6d)",
+  "recs": [
+   [
+    "C6c/C6d",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "S6": "Abell1451"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A1767",
+  "forms": [],
+  "z": "0.071 (C20d)",
+  "recs": [
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L1",
+    "3D"
+   ],
+   [
+    "L5c",
+    "projected"
+   ],
+   [
+    "S2b",
+    "3D"
+   ]
+  ],
+  "star_names": {
+   "L1": "a1767",
+   "L5c": "a1767",
+   "S2b": "A1767"
+  },
+  "pair": "O"
+ },
+ {
+  "name": "A2009",
+  "forms": [
+   "ABELL2009",
+   "Abell 2009"
+  ],
+  "z": "0.1530 (C6c/C6d); 0.1522 (C20a, C20c); 0.152 (C20d)",
+  "recs": [
+   [
+    "C6c/C6d",
+    "L"
+   ],
+   [
+    "C20a",
+    "O"
+   ],
+   [
+    "C20c",
+    "O"
+   ],
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "S6": "Abell2009"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A2204",
+  "forms": [
+   "A 2204",
+   "ABELL2204"
+  ],
+  "z": "0.1524 (C6a, C6c/C6d); 0.152 (C18d); readings: 0.152 (C12f, reader A)",
+  "recs": [
+   [
+    "C6a",
+    "L"
+   ],
+   [
+    "C6c/C6d",
+    "L"
+   ],
+   [
+    "C12f",
+    "L"
+   ],
+   [
+    "C18d",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "S6": "Abell2204"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A2219",
+  "forms": [
+   "A 2219",
+   "ABELL2219",
+   "Abell 2219"
+  ],
+  "z": "0.2281 (C6a, C6c/C6d); 0.228 (C12d); 0.2257 (C20a, C20c); 0.226 (C20d)",
+  "recs": [
+   [
+    "C6a",
+    "L"
+   ],
+   [
+    "C6c/C6d",
+    "L"
+   ],
+   [
+    "C12d",
+    "L"
+   ],
+   [
+    "C20a",
+    "O"
+   ],
+   [
+    "C20c",
+    "O"
+   ],
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L8",
+    "projected"
+   ],
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L8": "ABELL2219",
+   "S6": "Abell2219"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A2485",
+  "forms": [
+   "ABELL2485"
+  ],
+  "z": "0.2472 (C6c/C6d)",
+  "recs": [
+   [
+    "C6c/C6d",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "L8",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L8": "ABELL2485"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A2537",
+  "forms": [
+   "ABELL2537"
+  ],
+  "z": "0.2966 (C6c/C6d); 0.297 (C18d)",
+  "recs": [
+   [
+    "C6c/C6d",
+    "L"
+   ],
+   [
+    "C18d",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "S6": "Abell2537"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "A2670",
+  "forms": [],
+  "z": "0.076 (C20d)",
+  "recs": [
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L1",
+    "3D"
+   ],
+   [
+    "L2",
+    "projected"
+   ],
+   [
+    "L5c",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L1": "a2670",
+   "L2": "A2670",
+   "L5c": "a2670"
+  },
+  "pair": "O"
+ },
+ {
+  "name": "NGC6338",
+  "forms": [],
+  "z": "0.029 (C20d)",
+  "recs": [
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L1",
+    "3D"
+   ]
+  ],
+  "star_names": {
+   "L1": "ngc6338"
+  },
+  "pair": "O"
+ },
+ {
+  "name": "RXCJ2102.1-2431",
+  "forms": [],
+  "z": "0.1880 (C6c/C6d)",
+  "recs": [
+   [
+    "C6c/C6d",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "S6": "RXCJ2102.1-2431"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "XLSSC 027",
+  "forms": [],
+  "z": "0.295 (C18c)",
+  "recs": [
+   [
+    "C18c",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "L9",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L9": "XLSSC 027"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "XLSSC 054",
+  "forms": [],
+  "z": "0.054 (C18c)",
+  "recs": [
+   [
+    "C18c",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "L9",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L9": "XLSSC 054"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "XLSSC 055",
+  "forms": [],
+  "z": "0.232 (C18c)",
+  "recs": [
+   [
+    "C18c",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "L9",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L9": "XLSSC 055"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "XLSSC 060",
+  "forms": [],
+  "z": "0.139 (C18c)",
+  "recs": [
+   [
+    "C18c",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "L9",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L9": "XLSSC 060"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "XLSSC 061",
+  "forms": [],
+  "z": "0.259 (C18c)",
+  "recs": [
+   [
+    "C18c",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "L9",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L9": "XLSSC 061"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "XLSSC 087",
+  "forms": [],
+  "z": "0.141 (C18c)",
+  "recs": [
+   [
+    "C18c",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "L9",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L9": "XLSSC 087"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "XLSSC 088",
+  "forms": [],
+  "z": "0.295 (C18c)",
+  "recs": [
+   [
+    "C18c",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "L9",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L9": "XLSSC 088"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "XLSSC 091",
+  "forms": [],
+  "z": "0.186 (C18c)",
+  "recs": [
+   [
+    "C18c",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "L9",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L9": "XLSSC 091"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "XLSSC 098",
+  "forms": [],
+  "z": "0.297 (C18c)",
+  "recs": [
+   [
+    "C18c",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "L9",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L9": "XLSSC 098"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "XLSSC 103",
+  "forms": [],
+  "z": "0.233 (C18c)",
+  "recs": [
+   [
+    "C18c",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "L9",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L9": "XLSSC 103"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "XLSSC 104",
+  "forms": [],
+  "z": "0.294 (C18c)",
+  "recs": [
+   [
+    "C18c",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "L9",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L9": "XLSSC 104"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "XLSSC 112",
+  "forms": [],
+  "z": "0.139 (C18c)",
+  "recs": [
+   [
+    "C18c",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "L9",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L9": "XLSSC 112"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "ZwCl0857.9+2107",
+  "forms": [],
+  "z": "0.2347 (C6c/C6d)",
+  "recs": [
+   [
+    "C6c/C6d",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "S6": "ZwCl0857.9+2107"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "ZwCl1231.4+1007",
+  "forms": [],
+  "z": "0.2290 (C6c/C6d)",
+  "recs": [
+   [
+    "C6c/C6d",
+    "L"
+   ]
+  ],
+  "stars": [
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "S6": "ZwCl1231.4+1007"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "ZwCl 0949.6+5207",
+  "forms": [
+   "Z2701",
+   "Zw2701",
+   "ZwCl0949.6+5207"
+  ],
+  "z": "0.2140 (C6a, C6c/C6d); 0.2160 (C20a, C20c); 0.215 (C20d)",
+  "recs": [
+   [
+    "C6a",
+    "L"
+   ],
+   [
+    "C6c/C6d",
+    "L"
+   ],
+   [
+    "C20a",
+    "O"
+   ],
+   [
+    "C20c",
+    "O"
+   ],
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L5a",
+    "projected"
+   ],
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L5a": "RXCJ0952.8+5153",
+   "S6": "ZwCl0949.6+5207"
+  },
+  "pair": "L"
+ },
+ {
+  "name": "ZwCl 1021.0+0426",
+  "forms": [
+   "RXCJ1023.6+0411",
+   "Zw3146",
+   "ZwCl1021.0+0426"
+  ],
+  "z": "0.2906 (C6c/C6d); 0.280 (C18d); 0.2894 (C20a, C20c); 0.290 (C20d)",
+  "recs": [
+   [
+    "C6c/C6d",
+    "L"
+   ],
+   [
+    "C18d",
+    "L"
+   ],
+   [
+    "C20a",
+    "O"
+   ],
+   [
+    "C20c",
+    "O"
+   ],
+   [
+    "C20d",
+    "O"
+   ]
+  ],
+  "stars": [
+   [
+    "L5a",
+    "projected"
+   ],
+   [
+    "S6",
+    "projected"
+   ]
+  ],
+  "star_names": {
+   "L5a": "RXCJ1023.6+0411",
+   "S6": "ZwCl1021.0+0426"
+  },
+  "pair": "L"
+ }
+]
