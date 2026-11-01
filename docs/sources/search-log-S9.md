@@ -102,7 +102,7 @@ Excluded at title level (counted, not listed), by the S9 rules (§1a) plus:
 - radio, X-ray-source, quasar and AGN luminosity functions;
 - luminosity functions with no per-cluster total implied by the title, above z = 0.30;
 - ICL studies of single clusters above z = 0.30 (MACS J1206, Frontier Fields, CL0024, El Gordo and others);
-- records already listed in S1–S19 (Lin & Mohr 2003 and 2004b, Gonzalez 2007, Giodini 2009, Lagana 2008, CLASH and CLASH-VLT, Muzzin 2007, Shapley ACCESS, DES-ACT and XCS-HSC ICL, Frontier Fields ICL, Gonzalez 2020 Coma ICL, Kluge/Contini BCG+ICL 2021).
+- records already listed in S1–S19 (Lin & Mohr 2003 and 2004b, Gonzalez 2007, Giodini 2009, Lagana 2008, CLASH and CLASH-VLT, Muzzin 2007, Shapley ACCESS, DES-ACT and XCS-HSC ICL, Frontier Fields ICL, Gonzalez 2020 Coma ICL, the 2021 BCG and ICL inner-profile study 2021ApJ...915..106C).
 
 | # | Record(s) | What (from title) |
 |---|---|---|
