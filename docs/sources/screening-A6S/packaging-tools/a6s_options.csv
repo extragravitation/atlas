@@ -1,0 +1,104 @@
+survey,scope,record,side,year,n_lenses,original,model_class,reuses_earlier_model,usable,sigma_prior,lensing_or_dynamical,imf,n_bands_min,n_bands_max,per_object_fit,aperture,membership,note
+SLACS,V-modelled lenses,R3,observed,2006,15,Y,full,N,Y,,,,,,,,listed,SLACS III SIE; same lenses re-modelled in R5
+SLACS,V-modelled lenses,R5,observed,2008,63,Y,full,N,Y,,,,,,,,listed,SLACS V SIE; prints θ_E only (M_E by D-064 formula or as printed in R7 for the same model)
+SLACS,V-modelled lenses,R7,observed,2009,63,Y,full,Y,Y,,,,,,,,listed,SLACS IX re-uses the R5 models for these lenses and prints M_E
+SLACS,V-modelled lenses,R12,observed,2022,43,N,full,N,Y,,,,,,,,listed,re-model (Etherington et al.)
+SLACS,V-modelled lenses,R67,observed,2021,23,N,full,N,Y,,,,,,,,listed,re-model (Shajib et al.)
+SLACS,V-modelled lenses,R63,observed,2024,34,N,full,N,Y,,,,,,,,listed,re-model (Project Dinos I)
+SLACS,V-modelled lenses,R37,observed,2008,9,N,full,N,Y,,,,,,,,listed,PixeLens free-form re-model (Ferreras et al. 2008)
+SLACS,V-modelled lenses,R41,observed,2016,18,N,full,N,Y,,,,,,,,listed,PixeLens free-form re-model (Leier et al. 2016)
+SLACS,V-modelled lenses,R13,stellar,2009,57,,,,Y,N,N,fixed (Salpeter; Chabrier; Kroupa),5,5,Y,inside R_E (printed),listed,SDSS ugriz; BC03 and M05
+SLACS,V-modelled lenses,R7,stellar,2009,85,,,,Y,Y,N,fixed (Chabrier; Salpeter),2,4,Y,total + fraction inside R_E,listed,σ–metallicity prior at the lens's own σ
+SLACS,V-modelled lenses,R9,stellar,2015,58,,,,N (no per-lens table for SLACS lenses),N,N,fixed (Chabrier; Salpeter),1,1,N,total,listed,fixed SSP scaled to F814W
+SLACS,V-modelled lenses,R37,stellar,2008,9,,,,Y,N,N,fixed (Chabrier; Salpeter for one),2,2,Y,model aperture R_M,listed,pixel-by-pixel BC03 on ACS F435W + F814W
+SLACS,V-modelled lenses,R41,stellar,2016,18,,,,Y,N,N,fitted,2,3,Y,unverified,listed,SPS with the IMF as a fitted parameter
+SLACS,IX new models,R7,observed,2009,11,Y,full,N,Y,,,,,,,,listed,11 new SIE models in SLACS IX
+SLACS,IX new models,R7,stellar,2009,11,,,,Y,Y,N,fixed (Chabrier; Salpeter),2,4,Y,total + fraction inside R_E,listed,σ–metallicity prior
+SLACS,J1538+5817,R5,observed,2008,1,Y,full,N,Y,,,,,,,,unverified,whether J1538+5817 is among the 63 R5 models is not checked
+SLACS,J1538+5817,R49,observed,2010,1,N,full,N,Y,,,,,,,,listed,Grillo et al. 2010 (SLACS membership of the authors not checked)
+SLACS,J1538+5817,R13,stellar,2009,1,,,,Y,N,N,fixed (Salpeter; Chabrier; Kroupa),5,5,Y,inside R_E (printed),unverified,membership in the 57 not checked
+SLACS,J1538+5817,R49,stellar,2010,1,,,,Y,N,N,single (Salpeter),5,5,Y,total,listed,SDSS ugriz
+SLACS,J1430+4105,R5,observed,2008,1,Y,full,N,Y,,,,,,,,unverified,membership not checked
+SLACS,J1430+4105,R49,observed,2012,1,N,full,N,Y,,,,,,,,listed,Eichner et al. 2012
+SLACS,J1430+4105,R13,stellar,2009,1,,,,Y,N,N,fixed (Salpeter; Chabrier; Kroupa),5,5,Y,inside R_E (printed),unverified,membership not checked
+SLACS,J1430+4105,R49,stellar,2012,1,,,,Y,N,N,fixed (Salpeter; Chabrier),4,4,Y,total,listed,SDSS griz
+SLACS,J0946+1006,R5,observed,2008,1,Y,full,N,Y,,,,,,,,unverified,membership not checked; the SLACS VI model (Gavazzi et al. 2008) is not a screened record
+SLACS,J0946+1006,R50,observed,2026,1,N,full,N,Y,,,,,,,,listed,re-model (Li et al. 2026)
+SLACS,J0946+1006,R13,stellar,2009,1,,,,Y,N,N,fixed (Salpeter; Chabrier; Kroupa),5,5,Y,inside R_E (printed),unverified,membership not checked
+SLACS,J0946+1006,R66,stellar,2012,1,,,,Y,N,N,fixed (Chabrier; Salpeter),5,5,Y,total (per light component),listed,five HST bands
+S4TM,S4TM lenses,R10,observed,2017,40,Y,full,N,Y,,,,,,,,listed,SLACS XIII SIE; prints logMein
+S4TM,S4TM lenses,R10,stellar,2017,40,,,,Y,N,N,fixed (Chabrier),1,1,N,total,listed,R9 method (fixed SSP scaled to F814W) released in R10 table2
+BELLS,BELLS lenses,R15,observed,2012,25,Y,full,N,Y,,,,,,,,listed,BELLS I SIE
+BELLS,BELLS lenses,R63,observed,2024,19,N,full,N,Y,,,,,,,,listed,re-model (Project Dinos I)
+BELLS GALLERY,GALLERY lenses,R17,observed,2016,17,Y,full,N,Y,,,,,,,,listed,BELLS IV SIE + shear
+BELLS GALLERY,GALLERY lenses,R12,observed,2022,16,N,full,N,Y,,,,,,,,listed,re-model (Etherington et al.)
+SL2S,SL2S III sample,R18,observed,2012,16,Y,full,N,Y,,,,,,,,listed,SL2S I SIE
+SL2S,SL2S III sample,R19,observed,2011,11,Y,full,Y,Y,,,,,,,,listed,SL2S II re-uses the SL2S I R_Ein and prints M_Ein
+SL2S,SL2S III sample,R20,observed,2013,56,Y,full,N,Y,,,,,,,,listed,SL2S III SIE (final sample)
+SL2S,SL2S III sample,R24,observed,2025,21,N,full,N,Y,,,,,,,,listed,Project Dinos II (named as an alternative in A6S_PRECEDENCE §2.1)
+SL2S,SL2S III sample,R63,observed,2024,24,N,full,N,Y,,,,,,,,listed,Project Dinos I
+SL2S,SL2S III sample,R21,redshift,2013,36,,,,Y,,,,,,,,listed,spectroscopic z_d and z_s for 36 secure lenses (7 grade-A lack z_s)
+SL2S,SL2S III sample,R19,stellar,2011,11,,,,Y,N,N,fixed (Salpeter tabulated; Chabrier run),4,5,Y,total,listed,readers differ on bands (griz or ugriz)
+SL2S,SL2S III sample,R20,stellar,2013,56,,,,Y,N,N,fixed (Chabrier; Salpeter),5,8,Y,total,listed,CFHT ugriz; separate NIR (J H Ks) version where available
+SL2S,SL2S V added,R22,observed,2015,5,Y,full,N,Y,,,,,,,,listed,SL2S V SIE for its new systems
+SL2S,SL2S V added,R22,redshift,2015,8,,,,Y,,,,,,,,listed,new spectroscopy (z_d; z_s; Table 1)
+SL2S,SL2S V added,R22,stellar,2015,6,,,,Y,N,N,fixed (Chabrier; Salpeter),5,5,Y,total,listed,CFHT ugriz
+SL2S,SL2S V added,R20,stellar,2013,6,,,,Y,N,N,fixed (Chabrier; Salpeter),5,8,Y,total,unverified,whether R20 Table 7 covers these systems is not checked
+SL2S,SL2SJ02176-0513,R20,observed,2013,1,Y,full,N,Y,,,,,,,,unverified,membership not checked
+SL2S,SL2SJ02176-0513,R49,observed,2009,1,N,full,N,Y,,,,,,,,listed,Tu et al. 2009 two-component model with a group term (authors' SL2S membership not checked)
+SL2S,SL2SJ02176-0513,R20,stellar,2013,1,,,,Y,N,N,fixed (Chabrier; Salpeter),5,8,Y,total,unverified,membership not checked
+SL2S,SL2SJ02176-0513,R49,stellar,2009,1,,,,Y,N,N,fixed (Chabrier),5,5,Y,total,listed,CFHTLS u*griz hyperz
+SNELLS,SNL-0 (ESO 325-G004),R25,observed,2015,1,Y,full,Y,Y,,,,,,,,listed,SNELLS uses the existing Smith et al. 2005 model
+SNELLS,SNL-0 (ESO 325-G004),R28,observed,2013,1,Y,full,N,Y,,,,,,,,listed,Smith & Lucey 2013 model with measured z_s (the 2005 model had an assumed z_s)
+SNELLS,SNL-0 (ESO 325-G004),R25,stellar,2015,1,,,,Y,N,N,fixed (Kroupa),1,1,partial,inside R_E (luminosity × M/L),listed,2MASS J; age assumed old or fitted to 6dF spectra
+SNELLS,SNL-0 (ESO 325-G004),R26,stellar,2017,1,,,,Y,N,N,fixed (Kroupa; IMF-free variants not default),1,1,Y,inside θ_Ein of R25 (luminosity × M/L),listed,HST F625W luminosity; spectroscopic M/L
+SNELLS,SNL-0 (ESO 325-G004),R28,stellar,2013,1,,,,Y,N,N,fixed (Kroupa),1,1,Y,inside R_E (luminosity × M/L),listed,F814W luminosity; Lick-index M/L
+SNELLS,SNL-1 (ESO 286-G022),R25,observed,2015,1,Y,image_sep,N,Y,,,,,,,,listed,half the image separation
+SNELLS,SNL-1 (ESO 286-G022),R61,observed,2018,1,Y,full,N,Y,,,,,,,,listed,Collier et al. 2018 HST models; mass printed inside R_ap
+SNELLS,SNL-1 (ESO 286-G022),R31,observed,2026,1,N,full,N,Y,,,,,,,,listed,re-model (Wang et al. 2026)
+SNELLS,SNL-1 (ESO 286-G022),R25,stellar,2015,1,,,,Y,N,N,fixed (Kroupa),1,1,partial,inside R_E (luminosity × M/L),listed,2MASS J
+SNELLS,SNL-1 (ESO 286-G022),R26,stellar,2017,1,,,,Y,N,N,fixed (Kroupa; IMF-free variants not default),1,1,Y,inside θ_Ein of R25 (luminosity × M/L),listed,r-band luminosity; spectroscopic M/L
+SNELLS,SNL-1 (ESO 286-G022),R61,stellar,2018,1,,,,Y,N,N,fixed (Kroupa; M/L taken from R26),1,1,Y,inside R_ap (luminosity × M/L),listed,F814W luminosity; per-object M/L is R26's
+SNELLS,SNL-1 (ESO 286-G022),R33,stellar,2022,1,,,,Y,N,N,fixed (revised Kroupa),1,1,Y,profile (MGE),listed,F814W MGE × resolved MUSE M/L
+SNELLS,SNL-2,R25,observed,2015,1,Y,image_sep,N,Y,,,,,,,,listed,half the image separation
+SNELLS,SNL-2,R61,observed,2018,1,Y,full,N,Y,,,,,,,,listed,Collier et al. 2018 HST models; mass printed inside R_ap
+SNELLS,SNL-2,R25,stellar,2015,1,,,,Y,N,N,fixed (Kroupa),1,1,partial,inside R_E (luminosity × M/L),listed,2MASS J
+SNELLS,SNL-2,R26,stellar,2017,1,,,,Y,N,N,fixed (Kroupa; IMF-free variants not default),1,1,Y,inside θ_Ein of R25 (luminosity × M/L),listed,r-band luminosity; spectroscopic M/L
+SNELLS,SNL-2,R61,stellar,2018,1,,,,Y,N,N,fixed (Kroupa; M/L taken from R26),1,1,Y,inside R_ap (luminosity × M/L),listed,F814W luminosity
+MNELLS,J0403-0239,R29,observed,2018,1,Y,image_sep,N,Y,,,,,,,,listed,half the image separation (MUSE)
+MNELLS,J0403-0239,R27,observed,2020,1,Y,full,N,Y,,,,,,,,listed,HST PyAutoLens; R_Ein printed in text only (tier 2 flag)
+MNELLS,J0403-0239,R29,stellar,2018,1,,,,Y,N,N,fixed (Kroupa),1,1,Y,inside R_E of R29 (luminosity × M/L),listed,Pan-STARRS i; MUSE ages
+MaNGA,J1436+4943,R32,observed,2020,1,Y,full,N,Y,,,,,,,,listed,Smith et al. 2020 SIE
+MaNGA,J1436+4943,R32,stellar,2020,1,,,,Y,N,N,fixed (Kroupa),1,1,disputed,inside R_E (luminosity × M/L),listed,same paper as the observed side; readers differ: assumed age range or ages from spectral fits
+MaNGA,J1701+3722,R32-2017,observed,2017,1,Y,ring_radius,N,Y,,,,,,,,listed,Smith 2017 ring radius (no fitted model)
+MaNGA,J1701+3722,R32,observed,2020,1,Y,full,N,Y,,,,,,,,listed,Smith et al. 2020 SIE
+MaNGA,J1701+3722,R32,stellar,2020,1,,,,Y,N,N,fixed (Kroupa),1,1,disputed,inside R_E (luminosity × M/L),listed,same paper as the observed side; as J1436+4943
+Euclid NGC 6505,NGC 6505,R30,observed,2025,1,Y,full,N,Y,,,,,,,,listed,several model variants in Table 2
+Euclid NGC 6505,NGC 6505,R30,stellar,2025,1,,,,Y,N,N,fixed (Chabrier),4,4,Y,inside R_E (printed),listed,Euclid IE YE JE HE photometry inside the Einstein radius (more bands listed in Table 1)
+KiDS,J0233-3447,R43,observed,2025,1,Y,full,N,Y,,,,,,,,listed,SIE
+KiDS,J0233-3447,R43,stellar,2025,1,,,,Y,N,N,fixed (Chabrier; Salpeter),8,8,Y,total,listed,CIGALE griZYJHKs
+SuGOHI,CMASS lenses,R57,observed,2019,23,Y,full,N,Y,,,,,,,,listed,SIE (HSC)
+SuGOHI,CMASS lenses,R57,stellar,2019,23,,,,Y,N,N,fixed (Chabrier),5,5,Y,disputed (inside R_Ein or total),listed,HSC grizy
+Cosmic Horseshoe,J1148+1930,R60,observed,2008,1,Y,full,N,Y,,,,,,,,listed,Dye et al. 2008 (preferred power law; SIE and NFW also)
+Cosmic Horseshoe,J1148+1930,R34,stellar,2011,1,,,,Y,N,N,fixed (Salpeter; Chabrier),3,3,Y,inside R_E (fraction × R60 M_E),listed,SDSS gri; D-063 item 7 flag
+J0100+1818 (A7),J0100+1818,R47,observed,2023,1,Y,full,N,Y,,,,,,,,listed,GLEE models; kind A7 ambiguous
+J0100+1818 (A7),J0100+1818,R47,stellar,2023,1,,,,Y,N,N,single (Salpeter),7,9,Y,total,listed,Pan-STARRS + BVR + HST F438W/F160W
+LSD,LSD lenses,R35,observed,2004,5,Y,full,N,Y,,,,,,,,listed,SIE; no stellar-mass source
+CASTLES,CASTLES lenses,R36,observed,1998,17,Y,full,N,Y,,,,,,,,listed,SIS/SIE (1998); Kochanek et al. 2000 SIS critical radius for 30
+CASTLES,CASTLES lenses,R37,observed,2005,18,N,full,N,Y,,,,,,,,listed,PixeLens re-model (Ferreras et al. 2005)
+CASTLES,CASTLES lenses,R41,observed,2011,21,N,full,N,Y,,,,,,,,listed,PixeLens re-model (Leier et al. 2011)
+CASTLES,CASTLES lenses,R37,stellar,2005,18,,,,Y,N,N,fixed (Salpeter; Chabrier),,,Y,model aperture r_lens,listed,BC03 fit to published CASTLES HST photometry; band count not read
+CASTLES,CASTLES lenses,R41,stellar,2011,21,,,,Y,N,N,fixed (Chabrier),1,4,Y,same radii as the model,listed,HST H (8 with H+I; 4 H only; rest more bands)
+COSMOS,COSMOS lenses,R38,observed,2011,20,Y,full,N,N (P: z_s mostly assumed),,,,,,,,listed,Faure et al. 2011 SIE + shear
+COSMOS,COSMOS lenses,R38,stellar,2011,20,,,,N (P: IMF unverified),N,N,unverified,,,Y,total,listed,Bundy et al. 2006 code
+AGEL,AGEL pilot,R46,observed,2024,7,Y,full,N,Y,,,,,,,,listed,Sahu et al. 2024 SPEMD + shear
+H-ATLAS SDP,SDP lenses,R69a,observed,2010,2,Y,image_sep,N,Y,,,,,,,,listed,θ_E from SMA image positions with an SIS
+H-ATLAS SDP,SDP lenses,R69c,observed,2014,5,Y,full,N,Y,,,,,,,,listed,HST power law + shear
+H-ATLAS SDP,SDP lenses,R69a,stellar,2010,4,,,,N (IMF not stated),N,N,unverified,,,Y,total,listed,da Cunha et al. 2008 SED models
+H-ATLAS SDP,SDP lenses,R69c,stellar,2014,5,,,,N (source not screened),N,N,fixed (Salpeter; Chabrier),,,unverified,inside R_e/2,listed,derived from Negrello et al. 2014 (arXiv:1311.5898) totals
+Herschel ALMA,ALMA lenses,R69d,observed,2018,6,Y,full,N,Y,,,,,,,,listed,power law + shear
+Herschel ALMA,ALMA lenses,R69f,observed,2022,7,Y,full,N,Y,,,,,,,,listed,power law + shear (4 galaxy-scale)
+Herschel ALMA,ALMA lenses,R69e,observed,2018,16,Y,image_sep,N,Y,,,,,,,,listed,half the image separation
+Herschel ALMA,ALMA lenses,R55,observed,2024,3,N,full,N,Y,,,,,,,,listed,re-model (Stacey et al. 2024)
+Herschel HST,HST snapshot lenses,R53,observed,2023,23,Y,full,N,Y,,,,,,,,listed,SIE; photometry only
+iPTF16geu,iPTF16geu,R56,observed,2020,1,Y,full,N,Y,,,,,,,,listed,readers differ on tier (2 or 3)
