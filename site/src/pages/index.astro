@@ -15,7 +15,9 @@ for (const d of atlas.datasets) {
   const nSys = d.systems ? new Set(plotted.map((r) => r.system_id)).size : 0;
   flagged += d.measurements.rows.filter((r) => ringed(r.flags)).length;
   weight[d.key] = d.systems ? (n === nSys ? `${n} ${lab.units}, one point each` : `${n.toLocaleString('en')} points from ${nSys} ${lab.units}`) : `${n} ${lab.units}`;
-  ds[d.key] = [`${lab.kind_t} (${lab.t})`, `${lab.kind_p} (${lab.p})`];
+  // Projected values carry their own label (D-064 item 3), in both reading layers.
+  const projected = d.measurements.rows.some((r) => r.plotted !== 'false' && r.r_kind === 'projected');
+  ds[d.key] = projected ? ['Strong lensing: projected, at R_E', 'Light-bending, measured in projection inside the ring'] : [`${lab.kind_t} (${lab.t})`, `${lab.kind_p} (${lab.p})`];
 }
 const nonPos = atlas.datasets.flatMap((d) => d.measurements.rows.filter((r) => !(r.g_bar > 0)).map((r) => r.measurement_id));
 const labels = {
@@ -44,8 +46,17 @@ const labels = {
   },
   pickOuter: ['<b>One point per system, outermost measured radius.</b> {n} of {N} systems: for each, the measurement at the largest radius its data reach, so both sides are enclosed within the measured extent, not the total. How far the data reach depends on the survey and on each system (colour by outermost measured radius to check). Stacked lensing bins are averages, unchanged. Select a point to see its full profile.', '<b>One mark per galaxy or cluster, at the farthest point measured.</b> {n} of {N}. Each compares the pull we see with the pull from detected matter, out to the farthest point the data reach. That is not the whole galaxy: nobody can measure where a galaxy ends. Tap a mark to see all its measurements.'],
   pickLight: ['<b>One point per system, at a radius set by the light.</b> {n} of {N} systems: for each, the first measurement at or beyond {k} × the source’s effective (half-light) radius. No value is interpolated or extrapolated.', '<b>One mark per galaxy, at the same distance relative to its size:</b> the first measurement at least {k} times the radius that holds half its light. {n} of {N} shown.'],
-  pickLeft: ['Left out: {short} whose data do not reach that radius; {none} whose source gives no half-light radius (the X-COP clusters).', 'Left out: {short} galaxies measured less far than that, and {none} systems without a half-light radius (the clusters).'],
+  pickLeft: ['Left out: {short} whose data do not reach that radius; {none} whose package gives no effective radius in this form (every dataset except SPARC).', 'Left out: {short} galaxies measured less far than that, and {none} systems whose data give no such radius (everything except the spinning disc galaxies).'],
   noRadius: ['Stacked lensing bins have no single radius and are not shown in this lens.', 'Averages over many galaxies have no single distance and are left out of this view.'],
+  // Projected points (D-064 item 3): what the ring means in each lens, and in the tooltip.
+  projected: {
+    obs: ['<b>Rings:</b> strong lensing, projected. Both sides are masses inside the same cylinder of radius R_E, as G M / R_E²; they are not 3D accelerations and are never joined to them.', '<b>Rings:</b> light-bending, measured in projection inside the ring of images. Both pulls count everything along the line of sight through the ring, so they are a different quantity from the other marks.'],
+    ex: ['<b>Rings:</b> strong lensing, projected at R_E (M_E / M_bar inside the same cylinder); not 3D values.', '<b>Rings:</b> light-bending, measured in projection inside the ring; a different quantity from the other marks.'],
+    mass: ['<b>Rings:</b> for strong lensing, g r² / G at R_E is the projected mass inside the cylinder, M_E, not a spherical enclosed mass.', '<b>Rings:</b> for light-bending, this is the mass inside a cylinder through the galaxy, not inside a ball.'],
+    rad: ['<b>Rings:</b> strong lensing, at the projected Einstein radius R_E.', '<b>Rings:</b> light-bending, at the radius of the ring of images, seen in projection.'],
+    speed: ['<b>Rings:</b> for strong lensing, √(g R_E) uses a projected acceleration; it is not a circular speed.', '<b>Rings:</b> for light-bending, this speed comes from a pull measured in projection; no orbit was measured.'],
+  },
+  projTip: ['Projected: G M / R_E² on both sides, inside the same cylinder (D-064)', 'Measured in projection inside the ring of images'],
   ds, weight, flagged: `Ringed: ${flagged} measurements with a reproduction mismatch or the source’s own quality caveat (see Known issues)`, bin: 'Stacked lensing bin',
 };
 const sliders = atlas.datasets.flatMap((d) => d.assumptions.filter((a) => a.adjustable && a.status === 'confirmed' && a.scope === 'dataset').map((a) => ({ a, dataset: d.key })));

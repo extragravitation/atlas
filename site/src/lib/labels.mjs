@@ -18,8 +18,8 @@ export const ASSUMPTION = {
   xray_hse_bias: { short: 'hydrostatic bias b', t: 'X-ray hydrostatic bias, b', p: 'Support of the hot gas not counted by assuming pressure balance from heat alone', kind: 'value' },
   gc_stellar_ml: { short: 'Υ_V (clusters)', t: 'Cluster stellar mass-to-light, Υ_V', p: 'How much mass each unit of cluster starlight stands for', kind: 'span' },
   dw_stellar_ml: { short: 'Υ_V (dwarfs)', t: 'Dwarf stellar mass-to-light, Υ_V', p: 'How much mass each unit of dwarf-galaxy starlight stands for', kind: 'span' },
-  a6s_stellar_imf: { short: 'IMF (lenses)', t: 'Stellar initial mass function, Chabrier/Kroupa to Salpeter', p: 'How many faint, low-mass stars there are for each bright one', kind: 'imf' },
-  a6s_gas_in_RE: { short: 'gas in R_E', t: 'Gas inside the Einstein radius, as a fraction of the stars', p: 'How much gas sits inside the ring, compared with the stars', kind: 'range' },
+  a6s_stellar_imf: { short: 'IMF (lenses)', t: 'Lens stellar IMF, Chabrier/Kroupa to Salpeter', p: 'Lenses: how many faint stars there are for each bright one', kind: 'imf' },
+  a6s_gas_in_RE: { short: 'gas in R_E', t: 'Lens gas inside R_E, as a fraction of the stars', p: 'Lenses: how much gas sits inside the ring, compared with the stars', kind: 'range' },
   icl_fraction: { short: 'intracluster light', t: 'Intracluster light', p: 'Starlight between the galaxies that the star counts leave out', kind: 'percent' },
 };
 

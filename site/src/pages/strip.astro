@@ -8,7 +8,9 @@ import { datasetLabel } from '../lib/labels.mjs';
 const atlas = loadAtlas();
 const withSystems = atlas.datasets.filter((d) => d.systems);
 const pops = atlas.datasets.filter((d) => !d.systems);
-const group = Object.fromEntries(withSystems.map((d) => { const l = datasetLabel(d.name); return [d.key, [`${l.kind_t} · ${l.t}`, `${l.kind_p} · ${l.p}`]]; }));
+// Projected values keep their mark in every view (D-064 item 3): here, in the group label.
+const proj = (d) => d.measurements.rows.some((r) => r.plotted !== 'false' && r.r_kind === 'projected');
+const group = Object.fromEntries(withSystems.map((d) => { const l = datasetLabel(d.name); return [d.key, proj(d) ? [`${l.kind_t} · ${l.t} · projected values, not 3D`, `${l.kind_p} · ${l.p} · measured in projection inside the ring`] : [`${l.kind_t} · ${l.t}`, `${l.kind_p} · ${l.p}`]]; }));
 const minR = Math.min(...withSystems.flatMap((d) => d.measurements.rows.map((r) => r.r_kpc).filter((r) => r > 0)));
 const labels = {
   group,

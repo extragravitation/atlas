@@ -21,7 +21,7 @@ const CORE = ['measurement_id', 'system_id', 'kind', 'limit', 'channel', 'method
 let cache = null;
 
 // Minimal CSV reader for the packages' checks/ files (no embedded newlines; quotes allowed).
-function parseCSV(text) {
+export function parseCSV(text) {
   const lines = text.split(/\r?\n/).filter((l) => l.length);
   const split = (l) => { const out = []; let cur = '', q = false; for (const ch of l) { if (ch === '"') q = !q; else if (ch === ',' && !q) { out.push(cur); cur = ''; } else cur += ch; } out.push(cur); return out; };
   const head = split(lines[0]);
@@ -62,7 +62,7 @@ export function loadAtlas() {
       });
     }
   }
-  const ORDER = ['aeg-d-sparc', 'aeg-d-gc-baumgardt', 'aeg-d-dwarfs', 'aeg-d-xcop', 'aeg-d-kids1000-rar'];
+  const ORDER = ['aeg-d-sparc', 'aeg-d-gc-baumgardt', 'aeg-d-dwarfs', 'aeg-d-strong-lensing', 'aeg-d-xcop', 'aeg-d-kids1000-rar'];
   datasets.sort((a, b) => (ORDER.indexOf(a.name) + 1 || 99) - (ORDER.indexOf(b.name) + 1 || 99) || a.key.localeCompare(b.key));
   const systems = [];
   for (const d of datasets) {
