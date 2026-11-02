@@ -4,6 +4,7 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
 
 ## Unreleased
 
+- Site: the KiDS-1000 dataset page now states that its g_obs error bars are the released ESD errors only. The paper adds 0.1 dex for the ΔΣ-to-g_obs conversion (§4.4), and the release omits it, so the bars are smaller than the paper's. Found in the step A reading (#118). No data changed.
 - Site: a failed reproduction test is now labelled "Not fully reproduced, on record" (previously "Failed, on record") on the Reproduction and dataset pages. This makes clear that it is the Atlas's reproduction of the source that did not fully match. Results, counts and records are unchanged.
 - D-083 phase 1 (site):
   - dataset pages list each package's uncertainties by scale, with sizes and sources;
