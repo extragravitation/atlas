@@ -25,14 +25,19 @@ const rows = ledger.datasets.map((e) => {
   const d = atlas.all.find((x) => x.key === e.package);
   const plotted = d ? d.measurements.rows.filter((r) => !r.role || r.role === 'default').length : 0;
   const title = d?.title || e.package;
-  return { ...e, d, plotted, title, name: title.split(':')[0] };
+  const multi = d && d.versions.length > 1;
+  return { ...e, d, plotted, title, name: title.split(':')[0] + (multi ? ` (${d.version}${d.current ? '' : ', superseded'})` : '') };
 });
 const kiNums = new Set(atlas.all.flatMap((d) => d.knownIssues.map((k) => k.issue)));
 const issueHref = (n) => (kiNums.has(n) ? `${base}known-issues/#issue-${n}` : `${REPO}/issues/${n}`);
 const nPass = rows.filter((r) => r.result === 'pass').length;
 const nFail = rows.length - nPass;
-const nFlag = rows.reduce((s, r) => s + (r.flagged || 0), 0);
-const nRows = rows.reduce((s, r) => s + r.plotted, 0);
+// Totals over the current version of each dataset only (earlier versions stay listed but are not double-counted).
+const cur = rows.filter((r) => r.d?.current);
+const nDs = cur.length;
+const nFlag = cur.reduce((s, r) => s + (r.flagged || 0), 0);
+const nRows = cur.reduce((s, r) => s + r.plotted, 0);
+const pctOk = nRows ? Math.round((100 * (nRows - nFlag)) / nRows) : 0;
 const label = { pass: ['Passed', 'Passed'], fail: ['Failed, on record', 'Did not fully match'] };
 const mark = { pass: '✓', fail: '✕', decided: '◆', reported: '✓' };
 const blob = (pkg, f) => `${REPO}/blob/main/data/packages/${pkg}/${f}`;
@@ -40,29 +45,29 @@ const blob = (pkg, f) => `${REPO}/blob/main/data/packages/${pkg}/${f}`;
 <Base title="Reproduction" active="reproduction" description="Every dataset in the Atlas, checked against what its authors published: the frozen test, its fingerprint, and the result, pass or fail.">
   <div class="doc">
     <main>
-      <p class="kicker"><L t={`Reproduction · ${rows.length} datasets · ${nPass} passed · ${nFail} failed on record`} p={`Checks · ${rows.length} datasets`} /></p>
+      <p class="kicker"><L t={`Reproduction · ${nDs} datasets · ${rows.length} frozen tests · ${nPass} passed · ${nFail} failed on record`} p={`Checks · ${nDs} datasets`} /></p>
       <h1><L t="Does the Atlas reproduce what the authors published?" p="Do our numbers match the originals?" /></h1>
-      <Layer as="p" class="lede"><Fragment slot="t">Before any dataset is converted, a test is written that says exactly what must match the source and how closely, and its SHA-256 fingerprint is recorded. The test is then run once and its result published. A failed test is never edited to pass: the failure stays on record, the affected measurements are flagged and ringed on every chart, and the cause is investigated in the open.</Fragment><Fragment slot="p">Before we add any data, we write down how we will check it against the original, and lock that check so it cannot be changed. Then we run it and publish what happened, even when it fails. Points that do not match are marked on every chart.</Fragment></Layer>
+      <Layer as="p" class="lede"><Fragment slot="t">Before any dataset is converted, a test is written that says exactly what must match the source and how closely, and its SHA-256 fingerprint is recorded. The test is then run once and its result published. A failed test is never edited to pass: the failure stays on record, the affected measurements are flagged and ringed on every chart, and the cause is investigated in the open. A test fails as a whole if any single value misses its tolerance, and the tolerances are set far tighter than the measurement errors, so each result also shows how much matched.</Fragment><Fragment slot="p">Before we add any data, we write down how we will check it against the original, and lock that check so it cannot be changed. Then we run it and publish what happened, even when it fails. Points that do not match are marked on every chart. One mismatch is enough to fail a whole check, so we also show how much did match.</Fragment></Layer>
 
       <dl class="facts" style="margin:18px 0 8px">
-        <div><dt><L t="Datasets" p="Datasets" /></dt><dd style="font-size:28px">{rows.length}</dd></div>
+        <div><dt><L t="Datasets" p="Datasets" /></dt><dd style="font-size:28px">{nDs}</dd></div>
         <div><dt><L t="Tests passed" p="Matched" /></dt><dd style="font-size:28px;color:var(--ok)">{nPass}</dd></div>
         <div><dt><L t="Tests failed, on record" p="Did not fully match" /></dt><dd style="font-size:28px;color:var(--fail)">{nFail}</dd></div>
-        <div><dt><L t="Flagged measurements" p="Marked points" /></dt><dd style="font-size:28px">{nFlag.toLocaleString('en-CA')} <span class="small">/ {nRows.toLocaleString('en-CA')}</span></dd></div>
+        <div><dt><L t="Points with no flag" p="Points that match" /></dt><dd style="font-size:28px;color:var(--ok)">{pctOk} % <span class="small">{(nRows - nFlag).toLocaleString('en-CA')} of {nRows.toLocaleString('en-CA')}</span></dd></div>
       </dl>
       <p class="small"><L t="Fingerprints verified at build: each frozen test file's SHA-256 is recomputed when the site is built and must equal the value recorded when it was frozen. The build fails otherwise." p="Each locked check is fingerprinted, and the site will not build if any has been changed." /></p>
 
       <div class="tablebox" style="margin-top:18px;max-height:none" role="region" aria-label="Summary of reproduction results" tabindex="0">
         <table>
           <caption class="sr-only">Reproduction result per dataset</caption>
-          <thead><tr><th class="l" scope="col">Dataset</th><th class="l" scope="col"><L t="Result" p="Result" /></th><th scope="col"><L t="Checks passed" p="Checks passed" /></th><th scope="col"><L t="Flagged" p="Marked" /></th><th class="l" scope="col"><L t="First run" p="Date" /></th></tr></thead>
+          <thead><tr><th class="l" scope="col">Dataset</th><th class="l" scope="col"><L t="Result" p="Result" /></th><th class="l" scope="col"><L t="How much matched" p="How much matched" /></th><th scope="col" class="nar"><L t="Flagged" p="Marked" /></th><th class="l nar" scope="col"><L t="First run" p="Date" /></th></tr></thead>
           <tbody>
             {rows.map((r) => <tr>
               <td class="l wrap"><a href={`#${r.package.replace('/', '-')}`}>{r.name}</a></td>
               <td class="l"><span class={`badge ${r.result === 'pass' ? 'ok' : 'fail'}`}><span aria-hidden="true">{mark[r.result]}</span><L t={label[r.result][0]} p={label[r.result][1]} /></span></td>
-              <td>{r.checks.filter((c) => c.outcome === 'pass').length} / {r.checks.filter((c) => c.outcome === 'pass' || c.outcome === 'fail').length}</td>
-              <td>{r.flagged}</td>
-              <td class="l">{r.first_run}</td>
+              <td class="l wrap matched"><L t={r.matched} p={r.matched_plain} /></td>
+              <td class="nar">{r.flagged}</td>
+              <td class="l nar">{r.first_run}</td>
             </tr>)}
           </tbody>
         </table>
@@ -71,7 +76,8 @@ const blob = (pkg, f) => `${REPO}/blob/main/data/packages/${pkg}/${f}`;
       {rows.map((r) => <section class="card" id={r.package.replace('/', '-')} style="margin-top:22px">
         <p class="cap">{r.package}</p>
         <h2 style="font-size:22px"><a href={`${base}datasets/${r.package}/`} style="color:var(--ink)">{r.title}</a></h2>
-        <p style="margin:6px 0"><span class={`badge ${r.result === 'pass' ? 'ok' : 'fail'}`}><span aria-hidden="true">{mark[r.result]}</span><L t={label[r.result][0]} p={label[r.result][1]} /></span> <span class="small" style="margin-left:6px"><L t={`Frozen before ${r.frozen_before}; first run ${r.first_run}.`} p={`Locked before the data were added; run ${r.first_run}.`} /></span></p>
+        <p style="margin:6px 0"><span class={`badge ${r.result === 'pass' ? 'ok' : 'fail'}`}><span aria-hidden="true">{mark[r.result]}</span><L t={label[r.result][0]} p={label[r.result][1]} /></span> <b style="margin-left:6px"><L t={r.matched} p={r.matched_plain} /></b></p>
+        <p class="small" style="margin:2px 0 6px"><L t={`Frozen before ${r.frozen_before}; first run ${r.first_run}.${r.d && !r.d.current ? ` Superseded by ${r.d.supersededBy}.` : ''}`} p={`Locked before the data were added; run ${r.first_run}.${r.d && !r.d.current ? ' Replaced by a newer version.' : ''}`} /></p>
         <p style="margin:4px 0"><b><L t="Checked against:" p="Compared with:" /></b> <L t={r.against} p={r.against_plain} /></p>
         <ul class="checks">
           {r.checks.map((c) => <li class={c.outcome}><span class="m" aria-hidden="true">{mark[c.outcome]}</span><span><b><L t={c.name} p={c.plain} /></b><span class="sr-only"> — {c.outcome}</span>{c.outcome === 'fail' && <span class="small" style="color:var(--fail)"> (failed)</span>}{c.outcome === 'decided' && <span class="small"> (decision rule, not pass/fail)</span>}{c.outcome === 'reported' && <span class="small"> (reported, not pass/fail)</span>}<br /><span class="small"><L t={c.detail} p={c.detail} /></span></span></li>)}
@@ -98,5 +104,7 @@ const blob = (pkg, f) => `${REPO}/blob/main/data/packages/${pkg}/${f}`;
   .checks li.fail .m { color: var(--fail); }
   .checks li.decided .m, .checks li.reported .m { color: var(--muted); }
   td.wrap { white-space: normal; min-width: 12ch; }
+  td.matched { min-width: 24ch; }
+  @media (max-width: 640px) { .nar { display: none; } td.matched { min-width: 14ch; } td.wrap { min-width: 9ch; } td .badge { white-space: normal; font-size: 13px; padding: 2px 8px; border-radius: 10px; } }
   .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 </style>

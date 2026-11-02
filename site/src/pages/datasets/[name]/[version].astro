@@ -53,6 +53,7 @@ const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(lens ? [[
       <p>{d.licence}</p>
 
       <h2 id="validation">Validation</h2>
+      <p class="small"><a href={`${base}reproduction/#${d.key.replace('/', '-')}`}><L t="This dataset on the Reproduction page" p="How this dataset was checked" /></a> · <a href={`${base}reproduction/`}><L t="All datasets' checks" p="All checks" /></a></p>
       {rr && <p><span class={'badge ' + (rr.pass ? 'ok' : 'fail')}>Reproduction: {rr.text}</span></p>}
       {rr && !rr.pass && <p class="small">{counts.reproduction_mismatch || 0} measurements that do not reproduce are flagged <code>reproduction_mismatch</code> and ringed on every figure; the package ships under decision D-019 because conversion integrity passes.</p>}
       {mt && <p><span class={'badge ' + (mt.pass ? 'ok' : 'fail')}>Modelled-star test: {mt.text}</span></p>}
