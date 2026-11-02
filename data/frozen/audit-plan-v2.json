@@ -1,0 +1,11 @@
+{
+  "description": "Independent audit plan, version 2: as version 1 (D-081) with the frame corrected to the six shipped packages (adds aeg-d-gc-baumgardt/v1 and aeg-d-dwarfs/v1). Frozen before the seed exists and before any audit reading.",
+  "frozen_on": "2026-11-01",
+  "decision": "D-082",
+  "spec": "docs/audit/AUDIT_PLAN_v2.md",
+  "supersedes": "data/frozen/audit-plan.json",
+  "files": {
+    "docs/audit/AUDIT_PLAN_v2.md": "910b765232ddf9855c4ad34021252d8259b36749b55a8c402ba7d51686931338",
+    "docs/audit/sample_v2.py": "89957518d44de783e349252821aefe2e6f15f8c1fbe00825bb4952157a85a56b"
+  }
+}
