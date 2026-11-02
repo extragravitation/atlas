@@ -1,0 +1,309 @@
+{
+  "description": "Reproduction ledger: one entry per shipped dataset, summarising its frozen reproduction test and result. Every statement here is taken from the package's own result files, which are linked. The site build recomputes each frozen file's SHA-256 and fails if it differs from this ledger or from the package's sources.json.",
+  "updated": "2026-11-01",
+  "datasets": [
+    {
+      "package": "aeg-d-sparc/v1",
+      "test_file": "REPRODUCTION.md",
+      "sha256": "5504a48befead3541829c9aa7067cbb6953f91f5f33481b416daeed2d49a6966",
+      "frozen_before": "conversion",
+      "result": "fail",
+      "first_run": "2026-10-28",
+      "result_files": [
+        "REPRODUCTION_RESULT.md"
+      ],
+      "against": "The authors' published radial-acceleration-relation file (RAR.mrt, Lelli et al. 2017), point by point.",
+      "against_plain": "The authors' own published list of points.",
+      "checks": [
+        {
+          "name": "Conversion integrity",
+          "plain": "Every row copied exactly",
+          "outcome": "pass",
+          "detail": "3 391 of 3 391 rows exact to table precision"
+        },
+        {
+          "name": "Selection count",
+          "plain": "Same number of points",
+          "outcome": "fail",
+          "detail": "2 694 selected against the authors' 2 693"
+        },
+        {
+          "name": "Point by point, within 0.015 dex",
+          "plain": "Each point matches",
+          "outcome": "fail",
+          "detail": "2 690 of 2 693 matched; 4 Atlas points and 3 reference rows unmatched"
+        }
+      ],
+      "issues": [
+        8
+      ],
+      "flagged": 4,
+      "status": "Ships under D-019: conversion integrity is exact; the 4 unmatched points are flagged and ringed on every chart.",
+      "status_plain": "Shown, with the 4 points that do not match marked.",
+      "since": "Exploratory, 2026-11-01: the archival 2016 tables at CDS are identical to those served today (3 391 of 3 391 rows; 175 of 175 galaxies), so a data-version difference does not explain the 4 points. The question is with the SPARC maintainers.",
+      "scope": "Establishes that the Atlas reproduces the authors' published RAR to within rounding for all but 4 of 2 694 points. It does not test the rotation curves themselves.",
+      "scope_plain": "We match the authors' points for all but 4 of about 2,700. We do not re-measure the galaxies' rotation.",
+      "since_plain": "We checked the older archived copy of their data: it is identical, so that is not the reason. We have asked the authors."
+    },
+    {
+      "package": "aeg-d-xcop/v1",
+      "test_file": "REPRODUCTION.md",
+      "sha256": "a49cb132015e7c43cf072fcdb14e310d0b814dddc0ed4a2ae1f69755f2c90654",
+      "frozen_before": "conversion",
+      "result": "fail",
+      "first_run": "2026-10-28",
+      "result_files": [
+        "REPRODUCTION_RESULT.md",
+        "MODEL_TEST_RESULT.md"
+      ],
+      "against": "Ettori et al. 2019 (A&A 621, A39), Table 1: NFW masses at 0.5, 1 and 1.5 Mpc and at R500.",
+      "against_plain": "The masses published in the X-COP paper.",
+      "checks": [
+        {
+          "name": "Coverage",
+          "plain": "Right clusters",
+          "outcome": "pass",
+          "detail": "exactly the 12 clusters; stellar profiles for exactly the 7 expected"
+        },
+        {
+          "name": "NFW mass at 0.5, 1, 1.5 Mpc within 1.5 %",
+          "plain": "Masses match",
+          "outcome": "fail",
+          "detail": "31 of 36; A644 at all three radii, A2319 at 1 and 1.5 Mpc"
+        },
+        {
+          "name": "NFW mass at R500 within 1.5 %",
+          "plain": "Masses match at the edge",
+          "outcome": "fail",
+          "detail": "10 of 12 (A644, A2319)"
+        },
+        {
+          "name": "Gas file at R500 within 1.5 %",
+          "plain": "Gas files match",
+          "outcome": "fail",
+          "detail": "9 of 12 (A644, A2029, A2319)"
+        },
+        {
+          "name": "Conversion integrity",
+          "plain": "Every row copied exactly",
+          "outcome": "pass",
+          "detail": "861 of 861 rows, relative 10⁻⁹, recomputed independently of the converter"
+        }
+      ],
+      "issues": [
+        19
+      ],
+      "flagged": 264,
+      "status": "Ships under D-019: the three clusters' rows (264) are flagged and ringed. A separate frozen test (MODEL_TEST.md) set the radial range in which modelled stars are used for the 5 clusters without measured stellar profiles: 0.145 to 1.38 R500.",
+      "status_plain": "Shown, with the three clusters that do not match marked.",
+      "since": "Exploratory, 2026-11-01: for A2029 and A2319 the archive carries values published in other X-COP papers (Ghirardini et al. 2019; Ghirardini et al. 2018), not Ettori et al. 2019 Table 1. A644's values were not found in any X-COP paper searched. The question is with the X-COP team.",
+      "scope": "Establishes that 9 of 12 clusters in the public archive match the published hydrostatic masses within 0.5 %. It does not re-derive the masses from X-ray data.",
+      "scope_plain": "9 of the 12 clusters match the published masses closely. We do not redo the X-ray analysis.",
+      "since_plain": "Two of the three clusters turned out to use numbers from other papers by the same team. The third is still unexplained. We have asked the team."
+    },
+    {
+      "package": "aeg-d-kids1000-rar/v1",
+      "test_file": "REPRODUCTION.md",
+      "sha256": "71bcf439bec6a6a5c95310997b291fdd16bac793bc44ed5f9fa9e1623d4e057a",
+      "frozen_before": "conversion",
+      "result": "pass",
+      "first_run": "2026-10-28",
+      "result_files": [
+        "REPRODUCTION_RESULT.md"
+      ],
+      "against": "The KiDS-1000 release files and the README recipe (Brouwer et al. 2021).",
+      "against_plain": "The survey team's released files and their written recipe.",
+      "checks": [
+        {
+          "name": "Completeness",
+          "plain": "Every row, once",
+          "outcome": "pass",
+          "detail": "45 measurements from the three in-scope files"
+        },
+        {
+          "name": "g_bar equals the released column",
+          "plain": "Pull from visible matter matches",
+          "outcome": "pass",
+          "detail": "exact"
+        },
+        {
+          "name": "g_obs within 0.001 dex of the README recipe",
+          "plain": "Observed pull matches",
+          "outcome": "pass",
+          "detail": "all rows"
+        },
+        {
+          "name": "Covariance",
+          "plain": "Error matrix copied exactly",
+          "outcome": "pass",
+          "detail": "675 entries; symmetric; positive diagonal"
+        },
+        {
+          "name": "Constants within 0.25 %",
+          "plain": "Same constants",
+          "outcome": "pass",
+          "detail": "all"
+        }
+      ],
+      "issues": [
+        64
+      ],
+      "flagged": 0,
+      "status": "Ships. Issue #64 concerns the wording of a flag, not a value.",
+      "status_plain": "Shown.",
+      "since": "",
+      "scope": "The paper publishes no tables, so this establishes that the package follows the authors' documented method exactly. It does not independently verify the authors' figures.",
+      "scope_plain": "We follow the survey team's recipe exactly. The paper has no tables to compare against, so this does not check their final figures.",
+      "since_plain": ""
+    },
+    {
+      "package": "aeg-d-strong-lensing/v1",
+      "test_file": "REPRODUCTION.md",
+      "sha256": "44e3b2715f4aab7ac40900e49fd2cf798679d02839363642dff7367c8f2467ef",
+      "frozen_before": "any lens value was opened",
+      "result": "pass",
+      "first_run": "2026-11-01",
+      "result_files": [
+        "RESULT_SUMMARY.md",
+        "SECOND_READING.md"
+      ],
+      "against": "The printed values in the source papers (SLACS, S4TM, SL2S, SNELLS), each number read twice by independent readers.",
+      "against_plain": "The numbers printed in the original papers, each read twice independently.",
+      "checks": [
+        {
+          "name": "Second reading",
+          "plain": "Two readers agree",
+          "outcome": "pass",
+          "detail": "1 496 of 1 496 numbers (version 5; earlier versions kept, including one that failed)"
+        },
+        {
+          "name": "Transcription",
+          "plain": "Tables match the readings",
+          "outcome": "pass",
+          "detail": "8 503 of 8 503 values"
+        },
+        {
+          "name": "Arithmetic",
+          "plain": "Sums redone",
+          "outcome": "pass",
+          "detail": "1 178 recomputations to 10⁻⁹"
+        },
+        {
+          "name": "Code",
+          "plain": "Software tests",
+          "outcome": "pass",
+          "detail": "197 tests, including the frozen lensing tests"
+        }
+      ],
+      "issues": [],
+      "flagged": 0,
+      "status": "Ships. Lens values are projected (cylinder) accelerations, marked as such on every chart (D-064).",
+      "status_plain": "Shown, with its own mark because it measures pull in a different way.",
+      "since": "",
+      "scope": "Establishes that every packaged number is the one printed in its source. It does not re-fit the lens models.",
+      "scope_plain": "Every number is the one printed in its paper. We do not redo the lens models.",
+      "since_plain": ""
+    },
+    {
+      "package": "aeg-d-gc-baumgardt/v1",
+      "test_file": "REPRODUCTION.md",
+      "sha256": "19f04cc83dc36efe59ee7b6481b69ac40c8fc3be25eaab3c0f5b64ca47b37391",
+      "frozen_before": "conversion",
+      "result": "fail",
+      "first_run": "2026-10-30",
+      "result_files": [
+        "REPRODUCTION_RESULT.md",
+        "SECOND_READING.md"
+      ],
+      "against": "The published King (1966) fits (McLaughlin & van der Marel 2005), the Baumgardt database and Harris (2010), with an independent second reading of every number.",
+      "against_plain": "The published fits and catalogues, with every number read twice.",
+      "checks": [
+        {
+          "name": "Transcription",
+          "plain": "Numbers copied as printed",
+          "outcome": "pass",
+          "detail": "every packaged source value equals the source file's value"
+        },
+        {
+          "name": "King (1966) reproduces the published fits",
+          "plain": "Our model matches theirs",
+          "outcome": "fail",
+          "detail": "152 of 153; MW-PAL1's tabulated radius is inconsistent with its own angle and distance"
+        },
+        {
+          "name": "Arithmetic",
+          "plain": "Sums redone",
+          "outcome": "pass",
+          "detail": "g_obs and g_bar recomputed from stored inputs"
+        },
+        {
+          "name": "Harris core radius (pre-registered decision)",
+          "plain": "Which radius Harris lists",
+          "outcome": "decided",
+          "detail": "the half-power radius; Harris-only clusters recorded, not plotted"
+        },
+        {
+          "name": "Independent second reading (reported)",
+          "plain": "Two readers agree",
+          "outcome": "reported",
+          "detail": "3 535 of 3 535 numbers"
+        }
+      ],
+      "issues": [],
+      "flagged": 0,
+      "status": "The fail stands on record (D-046, ruled after the result). The package proceeds with MW-PAL1 recorded, not plotted. This ruling goes to the outside reader at review; if not confirmed, the package stays out of v1.0.",
+      "status_plain": "Shown, with one cluster left off the charts. An outside reviewer will be asked to confirm this.",
+      "since": "",
+      "scope": "Establishes that the packaged inputs are as published and that the Atlas's King-model code reproduces 152 of 153 published fits.",
+      "scope_plain": "The inputs are as published, and our model matches 152 of 153 published fits.",
+      "since_plain": ""
+    },
+    {
+      "package": "aeg-d-dwarfs/v1",
+      "test_file": "REPRODUCTION.md",
+      "sha256": "43c9420e886ac85634ceaf4408cab7710ffee8391a3afbd30375cbb855973b72",
+      "frozen_before": "any dispersion, structural or luminosity value was opened",
+      "result": "pass",
+      "first_run": "2026-10-31",
+      "result_files": [
+        "SECOND_READING.md"
+      ],
+      "against": "The original papers for each dwarf galaxy (located through the LVDB index), every input read by an independent reader with a quote and location.",
+      "against_plain": "The original papers, every number read again by a second person.",
+      "checks": [
+        {
+          "name": "Second reading against the originals",
+          "plain": "Numbers found as printed",
+          "outcome": "pass",
+          "detail": "534 of 534 input numbers"
+        },
+        {
+          "name": "Transcription",
+          "plain": "Tables match the readings",
+          "outcome": "pass",
+          "detail": "554 of 554 values"
+        },
+        {
+          "name": "Arithmetic",
+          "plain": "Sums redone",
+          "outcome": "pass",
+          "detail": "to 10⁻⁹"
+        },
+        {
+          "name": "Kind coding",
+          "plain": "Classification checked",
+          "outcome": "pass",
+          "detail": "sheet complete; double-coding agreement 20 of 21, resolved by the rule text"
+        }
+      ],
+      "issues": [],
+      "flagged": 0,
+      "status": "Ships. The frozen test file's heading still reads \"draft\": it was frozen on merge (hash in sources.json) and, being frozen, is not edited.",
+      "status_plain": "Shown.",
+      "since": "",
+      "scope": "Establishes that every packaged input is the one printed in its original paper. It does not re-measure velocity dispersions.",
+      "scope_plain": "Every input is the one printed in its original paper. We do not re-measure the star motions.",
+      "since_plain": ""
+    }
+  ]
+}

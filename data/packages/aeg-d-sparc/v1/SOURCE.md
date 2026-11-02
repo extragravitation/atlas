@@ -6,7 +6,23 @@ Full reading notes: `docs/sources/sparc.md`.
 
 ## Terms
 
-The maintainers' site states no licence. It asks that the master paper be cited, and the original rotation-curve sources where relevant (listed per galaxy in SPARC Table 1). Under D-004 (amended), the terms of the archival CDS/VizieR copy apply; the licence line of that specific record is still to be read (backlog D1). Until then `redistributable` is recorded as false: source files are fetched at build time and never committed.
+The maintainers' site states no licence. It asks that the master paper be cited, and the original rotation-curve sources where relevant (listed per galaxy in SPARC Table 1). Under D-004 (amended), the terms of the archival CDS/VizieR copy apply.
+
+**What was read (2026-11-01):**
+- **The record's own metadata** (VizieR ASU output for J/AJ/152/157, IDIA mirror):
+  - `rights_uri` = https://cds.unistra.fr/vizier-org/licences_vizier.html;
+  - `citation` = doi:10.26093/cds/vizier.51520157;
+  - first published at CDS 2017-10-11.
+- **The licence page itself** could not be opened: CDS hosts were unreachable from both the workspace and JvH's Chrome. The CDS ReadMe for the record, where VizieR says any catalogue-specific copyright is stated, was also unreachable.
+- **VizieR's general "Rules of usage"** (read on vizier.cds.unistra.fr):
+  - the data "are free of usage in a scientific context", provided the original authors and publication references are cited;
+  - "The commercial usage of the data is subject to rules depending of the origin";
+  - "The copyrights of a catalogue depend on the data origin."
+
+**Status.**
+- The specific licence remains unread, so issue #9 stays open.
+- `redistributable` stays false: source files are fetched at build time and never committed.
+- The licence question is also put to the SPARC maintainers (courtesy note, 2026-11-01).
 
 ## Method (as read at source)
 
