@@ -1,6 +1,24 @@
 # Continuation guide
 
-**State at 2026-11-01, 11:45 MDT.** Read this first in the next session, then `docs/decisions.md` (D-001 to D-076). Superseded by the next session's update; the git history keeps every version.
+**State at 2026-11-01, 19:10 CST.** Read this first in the next session, then `docs/decisions.md` (D-001 to D-082). Superseded by the next session's update; the git history keeps every version.
+
+## Done 2026-11-01 (evening): review readiness, WP1 fidelity (PRs #99–#105 merged; #106 open)
+
+- **D-080:** new datasets frozen; fidelity first. Plan: `docs/plans/REVIEW_READINESS_PLAN.md` (WP1–WP7).
+- **#8 SPARC:** the archival CDS tables equal the served tables (#100). The four points are unexplained, and the question is in the courtesy note.
+- **#19 X-COP:** A2029 = Ghirardini et al. 2019 / Eckert et al. 2019 values; A2319 = Ghirardini et al. 2018 adopted values; A644 not found (#101).
+- **#9 SPARC licence:** the CDS record's `rights_uri` and VizieR's general usage rules are recorded. The licence page is unreachable (CDS hosts are down from the workspace and from Chrome), so #9 stays open.
+- **Audit plan frozen:** D-081, corrected by D-082 (v2: six packages, 254 rows; `docs/audit/AUDIT_PLAN_v2.md`, `sample_v2.py`).
+  - **Seed:** the first NIST Beacon v2 (chain 2) pulse with timeStamp ≥ 2026-11-03T00:46:17Z (24 h after the #103 merge commit `1fbd47b`); drand as fallback. Read it in Chrome; the workspace cannot reach the beacon.
+  - The audit runs after WP1 and WP2. No seed has been read and no sample drawn.
+- **Site:**
+  - `/reproduction/` page from `data/reproduction.json`; the build verifies the test hashes (#104);
+  - SPARC "authors' selection" view; the build asserts 2 694 (#105).
+- **Correspondence (Dropbox `07 AEG/05 Correspondence/Drafts/`, JvH sends):**
+  - `01_Lelli_SPARC_v3.md`: JvH sends 2026-11-02.
+  - `03_Eckert_Ettori_XCOP_v4.md`: questions 3 and 4 are data requests, JvH decides.
+  - Tell Claude the send dates, so that issues #8 and #19 record them.
+- **Next:** WP2 error budget. Options A, B or C are in `docs/plans/ERROR_BUDGET_OPTIONS.md` (#106); B is recommended. Awaiting JvH's ruling.
 
 ## Done 2026-10-31 (evening): A6 and A9 searches, rules frozen, A9 route chosen. PRs #88–#90 merged, #92 open
 
