@@ -1,0 +1,9 @@
+{
+  "description": "aeg-d-sparc/v2 reproduction test: values identical to v1; uncertainty decomposition and terms; full 2.0 structure; independent second reading. Frozen before any v2 conversion (D-083, D-084).",
+  "frozen_on": "2026-11-01",
+  "decision": "D-084",
+  "spec": "data/packages/aeg-d-sparc/v2/REPRODUCTION.md",
+  "files": {
+    "data/packages/aeg-d-sparc/v2/REPRODUCTION.md": "7dd7fc38572955e14de8ead0e2f5a7db4a1f811b64a51d6ec7224d45c1902047"
+  }
+}

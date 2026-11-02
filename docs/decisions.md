@@ -1678,3 +1678,10 @@ The Zenodo record shows the preliminary note.
 - The upgrade changes no value, so the frozen audit (D-081, D-082) still applies.
 
 **Data seen.** The standard version stated by each shipped package, and the SPARC and KiDS source notes. No values.
+
+**D-084 addendum (2026-11-01 20:13 CST, JvH).** "approve the SPARC test with the three amendments". `aeg-d-sparc/v2/REPRODUCTION.md` is frozen on merge (`data/frozen/sparc-v2-reproduction.json`), with three amendments proposed by Claude:
+1. `model_dependence` = `observable_form` only for D512-2, D564-8 and D631-7, whose gas profiles are assumed. Every other row is `none`. A rule for the label that applies across all datasets is issue #110.
+2. The 25 % Υ⋆ scatter is assigned to the system scale, and the uncertainty-terms table says that this assignment is the Atlas's, because the source does not specify.
+3. The measured [3.6] surface brightnesses (SBdisk, SBbul) are recorded as observables alongside the source's velocity components.
+
+**Data seen.** None from v2; no v2 value has been computed.

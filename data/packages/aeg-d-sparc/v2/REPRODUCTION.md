@@ -1,6 +1,6 @@
 # aeg-d-sparc/v2 — reproduction test (draft; frozen on merge, before conversion)
 
-**Status: draft for JvH's review**, written 2026-11-01 before `convert.py` for v2 exists. On merge, this file's SHA-256 goes into `v2/sources.json`. It is not edited after the first v2 conversion run. If the test fails, v2 does not ship and the failure is published; the test is not changed to pass (operating rule 5).
+**Approved by JvH 2026-11-01 ("approve the SPARC test with the three amendments"); frozen on merge.** Written 2026-11-01 before `convert.py` for v2 exists. No v2 value has been computed. On merge, this file's SHA-256 goes into `v2/sources.json`. It is not edited after the first v2 conversion run. If the test fails, v2 does not ship and the failure is published; the test is not changed to pass (operating rule 5).
 
 ## Purpose
 
@@ -41,7 +41,7 @@ Also read, from the LaTeX source of Lelli, McGaugh & Schombert 2016 (arXiv:1606.
 | Inclination | one inclination per galaxy | system | g_obs | `e_Inc` per galaxy (SPARC Table 1) |
 | Distance | one distance per galaxy | system | g_obs only (g_bar is distance independent) | `e_D` per galaxy (SPARC Table 1) |
 | HI flux calibration | one calibration per galaxy's HI data | system | g_bar (gas) | 10 %, as stated |
-| Υ⋆ scatter | galaxy-to-galaxy variation of the stellar mass-to-light ratio | system | g_bar (stars) | 25 %, as stated |
+| Υ⋆ scatter | variation of the stellar mass-to-light ratio; the source does not say whether between or within galaxies | system (**Atlas assignment**: at 3.6 µm most variation is expected between galaxies, but radial variation within a galaxy is possible and is not separated) | g_bar (stars) | 25 %, as stated |
 | Υ⋆ normalisation | the population value adopted for all galaxies | dataset | g_bar (stars) | registry `ml_disk` (0.2–0.7) and `ml_bulge` |
 | 3D geometry and molecular gas | vertical structure, bulge flattening, H₂ | system | g_bar | "∼20 % … at small radii", as stated; not quantified per point |
 | Point-scale part of g_bar | — | point | g_bar | **none given by the source** |
@@ -72,7 +72,7 @@ Applied to the v2 tables, with v1 at commit `bf5c9ba` as the reference. Numbers 
 | `inclination` | system | * | g_obs | given | size_column `inclination_err_deg`, one_sigma | `inclination` |
 | `distance` | system | * | g_obs | given | size_column `distance_err_mpc`, one_sigma | `distance` |
 | `hi_flux_calibration` | system | * | g_bar | given | 0.10 (fraction of the gas term), as_released | — |
-| `ml_scatter_galaxy` | system | * | g_bar | given | 0.25 (fraction of the stellar term), as_released | — |
+| `ml_scatter_galaxy` | system | * | g_bar | given | 0.25 (fraction of the stellar term), as_released; its `note` states that the system scale is the Atlas's assignment, that the source does not say whether the 25 % varies between or within galaxies, and that variation within a galaxy is possible | — |
 | `ml_disk` | dataset | * | g_bar | given | range 0.2–0.7 M☉/L☉ | `ml_disk` |
 | `ml_bulge` | dataset | * | g_bar | given | range as registry `ml_bulge` | `ml_bulge` |
 | `geometry_3d_molecular` | system | * | g_bar | given | ~0.20, as_released, "at small radii" | — |
@@ -87,17 +87,18 @@ Applied to the v2 tables, with v1 at commit `bf5c9ba` as the reference. Numbers 
    - For every measurement row:
      - one `observed` row: `v_rot` = V_obs, with err_lo = err_hi = e_Vobs, unit km/s, at the row's `r_kpc` (`3d`);
      - one `baryonic` `v_circ_component` row each for gas and stellar disc, plus one for the bulge where the galaxy's V_bul is not zero on every row. Each carries the value as released, unit km/s, at the row's `r_kpc`, with the component and (for stars) "Υ = 1 M☉/L☉" named in `source_ref`.
+     - one `baryonic` `surface_brightness` row each for the stellar disc and, where present, the bulge: SBdisk and SBbul as released, unit L☉ pc⁻², band [3.6], at the row's `r_kpc`, with steps `photometry;surface_density`. They are the measured photometry from which the source computed V_disk and V_bul. The gas has no released surface density, so its record is the `v_circ_component` row only;
    - For every galaxy: one `distance` row (`observed` side, since g_bar is distance independent), with the SPARC Table 1 value and error, in Mpc.
    - **Steps:**
      - `v_rot`: `rotation_curve`. The intermediate steps differ between the original rotation-curve sources listed per galaxy in SPARC Table 1, so they are not listed.
      - Gas: `hi_21cm;surface_density;helium_factor;potential_from_density`.
      - Stellar components: `photometry;surface_density;potential_from_density`.
    - `evidence_tier` = 1 (released files) on every row.
-   - Every measurement's `observed_from` lists exactly its `v_rot` row and its galaxy's `distance` row. Its `baryonic_from` lists exactly its component rows.
+   - Every measurement's `observed_from` lists exactly its `v_rot` row and its galaxy's `distance` row. Its `baryonic_from` lists exactly its `v_circ_component` and `surface_brightness` rows.
 9. **Measurement columns.** On every row:
    - `measured_quantity` = `g_obs`, `limit` = `none`, `role` = `default`, `evidence_tier` = 1;
    - `plotted` = true, as in v1. The quality flag Q is carried as data and is never used to hide rows;
-   - `model_dependence` = `observable_form`, because the stellar profile is extrapolated by an exponential fit (and, for D512-2, D564-8 and D631-7, the gas profile is assumed exponential). Those three galaxies' rows also say so in `notes`.
+   - `model_dependence` = `observable_form` on every row of D512-2, D564-8 and D631-7, whose gas profile is assumed exponential because no HI surface density is available, with `notes` saying so. On every other row, `model_dependence` = `none`. The source's exponential extrapolation of each stellar profile beyond the last measured radius is stated in `x_baryon_inventory` and in the `geometry_3d_molecular` term's note, not in this label. A rule for this label that applies consistently across all datasets is a separate open issue.
    - The 4 rows flagged `reproduction_mismatch` in v1 (issue #8) carry the same flag.
 10. **Descriptor** (`datapackage.json`):
     - `standard_version` `2.3.0`;
