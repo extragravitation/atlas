@@ -1,6 +1,6 @@
 # Plan to finish data validation (D-080 WP2 and WP3)
 
-**Written:** 2026-11-02, at JvH's request ("we need a plan to finish data validation"). It schedules work already ruled (D-080, D-083, D-084, D-081/D-082). One open question needs a ruling (§4).
+**Written:** 2026-11-02, at JvH's request ("we need a plan to finish data validation"). It schedules work already ruled (D-080, D-083, D-084, D-081/D-082). Two questions need rulings: #110 (§4) and the notice rule D-086 (§5).
 
 **"Done" means:**
 - all six shipped datasets are re-issued under the current standard, with uncertainties by scale (WP2);
@@ -45,6 +45,7 @@ The proven SPARC route had four steps: read at source, freeze the test, convert,
 | **D. Frozen tests** | One v2 reproduction test per dataset, as SPARC's: values bit-for-bit equal to v1; uncertainty decomposition; the exact terms list; the full current structure. For KiDS and X-COP this adds observables and an independent second reading. | JvH approves each | 1 session for all five |
 | **E. Conversions** | Converters and tests, in this order: KiDS, X-COP, dwarfs, globular clusters, lenses. Second readers run in the background, where needed (KiDS, X-COP). | merges | 2–3 sessions |
 | **F. Site** | The reproduction ledger and uncertainty sections for each v2 (the components exist since #115). Map bars use point-scale columns. | merges | with E |
+| **Emails** | As §5: SPARC today; X-COP and KiDS this week, before their tests are frozen; Baumgardt before v0.2. | JvH sends | — |
 | **G. Audit (WP3)** | As frozen: read the beacon pulse, draw 254 rows with `sample_v2.py`, commit the reader brief and comparison script before any reading is opened, two blind readers per row, adjudication at source, neutrality term scan and page review, and `AUDIT_RESULT.md` published pass or fail. | — | 1–2 sessions |
 
 **Total:** about 6–8 working sessions.
@@ -64,7 +65,30 @@ Every v2 sets this label, so the rule must exist before step D. The options:
 
 The recommendation is (a), because it is the reading of D-029's intent ("a functional form fitted to an observable" used for the comparison) that keeps the label informative. Under D-031, a rule changed after a result applies to later packages only, so it applies through the v2 re-issues and v1 stays as published.
 
-## 5. Risks, stated once
+## 5. Correspondence with data owners
+
+Drafts live in Dropbox (`07 AEG/05 Correspondence/Drafts/`), never in this repository. JvH sends every email from his own address and tells Claude the date. The date is then recorded on the related issue and in the send list.
+
+**What is and is not mandatory.**
+- **No email to a data owner is a gate** for building or shipping a package. Under D-004 (amended), "Permission emails are courtesy notices, not gates". Where a licence is unclear, the Atlas links rather than redistributes, as it already does. A reply that changes data or a citation is applied as a new version.
+- **Proposed rule (needs a ruling, D-086):** before a release that publicly flags a source's data, as a known issue or a recorded inconsistency, the source's authors are sent a notice describing the flag, and the send date is recorded. This would make three notices mandatory **before v0.2**: SPARC, X-COP and the Baumgardt globular-cluster database. Reason: authors should hear about a public flag from us, not discover it. v0.1 already flagged SPARC (#8) and X-COP (#19) without a notice, so this is a catch-up, stated as such.
+
+**Schedule:**
+
+| Email | To | Purpose | When | Mandatory? |
+|---|---|---|---|---|
+| `01_Lelli_SPARC_v3` | F. Lelli (copies to S. McGaugh and J. Schombert are JvH's choice) | The four points (#8), the licence (#9), the header layout error | **Today (2 Nov)**, as JvH planned | Yes, under D-086 if ruled (SPARC is flagged) |
+| `03_Eckert_Ettori_XCOP_v5` | D. Eckert, cc S. Ettori | Archive provenance (#19), licence, profile covariance (D-083 item 5) | **This week, before the X-COP v2 test is frozen (step D)**, so that any answer can shape v2 or a later version | Yes, under D-086 (X-COP is flagged). Questions 4–5 (new-data requests) stay JvH's choice under the freeze |
+| `02_Brouwer_KiDS` (refresh to v3 after step A) | M. Brouwer | Licence; the ±0.2 dex stellar-mass files (the visible-matter uncertainty KiDS v2 needs); lens redshifts per bin | **After the KiDS reading (step A) and before the KiDS v2 test is frozen**: this week | No. No KiDS data are flagged (#64 is the Atlas's own wording). Strongly recommended, because the ±0.2 dex files are the best route to a real g_bar uncertainty |
+| New: `08_Baumgardt_GC` (to be drafted after step A) | H. Baumgardt | Pal 1: the database's r0pc is inconsistent with its own angular radius and distance (D-046); the outcome of the Atlas's reproduction | **Before v0.2** | Yes, under D-086 (Pal 1 is flagged in a published test) |
+| Dwarf galaxies and strong lenses | Many original authors | — | Not planned: no source data are flagged | No |
+| `04` CLASH, `05` HSC-XXL, `06` Bullet, `07` ALPAKA | New-dataset requests | New cells | **Held** until the new-dataset freeze (D-080) is lifted, after v0.2. The 8-week gap clock (D-028) starts only when they are sent | No |
+| Pattern-page reviewers (D-085 item 4) | Anchor authors (Lelli et al.) and at least one galaxy-formation group | Review of the RAR, BTFR and flat-rotation pages | After WP3, when the drafts exist. JvH chooses whom | Not for v0.2. Required before the pattern pages are published (D-085 rule) |
+| Outside reader (D-011) | Independent reviewer, not a data owner | The MW-PAL1 ruling (D-046), the D-019 note, the review packet (WP7) | After v0.2 | **Yes, before v1.0** |
+
+**Clock.** The 8-week rule (D-028) applies to data requests for cells that would otherwise be empty. It does not apply to courtesy notices or to questions about shipped data. Those stay open, with their status stated on the issue, until answered.
+
+## 6. Risks, stated once
 
 - **Sources unreachable from the workspace** (CDS, astroweb). Hash-identical mirrors are acceptable locally, and CI fetches the canonical copies.
 - **A v2 test may fail.** Then it is published as such, as SPARC v1's was.
