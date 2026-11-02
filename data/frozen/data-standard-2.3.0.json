@@ -1,0 +1,8 @@
+{
+  "description": "Data standard 2.3.0 (minor: adds the baryonic quantity v_circ_component and the ladder step potential_from_density for rotation-curve mass models; D-084 item 3). Earlier texts stay frozen at their own paths. The validator is not frozen: it must keep implementing the frozen texts.",
+  "frozen_on": "2026-11-01",
+  "decision": "D-084",
+  "files": {
+    "docs/data-standard.md": "417825fbce88fbab0699e7cf7f6f310f02077344f8393051d66c583b62ba1e89"
+  }
+}

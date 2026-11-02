@@ -17,6 +17,7 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
     - an uncertainty-terms table listing every shared term and every term a source does not give.
 
     The validator implements it, with synthetic tests. 2.1.0 is kept at `docs/data-standard-2.1.0.md`.
+  - D-084: SPARC, KiDS-1000 and X-COP v2 meet the current standard in full. Data standard 2.3.0 (frozen on merge) adds the baryonic quantity `v_circ_component` and the step `potential_from_density`.
   - Strong lensing `RESULT_SUMMARY.md`: two stale status lines corrected (shipped; projected-point mark added in #95).
 
 - A9 galaxy clusters:

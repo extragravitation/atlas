@@ -1653,3 +1653,28 @@ The Zenodo record shows the preliminary note.
 - Option A labels the flaw but leaves it in the figures. Option C requires distribution shapes that most sources do not give.
 
 **Data seen.** Error-column descriptions and median errors of the shipped packages (`ERROR_BUDGET_OPTIONS.md` §3). No source re-read.
+
+## D-084 — Re-issued packages meet the current standard in full; data standard 2.3.0
+
+**Ruling (2026-11-01 19:31 CST, JvH).** "Go with a please." **Proposed by** Claude (2026-11-01). **Adopted.**
+
+1. **Option (a).** The v2 packages for SPARC (issued under 1.2.0), KiDS-1000 (1.2.1) and X-COP (1.2.1) meet the current data standard in full, not only the 2.2.0 uncertainty additions. That means:
+   - the observables table;
+   - the 2.0 measurement columns;
+   - the descriptor fields;
+   - an independent second reading of every number (D-031 item 3).
+
+   Option (b), adding only the uncertainty table to the old packages, would have broken the standard's own versioning rules (§0) and would have needed a logged deviation.
+2. **Values stay unchanged.** Each v2's reproduction test still requires g_obs and g_bar to equal v1's exactly (D-083 item 3).
+3. **Data standard 2.3.0** (minor), needed by SPARC v2:
+   - the baryonic quantity `v_circ_component`, a component's circular-velocity contribution as computed and released by the source;
+   - the ladder step `potential_from_density`.
+
+   SPARC releases V_gas, V_disk and V_bul, not surface densities alone. Without these, its baryonic inputs could not be recorded honestly in the 2.0 observables table. Further minor versions are proposed as KiDS and X-COP need them.
+4. **SPARC's search-log field.** SPARC was admitted by D-005 in week 1, before search logs existed. Its `x_search_log` states this, and that the A1 search (#48) has not yet been run. It does not invent a search row.
+
+**Reason.**
+- v0.2 goes to specialist reviewers. Three of six datasets on an older standard would be the first inconsistency they find.
+- The upgrade changes no value, so the frozen audit (D-081, D-082) still applies.
+
+**Data seen.** The standard version stated by each shipped package, and the SPARC and KiDS source notes. No values.
