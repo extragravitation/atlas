@@ -17,7 +17,7 @@ const open = items.filter((i) => i.state === 'open'), closed = items.filter((i) 
       <p class="kicker">Known issues · {open.length} open · {closed.length} resolved</p>
       <h1><L t="Known issues with the data" p="What we know is wrong or uncertain" /></h1>
       <p class="lede"><L t="Problems with packaged measurements, shown openly (D-020). Every affected measurement carries a flag and is ringed on the figures; nothing is hidden or removed. Resolved issues move to the corrections log with the release that fixed them." p="When we find a problem with the numbers, it is listed here and the affected points are marked with a ring on every chart. We do not hide them." /></p>
-      <p class="small">{source === 'github' ? `Read from GitHub Issues labelled known-issue at build time (${at}).` : `GitHub could not be reached at build time (${error || 'offline build'}); listed from the package files instead.`} <a href="https://github.com/extragravitation/atlas/issues?q=label%3Aknown-issue">Live list on GitHub</a></p>
+      <p class="small">{source === 'github' ? `Read from GitHub Issues labelled known-issue at build time (${at}).` : `GitHub could not be reached at build time (${error || 'offline build'}); listed from the package files instead.`} <a href="https://github.com/extragravitation/atlas/issues?q=label%3Aknown-issue">Live list on GitHub</a> · <a href={`${base}reproduction/`}>Reproduction checks</a></p>
       {items.length === 0 && <p>No known issues.</p>}
       {items.map((i) => {
         const systems = [...new Set(i.packages.flatMap((p) => p.measurements.map((m) => sysOf[m]).filter(Boolean)))];

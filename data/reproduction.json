@@ -43,7 +43,9 @@
       "since": "Exploratory, 2026-11-01: the archival 2016 tables at CDS are identical to those served today (3 391 of 3 391 rows; 175 of 175 galaxies), so a data-version difference does not explain the 4 points. The question is with the SPARC maintainers.",
       "scope": "Establishes that the Atlas reproduces the authors' published RAR to within rounding for all but 4 of 2 694 points. It does not test the rotation curves themselves.",
       "scope_plain": "We match the authors' points for all but 4 of about 2,700. We do not re-measure the galaxies' rotation.",
-      "since_plain": "We checked the older archived copy of their data: it is identical, so that is not the reason. We have asked the authors."
+      "since_plain": "We checked the older archived copy of their data: it is identical, so that is not the reason. We have asked the authors.",
+      "matched": "2,690 of 2,694 points matched the authors' list; 4 did not (0.1 %)",
+      "matched_plain": "2,690 of 2,694 points match the authors' list"
     },
     {
       "package": "aeg-d-sparc/v2",
@@ -119,7 +121,9 @@
       "since": "",
       "since_plain": "",
       "scope": "Establishes that v2 changes no value of v1, that its error split reproduces the source's own totals, and that every packaged input agrees with an independent reading of the source files. The comparison with the authors' RAR file (v1 test, 4 points unmatched) applies unchanged.",
-      "scope_plain": "The numbers are the same as before, the error bars add up to the authors' own, and a second reader found the same values in the original files."
+      "scope_plain": "The numbers are the same as before, the error bars add up to the authors' own, and a second reader found the same values in the original files.",
+      "matched": "every check passed; the v1 comparison with the authors' list (2,690 of 2,694) carries over",
+      "matched_plain": "All checks passed"
     },
     {
       "package": "aeg-d-xcop/v1",
@@ -175,7 +179,9 @@
       "since": "Exploratory, 2026-11-01: for A2029 and A2319 the archive carries values published in other X-COP papers (Ghirardini et al. 2019; Ghirardini et al. 2018), not Ettori et al. 2019 Table 1. A644's values were not found in any X-COP paper searched. The question is with the X-COP team.",
       "scope": "Establishes that 9 of 12 clusters in the public archive match the published hydrostatic masses within 0.5 %. It does not re-derive the masses from X-ray data.",
       "scope_plain": "9 of the 12 clusters match the published masses closely. We do not redo the X-ray analysis.",
-      "since_plain": "Two of the three clusters turned out to use numbers from other papers by the same team. The third is still unexplained. We have asked the team."
+      "since_plain": "Two of the three clusters turned out to use numbers from other papers by the same team. The third is still unexplained. We have asked the team.",
+      "matched": "9 of 12 clusters matched within 0.5 %; 3 differ by 1–5 % (264 of 861 points flagged; 597 unaffected)",
+      "matched_plain": "9 of 12 clusters match the published masses"
     },
     {
       "package": "aeg-d-kids1000-rar/v1",
@@ -230,7 +236,9 @@
       "since": "",
       "scope": "The paper publishes no tables, so this establishes that the package follows the authors' documented method exactly. It does not independently verify the authors' figures.",
       "scope_plain": "We follow the survey team's recipe exactly. The paper has no tables to compare against, so this does not check their final figures.",
-      "since_plain": ""
+      "since_plain": "",
+      "matched": "all 45 points; every check passed",
+      "matched_plain": "All checks passed"
     },
     {
       "package": "aeg-d-strong-lensing/v1",
@@ -278,7 +286,9 @@
       "since": "",
       "scope": "Establishes that every packaged number is the one printed in its source. It does not re-fit the lens models.",
       "scope_plain": "Every number is the one printed in its paper. We do not redo the lens models.",
-      "since_plain": ""
+      "since_plain": "",
+      "matched": "every packaged number found as printed; every check passed",
+      "matched_plain": "All checks passed"
     },
     {
       "package": "aeg-d-gc-baumgardt/v1",
@@ -332,7 +342,9 @@
       "since": "",
       "scope": "Establishes that the packaged inputs are as published and that the Atlas's King-model code reproduces 152 of 153 published fits.",
       "scope_plain": "The inputs are as published, and our model matches 152 of 153 published fits.",
-      "since_plain": ""
+      "since_plain": "",
+      "matched": "152 of 153 published fits reproduced; the 1 that did not (Pal 1) is not plotted",
+      "matched_plain": "152 of 153 published fits reproduced"
     },
     {
       "package": "aeg-d-dwarfs/v1",
@@ -379,7 +391,9 @@
       "since": "",
       "scope": "Establishes that every packaged input is the one printed in its original paper. It does not re-measure velocity dispersions.",
       "scope_plain": "Every input is the one printed in its original paper. We do not re-measure the star motions.",
-      "since_plain": ""
+      "since_plain": "",
+      "matched": "all 534 input numbers found as printed; every check passed",
+      "matched_plain": "All checks passed"
     }
   ]
 }
