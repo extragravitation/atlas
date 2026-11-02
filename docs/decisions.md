@@ -1594,3 +1594,26 @@ The Zenodo record shows the preliminary note.
 - Claude has worked inside these datasets and is not a blind auditor. Fixing the plan now, and giving the reading to fresh readers, limits that.
 
 **Data seen.** The row counts per package at commit `d102bc9`, to set the sample sizes. No values were consulted. The draw script was run once with a dummy seed ("00"), to check the counts. That draw is not the sample.
+
+## D-082 — Audit plan version 2: the frame includes all six shipped packages
+
+**Ruling (pending, JvH).** **Proposed by** Claude (2026-11-01).
+
+1. **The error.** The audit plan frozen under D-081 lists four shipped packages in its frame. Six are shipped:
+   - `aeg-d-gc-baumgardt/v1`, 64 plotted globular clusters;
+   - `aeg-d-dwarfs/v1`, 64 plotted dwarf galaxies.
+
+   Both are on the site and in the v0.1 release. Claude found the omission while building the Reproduction page, about half an hour after D-081 was merged.
+2. **The fix.**
+   - A new version: `docs/audit/AUDIT_PLAN_v2.md` and `docs/audit/sample_v2.py`, frozen by hash in `data/frozen/audit-plan-v2.json`.
+   - It adds the two packages, with 10 rows each under the existing rule (5 %, minimum 10). The sample becomes 254 rows.
+   - Nothing else changes.
+   - Version 1 is kept unchanged and marked superseded.
+3. **The seed** follows version 2: the first beacon pulse at least 24 hours after the merge that freezes version 2.
+   - No seed had been read under version 1, and the 24 hours had not passed. So no sample existed, and nothing could have been steered.
+
+**Reason.**
+- An audit that left out a third of the shipped datasets would not support the claim it is meant to support.
+- Fixing it before the seed exists costs nothing in independence. Fixing it after the draw would.
+
+**Data seen.** Row counts of the two packages (64 default rows each). The v2 draw script was run once with the dummy seed "00", to check the counts.
