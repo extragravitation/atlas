@@ -1617,3 +1617,39 @@ The Zenodo record shows the preliminary note.
 - Fixing it before the seed exists costs nothing in independence. Fixing it after the draw would.
 
 **Data seen.** Row counts of the two packages (64 default rows each). The v2 draw script was run once with the dummy seed "00", to check the counts.
+
+## D-083 — Error budget: three-scale error model, in two phases
+
+**Ruling (2026-11-01 19:10 CST, JvH).** "Rule as recommended." **Proposed by** Claude (2026-11-01; `docs/plans/ERROR_BUDGET_OPTIONS.md`, with the analysis given in conversation). **Adopted.**
+
+1. **Option B.**
+   - Every uncertainty is assigned one scale:
+     - **point:** one measurement;
+     - **system:** every point of one galaxy, cluster or lens;
+     - **dataset:** every system in a dataset.
+   - Error bars carry point-scale terms only.
+   - System-scale terms are shown as a shift of the whole system along the direction the term actually moves it. For example, distance moves g_obs and g_bar together.
+   - Dataset-scale terms are the sliders.
+   - Terms are added only where a source publishes them. Where none does, the figure says "not given by the source".
+   - Physical assumptions (equilibrium, hydrostatic balance, deprojection) stay named assumptions and are never folded into error bars.
+   - Option C (Monte Carlo realisations) stays on the backlog.
+2. **Phase 1 (no new data).**
+   - Data standard 2.2.0 defines the scales, the axes each term moves, and the column contents. It is frozen before any building.
+   - Then the site:
+     - point-scale bars;
+     - the whole-system shift view;
+     - gap labels;
+     - the KiDS flag wording (#64).
+3. **Phase 2 (terms from sources).**
+   - A new version of each package, in this order: SPARC, KiDS-1000, X-COP, dwarfs, globular clusters, strong lensing.
+   - Each version's reproduction test is frozen first. It **must require g_obs and g_bar to equal the previous version's values exactly**, so that only uncertainty columns change.
+   - This keeps the frozen audit (D-081, D-082), which samples the v1 rows, valid for both versions.
+   - The v1 packages stay published and unchanged.
+4. **Scope.** All six shipped datasets, for v0.2.
+5. **X-COP profile covariance.** Ask the X-COP team for it in the courtesy note. It improves a shipped dataset and is not new-dataset work under D-080.
+
+**Reason.**
+- The size of the intrinsic scatter about the g_obs–g_bar relation is the most contested quantitative question this Atlas describes. Drawing a shared (system- or dataset-scale) uncertainty as an independent bar on every point, or adding correlated terms as if independent, changes how much scatter appears to be explained by errors. Getting the error structure right is therefore a neutrality requirement, not presentation.
+- Option A labels the flaw but leaves it in the figures. Option C requires distribution shapes that most sources do not give.
+
+**Data seen.** Error-column descriptions and median errors of the shipped packages (`ERROR_BUDGET_OPTIONS.md` §3). No source re-read.
