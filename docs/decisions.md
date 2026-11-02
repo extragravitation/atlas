@@ -1716,6 +1716,10 @@ The Zenodo record shows the preliminary note.
    **Finding.**
    - The 2016 BTFR Letter's sample predates SPARC, and the Letter has no per-galaxy table. It is kept for the V_f algorithm only.
    - The anchor is Lelli et al. 2019 (MNRAS 484, 3267), which publishes `BTFR_Lelli2019.mrt`.
+8. **Order corrected (2026-11-02 07:11 CST, JvH: "Proceed as recommended").** JvH asked whether patterns should wait for the data-validation work already under way. They should.
+   - Only the P2/P3 criteria are frozen now (`docs/patterns/P2_P3_CRITERIA.md`, `data/frozen/patterns-p2-p3.json`).
+   - The pattern pages are built after D-080 WP2 (the error budget for all six datasets) and WP3 (the independent audit). This replaces the order in item 7.
+   - **Reason.** Pattern pages are only as credible as the data under them. Patterns are new scope, and the audit waits on WP2.
 
 **Reason.**
 - These are the most cited regularities in the field. An atlas of the acceleration discrepancy without them would be incomplete.

@@ -4,7 +4,7 @@
 
 ## The five patterns, in build order
 
-**Scope (D-085 item 6):** P1–P3 now. P4 and P5 are deferred until JvH reopens them.
+**Scope (D-085 item 6):** P1–P3 now. P4 and P5 are deferred until JvH reopens them. **Order (D-085 item 8):** the P2/P3 criteria are frozen now. The pages are built after the error budget (D-080 WP2) and the independent audit (WP3).
 
 | # | Pattern | What it relates | Data in hand | Reproduction anchor (to be read at source before any criterion is frozen) |
 |---|---|---|---|---|

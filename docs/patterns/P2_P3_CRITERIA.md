@@ -1,6 +1,6 @@
 # Patterns P2 (baryonic Tully–Fisher relation) and P3 (flat rotation curves): criteria and reproduction test
 
-**Status: draft for JvH's review, written 2026-11-02; frozen on merge** (D-085). It is written before any V_f has been computed by the Atlas and before the per-galaxy rows of the anchor table have been opened.
+**Status: approved by JvH 2026-11-02 07:11 CST ("Proceed as recommended": approve the P2/P3 test, merge #116); frozen on merge** (D-085). It is written before any V_f has been computed by the Atlas and before the per-galaxy rows of the anchor table have been opened.
 
 **Seen so far:**
 - the anchor table's header (column list);
