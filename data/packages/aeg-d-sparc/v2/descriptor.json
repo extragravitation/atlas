@@ -28,5 +28,5 @@
     {"component": "dust", "status": "not_addressed", "citation": "Not addressed by the source"}
   ],
   "x_search_log": "None: SPARC was admitted by D-005 (week 1, 2026-10-28), before search logs existed. The A4 search (late-type and irregular galaxies, issue #48) has not yet been run (D-084 item 4, as corrected).",
-  "x_second_reading": {"file": "SECOND_READING.md", "brief": "reading/SECOND_READING_BRIEF.md", "checks": "checks/second_reading.csv"}
+  "x_second_reading": {"file": "SECOND_READING.md", "brief": "reading/SECOND_READING_BRIEF.md", "reading": "reading/second-reading/", "comparison": "tests/test_reproduction.py::test_11_second_reading"}
 }

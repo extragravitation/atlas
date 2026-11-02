@@ -1,6 +1,6 @@
 # Continuation guide
 
-**State at 2026-11-01, 19:10 CST.** Read this first in the next session, then `docs/decisions.md` (D-001 to D-082). Superseded by the next session's update; the git history keeps every version.
+**State at 2026-11-01, 20:55 CST.** Read this first in the next session, then `docs/decisions.md` (D-001 to D-084). Superseded by the next session's update; the git history keeps every version.
 
 ## Done 2026-11-01 (evening): review readiness, WP1 fidelity (PRs #99–#105 merged; #106 open)
 
@@ -18,7 +18,17 @@
   - `01_Lelli_SPARC_v3.md`: JvH sends 2026-11-02.
   - `03_Eckert_Ettori_XCOP_v4.md`: questions 3 and 4 are data requests, JvH decides.
   - Tell Claude the send dates, so that issues #8 and #19 record them.
-- **Next:** WP2 error budget. Options A, B or C are in `docs/plans/ERROR_BUDGET_OPTIONS.md` (#106); B is recommended. Awaiting JvH's ruling.
+- **WP2 error budget.**
+  - Ruled: D-083 (three-scale model, two phases; v2 values must equal v1 bit for bit) and D-084 (re-issued packages meet the current standard in full).
+  - Data standards 2.2.0 (uncertainty scales, `uncertainty_terms.ecsv`) and 2.3.0 (`v_circ_component`).
+  - **`aeg-d-sparc/v2` shipped (#111).** Its test passes, with an independent second reading of 32 269 values and 0 disagreements.
+  - The site uses the latest version per dataset; v1 is marked superseded.
+  - Issue #110: one rule for `model_dependence` across all datasets.
+- **Next:**
+  1. Phase-1 site display: point-scale error bars, the whole-system shift view (registry formulas), and uncertainty terms shown on dataset and system pages.
+  2. KiDS-1000 v2: read Brouwer et al. 2021 for the ±0.2 dex stellar-mass systematic; it probably needs a 2.x minor version for its released g_bar.
+  3. Then X-COP, dwarfs, globular clusters and lenses v2.
+- **Sources offline:** astroweb.case.edu and CDS are unreachable from the workspace. Hash-identical GitHub copies of the SPARC files are acceptable for local builds; CI fetches the canonical URLs.
 
 ## Done 2026-10-31 (evening): A6 and A9 searches, rules frozen, A9 route chosen. PRs #88–#90 merged, #92 open
 

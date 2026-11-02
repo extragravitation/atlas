@@ -80,7 +80,8 @@
   "x_second_reading": {
     "file": "SECOND_READING.md",
     "brief": "reading/SECOND_READING_BRIEF.md",
-    "checks": "checks/second_reading.csv"
+    "reading": "reading/second-reading/",
+    "comparison": "tests/test_reproduction.py::test_11_second_reading"
   },
   "x_known_issues": [
     "https://github.com/extragravitation/atlas/issues/8"
