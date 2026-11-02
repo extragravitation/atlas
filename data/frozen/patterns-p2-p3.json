@@ -1,0 +1,9 @@
+{
+  "description": "Patterns P2 (BTFR) and P3 (flat rotation curves): definitions (V_f algorithm of Lelli et al. 2016a, authors' sample, baryonic mass, outer slopes, extent) and the reproduction test against BTFR_Lelli2019.mrt and SPARC Table 1. Frozen before any V_f is computed by the Atlas and before the anchor table's rows are opened.",
+  "frozen_on": "2026-11-02",
+  "decision": "D-085",
+  "spec": "docs/patterns/P2_P3_CRITERIA.md",
+  "files": {
+    "docs/patterns/P2_P3_CRITERIA.md": "a6415fd86f3262df7e48832ac898945c024b23eaf175e1c1ec61d12b82139da0"
+  }
+}
