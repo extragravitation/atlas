@@ -55,3 +55,9 @@ def test_point_error_cannot_exceed_total(tmp_path):
 def test_unknown_assumption(tmp_path):
     pkg, meas = _pkg(tmp_path, [dict(GOOD, assumption_id="no_such_assumption")])
     assert any("not in the registry" in p for p in validate_v22(pkg, meas))
+
+
+def test_v_circ_component_only_from_2_3_0():
+    from aeg.validate import quantities_for
+    assert "v_circ_component" in quantities_for("2.3.0")["baryonic"]
+    assert "v_circ_component" not in quantities_for("2.2.0")["baryonic"]

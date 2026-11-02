@@ -17,7 +17,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-KNOWN_STANDARD_VERSIONS = {"1.0.0", "1.1.0", "1.2.0", "1.2.1", "1.3.0", "2.0.0", "2.1.0", "2.2.0"}
+KNOWN_STANDARD_VERSIONS = {"1.0.0", "1.1.0", "1.2.0", "1.2.1", "1.3.0", "2.0.0", "2.1.0", "2.2.0", "2.3.0"}
 
 FLAGS = {"no_uncertainty", "beyond_source_range", "inner_resolution_limited", "source_quality_low", "reproduction_mismatch"}
 CLOSED = {
@@ -130,7 +130,7 @@ LADDER_STEPS = {
     "newtonian_g", "shapes", "shear", "excess_surface_density", "deprojection", "image_positions", "lens_model",
     "einstein_radius", "projected_mass", "observations", "ephemeris_fit", "extra_term_fit", "bound", "photometry",
     "luminosity", "structural_model", "stellar_ml", "star_counts", "mass_function", "mass_star_counted",
-    "hi_21cm", "co_line", "xray", "surface_density", "mass", "helium_factor",
+    "hi_21cm", "co_line", "xray", "surface_density", "mass", "helium_factor", "potential_from_density",
 }
 CORE_OBS = {"observable_id", "system_id", "side", "quantity", "value", "err_lo", "err_hi", "unit", "band", "limit",
             "err_level", "r_kpc", "r_kind", "r_in_kpc", "r_out_kpc", "steps", "evidence_tier", "in_text", "source_ref"}
@@ -144,6 +144,7 @@ INVENTORY_STATUS = {"measured", "modelled", "known_unmeasured", "stated_negligib
 # that state that version or a later one.
 QUANTITIES_ADDED = {
     "2.1.0": {"observed": {"einstein_mass"}},  # D-076 item 4
+    "2.3.0": {"baryonic": {"v_circ_component"}},  # D-084 item 3
 }
 
 
