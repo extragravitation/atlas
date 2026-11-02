@@ -1687,3 +1687,25 @@ The Zenodo record shows the preliminary note.
 **Data seen.** None from v2; no v2 value has been computed.
 
 **D-084 correction (2026-11-01, Claude).** Item 4 says "the A1 search (#48)". The cell for disc galaxies is **A4** (late-type and irregular galaxies, `docs/plans/TAXONOMY.md`); A1 is wide binaries. The SPARC v2 descriptor states A4. The frozen `aeg-d-sparc/v2/REPRODUCTION.md` (test 10) repeats "A1". It is not edited, and the mismatch is reported as a deviation in the v2 result. The test's intent is unaffected: no search row is invented, and #48 is pending.
+
+## D-085 — A Patterns section, after the error-bar work
+
+**Ruling (2026-11-02 06:10 CST, JvH).** "Ok let's clean up what we need to to start generating a great patterns page. As such we should add to the list: Sancisi's law / Renzo's rule — features in the baryonic distribution correspond to features in the rotation curve; Central Density Relation." Read as adopting Claude's recommendation (2026-11-02 06:06: a Patterns section, built after the D-083 site work, option (a)), with two patterns added by JvH. **Proposed by** Claude (P1–P3, rules, sequence) and JvH (P4, P5). **Adopted.**
+
+1. **Patterns section.** Pages for five observed regularities: the radial acceleration relation; the baryonic Tully–Fisher relation; flat rotation curves; the central density relation; Sancisi's law ("Renzo's rule"). Plan: `docs/plans/PATTERNS_PLAN.md`.
+2. **Rules.**
+   - Describe, do not fit. Published fits appear only as credited overlays, offered on equal terms across groups.
+   - Holds and fails shown with equal prominence.
+   - Reproduce the authors' published version under a frozen test before extending.
+   - Criteria frozen before plotting.
+   - No interpretation on pattern pages.
+3. **Sequence (option (a)).** The D-083 phase-1 site work comes first, then a page template and the readings at source, then P1, P2, P3, P4 and P5.
+4. **Review.** Drafts go to the anchor papers' authors and to at least one group working on galaxy-formation explanations of the same relations. Whom to invite is JvH's decision when drafts exist.
+5. **Not new datasets.** All five use SPARC or data already shipped (D-080 freeze unaffected).
+
+**Reason.**
+- These are the most cited regularities in the field. An atlas of the acceleration discrepancy without them would be incomplete.
+- They are historically associated with one account and are also addressed by others. Describing them by these rules keeps the Atlas neutral.
+- Reproducing the published versions first is the strongest way to earn specialists' trust.
+
+**Data seen.** None for the patterns. The SPARC selection reproduction (#105) was already published.
