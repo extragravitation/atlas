@@ -45,6 +45,8 @@ Forward method relative to backward NFW, (M_forward / M_NFW − 1), median with 
 
 The archive's medians sit 2.4 to 3.0 percentage points above Table 2's at every radius. Hydra A's absence and the three revised clusters may account for part of this; it cannot be resolved from the public files and is included in the question to the X-COP team. R200 was not computed (it would need a choice of method not specified in `REPRODUCTION.md`).
 
+*Correction, 2026-11-02:* the email to the X-COP team was shortened, and this offset is not among its questions. It is recorded on issue #19, which the email links, so the team can see it there.
+
 ## Source check of the three clusters (2026-11-01; exploratory, not part of the test)
 
 Test of the hypothesis that the archive holds a later, revised analysis for A644, A2029 and A2319. Run by Claude on the archive file this package is built from (SHA-256 `0edf5038…`) and on the LaTeX sources of X-COP papers from arXiv.
