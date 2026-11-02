@@ -1,6 +1,6 @@
 # aeg-d-strong-lensing/v1: result summary
 
-Conversion run 2026-11-01 under D-063 to D-066, D-075 and D-076, with data standard 2.1.0. Re-run 2026-11-01 to record the systems at z_l ≥ 0.30 (D-066 item 2). Status: not shipped (PR #94 open).
+Conversion run 2026-11-01 under D-063 to D-066, D-075 and D-076, with data standard 2.1.0. Re-run 2026-11-01 to record the systems at z_l ≥ 0.30 (D-066 item 2). Status: shipped (PR #94, merged 2026-11-01; in release v0.1).
 
 ## Counts per survey
 
@@ -107,7 +107,7 @@ R13 prints its masses as integers in units of 10¹⁰ M⊙, so part of the sprea
 
 **IMF slider.** 91 of the 94 plotted rows have a Salpeter top; the three SNELLS rows do not.
 
-**Site.** The site builds and `aeg.site_check` passes. The map does not yet give projected points their own mark, which D-064 item 3 requires before these points appear beside 3D values.
+**Site.** The site builds and `aeg.site_check` passes. At the time of this run the map did not yet give projected points their own mark, which D-064 item 3 requires. The mark (a ring with a centre dot) was added before the package shipped (PR #95).
 
 
 ## Test 1 version 5 and test 2 version 4 (2026-11-01)

@@ -4,6 +4,14 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
 
 ## Unreleased
 
+- Review readiness (D-080): new datasets frozen; fidelity first.
+  - SPARC #8: the archival CDS tables equal the served tables, so the data-version hypothesis is not supported (#100).
+  - X-COP #19: A2029 and A2319 archive values traced to other published X-COP papers; A644 not found (#101).
+  - Independent audit plan frozen (D-081), then corrected to cover all six shipped datasets (D-082, version 2; 254 rows).
+  - Site: new Reproduction page. It shows every shipped dataset's frozen test, result and open mismatches, with the test fingerprints recomputed at build. It also links the audit plan.
+  - SPARC licence (#9): the CDS record's licence URI and VizieR's general usage rules recorded in `SOURCE.md`. The licence page itself is still unread.
+  - Strong lensing `RESULT_SUMMARY.md`: two stale status lines corrected (shipped; projected-point mark added in #95).
+
 - A9 galaxy clusters:
   - search and screening (#90);
   - epoch cut z < 0.30 (D-066); joint fits and stacks (D-067); measured stars (D-068, issue #91); no summing of member catalogues (D-069); X-COP modelled-star clusters (D-070);
