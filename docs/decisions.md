@@ -1727,3 +1727,39 @@ The Zenodo record shows the preliminary note.
 - Reproducing the published versions first is the strongest way to earn specialists' trust.
 
 **Data seen.** None for the patterns. The SPARC selection reproduction (#105) was already published.
+
+## D-086 — Notify a source's authors before a release flags their data
+
+**Ruling (2026-11-02 08:29 CST, JvH).** "rule D-086 as proposed". **Proposed by** Claude (2026-11-02; `docs/plans/VALIDATION_COMPLETION_PLAN.md` §5). **Adopted.**
+
+1. **Rule.** Before any release that publicly flags a source's data, the source's authors are sent a notice describing the flag. A flag here means a known issue, or an inconsistency recorded in a published test. JvH sends the notice from his own address, and the send date is recorded on the related issue and in the send list.
+2. **Not a gate on replies.** The notice is required. A reply is not, and the release does not wait for one (D-004, amended). An unanswered question stays open on its issue, with its status stated.
+3. **Before v0.2 this requires three notices:**
+   - SPARC (Lelli; #8);
+   - X-COP (Eckert and Ettori; #19);
+   - the Baumgardt globular-cluster database (Pal 1, D-046).
+
+   v0.1 flagged SPARC and X-COP without such a notice; this rule catches up, and says so.
+4. **Courtesy notes and data requests** about shipped datasets (for example KiDS) remain recommended, not required. Requests for new datasets stay held under D-080.
+
+**Reason.** Authors should hear about a public flag from the Atlas, not discover it.
+
+**Data seen.** Not applicable.
+
+## D-087 — One rule for `model_dependence` (issue #110)
+
+**Ruling (2026-11-02 08:29 CST, JvH).** "rule #110 as (a)". **Proposed by** Claude (2026-11-02; `docs/plans/VALIDATION_COMPLETION_PLAN.md` §4). **Adopted.**
+
+1. **The substitution rule.**
+   - `observable_form` applies when a fitted functional form stands in for missing data at the compared quantity. Examples: an assumed gas profile where none was measured; a fitted dispersion profile used instead of binned data.
+   - A form fitted to well-sampled data that only interpolates or extends it is `none`. Examples: Sérsic, Plummer or King light profiles; an exponential stellar extrapolation. The fit is stated in the baryon inventory or the uncertainty terms.
+   - `total_mass_form` is unchanged.
+2. **Application.** The rule applies through the v2 re-issues (D-083, D-084). Published v1 packages are not edited (D-031 item 2: a rule changed after results applies to later packages).
+3. **Expected effect.**
+   - Globular clusters move from all `observable_form` to `none`, except rows where a fitted profile substitutes for binned data.
+   - SPARC v2 and the dwarfs already conform.
+   - The lenses are checked in their v2.
+
+**Reason.** It keeps the label informative and the same across datasets. The alternatives would have labelled nearly every row (any fit at all) or left four different usages in place.
+
+**Data seen.** The `model_dependence` counts of the shipped packages (#110).
