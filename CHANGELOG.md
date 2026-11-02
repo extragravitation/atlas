@@ -4,8 +4,11 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
 
 ## Unreleased
 
+- D-083 phase 1 (site):
+  - dataset pages list each package's uncertainties by scale, with sizes and sources;
+  - galaxy pages list the uncertainties shared by the whole galaxy, with this galaxy's distance and inclination errors, and the g_bar band says it is galaxy-wide;
+  - the map's per-point error bars use the point-scale columns where a package gives them.
 - D-085: Patterns section planned, after the D-083 site work (`docs/plans/PATTERNS_PLAN.md`): RAR, BTFR and flat rotation curves now. The central density relation and Sancisi's law are deferred.
-
 - Review readiness (D-080): new datasets frozen; fidelity first.
   - SPARC #8: the archival CDS tables equal the served tables, so the data-version hypothesis is not supported (#100).
   - X-COP #19: A2029 and A2319 archive values traced to other published X-COP papers; A644 not found (#101).

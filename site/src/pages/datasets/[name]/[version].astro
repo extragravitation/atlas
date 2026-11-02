@@ -8,6 +8,7 @@ import { datasetLabel, assumptionLabel, fmtParam, systemsText } from '../../../l
 import { md, resultLine, REPO } from '../../../lib/md.mjs';
 import LensDataset from '../../../components/LensDataset.astro';
 import SparcSelection from '../../../components/SparcSelection.astro';
+import UncertaintyTerms from '../../../components/UncertaintyTerms.astro';
 import { isLensing } from '../../../lib/lensing.mjs';
 
 export function getStaticPaths() {
@@ -27,7 +28,7 @@ const counts = {};
 for (const r of d.measurements.rows) for (const f of (r.flags || '').split(';').filter(Boolean)) counts[f] = (counts[f] || 0) + 1;
 const channels = [...new Set(d.measurements.rows.map((r) => r.channel))];
 const lens = isLensing(d);
-const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(lens ? [['tests', 'Tests'], ['funnel', 'From read to plotted'], ['check-formula', 'Check: Einstein mass'], ['check-profile', 'Check: profile step']] : []), ...(d.name === 'aeg-d-sparc' ? [['selection', 'The authors’ selection']] : []), ...(d.name === 'aeg-d-kids1000-rar' ? [['measured', 'As measured']] : []), ['assumptions', 'Assumptions'], ['issues', 'Known issues and flags'], ['files', 'Files and checksums'], ['columns', 'Columns'], ['source', 'Source and conversion']];
+const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(lens ? [['tests', 'Tests'], ['funnel', 'From read to plotted'], ['check-formula', 'Check: Einstein mass'], ['check-profile', 'Check: profile step']] : []), ...(d.name === 'aeg-d-sparc' ? [['selection', 'The authors’ selection']] : []), ...(d.name === 'aeg-d-kids1000-rar' ? [['measured', 'As measured']] : []), ...(d.terms ? [['uncertainties', 'Uncertainties']] : []), ['assumptions', 'Assumptions'], ['issues', 'Known issues and flags'], ['files', 'Files and checksums'], ['columns', 'Columns'], ['source', 'Source and conversion']];
 ---
 <Base title={`${lab.t} ${d.version}`} description={d.title} active="datasets">
   <div class="doc">
@@ -71,6 +72,7 @@ const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(lens ? [[
         </tbody></table></div>
       </>}
 
+      {d.terms && <><h2 id="uncertainties"><L t="Uncertainties by scale" p="How sure are these numbers?" /></h2><UncertaintyTerms d={d} /></>}
       <h2 id="assumptions">Assumptions</h2>
       <p class="small"><L t="From the assumption registry (data/assumptions.json). Effects are the formulas the site and the pipeline both execute; nothing is approximated." p="Every assumption behind these numbers, with the published values it can take." /></p>
       <div tabindex="0" class="tablebox" style="max-height:none">

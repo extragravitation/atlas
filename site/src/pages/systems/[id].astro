@@ -8,6 +8,7 @@ import Slider from '../../components/Slider.astro';
 import DispersionSystem from '../../components/DispersionSystem.astro';
 import DwarfSystem from '../../components/DwarfSystem.astro';
 import LensSystem from '../../components/LensSystem.astro';
+import UncertaintyTerms from '../../components/UncertaintyTerms.astro';
 import { isLensing } from '../../lib/lensing.mjs';
 import { loadAtlas, ringed } from '../../lib/atlas.mjs';
 import { datasetLabel, assumptionLabel, sigFig } from '../../lib/labels.mjs';
@@ -76,7 +77,7 @@ const cfg = {
   gobs: ['g_obs, observed', 'Observed pull'],
   vobs: ['V_obs = √(g_obs r)', 'Observed orbital speed'],
   rem: ['g_obs − g_bar, the difference', 'Extra pull: observed minus detected'],
-  ebText: 'g_bar uncertainty (one sigma, as the source gives it or as the Atlas propagates it; see Methods)',
+  ebText: d.terms ? 'g_bar uncertainty as the source gives it (one sigma). It is shared by the whole system, not independent from point to point: see Uncertainties below' : 'g_bar uncertainty (one sigma, as the source gives it or as the Atlas propagates it; see Methods)',
   ariaAcc: [`Pull budget of ${sys.name}: baryonic components stacked against radius, with the observed acceleration as points`, `How much of the pull in ${sys.name} the detected matter explains, at each distance from the centre`],
   ariaSpeed: [`Speeds of ${sys.name}: circular speed from each baryonic component and from g_obs, against radius`, `Orbital speeds in ${sys.name}: observed, and what the detected matter would give`],
   ariaShare: [`Share g_bar / g_obs against radius for ${sys.name}`, `Share of the observed pull explained by detected matter in ${sys.name}`],
@@ -136,6 +137,8 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
         <figcaption id="bcaption"></figcaption>
       </figure>
       <p class="hint"><L t="Hover for values at each radius. The ranges show the full published range of each assumption that applies here, whatever the sliders are set to." p="Point at the chart to read the values at each distance." /></p>
+
+      {d.terms && <><h3 id="uncertainties"><L t="Uncertainties shared by this galaxy's points" p="Uncertainties that move this whole galaxy" /></h3><p class="small"><L t="Error bars show one-point terms only. The terms below move every point of this system together (system scale) or every system of the dataset (dataset scale). Distance and inclination can be moved with the sliders on this page; the published ranges above show the dataset-wide terms." p="These uncertainties shift all of this galaxy's points at once, so they are not drawn as error bars. Distance and tilt can be changed with the sliders on this page." /></p><UncertaintyTerms d={d} sys={sys} compact={true} /></>}
 
       <h2 id="measured"><L t="As measured" p="What was actually measured" /></h2>
       {d.name === 'aeg-d-sparc' && <Layer as="p"><Fragment slot="t">The source’s own quantities, before the Atlas converts them (D-029). SPARC gives the observed circular velocity V_obs with its random error (which excludes the inclination uncertainty) and the velocities that each baryonic component alone would produce: gas (atomic, × 1.33 for helium) and stars at a mass-to-light ratio of 1 at 3.6 μm. The Atlas then computes g_obs = V_obs² / R and g_bar = (|V_gas| V_gas + Υ_disk |V_disk| V_disk + Υ_bul |V_bul| V_bul) / R.</Fragment><Fragment slot="p">Before any conversion, the source gives speeds: how fast the galaxy turns at each distance, and how fast it would turn from its gas alone or its stars alone. The Atlas turns these speeds into pulls.</Fragment></Layer>}

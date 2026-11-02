@@ -16,7 +16,7 @@ const readIf = (p) => (fs.existsSync(p) ? read(p) : null);
 const CORE = ['measurement_id', 'system_id', 'kind', 'limit', 'channel', 'method_class', 'method', 'r_kpc', 'r_kind', 'g_obs', 'g_obs_err_lo', 'g_obs_err_hi',
   'g_bar', 'g_bar_err_lo', 'g_bar_err_hi', 'g_bar_stars', 'g_bar_stars_disk', 'g_bar_stars_bulge', 'g_bar_gas_cold', 'g_bar_gas_hot',
   'stars_status', 'gas_cold_status', 'gas_hot_status', 'assumptions', 'adjustable', 'quality_source', 'source_ref', 'flags', 'known_issues',
-  'plotted', 'role', 'not_plotted_reason'];
+  'plotted', 'role', 'not_plotted_reason', 'g_obs_err_point_lo', 'g_obs_err_point_hi', 'g_bar_err_point_lo', 'g_bar_err_point_hi'];
 
 let cache = null;
 
@@ -44,6 +44,7 @@ export function loadAtlas() {
       const systems = sysText ? parseECSV(sysText) : null;
       const covText = readIf(path.join(dir, 'tables/covariance.ecsv'));
       const obsText = readIf(path.join(dir, 'tables/observables.ecsv'));
+      const termsText = readIf(path.join(dir, 'tables/uncertainty_terms.ecsv'));
       const checks = {};
       const cdir = path.join(dir, 'checks');
       if (fs.existsSync(cdir)) for (const f of fs.readdirSync(cdir).filter((x) => x.endsWith('.csv')).sort()) checks[f] = parseCSV(read(path.join(cdir, f)));
@@ -52,7 +53,7 @@ export function loadAtlas() {
         key, name, version, dir, dp,
         short: name.replace(/^aeg-d-/, ''),
         title: dp.title, citation: dp.x_citation || '', licence: dp.x_licence_status || '',
-        measurements: meas, systems, hasCovariance: !!covText, observables: obsText ? parseECSV(obsText) : null, checks,
+        measurements: meas, systems, hasCovariance: !!covText, terms: termsText ? parseECSV(termsText).rows : null, observables: obsText ? parseECSV(obsText) : null, checks,
         knownIssues: JSON.parse(readIf(path.join(dir, 'known_issues.json')) || '{"issues": []}').issues,
         md: { source: readIf(path.join(dir, 'SOURCE.md')), reproduction: readIf(path.join(dir, 'REPRODUCTION.md')), reproductionResult: readIf(path.join(dir, 'REPRODUCTION_RESULT.md')), modelTest: readIf(path.join(dir, 'MODEL_TEST.md')), modelTestResult: readIf(path.join(dir, 'MODEL_TEST_RESULT.md')) },
         checksums: readIf(path.join(dir, 'checksums.sha256')) || '',

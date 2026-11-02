@@ -103,6 +103,9 @@ function computePick() {
 // 2017); distance and inclination errors move a whole galaxy together and are adjusted per galaxy on its
 // page. 'full' is the package's full uncertainty. Other datasets have no such split: their errors as given.
 function errOf(r, q) {
+  // Standard 2.2.0: a package that gives point-scale columns is used directly (D-083); the velocity
+  // computation below is the same quantity for SPARC v1.
+  if (state.errk !== 'full' && r.g_obs_err_point_hi != null && q.g_obs > 0 && r.g_obs > 0) { const rel = r.g_obs_err_point_hi / r.g_obs; return [q.g_obs * rel, q.g_obs * rel]; }
   if (state.errk !== 'full' && r.x_sparc_e_v_obs != null && r.x_sparc_v_obs > 0) { const rel = 2 * r.x_sparc_e_v_obs / r.x_sparc_v_obs; return [q.g_obs * rel, q.g_obs * rel]; }
   return [q.g_obs_err_lo ?? 0, q.g_obs_err_hi ?? 0];
 }
@@ -299,7 +302,7 @@ function draw() {
   $('zoom-reset').disabled = !zoomed; $('zoom-out').disabled = !zoomed;
   $('zoom-state').textContent = zoomed ? (P ? 'Zoomed in.' : 'Zoomed: ' + rg.x.map((a) => a.toFixed(2)).join(' to ') + ' by ' + rg.y.map((a) => a.toFixed(2)).join(' to ') + '.') : '';
   const outNote = nOut ? (P ? (zoomed ? ` ${nOut.toLocaleString('en')} points are outside this zoomed view.` : ` ${nOut} points are outside this window, marked on its edge.`) : (zoomed ? ` ${nOut.toLocaleString('en')} measurements lie outside this zoomed window.` : ` ${nOut} measurements lie outside this window; they are marked as small diamonds on its edge.`)) : '';
-  const openNote = state.err && state.view === 'obs' ? (P ? ' Bars show the uncertainty of the observed pull only; an arrow at the bottom means the uncertainty reaches zero.' : ` Error bars: g_obs only, ${state.errk === 'full' ? 'full uncertainty including distance and inclination (these shift a whole galaxy together)' : 'per-point uncertainty (rotation-speed error); distance and inclination are set per galaxy on its page'}. ${nOpen ? nOpen + ' bars reach zero (arrow at the bottom: no lower end on a log axis).' : ''}`) : '';
+  const openNote = state.err && state.view === 'obs' ? (P ? ' Bars show the uncertainty of the observed pull only; an arrow at the bottom means the uncertainty reaches zero.' : ` Error bars: g_obs only, ${state.errk === 'full' ? 'full uncertainty including distance and inclination (these shift a whole galaxy together)' : 'per-point uncertainty where the source separates it (SPARC: rotation-speed error); uncertainties shared by a whole galaxy or dataset are listed on the dataset and galaxy pages, and distance and inclination can be moved per galaxy there'}. ${nOpen ? nOpen + ' bars reach zero (arrow at the bottom: no lower end on a log axis).' : ''}`) : '';
   $('zoom-state').textContent += outNote + openNote;
   $('neg-note').textContent = nNeg ? `${nNeg} measurements have g_bar ≤ 0 at these settings (a component pulls outward) and cannot be placed on log axes; they are listed in the downloads.` : '';
   $('fig').setAttribute('aria-label', LBL['aria_' + v][+P]);
