@@ -1597,7 +1597,7 @@ The Zenodo record shows the preliminary note.
 
 ## D-082 — Audit plan version 2: the frame includes all six shipped packages
 
-**Ruling (pending, JvH).** **Proposed by** Claude (2026-11-01).
+**Ruling (2026-11-01 18:44 CST, JvH).** "approve D-082, merge 103". **Proposed by** Claude (2026-11-01). **Adopted.**
 
 1. **The error.** The audit plan frozen under D-081 lists four shipped packages in its frame. Six are shipped:
    - `aeg-d-gc-baumgardt/v1`, 64 plotted globular clusters;
