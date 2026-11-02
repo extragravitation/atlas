@@ -1,0 +1,69 @@
+---
+// SPARC: the Atlas points under the selection stated by Lelli, McGaugh, Schombert & Pawlowski 2017
+// (ApJ 836, 152, §II.1), beside all points (D-080, WP1). The selection is the one frozen in the
+// package's REPRODUCTION.md: galaxies with Q < 3 and i >= 30°, points with δV/V < 0.1 compared in
+// exact decimal arithmetic (D-016). Nothing is fitted. The package itself keeps every point; this
+// is a view, not a filter on the data.
+import L from './L.astro';
+const { d } = Astro.props;
+const sys = Object.fromEntries(d.systems.rows.map((s) => [s.system_id, { i: Number(s.inclination_deg), q: Number(JSON.parse(s.properties || '{}').quality_flag_Q), name: s.name_in_source }]));
+const cents = (x) => Math.round(Number(x) * 100);
+const counts = { all: 0, sel: 0, q3: 0, lowI: 0, dv: 0 };
+const pts = [];
+for (const r of d.measurements.rows) {
+  const s = sys[r.system_id], gO = Number(r.g_obs), gB = Number(r.g_bar);
+  counts.all++;
+  let why = null;
+  if (s.q === 3) why = 'q3';
+  else if (s.i < 30) why = 'lowI';
+  else if (!(cents(r.x_sparc_e_v_obs) * 10 < cents(r.x_sparc_v_obs))) why = 'dv';
+  if (why) counts[why]++; else counts.sel++;
+  pts.push({ x: Math.log10(gB), y: Math.log10(gO), sel: !why, flag: (r.flags || '').includes('reproduction_mismatch'), ok: gO > 0 && gB > 0 });
+}
+// The frozen test's own count (REPRODUCTION_RESULT.md, run 2): the view must agree with it.
+if (counts.sel !== 2694) throw new Error(`SPARC selection view: ${counts.sel} selected, expected 2 694 as in REPRODUCTION_RESULT.md`);
+const W = 640, H = 520, m = { l: 70, r: 16, t: 14, b: 56 }, lo = -13, hi = -8;
+const X = (v) => m.l + ((v - lo) / (hi - lo)) * (W - m.l - m.r);
+const Y = (v) => H - m.b - ((v - lo) / (hi - lo)) * (H - m.t - m.b);
+const sq = (p) => { const x = X(p.x), y = Y(p.y); return `M${(x - 1.4).toFixed(1)} ${(y - 1.4).toFixed(1)}h2.8v2.8h-2.8z`; };
+const inBox = (p) => p.ok && p.x > lo && p.x < hi && p.y > lo && p.y < hi;
+const pathOut = pts.filter((p) => !p.sel && inBox(p)).map(sq).join('');
+const pathIn = pts.filter((p) => p.sel && inBox(p)).map(sq).join('');
+const flagged = pts.filter((p) => p.flag && inBox(p));
+const ticks = [-13, -12, -11, -10, -9, -8];
+const fmtN = (n) => n.toLocaleString('en-CA');
+---
+<h2 id="selection"><L t="The authors’ selection" p="The same points the authors used" /></h2>
+<p><L t={`The package keeps all ${fmtN(counts.all)} points. Lelli et al. (2017, §II.1) used a subset for their radial acceleration relation: galaxies with quality flag Q < 3 and inclination i ≥ 30°, and points with δV_obs / V_obs < 0.1. Applying that selection to this package gives ${fmtN(counts.sel)} points; the authors' file has 2,693. The difference is known issue #8.`} p={`We keep all ${fmtN(counts.all)} points. The authors left some out for their published chart: galaxies with poor-quality data, galaxies seen nearly face-on, and points with large speed errors. Using their rules on our data leaves ${fmtN(counts.sel)} points, one more than their 2,693 (see known issue #8).`} /></p>
+<figure class="selfig" id="selfig" data-mode="both">
+  <div class="seg" role="group" aria-label="Which points to show">
+    <button class="btn" type="button" data-sel="both" aria-pressed="true"><L t={`All ${fmtN(counts.all)}, selection highlighted`} p="All points, theirs highlighted" /></button>
+    <button class="btn" type="button" data-sel="in" aria-pressed="false"><L t={`Selection only (${fmtN(counts.sel)})`} p="Only their points" /></button>
+    <button class="btn" type="button" data-sel="out" aria-pressed="false"><L t={`Left out (${fmtN(counts.all - counts.sel)})`} p="Only the left-out points" /></button>
+  </div>
+  <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`Observed against baryonic acceleration for SPARC: ${counts.sel} points in the Lelli et al. 2017 selection and ${counts.all - counts.sel} left out, with the 1:1 line where the two are equal.`} style="width:100%;max-width:680px;height:auto;margin-top:8px">
+    {ticks.map((t) => <g><line x1={X(t)} x2={X(t)} y1={m.t} y2={H - m.b} stroke="var(--grid)" /><line x1={m.l} x2={W - m.r} y1={Y(t)} y2={Y(t)} stroke="var(--grid)" /><text x={X(t)} y={H - m.b + 18} font-size="15" text-anchor="middle" fill="var(--muted)">{t}</text><text x={m.l - 8} y={Y(t) + 4} font-size="15" text-anchor="end" fill="var(--muted)">{t}</text></g>)}
+    <line x1={X(lo)} y1={Y(lo)} x2={X(hi)} y2={Y(hi)} stroke="var(--muted)" stroke-dasharray="5 4" />
+    <text x={X(-8.9)} y={Y(-8.6)} font-size="12" fill="var(--muted)" text-anchor="end">g_obs = g_bar</text>
+    <path class="out" d={pathOut} fill="var(--muted)" />
+    <path class="in" d={pathIn} fill="var(--sparc)" />
+    <g class="in">{flagged.map((p) => <circle cx={X(p.x)} cy={Y(p.y)} r="6" fill="none" stroke="var(--flag)" stroke-width="1.6" />)}</g>
+    <text x={(W + m.l - m.r) / 2} y={H - 8} font-size="16" text-anchor="middle" fill="var(--ink)">log₁₀ g_bar (m s⁻²), Υ_disk = 0.5, Υ_bul = 0.7</text>
+    <text transform={`translate(16 ${(H - m.b + m.t) / 2}) rotate(-90)`} font-size="16" text-anchor="middle" fill="var(--ink)">log₁₀ g_obs (m s⁻²)</text>
+  </svg>
+  <figcaption><b>Figure.</b> <L t={`Coloured: the ${fmtN(counts.sel)} points that pass the selection. Grey: the ${fmtN(counts.all - counts.sel)} left out (${counts.q3} in galaxies with Q = 3, ${counts.lowI} with i < 30°, ${counts.dv} with δV/V ≥ 0.1, counted in that order). Ringed: the 4 points flagged reproduction_mismatch. Dashed: g_obs = g_bar, the Newtonian expectation on detected baryons. Points outside the frame (non-positive g_bar) are not drawn. Nothing is fitted.`} p={`Coloured: the points the authors' rules keep. Grey: the points their rules leave out. Ringed: the 4 points that do not match the authors' list. On the dashed line the pull we see equals the pull the visible matter should give.`} /></figcaption>
+</figure>
+<script>
+  const f = document.getElementById('selfig');
+  if (f) f.querySelectorAll('[data-sel]').forEach((b) => b.addEventListener('click', () => {
+    f.dataset.mode = b.dataset.sel;
+    f.querySelectorAll('[data-sel]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+  }));
+</script>
+<style>
+  .selfig { margin: 12px 0 0; }
+  .selfig[data-mode='both'] path.out { opacity: 0.28; }
+  .selfig[data-mode='in'] .out { display: none; }
+  .selfig[data-mode='out'] .in { display: none; }
+  .selfig[data-mode='out'] path.out { opacity: 0.9; }
+</style>
