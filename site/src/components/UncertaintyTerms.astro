@@ -1,0 +1,63 @@
+---
+// The uncertainty terms of a 2.2.0+ package (tables/uncertainty_terms.ecsv; D-083), as a table.
+// With `sys`, sizes held per system (size_column) are resolved for that system.
+import L from './L.astro';
+const { d, sys = null, compact = false } = Astro.props;
+const terms = d.terms || [];
+const SCALE = {
+  point: ['one point', 'One measurement only'],
+  system: ['whole system', 'Every point of this galaxy or cluster together'],
+  dataset: ['whole dataset', 'Every system in the dataset together'],
+};
+const MOVES = { g_obs: ['g_obs', 'observed pull'], g_bar: ['g_bar', 'pull from detected matter'], both: ['g_obs and g_bar together', 'both pulls together'] };
+const NAMES = {
+  g_bar_point: ['Per-point uncertainty on g_bar', 'Point-by-point uncertainty, detected matter'],
+  inclination: ['Inclination', 'Tilt of the disc'],
+  distance: ['Distance', 'Distance'],
+  hi_flux_calibration: ['HI flux calibration (gas)', 'Gas measurement calibration'],
+  ml_scatter_galaxy: ['Stellar mass-to-light ratio, galaxy to galaxy', 'How heavy the starlight is, galaxy by galaxy'],
+  ml_disk: ['Stellar mass-to-light ratio, disc (population value)', 'How heavy the starlight is, disc (overall value)'],
+  ml_bulge: ['Stellar mass-to-light ratio, bulge (population value)', 'How heavy the starlight is, bulge (overall value)'],
+  geometry_3d_molecular: ['Disc thickness, bulge shape and molecular gas', 'Shape of the galaxy and undetected cold gas'],
+};
+const nice = (u) => (u || '').replace('solMass / solLum', 'M☉/L☉').replace(/^deg$/, '°');
+const num = (v) => (v === null || v === undefined || v === '' ? null : Number(v));
+function size(t) {
+  if (t.status === 'not_given_by_source') return ['not given by the source', 'Not given by the source'];
+  const unit = nice(t.size_unit);
+  const frac = /fraction/.test(unit);
+  const fmt = (v) => (frac ? `${Math.round(v * 100)} %` : `${v}${unit && !frac ? ' ' + unit : ''}`);
+  if (t.size_column) {
+    if (sys && sys.row && sys.row[t.size_column] !== undefined && sys.row[t.size_column] !== null && sys.row[t.size_column] !== '')
+      return [`± ${sys.row[t.size_column]}${unit === '°' ? '°' : ' ' + unit} (this system)`, `± ${sys.row[t.size_column]}${unit === '°' ? '°' : ' ' + unit} for this galaxy`];
+    return [`per system (${t.size_column})`, 'Different for each system'];
+  }
+  if (num(t.size_lo) !== null && num(t.size_hi) !== null) return [`${t.size_lo}–${t.size_hi} ${frac ? '' : unit} (published range)`, `${t.size_lo} to ${t.size_hi}`];
+  const approx = /small radii/.test(t.locator || '') ? ' (about; at small radii)' : '';
+  if (num(t.size_value) !== null && approx) return [`${fmt(num(t.size_value))}${approx}`, `About ${fmt(num(t.size_value))} near the centre`];
+  if (num(t.size_value) !== null) return [`${fmt(num(t.size_value))}${frac && unit !== 'fraction' ? ' of ' + unit.replace(/^fraction of (the )?/, '') : ''}`, fmt(num(t.size_value))];
+  return ['given (see source)', 'Given by the source'];
+}
+const order = { point: 0, system: 1, dataset: 2 };
+const rows = terms.slice().sort((a, b) => order[a.scale] - order[b.scale]);
+---
+{rows.length > 0 && <div>
+  {!compact && <p class="small"><L t="Every uncertainty has one scale (data standard 2.2.0 §2a). Error bars on the figures carry the one-point terms only. Terms shared by a whole system or dataset move many points together, so they are listed here rather than drawn as independent bars. Where a source gives no value, the table says so; nothing is filled in." p="Some uncertainties affect one point; others shift a whole galaxy, or the whole dataset, at once. The error bars show only the first kind. The others are listed here. If the original authors gave no figure, we say so instead of guessing." /></p>}
+  <div class="tablebox" style="max-height:none;margin-top:8px" role="region" aria-label="Uncertainty terms" tabindex="0">
+    <table>
+      <thead><tr><th class="l" scope="col"><L t="Uncertainty" p="Uncertainty" /></th><th class="l" scope="col"><L t="Scale" p="Affects" /></th><th class="l" scope="col"><L t="Moves" p="Moves" /></th><th class="l" scope="col"><L t="Size" p="Size" /></th>{!compact && <th class="l" scope="col"><L t="Source" p="Source" /></th>}</tr></thead>
+      <tbody>{rows.map((t) => { const sz = size(t); return <tr>
+        <td class="l termcell"><b><L t={(NAMES[t.term_id] || [t.term_id.replace(/_/g, ' ')])[0]} p={(NAMES[t.term_id] || [null, t.term_id.replace(/_/g, ' ')])[1]} /></b><br /><span class="small"><L t={t.note || ''} p={t.note || ''} /></span></td>
+        <td class="l"><L t={SCALE[t.scale]?.[0] || t.scale} p={SCALE[t.scale]?.[1] || t.scale} /></td>
+        <td class="l"><L t={MOVES[t.moves]?.[0] || t.moves} p={MOVES[t.moves]?.[1] || t.moves} /></td>
+        <td class="l"><L t={sz[0]} p={sz[1]} /></td>
+        {!compact && <td class="l small srccell">{t.citation}{t.locator ? ` — ${t.locator}` : ''}</td>}
+      </tr>; })}</tbody>
+    </table>
+  </div>
+</div>}
+<style>
+  .termcell { white-space: normal; min-width: 22ch; max-width: 46ch; }
+  .srccell { white-space: normal; min-width: 22ch; max-width: 40ch; }
+  td { vertical-align: top; }
+</style>
