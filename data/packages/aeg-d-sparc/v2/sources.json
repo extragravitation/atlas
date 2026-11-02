@@ -1,0 +1,35 @@
+{
+  "standard_version": "2.3.0",
+  "dataset": "aeg-d-sparc",
+  "version": "v2",
+  "reproduction_file": {
+    "path": "REPRODUCTION.md",
+    "sha256": "7dd7fc38572955e14de8ead0e2f5a7db4a1f811b64a51d6ec7224d45c1902047",
+    "frozen": "2026-11-01",
+    "decision": "D-083, D-084"
+  },
+  "sources": [
+    {
+      "role": "mass models (SPARC Table 2)",
+      "url": "https://astroweb.case.edu/SPARC/MassModels_Lelli2016c.mrt",
+      "file": "MassModels_Lelli2016c.mrt",
+      "bytes": 269518,
+      "sha256": "9108994b12cc401b94a1768beca61c53ec354779385c9c9cc571049f3043244c",
+      "retrieved": "2026-10-28",
+      "redistributable": false
+    },
+    {
+      "role": "galaxy sample (SPARC Table 1)",
+      "url": "https://astroweb.case.edu/SPARC/SPARC_Lelli2016c.mrt",
+      "file": "SPARC_Lelli2016c.mrt",
+      "bytes": 28259,
+      "sha256": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243",
+      "retrieved": "2026-10-28",
+      "redistributable": false
+    }
+  ],
+  "previous_version": {
+    "path": "data/packages/aeg-d-sparc/v1",
+    "reference_commit": "bf5c9ba"
+  }
+}
