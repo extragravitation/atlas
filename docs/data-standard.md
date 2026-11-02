@@ -1,6 +1,6 @@
 # Atlas data standard
 
-**Version 2.1.0 — FROZEN 2026-11-01** (D-076 item 4; minor version of 2.0.0, D-029, D-041). Frozen by hash in `data/frozen/data-standard-2.1.0.json`; `python -m aeg.check` fails if this file changes. The next change is a new version with its own file and freeze record. Version 2.0.0 is kept unchanged in `docs/data-standard-2.0.0.md` (its freeze record, `data/frozen/data-standard-2.0.0.json`, keeps the same hash at that path), and version 1.3.0 in `docs/data-standard-1.3.0.md`. Packages that state 2.0.0 or 1.x are valid under those texts and are never edited (references to "docs/data-standard.md §7" inside 1.x packages mean the 1.3.0 text).
+**Version 2.2.0 — FROZEN on merge** (D-083 item 2; minor version of 2.1.0). Frozen by hash in `data/frozen/data-standard-2.2.0.json`; `python -m aeg.check` fails if this file changes. The next change is a new version with its own file and freeze record. Version 2.1.0 is kept unchanged in `docs/data-standard-2.1.0.md` (its freeze record keeps the same hash at that path), version 2.0.0 in `docs/data-standard-2.0.0.md`, and version 1.3.0 in `docs/data-standard-1.3.0.md`. Packages that state an earlier version are valid under that text and are never edited (references to "docs/data-standard.md §7" inside 1.x packages mean the 1.3.0 text).
 
 What changed from 1.3.0, in one line: every measurement now keeps **what was observed** (observables table) as well as g_obs and g_bar, and records how it was selected, how strong the evidence is, how much it leans on fitted forms, whether it is plotted and why not, and which value is the default when several exist.
 
@@ -15,6 +15,7 @@ Semantic versioning, MAJOR.MINOR.PATCH, as in 1.x: **patch** = wording with no e
 | 1.0.0–1.3.0 | 2026-10-28 | D-015, D-018, D-019, D-014 | See `docs/data-standard-1.3.0.md` |
 | 2.0.0 | 2026-10-29 | D-029, D-041 (with D-033–D-039) | Observables table; selection, baryon inventory and precedence in the descriptor; evidence tier, model dependence, limits and confidence levels; plotted/not-plotted with reason; default and alternative values; kind and label per system; distance or redshift required and never kinematic; per-star table; frozen checks referenced; second reading recorded |
 | 2.1.0 | 2026-11-01 | D-076 | One observed-side quantity added to §4a: `einstein_mass` (unit M_sun), the projected mass inside the Einstein radius as printed by a strong-lensing source or computed from θ_E (A6). Nothing else changes; packages stating 2.0.0 stay valid |
+| 2.2.0 | 2026-11-01 | D-083 | Uncertainty scales (§2a): every uncertainty is point-, system- or dataset-scale. Optional point-scale error columns in §3; a new uncertainty-terms table (§7a) listing every system- and dataset-scale term, the axes it moves, its size as the source gives it, and terms the source does not give. Additive; packages stating 2.1.0 or earlier stay valid |
 
 ## 1. Package layout
 
@@ -33,6 +34,7 @@ One folder per dataset version: `data/packages/<dataset>/<version>/`.
 | `tables/systems.ecsv` | §5 (omitted for population-only datasets) | for systems |
 | `tables/stars.ecsv` | §6: released per-star velocities used by the D-037 reproduction check, only if the source may be redistributed (otherwise referenced by hash in `sources.json`) | where used |
 | `tables/covariance.ecsv` | §7 | where the source gives covariance |
+| `tables/uncertainty_terms.ecsv` | §7a: every system- and dataset-scale uncertainty term, and every term the source does not give (2.2.0) | yes, from 2.2.0 |
 | `tests/` | Reproduction, schema and assumption tests | yes |
 | `checks/` | Results of frozen checks run on this package (D-037 reproduction, D-038 consistency, D-039 cross-check), each with the frozen check's hash | where a check applies |
 | `known_issues.json` | Known issues, as 1.2.0 | optional |
@@ -60,6 +62,24 @@ ECSV 1.0, comma-delimited, with `name`, `datatype`, `unit`, `description` (Techn
 - **Signs:** g_bar components keep their sign (a component's acceleration is V·|V|/R).
 - **Missing values:** empty cell, never a sentinel number.
 
+## 2a. Uncertainty scales (2.2.0)
+
+Every uncertainty that a package carries or names has exactly one **scale**:
+
+| Scale | Shared by | Examples |
+|---|---|---|
+| `point` | one measurement only; independent of every other row unless a covariance (§7) says otherwise | a velocity error at one radius; a stacked-signal error; a dispersion's error; an Einstein-radius error |
+| `system` | every row of one system, all moving together | distance; inclination; one galaxy's stellar mass-to-light ratio; one cluster's mass-profile fit |
+| `dataset` | every system of a dataset, all moving together | stellar-population calibration or IMF; hydrostatic bias; helium factor; cosmology; intracluster-light fraction |
+
+Rules:
+1. **Error bars are point-scale.** The point-scale columns of §3 carry point-scale terms only. A system- or dataset-scale term is never added in quadrature into a point-scale column.
+2. **Shared terms are listed, not hidden.** Every system- and dataset-scale term the package's method depends on is a row of the uncertainty-terms table (§7a), with the axes it moves and its size as the source gives it.
+3. **Nothing is invented.** A term's size comes from the source (or a cited independent source), read with its location. If no source gives it, the term is still listed, with status `not_given_by_source`; it is never filled with an assumed value.
+4. **Assumptions are not errors.** A physical assumption the source makes (equilibrium, hydrostatic balance, deprojection, circular orbits, general-relativistic lensing) is an assumption in the registry (§8), never an uncertainty term. A dataset-scale parameter with a published range (for example, a stellar mass-to-light ratio) may be both: an adjustable assumption, and a `dataset` term pointing to it.
+5. **Direction matters.** A term that moves g_obs and g_bar together (for example, distance) is shown as a shift of the system along that direction, computed from the registry formula, not as independent bars on each axis.
+6. **Existing columns keep their meaning.** In packages issued under earlier versions, `g_obs_err_*` and `g_bar_err_*` mean what each column's description says, and may mix scales. From 2.2.0, if those columns mix scales, the package must also give the point-scale columns of §3 and say so in the column descriptions.
+
 ## 3. Measurements table (`tables/measurements.ecsv`)
 
 One row per measurement of the comparison: one place in one system, or one population bin.
@@ -79,6 +99,8 @@ One row per measurement of the comparison: one place in one system, or one popul
 | `limit` | closed list | | yes | `none`, `upper`, `lower`: applies to the measured quantity |
 | `err_level` | float64 | | no | Confidence level of the interval or limit; empty = 0.683 |
 | `g_bar`, `g_bar_err_lo`, `g_bar_err_hi` | float64 | m / s2 | `g_bar` yes | Newtonian acceleration from detected baryons, at catalogue defaults |
+| `g_obs_err_point_lo`, `g_obs_err_point_hi` | float64 | m / s2 | 2.2.0: when `g_obs_err_*` include any system- or dataset-scale term | Point-scale part of the g_obs uncertainty only (§2a); empty plus the term `not_given_by_source` in §7a where the source gives no point-scale error |
+| `g_bar_err_point_lo`, `g_bar_err_point_hi` | float64 | m / s2 | 2.2.0: as above, for g_bar | Point-scale part of the g_bar uncertainty only (§2a) |
 | `g_bar_stars`, `g_bar_stars_disk`, `g_bar_stars_bulge`, `g_bar_gas_cold`, `g_bar_gas_hot` | float64 | m / s2 | where separable | Components at catalogue defaults |
 | `stars_status`, `gas_cold_status`, `gas_hot_status` | closed list | | yes | `measured`, `modelled`, `absent`, `not_separable` (D-034) |
 | `observed_from` | string | | yes | Semicolon-separated `observable_id`s used for the observed side |
@@ -192,6 +214,28 @@ If the source does not permit redistribution, the check reads the source file by
 
 As 1.x: `measurement_id_i`, `measurement_id_j`, `quantity`, `covariance` (converted with the same formula as the values). Only where the source provides covariance.
 
+## 7a. Uncertainty terms (`tables/uncertainty_terms.ecsv`) (2.2.0)
+
+Required for packages issued under 2.2.0. One row per system- or dataset-scale term (§2a), and one row per point-scale term whose source gives none.
+
+| Column | Type | Required | Meaning |
+|---|---|---|---|
+| `term_id` | str | yes | Unique within the package, e.g. `distance`, `ml_disk_galaxy`, `profile_fit` |
+| `scale` | str | yes | `point`, `system` or `dataset` |
+| `applies_to` | str | yes | A `system_id`, or `*` for every system (dataset scale, or a system-scale term whose size is given per system in `size_column`) |
+| `moves` | str | yes | `g_obs`, `g_bar` or `both` |
+| `status` | str | yes | `given` (size read at source), `given_by_other_source` (from a cited independent source) or `not_given_by_source` |
+| `size_value`, `size_lo`, `size_hi`, `size_unit` | float64 / str | when `status` is a given value and the size is one number | The term's one-sigma size, or its published range, in the unit of its parameter |
+| `size_column` | str | when the size varies by system | The systems-table column that holds it (e.g. `distance_err_mpc`) |
+| `size_kind` | str | when given | `one_sigma`, `range` (published lower and upper bounds) or `as_released` |
+| `assumption_id` | str | when the term's effect is computed | The registry assumption (§8) whose `effects` formula moves the values; the site and the pipeline both use it |
+| `correlated_with` | str | no | Other `term_id`s it is correlated with, and how, as the source states it |
+| `covariance` | str | no | `published` (then in `tables/covariance.ecsv`), `not_published`, or `not_applicable` |
+| `citation`, `locator` | str | when given | Where the size was read |
+| `note` | str | no | Plain statement of what the term is, in the technical vocabulary |
+
+The point-scale terms that are present need no row: they are in the point-scale columns, described in the column descriptions.
+
 ## 8. Assumption registry (`data/assumptions.json`)
 
 As 1.3.0 (`id`, both names, `applies_to`, `parameter` with default and published range read at source, `effects` as formulas, `adjustable`, `scope`, `status`), plus:
@@ -209,7 +253,7 @@ Formula language and combination rules: unchanged from 1.3.0 (D-014).
 
 | Key | Required | Content |
 |---|---|---|
-| `standard_version` | yes | `2.1.0` (or `2.0.0` for packages issued under that version) |
+| `standard_version` | yes | `2.2.0` (or the earlier version the package was issued under) |
 | `licenses` | yes | Per source record, read at source (CDS records vary); derived tables follow share-alike terms where they apply |
 | `x_selection` | yes | The sample's selection as structured entries (`quantity`, `condition`, `value`, `citation`) plus the source's own wording; for population bins, the bin definitions and the lenses' redshift range or distribution (D-029 2d, D-033) |
 | `x_baryon_inventory` | yes | One entry per component (stars by population, atomic gas, helium, molecular gas, ionised gas, hot gas, intracluster light, dust, remnants as relevant), each with status `measured`, `modelled`, `known_unmeasured`, `stated_negligible` (quoted), `absent_limit` (a measured upper limit, system-specific), `absent_literature_limit` (the kind's literature limit, D-036 #4) or `not_addressed`, and the citation where it was read |
@@ -231,6 +275,9 @@ All 1.3.0 items, plus:
 8. Descriptor: `x_selection`, `x_baryon_inventory`, `x_search_log`, `x_second_reading` present and well-formed; every baryon component's status from the closed list; `SECOND_READING.md` present.
 9. Every assumption in the registry used by a 2.0 package has `role`; adjustable ones have `range_basis`.
 10. Results in `checks/` reference a frozen check whose hash matches its freeze record.
+11. (2.2.0) `uncertainty_terms.ecsv` present; `scale`, `moves`, `status`, `size_kind` and `covariance` in their closed lists; `term_id` unique; `applies_to` is `*` or a system in the package; a given term has a size (`size_value`, `size_lo` and `size_hi`, or `size_column` naming an existing systems column); every `assumption_id` exists in the registry.
+12. (2.2.0) Where `g_obs_err_point_*` or `g_bar_err_point_*` are present, each is no larger than the corresponding total error column on the same row, when that column is present.
+13. (2.2.0) For a new version of an already shipped package, the new version's reproduction test requires `g_obs` and `g_bar` to equal the previous version's values exactly, row by row (D-083 item 3).
 
 ## 11. Flags (closed list)
 

@@ -17,7 +17,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-KNOWN_STANDARD_VERSIONS = {"1.0.0", "1.1.0", "1.2.0", "1.2.1", "1.3.0", "2.0.0", "2.1.0"}
+KNOWN_STANDARD_VERSIONS = {"1.0.0", "1.1.0", "1.2.0", "1.2.1", "1.3.0", "2.0.0", "2.1.0", "2.2.0"}
 
 FLAGS = {"no_uncertainty", "beyond_source_range", "inner_resolution_limited", "source_quality_low", "reproduction_mismatch"}
 CLOSED = {
@@ -98,6 +98,19 @@ REQUIRED_MEAS_V2 = [c for c in REQUIRED_MEAS if c != "g_obs"] + [
     "measured_quantity", "limit", "observed_from", "baryonic_from", "model_dependence", "evidence_tier", "role", "plotted"]
 CORE_MEAS_V2 = CORE_MEAS | set(REQUIRED_MEAS_V2) | {"delta_g", "delta_g_err_lo", "delta_g_err_hi", "err_level",
                                                     "alternative_of", "not_plotted_reason", "notes"}
+# 2.2.0 (D-083): point-scale error columns (§3) and the uncertainty-terms table (§7a).
+POINT_ERR_COLS = ["g_obs_err_point_lo", "g_obs_err_point_hi", "g_bar_err_point_lo", "g_bar_err_point_hi"]
+CORE_MEAS_V2 = CORE_MEAS_V2 | set(POINT_ERR_COLS)
+TERMS_REQUIRED = ["term_id", "scale", "applies_to", "moves", "status"]
+TERMS_CORE = set(TERMS_REQUIRED) | {"size_value", "size_lo", "size_hi", "size_unit", "size_column", "size_kind",
+                                    "assumption_id", "correlated_with", "covariance", "citation", "locator", "note"}
+TERMS_CLOSED = {
+    "scale": {"point", "system", "dataset"},
+    "moves": {"g_obs", "g_bar", "both"},
+    "status": {"given", "given_by_other_source", "not_given_by_source"},
+    "size_kind": {"one_sigma", "range", "as_released"},
+    "covariance": {"published", "not_published", "not_applicable"},
+}
 QUANTITIES = {
     "observed": {"v_rot", "sigma_los", "sigma_los_second_moment", "sigma_los_about_rotation", "sigma_pm",
                  "velocity_gradient", "temperature_x", "density_e", "pressure_e", "mass_hse", "delta_sigma", "kappa",
@@ -147,7 +160,75 @@ def quantities_for(standard_version: str) -> dict[str, set[str]]:
 
 
 UNITS_V2 = {**UNITS, "delta_g": "m / s2", "delta_g_err_lo": "m / s2", "delta_g_err_hi": "m / s2",
-            "r_in_kpc": "kpc", "r_out_kpc": "kpc"}
+            "r_in_kpc": "kpc", "r_out_kpc": "kpc", **{c: "m / s2" for c in POINT_ERR_COLS}}
+
+
+def _key(v: str) -> tuple:
+    try:
+        return tuple(int(x) for x in str(v).split("."))
+    except ValueError:
+        return (0,)
+
+
+def validate_v22(pkg: Path, meas) -> list[str]:
+    """Rules added in standard 2.2.0 (docs/data-standard.md §10 items 11 and 12)."""
+    from astropy.table import Table
+    dataset, version = pkg.parent.name, pkg.name
+    where = f"{dataset}/{version}"
+    problems: list[str] = []
+    path = pkg / "tables/uncertainty_terms.ecsv"
+    if not path.is_file():
+        return [f"{where}: tables/uncertainty_terms.ecsv missing (required from 2.2.0)"]
+    terms = Table.read(path, format="ascii.ecsv")
+    for c in TERMS_REQUIRED:
+        if c not in terms.colnames:
+            problems.append(f"{where} uncertainty_terms: missing required column {c}")
+    if problems:
+        return problems
+    extra = [c for c in terms.colnames if c not in TERMS_CORE]
+    if extra:
+        problems.append(f"{where} uncertainty_terms: unknown columns {extra}")
+    rows = [dict(zip(terms.colnames, r)) for r in zip(*[_vals(terms[c]) for c in terms.colnames])]
+    ids = [r["term_id"] for r in rows]
+    if len(ids) != len(set(ids)):
+        problems.append(f"{where} uncertainty_terms: term_id not unique")
+    for name, allowed in TERMS_CLOSED.items():
+        if name in terms.colnames:
+            bad = {v for v in _vals(terms[name]) if v not in (None, "") and v not in allowed}
+            if bad:
+                problems.append(f"{where} uncertainty_terms: {name} has values outside the closed list: {sorted(bad)}")
+    systems_ids, sys_cols = set(), set()
+    if (pkg / "tables/systems.ecsv").is_file():
+        st = Table.read(pkg / "tables/systems.ecsv", format="ascii.ecsv")
+        systems_ids, sys_cols = {str(v) for v in _vals(st["system_id"])}, set(st.colnames)
+    registry = {a["id"] for a in json.loads((ROOT / "data/assumptions.json").read_text(encoding="utf-8"))["assumptions"]}
+    for r in rows:
+        tid = r["term_id"]
+        if r["applies_to"] != "*" and r["applies_to"] not in systems_ids:
+            problems.append(f"{where} uncertainty_terms {tid}: applies_to {r['applies_to']!r} is not '*' or a system in the package")
+        if r["status"] in ("given", "given_by_other_source"):
+            has_size = r.get("size_value") is not None or (r.get("size_lo") is not None and r.get("size_hi") is not None)
+            col = r.get("size_column")
+            if col:
+                has_size = has_size or col in sys_cols
+                if col not in sys_cols:
+                    problems.append(f"{where} uncertainty_terms {tid}: size_column {col!r} is not a systems column")
+            if not has_size:
+                problems.append(f"{where} uncertainty_terms {tid}: given term without a size")
+        if r.get("assumption_id") and r["assumption_id"] not in registry:
+            problems.append(f"{where} uncertainty_terms {tid}: assumption_id {r['assumption_id']!r} not in the registry")
+    for side in ("g_obs", "g_bar"):
+        for e in ("lo", "hi"):
+            pc, tc = f"{side}_err_point_{e}", f"{side}_err_{e}"
+            if pc in meas.colnames:
+                vals = _vals(meas[pc])
+                if any(v is not None and v < 0 for v in vals):
+                    problems.append(f"{where} measurements: negative values in {pc}")
+                if tc in meas.colnames:
+                    over = sum(1 for p, t in zip(vals, _vals(meas[tc])) if p is not None and t is not None and p > t * (1 + 1e-12))
+                    if over:
+                        problems.append(f"{where} measurements: {over} rows where {pc} exceeds {tc}")
+    return problems
 
 
 def _truthy(v) -> bool:
@@ -345,6 +426,8 @@ def validate(pkg: Path) -> list[str]:
         problems += check_columns(systems, CORE_SYS_V2 if v2 else CORE_SYS, short, f"{dataset}/{version} systems")
     if v2:
         problems += validate_v2(pkg, meas)
+    if _key(sv) >= (2, 2, 0):
+        problems += validate_v22(pkg, meas)
 
     # checksums.sha256 covers every committed file in the package
     sums = pkg / "checksums.sha256"
