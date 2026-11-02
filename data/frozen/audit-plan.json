@@ -1,0 +1,10 @@
+{
+  "description": "Independent audit plan (WP3): re-derivation of a seeded 5% sample of shipped measurements by blind readers, provenance check, and neutrality audit. Frozen before the seed exists and before any audit reading.",
+  "frozen_on": "2026-11-01",
+  "decision": "D-081",
+  "spec": "docs/audit/AUDIT_PLAN.md",
+  "files": {
+    "docs/audit/AUDIT_PLAN.md": "d411a7cd93d9d5d5589dab798b52984d6b5d38a5e0eace9daa502475b461eccc",
+    "docs/audit/sample.py": "6e1540095dca87272ddae050ac61f309a0de323e22933588fe8b9d43af7b0ebd"
+  }
+}

@@ -1574,3 +1574,23 @@ The Zenodo record shows the preliminary note.
 - More datasets widen the surface for that kind of error; finishing the shipped ones narrows it.
 
 **Data seen.** Not applicable.
+
+## D-081 — Freeze the independent audit plan before the sample exists
+
+**Ruling (2026-11-01, JvH).** "I approve freezing the audit plan." **Proposed by** Claude (2026-11-01). **Adopted.**
+
+1. **Plan.** `docs/audit/AUDIT_PLAN.md` and the draw script `docs/audit/sample.py` are frozen by hash (`data/frozen/audit-plan.json`). They fix:
+   - the frame and sample size: four shipped packages, default rows, 5 % per package with a minimum of 10, so 234 rows;
+   - the seed: a public randomness beacon pulse at least 24 hours after this ruling's merge;
+   - the readers: two blind readers per row, with a fixed brief;
+   - the tolerances and the codes;
+   - the pass rule: zero material discrepancies and zero provenance failures;
+   - the neutrality term scan and page checklist.
+2. **Timing.** The audit runs after work packages 1 and 2. The frame is fixed now by measurement identifier, so later work cannot steer which rows are audited.
+3. **Results** are published whether they pass or fail, and are not re-scored. Errors found become logged corrections.
+
+**Reason.**
+- The audit is only independent if its sample and rules are fixed before anyone knows which rows it will check.
+- Claude has worked inside these datasets and is not a blind auditor. Fixing the plan now, and giving the reading to fresh readers, limits that.
+
+**Data seen.** The row counts per package at commit `d102bc9`, to set the sample sizes. No values were consulted. The draw script was run once with a dummy seed ("00"), to check the counts. That draw is not the sample.
