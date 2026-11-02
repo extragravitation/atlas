@@ -4,6 +4,7 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
 
 ## Unreleased
 
+- Site: a failed reproduction test is now labelled "Not fully reproduced, on record" (previously "Failed, on record") on the Reproduction and dataset pages. This makes clear that it is the Atlas's reproduction of the source that did not fully match. Results, counts and records are unchanged.
 - D-083 phase 1 (site):
   - dataset pages list each package's uncertainties by scale, with sizes and sources;
   - galaxy pages list the uncertainties shared by the whole galaxy, with this galaxy's distance and inclination errors, and the g_bar band says it is galaxy-wide;

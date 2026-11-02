@@ -55,7 +55,7 @@ const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(lens ? [[
 
       <h2 id="validation">Validation</h2>
       <p class="small"><a href={`${base}reproduction/#${d.key.replace('/', '-')}`}><L t="This dataset on the Reproduction page" p="How this dataset was checked" /></a> · <a href={`${base}reproduction/`}><L t="All datasets' checks" p="All checks" /></a></p>
-      {rr && <p><span class={'badge ' + (rr.pass ? 'ok' : 'fail')}>Reproduction: {rr.text}</span></p>}
+      {rr && <p><span class={'badge ' + (rr.pass ? 'ok' : 'fail')}>Reproduction: {rr.pass ? rr.text : /^FAILED$/i.test(rr.text) ? 'not fully reproduced, on record' : rr.text}</span></p>}
       {rr && !rr.pass && <p class="small">{counts.reproduction_mismatch || 0} measurements that do not reproduce are flagged <code>reproduction_mismatch</code> and ringed on every figure; the package ships under decision D-019 because conversion integrity passes.</p>}
       {mt && <p><span class={'badge ' + (mt.pass ? 'ok' : 'fail')}>Modelled-star test: {mt.text}</span></p>}
       <p class="small"><L t="Each test was written and frozen by hash before it was run; the result is published whether it passed or failed." p="We wrote each test down and locked it before looking at the result, and we show the result either way." /> <a href={`${REPO}/blob/main/${repoDir}/REPRODUCTION.md`}>Frozen test</a>{d.md.modelTest && <> · <a href={`${REPO}/blob/main/${repoDir}/MODEL_TEST.md`}>Frozen modelled-star test</a></>}</p>
