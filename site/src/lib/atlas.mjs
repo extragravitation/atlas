@@ -31,7 +31,7 @@ export function parseCSV(text) {
 export function loadAtlas() {
   if (cache) return cache;
   const registry = JSON.parse(read(path.join(ROOT, 'data/assumptions.json')));
-  const datasets = [];
+  let datasets = [];
   for (const name of fs.readdirSync(PKG).sort()) {
     for (const version of fs.readdirSync(path.join(PKG, name)).sort()) {
       const dir = path.join(PKG, name, version);
@@ -58,12 +58,24 @@ export function loadAtlas() {
         checksums: readIf(path.join(dir, 'checksums.sha256')) || '',
         sources: JSON.parse(read(path.join(dir, 'sources.json'))),
         assumptions,
-        files: ['tables/measurements.ecsv', sysText ? 'tables/systems.ecsv' : null, covText ? 'tables/covariance.ecsv' : null, fs.existsSync(path.join(dir, 'tables/observables.ecsv')) ? 'tables/observables.ecsv' : null].filter(Boolean),
+        files: ['tables/measurements.ecsv', sysText ? 'tables/systems.ecsv' : null, covText ? 'tables/covariance.ecsv' : null, fs.existsSync(path.join(dir, 'tables/observables.ecsv')) ? 'tables/observables.ecsv' : null, fs.existsSync(path.join(dir, 'tables/uncertainty_terms.ecsv')) ? 'tables/uncertainty_terms.ecsv' : null].filter(Boolean),
       });
     }
   }
   const ORDER = ['aeg-d-sparc', 'aeg-d-gc-baumgardt', 'aeg-d-dwarfs', 'aeg-d-strong-lensing', 'aeg-d-xcop', 'aeg-d-kids1000-rar'];
-  datasets.sort((a, b) => (ORDER.indexOf(a.name) + 1 || 99) - (ORDER.indexOf(b.name) + 1 || 99) || a.key.localeCompare(b.key));
+  const vnum = (v) => Number(String(v).replace(/^v/, '')) || 0;
+  datasets.sort((a, b) => (ORDER.indexOf(a.name) + 1 || 99) - (ORDER.indexOf(b.name) + 1 || 99) || vnum(a.version) - vnum(b.version));
+  // Versions (D-006): every version stays published (dataset pages, downloads); the map, system pages and
+  // counts use the latest version of each dataset only, so no system appears twice (D-083 item 3).
+  const latest = {};
+  for (const d of datasets) if (!latest[d.name] || vnum(d.version) > vnum(latest[d.name].version)) latest[d.name] = d;
+  for (const d of datasets) {
+    d.current = latest[d.name] === d;
+    d.supersededBy = d.current ? null : latest[d.name].key;
+    d.versions = datasets.filter((x) => x.name === d.name).map((x) => x.key);
+  }
+  const all = datasets.slice();
+  datasets = all.filter((d) => d.current);
   const systems = [];
   for (const d of datasets) {
     if (!d.systems) continue;
@@ -71,7 +83,7 @@ export function loadAtlas() {
     d.measurements.rows.forEach((r, i) => { (byId[r.system_id] = byId[r.system_id] || []).push(i); });
     for (const s of d.systems.rows) systems.push({ id: s.system_id, name: s.name_in_source, dataset: d.key, row: s, props: s.properties ? JSON.parse(s.properties) : {}, rows: byId[s.system_id] || [] });
   }
-  cache = { registry, datasets, systems, standard: read(path.join(ROOT, 'docs/data-standard.md')), changelog: readIf(path.join(ROOT, 'CHANGELOG.md')) || '' };
+  cache = { registry, datasets, all, systems, standard: read(path.join(ROOT, 'docs/data-standard.md')), changelog: readIf(path.join(ROOT, 'CHANGELOG.md')) || '' };
   return cache;
 }
 

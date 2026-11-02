@@ -13,7 +13,7 @@ import { REPO } from '../lib/md.mjs';
 const base = import.meta.env.BASE_URL;
 const ledger = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/reproduction.json'), 'utf8'));
 const atlas = loadAtlas();
-const shipped = new Set(atlas.datasets.map((d) => d.key));
+const shipped = new Set(atlas.all.map((d) => d.key));
 const listed = new Set(ledger.datasets.map((e) => e.package));
 for (const k of shipped) if (!listed.has(k)) throw new Error(`reproduction ledger: shipped dataset ${k} has no entry`);
 const rows = ledger.datasets.map((e) => {
@@ -22,12 +22,12 @@ const rows = ledger.datasets.map((e) => {
   const actual = crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
   const recorded = JSON.parse(fs.readFileSync(path.join(dir, 'sources.json'), 'utf8')).reproduction_file?.sha256;
   if (actual !== e.sha256 || recorded !== e.sha256) throw new Error(`reproduction ledger: ${e.package} ${e.test_file} hash mismatch (file ${actual}, ledger ${e.sha256}, sources.json ${recorded})`);
-  const d = atlas.datasets.find((x) => x.key === e.package);
+  const d = atlas.all.find((x) => x.key === e.package);
   const plotted = d ? d.measurements.rows.filter((r) => !r.role || r.role === 'default').length : 0;
   const title = d?.title || e.package;
   return { ...e, d, plotted, title, name: title.split(':')[0] };
 });
-const kiNums = new Set(atlas.datasets.flatMap((d) => d.knownIssues.map((k) => k.issue)));
+const kiNums = new Set(atlas.all.flatMap((d) => d.knownIssues.map((k) => k.issue)));
 const issueHref = (n) => (kiNums.has(n) ? `${base}known-issues/#issue-${n}` : `${REPO}/issues/${n}`);
 const nPass = rows.filter((r) => r.result === 'pass').length;
 const nFail = rows.length - nPass;

@@ -3,11 +3,11 @@ import { loadAtlas, payload } from '../../lib/atlas.mjs';
 import { isLensing, kindWords } from '../../lib/lensing.mjs';
 
 export function getStaticPaths() {
-  return loadAtlas().datasets.map((d) => ({ params: { file: `${d.name}-${d.version}` }, props: { key: d.key } }));
+  return loadAtlas().all.map((d) => ({ params: { file: `${d.name}-${d.version}` }, props: { key: d.key } }));
 }
 
 export function GET({ props }) {
-  const d = loadAtlas().datasets.find((x) => x.key === props.key);
+  const d = loadAtlas().all.find((x) => x.key === props.key);
   const out = payload(d);
   // Lenses: the kind in plain words for the map card and tooltips (both layers), keyed by system. The systems
   // themselves stay exactly as in the package table (aeg.site_check compares them).

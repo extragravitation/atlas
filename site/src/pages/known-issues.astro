@@ -7,7 +7,7 @@ const { items, source, error, at } = await loadIssues();
 const base = import.meta.env.BASE_URL;
 const atlas = loadAtlas();
 const sysOf = {};
-for (const d of atlas.datasets) d.measurements.rows.forEach((r) => { sysOf[r.measurement_id] = r.system_id; });
+for (const d of atlas.all) d.measurements.rows.forEach((r) => { sysOf[r.measurement_id] = r.system_id; });
 const nameOf = Object.fromEntries(atlas.systems.map((s) => [s.id, s.name]));
 const open = items.filter((i) => i.state === 'open'), closed = items.filter((i) => i.state !== 'open');
 ---

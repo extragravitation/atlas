@@ -7,7 +7,7 @@ import { parseECSV, toCSV } from '../../lib/ecsv.mjs';
 
 export function getStaticPaths() {
   const out = [];
-  for (const d of loadAtlas().datasets) {
+  for (const d of loadAtlas().all) {
     for (const f of d.files) {
       const stem = f.replace(/^tables\//, '').replace(/\.ecsv$/, '');
       out.push({ params: { path: `${d.name}/${d.version}/${stem}.ecsv` }, props: { file: path.join(d.dir, f), kind: 'ecsv' } });

@@ -1,0 +1,32 @@
+{
+  "name": "aeg-d-sparc",
+  "version": "v2",
+  "title": "SPARC rotation curves: observed and baryonic accelerations of 175 disc galaxies",
+  "description": "Atlas conversion of the SPARC mass models (Lelli, McGaugh & Schombert 2016), re-issued under data standard 2.3.0 (D-083, D-084): the same g_obs and g_bar as v1, with point-scale error columns, an uncertainty-terms table naming every shared uncertainty, an observables table, and an independent second reading. See SOURCE.md, REPRODUCTION.md and REPRODUCTION_RESULT.md.",
+  "standard_version": "2.3.0",
+  "x_standard_version": "2.3.0",
+  "x_licence_status": "Atlas tables intended CC BY 4.0 under D-004; to be confirmed against the terms of the CDS/VizieR record J/AJ/152/157 (issue #9). Source files are not redistributed.",
+  "licenses": [],
+  "sources": [
+    {"title": "mass models (SPARC Table 2)", "path": "https://astroweb.case.edu/SPARC/MassModels_Lelli2016c.mrt"},
+    {"title": "galaxy sample (SPARC Table 1)", "path": "https://astroweb.case.edu/SPARC/SPARC_Lelli2016c.mrt"}
+  ],
+  "x_citation": "Lelli, F., McGaugh, S. S. & Schombert, J. M. 2016, AJ 152, 157; plus the rotation-curve source for each galaxy (systems table, rotation_curve_refs). Uncertainty sizes: Lelli, McGaugh, Schombert & Pawlowski 2017, ApJ 836, 152.",
+  "x_previous_version": "aeg-d-sparc/v1 (standard 1.2.0); g_obs and g_bar identical (REPRODUCTION.md test 1)",
+  "x_selection": [
+    {"quantity": "sample", "condition": "==", "value": "SPARC: 175 nearby galaxies with Spitzer [3.6] photometry and extended HI (and for about a third, Halpha) rotation curves from the literature", "citation": "arXiv:1606.09251 §2"},
+    {"quantity": "completeness", "condition": "==", "value": "not a statistically complete sample (source's words: \"SPARC is not a statistically complete sample\")", "citation": "arXiv:1606.09251 §2"},
+    {"quantity": "rows", "condition": "==", "value": "every point of every galaxy in the mass-model table (3 391); none removed by the Atlas. The source's quality flag Q is carried as data and never used to hide rows", "citation": "D-019; data standard §3"}
+  ],
+  "x_baryon_inventory": [
+    {"component": "stars", "status": "measured", "citation": "Spitzer [3.6] surface photometry; V_disk and V_bul released for Υ = 1, scaled by the assumed Υ_disk = 0.5, Υ_bul = 0.7 (arXiv:1606.09251 §3.4, eq. 2). The stellar profile is extrapolated by an exponential fit beyond the last measured radius unless truncated, and the bulge linearly beyond R_bul (§3.4)."},
+    {"component": "atomic gas", "status": "measured", "citation": "HI surface density profiles or published mass models (arXiv:1606.09251 §3.4). For D512-2, D564-8 and D631-7 the gas profile is modelled as exponential with scale length 2 R_d, because no HI surface density is available (status modelled for those three; model_dependence = observable_form on their rows)."},
+    {"component": "helium", "status": "modelled", "citation": "Gas mass 1.33 M_HI (arXiv:1606.09251 §3.4); registry helium_factor"},
+    {"component": "molecular gas", "status": "known_unmeasured", "citation": "\"We neglect the contribution of molecular gas because CO data are not available for most SPARC galaxies. Fortunately, molecules constitute a minor dynamical component\" (arXiv:1606.09251 §3.4)"},
+    {"component": "hot gas", "status": "not_addressed", "citation": "Not addressed by the source"},
+    {"component": "ionised gas", "status": "not_addressed", "citation": "Not addressed by the source"},
+    {"component": "dust", "status": "not_addressed", "citation": "Not addressed by the source"}
+  ],
+  "x_search_log": "None: SPARC was admitted by D-005 (week 1, 2026-10-28), before search logs existed. The A4 search (late-type and irregular galaxies, issue #48) has not yet been run (D-084 item 4, as corrected).",
+  "x_second_reading": {"file": "SECOND_READING.md", "brief": "reading/SECOND_READING_BRIEF.md", "checks": "checks/second_reading.csv"}
+}
