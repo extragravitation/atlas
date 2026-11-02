@@ -11,6 +11,12 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
   - Site: new Reproduction page. It shows every shipped dataset's frozen test, result and open mismatches, with the test fingerprints recomputed at build. It also links the audit plan.
   - SPARC licence (#9): the CDS record's licence URI and VizieR's general usage rules recorded in `SOURCE.md`. The licence page itself is still unread.
   - Site: SPARC dataset page shows the authors' selection (Lelli et al. 2017 §II.1) beside all points. The build asserts the frozen test's count of 2 694.
+  - Data standard 2.2.0 (D-083), frozen on merge:
+    - uncertainty scales (point, system, dataset);
+    - optional point-scale error columns;
+    - an uncertainty-terms table listing every shared term and every term a source does not give.
+
+    The validator implements it, with synthetic tests. 2.1.0 is kept at `docs/data-standard-2.1.0.md`.
   - Strong lensing `RESULT_SUMMARY.md`: two stale status lines corrected (shipped; projected-point mark added in #95).
 
 - A9 galaxy clusters:

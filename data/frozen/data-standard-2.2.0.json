@@ -1,0 +1,8 @@
+{
+  "description": "Data standard 2.2.0 (minor: uncertainty scales point/system/dataset, optional point-scale error columns, uncertainty-terms table; D-083 item 2). 2.1.0, 2.0.0 and 1.3.0 texts stay frozen at their own paths. The validator is not frozen: it must keep implementing the frozen texts.",
+  "frozen_on": "2026-11-01",
+  "decision": "D-083",
+  "files": {
+    "docs/data-standard.md": "e6cb511735d110f0864e089d6fb9831824a1d68df6c80df033851f5c46dd7764"
+  }
+}
