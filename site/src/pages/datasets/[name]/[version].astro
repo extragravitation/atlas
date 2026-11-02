@@ -3,6 +3,7 @@
 // issues and its files. Rendered from the package's own documents and tables.
 import Base from '../../../layouts/Base.astro';
 import L from '../../../components/L.astro';
+import Layer from '../../../components/Layer.astro';
 import { loadAtlas } from '../../../lib/atlas.mjs';
 import { datasetLabel, assumptionLabel, fmtParam, systemsText } from '../../../lib/labels.mjs';
 import { md, resultLine, REPO } from '../../../lib/md.mjs';
@@ -98,7 +99,7 @@ const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(lens ? [[
       {d.knownIssues.length === 0 && <p>No known issues.</p>}
       {d.knownIssues.length > 0 && <ul>{d.knownIssues.map((k) => <li><a href={k.url}>#{k.issue}</a>: {k.title} ({(k.measurements || []).length} measurements, flag <code>{k.flag}</code>)</li>)}</ul>}
       {Object.keys(counts).length > 0 && <p class="small">Flags in this package: {Object.entries(counts).map(([f, n]) => `${f} (${n})`).join(', ')}.</p>}
-      {d.name === 'aeg-d-kids1000-rar' && <p class="small">The <code>no_uncertainty</code> flag on every row here refers to <b>g_bar</b> only: the source publishes no uncertainty for the baryonic side. Every row has g_obs uncertainties, from the published ESD errors (<a href="https://github.com/extragravitation/atlas/issues/64">#64</a>; the 2.0.0 re-issue will name the side in the flag).</p>}
+      {d.name === 'aeg-d-kids1000-rar' && <Layer as="p" class="small"><Fragment slot="t"><b>Error bars.</b> The g_obs errors are the released ESD errors, bias-corrected, as the release README's recipe gives them. The paper also adds 0.1 dex to every RAR error bar for the conversion from ΔΣ to g_obs (Brouwer et al. 2021, §4.4). The release does not include that term, so this version's error bars are smaller than the paper's. The paper does not say how the two were combined; the question is with the authors, and the next version will show the conversion term separately. The <code>no_uncertainty</code> flag on every row refers to <b>g_bar</b> only: the release gives no per-bin g_bar uncertainty. The paper's ±0.2 dex systematic in stellar mass (Fig. 4) is stated in words, not drawn (<a href="https://github.com/extragravitation/atlas/issues/64">#64</a>).</Fragment><Fragment slot="p"><b>Error bars.</b> The error bars here come from the released data. The paper adds a further allowance for the step that turns the lensing signal into a pull, which the released data leave out, so these bars are smaller than in the paper. We have asked the authors how to add it, and the next version will show it. The visible-matter side has no error bar in the released data; the paper's uncertainty in the star masses is described in words (<a href="https://github.com/extragravitation/atlas/issues/64">#64</a>).</Fragment></Layer>}
       <p class="small"><a href={`${base}known-issues/`}>All known issues</a></p>
 
       <h2 id="files">Files and checksums</h2>
