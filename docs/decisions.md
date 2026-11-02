@@ -1702,6 +1702,7 @@ The Zenodo record shows the preliminary note.
 3. **Sequence (option (a)).** The D-083 phase-1 site work comes first, then a page template and the readings at source, then P1, P2, P3, P4 and P5.
 4. **Review.** Drafts go to the anchor papers' authors and to at least one group working on galaxy-formation explanations of the same relations. Whom to invite is JvH's decision when drafts exist.
 5. **Not new datasets.** All five use SPARC or data already shipped (D-080 freeze unaffected).
+6. **Scope narrowed (2026-11-02 06:20 CST, JvH):** "let's just do the first 3 and save 4 and 5 for later." P1–P3 (RAR, BTFR, flat rotation curves) are built now. P4 (central density relation) and P5 (Sancisi's law) are deferred: they stay in the plan, and nothing is read or built for them until JvH reopens them.
 
 **Reason.**
 - These are the most cited regularities in the field. An atlas of the acceleration discrepancy without them would be incomplete.

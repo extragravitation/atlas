@@ -4,6 +4,8 @@
 
 ## The five patterns, in build order
 
+**Scope (D-085 item 6):** P1–P3 now. P4 and P5 are deferred until JvH reopens them.
+
 | # | Pattern | What it relates | Data in hand | Reproduction anchor (to be read at source before any criterion is frozen) |
 |---|---|---|---|---|
 | P1 | Radial acceleration relation (RAR) | g_obs against g_bar, point by point | All six shipped datasets; SPARC's authors' selection already reproduced (2 690 of 2 694 points) | Lelli, McGaugh, Schombert & Pawlowski 2017, ApJ 836, 152 |
@@ -33,7 +35,7 @@
    - published fits (optional overlays);
    - links to accounts;
    - how to cite.
-3. **Reading at source** for each anchor paper (P2–P5), recorded with locations before any criterion is written.
+3. **Reading at source** for each anchor paper (P2–P3 now; P4–P5 when reopened), recorded with locations before any criterion is written.
 4. **Reviewers.** When drafts exist, the authors of each anchor paper are invited to review its reproduction. At least one group working on galaxy-formation explanations of the same relations is invited to review the same pages. Whom to invite is JvH's decision.
 
 ## Not in scope here

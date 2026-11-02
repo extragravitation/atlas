@@ -4,7 +4,7 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
 
 ## Unreleased
 
-- D-085: Patterns section planned (RAR, BTFR, flat rotation curves, central density relation, Sancisi's law), after the D-083 site work (`docs/plans/PATTERNS_PLAN.md`).
+- D-085: Patterns section planned, after the D-083 site work (`docs/plans/PATTERNS_PLAN.md`): RAR, BTFR and flat rotation curves now. The central density relation and Sancisi's law are deferred.
 
 - Review readiness (D-080): new datasets frozen; fidelity first.
   - SPARC #8: the archival CDS tables equal the served tables, so the data-version hypothesis is not supported (#100).
