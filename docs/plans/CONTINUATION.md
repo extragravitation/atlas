@@ -1,6 +1,44 @@
 # Continuation guide
 
-**State at 2026-11-01, 20:55 CST.** Read this first in the next session, then `docs/decisions.md` (D-001 to D-084). Superseded by the next session's update; the git history keeps every version.
+**State at 2026-11-02, 15:30 CST.** Read this first in the next session, then `docs/decisions.md` (D-001 to D-087) and `docs/plans/VALIDATION_COMPLETION_PLAN.md`. Superseded by the next session's update; the git history keeps every version.
+
+## Done 2026-11-02: patterns plan, validation plan, emails sent (PRs #113–#121 merged)
+
+- **Rulings:**
+  - D-085: patterns plan. P1–P3 now; P4 and P5 deferred. The P2/P3 criteria are frozen in `docs/patterns/P2_P3_CRITERIA.md`. The pattern pages are built after WP2 and WP3.
+  - D-086: authors are notified before a release flags their data.
+  - D-087: the #110 substitution rule for `model_dependence`, applied through the v2 packages.
+- **The plan to finish validation:** `docs/plans/VALIDATION_COMPLETION_PLAN.md` (#117). Steps:
+  - A: readings;
+  - B: standard 2.4.0;
+  - C: #110;
+  - D: the frozen v2 tests;
+  - E: conversions, in the order KiDS, X-COP, dwarfs, GC, lenses;
+  - F: site;
+  - G: audit.
+- **Step A:**
+  - **KiDS reading done** (#118, `docs/sources/uncertainty-readings.md` §1). The key finding is K2: the paper adds 0.1 dex to every RAR error bar for the ΔΣ-to-g_obs conversion (§4.4). The release and v1 omit it, and the site now says so (#121).
+  - **g_bar is the binning coordinate**, so it has no point error by construction. Standard 2.4.0 needs a way to say that.
+  - **X-COP reading running:** two independent reader agents, then adjudication at source.
+- **Emails sent by JvH on 2026-11-02:**
+  - Lelli (cc McGaugh, Schombert): SPARC, #8 and #9.
+  - Eckert (cc Ettori): X-COP, #19.
+  - Brouwer: KiDS, #64.
+
+  All three are recorded on their issues. The drafts are in Dropbox `07 AEG/05 Correspondence/Drafts/`: Lelli v5, Eckert/Ettori v6, Brouwer v5. The send list `00_SEND_LIST_2026-11-02b.md` predates the last two sends.
+  - **Still required before v0.2:** Baumgardt (Pal 1), to be drafted after step A.
+- **Site:**
+  - A failed test is now labelled "Not fully reproduced, on record" (#119).
+  - The X-COP result has a dated correction note (#120).
+  - The KiDS page has an error-bar note (#121).
+  - Issues #8 and #19 were rewritten with links and neutral wording.
+- **Lesson:** a Cloudflare preview build failed once with no reproducible cause. An empty re-push fixed it.
+- **Next:**
+  1. Adjudicate the X-COP readings, then write §2 of `uncertainty-readings.md`.
+  2. Read the dwarfs, globular clusters and lenses (step A).
+  3. Draft `08_Baumgardt_GC`.
+  4. Standard 2.4.0.
+- **Audit seed:** the first NIST beacon pulse at or after 2026-11-03T00:46:17Z. Read it any time after; the audit runs after WP2.
 
 ## Done 2026-11-01 (evening): review readiness, WP1 fidelity (PRs #99–#105 merged; #106 open)
 
