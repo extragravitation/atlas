@@ -4,9 +4,11 @@
 
 ## Purpose
 
-v2 re-issues `aeg-d-sparc/v1` under data standard 2.2.0 (D-083). It changes **only the uncertainties**:
-- it adds point-scale error columns;
-- it adds an uncertainty-terms table that names every shared (system- or dataset-scale) term.
+v2 re-issues `aeg-d-sparc/v1` (standard 1.2.0) under data standard 2.3.0, in full (D-083, D-084). It adds:
+- point-scale error columns, and an uncertainty-terms table naming every shared (system- or dataset-scale) term;
+- the 2.0 structure: an observables table, the 2.0 measurement columns, the descriptor fields, and an independent second reading of every number.
+
+It changes **no value**.
 
 Under D-083 item 3, every observed and baryonic value must be identical to v1. v1 stays published and unchanged.
 
@@ -24,6 +26,13 @@ Read from the LaTeX source of Lelli, McGaugh, Schombert & Pawlowski 2017 (arXiv:
   - The mean error on g_bar is "a lower limit because it neglects uncertainties due to the adopted 3D geometry (vertical disk structure and bulge flattening) and the possible (minor) contribution of molecular gas … This may add another ∼20% uncertainty to points at small radii."
 - **Scatter discussion (§3.2):** "We assume relatively small variations in Υ⋆ (0.11 dex)".
 
+Also read, from the LaTeX source of Lelli, McGaugh & Schombert 2016 (arXiv:1606.09251, file `SPARC.tex`), §2 and §3.4:
+- **Gas:** "We assume a thin disk with a total mass of 1.33 M_HI, where the factor 1.33 considers the contribution of helium." V_gas "is either computed using HI surface density profiles or taken from published mass models". For D512-2, D564-8 and D631-7, "HI surface density profiles are not available, hence we compute V_gas assuming an exponential profile with a scale length of 2 R_d."
+- **Molecular gas:** "We neglect the contribution of molecular gas because CO data are not available for most SPARC galaxies. Fortunately, molecules constitute a minor dynamical component …"
+- **Stars:** the stellar contribution uses "the observed [3.6] surface brightness profile and extrapolating the exponential fit to R→∞, unless the profile shows a clear truncation". Bulges are decomposed non-parametrically and "linearly extrapolated at R > R_bul". "We assume that the bulge is spherical and the disk has an exponential vertical distribution with scale height z_d = 0.196 R_d^0.633."
+- **Units of the components:** V_bul and V_disk are given "for Υ⋆ = 1 M☉/L☉".
+- **Sample:** "SPARC is not a statistically complete sample" (§2).
+
 **Assignment of scales (D-083; data standard 2.2.0 §2a).** The source does not use these words. The assignment follows from what each term is.
 
 | Term | What it is | Scale | Moves | Where its size comes from |
@@ -39,19 +48,24 @@ Read from the LaTeX source of Lelli, McGaugh, Schombert & Pawlowski 2017 (arXiv:
 
 ## The test
 
-Applied to the v2 tables, with v1 at commit `bf5c9ba` (main at the time of writing) as the reference.
+Applied to the v2 tables, with v1 at commit `bf5c9ba` as the reference. Numbers in the source tables are compared at their printed precision.
 
-1. **Values unchanged (D-083 item 3).**
-   - v2 has exactly 3 391 measurement rows. Row k of v2 has the same `system_id`, `r_kpc` and `source_ref` as row k of v1.
-   - `g_obs`, `g_bar` and every `g_bar_*` component column are **bit-for-bit equal** (identical float64) to v1's.
-   - The systems table is identical to v1's, apart from the dataset version in identifiers.
-2. **Point-scale g_obs.** For every row, `g_obs_err_point_lo` = `g_obs_err_point_hi` = g_obs · 2 · e_Vobs / V_obs, computed from the row's own `x_sparc_v_obs` and `x_sparc_e_v_obs`, to a relative tolerance of 1e-12.
-3. **The decomposition reproduces the source's total.** For every row, (point term)² + (g_obs · 2 δi / tan i)² + (g_obs · δD / D)² equals v1's `g_obs_err_hi`², to a relative tolerance of 1e-9. δi and δD are the galaxy's `inclination_err_deg` (in radians) and `distance_err_mpc`.
-4. **g_bar total unchanged.**
-   - v2 keeps `g_bar_err_lo` and `g_bar_err_hi` equal to v1's. Their column descriptions say they are system-scale.
+### A. Values unchanged (D-083 item 3)
+
+1. v2 has exactly 3 391 measurement rows. Row k of v2 has the same `system_id`, `r_kpc` and `source_ref` as row k of v1.
+2. `g_obs`, `g_bar`, `g_bar_stars`, `g_bar_stars_disk`, `g_bar_stars_bulge` and `g_bar_gas_cold` are **bit-for-bit equal** (identical float64) to v1's.
+3. The systems table has the same 175 systems, with values equal to v1's in every v1 column.
+
+### B. Uncertainties (D-083; standard §2a, §3, §7a)
+
+4. **Point-scale g_obs.** For every row, `g_obs_err_point_lo` = `g_obs_err_point_hi` = g_obs · 2 · e_Vobs / V_obs, from the row's own V_obs and e_Vobs, to a relative tolerance of 1e-12.
+5. **The decomposition reproduces the source's total.** For every row, (point term)² + (g_obs · 2 δi / tan i)² + (g_obs · δD / D)² equals v1's `g_obs_err_hi`², to a relative tolerance of 1e-9, with the galaxy's δi (in radians) and δD.
+6. **g_bar total.**
+   - v2's `g_bar_err_lo` and `g_bar_err_hi` equal v1's.
    - (0.10 · g_bar_gas_cold)² + (0.25 · g_bar_stars)² equals v1's `g_bar_err_hi`², to a relative tolerance of 1e-9.
    - `g_bar_err_point_*` are empty on every row.
-5. **Uncertainty terms.** `tables/uncertainty_terms.ecsv` contains exactly these rows:
+   - The column descriptions state the scale of each error column.
+7. **Uncertainty terms.** `tables/uncertainty_terms.ecsv` contains exactly these rows:
 
 | term_id | scale | applies_to | moves | status | size | assumption_id |
 |---|---|---|---|---|---|---|
@@ -66,10 +80,56 @@ Applied to the v2 tables, with v1 at commit `bf5c9ba` (main at the time of writi
 
    - Every given row cites arXiv:1610.08981 with its section, or SPARC Table 1 for the size columns.
    - `covariance` is `not_published` for every row.
-6. **Standard.** `python -m aeg.validate` passes under 2.2.0, and the site builds with `aeg.site_check` at 0 errors.
-7. **v1 untouched.** Every file in `aeg-d-sparc/v1/` has the checksum it had at commit `bf5c9ba`.
 
-**Pass** = all seven hold. Anything else is a fail.
+### C. 2.0 structure (D-084)
+
+8. **Observables** (`tables/observables.ecsv`), one row per number the comparison uses:
+   - For every measurement row:
+     - one `observed` row: `v_rot` = V_obs, with err_lo = err_hi = e_Vobs, unit km/s, at the row's `r_kpc` (`3d`);
+     - one `baryonic` `v_circ_component` row each for gas and stellar disc, plus one for the bulge where the galaxy's V_bul is not zero on every row. Each carries the value as released, unit km/s, at the row's `r_kpc`, with the component and (for stars) "Υ = 1 M☉/L☉" named in `source_ref`.
+   - For every galaxy: one `distance` row (`observed` side, since g_bar is distance independent), with the SPARC Table 1 value and error, in Mpc.
+   - **Steps:**
+     - `v_rot`: `rotation_curve`. The intermediate steps differ between the original rotation-curve sources listed per galaxy in SPARC Table 1, so they are not listed.
+     - Gas: `hi_21cm;surface_density;helium_factor;potential_from_density`.
+     - Stellar components: `photometry;surface_density;potential_from_density`.
+   - `evidence_tier` = 1 (released files) on every row.
+   - Every measurement's `observed_from` lists exactly its `v_rot` row and its galaxy's `distance` row. Its `baryonic_from` lists exactly its component rows.
+9. **Measurement columns.** On every row:
+   - `measured_quantity` = `g_obs`, `limit` = `none`, `role` = `default`, `evidence_tier` = 1;
+   - `plotted` = true, as in v1. The quality flag Q is carried as data and is never used to hide rows;
+   - `model_dependence` = `observable_form`, because the stellar profile is extrapolated by an exponential fit (and, for D512-2, D564-8 and D631-7, the gas profile is assumed exponential). Those three galaxies' rows also say so in `notes`.
+   - The 4 rows flagged `reproduction_mismatch` in v1 (issue #8) carry the same flag.
+10. **Descriptor** (`datapackage.json`):
+    - `standard_version` `2.3.0`;
+    - `x_selection` states SPARC's own selection in the source's words, including "not a statistically complete sample";
+    - `x_baryon_inventory` lists:
+
+      | Component | Status | Note |
+      |---|---|---|
+      | stars | `measured` | [3.6] photometry, Υ assumed |
+      | atomic gas | `measured` | `modelled` for D512-2, D564-8, D631-7 |
+      | helium | `modelled` | factor 1.33 |
+      | molecular gas | `known_unmeasured` | with the source's quote |
+      | hot gas | `not_addressed` | |
+      | ionised gas | `not_addressed` | |
+      | dust | `not_addressed` | |
+
+    - `x_search_log` states that SPARC was admitted by D-005 before search logs existed, and that the A1 search (#48) is pending (D-084 item 4);
+    - `x_second_reading` points to `SECOND_READING.md`.
+11. **Independent second reading (D-031 item 3).**
+    - **Who:** a session with no access to `convert.py`, the package tables or v1.
+    - **What it parses:** `MassModels_Lelli2016c.mrt` and `SPARC_Lelli2016c.mrt`, from their headers and the SPARC paper alone. It reports the known header inconsistency of `SPARC_Lelli2016c.mrt` (header 113 bytes; data rows 131 characters) and how it resolved it.
+    - **What it writes:** every number the package uses: per row, R, V_obs, e_Vobs, V_gas, V_disk, V_bul and D; per galaxy, D, e_D, Inc, e_Inc and Q.
+    - **Pass:** every packaged number equals the second reading.
+    - **Disagreements:** each is resolved at source, with the byte position. One resolved against the package is a fail.
+12. **Standard and site.**
+    - `python -m aeg.validate` passes under 2.3.0;
+    - the site builds;
+    - `aeg.site_check` reports 0 errors;
+    - the reproduction ledger's hash check passes.
+13. **v1 untouched.** Every file in `aeg-d-sparc/v1/` has the checksum it had at commit `bf5c9ba`.
+
+**Pass** = all thirteen hold. Anything else is a fail.
 
 ## Not tested here
 
