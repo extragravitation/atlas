@@ -1703,6 +1703,23 @@ The Zenodo record shows the preliminary note.
 4. **Review.** Drafts go to the anchor papers' authors and to at least one group working on galaxy-formation explanations of the same relations. Whom to invite is JvH's decision when drafts exist.
 5. **Not new datasets.** All five use SPARC or data already shipped (D-080 freeze unaffected).
 6. **Scope narrowed (2026-11-02 06:20 CST, JvH):** "let's just do the first 3 and save 4 and 5 for later." P1–P3 (RAR, BTFR, flat rotation curves) are built now. P4 (central density relation) and P5 (Sancisi's law) are deferred: they stay in the plan, and nothing is read or built for them until JvH reopens them.
+7. **Order of work (2026-11-02 06:57 CST; delegated: JvH asked "What would a good scientist do?").** Claude's call:
+   1. freeze the P2/P3 criteria and reproduction test first;
+   2. then KiDS-1000 v2;
+   3. then the page template with the P2 and P3 pages;
+   4. then P1 (the RAR) last.
+
+   **Reason.**
+   - A pre-registered criterion is blind only while the result is unseen, so freezing it first protects the most.
+   - P2 and P3 use SPARC alone, while P1 needs all six datasets with clean error scales, which needs KiDS v2.
+
+   **Finding.**
+   - The 2016 BTFR Letter's sample predates SPARC, and the Letter has no per-galaxy table. It is kept for the V_f algorithm only.
+   - The anchor is Lelli et al. 2019 (MNRAS 484, 3267), which publishes `BTFR_Lelli2019.mrt`.
+8. **Order corrected (2026-11-02 07:11 CST, JvH: "Proceed as recommended").** JvH asked whether patterns should wait for the data-validation work already under way. They should.
+   - Only the P2/P3 criteria are frozen now (`docs/patterns/P2_P3_CRITERIA.md`, `data/frozen/patterns-p2-p3.json`).
+   - The pattern pages are built after D-080 WP2 (the error budget for all six datasets) and WP3 (the independent audit). This replaces the order in item 7.
+   - **Reason.** Pattern pages are only as credible as the data under them. Patterns are new scope, and the audit waits on WP2.
 
 **Reason.**
 - These are the most cited regularities in the field. An atlas of the acceleration discrepancy without them would be incomplete.
