@@ -18,6 +18,12 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
 
     The validator implements it, with synthetic tests. 2.1.0 is kept at `docs/data-standard-2.1.0.md`.
   - D-084: SPARC, KiDS-1000 and X-COP v2 meet the current standard in full. Data standard 2.3.0 (frozen on merge) adds the baryonic quantity `v_circ_component` and the step `potential_from_density`.
+  - `aeg-d-sparc/v2` (standard 2.3.0): same values as v1, bit for bit. Reproduction test passes.
+    - g_obs errors are split into point scale (velocity) and system scale (inclination, distance).
+    - An uncertainty-terms table lists every shared term (8), including the point-scale g_bar error the source does not give.
+    - It has 16 021 observables and the 2.0 columns.
+    - An independent second reading agrees on 32 269 values and found the SPARC table's header layout error.
+    - The site uses the latest version of each dataset for the map and system pages. Earlier versions stay published and are marked superseded.
   - Strong lensing `RESULT_SUMMARY.md`: two stale status lines corrected (shipped; projected-point mark added in #95).
 
 - A9 galaxy clusters:

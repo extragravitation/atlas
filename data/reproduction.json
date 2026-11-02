@@ -46,6 +46,82 @@
       "since_plain": "We checked the older archived copy of their data: it is identical, so that is not the reason. We have asked the authors."
     },
     {
+      "package": "aeg-d-sparc/v2",
+      "test_file": "REPRODUCTION.md",
+      "sha256": "7dd7fc38572955e14de8ead0e2f5a7db4a1f811b64a51d6ec7224d45c1902047",
+      "frozen_before": "conversion",
+      "result": "pass",
+      "first_run": "2026-11-01",
+      "result_files": [
+        "REPRODUCTION_RESULT.md",
+        "SECOND_READING.md"
+      ],
+      "against": "v1 (values must be bit-for-bit identical), the source's own uncertainty formulas (Lelli et al. 2017 eq. 2 and §2.1.2), and an independent second reading of both SPARC files.",
+      "against_plain": "The previous version, the authors' error formulas, and a second, independent reading of the original files.",
+      "checks": [
+        {
+          "name": "Values unchanged from v1",
+          "plain": "Same numbers as before",
+          "outcome": "pass",
+          "detail": "g_obs, g_bar and every component bit-for-bit identical on all 3 391 rows; systems identical"
+        },
+        {
+          "name": "Point-scale g_obs error",
+          "plain": "Point-by-point error bars",
+          "outcome": "pass",
+          "detail": "velocity term only, to 1e-12"
+        },
+        {
+          "name": "Decomposition reproduces the source's total",
+          "plain": "Error pieces add back up",
+          "outcome": "pass",
+          "detail": "velocity, inclination and distance in quadrature equal v1's total to 1e-9 on every row"
+        },
+        {
+          "name": "g_bar error unchanged",
+          "plain": "Same error on the visible-matter side",
+          "outcome": "pass",
+          "detail": "10% gas and 25% stellar, both system scale; no point-scale g_bar error given by the source"
+        },
+        {
+          "name": "Uncertainty terms",
+          "plain": "Shared uncertainties listed",
+          "outcome": "pass",
+          "detail": "8 terms exactly as frozen, with citations"
+        },
+        {
+          "name": "Observables and 2.0 structure",
+          "plain": "Original measurements kept",
+          "outcome": "pass",
+          "detail": "16 021 observables; every measurement linked to its velocity, distance, velocity components and surface brightnesses"
+        },
+        {
+          "name": "Independent second reading",
+          "plain": "Second reader agrees",
+          "outcome": "pass",
+          "detail": "32 269 values compared (30 519 per point, 1 750 per galaxy), 0 disagreements; the header layout error found independently"
+        },
+        {
+          "name": "Standard 2.3.0 and v1 untouched",
+          "plain": "Format rules and old version intact",
+          "outcome": "pass",
+          "detail": "validator passes; every v1 file unchanged"
+        }
+      ],
+      "issues": [
+        8,
+        9,
+        110
+      ],
+      "flagged": 4,
+      "status": "Current version. Same values as v1, with uncertainties split by scale (D-083) and the full 2.0 structure (D-084). The 4 points of issue #8 remain flagged.",
+      "status_plain": "The current SPARC version: same numbers, clearer error bars, fuller records.",
+      "since": "",
+      "since_plain": "",
+      "scope": "Establishes that v2 changes no value of v1, that its error split reproduces the source's own totals, and that every packaged input agrees with an independent reading of the source files. The comparison with the authors' RAR file (v1 test, 4 points unmatched) applies unchanged.",
+      "scope_plain": "The numbers are the same as before, the error bars add up to the authors' own, and a second reader found the same values in the original files."
+    },
+    {
       "package": "aeg-d-xcop/v1",
       "test_file": "REPRODUCTION.md",
       "sha256": "a49cb132015e7c43cf072fcdb14e310d0b814dddc0ed4a2ae1f69755f2c90654",

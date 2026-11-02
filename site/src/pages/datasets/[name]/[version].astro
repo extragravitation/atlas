@@ -11,11 +11,11 @@ import SparcSelection from '../../../components/SparcSelection.astro';
 import { isLensing } from '../../../lib/lensing.mjs';
 
 export function getStaticPaths() {
-  return loadAtlas().datasets.map((d) => ({ params: { name: d.name, version: d.version } }));
+  return loadAtlas().all.map((d) => ({ params: { name: d.name, version: d.version } }));
 }
 const { name, version } = Astro.params;
 const atlas = loadAtlas();
-const d = atlas.datasets.find((x) => x.name === name && x.version === version);
+const d = atlas.all.find((x) => x.name === name && x.version === version);
 const lab = datasetLabel(d.name);
 const base = import.meta.env.BASE_URL;
 const repoDir = `data/packages/${d.name}/${d.version}`;
@@ -34,6 +34,8 @@ const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(lens ? [[
     <main>
       <p class="kicker"><a href={`${base}datasets/`} style="color:inherit">Datasets</a> · {d.name} · {d.version}</p>
       <h1>{d.title}</h1>
+      {!d.current && <p class="boxed" style="margin:8px 0"><L t={`Superseded by ${d.supersededBy}. This version stays published unchanged; the map and system pages use the latest version.`} p={`There is a newer version (${d.supersededBy.split('/')[1]}). This one is kept unchanged.`} /> <a href={`${base}datasets/${d.supersededBy}/`}>Latest version</a></p>}
+      {d.current && d.versions.length > 1 && <p class="small" style="margin:8px 0"><L t="Earlier versions, still published unchanged:" p="Older versions, kept unchanged:" /> {d.versions.filter((k) => k !== d.key).map((k, i) => <>{i > 0 && ', '}<a href={`${base}datasets/${k}/`}>{k.split('/')[1]}</a></>)}</p>}
 
       <h2 id="summary">Summary</h2>
       <p>{d.dp.description}</p>

@@ -15,7 +15,7 @@ export async function loadIssues() {
   if (cache) return cache;
   const atlas = loadAtlas();
   const local = [];
-  for (const d of atlas.datasets) for (const k of d.knownIssues) local.push({ ...k, dataset: d.key, datasetName: d.name, version: d.version });
+  for (const d of atlas.all) for (const k of d.knownIssues) local.push({ ...k, dataset: d.key, datasetName: d.name, version: d.version });
   let remote = null, error = null;
   if (process.env.AEG_OFFLINE !== '1') {
     try {

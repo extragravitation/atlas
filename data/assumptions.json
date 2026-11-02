@@ -41,8 +41,42 @@
               "formula": "sqrt((0.1 * g_bar_gas_cold)^2 + (0.25 * (g_bar_stars + g_bar_stars_disk * (p / p0 - 1)))^2)"
             }
           ]
+        },
+        "aeg-d-sparc/v2": {
+          "default": 0.5,
+          "min": 0.2,
+          "max": 0.7,
+          "default_ref": "Lelli, McGaugh & Schombert 2016 (arXiv:1606.09251), 'as suggested by stellar population models'; Lelli et al. 2017 (arXiv:1610.08981) Table 1",
+          "range_ref": "Lelli, McGaugh & Schombert 2016 (arXiv:1606.09251) abstract: 0.2 as suggested by the DiskMass survey; 0.7 the mean maximum-disk limit in bright galaxies",
+          "effects": [
+            {
+              "column": "g_bar_stars_disk",
+              "formula": "g_bar_stars_disk * p / p0"
+            },
+            {
+              "column": "g_bar_stars",
+              "formula": "g_bar_stars + g_bar_stars_disk * (p / p0 - 1)"
+            },
+            {
+              "column": "g_bar",
+              "formula": "g_bar + g_bar_stars_disk * (p / p0 - 1)"
+            },
+            {
+              "column": "g_bar_err_lo",
+              "formula": "sqrt((0.1 * g_bar_gas_cold)^2 + (0.25 * (g_bar_stars + g_bar_stars_disk * (p / p0 - 1)))^2)"
+            },
+            {
+              "column": "g_bar_err_hi",
+              "formula": "sqrt((0.1 * g_bar_gas_cold)^2 + (0.25 * (g_bar_stars + g_bar_stars_disk * (p / p0 - 1)))^2)"
+            }
+          ],
+          "range_basis": {
+            "min": "0.2, as suggested by the DiskMass survey (arXiv:1606.09251 abstract)",
+            "max": "0.7, the mean maximum-disk limit in bright galaxies (arXiv:1606.09251 abstract)"
+          }
         }
-      }
+      },
+      "role": "baryonic_inference"
     },
     {
       "id": "ml_bulge",
@@ -83,8 +117,42 @@
               "formula": "sqrt((0.1 * g_bar_gas_cold)^2 + (0.25 * (g_bar_stars + g_bar_stars_bulge * (p / p0 - 1)))^2)"
             }
           ]
+        },
+        "aeg-d-sparc/v2": {
+          "default": 0.7,
+          "min": 0.28,
+          "max": 0.98,
+          "default_ref": "Lelli et al. 2017 (arXiv:1610.08981) Table 1; equals 1.4 Υ_disk at the disc default (arXiv:1606.09251 eq. 7)",
+          "range_ref": "1.4 × the disc range, following the source's adopted relation Υ_bul = 1.4 Υ_disk, 'as suggested by SPS models' (arXiv:1606.09251 eq. 7)",
+          "effects": [
+            {
+              "column": "g_bar_stars_bulge",
+              "formula": "g_bar_stars_bulge * p / p0"
+            },
+            {
+              "column": "g_bar_stars",
+              "formula": "g_bar_stars + g_bar_stars_bulge * (p / p0 - 1)"
+            },
+            {
+              "column": "g_bar",
+              "formula": "g_bar + g_bar_stars_bulge * (p / p0 - 1)"
+            },
+            {
+              "column": "g_bar_err_lo",
+              "formula": "sqrt((0.1 * g_bar_gas_cold)^2 + (0.25 * (g_bar_stars + g_bar_stars_bulge * (p / p0 - 1)))^2)"
+            },
+            {
+              "column": "g_bar_err_hi",
+              "formula": "sqrt((0.1 * g_bar_gas_cold)^2 + (0.25 * (g_bar_stars + g_bar_stars_bulge * (p / p0 - 1)))^2)"
+            }
+          ],
+          "range_basis": {
+            "min": "1.4 × 0.2, the source's relation Υ_bul = 1.4 Υ_disk (arXiv:1606.09251 eq. 7)",
+            "max": "1.4 × 0.7, same relation"
+          }
         }
-      }
+      },
+      "role": "baryonic_inference"
     },
     {
       "id": "distance",
@@ -121,8 +189,38 @@
               "formula": "g_obs_err_hi * system.distance_mpc / (system.distance_mpc + p * system.distance_err_mpc)"
             }
           ]
+        },
+        "aeg-d-sparc/v2": {
+          "default": 0,
+          "min": -1,
+          "max": 1,
+          "default_ref": "SPARC Table 1 distance D and error e_D, per galaxy (arXiv:1606.09251)",
+          "range_ref": "SPARC Table 1 e_D, per galaxy. At fixed angle R scales with D, so g_obs = V²/R scales as 1/D; g_bar is distance independent (arXiv:1610.08981 §II.1.2)",
+          "effects": [
+            {
+              "column": "r_kpc",
+              "formula": "r_kpc * (system.distance_mpc + p * system.distance_err_mpc) / system.distance_mpc"
+            },
+            {
+              "column": "g_obs",
+              "formula": "g_obs * system.distance_mpc / (system.distance_mpc + p * system.distance_err_mpc)"
+            },
+            {
+              "column": "g_obs_err_lo",
+              "formula": "g_obs_err_lo * system.distance_mpc / (system.distance_mpc + p * system.distance_err_mpc)"
+            },
+            {
+              "column": "g_obs_err_hi",
+              "formula": "g_obs_err_hi * system.distance_mpc / (system.distance_mpc + p * system.distance_err_mpc)"
+            }
+          ],
+          "range_basis": {
+            "min": "−1 × SPARC Table 1 e_D, per galaxy",
+            "max": "+1 × SPARC Table 1 e_D, per galaxy"
+          }
         }
-      }
+      },
+      "role": "observed_inference"
     },
     {
       "id": "inclination",
@@ -155,8 +253,34 @@
               "formula": "g_obs_err_hi * sin(deg2rad(system.inclination_deg))^2 / sin(deg2rad(system.inclination_deg + p * system.inclination_err_deg))^2"
             }
           ]
+        },
+        "aeg-d-sparc/v2": {
+          "default": 0,
+          "min": -1,
+          "max": 1,
+          "default_ref": "SPARC Table 1 inclination and error, per galaxy (arXiv:1606.09251)",
+          "range_ref": "SPARC Table 1 e_Inc, per galaxy. V_obs scales as 1/sin i, so g_obs scales as 1/sin² i; the source's g_bar error carries no inclination term (arXiv:1610.08981 eq. 2 and §II.1.2)",
+          "effects": [
+            {
+              "column": "g_obs",
+              "formula": "g_obs * sin(deg2rad(system.inclination_deg))^2 / sin(deg2rad(system.inclination_deg + p * system.inclination_err_deg))^2"
+            },
+            {
+              "column": "g_obs_err_lo",
+              "formula": "g_obs_err_lo * sin(deg2rad(system.inclination_deg))^2 / sin(deg2rad(system.inclination_deg + p * system.inclination_err_deg))^2"
+            },
+            {
+              "column": "g_obs_err_hi",
+              "formula": "g_obs_err_hi * sin(deg2rad(system.inclination_deg))^2 / sin(deg2rad(system.inclination_deg + p * system.inclination_err_deg))^2"
+            }
+          ],
+          "range_basis": {
+            "min": "−1 × SPARC Table 1 e_Inc, per galaxy",
+            "max": "+1 × SPARC Table 1 e_Inc, per galaxy"
+          }
         }
-      }
+      },
+      "role": "observed_inference"
     },
     {
       "id": "helium_factor",
@@ -178,8 +302,14 @@
           "default_ref": "Register default (Lelli et al. 2016, arXiv:1606.09251 §III.3, read at source); D-034, D-058",
           "effects": [],
           "note": "Not adjustable until a published range is read (D-034)."
+        },
+        "aeg-d-sparc/v2": {
+          "default": 1.33,
+          "default_ref": "SPARC Table 2 note 2; arXiv:1606.09251 §III.3: total gas mass 1.33 M_HI",
+          "effects": []
         }
-      }
+      },
+      "role": "baryonic_inference"
     },
     {
       "id": "deproj_lensing",

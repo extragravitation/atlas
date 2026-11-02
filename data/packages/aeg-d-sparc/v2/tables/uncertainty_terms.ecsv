@@ -1,0 +1,103 @@
+# %ECSV 1.0
+# ---
+# datatype:
+# - name: term_id
+#   datatype: string
+#   description: Term identifier
+#   meta: !!omap
+#   - {ucd: meta.id}
+# - name: scale
+#   datatype: string
+#   description: "point, system or dataset (standard 2.2.0 \xA72a)"
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: applies_to
+#   datatype: string
+#   description: System, or * for all
+#   meta: !!omap
+#   - {ucd: meta.id}
+# - name: moves
+#   datatype: string
+#   description: Axes the term moves
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: status
+#   datatype: string
+#   description: given, given_by_other_source or not_given_by_source
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: size_value
+#   datatype: float64
+#   description: Size as the source states it
+#   meta: !!omap
+#   - {ucd: stat.error}
+# - name: size_lo
+#   datatype: float64
+#   description: Lower end of a published range
+#   meta: !!omap
+#   - {ucd: stat.min}
+# - name: size_hi
+#   datatype: float64
+#   description: Upper end of a published range
+#   meta: !!omap
+#   - {ucd: stat.max}
+# - name: size_unit
+#   datatype: string
+#   description: Unit of the size
+#   meta: !!omap
+#   - {ucd: meta.unit}
+# - name: size_column
+#   datatype: string
+#   description: Systems column holding a per-system size
+#   meta: !!omap
+#   - {ucd: meta.ref}
+# - name: size_kind
+#   datatype: string
+#   description: one_sigma, range or as_released
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: assumption_id
+#   datatype: string
+#   description: Registry assumption whose formula moves the values
+#   meta: !!omap
+#   - {ucd: meta.id}
+# - name: correlated_with
+#   datatype: string
+#   description: Correlations as the source states them
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: covariance
+#   datatype: string
+#   description: published, not_published or not_applicable
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: citation
+#   datatype: string
+#   description: Where the size was read
+#   meta: !!omap
+#   - {ucd: meta.bib}
+# - name: locator
+#   datatype: string
+#   description: Section, table or quote
+#   meta: !!omap
+#   - {ucd: meta.ref}
+# - name: note
+#   datatype: string
+#   description: What the term is
+#   meta: !!omap
+#   - {ucd: meta.note}
+# delimiter: ','
+# meta: !!omap
+# - {dataset: aeg-d-sparc}
+# - {version: v2}
+# - {standard_version: 2.3.0}
+# schema: astropy-2.0
+term_id,scale,applies_to,moves,status,size_value,size_lo,size_hi,size_unit,size_column,size_kind,assumption_id,correlated_with,covariance,citation,locator,note
+inclination,system,*,g_obs,given,,,,deg,inclination_err_deg,one_sigma,inclination,,not_published,"Lelli, McGaugh & Schombert 2016, AJ 152, 157 (arXiv:1606.09251); Lelli, McGaugh, Schombert & Pawlowski 2017, ApJ 836, 152 (arXiv:1610.08981)",SPARC Table 1 e_Inc; arXiv:1610.08981 eq. 2,One inclination per galaxy: moves every point of the galaxy together; g_obs scales as 1/sin^2 i.
+distance,system,*,g_obs,given,,,,Mpc,distance_err_mpc,one_sigma,distance,,not_published,"Lelli, McGaugh & Schombert 2016, AJ 152, 157 (arXiv:1606.09251); Lelli, McGaugh, Schombert & Pawlowski 2017, ApJ 836, 152 (arXiv:1610.08981)",SPARC Table 1 e_D; arXiv:1610.08981 eq. 2 and §2.1.2,"One distance per galaxy: g_obs scales as 1/D; g_bar is distance independent (source, §2.1.2)."
+hi_flux_calibration,system,*,g_bar,given,0.1,,,fraction of the gas term,,as_released,,,not_published,"Lelli, McGaugh, Schombert & Pawlowski 2017, ApJ 836, 152 (arXiv:1610.08981)","§2.1.2: ""a typical 10% error on the HI flux calibration""",One calibration per galaxy's HI data: the gas term of every point of the galaxy moves together.
+ml_scatter_galaxy,system,*,g_bar,given,0.25,,,fraction of the stellar term,,as_released,,,not_published,"Lelli, McGaugh, Schombert & Pawlowski 2017, ApJ 836, 152 (arXiv:1610.08981)","§2.1.2: ""a 25% scatter on Υ⋆""; §3.2: ""variations in Υ⋆ (0.11 dex)""","System scale is the Atlas's assignment (D-084 addendum): the source does not say whether the 25% varies between or within galaxies; at 3.6 micron most variation is expected between galaxies, but variation within a galaxy is possible and is not separated."
+ml_disk,dataset,*,g_bar,given,,0.2,0.7,solMass / solLum,,range,ml_disk,,not_published,"Lelli, McGaugh & Schombert 2016, AJ 152, 157 (arXiv:1606.09251)",abstract: 0.2 (DiskMass survey) to 0.7 (maximum-disc limit),The population value adopted for every galaxy (default 0.5).
+ml_bulge,dataset,*,g_bar,given,,0.28,0.98,solMass / solLum,,range,ml_bulge,,not_published,"Lelli, McGaugh & Schombert 2016, AJ 152, 157 (arXiv:1606.09251)",registry ml_bulge (Υ_bul = 1.4 Υ_disk over the Υ_disk range),The population value adopted for every bulge (default 0.7).
+geometry_3d_molecular,system,*,g_bar,given,0.2,,,fraction,,as_released,,,not_published,"Lelli, McGaugh, Schombert & Pawlowski 2017, ApJ 836, 152 (arXiv:1610.08981); Lelli, McGaugh & Schombert 2016, AJ 152, 157 (arXiv:1606.09251)","arXiv:1610.08981 §2.1.2: ""may add another ~20% uncertainty to points at small radii""; arXiv:1606.09251 §3.4","Vertical disc structure, bulge flattening and molecular gas; stated only as about 20% at small radii, so no shift is computed. Also: the stellar profile is extrapolated by an exponential fit beyond the last measured radius (arXiv:1606.09251 §3.4)."
+g_bar_point,point,*,g_bar,not_given_by_source,,,,,,,,,not_published,,,No point-scale uncertainty on g_bar is given; the source states that Spitzer photometric calibration uncertainties are negligible (arXiv:1610.08981 §2.1.2).

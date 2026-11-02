@@ -25,6 +25,7 @@ const base = import.meta.env.BASE_URL;
           {rr && <p style="margin:8px 0 0"><span class={'badge ' + (rr.pass ? 'ok' : 'fail')}>Reproduction: {rr.text.split(/[ (]/)[0]}</span></p>}
           {rr && !rr.pass && <p class="small" style="margin-top:6px">{d.measurements.rows.filter((r) => /reproduction_mismatch/.test(r.flags || '')).length} measurements that do not reproduce are flagged and ringed; the rest ship under decision D-019.</p>}
           <p class="small" style="margin-top:8px">{d.citation.split(';')[0]}</p>
+          {d.versions.length > 1 && <p class="small" style="margin-top:4px">Earlier versions: {d.versions.filter((k) => k !== d.key).map((k) => k.split('/')[1]).join(', ')} (still published; open from this dataset's page)</p>}
         </a>;
       })}
     </div>

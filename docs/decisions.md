@@ -1685,3 +1685,5 @@ The Zenodo record shows the preliminary note.
 3. The measured [3.6] surface brightnesses (SBdisk, SBbul) are recorded as observables alongside the source's velocity components.
 
 **Data seen.** None from v2; no v2 value has been computed.
+
+**D-084 correction (2026-11-01, Claude).** Item 4 says "the A1 search (#48)". The cell for disc galaxies is **A4** (late-type and irregular galaxies, `docs/plans/TAXONOMY.md`); A1 is wide binaries. The SPARC v2 descriptor states A4. The frozen `aeg-d-sparc/v2/REPRODUCTION.md` (test 10) repeats "A1". It is not edited, and the mismatch is reported as a deviation in the v2 result. The test's intent is unaffected: no search row is invented, and #48 is pending.
