@@ -1854,12 +1854,13 @@ The Zenodo record shows the preliminary note.
      - every site view draws it correctly, with arrows in the right direction for each view, and limit rows are excluded from averages, fits and pattern tests (step F);
      - A3's stage-2 condition (total mass and gas) and the stage-1 checks pass.
    - Expected in v0.2. v0.2 does not wait for it. If A3's condition fails, the seven stay unplotted until the authors answer, and any change is a new ruling.
+5. **Serving v2's rows: the same as v1 under D-004.** The shared archives are fetched at build time, verified by hash, and never committed, hosted or archived on Zenodo. The Atlas's derived table is served as v1's is, with the source's terms governing it, stated on the dataset page, until the authors state a licence. This reads D-089 rule 3's "values are linked, not redistributed" as applying to the source files, as D-004 does. If JvH reads it more strictly, v2's rows are shown on the site but not offered as a download until the licence is answered.
 
 **Reason.**
 - Editing a frozen audit plan after its seed is fixed would weaken the independence the freeze exists to protect, even with the pulse unread.
 - The v1 audit still checks 861 published rows and the pipeline that made them.
 - A separate frozen audit holds v2 to the same standard.
-- Writing the exception and the stage-2 plan down closes two gaps that D-089 left implicit.
+- Writing down the exception, the stage-2 plan and the serving rule closes three gaps that D-089 left implicit.
 
 **Alternatives rejected.**
 - **Re-point the X-COP stratum to v2 rows:** changes a frozen plan after its seed is fixed, and the v2 rows do not exist yet.

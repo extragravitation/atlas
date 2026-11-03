@@ -40,7 +40,7 @@ The proven SPARC route had four steps: read at source, freeze the test, convert,
 | Step | Work | Who decides | Estimate |
 |---|---|---|---|
 | **A. Readings** | For KiDS (Brouwer et al. 2021 and its README), X-COP (Ettori et al. 2019 §5 for the modelled-star scatter; the archive's error columns), dwarfs, globular clusters and lenses (the already-read originals, re-checked for the uncertainty statements): every uncertainty term, its size as stated, its scale, and what it moves, with quotes and locations. Written to `docs/sources/uncertainty-readings.md`. | — | 1 session |
-| **B. Standard 2.4.0** | Only what A shows is needed. Already known: a lower limit on g_bar (for X-COP A8 stage 2, #129). Frozen on merge. | JvH approves | short |
+| **B. Standard 2.4.0** | Only what A shows is needed. Already known: a bound on g_bar for X-COP A8 stage 2 (#129), probably as a new optional column, so the version number follows standard §0. Frozen on merge. | JvH approves | short |
 | **C. #110 rule** | One rule for `model_dependence` across datasets (§4), applied in every v2. | **JvH rules** | short |
 | **D. Frozen tests** | One v2 reproduction test per dataset, as SPARC's: values bit-for-bit equal to v1 (**except X-COP**, rebuilt from Eckert et al. 2022 under D-089 and D-090, with its own test in `data/packages/aeg-d-xcop/v2/REPRODUCTION.md`); uncertainty decomposition; the exact terms list; the full current structure. For KiDS and X-COP this adds observables and an independent second reading. | JvH approves each | 1 session for all five |
 | **E. Conversions** | Converters and tests, in this order: KiDS, X-COP, dwarfs, globular clusters, lenses. Second readers run in the background, where needed (KiDS, X-COP). | merges | 2–3 sessions |
