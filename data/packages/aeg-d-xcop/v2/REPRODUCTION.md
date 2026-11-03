@@ -1,8 +1,8 @@
 # aeg-d-xcop/v2: reproduction test, part A (source reproduction)
 
-**Status: draft, revision 2, for JvH's approval.** On merge, this file's SHA-256 is recorded in `data/frozen/xcop-v2-part-a.json`. The archives' values are read only after that.
+**Status: draft, revision 3, for JvH's approval.** On merge, this file's SHA-256 is recorded in `data/frozen/xcop-v2-part-a.json`. The archives' values are read only after that.
 
-**Written** 2026-11-03 under D-089, then revised after an independent review the same day. The review's report is kept in `docs/sources/readings/xcop-e22-2026-11-03/test-review.md`.
+**Written** 2026-11-03 under D-089, then revised after an independent review the same day, and again for A8 (the seven clusters in two stages). The review reports are kept in `docs/sources/readings/xcop-e22-2026-11-03/test-review.md` and `test-review-2.md`.
 
 **Seen so far: no value in the two source archives has been read.** What has been seen:
 - archive sizes and SHA-256;
@@ -120,9 +120,10 @@ The table's f_bar is not always f_gas + f★: for A2029, 11.1 + 2.8 ≠ 13.8, an
 - **Reason for the tolerances.** Leaving the stars out changes g_bar by about 10 % near R500 and much more in the core. The tolerances therefore test whether the stars are included, and are not sensitive to the radius-labelling question (about 1.5 % between neighbouring grid radii).
 - **Also reported:** each cluster's median ratio under every variant. A fail is investigated in the open; it does not stop the other checks.
 
-**A3. g_obs against the non-parametric mass (reported; no threshold).**
+**A3. g_obs against the non-parametric mass (reported; also sets A8 stage-2 eligibility).**
 - For every row, report GOBS / [G MASS(<RADIUS)/RADIUS²], with MASS from `GP_mass.fits` under the A2-selected convention.
-- The files' dates differ (2021 for `GP_mass.fits`, 2023 for `gbar_gobs`), and nothing in the papers says they should agree exactly.
+- The files' dates differ (2021 for `GP_mass.fits`, 2023 for `gbar_gobs`), and nothing in the papers says they should agree exactly. So A3 is not a pass/fail check on the five clusters.
+- **Condition for A8 stage 2, fixed now.** The seven clusters of A8 carry only the 2021 profiles. They become eligible for plotting only if, for each of the five complete clusters, |median ratio − 1| ≤ 0.05 over its testable rows. If any cluster misses this, the seven stay unplotted until the authors say which analysis applies to them.
 
 **A4. Reproduce E22 Table 4 (pass/fail).** For each of the 45 entries, computed under R1–R4:
 - **f_gas and f_bar:** pass if |Atlas − Table 4| ≤ quoted error + 0.05 percentage point (half a printed unit, for rounding).
@@ -163,11 +164,28 @@ The table's f_bar is not always f_gas + f★: for A2029, 11.1 + 2.8 ≠ 13.8, an
 
 These ratios become the system-scale "choice of mass model" term in v2's uncertainty table. They are never applied as a correction.
 
-**A8. The other seven clusters (structure only).**
-- **Data check:** each `GP_mass.fits` has 200 rows with positive MASS.
-- **What they lack:** A85, A1644, A2255, A3158, A3266, RXC1825 and ZW1215 have **no complete stellar budget in E22, and no M_STAR in any shared file**. A85 and ZW1215 do have published satellite stellar masses (Ghizzardi Table 2), but no central-galaxy profile in E22.
-- **Consequence.** Under D-089 rule 1 ("included only where their baryons are stated by the source"), these seven get **no g_bar in v2**. Their total and gas mass profiles are recorded as observables, and they are not on the g_obs–g_bar map.
-- **This needs JvH's confirmation** when approving the test, because v1 plotted all 12 clusters.
+**A8. The other seven clusters, in two stages.**
+- **Who they are:** A85, A1644, A2255, A3158, A3266, RXC1825 and ZW1215.
+- **What they lack:** they have **no complete stellar budget in E22, and no M_STAR in any shared file**. A85 and ZW1215 do have published satellite stellar masses (Ghizzardi Table 2), but no central-galaxy profile in E22.
+- **What they have:** measured total and gas mass profiles in `GP_mass.fits` (2021), which Eckert offered "if you still wish to include the mass profiles for all systems" (email of 2026-11-03).
+- **The bound.** Stellar mass is never negative, so G MGAS(<r)/r² is an exact **lower bound** on g_bar for these clusters.
+- **Stage 1, with v2:** all seven are converted and recorded.
+  - g_obs = G MASS(<r)/r², with the _LO/_HI bounds.
+  - The gas-only g_bar is carried as a **lower limit on g_bar**.
+  - All 200 grid rows are kept as the source gives them.
+  - **They are not plotted** in stage 1. On the site and in downloads they are marked "recorded, not plotted: stellar mass not in the source; g_bar given as a lower limit (gas only)".
+- **Stage 2, plotting as lower-limit tracks.** All three conditions are required:
+  - (a) the data standard supports a lower limit on g_bar (planned for 2.4.0);
+  - (b) every site view (map, excess, mass, scale, speed, surface density, system pages, downloads) draws such a limit correctly, checked in screenshots on desktop and phone;
+  - (c) A3's condition is met.
+
+  The clusters are then drawn as **tracks** (lines), not points, because their profiles are model curves on a 200-step grid rather than independent measurements. The limit is drawn as an arrow toward higher g_bar. In views of g_obs/g_bar, the limit becomes an upper limit and is drawn as such.
+
+  Stage 2 is tracked in issue #129 and in `docs/plans/VALIDATION_COMPLETION_PLAN.md`. If A3's condition fails, that issue stays open until the authors answer.
+- **Checks for stage 1 (pass/fail):**
+  - **Rows:** each `GP_mass.fits` has 200 rows with positive MASS and MGAS.
+  - **Gas fraction:** |FGAS − MGAS/MASS| ≤ 0.01 × FGAS on every row.
+  - **The bound holds where the full answer is known.** For each of the five complete clusters, G MGAS_GP(<RADIUS)/RADIUS² ≤ 1.01 × GBAR on every testable `gbar_gobs` row. MGAS_GP is MGAS from that cluster's `GP_mass.fits`, under the A2-selected radius convention. This tests the gas-only bound on the clusters where the full g_bar is known. The 1 % allows for the gas coming from a different run.
 
 **A9. Stellar normalisation against Ghizzardi et al. 2021 (reported; no threshold).**
 - At R500 from R3, report M_STAR(<R500) from the Einasto file divided by Ghizzardi's spherical M★,500 (§2).
@@ -184,7 +202,7 @@ These ratios become the system-scale "choice of mass model" term in v2's uncerta
 
 ## 5. What v2 plots (default rows), fixed now
 
-- **Plotted:** the 105 rows of the five `gbar_gobs` files.
+- **Plotted in stage 1:** the 105 rows of the five `gbar_gobs` files. The seven A8 clusters are recorded but not plotted until A8 stage 2.
   - g_obs = GOBS, with errors GOBS_ERR_LO and GOBS_ERR_HI.
   - g_bar = GBAR, with error GBAR_ERR.
   - Radii in kpc, as released.
