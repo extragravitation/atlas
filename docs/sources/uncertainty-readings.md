@@ -288,3 +288,44 @@ The full rows (E1–E30) are in the reader reports. Their main points:
 - **Intracluster light.** Excluded, below 5 %.
 
 Scales follow §2: statistical terms are per point; the central-galaxy, satellite and bias terms are per system or dataset.
+
+### 3b. Eckert et al. 2022b ("Paper II", A&A 666, A41), added 2026-11-03
+
+**Why it was added.** Ettori's reply refers to the "2022 papers", plural. Paper I itself says its Einasto results "are presented and discussed in Paper II". The first brief had wrongly listed Paper II's arXiv id as a candidate for Paper I, and both readers rightly set it aside. It is therefore read here, by two new independent readers ([`paperII-brief.md`](readings/xcop-e22-2026-11-03/paperII-brief.md); [`paperII-reader-A.md`](readings/xcop-e22-2026-11-03/paperII-reader-A.md), [`paperII-reader-B.md`](readings/xcop-e22-2026-11-03/paperII-reader-B.md)).
+
+**Source.** arXiv **2205.01123v1**, `einasto.tex` + `tab2.tex`, e-print SHA-256 `a138d88f…3fcb`. Both readers downloaded the same file. Claude rechecked the selection threshold, the Table 2 rows and the key statements at source.
+
+**What it contains (both readers agree on every point):**
+- **One model.** One Einasto profile is fitted to the **total** hydrostatic mass of each of the 12 clusters (l. 263: "in this paper we fitted an Einasto profile to the total gravitational field").
+- **Nothing on the baryon side.** There is no g_bar, no baryon budget, no non-parametric or NFW result, and no radial acceleration relation. Everything on g_bar comes from Paper I.
+- **Table 2:** M500 (Einasto), r_s, ρ_s and μ = 1/α, the centroid shift w, and the fitted radial range as a fraction of R200, for all 12 clusters. The errors' confidence level is not stated.
+- **Selection of regular systems.** The text says "we selected a subsample of X-ray regular systems with $w<0.015$", which "excludes four objects" (l. 163).
+  - The Fig. 2 caption gives $w<0.0015$ (l. 148). The text's value is the one consistent with "four" and "8 X-ray regular systems" (l. 227), so the caption is very likely a typo. This is an inference.
+  - The four excluded clusters are not named. From Table 2 they are A644, A2255, A2319 and A3266, inferred by both readers independently.
+  - **Two of the five clusters with a complete baryon budget, A644 and A2319, are in this disturbed set.** Paper I keeps both in its radial acceleration relation.
+- **Hydrostatic validity.** "valid at the $\lesssim20\%$ level out to $R_{200}$", except A2319, "for which there is clear evidence of a breakdown of hydrostatic equilibrium" (l. 80).
+
+**The masses depend on the model, and it is not small.** Paper II's Einasto M500 divided by Paper I's NFW M500 (Table 1, "TOT"):
+
+| Cluster | Einasto / NFW |
+|---|---|
+| A85 | 1.26 |
+| A644 | 0.78 |
+| A1644 | 0.97 |
+| A1795 | 0.99 |
+| A2029 | 1.12 |
+| A2142 | 1.05 |
+| A2255 | 1.11 |
+| A2319 | 0.96 |
+| A3158 | 1.02 |
+| A3266 | 1.00 |
+| RXC1825 | 1.01 |
+| ZW1215 | 0.95 |
+
+These are Claude's arithmetic on the two published tables. **Neither paper compares the two sets of masses.** Paper I says only that its methods agree "within 10\%" in [0.2–1] R500 (l. 373). So M500 and R500 are not unique "final" values: they depend on the model. The Atlas therefore must not rescale radii by a single R500 without naming which one.
+
+**Consequences for the X-COP v2 test (step D):**
+1. **g_obs comes from the non-parametric points of Paper I** (the method the paper uses as its benchmark, l. 366). It does not come from a parametric fit. Radii are kept in kpc, as measured, so no R500 choice enters g_obs.
+2. **The X-ray regular/disturbed status of each cluster is recorded** as the source's own continuous quantity, w with its error, never as a label (rule 4 of the project). Excluding clusters is not the Atlas's business; showing w is.
+3. **The model dependence above becomes a stated system-scale term** (Einasto against NFW against non-parametric) wherever a parametric mass is used, for example in the mass reconstructions for all 12 clusters, if Dominique's second folder contains parametric fits.
+4. **Paper II adds nothing to g_bar.** The satellite-projection question (§3.2 item 1) stands.
