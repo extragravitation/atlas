@@ -4,6 +4,7 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
 
 ## Unreleased
 
+- D-089: X-COP v2 will be built from Eckert et al. 2022, at the X-COP team's recommendation (2026-11-03). The paper is read and the test frozen before the shared files are opened.
 - D-088: X-COP v1 treats the released stellar-mass profiles as spherical, but the source says they are projected (#124). This was the Atlas's error. The X-COP v1 page now states it. v2 will carry the stellar term as an upper bound, and correct it only from data that determine the correction.
 - Site: the KiDS-1000 dataset page now states that its g_obs error bars are the released ESD errors only. The paper adds 0.1 dex for the ΔΣ-to-g_obs conversion (§4.4), and the release omits it, so the bars are smaller than the paper's. Found in the step A reading (#118). No data changed.
 - Site: a failed reproduction test is now labelled "Not fully reproduced, on record" (previously "Failed, on record") on the Reproduction and dataset pages. This makes clear that it is the Atlas's reproduction of the source that did not fully match. Results, counts and records are unchanged.

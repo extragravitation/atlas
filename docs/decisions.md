@@ -1798,3 +1798,35 @@ The Zenodo record shows the preliminary note.
 - The released stellar, gas and hydrostatic profiles of all 12 clusters, and the v1 tables.
 - Ghizzardi et al. 2021, Table 2.
 - Read during step A, before any v2 test exists.
+
+## D-089 — X-COP v2 is built from Eckert et al. 2022
+
+**Ruling (2026-11-03 11:16 CST, JvH).** "rule D-089". **Proposed by** Claude (2026-11-03), after the X-COP team replied. **Adopted.**
+
+**Context.**
+- **Eckert (2026-11-03):** the 2019 results "are ill-suited for the study of the radial acceleration relation, as they do not include estimates of stellar masses, that dominate the gravitational field in the central regions". He pointed to Eckert et al. 2022 (A&A 662, A123), whose masses he calls the "(final) updated masses", and shared two folders:
+  - the 2022 results for the five clusters with a complete baryon budget (hot gas, central galaxy and satellites), including g_obs and g_bar;
+  - individual mass reconstructions for all clusters.
+- **Ettori (2026-11-03):** the 2019 work "was specifically focused on the external regions (up to R200)", and the core treatment "has been well refined in the 2022 papers".
+
+**Rules.**
+1. **X-COP v2 is built from the 2022 analysis**, not from the 2019 archive.
+   - The five clusters with a complete baryon budget are the main set.
+   - The other clusters' mass reconstructions are included only where their baryons are stated by the source, and are labelled as such.
+   - Exactly which rows qualify is fixed in the frozen test.
+2. **Read and freeze first (rule 5).** Before any file from the shared folders is opened, Claude:
+   - reads Eckert et al. 2022 at source (arXiv LaTeX);
+   - writes the X-COP v2 reproduction test, the substitution for D-087 `model_dependence`, and the uncertainty terms;
+   - freezes all of these by hash with JvH's approval.
+
+   The step A reading of the 2019 sources (§2 of `uncertainty-readings.md`) stays on record. A second reading for the 2022 paper is added.
+3. **Provenance.**
+   - The files are recorded with URL, retrieval date and SHA-256, as for every source.
+   - Their licence is asked of the authors. Until it is answered, values are linked, not redistributed (D-004).
+4. **v1 stays published unchanged**, with the D-088 correction note. v2 supersedes it on the site when its test is run, pass or fail.
+5. **This supersedes D-088 item 3's wait for spherical profiles.** The 2022 data include a measured central-galaxy and satellite stellar component, so the correction comes from the source. The upper-bound treatment is no longer needed in v2.
+6. **No new-dataset freeze issue (D-080).** This is a re-issue of a shipped dataset, from the same team, at their recommendation.
+
+**Reason.** The authors identify the 2022 analysis as the one built for this comparison and as their final masses. It fixes F1 with measured data instead of a bound, and it adds local, non-parametric masses.
+
+**Data seen.** The two emails only. No file from the shared folders has been opened.
