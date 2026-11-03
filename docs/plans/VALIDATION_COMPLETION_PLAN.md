@@ -1,6 +1,6 @@
 # Plan to finish data validation (D-080 WP2 and WP3)
 
-**Written:** 2026-11-02, at JvH's request ("we need a plan to finish data validation"). It schedules work already ruled (D-080, D-083, D-084, D-081/D-082). Rulings: #110 as option (a) (D-087) and the notice rule (D-086), both 2026-11-02. Updated 2026-11-03 for D-089 and D-090 (proposed): the X-COP exception, its own audit, and A8 stage 2.
+**Written:** 2026-11-02, at JvH's request ("we need a plan to finish data validation"). It schedules work already ruled (D-080, D-083, D-084, D-081/D-082). Rulings: #110 as option (a) (D-087) and the notice rule (D-086), both 2026-11-02. Updated 2026-11-03 for D-089 and D-090: the X-COP exception, its own audit, and A8 stage 2.
 
 **"Done" means:**
 - all six shipped datasets are re-issued under the current standard, with uncertainties by scale (WP2);

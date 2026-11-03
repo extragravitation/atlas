@@ -16,7 +16,7 @@
 ## Open on 2026-11-03
 
 - **#128:** X-COP v2 test part A, revision 3, plus its second independent review. JvH approves, then "merge 128" freezes it. On merge, record its SHA-256 in `data/frozen/xcop-v2-part-a.json` before any value is read.
-- **D-090 (proposed):** the audit runs as frozen on X-COP v1; X-COP v2 gets its own audit; X-COP is the one exception to "v2 equals v1"; A8 stage 2 is planned work. Needs JvH's ruling.
+- **D-090 (adopted 2026-11-03, delegated call):** the audit runs as frozen on X-COP v1; X-COP v2 gets its own audit; X-COP is the one exception to "v2 equals v1"; A8 in two stages; v2 rows go live only after the authors consent (preview offered first). Merges with #130.
 - **Still to do in step A:** dwarfs, globular clusters, lenses (two readers each); draft `08_Baumgardt_GC` (required before v0.2); refresh the send list (Ghizzardi email cancelled; Eckert reply and Lelli forward sent 2026-11-03); read the audit beacon pulse.
 
 ## Earlier list for 2026-11-03 (set 2026-11-02 20:18; items 1 and 3 done, 2 cancelled)

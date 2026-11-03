@@ -1833,7 +1833,7 @@ The Zenodo record shows the preliminary note.
 
 ## D-090 — X-COP v2 and the frozen audit
 
-**Ruling: pending.** **Proposed by** Claude (2026-11-03), after JvH asked whether the X-COP v2 approach had been checked holistically. Not adopted until JvH rules.
+**Ruling (2026-11-03 14:38 CST; delegated: JvH asked "for the ruling, what would a great scientist do that is also looking to create a compelling and useful website").** Claude's call: rules 1–4 as proposed; rule 5 changed from the proposal, as below. **Proposed by** Claude (2026-11-03), after JvH asked whether the X-COP v2 approach had been checked holistically.
 
 **Context.**
 - D-083 item 3 requires every v2 package to reproduce v1's g_obs and g_bar exactly, so that only uncertainty columns change. The stated reason is to keep the frozen audit (D-081, D-082), which samples v1 rows, valid for both versions.
@@ -1854,17 +1854,24 @@ The Zenodo record shows the preliminary note.
      - every site view draws it correctly, with arrows in the right direction for each view, and limit rows are excluded from averages, fits and pattern tests (step F);
      - A3's stage-2 condition (total mass and gas) and the stage-1 checks pass.
    - Expected in v0.2. v0.2 does not wait for it. If A3's condition fails, the seven stay unplotted until the authors answer, and any change is a new ruling.
-5. **Serving v2's rows: the same as v1 under D-004.** The shared archives are fetched at build time, verified by hash, and never committed, hosted or archived on Zenodo. The Atlas's derived table is served as v1's is, with the source's terms governing it, stated on the dataset page, until the authors state a licence. This reads D-089 rule 3's "values are linked, not redistributed" as applying to the source files, as D-004 does. If JvH reads it more strictly, v2's rows are shown on the site but not offered as a download until the licence is answered.
+5. **Publishing v2's rows waits for the authors' consent; building v2 does not.**
+   - **The difference from v1.** v1 came from a public archive, and D-004 covers it. v2's files came by private share link in a reply to the Atlas, with no licence stated, and JvH has already asked the authors about citation and consent.
+   - **Done now, in the open:** the frozen test, the conversion, and the reproduction result, pass or fail. The result gives check outcomes and ratios, not the rows. The archives are fetched at build time, verified by hash, and never committed, hosted or archived on Zenodo.
+   - **Waits for the authors' answer:** v2's rows on the map, its dataset page and its download. When v2 is ready, the authors are offered a preview link before it goes live, together with the "v2 is up" note's questions.
+   - **Until then,** v1 stays live with its D-088 correction note, and the dataset page says that v2 is built and awaiting the authors' confirmation.
+   - **If there is no answer in 4 weeks** from the preview, JvH sends one follow-up. Any later choice, such as publishing under D-004, is a new ruling.
 
 **Reason.**
 - Editing a frozen audit plan after its seed is fixed would weaken the independence the freeze exists to protect, even with the pulse unread.
 - The v1 audit still checks 861 published rows and the pipeline that made them.
 - A separate frozen audit holds v2 to the same standard.
 - Writing down the exception, the stage-2 plan and the serving rule closes three gaps that D-089 left implicit.
+- **Rule 5.** Data shared privately for this use deserves the authors' explicit consent before it is republished. That matches what JvH already asked them. A preview lets the authors catch an error before the public does. And a v2 they have endorsed is worth more to readers, and makes a better case for the site, than one published on an inference about an unstated licence. The cost is time only: nothing in the build waits.
 
 **Alternatives rejected.**
 - **Re-point the X-COP stratum to v2 rows:** changes a frozen plan after its seed is fixed, and the v2 rows do not exist yet.
 - **Drop X-COP from the audit:** leaves 861 published rows unchecked.
 - **Freeze audit plan v3 with a new seed once v2 exists:** delays the whole audit for one dataset, and gains nothing over a separate X-COP v2 audit.
+- **Rule 5 as proposed (publish the derived table under D-004 at once):** reads an unstated licence on privately shared files in the Atlas's favour, and risks the working relationship JvH is building with the authors.
 
 **Data seen.** Eckert et al. 2022 (Papers I and II) and Ettori & Eckert 2022, read at source. From the shared archives: member names, sizes, dates, FITS column names and row counts only (test §1). No values.
