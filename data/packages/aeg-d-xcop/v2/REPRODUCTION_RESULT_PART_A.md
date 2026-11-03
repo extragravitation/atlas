@@ -109,7 +109,8 @@ At R500 from R3: GP/Einasto 1.033, 0.969, 1.042, 0.986, 0.994 (A644, A1795, A202
 - The other six pass.
 - **Reported only:**
   - outward decreases of MASS inside the range: A85 0, A1644 32, A2255 24, A3158 13, A3266 8, RXC1825 0, ZW1215 19 rows; MGAS: none;
-  - |FGAS − MGAS/MASS|: median below 2×10⁻⁴ in every cluster; maxima from 0.09 to 33 occur where MASS is near zero.
+  - |FGAS − MGAS/MASS| over all 200 rows: median below 2×10⁻⁴ in every cluster; maxima from 0.09 to 33 occur where MASS is near zero, outside the inferred range. Inside it, the maxima are at most 0.36 (A3158), per the independent recomputation.
+  - Outside the range (no effect on the check): the five complete clusters' `GP_mass.fits` also have negative MASS below about 15 kpc, and A1795's last row has MGAS greater than MASS.
 - Midpoint ranges run from about 0.001 to 2.0–2.9 × R500, so every file extends beyond 0.01–2 R500 on both sides.
 
 ## A9. Stellar normalisation — reported
@@ -121,6 +122,12 @@ M_STAR(<R500) / Ghizzardi M★,500: A644 2.04, A1795 1.86, A2029 2.42, A2142 2.2
 These were run after the result above, to help the authors' questions. They change nothing.
 - **A4 under convention (b),** the one A2 shows to be right for four clusters: A1795, A2029 and A2142 reproduce all nine Table 4 entries; A644 misses 3 and A2319 misses 4 (38 of 45 overall).
 - So the A4 misses concentrate in A644 and A2319, the two clusters with source caveats (A644 in A2 above; A2319's hydrostatic caveat, E22 l. 435, l. 502).
+
+## Agreement with the independent recomputation
+
+The independent recomputation (`result-recomputation.md`) agrees on every outcome: A1, A2, A3, A4 and A8 fail for the same reasons; the A2 variant table, R_Δ, A5, the six A4 misses, the A3 medians and maximum δ, A3158's rows 12–17 and the A9 ratios agree to the digits printed. It did not run A6 or A7.
+- Its A3 gas column reports max(|ratio − 1| − a), not the margin against 0.10 + a. Read that way, its A1795 "+0.015" is within the per-row criterion, as here; A644's +0.21 exceeds it, as here (3 rows).
+- Its |FGAS − MGAS/MASS| maxima are inside the source range; this file's were over all rows. Both are now stated.
 
 ## What this establishes, and what it does not
 
