@@ -224,3 +224,67 @@ Scale: **point** varies from radius to radius; **system** is shared by one clust
    This changes what the Atlas says, so it is a ruling.
 4. **F2, F3 and F5 become known-issue text.** They do not change any value.
 5. **Modelled stars.** The source states no accuracy for the prescription (X35). Its inputs carry a 12 % intrinsic scatter (X31) and 15 % mass-to-light systematics (X33). It also counts BCG and intracluster light, which the measured stars exclude. These are stated, not combined.
+
+---
+
+## 3. X-COP v2 source: Eckert et al. 2022 (D-089)
+
+**Read 2026-11-03, before any shared data file was opened.**
+
+**Method.** As for §2: two independent readers worked from [`readings/xcop-e22-2026-11-03/brief.md`](readings/xcop-e22-2026-11-03/brief.md), and their reports are kept verbatim as [`reader-A.md`](readings/xcop-e22-2026-11-03/reader-A.md) and [`reader-B.md`](readings/xcop-e22-2026-11-03/reader-B.md). Claude rechecked 14 key quotes against the source. All matched.
+
+**Sources.** Both readers downloaded identical e-prints.
+
+| Paper | arXiv (version) | Main .tex | e-print SHA-256 |
+|---|---|---|---|
+| Eckert, Ettori, Pointecouteau, van der Burg & Loubser 2022, A&A 662, A123 | **2205.01110v1** | `hydromass.tex` | `18fc2e80…c7d8` |
+| Loubser et al. 2020 (BCG stellar masses) | 2006.05706v1 | `BCG_v3_withoutBold.tex` | `ded65c6d…044c` |
+| van der Burg et al. 2015 (satellite profile shape) | 1412.2137v2 | `paper_publisher.tex` | `17fd10bf…5ea5d` |
+| Ghizzardi et al. 2021 (satellite stellar masses) | 2007.01084v1 | `xcop-metallicity.tex` | `88c8e91c…a9e8` |
+
+The brief's candidate id, 2205.01123, was wrong: it is the companion Paper II (A&A 666, A41). Both readers caught this independently.
+
+### 3.1 What the analysis is (both readers agree)
+
+- **Sample.** All 12 clusters are analysed for mass.
+  - The **complete baryon budget** (gas, central galaxy and satellites) exists for five: **A644, A1795, A2029, A2142 and A2319** (l. 103, 114, 402).
+  - The radial acceleration relation is built for these five only (l. 518, 541).
+  - Radial range: "$[0.01-2]R_{500}$" (l. 528).
+- **g_obs.** $g_{\rm obs}(r) = GM_{\rm HSE}(<r)/r^2$ (l. 453). It is hydrostatic, spherical and enclosed, with gas pressure only: the ICM is assumed "fully thermalized" (l. 126), and **no non-thermal correction is applied**.
+  - The relation uses the **non-parametric** log-normal-mixture reconstruction, "evaluate[d] … at the radii of the observed data" (l. 263): the X-ray spectral bins and the SZ bins.
+  - The relation is fitted to these points (l. 486).
+  - Einasto curves are shown for comparison (l. 445, 458; the two lines describe the fit with slightly different wording).
+- **g_bar.** $G(M_{\rm gas}+M_{\star,\rm BCG}+M_{\star,\rm sat})(<r)/r^2$ (l. 456).
+  - **Gas:** a multiscale King-function deprojection (l. 142–156). The conversion from emissivity to gas density is **not stated**.
+  - **Central galaxy:** multi-Gaussian expansion plus Jeans modelling, with a **dynamical** mass-to-light ratio (no IMF assumed), "enclosed stellar mass of the BCG within spheres" (l. 105–107). It is 3D, then fitted with a Sérsic form; measured out to about 50 kpc (l. 404).
+  - **Satellites:** SED stellar masses with a Chabrier IMF (l. 114), fitted beyond 100 kpc with a gNFW whose "shape parameters [are] fixed to \citet{vdb15}" (l. 408).
+  - **Intracluster light:** excluded, "expected to be small ($<5\%$)" (l. 410).
+
+### 3.2 Open points that matter for the Atlas
+
+These are carried into the X-COP v2 test and, where they need it, to the authors.
+
+1. **Satellite projection is not stated.** This is the F1 question again (#124), for the 2022 analysis.
+   - The satellite input is called a "cumulative stellar mass" (l. 402) and is fitted with a gNFW (l. 408).
+   - The paper never says whether it was deprojected to a sphere.
+   - Its method source (Ghizzardi et al. 2021, l. 715) says these profiles are projected.
+   - Which gNFW parameter set was fixed (vdB15's stellar-mass fit, c = 0.64 and α = 1.63, or the number-density fit, c = 0.72 and α = 1.64) is not stated.
+   - Whether the central galaxy's light was removed from the satellite profile is not stated.
+2. **No data release is described.** The paper names no released g_obs/g_bar tables, columns, units, error definitions or confidence levels, and no licence. It releases only the `hydromass` code (l. 56, 122). The files Eckert shared on 2026-11-03 are therefore the only source of the data, and their contents are unknown until they are opened under a frozen test.
+3. **Mixed cosmologies.** The paper assumes H0 = 67.8 (l. 56). Its BCG and satellite sources assume H0 = 73 and 70. Whether they were harmonised is not stated.
+4. **Internal wording differences.** The paper words some things differently in different places: the Einasto description, and where the cluster g_obs reaches 5 × g_bar (l. 465 vs l. 541). Recorded, no action.
+5. **Masses differ from 2019.** Mean ratio of 2022 to 2019 masses: 1.08, 1.01, 0.96 and 0.93 at Δ = 2500, 1000, 500 and 200, "always within 10\%" (Table 3). Table 1 gives the new R500 and M500 for all 12 clusters. The new values replace the 2019 ones for v2.
+
+### 3.3 Uncertainty terms
+
+The full rows (E1–E30) are in the reader reports. Their main points:
+- **Statistical posterior per radius.** Shown in the figures; correlations between radii are not given.
+- **Hydrostatic bias.** "$<10\%$ out to $R_{500}$", rising beyond; 10–20 % at R200 (l. 502, 539). Not corrected.
+- **XMM calibration.** About 15–20 %, mostly inside 0.5 R500 (l. 506).
+- **Each systematic.** "$10-20\%$" (l. 508); profiles "accurate at the $\lesssim 20\%$ level" (l. 435).
+- **Method choice.** Methods agree within 10 % (l. 373).
+- **Central-galaxy mass-to-light ratio.** The error is dominated by the weak-lensing mass, and "constant with radius" (l. 111). Changing the Jeans-model alignment shifts the ratio by up to about 15 % (Loubser l. 547).
+- **Satellite stellar masses.** Cosmic variance and IMF: Ghizzardi gives a factor of about 2 for a Salpeter IMF, and up to 60 % low.
+- **Intracluster light.** Excluded, below 5 %.
+
+Scales follow §2: statistical terms are per point; the central-galaxy, satellite and bias terms are per system or dataset.
