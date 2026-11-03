@@ -1763,3 +1763,38 @@ The Zenodo record shows the preliminary note.
 **Reason.** It keeps the label informative and the same across datasets. The alternatives would have labelled nearly every row (any fit at all) or left four different usages in place.
 
 **Data seen.** The `model_dependence` counts of the shipped packages (#110).
+
+## D-088 — X-COP stellar profiles: admit the error, bound it, correct only from data that determine it
+
+**Ruling (2026-11-02 20:09 CST, JvH).** "What would a top-notch scientist do?" Under the project instructions (rule 6), Claude makes the call, states why, and logs it. **Proposed and decided by** Claude, on JvH's delegation. **Adopted.**
+
+**Finding.** Step A (`docs/sources/uncertainty-readings.md` §2.3, F1; issue #124):
+- The released X-COP stellar-mass profiles are projected. Ghizzardi et al. 2021, §5.1, l. 715: "integrating within a projected radius".
+- v1 treats them as spherical enclosed masses. **This is the Atlas's error.**
+- 0.75 × the release at R500 reproduces the paper's Table 2 for 6 of 7 clusters.
+
+**Rules.**
+1. **Admit it publicly now.** v1 stays published unchanged (rule 4). Its dataset page and issue #124 state the error, what is certain, and what is not.
+2. **Bound what is certain.** A projected enclosed mass is at least the spherical one, for any non-negative density. In X-COP v2, the measured-star term is carried as an **upper bound** on the spherical stellar term and marked as such. g_bar for those rows is shown as an upper bound on its stellar part, never as a corrected value.
+3. **Correct only from data that determine it.**
+   - The source states its conversion only at R500 (factor 0.75).
+   - Its assumed galaxy profile describes satellites, but the release includes the central galaxy, which deprojects differently.
+   - So no Atlas-computed deprojection is applied. An exploratory gNFW projection (0.51 to 0.75 from 0.05 R500 to R500, sensitive to an unstated line-of-sight limit) is recorded on #124 and used for nothing.
+   - A full correction waits for spherical profiles, or for central galaxy and satellites given separately, from the authors.
+4. **Re-test what depended on it.** The modelled-star test (D-023) used these profiles as truth, so it is re-run under a frozen X-COP v2 test, and the 0.145–1.38 R500 range is not carried over untested.
+5. **Tell the authors (D-086).** A short note goes to D. Eckert and S. Ghizzardi. It states the finding and the Atlas's handling, and asks for spherical or split profiles. JvH sends it; no reply is a gate.
+
+**Reason.**
+- A known error must be stated as soon as it is known.
+- An upper bound is exact and needs no assumption.
+- A correction from an assumed profile that does not fit the central galaxy would replace one error with another, larger one in exactly the cluster centres where stars dominate g_bar (median 65 % inside 100 kpc).
+
+**Alternatives rejected.**
+- **Waiting for the authors before saying anything:** it hides a known error.
+- **Applying the gNFW deprojection at all radii:** not determined by the source, and wrong for the central galaxy.
+- **Applying 0.75 at all radii:** sourced at R500 only.
+
+**Data seen.**
+- The released stellar, gas and hydrostatic profiles of all 12 clusters, and the v1 tables.
+- Ghizzardi et al. 2021, Table 2.
+- Read during step A, before any v2 test exists.
