@@ -1,0 +1,10 @@
+{
+  "description": "aeg-d-xcop/v2 reproduction test, part A (source reproduction), revision 6: checks A1-A9 against Eckert et al. 2022, including A8 stage 1 and the stage-2 condition for the seven clusters without stellar data. Frozen before any value in the source archives was read (D-089, D-090).",
+  "frozen_on": "2026-11-03",
+  "decision": "D-089, D-090",
+  "merged_in": "777fecea1eaeb33dc5eaf996b128a9dff0b78e62",
+  "spec": "data/packages/aeg-d-xcop/v2/REPRODUCTION.md",
+  "files": {
+    "data/packages/aeg-d-xcop/v2/REPRODUCTION.md": "c7c949a087317f137913829b5047104c204e08b41b273ac9e041a3d89c81c4c1"
+  }
+}
