@@ -1830,3 +1830,39 @@ The Zenodo record shows the preliminary note.
 **Reason.** The authors identify the 2022 analysis as the one built for this comparison and as their final masses. It fixes F1 with measured data instead of a bound, and it adds local, non-parametric masses.
 
 **Data seen.** The two emails only. No file from the shared folders has been opened.
+
+## D-090 — X-COP v2 and the frozen audit
+
+**Ruling: pending.** **Proposed by** Claude (2026-11-03), after JvH asked whether the X-COP v2 approach had been checked holistically. Not adopted until JvH rules.
+
+**Context.**
+- D-083 item 3 requires every v2 package to reproduce v1's g_obs and g_bar exactly, so that only uncertainty columns change. The stated reason is to keep the frozen audit (D-081, D-082), which samples v1 rows, valid for both versions.
+- D-089 builds X-COP v2 from a different analysis (Eckert et al. 2022). Its values cannot equal v1's. D-089 did not say so.
+- The audit plan v2 (`docs/audit/AUDIT_PLAN_v2.md` §2.1) samples 861 `aeg-d-xcop/v1` rows. Its seed is fixed: the beacon pulse exists, but has not been read. The plan says "Packages shipped later are not in this audit; they get their own."
+
+**Proposed rules.**
+1. **X-COP is the one exception to D-083 item 3**, under D-089. KiDS, dwarfs, globular clusters and lenses still must reproduce v1 exactly.
+2. **The audit runs exactly as frozen.** Its X-COP stratum checks the v1 rows against their 2019 sources. Its result describes v1, which stays published, and the conversion pipeline. It says nothing about v2. The frozen plan is not edited.
+3. **X-COP v2 gets its own audit.**
+   - It uses the same method as plan v2: stratum size rule, two blind readers per row, adjudication at source, published pass or fail.
+   - It is written and frozen by hash after X-COP v2 ships and before its seed exists. The seed is the first beacon pulse at least 24 hours after the merge that freezes it.
+   - It runs with step G if v2 has shipped by then. Otherwise v0.2 states plainly that X-COP v2 is not yet audited, and the audit follows.
+4. **A8 stage 2 is planned work, not an open end** (issue #129). The seven X-COP clusters without stellar data are plotted as g_bar lower-limit tracks only when:
+   - standard 2.4.0 supports a lower limit on g_bar (step B);
+   - every site view renders it correctly (step F);
+   - the frozen test's A3 condition holds.
+
+   Expected in v0.2. v0.2 does not wait for it.
+
+**Reason.**
+- Editing a frozen audit plan after its seed is fixed would weaken the independence the freeze exists to protect, even with the pulse unread.
+- The v1 audit still checks 861 published rows and the pipeline that made them.
+- A separate frozen audit holds v2 to the same standard.
+- Writing the exception and the stage-2 plan down closes two gaps that D-089 left implicit.
+
+**Alternatives rejected.**
+- **Re-point the X-COP stratum to v2 rows:** changes a frozen plan after its seed is fixed, and the v2 rows do not exist yet.
+- **Drop X-COP from the audit:** leaves 861 published rows unchecked.
+- **Freeze audit plan v3 with a new seed once v2 exists:** delays the whole audit for one dataset, and gains nothing over a separate X-COP v2 audit.
+
+**Data seen.** Eckert et al. 2022 (Papers I and II) and Ettori & Eckert 2022, read at source. From the shared archives: member names, sizes, dates, FITS column names and row counts only (test §1). No values.

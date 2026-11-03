@@ -1,6 +1,6 @@
 # Plan to finish data validation (D-080 WP2 and WP3)
 
-**Written:** 2026-11-02, at JvH's request ("we need a plan to finish data validation"). It schedules work already ruled (D-080, D-083, D-084, D-081/D-082). Rulings: #110 as option (a) (D-087) and the notice rule (D-086), both 2026-11-02.
+**Written:** 2026-11-02, at JvH's request ("we need a plan to finish data validation"). It schedules work already ruled (D-080, D-083, D-084, D-081/D-082). Rulings: #110 as option (a) (D-087) and the notice rule (D-086), both 2026-11-02. Updated 2026-11-03 for D-089 and D-090 (proposed): the X-COP exception, its own audit, and A8 stage 2.
 
 **"Done" means:**
 - all six shipped datasets are re-issued under the current standard, with uncertainties by scale (WP2);
@@ -40,15 +40,18 @@ The proven SPARC route had four steps: read at source, freeze the test, convert,
 | Step | Work | Who decides | Estimate |
 |---|---|---|---|
 | **A. Readings** | For KiDS (Brouwer et al. 2021 and its README), X-COP (Ettori et al. 2019 §5 for the modelled-star scatter; the archive's error columns), dwarfs, globular clusters and lenses (the already-read originals, re-checked for the uncertainty statements): every uncertainty term, its size as stated, its scale, and what it moves, with quotes and locations. Written to `docs/sources/uncertainty-readings.md`. | — | 1 session |
-| **B. Standard 2.4.0** | Only what A shows is needed. Frozen on merge. | JvH approves | short |
+| **B. Standard 2.4.0** | Only what A shows is needed. Already known: a lower limit on g_bar (for X-COP A8 stage 2, #129). Frozen on merge. | JvH approves | short |
 | **C. #110 rule** | One rule for `model_dependence` across datasets (§4), applied in every v2. | **JvH rules** | short |
-| **D. Frozen tests** | One v2 reproduction test per dataset, as SPARC's: values bit-for-bit equal to v1; uncertainty decomposition; the exact terms list; the full current structure. For KiDS and X-COP this adds observables and an independent second reading. | JvH approves each | 1 session for all five |
+| **D. Frozen tests** | One v2 reproduction test per dataset, as SPARC's: values bit-for-bit equal to v1 (**except X-COP**, rebuilt from Eckert et al. 2022 under D-089 and D-090, with its own test in `data/packages/aeg-d-xcop/v2/REPRODUCTION.md`); uncertainty decomposition; the exact terms list; the full current structure. For KiDS and X-COP this adds observables and an independent second reading. | JvH approves each | 1 session for all five |
 | **E. Conversions** | Converters and tests, in this order: KiDS, X-COP, dwarfs, globular clusters, lenses. Second readers run in the background, where needed (KiDS, X-COP). | merges | 2–3 sessions |
-| **F. Site** | The reproduction ledger and uncertainty sections for each v2 (the components exist since #115). Map bars use point-scale columns. | merges | with E |
+| **F. Site** | The reproduction ledger and uncertainty sections for each v2 (the components exist since #115). Map bars use point-scale columns. **X-COP A8 stage 2 (#129):** draw g_bar lower limits as tracks with arrows in every view (map, excess, mass, scale, speed, surface density, system pages, downloads), checked on desktop and phone; plot the seven clusters only if the frozen test's A3 condition holds. | merges | with E |
 | **Emails** | As §5: SPARC today; X-COP and KiDS this week, before their tests are frozen; Baumgardt before v0.2. | JvH sends | — |
-| **G. Audit (WP3)** | As frozen: read the beacon pulse, draw 254 rows with `sample_v2.py`, commit the reader brief and comparison script before any reading is opened, two blind readers per row, adjudication at source, neutrality term scan and page review, and `AUDIT_RESULT.md` published pass or fail. | — | 1–2 sessions |
+| **G. Audit (WP3)** | As frozen (the X-COP stratum audits v1; D-090): read the beacon pulse, draw 254 rows with `sample_v2.py`, commit the reader brief and comparison script before any reading is opened, two blind readers per row, adjudication at source, neutrality term scan and page review, and `AUDIT_RESULT.md` published pass or fail. | — | 1–2 sessions |
+| **G2. X-COP v2 audit (D-090)** | Its own plan, same method, frozen after X-COP v2 ships and before its seed exists. Runs with G if v2 has shipped; otherwise v0.2 states that X-COP v2 is not yet audited. | JvH approves the freeze | 1 session |
 
-**Total:** about 6–8 working sessions.
+**Total:** about 6–8 working sessions, plus G2.
+
+**Planned beyond the core steps, not to be dropped:** X-COP A8 stage 2 (#129), expected in v0.2, about 4–6 sessions from 2026-11-03. v0.2 does not wait for it.
 
 **Milestone after G:** a v0.2 release (JvH tags it), then the patterns pages, then the outside-review packet (WP7).
 

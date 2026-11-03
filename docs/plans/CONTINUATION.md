@@ -1,14 +1,31 @@
 # Continuation guide
 
-**State at 2026-11-02, 20:20 CST.** Read this first in the next session, then `docs/decisions.md` (D-001 to D-087) and `docs/plans/VALIDATION_COMPLETION_PLAN.md`. Superseded by the next session's update; the git history keeps every version.
+**State at 2026-11-03.** Read this first in the next session, then `docs/decisions.md` (D-001 to D-090) and `docs/plans/VALIDATION_COMPLETION_PLAN.md`. Superseded by the next session's update; the git history keeps every version.
 
-## To do first thing, 2026-11-03 (JvH's list, set 2026-11-02 20:18)
+## Standing future work: do not drop
+
+- **X-COP A8 stage 2 (issue #129).** The seven X-COP clusters without stellar data (A85, A1644, A2255, A3158, A3266, RXC1825, ZW1215) are recorded in v2 with gas-only g_bar as a lower limit, not plotted. They are plotted as lower-limit tracks only when all three hold:
+  - standard 2.4.0 supports a g_bar lower limit (plan step B);
+  - every site view renders it, checked on desktop and phone (step F);
+  - the frozen test's A3 condition holds for all five complete clusters.
+
+  Expected in v0.2, about 4–6 sessions from 2026-11-03. v0.2 does not wait for it.
+- **X-COP v2 audit (D-090, plan step G2).** Frozen after v2 ships, before its seed exists.
+- **Questions for the X-COP authors, batched with the "v2 is up" note:** GOBS error confidence level; satellite deprojection; the A9 stellar-normalisation tension; which "2022 papers"; licence.
+
+## Open on 2026-11-03
+
+- **#128:** X-COP v2 test part A, revision 3, plus its second independent review. JvH approves, then "merge 128" freezes it. On merge, record its SHA-256 in `data/frozen/xcop-v2-part-a.json` before any value is read.
+- **D-090 (proposed):** the audit runs as frozen on X-COP v1; X-COP v2 gets its own audit; X-COP is the one exception to "v2 equals v1"; A8 stage 2 is planned work. Needs JvH's ruling.
+- **Still to do in step A:** dwarfs, globular clusters, lenses (two readers each); draft `08_Baumgardt_GC` (required before v0.2); refresh the send list (Ghizzardi email cancelled; Eckert reply and Lelli forward sent 2026-11-03); read the audit beacon pulse.
+
+## Earlier list for 2026-11-03 (set 2026-11-02 20:18; items 1 and 3 done, 2 cancelled)
 
 1. **Merge the overnight PRs** (only on JvH's "merge N"):
    - #122: this guide;
    - #123: the X-COP reading;
    - #125: the D-088 correction note on the X-COP v1 page, which goes live on merge.
-2. **Send the Ghizzardi email** after #125 is live.
+2. ~~**Send the Ghizzardi email** after #125 is live.~~ Cancelled 2026-11-03: superseded by D-089.
    - Draft: Dropbox `Drafts/09_Ghizzardi_XCOP_stars_v1.md`.
    - To simona.ghizzardi@inaf.it, cc Dominique.Eckert@unige.ch.
    - Change "earlier today" to "yesterday".
