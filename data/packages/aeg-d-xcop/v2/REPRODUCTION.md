@@ -250,7 +250,7 @@ These ratios become the system-scale "choice of mass model" term in v2's uncerta
 
 ## 5. What v2 plots (default rows), fixed now
 
-- **Plotted in v2:** the 105 rows of the five `gbar_gobs` files.
+- **Plotted in v2:** the 105 rows of the five `gbar_gobs` files, once published under D-090 rule 5 (after the authors consent).
   - g_obs = GOBS, with errors GOBS_ERR_LO and GOBS_ERR_HI.
   - g_bar = GBAR, with error GBAR_ERR.
   - Radii in kpc, as released.
