@@ -1,8 +1,8 @@
 # aeg-d-xcop/v2: reproduction test, part A (source reproduction)
 
-**Status: draft, revision 5, for JvH's approval.** It is frozen only after D-090 is ruled, because A3 and A8 rest on it. On merge, this file's SHA-256 is recorded in `data/frozen/xcop-v2-part-a.json`. The archives' values are read only after that.
+**Status: draft, revision 6, for JvH's approval.** It is frozen only after D-090 is ruled, because A3 and A8 rest on it. On merge, this file's SHA-256 is recorded in `data/frozen/xcop-v2-part-a.json`. The archives' values are read only after that.
 
-**Written** 2026-11-03 under D-089, then revised after an independent review of revision 1 (`docs/sources/readings/xcop-e22-2026-11-03/test-review.md`). Revision 3 put A8 in two stages. Revision 4 answers a second independent review, of revision 3 (`test-review-2.md` in the same folder). Revision 5 answers a third, of revision 4 (`test-review-3.md`).
+**Written** 2026-11-03 under D-089, then revised after an independent review of revision 1 (`docs/sources/readings/xcop-e22-2026-11-03/test-review.md`). Revision 3 put A8 in two stages. Revision 4 answers a second independent review, of revision 3 (`test-review-2.md` in the same folder). Revision 5 answers a third, of revision 4 (`test-review-3.md`). Revision 6 makes the wording fixes of a final check of revision 5 (`test-review-4.md`).
 
 **Seen so far: no value in the two source archives has been read.** What has been seen:
 - archive sizes and SHA-256;
@@ -97,7 +97,7 @@ The table's f_bar is not always f_gas + f★: for A2029, 11.1 + 2.8 ≠ 13.8, an
 - **R1. Radius convention.** Each 200-row file gives R_IN and R_OUT (and R_REF in the Einasto and thermodynamic files). Which radius the cumulative masses refer to is not stated.
   - Check A2 is run under two conventions: **(a)** masses at R_REF (Einasto file) and R_OUT (non-parametric file, which has no R_REF); **(b)** masses at R_OUT in both files.
   - The convention A2 selects (§4, A2) is then used in A4, A6, A7 and A9. If A2 selects none, convention (a) is used and this is stated. For `GP_mass.fits` both conventions mean R_OUT.
-  - **Exception: A3 and A8.** These compare `GP_mass.fits` with the `gbar_gobs` files, and a radius-labelling error alone could move their ratios by several per cent. They label each `GP_mass.fits` row with its geometric midpoint √(R_IN·R_OUT) and widen each row's tolerance by the local grid step (A3).
+  - **Exception: A3 and A8.** These compare `GP_mass.fits` with the `gbar_gobs` files, and a radius-labelling error alone could move their ratios by several per cent. They label each `GP_mass.fits` row with its geometric midpoint √(R_IN·R_OUT) and widen each row's tolerance by the larger grid step of the two rows it is interpolated between (A3). A7 reads `GP_mass.fits` at R_OUT; it is reported only, so the difference does not matter there.
   - Interpolation between rows is linear in log M against log r.
   - **There is no extrapolation:** a radius outside a file's grid is reported as untestable.
 - **R2. Units of the files without TUNIT.** Radii are taken in kpc and masses in M☉. This is accepted only if A4 passes. If A4 fails under these units, no other units are tried, and the units question goes to the authors.
@@ -140,20 +140,21 @@ A3 does not pass or fail v2. Its **stage-2 condition** is pass/fail.
   - MASS and MGAS are then interpolated (R1, log–log) at each `gbar_gobs` RADIUS, between the two `GP_mass.fits` rows whose midpoints bracket it.
   - A `gbar_gobs` row is **testable** if its RADIUS lies between the smallest and largest usable midpoint.
 - **Allowance for radius labelling, per testable row.**
-  - δ is ln(R_OUT/R_IN) of the lower of the two bracketing `GP_mass.fits` rows. The true radius of a row's mass lies within half a step of its midpoint, so the error in ln M is at most s·δ/2, where s = d ln M/d ln r = 3ρ(r)/ρ̄(<r).
+  - δ is the larger of ln(R_OUT/R_IN) of the two bracketing `GP_mass.fits` rows, because the interpolated value mixes both rows and each carries its own labelling error. The true radius of a row's mass lies within half a step of its midpoint, so the error in ln M is at most s·δ/2, where s = d ln M/d ln r = 3ρ(r)/ρ̄(<r).
   - **Assumption, stated:** density does not rise outward, so s ≤ 3. Then the allowance is a = e^(1.5δ) − 1.
-  - If δ > 0.05 on any testable row of the five, the condition fails, because the grid is then too coarse to test it there.
+  - If this δ > 0.05 on any testable row of the five, the condition fails, because the grid is then too coarse to test it there.
 - **Minimum rows.** A cluster needs at least 10 testable rows for the total-mass part and at least 5 for the gas part, or the condition fails for that cluster.
 - **Total mass.** ratio_tot = GOBS / [G MASS_GP(<r)/r²].
 - **Gas.** ratio_gas = MGAS_GP(<r) / [GBAR r²/G − M_STAR(<r)].
   - M_STAR comes from the Einasto file under the A2-selected convention.
   - Only rows where M_STAR < 0.5 GBAR r²/G are used, so the subtraction cannot become noisy or negative in the star-dominated core.
   - **If A2 fails, the gas part fails**, because the subtraction then has no established meaning.
-  - If A2 selected variant (ii), GBAR is built from MGAS_GP, so ratio_gas is close to 1 by construction; this is stated with the result.
+  - If A2 selected variant (ii), GBAR is built from MGAS_GP, so ratio_gas is close to 1 by construction, up to the labelling allowance (A2 reads `GP_mass.fits` at R_OUT, A3 at the midpoint); this is stated with the result.
 - **The stage-2 condition**, for every one of the five clusters, with a the row's allowance:
-  - |median(ratio_tot) − 1| ≤ 0.03 + median(a), and every testable row has |ratio_tot − 1| ≤ 0.10 + a;
-  - the same two conditions for ratio_gas.
-- **Reason for the thresholds.** E22 l. 373 reports, for the sample, that "the median masses in the range [0.05-2]R_{500}" from all its methods are "within 3% of one another", and that the relative difference between NFW and NP points is "less than 10% at all radii", on average over the sample. The 0.03 and 0.10 are those two figures. They describe the sample, not single clusters, so applying them per cluster is a strict choice, made here on purpose: the seven are plotted only if the 2021 profiles agree with the analysis behind GOBS and GBAR at least as closely as E22's methods agree with each other on average. A2's 0.02 tests something else: whether the stars, a term of 10 % or more, are included in GBAR.
+  - **Median:** over the rows used in that part that lie within 0.05–2 × Table 1's R500,TOT (the range of E22's 3 % figure), |median(ratio) − 1| ≤ 0.03 + median(a), with a's median over the same rows. At least 5 such rows are needed, or the part fails.
+  - **Every row:** every row used in that part, over its full testable range, has |ratio − 1| ≤ 0.10 + a.
+  - Both apply to ratio_tot and to ratio_gas.
+- **Reason for the thresholds.** E22 l. 373 reports, for the sample, that "the median masses in the range [0.05-2]R_{500}" from all its methods are "within 3% of one another", and that the relative difference between NFW and NP points is "less than 10% at all radii", on average over the sample. The 0.03 and 0.10 are those two figures. They describe the sample, not single clusters, so applying them per cluster, and the 10 % to every row including any below 0.05 R500 where E22's methods spread more, is a strict choice, made here on purpose: the seven are plotted only if the 2021 profiles agree with the analysis behind GOBS and GBAR at least as closely as E22's methods agree with each other on average. A2's 0.02 tests something else: whether the stars, a term of 10 % or more, are included in GBAR.
 - **Also reported:**
   - every ratio, and the per-cluster median and maximum;
   - every row's δ;
@@ -220,9 +221,9 @@ These ratios become the system-scale "choice of mass model" term in v2's uncerta
   - **Tracks, not points.** The 200-row grid is not tied to the radii of the data, unlike the five clusters' 21 rows. So the seven are drawn as lines, with the g_obs _LO/_HI range as a band.
   - **The arrow's direction** in every view is derived from how that view's quantities change when g_bar increases at fixed g_obs:
     - g_obs against g_bar: horizontal, toward higher g_bar;
-    - g_obs/g_bar against g_bar: down and right, slope −1 on log–log axes;
+    - g_obs/g_bar against g_bar: down and right, slope −1 on log–log axes (a hyperbola on linear axes);
     - g_obs/g_bar against radius: vertically down;
-    - g_obs − g_bar against g_bar: down and right with slope −1 on linear axes. On log axes it is a curve, drawn only while g_obs − g_bar > 0. Where the bound allows a value ≤ 0, the track is left out of that view;
+    - g_obs − g_bar against g_bar: down and right with slope −1 on linear axes. On log axes it is a curve, and the track is drawn only where the gas-only value gives g_obs − g_bar > 0, with the arrow pointing down toward 0. Rows where the gas-only value already gives g_obs − g_bar ≤ 0 are left out of the log view;
     - a view in which neither plotted quantity depends on g_bar (for example g_obs against radius) draws the track with no arrow;
     - a view whose quantity depends on g_bar non-monotonically leaves the tracks out.
   - **Limit rows are excluded** from population averages, binned summaries, fits and the inputs of every frozen pattern test.
