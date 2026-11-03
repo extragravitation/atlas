@@ -8,6 +8,17 @@
 
 **The test is not changed after this result (operating rule 5).**
 
+**Erratum to the frozen test (2026-11-03, D-091).** The test is not edited; its errors are recorded here.
+- §1 l. 41 and A1 l. 118 say each `gbar_gobs` file has "exactly 21 rows". The files hold 19, 21, 22, 20 and 27 rows (A644, A1795, A2029, A2142, A2319). The row count of one file was generalised to all five before freezing. This is the Atlas's error; A1 fails on it alone.
+- §5 l. 253 says "the 105 rows". The five files hold 109. §5's intent, the rows of the five `gbar_gobs` files, is unchanged.
+
+**Design limits found in the run (D-091).** These rules worked as written but were badly designed. They are not changed and the outcomes above stand:
+- A3 l. 145 fails the whole condition when any testable row is too coarse, rather than setting those rows aside.
+- A2 l. 131 is all-or-nothing over five clusters, so one cluster (A644) also decided the radius convention used in A4.
+- A6 l. 176 assumed M_STAR is smooth model output; it is not.
+
+Whether the seven A8 clusters are ever plotted will be decided by a new test built from the authors' answers to the questions below, not by re-scoring this one.
+
 ## Summary
 
 | Check | Kind | Outcome |

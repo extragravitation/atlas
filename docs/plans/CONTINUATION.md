@@ -19,7 +19,7 @@
   - A1 fails on the test's own error: it said 21 rows per file; the files hold 19–27 (109 in all).
   - A2: four clusters' GBAR is the Einasto gas plus M_STAR at R_OUT to 0.1 %; A644's is not.
   - Stage 2 (#129) is blocked by A3 (coarse inner grid; gas part fails with A2) and by A3158's negative masses.
-  - Six questions for the authors are listed in the result. They go with the "v2 is up" note, which waits for Part B.
+  - D-091: the result stands, with an erratum; nothing is re-scored. The six questions go to Eckert and Ettori now (draft for JvH); the next test is built from their answers.
 - **Next:** standard 2.4.0 (step B), then Part B of the X-COP v2 test; the reproduction ledger on the site gets the part A result with Part B.
 - **Still to do in step A:** dwarfs, globular clusters, lenses (two readers each); draft `08_Baumgardt_GC` (required before v0.2); refresh the send list (Ghizzardi email cancelled; Eckert reply and Lelli forward sent 2026-11-03); read the audit beacon pulse.
 

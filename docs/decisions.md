@@ -1875,3 +1875,30 @@ The Zenodo record shows the preliminary note.
 - **Rule 5 as proposed (publish the derived table under D-004 at once):** reads an unstated licence on privately shared files in the Atlas's favour, and risks the working relationship JvH is building with the authors.
 
 **Data seen.** Eckert et al. 2022 (Papers I and II) and Ettori & Eckert 2022, read at source. From the shared archives: member names, sizes, dates, FITS column names and row counts only (test §1). No values.
+
+## D-091 — X-COP v2 test part A: the frozen result stands; errors are recorded, not re-scored
+
+**Ruling (2026-11-03 15:19 CST, JvH).** "proceed as reccomended". **Proposed by** Claude (2026-11-03), after JvH asked "I think we made a mistake. Can we unfreeze?". **Adopted.**
+
+**Context.** The frozen test (#128, #131) was run on the shared archives (#132). A1, A2, A3's stage-2 condition, A4 and A8 stage 1 failed, and A6 was undetermined. An independent recomputation agreed on every outcome. Two kinds of mistake were found:
+- **a factual error in the test:** "exactly 21 rows" per file (19–27 in fact) and "105 rows" (109);
+- **design limits:** A3's coarse-grid rule fails the whole condition instead of setting coarse rows aside; A2 is all-or-nothing over five clusters; A6 assumed a smooth M_STAR.
+
+**Rules.**
+1. **No unfreezing.** The test is not edited and the result is not re-scored. The result is published as run.
+2. **The factual error** is recorded as a dated erratum in the result file. A1's other parts passed, and the result says so.
+3. **What decides what the Atlas shows** (for example, whether the seven A8 clusters are ever plotted) comes from a new test, frozen before use and built from the authors' answers to the six questions in the result. The answers are new information, so that test is clean.
+4. **A post-data supplement** (part A under revised rules) is written only if JvH asks for it. If written, it is labelled "revised after seeing the data" and reported apart from the frozen result.
+5. **The questions go to the authors now** rather than with the "v2 is up" note, because the next test depends on them. JvH sends.
+6. **Unchanged:** v2 plots the source's own `gbar_gobs` values for the five clusters; their publication still waits for the authors' consent (D-090 rule 5).
+
+**Reason.**
+- Changing a frozen test after seeing its result would make every frozen test in the Atlas negotiable.
+- The errors are useful and stay visible.
+- The authors know how the files were built, which the test had to guess.
+
+**Alternatives rejected.**
+- **Edit the test and re-run:** a re-scored result after seeing the data.
+- **Only a post-data supplement:** it would still guess at what the authors can state.
+
+**Data seen.** The full test result and the independent recomputation.
