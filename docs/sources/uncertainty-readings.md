@@ -224,3 +224,133 @@ Scale: **point** varies from radius to radius; **system** is shared by one clust
    This changes what the Atlas says, so it is a ruling.
 4. **F2, F3 and F5 become known-issue text.** They do not change any value.
 5. **Modelled stars.** The source states no accuracy for the prescription (X35). Its inputs carry a 12 % intrinsic scatter (X31) and 15 % mass-to-light systematics (X33). It also counts BCG and intracluster light, which the measured stars exclude. These are stated, not combined.
+
+---
+
+## 3. X-COP v2 source: Eckert et al. 2022 (D-089)
+
+**Read 2026-11-03, before any shared data file was opened.**
+
+**Method.** As for §2: two independent readers worked from [`readings/xcop-e22-2026-11-03/brief.md`](readings/xcop-e22-2026-11-03/brief.md), and their reports are kept verbatim as [`reader-A.md`](readings/xcop-e22-2026-11-03/reader-A.md) and [`reader-B.md`](readings/xcop-e22-2026-11-03/reader-B.md). Claude rechecked 14 key quotes against the source. All matched.
+
+**Sources.** Both readers downloaded identical e-prints.
+
+| Paper | arXiv (version) | Main .tex | e-print SHA-256 |
+|---|---|---|---|
+| Eckert, Ettori, Pointecouteau, van der Burg & Loubser 2022, A&A 662, A123 | **2205.01110v1** | `hydromass.tex` | `18fc2e80…c7d8` |
+| Loubser et al. 2020 (BCG stellar masses) | 2006.05706v1 | `BCG_v3_withoutBold.tex` | `ded65c6d…044c` |
+| van der Burg et al. 2015 (satellite profile shape) | 1412.2137v2 | `paper_publisher.tex` | `17fd10bf…5ea5d` |
+| Ghizzardi et al. 2021 (satellite stellar masses) | 2007.01084v1 | `xcop-metallicity.tex` | `88c8e91c…a9e8` |
+
+The brief's candidate id, 2205.01123, was wrong: it is the companion Paper II (A&A 666, A41). Both readers caught this independently.
+
+### 3.1 What the analysis is (both readers agree)
+
+- **Sample.** All 12 clusters are analysed for mass.
+  - The **complete baryon budget** (gas, central galaxy and satellites) exists for five: **A644, A1795, A2029, A2142 and A2319** (l. 103, 114, 402).
+  - The radial acceleration relation is built for these five only (l. 518, 541).
+  - Radial range: "$[0.01-2]R_{500}$" (l. 528).
+- **g_obs.** $g_{\rm obs}(r) = GM_{\rm HSE}(<r)/r^2$ (l. 453). It is hydrostatic, spherical and enclosed, with gas pressure only: the ICM is assumed "fully thermalized" (l. 126), and **no non-thermal correction is applied**.
+  - The relation uses the **non-parametric** log-normal-mixture reconstruction, "evaluate[d] … at the radii of the observed data" (l. 263): the X-ray spectral bins and the SZ bins.
+  - The relation is fitted to these points (l. 486).
+  - Einasto curves are shown for comparison (l. 445, 458; the two lines describe the fit with slightly different wording).
+- **g_bar.** $G(M_{\rm gas}+M_{\star,\rm BCG}+M_{\star,\rm sat})(<r)/r^2$ (l. 456).
+  - **Gas:** a multiscale King-function deprojection (l. 142–156). The conversion from emissivity to gas density is **not stated**.
+  - **Central galaxy:** multi-Gaussian expansion plus Jeans modelling, with a **dynamical** mass-to-light ratio (no IMF assumed), "enclosed stellar mass of the BCG within spheres" (l. 105–107). It is 3D, then fitted with a Sérsic form; measured out to about 50 kpc (l. 404).
+  - **Satellites:** SED stellar masses with a Chabrier IMF (l. 114), fitted beyond 100 kpc with a gNFW whose "shape parameters [are] fixed to \citet{vdb15}" (l. 408).
+  - **Intracluster light:** excluded, "expected to be small ($<5\%$)" (l. 410).
+
+### 3.2 Open points that matter for the Atlas
+
+These are carried into the X-COP v2 test and, where they need it, to the authors.
+
+1. **Satellite projection is not stated.** This is the F1 question again (#124), for the 2022 analysis.
+   - The satellite input is called a "cumulative stellar mass" (l. 402) and is fitted with a gNFW (l. 408).
+   - The paper never says whether it was deprojected to a sphere.
+   - Its method source (Ghizzardi et al. 2021, l. 715) says these profiles are projected.
+   - Which gNFW parameter set was fixed (vdB15's stellar-mass fit, c = 0.64 and α = 1.63, or the number-density fit, c = 0.72 and α = 1.64) is not stated.
+   - Whether the central galaxy's light was removed from the satellite profile is not stated.
+2. **No data release is described.** The paper names no released g_obs/g_bar tables, columns, units, error definitions or confidence levels, and no licence. It releases only the `hydromass` code (l. 56, 122). The files Eckert shared on 2026-11-03 are therefore the only source of the data, and their contents are unknown until they are opened under a frozen test.
+3. **Mixed cosmologies.** The paper assumes H0 = 67.8 (l. 56). Its BCG and satellite sources assume H0 = 73 and 70. Whether they were harmonised is not stated.
+4. **Internal wording differences.** The paper words some things differently in different places: the Einasto description, and where the cluster g_obs reaches 5 × g_bar (l. 465 vs l. 541). Recorded, no action.
+5. **Masses differ from 2019.** Mean ratio of 2022 to 2019 masses: 1.08, 1.01, 0.96 and 0.93 at Δ = 2500, 1000, 500 and 200, "always within 10\%" (Table 3). Table 1 gives the new R500 and M500 for all 12 clusters. The new values replace the 2019 ones for v2.
+
+### 3.3 Uncertainty terms
+
+The full rows (E1–E30) are in the reader reports. Their main points:
+- **Statistical posterior per radius.** Shown in the figures; correlations between radii are not given.
+- **Hydrostatic bias.** "$<10\%$ out to $R_{500}$", rising beyond; 10–20 % at R200 (l. 502, 539). Not corrected.
+- **XMM calibration.** About 15–20 %, mostly inside 0.5 R500 (l. 506).
+- **Each systematic.** "$10-20\%$" (l. 508); profiles "accurate at the $\lesssim 20\%$ level" (l. 435).
+- **Method choice.** Methods agree within 10 % (l. 373).
+- **Central-galaxy mass-to-light ratio.** The error is dominated by the weak-lensing mass, and "constant with radius" (l. 111). Changing the Jeans-model alignment shifts the ratio by up to about 15 % (Loubser l. 547).
+- **Satellite stellar masses.** Cosmic variance and IMF: Ghizzardi gives a factor of about 2 for a Salpeter IMF, and up to 60 % low.
+- **Intracluster light.** Excluded, below 5 %.
+
+Scales follow §2: statistical terms are per point; the central-galaxy, satellite and bias terms are per system or dataset.
+
+### 3b. Eckert et al. 2022b ("Paper II", A&A 666, A41), added 2026-11-03
+
+**Why it was added.** Ettori's reply refers to the "2022 papers", plural. Paper I itself says its Einasto results "are presented and discussed in Paper II". The first brief had wrongly listed Paper II's arXiv id as a candidate for Paper I, and both readers rightly set it aside. It is therefore read here, by two new independent readers ([`paperII-brief.md`](readings/xcop-e22-2026-11-03/paperII-brief.md); [`paperII-reader-A.md`](readings/xcop-e22-2026-11-03/paperII-reader-A.md), [`paperII-reader-B.md`](readings/xcop-e22-2026-11-03/paperII-reader-B.md)).
+
+**Source.** arXiv **2205.01123v1**, `einasto.tex` + `tab2.tex`, e-print SHA-256 `a138d88f…3fcb`. Both readers downloaded the same file. Claude rechecked the selection threshold, the Table 2 rows and the key statements at source.
+
+**What it contains (both readers agree on every point):**
+- **One model.** One Einasto profile is fitted to the **total** hydrostatic mass of each of the 12 clusters (l. 263: "in this paper we fitted an Einasto profile to the total gravitational field").
+- **Nothing on the baryon side.** There is no g_bar, no baryon budget, no non-parametric or NFW result, and no radial acceleration relation. Everything on g_bar comes from Paper I.
+- **Table 2:** M500 (Einasto), r_s, ρ_s and μ = 1/α, the centroid shift w, and the fitted radial range as a fraction of R200, for all 12 clusters. The errors' confidence level is not stated.
+- **Selection of regular systems.** The text says "we selected a subsample of X-ray regular systems with $w<0.015$", which "excludes four objects" (l. 163).
+  - The Fig. 2 caption gives $w<0.0015$ (l. 148). The text's value is the one consistent with "four" and "8 X-ray regular systems" (l. 227), so the caption is very likely a typo. This is an inference.
+  - The four excluded clusters are not named. From Table 2 they are A644, A2255, A2319 and A3266, inferred by both readers independently.
+  - **Two of the five clusters with a complete baryon budget, A644 and A2319, are in this disturbed set.** Paper I keeps both in its radial acceleration relation.
+- **Hydrostatic validity.** "valid at the $\lesssim20\%$ level out to $R_{200}$", except A2319, "for which there is clear evidence of a breakdown of hydrostatic equilibrium" (l. 80).
+
+**The masses depend on the model, and it is not small.** Paper II's Einasto M500 divided by Paper I's NFW M500 (Table 1, "TOT"):
+
+| Cluster | Einasto / NFW |
+|---|---|
+| A85 | 1.26 |
+| A644 | 0.78 |
+| A1644 | 0.97 |
+| A1795 | 0.99 |
+| A2029 | 1.12 |
+| A2142 | 1.05 |
+| A2255 | 1.11 |
+| A2319 | 0.96 |
+| A3158 | 1.02 |
+| A3266 | 1.00 |
+| RXC1825 | 1.01 |
+| ZW1215 | 0.95 |
+
+These are Claude's arithmetic on the two published tables. **Neither paper compares the two sets of masses.** Paper I says only that its methods agree "within 10\%" in [0.2–1] R500 (l. 373). So M500 and R500 are not unique "final" values: they depend on the model. The Atlas therefore must not rescale radii by a single R500 without naming which one.
+
+**Consequences for the X-COP v2 test (step D):**
+1. **g_obs comes from the non-parametric points of Paper I** (the method the paper uses as its benchmark, l. 366). It does not come from a parametric fit. Radii are kept in kpc, as measured, so no R500 choice enters g_obs.
+2. **The X-ray regular/disturbed status of each cluster is recorded** as the source's own continuous quantity, w with its error, never as a label (rule 4 of the project). Excluding clusters is not the Atlas's business; showing w is.
+3. **The model dependence above becomes a stated system-scale term** (Einasto against NFW against non-parametric) wherever a parametric mass is used, for example in the mass reconstructions for all 12 clusters, if Dominique's second folder contains parametric fits.
+4. **Paper II adds nothing to g_bar.** The satellite-projection question (§3.2 item 1) stands.
+
+### 3c. Ettori & Eckert 2022 (A&A 657, L1), and a check of the published versions, added 2026-11-03
+
+**Why.** JvH asked for every paper mentioned in the 2026-11-03 emails to be re-read. The inventory:
+
+| Paper | Named in the emails as | Status |
+|---|---|---|
+| Eckert et al. 2022, Paper I | Eckert's link | Two readers (§3). Published A&A version checked: no data-availability statement; satellite projection not stated; matches arXiv. |
+| Eckert et al. 2022, Paper II | Ettori: "the 2022 papers" | Two readers (§3b). Published version checked: the w < 0.015 / 0.0015 conflict is present there too. |
+| Ettori et al. 2019; Eckert et al. 2019; Ghirardini et al. 2019 | "Ettori+19"; Ettori: "what we did in 2019" | Two readers, 2026-11-02 (§2) |
+| Ghirardini et al. 2018; Ghizzardi et al. 2021 | cited in our email | Two readers, 2026-11-02 (§2) |
+| **Ettori & Eckert 2022** (arXiv 2112.07554) | Not named; possibly among Ettori's "2022 papers" | **Two new readers** ([brief](readings/xcop-e22-2026-11-03/ettori-eckert-brief.md); [A](readings/xcop-e22-2026-11-03/ettori-eckert-reader-A.md), [B](readings/xcop-e22-2026-11-03/ettori-eckert-reader-B.md)). Identical e-print, SHA-256 `ef5cbd0a…a6e840`. |
+
+**What Ettori & Eckert 2022 contains.** The two readers agree, and Claude rechecked lines 182, 266, 276 and 377.
+- A Letter modelling **non-thermal pressure** for the 12 X-COP clusters. It gives α = P_NT/P_tot at R500 and R200 for each cluster (Table 1; errors "at $1 \sigma$ c.l.", l. 276).
+  - A2319 is the largest, 54.4 / 67.4. The units are not stated; they are inferred to be per cent.
+  - Five clusters are consistent with zero: A1644, A3266, A644, RXC1825 and ZW1215.
+- **It starts from the 2019 "thermal-only" masses** (l. 182). It cites neither 2022 paper and predates both. So it is probably not one of the "2022 papers" Ettori meant in the sense of a new mass reconstruction; that is an inference.
+- **Its only statement about the core:** "$b(0.1 R_{500}) \approx 0.5 b(R_{500})$, with a general increase in the bias moving outwards" (l. 377). This is a median over the sample.
+- **Bias distribution at R500:** "80\% of the objects with $b<0.17$ and 50\% with $b<0.03$" (l. 381).
+- **What it does not contain:** g_bar, stellar masses, mass profiles, a radial acceleration relation, or any data release.
+
+**What this changes for X-COP v2.** It gives per-cluster, published sizes for the **non-thermal pressure (hydrostatic bias)** term at two radii, plus a stated median radial trend. In v2 this becomes a **system-scale uncertainty term on g_obs**, stated from Table 1 with the source's own 1σ errors. **It is never applied as a correction**: Paper I's g_obs assumes pure thermal pressure, and correcting it would mix two analyses. No other change follows.
+
+**What was not checked.** Ettori's full publication list could not be read (the site rate-limited us). Other 2022 X-COP papers exist, for example on gas motions (Dupourqué et al.). Ettori can be asked which papers he meant.
