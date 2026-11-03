@@ -13,10 +13,14 @@
 - **X-COP v2 audit (D-090, plan step G2).** Frozen after v2 ships, before its seed exists.
 - **Questions for the X-COP authors, batched with the "v2 is up" note:** GOBS error confidence level; satellite deprojection; the A9 stellar-normalisation tension; which "2022 papers"; licence.
 
-## Open on 2026-11-03
+## Open on 2026-11-03 (evening)
 
-- **#128:** X-COP v2 test part A, revision 3, plus its second independent review. JvH approves, then "merge 128" freezes it. On merge, record its SHA-256 in `data/frozen/xcop-v2-part-a.json` before any value is read.
-- **D-090 (adopted 2026-11-03, delegated call):** the audit runs as frozen on X-COP v1; X-COP v2 gets its own audit; X-COP is the one exception to "v2 equals v1"; A8 in two stages; v2 rows go live only after the authors consent (preview offered first). Merges with #130.
+- **X-COP v2 test part A: frozen (#128, #131) and run.** Result: `data/packages/aeg-d-xcop/v2/REPRODUCTION_RESULT_PART_A.md`, confirmed by an independent recomputation. A1, A2, A3's stage-2 condition, A4 and A8 stage 1 fail; A6 is undetermined.
+  - A1 fails on the test's own error: it said 21 rows per file; the files hold 19–27 (109 in all).
+  - A2: four clusters' GBAR is the Einasto gas plus M_STAR at R_OUT to 0.1 %; A644's is not.
+  - Stage 2 (#129) is blocked by A3 (coarse inner grid; gas part fails with A2) and by A3158's negative masses.
+  - D-091: the result stands, with an erratum; nothing is re-scored. The six questions go to Eckert and Ettori now (draft for JvH); the next test is built from their answers.
+- **Next:** standard 2.4.0 (step B), then Part B of the X-COP v2 test; the reproduction ledger on the site gets the part A result with Part B.
 - **Still to do in step A:** dwarfs, globular clusters, lenses (two readers each); draft `08_Baumgardt_GC` (required before v0.2); refresh the send list (Ghizzardi email cancelled; Eckert reply and Lelli forward sent 2026-11-03); read the audit beacon pulse.
 
 ## Earlier list for 2026-11-03 (set 2026-11-02 20:18; items 1 and 3 done, 2 cancelled)
