@@ -1830,3 +1830,48 @@ The Zenodo record shows the preliminary note.
 **Reason.** The authors identify the 2022 analysis as the one built for this comparison and as their final masses. It fixes F1 with measured data instead of a bound, and it adds local, non-parametric masses.
 
 **Data seen.** The two emails only. No file from the shared folders has been opened.
+
+## D-090 — X-COP v2 and the frozen audit
+
+**Ruling (2026-11-03 14:38 CST; delegated: JvH asked "for the ruling, what would a great scientist do that is also looking to create a compelling and useful website").** Claude's call: rules 1–4 as proposed; rule 5 changed from the proposal, as below. **Proposed by** Claude (2026-11-03), after JvH asked whether the X-COP v2 approach had been checked holistically.
+
+**Context.**
+- D-083 item 3 requires every v2 package to reproduce v1's g_obs and g_bar exactly, so that only uncertainty columns change. The stated reason is to keep the frozen audit (D-081, D-082), which samples v1 rows, valid for both versions.
+- D-089 builds X-COP v2 from a different analysis (Eckert et al. 2022). Its values cannot equal v1's. D-089 did not say so.
+- The audit plan v2 (`docs/audit/AUDIT_PLAN_v2.md` §2.1) samples 861 `aeg-d-xcop/v1` rows. Its seed is fixed: the beacon pulse exists, but has not been read. The plan says "Packages shipped later are not in this audit; they get their own."
+
+**Proposed rules.**
+1. **X-COP is the one exception to D-083 item 3**, under D-089. KiDS, dwarfs, globular clusters and lenses still must reproduce v1 exactly.
+2. **The audit runs exactly as frozen.** Its X-COP stratum checks the v1 rows against their 2019 sources. Its result describes v1, which stays published, and the conversion pipeline. It says nothing about v2. The frozen plan is not edited.
+3. **X-COP v2 gets its own audit.**
+   - It uses the same method as plan v2: stratum size rule, two blind readers per row, adjudication at source, published pass or fail.
+   - It is written and frozen by hash after X-COP v2 ships and before its seed exists. The seed is the first beacon pulse at least 24 hours after the merge that freezes it.
+   - It runs with step G if v2 has shipped by then. Otherwise v0.2 states plainly that X-COP v2 is not yet audited, and the audit follows.
+4. **The seven X-COP clusters without stellar data** (A85, A1644, A2255, A3158, A3266, RXC1825, ZW1215). This applies D-089 rule 1 ("only where their baryons are stated by the source"): their gas is stated by the source, their stars are not.
+   - **Stage 1, in v2:** no measurement rows and no g_bar value. They are listed in the systems table and in the exclusions register (`data/registry/excluded.csv`), with the reason. Whether any observables rows are written is decided in the test's Part B. Their checks are published with v2's result.
+   - **Stage 2, a later version, planned work, not an open end** (issue #129): they are added as rows with a bound on g_bar from gas alone (a bound below the source's central value, not a confidence limit), drawn as tracks. All of the following are required, as fixed in the frozen test (A3, A8):
+     - a data standard version supports that bound (step B);
+     - every site view draws it correctly, with arrows in the right direction for each view, and limit rows are excluded from averages, fits and pattern tests (step F);
+     - A3's stage-2 condition (total mass and gas) and the stage-1 checks pass.
+   - Expected in v0.2. v0.2 does not wait for it. If A3's condition fails, the seven stay unplotted until the authors answer, and any change is a new ruling.
+5. **Publishing v2's rows waits for the authors' consent; building v2 does not.**
+   - **The difference from v1.** v1 came from a public archive, and D-004 covers it. v2's files came by private share link in a reply to the Atlas, with no licence stated, and JvH has already asked the authors about citation and consent.
+   - **Done now, in the open:** the frozen test, the conversion, and the reproduction result, pass or fail. The result gives check outcomes and ratios, not the rows. The archives are fetched at build time, verified by hash, and never committed, hosted or archived on Zenodo.
+   - **Waits for the authors' answer:** v2's rows on the map, its dataset page and its download. When v2 is ready, the authors are offered a preview link before it goes live, together with the "v2 is up" note's questions.
+   - **Until then,** v1 stays live with its D-088 correction note, and the dataset page says that v2 is built and awaiting the authors' confirmation.
+   - **If there is no answer in 4 weeks** from the preview, JvH sends one follow-up. Any later choice, such as publishing under D-004, is a new ruling.
+
+**Reason.**
+- Editing a frozen audit plan after its seed is fixed would weaken the independence the freeze exists to protect, even with the pulse unread.
+- The v1 audit still checks 861 published rows and the pipeline that made them.
+- A separate frozen audit holds v2 to the same standard.
+- Writing down the exception, the stage-2 plan and the serving rule closes three gaps that D-089 left implicit.
+- **Rule 5.** Data shared privately for this use deserves the authors' explicit consent before it is republished. That matches what JvH already asked them. A preview lets the authors catch an error before the public does. And a v2 they have endorsed is worth more to readers, and makes a better case for the site, than one published on an inference about an unstated licence. The cost is time only: nothing in the build waits.
+
+**Alternatives rejected.**
+- **Re-point the X-COP stratum to v2 rows:** changes a frozen plan after its seed is fixed, and the v2 rows do not exist yet.
+- **Drop X-COP from the audit:** leaves 861 published rows unchecked.
+- **Freeze audit plan v3 with a new seed once v2 exists:** delays the whole audit for one dataset, and gains nothing over a separate X-COP v2 audit.
+- **Rule 5 as proposed (publish the derived table under D-004 at once):** reads an unstated licence on privately shared files in the Atlas's favour, and risks the working relationship JvH is building with the authors.
+
+**Data seen.** Eckert et al. 2022 (Papers I and II) and Ettori & Eckert 2022, read at source. From the shared archives: member names, sizes, dates, FITS column names and row counts only (test §1). No values.
