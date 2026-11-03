@@ -1848,9 +1848,9 @@ The Zenodo record shows the preliminary note.
    - It is written and frozen by hash after X-COP v2 ships and before its seed exists. The seed is the first beacon pulse at least 24 hours after the merge that freezes it.
    - It runs with step G if v2 has shipped by then. Otherwise v0.2 states plainly that X-COP v2 is not yet audited, and the audit follows.
 4. **The seven X-COP clusters without stellar data** (A85, A1644, A2255, A3158, A3266, RXC1825, ZW1215). This applies D-089 rule 1 ("only where their baryons are stated by the source"): their gas is stated by the source, their stars are not.
-   - **Stage 1, in v2:** they are listed in the observables table only, with no measurement rows and no g_bar value. Their checks are published with v2's result.
+   - **Stage 1, in v2:** no measurement rows and no g_bar value. They are listed in the systems table and in the exclusions register (`data/registry/excluded.csv`), with the reason. Whether any observables rows are written is decided in the test's Part B. Their checks are published with v2's result.
    - **Stage 2, a later version, planned work, not an open end** (issue #129): they are added as rows with a bound on g_bar from gas alone (a bound below the source's central value, not a confidence limit), drawn as tracks. All of the following are required, as fixed in the frozen test (A3, A8):
-     - standard 2.4.0 supports that bound (step B);
+     - a data standard version supports that bound (step B);
      - every site view draws it correctly, with arrows in the right direction for each view, and limit rows are excluded from averages, fits and pattern tests (step F);
      - A3's stage-2 condition (total mass and gas) and the stage-1 checks pass.
    - Expected in v0.2. v0.2 does not wait for it. If A3's condition fails, the seven stay unplotted until the authors answer, and any change is a new ruling.
