@@ -329,3 +329,28 @@ These are Claude's arithmetic on the two published tables. **Neither paper compa
 2. **The X-ray regular/disturbed status of each cluster is recorded** as the source's own continuous quantity, w with its error, never as a label (rule 4 of the project). Excluding clusters is not the Atlas's business; showing w is.
 3. **The model dependence above becomes a stated system-scale term** (Einasto against NFW against non-parametric) wherever a parametric mass is used, for example in the mass reconstructions for all 12 clusters, if Dominique's second folder contains parametric fits.
 4. **Paper II adds nothing to g_bar.** The satellite-projection question (§3.2 item 1) stands.
+
+### 3c. Ettori & Eckert 2022 (A&A 657, L1), and a check of the published versions, added 2026-11-03
+
+**Why.** JvH asked for every paper mentioned in the 2026-11-03 emails to be re-read. The inventory:
+
+| Paper | Named in the emails as | Status |
+|---|---|---|
+| Eckert et al. 2022, Paper I | Eckert's link | Two readers (§3). Published A&A version checked: no data-availability statement; satellite projection not stated; matches arXiv. |
+| Eckert et al. 2022, Paper II | Ettori: "the 2022 papers" | Two readers (§3b). Published version checked: the w < 0.015 / 0.0015 conflict is present there too. |
+| Ettori et al. 2019; Eckert et al. 2019; Ghirardini et al. 2019 | "Ettori+19"; Ettori: "what we did in 2019" | Two readers, 2026-11-02 (§2) |
+| Ghirardini et al. 2018; Ghizzardi et al. 2021 | cited in our email | Two readers, 2026-11-02 (§2) |
+| **Ettori & Eckert 2022** (arXiv 2112.07554) | Not named; possibly among Ettori's "2022 papers" | **Two new readers** ([brief](readings/xcop-e22-2026-11-03/ettori-eckert-brief.md); [A](readings/xcop-e22-2026-11-03/ettori-eckert-reader-A.md), [B](readings/xcop-e22-2026-11-03/ettori-eckert-reader-B.md)). Identical e-print, SHA-256 `ef5cbd0a…a6e840`. |
+
+**What Ettori & Eckert 2022 contains.** The two readers agree, and Claude rechecked lines 182, 266, 276 and 377.
+- A Letter modelling **non-thermal pressure** for the 12 X-COP clusters. It gives α = P_NT/P_tot at R500 and R200 for each cluster (Table 1; errors "at $1 \sigma$ c.l.", l. 276).
+  - A2319 is the largest, 54.4 / 67.4. The units are not stated; they are inferred to be per cent.
+  - Five clusters are consistent with zero: A1644, A3266, A644, RXC1825 and ZW1215.
+- **It starts from the 2019 "thermal-only" masses** (l. 182). It cites neither 2022 paper and predates both. So it is probably not one of the "2022 papers" Ettori meant in the sense of a new mass reconstruction; that is an inference.
+- **Its only statement about the core:** "$b(0.1 R_{500}) \approx 0.5 b(R_{500})$, with a general increase in the bias moving outwards" (l. 377). This is a median over the sample.
+- **Bias distribution at R500:** "80\% of the objects with $b<0.17$ and 50\% with $b<0.03$" (l. 381).
+- **What it does not contain:** g_bar, stellar masses, mass profiles, a radial acceleration relation, or any data release.
+
+**What this changes for X-COP v2.** It gives per-cluster, published sizes for the **non-thermal pressure (hydrostatic bias)** term at two radii, plus a stated median radial trend. In v2 this becomes a **system-scale uncertainty term on g_obs**, stated from Table 1 with the source's own 1σ errors. **It is never applied as a correction**: Paper I's g_obs assumes pure thermal pressure, and correcting it would mix two analyses. No other change follows.
+
+**What was not checked.** Ettori's full publication list could not be read (the site rate-limited us). Other 2022 X-COP papers exist, for example on gas motions (Dupourqué et al.). Ettori can be asked which papers he meant.
