@@ -1,0 +1,10 @@
+{
+  "description": "aeg-d-gc-baumgardt/v2 reproduction test, revision 3, after two independent reviews. Frozen before the second reading and before any v2 value was computed.",
+  "frozen_on": "2026-11-04",
+  "decision": "D-096, D-097, D-098, D-099",
+  "merged_in": "79dedf927204c992826d544c760f77a0bf98dfe6",
+  "spec": "data/packages/aeg-d-gc-baumgardt/v2/REPRODUCTION.md",
+  "files": {
+    "data/packages/aeg-d-gc-baumgardt/v2/REPRODUCTION.md": "4bb0d6da0bf00bab5be644588d68006ee419fc43d5a361f04c53a6e6ec5585e4"
+  }
+}

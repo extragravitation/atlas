@@ -1,0 +1,10 @@
+{
+  "description": "aeg-d-dwarfs/v2 reproduction test, revision 3, after two independent reviews. Frozen before the second reading and before any v2 value was computed.",
+  "frozen_on": "2026-11-04",
+  "decision": "D-096, D-097, D-098, D-099",
+  "merged_in": "dc78d4723cb893d6806d2369dcd10c58ac394019",
+  "spec": "data/packages/aeg-d-dwarfs/v2/REPRODUCTION.md",
+  "files": {
+    "data/packages/aeg-d-dwarfs/v2/REPRODUCTION.md": "395460b84359dc10de812fd3c86791832f17575c531272b0b457a7c4c75c020e"
+  }
+}
