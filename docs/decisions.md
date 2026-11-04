@@ -1916,7 +1916,7 @@ The Zenodo record shows the preliminary note.
 
    In the plain layer:
    > The published pull from visible matter for this cluster doesn't match the separate files we were given. We show the published values and have asked the authors.
-3. **A known-issue entry** (a GitHub issue labelled `known-issue`) records it and links the result. It is resolved by the authors' answer, and any change is a new version.
+3. **A known-issue entry**, #136, records it and links the result. It is resolved by the authors' answer, and any change is a new version.
 4. **Notice first (D-086).** The authors are told of the flag before the release that shows it. Question 1 of `03c` does that, so `03c` is sent before v2 goes public.
 
 **Reason.**
