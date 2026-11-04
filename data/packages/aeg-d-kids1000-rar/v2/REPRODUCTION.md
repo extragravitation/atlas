@@ -2,7 +2,7 @@
 
 **Status: draft, revision 2, for JvH's approval.** Revision 2 answers an independent review (`docs/sources/readings/step-d-2026-11-04/kids-review-1.md`). Written 2026-11-04, before `convert.py` for v2 exists. No v2 value has been computed. On merge, this file's SHA-256 goes into `v2/sources.json`, and it is not edited after the first v2 conversion run. If the test fails, v2 does not ship and the failure is published; the test is not changed to pass (operating rule 5; D-005).
 
-**Depends on** data standard 2.5.0 (D-095, proposed), for the quantity `acceleration_released`. If D-095 is not adopted, this test is revised before freezing.
+**Depends on** data standard 2.5.0 (D-095), for the quantity `acceleration_released`, and on D-096 (defer to the source's stated choices).
 
 ## Purpose
 
@@ -75,7 +75,7 @@ Applied to the v2 tables, with v1 at commit `5dc4091` as the reference.
    - **Hot-gas variant rows:** `role` = `alternative`, `alternative_of` = the KiDS-bright row with the same bin index, `plotted` = false, `not_plotted_reason` = `alternative_value`.
      - D-014 names the variant an "alternative baseline".
      - The pairing by bin index is formal: the variant was binned on its own g_bar, so its bin k holds different lenses from the KiDS-bright bin k. Its `notes` say so.
-     - **This changes what the site shows** (v1 drew all 45 rows). It needs JvH's ruling before this test is frozen. If he rules to keep the variant plotted, these rows are `role = default` with a label, and this item is revised before freezing.
+     - Ruled under D-096 rule 3: the source calls stars plus cold gas its "fiducial estimate" and the variant "only a rough order of magnitude estimate". This changes what the site shows (v1 drew all 45 rows); the dataset page states it.
 10. **Descriptor** (`datapackage.json`):
     - `standard_version` `2.5.0`;
     - `x_selection`, per sample, with the bin definitions (§9):
@@ -100,6 +100,7 @@ Applied to the v2 tables, with v1 at commit `5dc4091` as the reference.
     - **What it parses:** the three RAR files and their covariance files, from the README and the paper alone.
     - **What it writes:** every number the package uses (g_bar, ESD_t, ESD_x, error and bias, per row) and the covariance values.
     - It also derives the bin edges from §2.1 independently.
+    - **D-096 fields.** It records whether the source or README marks a preferred value, excludes data, or names a fiducial baseline, for every file used. Any finding beyond the hot-gas variant (already applied) is a fail of this test, because this version may not change values: the test is then revised, by ruling, to a value-changing version under D-096 rule 5.
     - **Pass:** every packaged number equals the second reading, at the printed precision. A disagreement is resolved at source; one resolved against the package is a fail.
 12. **The README's provenance.** The README was read from a public mirror (`uncertainty-readings.md` §1), whose SHA-256 is `b3680580696c5dbf5671c700d5e8f90fbfd1dc614fa7e3e07b2f66d1624e8645`. The canonical tarball (hash in `v1/sources.json`) is not reachable from the workspace, so this is checked by CI as the first step of the conversion: the tarball's README member must have exactly this hash. **A mismatch is a fail**, because tests 4 and 8 rest on the README's wording.
 13. **Standard and site.**
