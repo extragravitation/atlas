@@ -4,6 +4,9 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
 
 ## Unreleased
 
+- D-094: corrects D-064 item 4. For strong lenses, g_obs/g_bar depends on distance at first order (∝ 1/D), as the sources state; v2 carries distance as an uncertainty term (#139).
+- D-093: data standard 2.4.0, from step A of the validation plan. Optional columns for a confidence level the source does not give and g_bar as a bin coordinate; a stated point-scale term kept out of the error bars; a ruled exception to "v2 equals v1"; and a rule for radii that are both coordinate and input. Earlier packages are unchanged.
+- Step A completed: uncertainty readings for dwarfs, globular clusters and lenses (two readers each, adjudicated at source).
 - D-089: X-COP v2 will be built from Eckert et al. 2022, at the X-COP team's recommendation (2026-11-03). The paper is read and the test frozen before the shared files are opened.
 - D-088: X-COP v1 treats the released stellar-mass profiles as spherical, but the source says they are projected (#124). This was the Atlas's error. The X-COP v1 page now states it. v2 will carry the stellar term as an upper bound, and correct it only from data that determine the correction.
 - Site: the KiDS-1000 dataset page now states that its g_obs error bars are the released ESD errors only. The paper adds 0.1 dex for the ΔΣ-to-g_obs conversion (§4.4), and the release omits it, so the bars are smaller than the paper's. Found in the step A reading (#118). No data changed.

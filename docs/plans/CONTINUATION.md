@@ -17,6 +17,14 @@
 - **X-COP v2 audit (D-090, plan step G2).** Frozen after v2 ships, before its seed exists.
 - **Questions for the X-COP authors, batched with the "v2 is up" note:** GOBS error confidence level; satellite deprojection; the A9 stellar-normalisation tension; which "2022 papers"; licence.
 
+## Open on 2026-11-04 (work plan day)
+
+- **Step A done** (#138): dwarfs, globular clusters and lenses, two readers each, adjudicated at source. Known issues opened: #139 (lens θ_E error axis; D-064 item 4 contradicted by the sources), #140 (plotted data the sources set aside), #141 (Phoenix II σ).
+- **Standard 2.4.0** (#142, D-093 proposed): two independent reviews, answered. Needs JvH's ruling; merge after #137 and #138; set `frozen_on` on merge.
+- **D-092** (#137): A644 shown with a neutral note; known issue #136. The `03c` email to Eckert goes before X-COP v2 is public.
+- **Pal 1 notice (D-086):** the flagged table is McLaughlin & van der Marel (2005), not Baumgardt's database. JvH to confirm redirecting the required notice to them; their addresses are not yet confirmed (not guessed).
+- **Next (session 2 of the road to v0.2):** frozen v2 tests for KiDS, dwarfs, globular clusters and lenses (step D), and X-COP part B. Before the lens test: a ruling correcting D-064 item 4.
+
 ## Open on 2026-11-03 (evening)
 
 - **X-COP v2 test part A: frozen (#128, #131) and run.** Result: `data/packages/aeg-d-xcop/v2/REPRODUCTION_RESULT_PART_A.md`, confirmed by an independent recomputation. A1, A2, A3's stage-2 condition, A4 and A8 stage 1 fail; A6 is undetermined.

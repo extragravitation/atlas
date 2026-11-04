@@ -1927,3 +1927,75 @@ The Zenodo record shows the preliminary note.
 **Alternative rejected.** **Hold the points back until Eckert answers:** it hides published data over an open question.
 
 **Data seen.** The part A result and the independent recomputation.
+
+## D-093 — Data standard 2.4.0, from step A
+
+**Ruling (2026-11-04 09:17 CST, JvH).** "approve D-093 without the bound". **Proposed by** Claude (2026-11-04), at the end of step A of the validation plan. **Adopted with one change:** the bound on g_bar (proposed rule 3) is left out, on Claude's recommendation, because no dataset in v0.2 uses it. The text is `docs/data-standard.md` 2.4.0; it is frozen on merge.
+
+**Context.** Step A read the uncertainty statements of all six shipped datasets at source, with two independent readers each, adjudicated at source:
+- KiDS (`docs/sources/uncertainty-readings.md` §1);
+- X-COP (§2, §3);
+- dwarfs, globular clusters and lenses (`docs/sources/readings/step-a-2026-11-04/`).
+
+The X-COP v2 test (D-089, D-090) added two needs.
+
+**Proposed rules.** Everything is additive (§0), so this is a minor version. Packages stating 2.3.0 or earlier stay valid and are not edited.
+1. **Confidence levels.** A level the source does not give is recorded as such, never read as 0.683 (X-COP 2022 files): `err_level_status` in measurements and observables. `err_level` refers to the measured quantity, and g_bar gets its own `g_bar_err_level` and status, because one row can carry two levels (dwarf σ limits at 90–95.5 % with 1σ g_bar errors).
+2. **`g_bar_basis = bin_coordinate`**, with optional bin edges: g_bar that is the source's binning coordinate, with no point error by construction (KiDS).
+3. **Not adopted: a bound on g_bar** (`g_bar_bound`, its basis, the status value `not_given_by_source`, and the rule keeping such rows unplotted).
+   - Its only use is X-COP's seven clusters without stellar data (A8 stage 2, #129). Stage 2 is blocked by the frozen test's result (A3, A8).
+   - It returns in a later standard version, if and when a dataset needs it, written against that dataset's real rows.
+   - D-090 and #129 already require a standard version for stage 2, so nothing is lost.
+4. **§7a additions.**
+   - `in_error_columns`: a point-scale term the source states but leaves out of its released errors is recorded and shown beside the bars, never added in (KiDS K2, 0.1 dex).
+   - `applies_to` may list several systems, for a term shared by a subset (MaNGA's one Υ_ref; one distance calibration for 21 dwarfs; one velocity pipeline).
+   - `size_kind` gains `upper_bound` and `lower_bound`, for sizes stated as "up to" or as lower bounds (lens H0 shifts; NGC 6505's measurement-only errors).
+   - `size_column` may name a measurements column, for sizes that vary by radius.
+5. **`x_value_change_ruling`:** a ruled exception to §10 item 13 (X-COP v2, D-090 rule 1). It generalises D-090's "one exception" into a mechanism. Each use still needs its own ruling, and the validator accepts only a decision that has been ruled.
+6. **§2a rule 7:** a radius that is both the coordinate and an input has its error carried by the side whose value changes, from the formula, not "at fixed radius" by convention (lenses, step A finding F1). It applies only to packages issued under 2.4.0. It states how §2a rule 2's "the axes it moves" is found for this case, so it is a clarification, not a new requirement on earlier packages; that is why the version is minor.
+
+**What step A found that needs no standard change,** because §2a rule 5 and §7a already cover it:
+- **Distance acts through the formulas, not "on both axes".** For dwarfs, globular clusters (calibration part) and lenses, distance moves g_obs ∝ 1/D and leaves the stellar g_bar nearly unchanged, because luminosity ∝ D² cancels the radius². For globular clusters, a reddening error moves both axes. Each cause is its own uncertainty-terms row with its own registry formula.
+- **The other findings** are per-dataset matters for the frozen v2 tests (step D), each with a known-issue entry where v1 is affected:
+  - the lens θ_E error on the wrong axis;
+  - D-064 item 4's statement about cosmology, contradicted by the sources (needs its own ruling);
+  - plotted systems or bins that their sources describe as out of equilibrium or set aside (dwarfs F3, globular clusters F3);
+  - Phoenix II's membership choice;
+  - errors v1 omits.
+
+**Reason.** These are the smallest additions that let every v2 package say what its sources say, without inventing a size or hiding a term.
+
+**A reader that ignores the new columns would misread `g_bar`** on bin-coordinate rows. So no 2.4.0 package with such rows ships until the site handles them.
+
+**Working rules proposed alongside** (Claude, 2026-11-04; not yet ruled, JvH to confirm):
+- **Build for what ships.** A standard rule, site feature or check is added only when a dataset in the next release uses it.
+- **Review in proportion.** One independent review per frozen document. A second only if the first finds must-fix errors, and then stop.
+
+**Reviewed** independently before ruling (`docs/sources/readings/step-a-2026-11-04/standard-review-1.md` and `standard-review-2.md`; revision 3 answers the second).
+
+**Alternatives rejected.**
+- **Changing `limit` to cover g_bar:** a major change, and it would break validation rule 5 for every package.
+- **Folding the stated-but-unreleased terms into the error bars:** it invents a combination the source does not state.
+
+**Data seen.** All step A readings and adjudications. No v2 value has been computed for any dataset.
+
+## D-094 — Lens distances: correcting D-064 item 4
+
+**Ruling (2026-11-04 09:17 CST, JvH).** "correct D-064". **Proposed by** Claude (2026-11-04), from step A (`docs/sources/readings/step-a-2026-11-04/lenses-adjudication.md` F1 and F2; known issue #139). **Adopted.**
+
+**Context.** D-064 item 4 says that, for strong lenses, the g_obs/g_bar ratio "does not depend on [the source's cosmology] to first order, because both masses scale with the same distances". Step A found this wrong. Both readers found it, independently, and it was checked at source:
+- **The algebra.** Inside the Einstein radius, g_obs = G M_E/R_E² = π G Σ_cr ∝ 1/D. The stellar g_bar ∝ D_L²/D_A² is nearly independent of distance. So g_obs/g_bar ∝ 1/D.
+- **The sources say the same.** Newman et al. 2017 write "The lensing M/L is proportional to distance". SLC15, Collier et al. 2018 and Smith et al. 2020 give 3.5–5 % shifts in the mass ratio with H0. SLC15 gives up to 5 % for 500 km/s peculiar velocities.
+
+**Rules.**
+1. **D-064 item 4 is replaced by this text:** "R_E in kpc and M_E use the source's own cosmology, registered where it enters (D-029). The ratio depends on distance at first order, g_obs/g_bar ∝ 1/D, because g_obs = π G Σ_cr and the stellar g_bar is nearly distance-free." D-064's other items stand.
+2. **In v2, distance is an uncertainty term on g_obs.** It covers H0, peculiar velocity and the redshift frame.
+   - Scale: dataset per source for H0; system for peculiar velocity.
+   - Its effect is computed from the registry formula (§2a rule 5).
+   - Sizes are those the sources state, with `size_kind` as stated: 3.5–5 % for H0; up to 5 % for 500 km/s; NGC 6505 z = 0.041 ± 0.001 against 0.04243.
+3. **The same treatment as the dwarfs and globular clusters,** whose distance term acts the same way: one rule for all three.
+4. **The registry entry `a6s_source_cosmology`** is corrected in v2 to give that effect. v1 and its registry entry stay as published, with this decision and #139 linked.
+
+**Reason.** A ruled statement that the sources and the algebra contradict is corrected openly, not quietly in a package.
+
+**Data seen.** The step A readings and adjudication. No v2 value has been computed.
