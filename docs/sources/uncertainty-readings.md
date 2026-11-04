@@ -354,3 +354,25 @@ These are Claude's arithmetic on the two published tables. **Neither paper compa
 **What this changes for X-COP v2.** It gives per-cluster, published sizes for the **non-thermal pressure (hydrostatic bias)** term at two radii, plus a stated median radial trend. In v2 this becomes a **system-scale uncertainty term on g_obs**, stated from Table 1 with the source's own 1σ errors. **It is never applied as a correction**: Paper I's g_obs assumes pure thermal pressure, and correcting it would mix two analyses. No other change follows.
 
 **What was not checked.** Ettori's full publication list could not be read (the site rate-limited us). Other 2022 X-COP papers exist, for example on gas motions (Dupourqué et al.). Ettori can be asked which papers he meant.
+
+## 4–6. Dwarf galaxies, globular clusters and strong lenses (2026-11-04)
+
+Two independent readers per dataset, under one brief, adjudicated at source. The full reports and the adjudications are in `docs/sources/readings/step-a-2026-11-04/`:
+- `brief.md`;
+- `dwarfs-reader-A.md`, `dwarfs-reader-B.md`, `dwarfs-adjudication.md`;
+- `gc-reader-A.md`, `gc-reader-B.md`, `gc-adjudication.md`;
+- `lenses-reader-A.md`, `lenses-reader-B.md`, `lenses-adjudication.md`.
+
+**Main findings,** each to be handled in the dataset's frozen v2 test (step D):
+- **Distance.** It moves g_obs ∝ 1/D and leaves the stellar g_bar nearly unchanged, because luminosity ∝ D² cancels the radius². This holds for dwarfs (63 of 64 systems; Boötes III is the exception), for the globular-cluster calibration term, and for lenses. In globular clusters, a reddening error moves both axes.
+- **Lenses.** The Einstein-radius error moves g_bar, not g_obs, since g_obs = π G Σ_cr inside θ_E. v1 carries it on g_obs. The sources also contradict D-064 item 4 on cosmology (g_obs/g_bar ∝ 1/D at first order), which needs a ruling.
+- **Plotted data the sources set aside.**
+  - And XXVII and Antlia 2: described by their own papers as out of equilibrium or tidally disrupting (D-025).
+  - M54's outer bins: excluded by B17 as contaminated by the Sagittarius dwarf.
+  - The rising outer bins of NGC 2298 and Pal 5: dropped by BH18.
+- **Phoenix II.** v1 uses the "all possible members" σ; the source prefers the "certain members" value. The two agree within errors.
+- **Errors v1 omits:**
+  - R_h and ε for the dwarfs;
+  - distance for every dataset;
+  - integrated magnitudes for the globular clusters (0.22–0.70 mag, BSH20);
+  - population-synthesis systematics for the lenses.

@@ -1902,3 +1902,39 @@ The Zenodo record shows the preliminary note.
 - **Only a post-data supplement:** it would still guess at what the authors can state.
 
 **Data seen.** The full test result and the independent recomputation.
+
+## D-093 — Data standard 2.4.0, from step A
+
+**Ruling: pending.** **Proposed by** Claude (2026-11-04), at the end of step A of the validation plan. Not adopted until JvH rules. The text is `docs/data-standard.md` 2.4.0; it is frozen on merge.
+
+**Context.** Step A read the uncertainty statements of all six shipped datasets at source, with two independent readers each, adjudicated at source:
+- KiDS (`docs/sources/uncertainty-readings.md` §1);
+- X-COP (§2, §3);
+- dwarfs, globular clusters and lenses (`docs/sources/readings/step-a-2026-11-04/`).
+
+The X-COP v2 test (D-089, D-090) added two needs.
+
+**Proposed rules.** Everything is additive (§0), so this is a minor version. Packages stating 2.3.0 or earlier stay valid and are not edited.
+1. **`err_level_status`:** a confidence level the source does not give is recorded as such, never read as 0.683 (X-COP 2022 files).
+2. **`g_bar_basis = bin_coordinate`**, with optional bin edges: g_bar that is the source's binning coordinate, with no point error by construction (KiDS).
+3. **`g_bar_bound`**, with `g_bar_bound_basis`: a bound on the source's central g_bar from the components it gives. It is not a confidence limit. Bound rows are excluded from averages, fits and pattern-test inputs (X-COP A8 stage 2, #129).
+4. **§7a `in_error_columns`:** a point-scale term the source states but leaves out of its released errors is recorded and shown beside the bars, never added in (KiDS K2, 0.1 dex).
+5. **`x_value_change_ruling`:** a ruled exception to §10 item 13 (X-COP v2, D-090 rule 1).
+6. **§2a rule 7:** a radius that is both the coordinate and an input has its error carried by the side whose value changes, from the formula, not "at fixed radius" by convention (lenses, step A finding F1).
+
+**What step A found that needs no standard change,** because §2a rule 5 and §7a already cover it:
+- **Distance acts through the formulas, not "on both axes".** For dwarfs, globular clusters (calibration part) and lenses, distance moves g_obs ∝ 1/D and leaves the stellar g_bar nearly unchanged, because luminosity ∝ D² cancels the radius². For globular clusters, a reddening error moves both axes. Each cause is its own uncertainty-terms row with its own registry formula.
+- **The other findings** are per-dataset matters for the frozen v2 tests (step D), each with a known-issue entry where v1 is affected:
+  - the lens θ_E error on the wrong axis;
+  - D-064 item 4's statement about cosmology, contradicted by the sources (needs its own ruling);
+  - plotted systems or bins that their sources describe as out of equilibrium or set aside (dwarfs F3, globular clusters F3);
+  - Phoenix II's membership choice;
+  - errors v1 omits.
+
+**Reason.** These are the smallest additions that let every v2 package say what its sources say, without inventing a size or hiding a term.
+
+**Alternatives rejected.**
+- **Changing `limit` to cover g_bar:** a major change, and it would break validation rule 5 for every package.
+- **Folding the stated-but-unreleased terms into the error bars:** it invents a combination the source does not state.
+
+**Data seen.** All step A readings and adjudications. No v2 value has been computed for any dataset.

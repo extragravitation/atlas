@@ -17,7 +17,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-KNOWN_STANDARD_VERSIONS = {"1.0.0", "1.1.0", "1.2.0", "1.2.1", "1.3.0", "2.0.0", "2.1.0", "2.2.0", "2.3.0"}
+KNOWN_STANDARD_VERSIONS = {"1.0.0", "1.1.0", "1.2.0", "1.2.1", "1.3.0", "2.0.0", "2.1.0", "2.2.0", "2.3.0", "2.4.0"}
 
 FLAGS = {"no_uncertainty", "beyond_source_range", "inner_resolution_limited", "source_quality_low", "reproduction_mismatch"}
 CLOSED = {
@@ -101,9 +101,18 @@ CORE_MEAS_V2 = CORE_MEAS | set(REQUIRED_MEAS_V2) | {"delta_g", "delta_g_err_lo",
 # 2.2.0 (D-083): point-scale error columns (§3) and the uncertainty-terms table (§7a).
 POINT_ERR_COLS = ["g_obs_err_point_lo", "g_obs_err_point_hi", "g_bar_err_point_lo", "g_bar_err_point_hi"]
 CORE_MEAS_V2 = CORE_MEAS_V2 | set(POINT_ERR_COLS)
+# 2.4.0 (D-093): optional columns. Allowed only for packages stating 2.4.0 or later (validate_v24).
+MEAS_COLS_V24 = ["err_level_status", "g_bar_basis", "g_bar_bin_lo", "g_bar_bin_hi", "g_bar_bound", "g_bar_bound_basis"]
+CORE_MEAS_V2 = CORE_MEAS_V2 | set(MEAS_COLS_V24)
+CLOSED_V24 = {
+    "err_level_status": {"stated", "not_given_by_source"},
+    "g_bar_basis": {"computed", "bin_coordinate"},
+    "g_bar_bound": {"none", "lower", "upper"},
+}
 TERMS_REQUIRED = ["term_id", "scale", "applies_to", "moves", "status"]
 TERMS_CORE = set(TERMS_REQUIRED) | {"size_value", "size_lo", "size_hi", "size_unit", "size_column", "size_kind",
-                                    "assumption_id", "correlated_with", "covariance", "citation", "locator", "note"}
+                                    "assumption_id", "correlated_with", "covariance", "citation", "locator", "note",
+                                    "in_error_columns"}
 TERMS_CLOSED = {
     "scale": {"point", "system", "dataset"},
     "moves": {"g_obs", "g_bar", "both"},
@@ -229,6 +238,68 @@ def validate_v22(pkg: Path, meas) -> list[str]:
                     over = sum(1 for p, t in zip(vals, _vals(meas[tc])) if p is not None and t is not None and p > t * (1 + 1e-12))
                     if over:
                         problems.append(f"{where} measurements: {over} rows where {pc} exceeds {tc}")
+    return problems
+
+
+def validate_v24(pkg: Path, meas, sv) -> list[str]:
+    """Rules added in standard 2.4.0 (docs/data-standard.md §10 items 14 to 18; D-093).
+
+    For packages stating an earlier version, the 2.4.0 columns and keys are not allowed.
+    """
+    from astropy.table import Table
+    dataset, version = pkg.parent.name, pkg.name
+    where = f"{dataset}/{version}"
+    problems: list[str] = []
+    terms_path = pkg / "tables/uncertainty_terms.ecsv"
+    terms = Table.read(terms_path, format="ascii.ecsv") if terms_path.is_file() else None
+    desc_path = pkg / "datapackage.json"
+    desc = json.loads(desc_path.read_text(encoding="utf-8")) if desc_path.is_file() else {}
+    if _key(sv) < (2, 4, 0):
+        used = [c for c in MEAS_COLS_V24 if c in meas.colnames]
+        if terms is not None and "in_error_columns" in terms.colnames:
+            used.append("in_error_columns")
+        if "x_value_change_ruling" in desc:
+            used.append("x_value_change_ruling")
+        if used:
+            problems.append(f"{where}: {sorted(used)} need standard 2.4.0 or later (package states {sv})")
+        return problems
+    for name, allowed in CLOSED_V24.items():
+        if name in meas.colnames:
+            bad = {v for v in _vals(meas[name]) if v not in (None, "") and v not in allowed}
+            if bad:
+                problems.append(f"{where} measurements: {name} has values outside the closed list: {sorted(bad)}")
+    rows = [dict(zip(meas.colnames, r)) for r in zip(*[_vals(meas[c]) for c in meas.colnames])]
+    for r in rows:
+        mid = r.get("measurement_id", "?")
+        if r.get("err_level_status") == "not_given_by_source" and r.get("err_level") is not None:
+            problems.append(f"{where}: {mid} err_level_status is not_given_by_source but err_level is set")
+        if r.get("g_bar_basis") == "bin_coordinate":
+            if r.get("g_bar_err_point_lo") is not None or r.get("g_bar_err_point_hi") is not None:
+                problems.append(f"{where}: {mid} g_bar is a bin coordinate but has point-scale g_bar errors")
+            lo, hi = r.get("g_bar_bin_lo"), r.get("g_bar_bin_hi")
+            if lo is not None and hi is not None and r.get("g_bar") is not None and not (lo <= r["g_bar"] <= hi):
+                problems.append(f"{where}: {mid} g_bar lies outside its bin edges")
+        bound = r.get("g_bar_bound")
+        if bound not in (None, "", "none"):
+            if not r.get("g_bar_bound_basis"):
+                problems.append(f"{where}: {mid} g_bar_bound is {bound} but g_bar_bound_basis is empty")
+            if any(r.get(c) is not None for c in ("g_bar_err_lo", "g_bar_err_hi", "g_bar_err_point_lo", "g_bar_err_point_hi")):
+                problems.append(f"{where}: {mid} g_bar is a bound but has g_bar error values")
+    if terms is not None and "in_error_columns" in terms.colnames:
+        trows = [dict(zip(terms.colnames, r)) for r in zip(*[_vals(terms[c]) for c in terms.colnames])]
+        for r in trows:
+            v = r.get("in_error_columns")
+            if v in (None, ""):
+                continue
+            if v not in ("yes", "no"):
+                problems.append(f"{where} uncertainty_terms {r['term_id']}: in_error_columns {v!r} not yes or no")
+            elif v == "no" and r.get("status") != "given":
+                problems.append(f"{where} uncertainty_terms {r['term_id']}: in_error_columns = no requires status = given")
+    ruling = desc.get("x_value_change_ruling")
+    if ruling is not None:
+        text = (ROOT / "docs/decisions.md").read_text(encoding="utf-8")
+        if not re.match(r"^D-\d{3}$", str(ruling)) or f"## {ruling} " not in text:
+            problems.append(f"{where} datapackage.json: x_value_change_ruling {ruling!r} is not a decision in docs/decisions.md")
     return problems
 
 
@@ -429,6 +500,8 @@ def validate(pkg: Path) -> list[str]:
         problems += validate_v2(pkg, meas)
     if _key(sv) >= (2, 2, 0):
         problems += validate_v22(pkg, meas)
+    if v2:
+        problems += validate_v24(pkg, meas, sv)
 
     # checksums.sha256 covers every committed file in the package
     sums = pkg / "checksums.sha256"
