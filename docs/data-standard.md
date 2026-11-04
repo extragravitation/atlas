@@ -1,6 +1,6 @@
 # Atlas data standard
 
-**Version 2.5.0 — FROZEN on merge** (D-095; minor version of 2.4.0). Frozen by hash in `data/frozen/data-standard-2.5.0.json`; `python -m aeg.check` fails if this file changes. The next change is a new version with its own file and freeze record. Earlier versions are kept unchanged at their own paths: 2.4.0 in `docs/data-standard-2.4.0.md`, 2.3.0 in `docs/data-standard-2.3.0.md`, 2.2.0 in `docs/data-standard-2.2.0.md`, 2.1.0 in `docs/data-standard-2.1.0.md`, 2.0.0 in `docs/data-standard-2.0.0.md` and 1.3.0 in `docs/data-standard-1.3.0.md`, each with its freeze record keeping the same hash at that path. Packages that state an earlier version are valid under that text and are never edited (references to "docs/data-standard.md §7" inside 1.x packages mean the 1.3.0 text).
+**Version 2.5.1 — FROZEN on merge** (D-099; patch of 2.5.0: wording of §12 only, no effect on any file). Frozen by hash in `data/frozen/data-standard-2.5.1.json`; `python -m aeg.check` fails if this file changes. The next change is a new version with its own file and freeze record. Earlier versions are kept unchanged at their own paths.
 
 What changed from 1.3.0, in one line: every measurement now keeps **what was observed** (observables table) as well as g_obs and g_bar, and records how it was selected, how strong the evidence is, how much it leans on fitted forms, whether it is plotted and why not, and which value is the default when several exist.
 
@@ -19,6 +19,7 @@ Semantic versioning, MAJOR.MINOR.PATCH, as in 1.x: **patch** = wording with no e
 | 2.3.0 | 2026-11-01 | D-084 | One baryonic-side quantity added to §4a: `v_circ_component`, the circular-velocity contribution of one baryonic component as computed and released by the source (component named in `source_ref`; stellar components at the source's stated Υ). One ladder step added to §4b: `potential_from_density` (the source solves for the component's potential from its surface density). Needed for rotation-curve mass models (SPARC v2). Nothing else changes |
 | 2.4.0 | 2026-11-04 | D-093 | From step A of the validation plan (all six datasets read at source). Optional §3 columns: `err_level_status`, `g_bar_err_level` and `g_bar_err_level_status` (confidence levels per side, including "not given by the source"); `g_bar_basis` with `g_bar_bin_lo/hi` (g_bar as the source's bin coordinate). §4 `err_level_status`. §7a: `applies_to` may list several systems; `size_kind` `upper_bound` and `lower_bound`; `size_column` may name a measurements column; new column `in_error_columns`. §9 key `x_value_change_ruling` (a ruled exception to §10 item 13). §2a rule 7 (a radius that is both the coordinate and an input). Clarified: the confidence level and rule 5 refer to the measured quantity. A bound on g_bar was considered and left out until a shipped dataset needs it (D-093). All additive; packages stating 2.3.0 or earlier stay valid |
 | 2.5.0 | 2026-11-04 | D-095 | One quantity added to §4a, on both sides: `acceleration_released`, an acceleration computed and released by the source (unit m / s2). Needed where a source releases g_obs or g_bar itself (KiDS-1000's binned g_bar; X-COP 2022's GOBS and GBAR). Nothing else changes; packages stating 2.4.0 or earlier stay valid |
+| 2.5.1 | 2026-11-04 | D-099 | Patch, wording only: §12 now says what packages already do. An extension column may hold a per-row or per-system size named by a §7a `size_column`, and a value a registry formula reads. Core views still never depend on extension columns otherwise. No file changes meaning |
 
 ## 1. Package layout
 
@@ -313,4 +314,6 @@ Duties outside the build (2.4.0): views say "confidence level not given by the s
 
 ## 12. Extension columns
 
-As 1.3.0: `x_<dataset short name>_<name>`, with full header information; validated for naming and header completeness only; the core site, sliders and cross-dataset views never depend on them.
+As 1.3.0: `x_<dataset short name>_<name>`, with full header information; validated for naming and header completeness only.
+
+The core site, sliders and cross-dataset views never depend on them, with two exceptions (2.5.1, D-099): an extension column may hold the size that a §7a `size_column` names, and a value that a registry effects formula reads (as `system.<column>` or a row column).
