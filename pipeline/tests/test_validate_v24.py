@@ -85,11 +85,17 @@ def test_terms_and_ruling(tmp_path):
     assert any("not a decision" in p for p in probs)
 
 
-def test_ruling_must_be_ruled(tmp_path):
-    pkg, meas = _pkg(tmp_path, {"g_bar": [1e-11]}, desc={"x_value_change_ruling": "D-093"})
+def test_ruling_must_be_ruled(tmp_path, monkeypatch):
+    import aeg.validate as v
+    root = tmp_path / "root"
+    (root / "docs").mkdir(parents=True)
+    (root / "docs/decisions.md").write_text("## D-200 — Pending\n\n**Ruling: pending.**\n\n## D-201 — Old\n\n**Ruling.** Yes.\n",
+                                            encoding="utf-8")
+    monkeypatch.setattr(v, "ROOT", root)
+    pkg, meas = _pkg(tmp_path, {"g_bar": [1e-11]}, desc={"x_value_change_ruling": "D-200"})
     assert any("has no ruling yet" in p for p in validate_v24(pkg, meas, "2.4.0"))
-
-
+    pkg2, meas2 = _pkg(tmp_path / "b", {"g_bar": [1e-11]}, desc={"x_value_change_ruling": "D-201"})
+    assert validate_v24(pkg2, meas2, "2.4.0") == []
 def test_subset_terms(tmp_path):
     term = {"term_id": "cal", "scale": "system", "applies_to": "aeg-s-000001;aeg-s-000002", "moves": "g_obs",
             "status": "not_given_by_source"}
