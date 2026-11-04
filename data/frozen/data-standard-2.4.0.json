@@ -1,8 +1,8 @@
 {
   "description": "Data standard 2.4.0 (minor: optional columns err_level_status, g_bar_basis with bin edges, g_bar_bound with its basis; \u00a77a in_error_columns; descriptor key x_value_change_ruling; \u00a72a rule 7; D-093). Earlier texts stay frozen at their own paths. The validator is not frozen: it must keep implementing the frozen texts.",
-  "frozen_on": "2026-11-04",
+  "frozen_on": "on merge (set to the merge date)",
   "decision": "D-093",
   "files": {
-    "docs/data-standard.md": "1e52f725f6cfc95a84317c67be8afbfdb9184b25e91893802d05d5b614ba7337"
+    "docs/data-standard.md": "7ccc8f85738e4572aa07baa31a5cc0bd4e27d45bd3e354ea4ed1bb0709e25be4"
   }
 }

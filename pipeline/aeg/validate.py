@@ -88,6 +88,9 @@ CLOSED_V2 = {
     "method_class": {"kinematic", "hydrostatic", "lensing", "ephemeris"},
     "measured_quantity": {"g_obs", "delta_g"},
     "limit": {"none", "upper", "lower"},
+    # 2.4.0 adds not_given_by_source to the component statuses (validate_v24 rejects it before 2.4.0).
+    **{k: {"measured", "modelled", "absent", "not_separable", "not_given_by_source"}
+       for k in ("stars_status", "gas_cold_status", "gas_hot_status")},
     "model_dependence": {"none", "observable_form", "total_mass_form"},
     "role": {"default", "alternative"},
     "not_plotted_reason": {"coverage_below_threshold", "aperture_uncorrected", "central_only",
@@ -102,10 +105,11 @@ CORE_MEAS_V2 = CORE_MEAS | set(REQUIRED_MEAS_V2) | {"delta_g", "delta_g_err_lo",
 POINT_ERR_COLS = ["g_obs_err_point_lo", "g_obs_err_point_hi", "g_bar_err_point_lo", "g_bar_err_point_hi"]
 CORE_MEAS_V2 = CORE_MEAS_V2 | set(POINT_ERR_COLS)
 # 2.4.0 (D-093): optional columns. Allowed only for packages stating 2.4.0 or later (validate_v24).
-MEAS_COLS_V24 = ["err_level_status", "g_bar_basis", "g_bar_bin_lo", "g_bar_bin_hi", "g_bar_bound", "g_bar_bound_basis"]
+MEAS_COLS_V24 = ["err_level_status", "g_bar_err_level", "g_bar_err_level_status", "g_bar_basis", "g_bar_bin_lo", "g_bar_bin_hi", "g_bar_bound", "g_bar_bound_basis"]
 CORE_MEAS_V2 = CORE_MEAS_V2 | set(MEAS_COLS_V24)
 CLOSED_V24 = {
     "err_level_status": {"stated", "not_given_by_source"},
+    "g_bar_err_level_status": {"stated", "not_given_by_source"},
     "g_bar_basis": {"computed", "bin_coordinate"},
     "g_bar_bound": {"none", "lower", "upper"},
 }
@@ -117,7 +121,7 @@ TERMS_CLOSED = {
     "scale": {"point", "system", "dataset"},
     "moves": {"g_obs", "g_bar", "both"},
     "status": {"given", "given_by_other_source", "not_given_by_source"},
-    "size_kind": {"one_sigma", "range", "as_released"},
+    "size_kind": {"one_sigma", "range", "as_released", "upper_bound", "lower_bound"},
     "covariance": {"published", "not_published", "not_applicable"},
 }
 QUANTITIES = {
@@ -142,7 +146,7 @@ LADDER_STEPS = {
     "hi_21cm", "co_line", "xray", "surface_density", "mass", "helium_factor", "potential_from_density",
 }
 CORE_OBS = {"observable_id", "system_id", "side", "quantity", "value", "err_lo", "err_hi", "unit", "band", "limit",
-            "err_level", "r_kpc", "r_kind", "r_in_kpc", "r_out_kpc", "steps", "evidence_tier", "in_text", "source_ref"}
+            "err_level", "err_level_status", "r_kpc", "r_kind", "r_in_kpc", "r_out_kpc", "steps", "evidence_tier", "in_text", "source_ref"}
 REQUIRED_OBS = ["observable_id", "side", "quantity", "value", "unit", "limit", "steps", "evidence_tier", "source_ref"]
 CORE_SYS_V2 = CORE_SYS | {"taxonomy_kind", "kind_label", "host", "distance_kinematic", "distance_ref", "redshift",
                           "redshift_err", "metallicity_feh"}
@@ -170,7 +174,8 @@ def quantities_for(standard_version: str) -> dict[str, set[str]]:
 
 
 UNITS_V2 = {**UNITS, "delta_g": "m / s2", "delta_g_err_lo": "m / s2", "delta_g_err_hi": "m / s2",
-            "r_in_kpc": "kpc", "r_out_kpc": "kpc", **{c: "m / s2" for c in POINT_ERR_COLS}}
+            "r_in_kpc": "kpc", "r_out_kpc": "kpc", **{c: "m / s2" for c in POINT_ERR_COLS},
+            "g_bar_bin_lo": "m / s2", "g_bar_bin_hi": "m / s2"}
 
 
 def _key(v: str) -> tuple:
@@ -214,15 +219,16 @@ def validate_v22(pkg: Path, meas) -> list[str]:
     registry = {a["id"] for a in json.loads((ROOT / "data/assumptions.json").read_text(encoding="utf-8"))["assumptions"]}
     for r in rows:
         tid = r["term_id"]
-        if r["applies_to"] != "*" and r["applies_to"] not in systems_ids:
+        targets = [] if r["applies_to"] == "*" else [t.strip() for t in str(r["applies_to"]).split(";")]
+        if any(t not in systems_ids for t in targets):
             problems.append(f"{where} uncertainty_terms {tid}: applies_to {r['applies_to']!r} is not '*' or a system in the package")
         if r["status"] in ("given", "given_by_other_source"):
             has_size = r.get("size_value") is not None or (r.get("size_lo") is not None and r.get("size_hi") is not None)
             col = r.get("size_column")
             if col:
-                has_size = has_size or col in sys_cols
-                if col not in sys_cols:
-                    problems.append(f"{where} uncertainty_terms {tid}: size_column {col!r} is not a systems column")
+                has_size = has_size or col in sys_cols or col in meas.colnames
+                if col not in sys_cols and col not in meas.colnames:
+                    problems.append(f"{where} uncertainty_terms {tid}: size_column {col!r} is not a systems or measurements column")
             if not has_size:
                 problems.append(f"{where} uncertainty_terms {tid}: given term without a size")
         if r.get("assumption_id") and r["assumption_id"] not in registry:
@@ -241,10 +247,22 @@ def validate_v22(pkg: Path, meas) -> list[str]:
     return problems
 
 
+def _rows(table):
+    return [dict(zip(table.colnames, r)) for r in zip(*[_vals(table[c]) for c in table.colnames])]
+
+
+def _level_rule(where, mid, status, level, name):
+    if status == "not_given_by_source" and level is not None:
+        return [f"{where}: {mid} {name}_status is not_given_by_source but {name} is set"]
+    if status == "stated" and level is None:
+        return [f"{where}: {mid} {name}_status is stated but {name} is empty"]
+    return []
+
+
 def validate_v24(pkg: Path, meas, sv) -> list[str]:
     """Rules added in standard 2.4.0 (docs/data-standard.md §10 items 14 to 18; D-093).
 
-    For packages stating an earlier version, the 2.4.0 columns and keys are not allowed.
+    For packages stating an earlier version, the 2.4.0 columns, values and keys are not allowed.
     """
     from astropy.table import Table
     dataset, version = pkg.parent.name, pkg.name
@@ -252,12 +270,27 @@ def validate_v24(pkg: Path, meas, sv) -> list[str]:
     problems: list[str] = []
     terms_path = pkg / "tables/uncertainty_terms.ecsv"
     terms = Table.read(terms_path, format="ascii.ecsv") if terms_path.is_file() else None
+    trows = _rows(terms) if terms is not None else []
+    obs_path = pkg / "tables/observables.ecsv"
+    obs = Table.read(obs_path, format="ascii.ecsv") if obs_path.is_file() else None
     desc_path = pkg / "datapackage.json"
     desc = json.loads(desc_path.read_text(encoding="utf-8")) if desc_path.is_file() else {}
+    rows = _rows(meas)
+    status_cols = [c for c in ("stars_status", "gas_cold_status", "gas_hot_status") if c in meas.colnames]
     if _key(sv) < (2, 4, 0):
         used = [c for c in MEAS_COLS_V24 if c in meas.colnames]
+        if obs is not None and "err_level_status" in obs.colnames:
+            used.append("observables.err_level_status")
+        if any(r.get(c) == "not_given_by_source" for r in rows for c in status_cols):
+            used.append("status value not_given_by_source")
         if terms is not None and "in_error_columns" in terms.colnames:
             used.append("in_error_columns")
+        if any(";" in str(r.get("applies_to") or "") for r in trows):
+            used.append("list-valued applies_to")
+        if any(r.get("size_kind") in ("upper_bound", "lower_bound") for r in trows):
+            used.append("size_kind upper_bound/lower_bound")
+        if any(r.get("size_column") and r["size_column"] in meas.colnames for r in trows):
+            used.append("measurements size_column")
         if "x_value_change_ruling" in desc:
             used.append("x_value_change_ruling")
         if used:
@@ -268,38 +301,60 @@ def validate_v24(pkg: Path, meas, sv) -> list[str]:
             bad = {v for v in _vals(meas[name]) if v not in (None, "") and v not in allowed}
             if bad:
                 problems.append(f"{where} measurements: {name} has values outside the closed list: {sorted(bad)}")
-    rows = [dict(zip(meas.colnames, r)) for r in zip(*[_vals(meas[c]) for c in meas.colnames])]
+    if obs is not None and "err_level_status" in obs.colnames:
+        bad = {v for v in _vals(obs["err_level_status"]) if v not in (None, "") and v not in CLOSED_V24["err_level_status"]}
+        if bad:
+            problems.append(f"{where} observables: err_level_status has values outside the closed list: {sorted(bad)}")
+        for r in _rows(obs):
+            problems += _level_rule(f"{where} observables", r.get("observable_id", "?"), r.get("err_level_status"),
+                                    r.get("err_level"), "err_level")
     for r in rows:
         mid = r.get("measurement_id", "?")
-        if r.get("err_level_status") == "not_given_by_source" and r.get("err_level") is not None:
-            problems.append(f"{where}: {mid} err_level_status is not_given_by_source but err_level is set")
-        if r.get("g_bar_basis") == "bin_coordinate":
+        problems += _level_rule(where, mid, r.get("err_level_status"), r.get("err_level"), "err_level")
+        problems += _level_rule(where, mid, r.get("g_bar_err_level_status"), r.get("g_bar_err_level"), "g_bar_err_level")
+        basis = r.get("g_bar_basis")
+        lo, hi = r.get("g_bar_bin_lo"), r.get("g_bar_bin_hi")
+        if (lo is not None or hi is not None) and basis != "bin_coordinate":
+            problems.append(f"{where}: {mid} has g_bar bin edges but g_bar_basis is not bin_coordinate")
+        if basis == "bin_coordinate":
             if r.get("g_bar_err_point_lo") is not None or r.get("g_bar_err_point_hi") is not None:
                 problems.append(f"{where}: {mid} g_bar is a bin coordinate but has point-scale g_bar errors")
-            lo, hi = r.get("g_bar_bin_lo"), r.get("g_bar_bin_hi")
-            if lo is not None and hi is not None and r.get("g_bar") is not None and not (lo <= r["g_bar"] <= hi):
-                problems.append(f"{where}: {mid} g_bar lies outside its bin edges")
+            if lo is not None and hi is not None:
+                if lo > hi:
+                    problems.append(f"{where}: {mid} g_bar_bin_lo exceeds g_bar_bin_hi")
+                elif r.get("g_bar") is not None and not (lo <= r["g_bar"] <= hi):
+                    problems.append(f"{where}: {mid} g_bar lies outside its bin edges")
         bound = r.get("g_bar_bound")
         if bound not in (None, "", "none"):
             if not r.get("g_bar_bound_basis"):
                 problems.append(f"{where}: {mid} g_bar_bound is {bound} but g_bar_bound_basis is empty")
             if any(r.get(c) is not None for c in ("g_bar_err_lo", "g_bar_err_hi", "g_bar_err_point_lo", "g_bar_err_point_hi")):
                 problems.append(f"{where}: {mid} g_bar is a bound but has g_bar error values")
-    if terms is not None and "in_error_columns" in terms.colnames:
-        trows = [dict(zip(terms.colnames, r)) for r in zip(*[_vals(terms[c]) for c in terms.colnames])]
-        for r in trows:
-            v = r.get("in_error_columns")
-            if v in (None, ""):
-                continue
-            if v not in ("yes", "no"):
-                problems.append(f"{where} uncertainty_terms {r['term_id']}: in_error_columns {v!r} not yes or no")
-            elif v == "no" and r.get("status") != "given":
-                problems.append(f"{where} uncertainty_terms {r['term_id']}: in_error_columns = no requires status = given")
+            if basis == "bin_coordinate":
+                problems.append(f"{where}: {mid} g_bar is both a bound and a bin coordinate")
+            if not any(r.get(c) == "not_given_by_source" for c in status_cols):
+                problems.append(f"{where}: {mid} g_bar is a bound but no component status is not_given_by_source")
+    for r in trows:
+        v = r.get("in_error_columns")
+        if v in (None, ""):
+            continue
+        tid = r["term_id"]
+        if v not in ("yes", "no"):
+            problems.append(f"{where} uncertainty_terms {tid}: in_error_columns {v!r} not yes or no")
+        elif v == "no":
+            has_size = r.get("size_value") is not None or (r.get("size_lo") is not None and r.get("size_hi") is not None) \
+                or bool(r.get("size_column"))
+            if not (r.get("scale") == "point" and r.get("applies_to") == "*" and r.get("status") == "given" and has_size):
+                problems.append(f"{where} uncertainty_terms {tid}: in_error_columns = no requires scale = point, "
+                                f"applies_to = *, status = given and a size")
     ruling = desc.get("x_value_change_ruling")
     if ruling is not None:
         text = (ROOT / "docs/decisions.md").read_text(encoding="utf-8")
-        if not re.match(r"^D-\d{3}$", str(ruling)) or f"## {ruling} " not in text:
+        m = re.search(rf"^## {re.escape(str(ruling))} .*?(?=^## D-|\Z)", text, flags=re.S | re.M)
+        if not re.match(r"^D-\d{3}$", str(ruling)) or not m:
             problems.append(f"{where} datapackage.json: x_value_change_ruling {ruling!r} is not a decision in docs/decisions.md")
+        elif "Ruling: pending" in m.group(0) or "**Ruling (" not in m.group(0):
+            problems.append(f"{where} datapackage.json: x_value_change_ruling {ruling!r} has no ruling yet")
     return problems
 
 

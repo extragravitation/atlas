@@ -1915,12 +1915,16 @@ The Zenodo record shows the preliminary note.
 The X-COP v2 test (D-089, D-090) added two needs.
 
 **Proposed rules.** Everything is additive (§0), so this is a minor version. Packages stating 2.3.0 or earlier stay valid and are not edited.
-1. **`err_level_status`:** a confidence level the source does not give is recorded as such, never read as 0.683 (X-COP 2022 files).
+1. **Confidence levels.** A level the source does not give is recorded as such, never read as 0.683 (X-COP 2022 files): `err_level_status` in measurements and observables. `err_level` refers to the measured quantity, and g_bar gets its own `g_bar_err_level` and status, because one row can carry two levels (dwarf σ limits at 90–95.5 % with 1σ g_bar errors).
 2. **`g_bar_basis = bin_coordinate`**, with optional bin edges: g_bar that is the source's binning coordinate, with no point error by construction (KiDS).
-3. **`g_bar_bound`**, with `g_bar_bound_basis`: a bound on the source's central g_bar from the components it gives. It is not a confidence limit. Bound rows are excluded from averages, fits and pattern-test inputs (X-COP A8 stage 2, #129).
-4. **§7a `in_error_columns`:** a point-scale term the source states but leaves out of its released errors is recorded and shown beside the bars, never added in (KiDS K2, 0.1 dex).
-5. **`x_value_change_ruling`:** a ruled exception to §10 item 13 (X-COP v2, D-090 rule 1).
-6. **§2a rule 7:** a radius that is both the coordinate and an input has its error carried by the side whose value changes, from the formula, not "at fixed radius" by convention (lenses, step A finding F1).
+3. **`g_bar_bound`**, with `g_bar_bound_basis`: a bound on the source's central g_bar from the components it gives. It is not a confidence limit. The missing component's status is the new value `not_given_by_source`. g_obs errors are kept. Bound rows are excluded from averages, fits and pattern-test inputs, and stay unplotted until every site view draws the bound in its direction (X-COP A8 stage 2, #129). D-088 item 2's "upper bound" (v1's projected stellar term) is a different kind of bound: on a corrected spherical value, not on the source's central value. It is not expressed with this column.
+4. **§7a additions.**
+   - `in_error_columns`: a point-scale term the source states but leaves out of its released errors is recorded and shown beside the bars, never added in (KiDS K2, 0.1 dex).
+   - `applies_to` may list several systems, for a term shared by a subset (MaNGA's one Υ_ref; one distance calibration for 21 dwarfs; one velocity pipeline).
+   - `size_kind` gains `upper_bound` and `lower_bound`, for sizes stated as "up to" or as lower bounds (lens H0 shifts; NGC 6505's measurement-only errors).
+   - `size_column` may name a measurements column, for sizes that vary by radius.
+5. **`x_value_change_ruling`:** a ruled exception to §10 item 13 (X-COP v2, D-090 rule 1). It generalises D-090's "one exception" into a mechanism. Each use still needs its own ruling, and the validator accepts only a decision that has been ruled.
+6. **§2a rule 7:** a radius that is both the coordinate and an input has its error carried by the side whose value changes, from the formula, not "at fixed radius" by convention (lenses, step A finding F1). It applies only to packages issued under 2.4.0. It states how §2a rule 2's "the axes it moves" is found for this case, so it is a clarification, not a new requirement on earlier packages; that is why the version is minor.
 
 **What step A found that needs no standard change,** because §2a rule 5 and §7a already cover it:
 - **Distance acts through the formulas, not "on both axes".** For dwarfs, globular clusters (calibration part) and lenses, distance moves g_obs ∝ 1/D and leaves the stellar g_bar nearly unchanged, because luminosity ∝ D² cancels the radius². For globular clusters, a reddening error moves both axes. Each cause is its own uncertainty-terms row with its own registry formula.
@@ -1932,6 +1936,10 @@ The X-COP v2 test (D-089, D-090) added two needs.
   - errors v1 omits.
 
 **Reason.** These are the smallest additions that let every v2 package say what its sources say, without inventing a size or hiding a term.
+
+**A reader that ignores the new columns would misread `g_bar`** on bound or bin-coordinate rows. So no 2.4.0 package with such rows ships until the site handles them.
+
+**Reviewed** independently before ruling (`docs/sources/readings/step-a-2026-11-04/standard-review-1.md`, `standard-review-2.md`).
 
 **Alternatives rejected.**
 - **Changing `limit` to cover g_bar:** a major change, and it would break validation rule 5 for every package.
