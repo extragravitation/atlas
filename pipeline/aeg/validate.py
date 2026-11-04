@@ -17,7 +17,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-KNOWN_STANDARD_VERSIONS = {"1.0.0", "1.1.0", "1.2.0", "1.2.1", "1.3.0", "2.0.0", "2.1.0", "2.2.0", "2.3.0", "2.4.0"}
+KNOWN_STANDARD_VERSIONS = {"1.0.0", "1.1.0", "1.2.0", "1.2.1", "1.3.0", "2.0.0", "2.1.0", "2.2.0", "2.3.0", "2.4.0", "2.5.0"}
 
 FLAGS = {"no_uncertainty", "beyond_source_range", "inner_resolution_limited", "source_quality_low", "reproduction_mismatch"}
 CLOSED = {
@@ -154,6 +154,7 @@ INVENTORY_STATUS = {"measured", "modelled", "known_unmeasured", "stated_negligib
 QUANTITIES_ADDED = {
     "2.1.0": {"observed": {"einstein_mass"}},  # D-076 item 4
     "2.3.0": {"baryonic": {"v_circ_component"}},  # D-084 item 3
+    "2.5.0": {"observed": {"acceleration_released"}, "baryonic": {"acceleration_released"}},  # D-095
 }
 
 

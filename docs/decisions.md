@@ -1999,3 +1999,29 @@ The X-COP v2 test (D-089, D-090) added two needs.
 **Reason.** A ruled statement that the sources and the algebra contradict is corrected openly, not quietly in a package.
 
 **Data seen.** The step A readings and adjudication. No v2 value has been computed.
+
+## D-095 — Data standard 2.5.0: a quantity for accelerations released by the source
+
+**Ruling: pending.** **Proposed by** Claude (2026-11-04), while writing the KiDS-1000 v2 test (step D).
+
+**Context.**
+- Every v2 package lists, in its observables table, the published values its g_obs and g_bar come from (D-029). Their quantities come from the closed list in §4a.
+- **Two v0.2 sources release the accelerations themselves:**
+  - KiDS-1000 releases g_bar per bin, computed from each lens's stellar and cold-gas mass and binned (Brouwer et al. 2021 §2.1, §4.3).
+  - X-COP 2022 releases GOBS and GBAR per radius (Eckert et al. 2022; `gbar_gobs_<C>.fits`).
+- No §4a quantity holds a released acceleration. 2.4.0 missed this: step A read uncertainties, not observables.
+
+**Proposed rule.**
+- Add one quantity to §4a, allowed on both sides: `acceleration_released`. It is an acceleration computed and released by the source, unit m s⁻².
+- What it includes, and how the source computed it, are named in `source_ref` and in the row's `steps`, from the existing ladders.
+- This is a minor version (2.5.0): a new closed-list value. Packages stating 2.4.0 or earlier stay valid.
+
+**Reason.**
+- It is the smallest addition that lets both datasets record what the source actually released, instead of an invented intermediate quantity.
+- It meets "build for what ships": both datasets are in v0.2.
+
+**Alternatives rejected.**
+- **Back-computing masses (g r²/G) and recording them as `mass_star` or `mass_hse`:** the Atlas would be inventing an observable the source did not release.
+- **Leaving these observables out:** it breaks D-029's requirement that every input be recorded.
+
+**Data seen.** The v1 KiDS package and the X-COP v2 test. No v2 value has been computed.
