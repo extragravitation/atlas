@@ -36,6 +36,8 @@ export async function loadIssues() {
       state: g ? g.state : 'open', status: g ? field(g.body, 'Status') || g.state : 'open (from the package file)',
       found: g ? field(g.body, 'Found') || g.created_at.slice(0, 10) : null, closed: g?.closed_at ? g.closed_at.slice(0, 10) : null,
       whatHtml: what ? md(esc(what.split(/\n\n/)[0])) : '',
+      // Dataset versions the issue names in its body, e.g. `aeg-d-dwarfs/v1` (issues not listed in a package file).
+      mentions: g ? [...new Set(((g.title || '') + '\n' + (g.body || '')).match(/aeg-d-[a-z0-9-]+\/v\d+/g) || [])] : [],
       packages: ls.map((k) => ({ dataset: k.dataset, name: k.datasetName, version: k.version, flag: k.flag, measurements: k.measurements || [], clusters: k.clusters || [] })),
     };
   });

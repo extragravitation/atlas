@@ -5,6 +5,7 @@ import Base from '../../../layouts/Base.astro';
 import L from '../../../components/L.astro';
 import Layer from '../../../components/Layer.astro';
 import { loadAtlas } from '../../../lib/atlas.mjs';
+import { loadIssues } from '../../../lib/issues.mjs';
 import { datasetLabel, assumptionLabel, fmtParam, systemsText } from '../../../lib/labels.mjs';
 import { md, resultLine, REPO } from '../../../lib/md.mjs';
 import LensDataset from '../../../components/LensDataset.astro';
@@ -25,6 +26,9 @@ const rr = resultLine(d.md.reproductionResult), mt = resultLine(d.md.modelTestRe
 const checks = d.checksums.trim().split('\n').filter(Boolean).map((l) => { const [h, ...f] = l.trim().split(/\s+/); return { h, f: f.join(' ').replace(/^\*/, '') }; });
 const stems = d.files.map((f) => f.replace(/^tables\//, '').replace(/\.ecsv$/, ''));
 const dl = (f) => `${base}downloads/${d.name}/${d.version}/${f}`;
+const issues = await loadIssues();
+const listed = new Set(d.knownIssues.map((k) => k.issue));
+const named = issues.items.filter((i) => !listed.has(i.number) && (i.mentions || []).includes(`${d.name}/${d.version}`));
 const counts = {};
 for (const r of d.measurements.rows) for (const f of (r.flags || '').split(';').filter(Boolean)) counts[f] = (counts[f] || 0) + 1;
 const channels = [...new Set(d.measurements.rows.map((r) => r.channel))];
@@ -96,7 +100,8 @@ const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(lens ? [[
       </details>
 
       <h2 id="issues">Known issues and flags</h2>
-      {d.knownIssues.length === 0 && <p>No known issues.</p>}
+      {d.knownIssues.length === 0 && named.length === 0 && <p>No known issues.</p>}
+      {named.length > 0 && <ul>{named.map((i) => <li><a href={i.url}>#{i.number}</a>: {i.title} <span class="small">({i.state === 'closed' ? `resolved ${i.closed || ''}` : 'open'}; recorded on GitHub, not in the package file)</span></li>)}</ul>}
       {d.knownIssues.length > 0 && <ul>{d.knownIssues.map((k) => <li><a href={k.url}>#{k.issue}</a>: {k.title} ({(k.measurements || []).length} measurements, flag <code>{k.flag}</code>)</li>)}</ul>}
       {Object.keys(counts).length > 0 && <p class="small">Flags in this package: {Object.entries(counts).map(([f, n]) => `${f} (${n})`).join(', ')}.</p>}
       {d.name === 'aeg-d-xcop' && d.version === 'v1' && <Layer as="p" class="small"><Fragment slot="t"><b>Correction (2026-11-02).</b> For the seven clusters with measured stars, this version treats the released stellar-mass profiles as masses enclosed in a sphere. The source paper says they are projected (Ghizzardi et al. 2021, §5.1). A projected mass is never smaller than the spherical one, so the stellar part of g_bar here is an upper bound, and g_bar is too high wherever stars contribute: by a factor of 1/0.75 in the stellar term at R500, the source's own conversion, and by an amount the source does not determine in the cluster centres, where stars dominate. This is the Atlas's error. This version stays published unchanged; the next version will mark these values as upper bounds (D-088, <a href="https://github.com/extragravitation/atlas/issues/124">#124</a>).</Fragment><Fragment slot="p"><b>Correction (2 November 2026).</b> We made a mistake. For seven clusters, the star masses in the released files are measured through a column of sky, not inside a ball, and we treated them as if they were inside a ball. That makes the pull from visible matter look too large, most of all near the cluster centres. This version stays as it was, so the record is clear; the next version will show these values as upper limits (<a href="https://github.com/extragravitation/atlas/issues/124">#124</a>).</Fragment></Layer>}
