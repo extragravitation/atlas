@@ -2068,3 +2068,37 @@ Fixing only the cases found would itself be a selection.
 **Reason.** It applies D-025 as written, with a test two readers can apply the same way.
 
 **Data seen.** The step A readings and adjudications. No v2 value has been computed.
+
+## D-098 — Clarifying D-096 and D-097: same data points, three classes
+
+**Ruling (2026-11-04, JvH).** "D-098 as recommended". **Proposed by** Claude (2026-11-04), from the independent reviews of the draft dwarf and globular-cluster v2 tests (`docs/sources/readings/step-d-2026-11-04/dwarfs-review-1.md`, `gc-review-1.md`), and rechecked at JvH's request before the ruling. **Adopted unchanged.**
+
+**Context.**
+- **D-096's context is wrong for NGC 2298 and Pal 5. Claude's error.** It says v1 uses the outermost bins that Baumgardt & Hilker 2018 dropped. It does not. v1 uses the line-of-sight bins of the current Baumgardt database (`veldis.html`): NGC 2298 at 23.12″ and 101.86″, Pal 5 at 129.05″ and 341.56″. These are not BH18's bins. BH18 dropped its outermost points because the profiles "increase towards the outer parts" (arXiv 1804.08359v2, l. 226). In the bins v1 uses, σ falls outward: 3.52 to 2.92 km/s (NGC 2298) and 1.30 to 1.12 km/s (Pal 5).
+- **D-097's example for these clusters misreads the sentence's hedge.** BH18 (l. 226–227) writes that the rise "could be due to the ongoing tidal disruption of these clusters", citing Odenkirchen et al. 2002 and Balbinot et al. 2011. "Could" hedges only the link to the profile. The disruption itself is stated as fact.
+- **Phoenix II raises no conflict between rulings.** The dwarf review asked whether D-038 overrides D-096 rule 1. No part of D-038 chooses between membership samples: 1A is about whether the stars reach beyond the half-light radius, and 2B is about multi-population fits. v1's 9.5 km/s was not a ruled choice.
+
+**Rules.**
+1. **D-096 rule 2 (excluded data) applies only to the same data points.** It changes a value only where the Atlas computes from the data points the source excluded.
+   - M54 qualifies: the Atlas applies the same 200″ radius cut as Baumgardt 2017.
+   - NGC 2298 and Pal 5 do not: the Atlas uses different bins, and the rise that justified the source's exclusion is absent from them.
+   - D-096's context bullet on NGC 2298 and Pal 5 is replaced by this rule's context.
+2. **D-097 uses three classes, decided by what the source says:**
+   - **Finding:** the source states, in its own words or by citing others, that the system *is* out of equilibrium, unbound or being tidally disrupted. The system is excluded under D-097 rule 1.
+   - **Possibility:** that state itself is hedged ("may be disrupting"). The system stays plotted under D-097 rule 2.
+   - **Neither:** tidal tails, mass loss or tidal extension mentioned on their own. These do not say whether the measured inner motions are in balance. Nothing is recorded beyond the reader's note.
+3. **Sources that count for D-097** are the system's dispersion source as used (for pooled data, the re-analysis papers behind it), its structure original and its distance original. This refines D-097 rule 3.
+4. **NGC 2298 and Pal 5 are findings.** They are excluded from the plotted set and stay visible on their own pages, with BH18's quotation. D-097's example for them is replaced by this rule.
+5. **Phoenix II follows D-096 rule 1.** The source's preferred certain-members value (11.0 km/s, Fritz et al. 2019) becomes the default, and 9.5 km/s becomes an alternative. The second reader still checks D-038 1A for the certain-members sample. No precedence rule is added.
+
+**Reason.**
+- Rules 1 and 4 correct two statements in ruled decisions that the sources contradict, openly and before any v2 value exists.
+- The "neither" class keeps D-025 from emptying the globular-cluster set: every cluster loses stars, and tidal tails alone say nothing about the inner kinematics.
+- D-025's test is what the source *describes*. That BH18 still fitted these clusters does not change what it describes. Pal 5's dispersion of about 1 km/s, from about 20 stars per bin, is also where an equilibrium estimate is weakest.
+
+**Alternatives rejected.**
+- **Keeping NGC 2298 and Pal 5 plotted as possibilities:** this reads "could" as hedging the disruption, which the sentence does not support.
+- **A general precedence rule between D-038 and D-096:** no case needs it.
+- **Dropping the outermost v1 bin of each cluster:** these are not the points the source dropped, and each cluster would be left with one bin, too few to convert.
+
+**Data seen.** The step A readings and adjudications, the two step D reviews, the BH18 text, and the v1 input bins for NGC 2298, Pal 5 and M54 in `veldis.html` (already public in v1). No v2 value has been computed. What the exclusions do to any plot was not looked at.
