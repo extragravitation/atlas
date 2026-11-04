@@ -1,6 +1,6 @@
 # aeg-d-kids1000-rar/v2: reproduction test (draft; frozen on merge, before conversion)
 
-**Status: draft, for JvH's approval.** Written 2026-11-04, before `convert.py` for v2 exists. No v2 value has been computed. On merge, this file's SHA-256 goes into `v2/sources.json`, and it is not edited after the first v2 conversion run. If the test fails, the failure is published, and the test is not changed to pass (operating rule 5).
+**Status: draft, revision 2, for JvH's approval.** Revision 2 answers an independent review (`docs/sources/readings/step-d-2026-11-04/kids-review-1.md`). Written 2026-11-04, before `convert.py` for v2 exists. No v2 value has been computed. On merge, this file's SHA-256 goes into `v2/sources.json`, and it is not edited after the first v2 conversion run. If the test fails, v2 does not ship and the failure is published; the test is not changed to pass (operating rule 5; D-005).
 
 **Depends on** data standard 2.5.0 (D-095, proposed), for the quantity `acceleration_released`. If D-095 is not adopted, this test is revised before freezing.
 
@@ -26,7 +26,7 @@ Applied to the v2 tables, with v1 at commit `5dc4091` as the reference.
 ### A. Values unchanged (D-083 item 3)
 
 1. v2 has exactly 45 measurement rows. Row k of v2 has the same `x_kids1000_rar_sample` and `source_ref` as row k of v1.
-2. `g_obs`, `g_obs_err_lo`, `g_obs_err_hi` and `g_bar` are **bit-for-bit equal** (identical float64) to v1's. So are the four `x_kids1000_rar_*` columns.
+2. `g_obs`, `g_obs_err_lo`, `g_obs_err_hi` and `g_bar` are **bit-for-bit equal** (identical float64) to v1's. So are the four `x_kids1000_rar_*` columns. **Every other v1 column is unchanged**, except `flags` (test 6), `assumptions` (test 7), and the role, status and plotting columns set in test 9.
 3. `tables/covariance.ecsv` is identical to v1's, apart from the `measurement_id` prefix (`v1` → `v2`).
 
 ### B. Uncertainties (standard 2.4.0 and 2.5.0; §2a, §3, §7a)
@@ -37,48 +37,61 @@ Applied to the v2 tables, with v1 at commit `5dc4091` as the reference.
    - No point-scale columns are added, because the totals are already point-scale only.
 5. **g_bar as the bin coordinate.**
    - Every row has `g_bar_basis = bin_coordinate`. `g_bar_err_*` and `g_bar_err_point_*` are empty.
-   - `g_bar_bin_lo` and `g_bar_bin_hi` hold the edges of the source's bin k: 10^(−15 + (k−1)·Δ) and 10^(−15 + k·Δ) m s⁻², with Δ = log₁₀(5×10⁻¹²/10⁻¹⁵)/15, for row k (1 to 15) of each file.
-   - **Check:** every released g_bar lies inside its row's bin. A row outside its bin is a fail, and then the bin reading of §2.1 goes to the authors.
-6. **The `no_uncertainty` flag is removed.** In v1 it referred to g_bar only (#64). `g_bar_basis` now states the reason exactly, so #64 is resolved in v2. `source_quality_low` stays on the same 16 rows.
-7. **Uncertainty terms.** `tables/uncertainty_terms.ecsv` contains exactly these rows. Each cites Brouwer et al. 2021 at the location in `uncertainty-readings.md` §1, and `covariance` is `not_published`, except K1's, which is `published` (`tables/covariance.ecsv`).
+   - `g_bar_bin_lo` and `g_bar_bin_hi` hold the edges of the source's bin k: 10^(−15 + (k−1)·Δ) and 10^(−15 + k·Δ) m s⁻², with Δ = log₁₀(5×10⁻¹²/10⁻¹⁵)/15 ≈ 0.2466, for row k (1 to 15) of each file, to a relative tolerance of 1e-12. The source states these bins in general (§2.1, l. 174). That the hot-gas file uses the same edges is the Atlas's inference, stated in its rows' `notes`.
+   - **Check:** every released g_bar lies inside its row's bin. A row outside its bin is a fail. This check is not blind: the step A reading already found that the released values fall inside these bins (`uncertainty-readings.md` §1.1).
+6. **The `no_uncertainty` flag is removed.** In v1 it referred to g_bar only (#64). Under §3, `g_bar_basis = bin_coordinate` now states the reason exactly (no point error by construction), so #64 is resolved in v2. `source_quality_low` stays on the same 16 rows as v1. For the hot-gas rows this carries v1's use of the KiDS-bright g_bar limit, which may under-flag them, because the source's limit is a radius (R > 0.3 h70⁻¹ Mpc, App. A l. 748). This is disclosed in the K13 term's note and opened as a known issue; the flags are not changed in a no-change re-issue.
+7. **Uncertainty terms.** `tables/uncertainty_terms.ecsv` contains exactly these rows.
+   - Each cites Brouwer et al. 2021 at the location in `uncertainty-readings.md` §1, and `covariance` is `not_published` on every row. (K1's covariance is in `tables/covariance.ecsv`; K1 is in the error columns, so it has no row, §7a.)
+   - Every row's `note` names the sample(s) it applies to: KiDS-bright, GAMA, the hot-gas variant, or all.
 
 | term_id | Reading | scale | applies_to | moves | status | size | in_error_columns |
 |---|---|---|---|---|---|---|---|
-| `esd_to_gobs_conversion` | K2 | point | * | g_obs | given | 0.1 dex, `as_released`; `note`: the combination with the released error is not stated | `no` |
-| `shear_calibration` | K4 | dataset | * | g_obs | not_given_by_source | — | — |
+| `esd_to_gobs_conversion` | K2 | point | * | g_obs | given | 0.1 dex, `as_released`; `note`: added by the paper to every RAR error bar; the combination with the released error is not stated; all samples | `no` |
+| `shear_calibration` | K4 | dataset | * | g_obs | not_given_by_source | — (`note`: the correction μ ≈ 0.014 is applied; its uncertainty is not stated) | — |
 | `source_redshift_calibration` | K5 | dataset | * | g_obs | not_given_by_source | — (`note`: "percent-level", as stated) | — |
-| `random_subtraction` | K7 | dataset | * | g_obs | given | 0.0075 (fraction of the signal), `one_sigma`, around the applied 1.85 % | — |
-| `stellar_mass_per_lens` | K8 | dataset | * | g_bar | given | 0.12 dex, `as_released`, with `size_lo` 0.06 and `size_hi` 0.29 (the range the source tested); `note`: acts through bin assignment, not as an error on a bin's g_bar | — |
-| `stellar_mass_systematic` | K9 | dataset | * | both | given | 0.2 dex, `as_released`; `note`: the authors re-ran the analysis with shifted masses, moving lenses between bins, so the effect is not a shift of g_bar (D-021) | — |
+| `random_subtraction` | K7 | dataset | * | g_obs | not_given_by_source | — (`note`: the subtracted random-point profile is described as "only 1.85 ± 0.75 %" of the signal; KiDS-bright) | — |
+| `stellar_mass_per_lens_kids` | K8 | dataset | * | both | given | 0.12 dex, `one_sigma`; `note`: KiDS-bright only; acts through bin assignment, not as an error on a bin's g_bar, so it also moves g_obs; the source also tested 0.29 dex and states its conclusions do not change | — |
+| `stellar_mass_per_lens_gama` | — | dataset | * | both | not_given_by_source | — (`note`: GAMA stellar masses are Taylor et al. 2011; this paper states no per-lens scatter for them) | — |
+| `stellar_mass_systematic` | K9 | dataset | * | both | given | 0.2 dex, `as_released`; `note`: the authors re-ran the analysis with shifted masses, moving lenses between bins, so the effect is not a shift of g_bar (D-021); all samples | — |
+| `gama_normalisation` | K10 | dataset | * | g_bar | not_given_by_source | — (`note`: KiDS-bright masses were shifted by +0.056 dex to the GAMA mean; the uncertainty of that shift is not stated) | — |
 | `cold_gas_relation` | K11 | dataset | * | g_bar | not_given_by_source | — | — |
-| `isolation_satellites` | K13 | point | * | g_obs | given | 0.30 (fraction of ΔΣ), `upper_bound`, one-sided upward; `note`: KiDS-bright below about 10⁻¹³ m s⁻², the rows flagged `source_quality_low` | — |
-| `point_mass_baryons` | K14 | dataset | * | g_bar | not_given_by_source | — | — |
+| `isolation_satellites` | K13 | dataset | * | g_obs | given | 0.30 (fraction of ΔΣ), `as_released`, one-sided upward, from the source's MICE test; `note`: KiDS-bright rows below about 10⁻¹³ m s⁻², flagged `source_quality_low`; the hot-gas rows' flags follow v1 and may under-flag (test 6) | — |
 | `cosmology_h70` | K15 | dataset | * | both | not_given_by_source | — | — |
 
-   Applied corrections and built-in terms (K6 lens photometric redshift, K7's applied 1.85 %, K10 normalisation to GAMA) are stated in `x_baryon_inventory` and in the measurement `method` text. They add no row beyond `random_subtraction`, whose uncertainty the source gives.
+   - **Not uncertainty terms (§2a rule 4):** the point-mass baryon model (K14) and the SIS deprojection (K3) are assumptions. They are entries in the registry and in each row's `assumptions` (`deproj_lensing=sis` as in v1, plus `baryons_point_mass`). The stellar population model and IMF (BC03, Chabrier; §3.3, l. 349 and 362) are stated in `x_baryon_inventory`.
+   - **Built-in terms** (K6, the lens photometric redshift inside Σ_crit) are stated in the measurement `method` text.
 
 ### C. 2.0 structure (D-084)
 
 8. **Observables** (`tables/observables.ecsv`), for every measurement row:
-   - one `observed` row: `delta_sigma` = ESD_t, with `err_lo` = `err_hi` = the released `error`, unit as released (h70 M☉ pc⁻²), steps `shapes;shear;excess_surface_density`;
-   - one `baryonic` row: `acceleration_released` = the released g_bar, unit m s⁻², steps `photometry`, with `source_ref` naming the file, the row, and "stellar plus cold-gas mass, binned (Brouwer et al. 2021 §2.1, §4.3)". For the hot-gas variant it adds "plus nominal hot gas".
+   - one `observed` row: `delta_sigma` = ESD_t, with `err_lo` = `err_hi` = the released `error`, unit `solMass / pc2` (with h = 0.7, as the source; stated in the descriptor), steps `shapes;shear;excess_surface_density`;
+   - one `baryonic` row: `acceleration_released` = the released g_bar, unit `m / s2`, steps `photometry`, with `source_ref` naming the file and row, and stating the source's further steps: "per-lens stellar mass (SPS fit) plus cold gas (Boselli et al. 2014 relation), as a point mass, binned in g_bar (Brouwer et al. 2021 §2.1, §3.3, §4.3)". For the hot-gas variant it adds: "plus an assumed isothermal hot-gas halo with M_gas = M★ within 100 h70⁻¹ kpc, 'only a rough order of magnitude estimate' (§5.2, l. 512)".
    - `evidence_tier` = 1 on every row. `observed_from` and `baryonic_from` list exactly these two rows.
 9. **Measurement columns**, on every row:
    - `measured_quantity` = `g_obs`, `limit` = `none`, `evidence_tier` = 1, `kind` = `population_bin` (as v1);
-   - `model_dependence` = `total_mass_form`, because the SIS deprojection assumes a density profile for the total mass (D-087; K3);
+   - `model_dependence` = `total_mass_form`, because the SIS deprojection assumes a density profile for the total mass (D-087; K3). The assumed baryon forms (point mass; the hot-gas halo) are stated in `notes` and the inventory;
+   - `stars_status`, `gas_cold_status` and `gas_hot_status` as v1, except that the hot-gas variant rows get `gas_hot_status = modelled` (D-034): their g_bar includes a gas component that is assumed, not detected. This is stated in their `notes`;
    - **KiDS-bright and GAMA rows:** `role` = `default`, `plotted` = true;
-   - **Hot-gas variant rows:** `role` = `alternative`, `alternative_of` = the KiDS-bright row with the same bin index, `plotted` = false, `not_plotted_reason` = `alternative_value` (D-038; D-014 names it an alternative baseline). This is a visible change from v1, which drew all 45 rows; the variant stays in the tables and downloads.
+   - **Hot-gas variant rows:** `role` = `alternative`, `alternative_of` = the KiDS-bright row with the same bin index, `plotted` = false, `not_plotted_reason` = `alternative_value`.
+     - D-014 names the variant an "alternative baseline".
+     - The pairing by bin index is formal: the variant was binned on its own g_bar, so its bin k holds different lenses from the KiDS-bright bin k. Its `notes` say so.
+     - **This changes what the site shows** (v1 drew all 45 rows). It needs JvH's ruling before this test is frozen. If he rules to keep the variant plotted, these rows are `role = default` with a label, and this item is revised before freezing.
 10. **Descriptor** (`datapackage.json`):
     - `standard_version` `2.5.0`;
-    - `x_selection`: isolated lenses as the source defines them (§3.3), with the lens redshift range stated by the source;
+    - `x_selection`, per sample, with the bin definitions (§9):
+      - KiDS-bright: z_ANN < 0.5 and m_r < 20.0, isolated (§3.3);
+      - GAMA: nQ ≥ 3 and m_r,Petro < 19.8, isolated (§3.2);
+      - the 15 logarithmic g_bar bins of §2.1;
+    - `x_precedence`: stars plus cold gas is the source's "fiducial estimate" (§4.3, l. 421); the hot-gas variant is the alternative;
     - `x_baryon_inventory`:
 
       | Component | Status | Note |
       |---|---|---|
-      | stars | `measured` | 9-band photometry, normalised to GAMA (K10) |
+      | stars | `measured` | per sample: KiDS-bright, 9-band LePhare SPS (BC03, Chabrier), normalised to GAMA (K10); GAMA, Taylor et al. 2011 ugrizZY SPS (BC03, Chabrier) |
       | cold gas | `modelled` | Boselli et al. 2014 scaling relation (K11) |
-      | hot gas | `known_unmeasured` | "a secure lower limit on g_bar" (§4.3); one released alternative |
-      | ionised gas, dust, remnants | `not_addressed` | |
+      | hot gas | `known_unmeasured` | "a secure lower limit on g_bar" (§4.3, l. 421); one released alternative with an assumed halo |
+      | cool and warm (ionised) gas, dust | `known_unmeasured` | discussed by the source and not counted (§4.3, l. 419; §5.2, l. 512) |
+      | remnants | `not_addressed` | |
 
     - `x_search_log`: admitted by D-005 before search logs existed;
     - `x_second_reading`: points to `SECOND_READING.md`.
@@ -86,8 +99,9 @@ Applied to the v2 tables, with v1 at commit `5dc4091` as the reference.
     - **Who:** a session with no access to `convert.py`, the package tables or v1.
     - **What it parses:** the three RAR files and their covariance files, from the README and the paper alone.
     - **What it writes:** every number the package uses (g_bar, ESD_t, ESD_x, error and bias, per row) and the covariance values.
-    - **Pass:** every packaged number equals the second reading. A disagreement is resolved at source; one resolved against the package is a fail.
-12. **The README's provenance.** The README was read from a public mirror (`uncertainty-readings.md` §1). The conversion checks that the README member of the canonical tarball (hash in `sources.json`) has SHA-256 `b3680580…8645`. If it differs, the README is re-read from the tarball before conversion, and any change is reported.
+    - It also derives the bin edges from §2.1 independently.
+    - **Pass:** every packaged number equals the second reading, at the printed precision. A disagreement is resolved at source; one resolved against the package is a fail.
+12. **The README's provenance.** The README was read from a public mirror (`uncertainty-readings.md` §1), whose SHA-256 is `b3680580696c5dbf5671c700d5e8f90fbfd1dc614fa7e3e07b2f66d1624e8645`. The canonical tarball (hash in `v1/sources.json`) is not reachable from the workspace, so this is checked by CI as the first step of the conversion: the tarball's README member must have exactly this hash. **A mismatch is a fail**, because tests 4 and 8 rest on the README's wording.
 13. **Standard and site.**
     - `python -m aeg.validate` passes under 2.5.0;
     - the site builds;
