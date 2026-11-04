@@ -4,6 +4,9 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
 
 ## Unreleased
 
+- D-095: data standard 2.5.0 adds `acceleration_released`, for accelerations released by a source (KiDS-1000, X-COP 2022).
+- D-096: where a source states a choice (a preferred value, data it excluded, a fiducial baseline), the Atlas follows it, for every row of every v2 package.
+- D-097: a written test for when D-025 excludes a system as out of equilibrium: a firm statement in the system's own source excludes it; a stated possibility keeps it plotted, with the quotation.
 - D-094: corrects D-064 item 4. For strong lenses, g_obs/g_bar depends on distance at first order (∝ 1/D), as the sources state; v2 carries distance as an uncertainty term (#139).
 - D-093: data standard 2.4.0, from step A of the validation plan. Optional columns for a confidence level the source does not give and g_bar as a bin coordinate; a stated point-scale term kept out of the error bars; a ruled exception to "v2 equals v1"; and a rule for radii that are both coordinate and input. Earlier packages are unchanged.
 - Step A completed: uncertainty readings for dwarfs, globular clusters and lenses (two readers each, adjudicated at source).
