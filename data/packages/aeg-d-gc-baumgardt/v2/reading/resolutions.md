@@ -19,15 +19,32 @@ None. The reading agrees with the frozen test on all of these:
 
 Every line the frozen test cites in B17, BH18, K18, D21, F13, MvdM, BSH20, Wolf and L13 was spot-checked and holds.
 
-## Open item that must be resolved before conversion
+## Resolved: the D-099 rule 3 anchors (2026-11-04)
 
-**The D-099 rule 3 anchors are incomplete.** Rees (1996, ASP Conf. Ser. 92, 289) is not on arXiv. ADS returned a block: a 403 on `articles.adsabs.harvard.edu` and human verification on `ui.adsabs.harvard.edu`. It was not worked around.
-- From the three readable papers, the anchors are:
-  - NGC 104 (McLaughlin et al. 2006, arXiv astro-ph/0607597v2, l. 89–91);
-  - NGC 5139 (van de Ven et al. 2006, arXiv astro-ph/0509228v1, l. 84–85);
-  - NGC 7078 = M15 (van den Bosch et al. 2006, arXiv astro-ph/0512503v2, `ms.tex` l. 163–165), which has no measurement row.
-- The `harris_anchor = no` on the other 69 clusters therefore means "not in the three readable papers".
-- **Proposed fix:** JvH obtains the Rees (1996) text (library or browser), and the clusters it gives are added at source before the reading is frozen.
+**The reader could not reach Rees (1996, ASP Conf. Ser. 92, 289).** It is not on arXiv, and ADS showed a block (a 403, then human verification), which was not worked around. JvH then obtained the scanned PDF from ADS (`1996ASPC...92..289R`, 4 pages, SHA-256 `6a4d9cfaabf2aa71af5a897afa0dcf2edb5c3c4fd8e9298a3e1c8669b1f37db9`; not redistributed, © ASP). Claude read it at source.
+
+**What Rees (1996) contains:**
+- **Abstract, p. 289:** "Distances to eight galactic globular clusters (M2, M4, M5, M15, M22, M92, NGC 6397, and 47 Tuc) are derived by comparison of proper motions and radial velocities of cluster stars".
+- **Table 1, p. 290,** lists those eight. It also lists M3 and M13, which §3 describes as "previous astrometric distance determinations" (Cudworth 1979; Lupton, Gunn, & Griffin 1987).
+
+**The anchors, with `harris_anchor = yes`:**
+
+| Cluster | Source |
+|---|---|
+| NGC 104 = 47 Tuc | McLaughlin et al. 2006, and Rees 1996 |
+| NGC 5139 = ω Cen | van de Ven et al. 2006 |
+| NGC 5904 = M5 | Rees 1996 |
+| NGC 6121 = M4 | Rees 1996 |
+| NGC 6341 = M92 | Rees 1996 |
+| NGC 6656 = M22 | Rees 1996 |
+| NGC 7089 = M2 | Rees 1996 |
+| NGC 5272 = M3 | Rees 1996 Table 1, from an earlier paper |
+| NGC 6205 = M13 | Rees 1996 Table 1, from an earlier paper |
+
+- M3 and M13 are recorded as anchors because Harris cites Rees (1996), whose table includes them. Each note says that Rees quotes these distances and did not derive them.
+- NGC 6397 and NGC 7078 (M15) have no measurement row.
+- Every other cluster is `no`.
+- The anchors carry a note only (D-099 rule 3). No value and no plotting decision changes.
 
 ## Items for JvH (classifications and observations, not dissent)
 
