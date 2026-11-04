@@ -1903,6 +1903,31 @@ The Zenodo record shows the preliminary note.
 
 **Data seen.** The full test result and the independent recomputation.
 
+## D-092 — X-COP v2: A644's points are shown, with a neutral note
+
+**Ruling (2026-11-04 08:01 CST, JvH).** "show its 19 points with a neutral note while we wait for Eckert". **Proposed by** Claude (2026-11-03). **Adopted.**
+
+**Context.** In the frozen X-COP v2 test (part A, #132), A644's released GBAR could not be rebuilt from the gas and stellar profiles in its shared Einasto file. The ratio runs from 1.32 at the innermost row to 0.96 at the outermost, in every variant. Its g_obs checks agree with the non-parametric masses as well as the other clusters' do. The question is with the authors (draft `03c`, question 1).
+
+**Rules.**
+1. **A644's 19 rows are plotted in v2** like the other four clusters, once v2 is published under D-090 rule 5.
+2. **Every A644 row and its system page carry this note**, in the expert layer:
+   > The source's g_bar for this cluster could not be rebuilt from the gas and stellar profiles shared with it (it differs by up to 32 % in the centre; test A2). The values shown are the source's own. The question is with the authors.
+
+   In the plain layer:
+   > The published pull from visible matter for this cluster doesn't match the separate files we were given. We show the published values and have asked the authors.
+3. **A known-issue entry**, #136, records it and links the result. It is resolved by the authors' answer, and any change is a new version.
+4. **Notice first (D-086).** The authors are told of the flag before the release that shows it. Question 1 of `03c` does that, so `03c` is sent before v2 goes public.
+
+**Reason.**
+- The values are the authors' own published numbers.
+- An unreproduced construction is a reason to say so, not to hide the data.
+- Holding them back would be a choice the data do not force.
+
+**Alternative rejected.** **Hold the points back until Eckert answers:** it hides published data over an open question.
+
+**Data seen.** The part A result and the independent recomputation.
+
 ## D-093 — Data standard 2.4.0, from step A
 
 **Ruling (2026-11-04 09:17 CST, JvH).** "approve D-093 without the bound". **Proposed by** Claude (2026-11-04), at the end of step A of the validation plan. **Adopted with one change:** the bound on g_bar (proposed rule 3) is left out, on Claude's recommendation, because no dataset in v0.2 uses it. The text is `docs/data-standard.md` 2.4.0; it is frozen on merge.

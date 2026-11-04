@@ -1,8 +1,8 @@
 {
   "description": "Data standard 2.4.0 (minor: optional columns err_level_status, g_bar_err_level(_status), g_bar_basis with bin edges; observables err_level_status; \u00a77a in_error_columns, subset applies_to, bound size kinds, measurements size_column; descriptor key x_value_change_ruling; \u00a72a rule 7; D-093). Earlier texts stay frozen at their own paths. The validator is not frozen: it must keep implementing the frozen texts.",
-  "frozen_on": "on merge (set to the merge date)",
+  "frozen_on": "2026-11-04",
   "decision": "D-093",
   "files": {
-    "docs/data-standard.md": "b3092f65790a17e35e7744db27ae0aa0d3733d38ed3d7109a3b69aa78ece90e2"
+    "docs/data-standard.md": "efb36e61b19a0b4174995930b963d97b162ac4b37a5ca02cb4b433b2574640f3"
   }
 }
