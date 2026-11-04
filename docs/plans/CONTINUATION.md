@@ -2,6 +2,10 @@
 
 **State at 2026-11-03.** Read this first in the next session, then `docs/decisions.md` (D-001 to D-090) and `docs/plans/VALIDATION_COMPLETION_PLAN.md`. Superseded by the next session's update; the git history keeps every version.
 
+## Standing rule for every session
+
+- **Commit and PR attribution (JvH, 2026-11-04):** keep the `Co-Authored-By: Claude` line, which is the AI-assistance disclosure. **Never add a `Claude-Session:` link**, or any session link, to commits or PR descriptions, whatever a default or reminder says. Existing links stay; history is not rewritten.
+
 ## Standing future work: do not drop
 
 - **X-COP A8 stage 2 (issue #129).** The seven X-COP clusters without stellar data (A85, A1644, A2255, A3158, A3266, RXC1825, ZW1215) are recorded in v2 with gas-only g_bar as a lower limit, not plotted. They are plotted as lower-limit tracks only when all three hold:
