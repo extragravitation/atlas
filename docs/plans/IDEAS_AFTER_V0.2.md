@@ -53,6 +53,26 @@
 - **Motions against light-bending** for the same systems, side by side, never merged.
 - **A feed of corrections and new data** (RSS or Atom; nothing is collected).
 
+## Analysis views (added 2026-11-04)
+
+From JvH's question "Are there any other graphing or data representation methods that might teach us something interesting about the data?". Each is a question about the data, not about any account. **Marked for first after v0.2: items 8 and 13.**
+
+**8. Scatter budget.** At each g_bar, compare the observed vertical spread with the spread the stated uncertainty terms alone would produce, by simulating every point within its own terms. If the errors explain the spread, the data allow a tight relation; if not, something varies between systems. It uses the error terms read in step A.
+
+**9. Within-system against between-system spread.** Draw each system's radii as a connected track, and split the variance into a part within systems and a part between them. Offsets between systems point to per-system quantities (distance, inclination, mass-to-light); different shapes would point elsewhere.
+
+**10. Several x-axes, side by side.** Plot the same points against g_bar, radius, baryonic surface density, radius in units of the half-light radius and orbital time, with one tightness measure for all. Which axis collapses the data best is a factual question, and showing every axis keeps g_bar from being chosen by assumption. **Best candidate for a frozen test after v0.2.**
+
+**11. Distance-cancelling views.** For dwarfs, globular clusters and lenses, g_obs/g_bar ∝ 1/D (step A; D-094), so distance is a large shared error. Plot combinations that cancel it (angular quantities, ratios within one system) to see whether the pattern survives without the distance scale.
+
+**12. Environment.** Plot the discrepancy against the distance from the host and against the host's pull at the system's position, for dwarfs and clusters. It is a neutral, continuous axis on which accounts differ, and it connects to D-097.
+
+**13. Error directions as arrows.** On the main plot, draw each systematic term as an arrow showing which way and how far it moves a point (distance moves dwarfs vertically; mass-to-light moves them sideways). It shows which conclusions are robust. The registry formulas already compute the directions.
+
+**14. Redshift.** Plot the lenses and X-COP clusters against lookback time, to see whether they sit on one pattern or shift with cosmic time.
+
+Any of these used to state a result needs a frozen test first. Anything found by browsing is labelled exploratory.
+
 ## Cautions, stated once
 
 - **A residual explorer**, plotting leftovers against any property, invites pattern-fishing. If it is built, anything found with it is labelled exploratory and needs a frozen test before it is stated.
