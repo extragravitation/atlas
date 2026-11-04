@@ -1,0 +1,8 @@
+{
+  "description": "Data standard 2.5.0 (minor: adds the quantity acceleration_released on both sides of \u00a74a; D-095). Earlier texts stay frozen at their own paths. The validator is not frozen: it must keep implementing the frozen texts.",
+  "frozen_on": "2026-11-04",
+  "decision": "D-095",
+  "files": {
+    "docs/data-standard.md": "4b09ba23ed68570a60bdd2901b2d51154102884c8cbe32aa91f3f94d48f20e14"
+  }
+}

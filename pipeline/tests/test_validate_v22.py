@@ -61,3 +61,10 @@ def test_v_circ_component_only_from_2_3_0():
     from aeg.validate import quantities_for
     assert "v_circ_component" in quantities_for("2.3.0")["baryonic"]
     assert "v_circ_component" not in quantities_for("2.2.0")["baryonic"]
+
+
+def test_acceleration_released_only_from_2_5_0():
+    from aeg.validate import quantities_for
+    for side in ("observed", "baryonic"):
+        assert "acceleration_released" in quantities_for("2.5.0")[side]
+        assert "acceleration_released" not in quantities_for("2.4.0")[side]

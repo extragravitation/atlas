@@ -1999,3 +1999,72 @@ The X-COP v2 test (D-089, D-090) added two needs.
 **Reason.** A ruled statement that the sources and the algebra contradict is corrected openly, not quietly in a package.
 
 **Data seen.** The step A readings and adjudication. No v2 value has been computed.
+
+## D-095 — Data standard 2.5.0: a quantity for accelerations released by the source
+
+**Ruling (2026-11-04, JvH).** "rulings 1, 2, D-096 and the D-025 threshold as recommended". **Proposed by** Claude (2026-11-04), while writing the KiDS-1000 v2 test (step D). **Adopted unchanged.**
+
+**Context.**
+- Every v2 package lists, in its observables table, the published values its g_obs and g_bar come from (D-029). Their quantities come from the closed list in §4a.
+- **Two v0.2 sources release the accelerations themselves:**
+  - KiDS-1000 releases g_bar per bin, computed from each lens's stellar and cold-gas mass and binned (Brouwer et al. 2021 §2.1, §4.3).
+  - X-COP 2022 releases GOBS and GBAR per radius (Eckert et al. 2022; `gbar_gobs_<C>.fits`).
+- No §4a quantity holds a released acceleration. 2.4.0 missed this: step A read uncertainties, not observables.
+
+**Proposed rule.**
+- Add one quantity to §4a, allowed on both sides: `acceleration_released`. It is an acceleration computed and released by the source, unit m s⁻².
+- What it includes, and how the source computed it, are named in `source_ref` and in the row's `steps`, from the existing ladders.
+- This is a minor version (2.5.0): a new closed-list value. Packages stating 2.4.0 or earlier stay valid.
+
+**Reason.**
+- It is the smallest addition that lets both datasets record what the source actually released, instead of an invented intermediate quantity.
+- It meets "build for what ships": both datasets are in v0.2.
+
+**Alternatives rejected.**
+- **Back-computing masses (g r²/G) and recording them as `mass_star` or `mass_hse`:** the Atlas would be inventing an observable the source did not release.
+- **Leaving these observables out:** it breaks D-029's requirement that every input be recorded.
+
+**Data seen.** The v1 KiDS package and the X-COP v2 test. No v2 value has been computed.
+
+## D-096 — Defer to the source's stated choices
+
+**Ruling (2026-11-04, JvH).** "rulings 1, 2, D-096 and the D-025 threshold as recommended". **Proposed by** Claude (2026-11-04). **Adopted unchanged.**
+
+**Context.** Step A found three places where v1 overrode its source's own judgment without meaning to:
+- **Phoenix II** (#141): v1 uses the all-members σ, 9.5 km/s. Fritz et al. 2019 mark the certain-members value, 11.0 km/s, as preferred.
+- **M54:** v1 uses dispersion bins beyond 200″, which Baumgardt 2017 excluded as contaminated by Sagittarius stars.
+- **NGC 2298 and Pal 5:** v1 uses the outermost bins, which Baumgardt & Hilker 2018 dropped from their fits (#140).
+
+Fixing only the cases found would itself be a selection.
+
+**Rules.**
+1. **Preferred values.** Where a source marks one of several values as preferred, that value is the default; the others are alternatives (`role = alternative`).
+2. **Excluded data.** Where a source excludes data points from its own analysis of the quantity the Atlas uses, the Atlas excludes them too and says so in the row's `notes`. If a value then fails an existing rule (for example D-036's 80 % coverage), that rule applies as usual.
+3. **Fiducial baselines.** Where a source names one baryon estimate as its fiducial and releases others, the fiducial is the default and the others are unplotted alternatives. First application: the KiDS-1000 hot-gas variant, which the source calls "only a rough order of magnitude estimate" against its stars-plus-cold-gas "fiducial estimate". It stays in the tables and downloads and is explained on the dataset page.
+4. **Applied to every row.** Each v2 test's second readers record, for every source used, whether it marks a preferred value or excludes data. The test result states how many rows change because of this ruling.
+5. **Value changes.** A v2 whose values change under this ruling sets `x_value_change_ruling = D-096` (standard 2.4.0 §9). Its test reproduces the source under this rule instead of v1. v1 stays published unchanged. The frozen audit samples v1 rows and stays valid for v1.
+
+**Reason.** The authors know their data best. The Atlas's job is to carry their stated choices faithfully and apply one rule to everyone. "Where authors state a choice, we follow it" is also simple to explain to readers.
+
+**Alternatives rejected.**
+- **Patching only the three cases found:** a selection effect.
+- **Keeping v1's values and adding the authors' choices as alternatives:** it knowingly leaves the source's stated choice unused as the default.
+
+**Data seen.** The step A readings and adjudications. No v2 value has been computed.
+
+## D-097 — Out-of-equilibrium systems: when D-025 applies
+
+**Ruling (2026-11-04, JvH).** "rulings 1, 2, D-096 and the D-025 threshold as recommended". **Proposed by** Claude (2026-11-04). **Adopted unchanged.**
+
+**Context.** D-025 sends systems "the source itself describes as tidally disturbed or out of equilibrium" to the exclusion register. v1 plots And XXVII and Antlia 2, whose own papers say this (#140). Many papers on faint systems mention tides in passing, so the rule needs a written test, or it will either miss real cases or empty the dataset.
+
+**Rules.**
+1. **Excluded** (recorded, not plotted, in the exclusion register with the quotation): the system's own dispersion or structure source states as a finding or conclusion that the system is out of equilibrium, unbound or being tidally disrupted. Examples: And XXVII, "unlikely to be in virial equilibrium, if it remains bound at all" (Collins et al. 2013); Antlia 2, kinematics that "support a tidal disruption scenario" (Ji et al. 2021).
+2. **Plotted, with the quotation in `notes`:** the source raises the possibility only ("could", "may", "might"). Examples: NGC 2298 and Pal 5, "could be due to the ongoing tidal disruption" (Baumgardt & Hilker 2018). Their excluded bins follow D-096 rule 2.
+3. **Only the system's own sources count:** its dispersion, structure and distance originals. A remark in an unrelated paper (for example Boötes III's "tidally extended" in a gas table) does not.
+4. **Applied to every dwarf and globular cluster** by the v2 second readers, with each quotation and its classification recorded.
+5. **Excluded systems stay visible** on their own pages, with the quotation and the reason. This changes whether a system is plotted, not any value.
+
+**Reason.** It applies D-025 as written, with a test two readers can apply the same way.
+
+**Data seen.** The step A readings and adjudications. No v2 value has been computed.
