@@ -260,7 +260,7 @@ def _level_rule(where, mid, status, level, name):
 
 
 def validate_v24(pkg: Path, meas, sv) -> list[str]:
-    """Rules added in standard 2.4.0 (docs/data-standard.md §10 items 14 to 18; D-093).
+    """Rules added in standard 2.4.0 (docs/data-standard.md §10 items 14 to 19; D-093).
 
     For packages stating an earlier version, the 2.4.0 columns, values and keys are not allowed.
     """
@@ -289,7 +289,9 @@ def validate_v24(pkg: Path, meas, sv) -> list[str]:
             used.append("list-valued applies_to")
         if any(r.get("size_kind") in ("upper_bound", "lower_bound") for r in trows):
             used.append("size_kind upper_bound/lower_bound")
-        if any(r.get("size_column") and r["size_column"] in meas.colnames for r in trows):
+        sys_path = pkg / "tables/systems.ecsv"
+        sys_cols = set(Table.read(sys_path, format="ascii.ecsv").colnames) if sys_path.is_file() else set()
+        if any(r.get("size_column") and r["size_column"] not in sys_cols and r["size_column"] in meas.colnames for r in trows):
             used.append("measurements size_column")
         if "x_value_change_ruling" in desc:
             used.append("x_value_change_ruling")
@@ -334,6 +336,11 @@ def validate_v24(pkg: Path, meas, sv) -> list[str]:
                 problems.append(f"{where}: {mid} g_bar is both a bound and a bin coordinate")
             if not any(r.get(c) == "not_given_by_source" for c in status_cols):
                 problems.append(f"{where}: {mid} g_bar is a bound but no component status is not_given_by_source")
+            if "plotted" in meas.colnames and (_truthy(r.get("plotted")) or r.get("not_plotted_reason") != "other"):
+                problems.append(f"{where}: {mid} g_bar is a bound; it must be plotted = false with not_plotted_reason = other (item 19)")
+    for r in trows:
+        if ";" in str(r.get("applies_to") or "") and r.get("scale") != "dataset":
+            problems.append(f"{where} uncertainty_terms {r['term_id']}: a term for a listed subset of systems must have scale = dataset")
     for r in trows:
         v = r.get("in_error_columns")
         if v in (None, ""):
@@ -353,7 +360,7 @@ def validate_v24(pkg: Path, meas, sv) -> list[str]:
         m = re.search(rf"^## {re.escape(str(ruling))} .*?(?=^## D-|\Z)", text, flags=re.S | re.M)
         if not re.match(r"^D-\d{3}$", str(ruling)) or not m:
             problems.append(f"{where} datapackage.json: x_value_change_ruling {ruling!r} is not a decision in docs/decisions.md")
-        elif "Ruling: pending" in m.group(0) or "**Ruling (" not in m.group(0):
+        elif "Ruling: pending" in m.group(0) or not re.search(r"\*\*Ruling[ .(]", m.group(0)):
             problems.append(f"{where} datapackage.json: x_value_change_ruling {ruling!r} has no ruling yet")
     return problems
 

@@ -1917,7 +1917,7 @@ The X-COP v2 test (D-089, D-090) added two needs.
 **Proposed rules.** Everything is additive (§0), so this is a minor version. Packages stating 2.3.0 or earlier stay valid and are not edited.
 1. **Confidence levels.** A level the source does not give is recorded as such, never read as 0.683 (X-COP 2022 files): `err_level_status` in measurements and observables. `err_level` refers to the measured quantity, and g_bar gets its own `g_bar_err_level` and status, because one row can carry two levels (dwarf σ limits at 90–95.5 % with 1σ g_bar errors).
 2. **`g_bar_basis = bin_coordinate`**, with optional bin edges: g_bar that is the source's binning coordinate, with no point error by construction (KiDS).
-3. **`g_bar_bound`**, with `g_bar_bound_basis`: a bound on the source's central g_bar from the components it gives. It is not a confidence limit. The missing component's status is the new value `not_given_by_source`. g_obs errors are kept. Bound rows are excluded from averages, fits and pattern-test inputs, and stay unplotted until every site view draws the bound in its direction (X-COP A8 stage 2, #129). D-088 item 2's "upper bound" (v1's projected stellar term) is a different kind of bound: on a corrected spherical value, not on the source's central value. It is not expressed with this column.
+3. **`g_bar_bound`**, with `g_bar_bound_basis`: a bound on the source's central g_bar from the components it gives. It is not a confidence limit. The missing component's status is the new value `not_given_by_source`. g_obs errors are kept. Bound rows are excluded from averages, fits and pattern-test inputs, and are not plotted under 2.4.0 (§10 item 19). Plotting them (X-COP A8 stage 2, #129) needs every site view to draw the bound in its direction, a ruled decision, and a new standard version. D-088 item 2's "upper bound" (v1's projected stellar term) is a different kind of bound: on a corrected spherical value, not on the source's central value. It is not expressed with this column.
 4. **§7a additions.**
    - `in_error_columns`: a point-scale term the source states but leaves out of its released errors is recorded and shown beside the bars, never added in (KiDS K2, 0.1 dex).
    - `applies_to` may list several systems, for a term shared by a subset (MaNGA's one Υ_ref; one distance calibration for 21 dwarfs; one velocity pipeline).
@@ -1939,7 +1939,7 @@ The X-COP v2 test (D-089, D-090) added two needs.
 
 **A reader that ignores the new columns would misread `g_bar`** on bound or bin-coordinate rows. So no 2.4.0 package with such rows ships until the site handles them.
 
-**Reviewed** independently before ruling (`docs/sources/readings/step-a-2026-11-04/standard-review-1.md`, `standard-review-2.md`).
+**Reviewed** independently before ruling (`docs/sources/readings/step-a-2026-11-04/standard-review-1.md` and `standard-review-2.md`; revision 3 answers the second).
 
 **Alternatives rejected.**
 - **Changing `limit` to cover g_bar:** a major change, and it would break validation rule 5 for every package.
