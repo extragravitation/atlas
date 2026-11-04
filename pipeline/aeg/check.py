@@ -5,6 +5,7 @@ Exits non-zero if any check fails. Every pull request runs this.
 
 from __future__ import annotations
 
+import csv
 import hashlib
 import json
 import re
@@ -118,6 +119,45 @@ def check_frozen(root: Path) -> list[str]:
     return problems
 
 
+EXCLUDED_COLUMNS = ["system", "dataset", "reason", "citation"]
+
+
+def check_excluded(root: Path) -> list[str]:
+    """The exclusion register (standard §5; D-025, D-097): exact columns, every field filled,
+    a registered system and an existing dataset version. The site shows each row verbatim."""
+    path = root / "data/registry/excluded.csv"
+    if not path.is_file():
+        return []
+    name = "data/registry/excluded.csv"
+    with path.open(newline="", encoding="utf-8") as f:
+        rows = list(csv.reader(f))
+    if not rows or rows[0] != EXCLUDED_COLUMNS:
+        return [f"{name}: header must be {','.join(EXCLUDED_COLUMNS)}"]
+    known = set()
+    reg = root / "data/registry/systems.csv"
+    if reg.is_file():
+        with reg.open(newline="", encoding="utf-8") as f:
+            known = {r["system_id"] for r in csv.DictReader(f)}
+    problems, seen = [], set()
+    for i, r in enumerate(rows[1:], start=2):
+        if len(r) != len(EXCLUDED_COLUMNS):
+            problems.append(f"{name} line {i}: {len(r)} fields, expected {len(EXCLUDED_COLUMNS)}")
+            continue
+        rec = dict(zip(EXCLUDED_COLUMNS, r))
+        for k, v in rec.items():
+            if not v.strip():
+                problems.append(f"{name} line {i}: empty {k}")
+        if rec["system"] and known and rec["system"] not in known:
+            problems.append(f"{name} line {i}: system {rec['system']} not in data/registry/systems.csv")
+        if rec["dataset"] and not (root / "data/packages" / rec["dataset"]).is_dir():
+            problems.append(f"{name} line {i}: dataset {rec['dataset']} not found under data/packages")
+        key = (rec["system"], rec["dataset"])
+        if key in seen:
+            problems.append(f"{name} line {i}: duplicate row for {key[0]} in {key[1]}")
+        seen.add(key)
+    return problems
+
+
 def run(root: Path = ROOT) -> list[str]:
     problems = check_required_files(root)
     if (root / "data/assumptions.json").is_file():
@@ -127,6 +167,7 @@ def run(root: Path = ROOT) -> list[str]:
         problems += [f"data/registry/systems.csv {p}" for p in check_registry(registry)]
     problems += check_no_secrets(root)
     problems += check_frozen(root)
+    problems += check_excluded(root)
     return problems
 
 

@@ -23,7 +23,7 @@ let cache = null;
 // Minimal CSV reader for the packages' checks/ files (no embedded newlines; quotes allowed).
 export function parseCSV(text) {
   const lines = text.split(/\r?\n/).filter((l) => l.length);
-  const split = (l) => { const out = []; let cur = '', q = false; for (const ch of l) { if (ch === '"') q = !q; else if (ch === ',' && !q) { out.push(cur); cur = ''; } else cur += ch; } out.push(cur); return out; };
+  const split = (l) => { const out = []; let cur = '', q = false; for (let i = 0; i < l.length; i++) { const ch = l[i]; if (ch === '"') { if (q && l[i + 1] === '"') { cur += '"'; i++; } else q = !q; } else if (ch === ',' && !q) { out.push(cur); cur = ''; } else cur += ch; } out.push(cur); return out; };
   const head = split(lines[0]);
   return lines.slice(1).map((l) => Object.fromEntries(split(l).map((v, i) => [head[i], v])));
 }
@@ -84,7 +84,11 @@ export function loadAtlas() {
     d.measurements.rows.forEach((r, i) => { (byId[r.system_id] = byId[r.system_id] || []).push(i); });
     for (const s of d.systems.rows) systems.push({ id: s.system_id, name: s.name_in_source, dataset: d.key, row: s, props: s.properties ? JSON.parse(s.properties) : {}, rows: byId[s.system_id] || [] });
   }
-  cache = { registry, datasets, all, systems, standard: read(path.join(ROOT, 'docs/data-standard.md')), changelog: readIf(path.join(ROOT, 'CHANGELOG.md')) || '' };
+  // Exclusion register (standard §5; D-025, D-097): systems recorded but not plotted, with the source's words.
+  const exText = readIf(path.join(ROOT, 'data/registry/excluded.csv'));
+  const excluded = exText ? parseCSV(exText) : [];
+  for (const s of systems) s.excluded = excluded.filter((e) => e.system === s.id && e.dataset === s.dataset);
+  cache = { registry, datasets, all, systems, excluded, standard: read(path.join(ROOT, 'docs/data-standard.md')), changelog: readIf(path.join(ROOT, 'CHANGELOG.md')) || '' };
   return cache;
 }
 

@@ -9,6 +9,7 @@ import DispersionSystem from '../../components/DispersionSystem.astro';
 import DwarfSystem from '../../components/DwarfSystem.astro';
 import LensSystem from '../../components/LensSystem.astro';
 import UncertaintyTerms from '../../components/UncertaintyTerms.astro';
+import Excluded from '../../components/Excluded.astro';
 import { isLensing } from '../../lib/lensing.mjs';
 import { loadAtlas, ringed } from '../../lib/atlas.mjs';
 import { datasetLabel, assumptionLabel, sigFig } from '../../lib/labels.mjs';
@@ -92,6 +93,7 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
   <div class="olayout"><main class="split"><div class="pre">
     <p class="kicker"><a href={`${base}systems/`} style="color:inherit">Systems</a> · {lab.t} · {sys.id}</p>
     <h1>{sys.name}</h1>
+    <Excluded sys={sys} />
     {isLens ? <LensSystem sys={sys} d={d} lab={lab} /> : d.name === 'aeg-d-dwarfs' ? <DwarfSystem sys={sys} d={d} lab={lab} /> : <DispersionSystem sys={sys} d={d} lab={lab} />}
     <h2 id="cite"><L t="Cite" p="How to cite" /></h2>
     <p class="boxed" style="font-family:var(--mono);font-size:13px">{cite}</p>
@@ -118,6 +120,7 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
       <div class="pre">
       <p class="kicker"><a href={`${base}systems/`} style="color:inherit">Systems</a> · {lab.t} · {sys.id}</p>
       <h1>{sys.name}</h1>
+      <Excluded sys={sys} />
       <p class="lede"><L t={`${R.class_in_source}. ${lab.method_t}. ${rows.length} radii, ${fmtR(rMin)}–${fmtR(rMax)} kpc.`} p={`${lab.one_p || lab.kind_p}. Measured at ${rows.length} distances from the centre, ${fmtR(rMin)} to ${fmtR(rMax)} kpc.`} /></p>
 
       <h2 id="budget"><L t="Pull budget" p="Where the pull comes from" /></h2>
