@@ -20,10 +20,10 @@
 ## Open on 2026-11-04 (work plan day)
 
 - **Step A done** (#138): dwarfs, globular clusters and lenses, two readers each, adjudicated at source. Known issues opened: #139 (lens θ_E error axis; D-064 item 4 contradicted by the sources), #140 (plotted data the sources set aside), #141 (Phoenix II σ).
-- **Standard 2.4.0** (#142, D-093 proposed): two independent reviews, answered. Needs JvH's ruling; merge after #137 and #138; set `frozen_on` on merge.
+- **Standard 2.4.0** (#142): frozen 2026-11-04 under D-093, without the bound on g_bar. D-094 corrects D-064 item 4. The two working rules ("build for what ships", "review in proportion") are proposed in D-093 and await JvH's confirmation.
 - **D-092** (#137): A644 shown with a neutral note; known issue #136. The `03c` email to Eckert goes before X-COP v2 is public.
-- **Pal 1 notice (D-086):** the flagged table is McLaughlin & van der Marel (2005), not Baumgardt's database. JvH to confirm redirecting the required notice to them; their addresses are not yet confirmed (not guessed).
-- **Next (session 2 of the road to v0.2):** frozen v2 tests for KiDS, dwarfs, globular clusters and lenses (step D), and X-COP part B. Before the lens test: a ruling correcting D-064 item 4.
+- **Pal 1 notice (D-086): sent 2026-11-04** by JvH to R. van der Marel (marel@stsci.edu), about the McLaughlin & van der Marel (2005) table; draft `08_vanderMarel_Pal1_v2`. McLaughlin was not copied (no confirmed current address). Baumgardt's database is not flagged; a courtesy note can go with v0.2. Merged today: #137, #138, #142 (standard 2.4.0 frozen; D-093, D-094) and #143 (dataset pages list GitHub known issues).
+- **Next (session 2 of the road to v0.2):** frozen v2 tests for KiDS, dwarfs, globular clusters and lenses (step D), and X-COP part B. D-064 item 4 is already corrected by D-094.
 
 ## Open on 2026-11-03 (evening)
 
