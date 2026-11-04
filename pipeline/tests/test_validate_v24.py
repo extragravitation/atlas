@@ -22,25 +22,23 @@ def _pkg(tmp: Path, meas_cols: dict, terms_rows=None, desc=None, obs_cols=None) 
     return pkg, meas
 
 
-BOUND = {"g_bar": [1e-11], "g_bar_bound": ["lower"], "g_bar_bound_basis": ["gas only; stars not given by the source"],
-         "stars_status": ["not_given_by_source"], "gas_cold_status": ["absent"], "gas_hot_status": ["measured"],
-         "plotted": [False], "not_plotted_reason": ["other"]}
+BASE = {"g_bar": [1e-11], "g_bar_basis": ["computed"], "err_level_status": ["stated"], "err_level": [0.95]}
 KTERM = {"term_id": "conv", "scale": "point", "applies_to": "*", "moves": "g_obs", "status": "given",
          "size_value": 0.1, "in_error_columns": "no"}
 
 
 def test_new_features_need_240(tmp_path):
-    pkg, meas = _pkg(tmp_path, BOUND, terms_rows=[dict(KTERM, applies_to="aeg-s-000001;aeg-s-000002", size_kind="upper_bound")],
+    pkg, meas = _pkg(tmp_path, BASE, terms_rows=[dict(KTERM, applies_to="aeg-s-000001;aeg-s-000002", size_kind="upper_bound")],
                      desc={"x_value_change_ruling": "D-090"}, obs_cols={"err_level_status": ["stated"], "err_level": [0.9]})
     probs = validate_v24(pkg, meas, "2.3.0")
     assert len(probs) == 1
-    for item in ("g_bar_bound", "not_given_by_source", "in_error_columns", "list-valued", "upper_bound",
+    for item in ("g_bar_basis", "err_level_status", "in_error_columns", "list-valued", "upper_bound",
                  "x_value_change_ruling", "observables.err_level_status"):
         assert item in probs[0]
 
 
 def test_good_240_passes(tmp_path):
-    pkg, meas = _pkg(tmp_path, {**BOUND, "err_level_status": ["not_given_by_source"], "g_bar_basis": ["computed"],
+    pkg, meas = _pkg(tmp_path, {"g_bar": [1e-11], "err_level_status": ["not_given_by_source"], "g_bar_basis": ["computed"],
                                 "g_bar_err_level_status": ["stated"], "g_bar_err_level": [0.683]},
                      terms_rows=[KTERM, {"term_id": "cal", "scale": "dataset", "applies_to": "aeg-s-000001;aeg-s-000002",
                                          "moves": "g_obs", "status": "given", "size_value": 0.05, "size_kind": "upper_bound"}],
@@ -48,15 +46,6 @@ def test_good_240_passes(tmp_path):
                      obs_cols={"err_level_status": ["not_given_by_source"], "err_level": [None]})
     assert validate_v24(pkg, meas, "2.4.0") == []
     assert validate_v22(pkg, meas) == []
-
-
-def test_bound_rules(tmp_path):
-    pkg, meas = _pkg(tmp_path, {**BOUND, "g_bar_bound_basis": [""], "g_bar_err_lo": [1e-12],
-                                "stars_status": ["absent"], "g_bar_basis": ["bin_coordinate"]})
-    probs = validate_v24(pkg, meas, "2.4.0")
-    for text in ("bound_basis is empty", "bound but has g_bar error", "both a bound and a bin coordinate",
-                 "no component status is not_given_by_source"):
-        assert any(text in p for p in probs), text
 
 
 def test_bin_coordinate_rules(tmp_path):
@@ -99,11 +88,6 @@ def test_terms_and_ruling(tmp_path):
 def test_ruling_must_be_ruled(tmp_path):
     pkg, meas = _pkg(tmp_path, {"g_bar": [1e-11]}, desc={"x_value_change_ruling": "D-093"})
     assert any("has no ruling yet" in p for p in validate_v24(pkg, meas, "2.4.0"))
-
-
-def test_bound_rows_not_plotted(tmp_path):
-    pkg, meas = _pkg(tmp_path, {**BOUND, "plotted": [True], "not_plotted_reason": [""]})
-    assert any("item 19" in p for p in validate_v24(pkg, meas, "2.4.0"))
 
 
 def test_subset_terms(tmp_path):

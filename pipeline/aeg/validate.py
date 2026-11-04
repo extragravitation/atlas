@@ -88,9 +88,6 @@ CLOSED_V2 = {
     "method_class": {"kinematic", "hydrostatic", "lensing", "ephemeris"},
     "measured_quantity": {"g_obs", "delta_g"},
     "limit": {"none", "upper", "lower"},
-    # 2.4.0 adds not_given_by_source to the component statuses (validate_v24 rejects it before 2.4.0).
-    **{k: {"measured", "modelled", "absent", "not_separable", "not_given_by_source"}
-       for k in ("stars_status", "gas_cold_status", "gas_hot_status")},
     "model_dependence": {"none", "observable_form", "total_mass_form"},
     "role": {"default", "alternative"},
     "not_plotted_reason": {"coverage_below_threshold", "aperture_uncorrected", "central_only",
@@ -105,13 +102,12 @@ CORE_MEAS_V2 = CORE_MEAS | set(REQUIRED_MEAS_V2) | {"delta_g", "delta_g_err_lo",
 POINT_ERR_COLS = ["g_obs_err_point_lo", "g_obs_err_point_hi", "g_bar_err_point_lo", "g_bar_err_point_hi"]
 CORE_MEAS_V2 = CORE_MEAS_V2 | set(POINT_ERR_COLS)
 # 2.4.0 (D-093): optional columns. Allowed only for packages stating 2.4.0 or later (validate_v24).
-MEAS_COLS_V24 = ["err_level_status", "g_bar_err_level", "g_bar_err_level_status", "g_bar_basis", "g_bar_bin_lo", "g_bar_bin_hi", "g_bar_bound", "g_bar_bound_basis"]
+MEAS_COLS_V24 = ["err_level_status", "g_bar_err_level", "g_bar_err_level_status", "g_bar_basis", "g_bar_bin_lo", "g_bar_bin_hi"]
 CORE_MEAS_V2 = CORE_MEAS_V2 | set(MEAS_COLS_V24)
 CLOSED_V24 = {
     "err_level_status": {"stated", "not_given_by_source"},
     "g_bar_err_level_status": {"stated", "not_given_by_source"},
     "g_bar_basis": {"computed", "bin_coordinate"},
-    "g_bar_bound": {"none", "lower", "upper"},
 }
 TERMS_REQUIRED = ["term_id", "scale", "applies_to", "moves", "status"]
 TERMS_CORE = set(TERMS_REQUIRED) | {"size_value", "size_lo", "size_hi", "size_unit", "size_column", "size_kind",
@@ -260,7 +256,7 @@ def _level_rule(where, mid, status, level, name):
 
 
 def validate_v24(pkg: Path, meas, sv) -> list[str]:
-    """Rules added in standard 2.4.0 (docs/data-standard.md §10 items 14 to 19; D-093).
+    """Rules added in standard 2.4.0 (docs/data-standard.md §10 items 14 to 18; D-093).
 
     For packages stating an earlier version, the 2.4.0 columns, values and keys are not allowed.
     """
@@ -276,13 +272,10 @@ def validate_v24(pkg: Path, meas, sv) -> list[str]:
     desc_path = pkg / "datapackage.json"
     desc = json.loads(desc_path.read_text(encoding="utf-8")) if desc_path.is_file() else {}
     rows = _rows(meas)
-    status_cols = [c for c in ("stars_status", "gas_cold_status", "gas_hot_status") if c in meas.colnames]
     if _key(sv) < (2, 4, 0):
         used = [c for c in MEAS_COLS_V24 if c in meas.colnames]
         if obs is not None and "err_level_status" in obs.colnames:
             used.append("observables.err_level_status")
-        if any(r.get(c) == "not_given_by_source" for r in rows for c in status_cols):
-            used.append("status value not_given_by_source")
         if terms is not None and "in_error_columns" in terms.colnames:
             used.append("in_error_columns")
         if any(";" in str(r.get("applies_to") or "") for r in trows):
@@ -326,18 +319,6 @@ def validate_v24(pkg: Path, meas, sv) -> list[str]:
                     problems.append(f"{where}: {mid} g_bar_bin_lo exceeds g_bar_bin_hi")
                 elif r.get("g_bar") is not None and not (lo <= r["g_bar"] <= hi):
                     problems.append(f"{where}: {mid} g_bar lies outside its bin edges")
-        bound = r.get("g_bar_bound")
-        if bound not in (None, "", "none"):
-            if not r.get("g_bar_bound_basis"):
-                problems.append(f"{where}: {mid} g_bar_bound is {bound} but g_bar_bound_basis is empty")
-            if any(r.get(c) is not None for c in ("g_bar_err_lo", "g_bar_err_hi", "g_bar_err_point_lo", "g_bar_err_point_hi")):
-                problems.append(f"{where}: {mid} g_bar is a bound but has g_bar error values")
-            if basis == "bin_coordinate":
-                problems.append(f"{where}: {mid} g_bar is both a bound and a bin coordinate")
-            if not any(r.get(c) == "not_given_by_source" for c in status_cols):
-                problems.append(f"{where}: {mid} g_bar is a bound but no component status is not_given_by_source")
-            if "plotted" in meas.colnames and (_truthy(r.get("plotted")) or r.get("not_plotted_reason") != "other"):
-                problems.append(f"{where}: {mid} g_bar is a bound; it must be plotted = false with not_plotted_reason = other (item 19)")
     for r in trows:
         if ";" in str(r.get("applies_to") or "") and r.get("scale") != "dataset":
             problems.append(f"{where} uncertainty_terms {r['term_id']}: a term for a listed subset of systems must have scale = dataset")
