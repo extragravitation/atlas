@@ -1,0 +1,8 @@
+{
+  "description": "Data standard 2.5.1 (patch: \u00a712 wording only; an extension column may hold a \u00a77a size_column size or a value a registry formula reads; D-099). Earlier texts stay frozen at their own paths. The validator is not frozen: it must keep implementing the frozen texts.",
+  "frozen_on": "2026-11-04",
+  "decision": "D-099",
+  "files": {
+    "docs/data-standard.md": "cbcfa5d141400f96ce4db72074d3785fe19d9bc68e9bb02369c48eb38b712c0d"
+  }
+}

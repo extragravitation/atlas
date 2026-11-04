@@ -2102,3 +2102,41 @@ Fixing only the cases found would itself be a selection.
 - **Dropping the outermost v1 bin of each cluster:** these are not the points the source dropped, and each cluster would be left with one bin, too few to convert.
 
 **Data seen.** The step A readings and adjudications, the two step D reviews, the BH18 text, and the v1 input bins for NGC 2298, Pal 5 and M54 in `veldis.html` (already public in v1). No v2 value has been computed. What the exclusions do to any plot was not looked at.
+
+## D-099 — Four clarifications before the dwarf and globular-cluster v2 tests are frozen
+
+**Ruling (2026-11-04, JvH).** "D-099 as recommended". **Proposed by** Claude (2026-11-04), from the second independent reviews of the two draft tests (`docs/sources/readings/step-d-2026-11-04/dwarfs-review-2.md`, `gc-review-2.md`). **Adopted unchanged.**
+
+**Rules.**
+1. **Extension columns: data standard 2.5.1 (patch).**
+   - **The conflict:** §12 said the core site and sliders "never depend on" extension columns. But §7a (2.4.0) lets a `size_column` name a measurements column, and v1 slider formulas already read extension columns (for example `x_gc_baumgardt_ml_v_salpeter`).
+   - **The fix:** §12 now states two exceptions. An extension column may hold a size named by a §7a `size_column`, or a value a registry formula reads.
+   - This is wording only. No package changes meaning.
+2. **Which distance source counts for D-097 (refines D-098 rule 3).** It is the source the Atlas takes the value from:
+   - Harris (2010) for globular clusters, not the papers behind the compilation;
+   - the distance original for dwarfs.
+
+   For dispersions taken from a re-analysis (Geha et al. 2026), the re-analysis is the dispersion source that counts.
+3. **Harris's dynamical-parallax calibrators do not trigger D-036 #6.**
+   - Harris's M_V(HB) calibration uses, among its anchors, distances from "dynamical parallax from combined solutions to radial velocity and proper motion dispersions" (Harris 2010, arXiv 1012.3224, l. 125–127).
+   - Each cluster's distance comes from the calibration as a whole, not from its own kinematics. So D-036 #6 ("no input … derived from the system's own kinematics") is not triggered.
+   - The clusters that served as anchors get a note on their rows quoting that line.
+4. **D-097's classes, made mechanical (refines D-098 rule 2):**
+   - **Possibility:** the state is hedged with "may", "might", "could", "possibly" or "perhaps".
+   - **Finding:** any other statement or conclusion that the system is out of equilibrium, unbound, being tidally disrupted, or tidally disturbed (D-025's word). It includes "likely", "unlikely to be", "suggest", "support" and "consistent with". This matches D-097's examples, "unlikely to be in virial equilibrium" and "support a tidal disruption scenario".
+   - **Neither:** tidal tails, stripping, extension or mass loss mentioned on their own.
+   - **Several statements:** any finding in any source that counts makes the system a finding.
+   - **Known findings by ruling:** And XXVII, Antlia 2, NGC 2298 and Pal 5. The second reading confirms each at source. Any disagreement comes to JvH before the first conversion run.
+
+**Reason.**
+- Each rule makes a frozen test mechanically decidable, without changing what any earlier ruling intended.
+- Rule 1 brings the standard's text into line with what packages already do.
+- Rule 2 keeps the reading proportionate: statements about equilibrium appear in kinematic and structure papers, not in the photometry behind a distance compilation.
+
+**Alternatives rejected.**
+- **Rule 1:** new core size columns, a breaking change for a problem of wording.
+- **Rule 2:** reading the roughly 150 papers behind Harris (2010).
+- **Rule 3:** treating every Harris distance as kinematic, which would remove the whole globular-cluster set on a calibration detail.
+- **Rule 4:** a lexical test on "could, may, might" alone, which leaves common wording unclassed.
+
+**Data seen.** The two second reviews, Harris (2010) l. 68–72 and 123–128, and the texts cited in D-098. No v2 value has been computed.
