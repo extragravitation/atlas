@@ -6,7 +6,7 @@ import Base from '../layouts/Base.astro';
 import L from '../components/L.astro';
 import Layer from '../components/Layer.astro';
 import { loadAtlas } from '../lib/atlas.mjs';
-import { datasetLabel, assumptionLabel, fmtParam, datasetCount, countWord, joinAnd } from '../lib/labels.mjs';
+import { datasetLabel, assumptionLabel, fmtParam, rangeLabel, datasetCount, countWord, joinAnd, plottedSystemCount } from '../lib/labels.mjs';
 const atlas = loadAtlas();
 const base = import.meta.env.BASE_URL;
 const REPO = 'https://github.com/extragravitation/atlas';
@@ -17,6 +17,9 @@ const nDs = datasetCount(atlas.datasets);
 // Lensing datasets, counted and described from the packages: stacked (no systems) or individual (projected at R_E).
 const lensDs = atlas.datasets.filter((d) => d.measurements.rows.some((r) => r.method_class === 'lensing'));
 const lensText = lensDs.length === 0 ? 'No lensing dataset yet.' : `${countWord(lensDs.length).replace(/^./, (c) => c.toUpperCase())} lensing dataset${lensDs.length === 1 ? '' : 's'}: ${joinAnd(lensDs.map((d) => `${datasetLabel(d.name).t} (${d.systems ? 'individual systems' + (d.measurements.rows.some((r) => r.r_kind === 'projected') ? ', projected values at the Einstein radius' : '') : 'stacked averages'})`))}.`;
+const sysCounts = (d) => `${d.systems.rows.length} recorded, ${plottedSystemCount(d)} plotted`;
+// Plain list of the lensing datasets, from the same packages.
+const lensTextP = lensDs.length === 0 ? 'No light-bending data yet.' : `Light-bending data so far: ${joinAnd(lensDs.map((d) => d.systems ? 'single galaxies that bend light into rings and arcs' : 'averages over many lone galaxies'))}.`;
 const toc = [['stance', 'Stance'], ['quantities', 'What is measured'], ['baseline', 'The baseline'], ['channels', 'Two channels'], ['datasets', 'Each dataset'], ['conversion', 'Conversion steps'], ['assumptions', 'Assumptions'], ['uncertainties', 'Uncertainties'], ['flags', 'Flags and known issues'], ['tests', 'Frozen tests'], ['lenses', 'Lenses'], ['display', 'Display choices'], ['speed', 'Orbital-speed view'], ['gaps', 'Limitations and gaps'], ['vocabulary', 'Vocabulary']];
 ---
 <Base title="Methods" active="methods">
@@ -46,7 +49,7 @@ const toc = [['stance', 'Stance'], ['quantities', 'What is measured'], ['baselin
       </Fragment><Fragment slot="p">
         <ul>
           <li><b>Observed pull</b>: how strong gravity is, worked out from how things move or how light bends.</li>
-          <li><b>Pull from detected matter</b>: how strong gravity should be from the stars and gas we can see, using Newton’s law.</li>
+          <li><b>Pull from detected matter</b>: how strong gravity should be from the stars and gas that were detected, using Newton’s law.</li>
           <li><b>Extra pull</b>: how many times stronger the observed pull is. A value of 1 means no extra pull.</li>
         </ul>
       </Fragment></Layer>
@@ -72,6 +75,9 @@ const toc = [['stance', 'Stance'], ['quantities', 'What is measured'], ['baselin
         {d.name === 'aeg-d-sparc' && <Layer><Fragment slot="t"><p>{d.systems.rows.length} disc galaxies (Lelli, McGaugh &amp; Schombert 2016). g_obs = V_obs² / R from the rotation curve. g_bar = (|V_gas|V_gas + Υ_disk |V_disk|V_disk + Υ_bul |V_bul|V_bul) / R from the 3.6 μm photometry and the atomic-gas maps (gas mass includes a factor 1.33 for helium). g_bar does not depend on the adopted distance; g_obs does.</p></Fragment><Fragment slot="p"><p>{d.systems.rows.length} spinning disc galaxies. The observed pull comes from how fast stars and gas go round; the pull from detected matter comes from the starlight and the hydrogen gas.</p></Fragment></Layer>}
         {d.key === 'aeg-d-xcop/v2' && <Layer><Fragment slot="t"><p>{d.systems.rows.length} massive galaxy clusters (X-COP), of which the five with stellar data have values (Eckert et al. 2022). g_obs and g_bar are taken as the source released them, at the radii of its data: g_obs from the non-parametric hydrostatic reconstruction, g_bar = G (M_gas + M★,BCG + M★,sat)(&lt;r) / r² (D-089, D-090). The other seven clusters are recorded, not plotted: the source gives no stellar mass for them.</p></Fragment><Fragment slot="p"><p>Big clusters of galaxies. The observed pull comes from how the hot gas between the galaxies is held in place; the pull from detected matter comes from that hot gas plus the stars. Both are as the scientists released them.</p></Fragment></Layer>}
         {d.key === 'aeg-d-xcop/v1' && <Layer><Fragment slot="t"><p>{d.systems.rows.length} massive galaxy clusters (X-COP). g_obs = G M_HSE(&lt;r) / r², from the X-ray hydrostatic mass profile (forward method, Ettori et al. 2019). g_bar = G (M_gas + M_★)(&lt;r) / r², from the hot-gas mass (Eckert et al. 2019) and stellar mass (Ghizzardi et al. 2020) profiles. For 5 clusters without measured stellar profiles, the stellar mass is modelled and kept only where the model reproduces the measured clusters (D-023).</p></Fragment><Fragment slot="p"><p>{d.systems.rows.length} big clusters of galaxies. The observed pull comes from how the hot gas between the galaxies is held in place; the pull from detected matter comes from that hot gas plus the stars.</p></Fragment></Layer>}
+        {d.name === 'aeg-d-gc-baumgardt' && <Layer><Fragment slot="t"><p>Milky Way globular clusters ({sysCounts(d)}), one value each at the 3D half-light radius r½ (Baumgardt et al. database; Harris 2010; McLaughlin &amp; van der Marel 2005). g_obs = 3 ⟨σ²⟩ / r½ from the light-weighted line-of-sight velocity dispersion; g_bar = G (½ L_V Υ_V) / r½² from the integrated V luminosity and a population mass-to-light ratio. Gas is left out of g_bar on a published limit for the kind (D-036 #4). The steps are under <a href="#conversion">Conversion steps</a>.</p></Fragment><Fragment slot="p"><p>Old, dense balls of stars in our galaxy ({sysCounts(d)}). The observed pull comes from how fast the stars swarm; the pull from detected matter comes from the starlight. Gas is left out, because published limits for these clusters are small.</p></Fragment></Layer>}
+        {d.name === 'aeg-d-dwarfs' && <Layer><Fragment slot="t"><p>Dwarf galaxies of the Local Group ({sysCounts(d)}), one value each at the 3D half-light radius r½, read from the original papers that the Local Volume Database (Pace 2025) indexes. g_obs = 3 σ² / r½; g_bar = G (½ L_V Υ_V + M_gas(&lt;r½)) / r½², with atomic gas from Putman et al. 2021 where it is measured. The steps are under <a href="#conversion">Conversion steps</a>.</p></Fragment><Fragment slot="p"><p>Small, faint galaxies near our own ({sysCounts(d)}). The observed pull comes from how fast the stars swarm; the pull from detected matter comes from the starlight and, where it was measured, the hydrogen gas.</p></Fragment></Layer>}
+        {d.name === 'aeg-d-strong-lensing' && <Layer><Fragment slot="t"><p>Galaxy-scale strong lenses whose lens is an early-type galaxy ({sysCounts(d)}), one projected value each at the Einstein radius R_E. g_obs = G M_E / R_E² from the lensing mass inside R_E; g_bar = G (M★ + M_gas)(&lt;R_E) / R_E², with population-synthesis stellar masses projected into the same cylinder and the registered gas term (D-064, D-076). The steps are under <a href="#conversion">Conversion steps</a>.</p></Fragment><Fragment slot="p"><p>Single galaxies whose pull bends the light of a galaxy behind them into a ring or arcs ({sysCounts(d)}). Both pulls are measured inside the ring, seen in projection: the observed pull from the bending, the pull from detected matter from the stars and a small allowance for gas.</p></Fragment></Layer>}
         {d.name === 'aeg-d-kids1000-rar' && <Layer><Fragment slot="t"><p>{d.measurements.rows.length} stacked bins of isolated galaxies (Brouwer et al. 2021). g_obs = 4 G ΔΣ from the excess surface density (singular-isothermal-sphere deprojection, validated by the authors against a shape-free method). g_bar from stellar mass plus cold gas treated as a point mass. These are averages over many lens galaxies, not single systems. The authors’ ±0.2 dex stellar-mass systematic is stated in words, not drawn (D-021).</p></Fragment><Fragment slot="p"><p>Averages over many lone galaxies. The pull is measured from how much they bend light from galaxies far behind them. Each point is an average, not one galaxy.</p></Fragment></Layer>}
       </>; })}
 
@@ -143,20 +149,21 @@ const toc = [['stance', 'Stance'], ['quantities', 'What is measured'], ['baselin
       </Fragment></Layer>
       <div tabindex="0" class="tablebox" style="max-height:none"><table>
         <thead><tr><th class="l">Assumption</th><th class="l">Dataset</th><th class="l">Scope</th><th>Default</th><th>Range</th></tr></thead>
-        <tbody>{adj.map(({ a, d, e, k }) => <tr><td class="l"><L t={assumptionLabel(a.id).t} p={assumptionLabel(a.id).p} /></td><td class="l">{datasetLabel(d.name).t}</td><td class="l">{a.scope === 'system' ? 'per system' : 'whole dataset'}</td><td>{fmtParam(k, e.default)}</td><td>{k === 'sigma' ? 'published ±1σ' : `${fmtParam(k, e.min)} to ${fmtParam(k, e.max)}`}</td></tr>)}</tbody>
+        <tbody>{adj.map(({ a, d, e, k }) => <tr><td class="l"><L t={assumptionLabel(a.id).t} p={assumptionLabel(a.id).p} /></td><td class="l">{datasetLabel(d.name).t}</td><td class="l">{a.scope === 'system' ? 'per system' : 'whole dataset'}</td><td>{fmtParam(k, e.default)}</td><td>{rangeLabel(a.id, e)}</td></tr>)}</tbody>
       </table></div>
       <p class="small">Sources for every default and range are on the dataset pages and in the registry. Decisions: <a href={`${D}#d-014--v01-assumption-sliders`}>D-014</a>, <a href={`${D}#d-022--x-cop-assumptions-defaults-and-ranges`}>D-022</a>.</p>
 
       <h2 id="uncertainties"><L t="Uncertainties" p="How sure the numbers are" /></h2>
       <Layer><Fragment slot="t">
         <ul>
-          <li><b>SPARC.</b> g_obs: δg_obs = g_obs √[(2δV/V)² + (2δi/tan i)² + (δD/D)²] (arXiv:1610.08981, eq. 2). g_bar: 10 % on the gas and 25 % on the stellar term, combined in quadrature, as recorded in the package.</li>
+          <li><b>SPARC.</b> g_obs: δg_obs = g_obs √[(2δV/V)² + (2δi/tan i)² + (δD/D)²] (arXiv:1610.08981, eq. 2). g_bar: 10 % on the gas and 25 % on the stellar term, combined in quadrature (Lelli et al. 2017, arXiv:1610.08981, §2.1.2), as recorded in the package.</li>
           <li><b>X-COP.</b> g_obs: the source’s one-sigma mass errors. g_bar: the source’s gas errors and stellar uncertainty bounds, combined in quadrature separately below and above; modelled stellar masses carry no error.</li>
           <li><b>KiDS-1000.</b> g_obs: from the source’s one-sigma excess-surface-density error (bias-corrected, as released); the full released covariance is in the download. g_bar: no uncertainty released; the ±0.2 dex systematic is stated on every point.</li>
+          <li><b>Globular clusters, dwarf galaxies and strong lenses.</b> Each uncertainty is listed with its scale, size and source in the dataset page's <i>Uncertainties by scale</i> table, from the package's uncertainty-terms table (data standard 2.2.0).</li>
         </ul>
-        <p>Error bars are one sigma. The system pages also draw the full published range of each assumption, independent of the current settings.</p>
+        <p>Error bars on the figures carry the terms that apply to one point only. Terms shared by a whole system or dataset move many points together, so they are listed on the dataset pages rather than drawn (D-083). Where a source gives no uncertainty, none is drawn, and the page says so. Error bars are one sigma. The system pages also draw the full published range of each assumption, independent of the current settings.</p>
       </Fragment><Fragment slot="p">
-        <p>Every number has an uncertainty, shown as a bar or a shaded band. On each system’s page you can also see how far the values could move across the full published range of each assumption.</p>
+        <p>Most numbers come with an uncertainty, shown as a bar or a shaded band. Some do not: where a study gives none, none is drawn, and we say so. Uncertainties that move a whole galaxy or a whole dataset at once are listed on the dataset pages instead of drawn as bars. On each system’s page you can also see how far the values could move across the full published range of each assumption.</p>
       </Fragment></Layer>
 
       <h2 id="flags"><L t="Flags and known issues" p="Known problems" /></h2>
@@ -220,8 +227,11 @@ const toc = [['stance', 'Stance'], ['quantities', 'What is measured'], ['baselin
         </ul>
       </Fragment><Fragment slot="p">
         <ul>
-          <li>Star clusters, small round galaxies and groups of galaxies are still being added.</li>
-          <li>Most measurements so far come from spinning disc galaxies.</li>
+          <li>{nDs.replace(/^./, (c) => c.toUpperCase())} so far. The full first release will cover every kind of object, each either measured or listed as a gap. Groups of galaxies, for example, are not in yet.</li>
+          <li>Most measurements so far come from spinning disc galaxies ({nSparc.toLocaleString('en')} of {nAll.toLocaleString('en')}).</li>
+          <li>{lensTextP}</li>
+          <li>For the brighter KiDS-1000 sample, the survey team say their way of picking lone galaxies stops being reliable where the pull from detected matter is weakest.</li>
+          <li>For X-COP, the masses assume the hot gas is held in balance; a slider covers the published range of how far off that may be.</li>
         </ul>
       </Fragment></Layer>
 

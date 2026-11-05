@@ -3,13 +3,32 @@
 // the build uses the package files alone and the page says so.
 import { loadAtlas } from './atlas.mjs';
 import { md } from './md.mjs';
+import { marked } from 'marked';
 
 const API = 'https://api.github.com/repos/extragravitation/atlas/issues?labels=known-issue&state=all&per_page=100';
 let cache = null;
 
-const field = (body, name) => { const m = (body || '').match(new RegExp('\\*\\*' + name + ':\\*\\*\\s*([^·\\n]+)')); return m ? m[1].trim() : null; };
+// A "**Name:** value" field: the value runs to the next "·", the next bold field label or the end of the line.
+const field = (body, name) => { const m = (body || '').match(new RegExp('\\*\\*' + name + ':\\*\\*\\s*(.+?)(?=\\s*·|\\s*\\*\\*[^*\\n]+:\\*\\*|\\n|$)')); return m ? m[1].trim() : null; };
 const section = (body, name) => { const m = (body || '').match(new RegExp('## ' + name + '\\s*\\n+([\\s\\S]*?)(\\n## |$)')); return m ? m[1].trim() : null; };
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+// One line of issue markdown (bold, code, links) as inline HTML, with any raw HTML escaped.
+const inline = (s) => (s ? marked.parseInline(esc(s), { async: false, gfm: true }) : '');
+// The issue's description. Issues with a "## What" section give it whole (tables and lists included).
+// Otherwise the body is used without its leading metadata line(s) ("**Dataset:** …"), up to the
+// status, action or plan, the next section, or the footer.
+function whatOf(body) {
+  if (!body) return null;
+  const w = section(body, 'What');
+  if (w) return w;
+  let t = body.replace(/\n---\s*\n[\s\S]*$/, '').trim();
+  const paras = t.split(/\n\s*\n/);
+  while (paras.length > 1 && /^\*\*(Datasets?|Dataset versions?)[:.]\*\*/.test(paras[0].trim())) paras.shift();
+  t = paras.join('\n\n');
+  t = t.split(/\n(?=\*\*(?:Status|Action|Plan|Ruling|Fix)\b[^*]*\*\*|## )/)[0];
+  t = t.replace(/^\*\*What[:.]\*\*\s*/, '');
+  return t.trim() || null;
+}
 
 export async function loadIssues() {
   if (cache) return cache;
@@ -24,18 +43,25 @@ export async function loadIssues() {
       const res = await fetch(API, { headers, signal: ctl.signal }); clearTimeout(t);
       if (!res.ok) throw new Error('GitHub API ' + res.status);
       remote = (await res.json()).filter((i) => !i.pull_request);
+      // Issues listed in a package file but not labelled known-issue are read one by one.
+      const have = new Set(remote.map((i) => i.number));
+      for (const n of [...new Set(local.map((k) => k.issue))].filter((n) => !have.has(n))) {
+        const r1 = await fetch(API.replace(/issues\?.*$/, 'issues/' + n), { headers });
+        if (r1.ok) remote.push(await r1.json());
+      }
     } catch (e) { error = String(e.message || e); }
   }
   const byNum = Object.fromEntries((remote || []).map((i) => [i.number, i]));
   const nums = [...new Set([...local.map((k) => k.issue), ...(remote || []).map((i) => i.number)])].sort((a, b) => a - b);
   const items = nums.map((n) => {
     const g = byNum[n], ls = local.filter((k) => k.issue === n);
-    const what = g ? section(g.body, 'What') : null;
+    const what = g ? whatOf(g.body) : null;
+    const statusRaw = g ? field(g.body, 'Status') || g.state : 'open (from the package file)';
     return {
       number: n, url: g ? g.html_url : ls[0]?.url, title: g ? g.title : ls[0]?.title,
-      state: g ? g.state : 'open', status: g ? field(g.body, 'Status') || g.state : 'open (from the package file)',
-      found: g ? field(g.body, 'Found') || g.created_at.slice(0, 10) : null, closed: g?.closed_at ? g.closed_at.slice(0, 10) : null,
-      whatHtml: what ? md(esc(what.split(/\n\n/)[0])) : '',
+      state: g ? g.state : 'open', status: statusRaw, statusHtml: inline(statusRaw),
+      found: g ? field(g.body, 'Found') || g.created_at.slice(0, 10) : null, foundHtml: g ? inline(field(g.body, 'Found') || g.created_at.slice(0, 10)) : '', closed: g?.closed_at ? g.closed_at.slice(0, 10) : null,
+      whatHtml: what ? md(esc(what)) : '',
       // Dataset versions the issue names in its body, e.g. `aeg-d-dwarfs/v1` (issues not listed in a package file).
       mentions: g ? [...new Set(((g.title || '') + '\n' + (g.body || '')).match(/aeg-d-[a-z0-9-]+\/v\d+/g) || [])] : [],
       packages: ls.map((k) => ({ dataset: k.dataset, name: k.datasetName, version: k.version, flag: k.flag, measurements: k.measurements || [], clusters: k.clusters || [] })),

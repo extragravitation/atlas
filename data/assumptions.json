@@ -701,7 +701,7 @@
     {
       "id": "gc_gas_absent",
       "name_technical": "Gas absent from g_bar: literature limit for the kind",
-      "name_plain": "Gas in globular clusters is too little to count",
+      "name_plain": "Gas is left out, because published limits for globular clusters are small",
       "adjustable": false,
       "status": "draft",
       "parameter": {
@@ -1652,7 +1652,7 @@
     {
       "id": "baryons_point_mass",
       "name_technical": "Baryons as a point mass at the lens centre: g_bar = G M_gal / r², with M_gal the stellar plus cold-gas mass (plus the assumed hot-gas component in the variant)",
-      "name_plain": "The visible matter of each galaxy treated as if it sat at one point",
+      "name_plain": "The detected matter of each galaxy treated as if it sat at one point",
       "adjustable": false,
       "status": "confirmed",
       "parameter": {
