@@ -1,0 +1,15 @@
+{
+  "description": "Second reading for the globular-cluster v2 package, resolved and frozen before the first v2 conversion run (frozen test item 11; order of work). The converter takes D-096 changes, D-097 classes, confidence levels and binary-screening values only from these files. Rulings applied: D-096 to D-102.",
+  "frozen_on": "2026-11-04",
+  "decision": "D-096, D-097, D-098, D-099, D-100, D-101, D-102",
+  "files": {
+    "data/packages/aeg-d-gc-baumgardt/v2/reading/d096_d097.csv": "50d0cb34721bbeb25b8a5286efa8fc4228ad009961dc865c4a35e5ed39fbe1a8",
+    "data/packages/aeg-d-gc-baumgardt/v2/reading/err_levels.csv": "4b5f57848b0572df9af3aca926422e1bff820350e4b4521f22e44daee3011bdc",
+    "data/packages/aeg-d-gc-baumgardt/v2/reading/binary_screening.csv": "e4fb1d11b22c867cad3103394b80db4ff16a1f88b8de8082d48e8660c2899242",
+    "data/packages/aeg-d-gc-baumgardt/v2/reading/resolutions.md": "7991aed9916b4ea33e5e698e025d1bbe95bbc3d3ac61f599989796c769ad9b12",
+    "data/packages/aeg-d-gc-baumgardt/v2/reading/BRIEF.md": "4dc4d1567f1b718000b65c8849a0e275cdaa0cbead1e0879c5fa1201be347fe1",
+    "data/packages/aeg-d-gc-baumgardt/v2/reading/manifest_rows.csv": "ec735d90a4de3a541de3918aaa4fd3d1c873dbd5379b3eb510d2d9d79438ce03",
+    "data/packages/aeg-d-gc-baumgardt/v2/reading/manifest_observables.csv": "102206382782763d6047707327ecd1147035f1d18a8579db959fbc776cccff8b",
+    "data/packages/aeg-d-gc-baumgardt/v2/reading/manifest_systems.csv": "5c9f57ece0dcb1bd216197651371baa1bd267db379d0c6cc21086f3bd17ae63b"
+  }
+}

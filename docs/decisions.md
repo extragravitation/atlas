@@ -2200,3 +2200,26 @@ The resolved dwarf reading records each class with its quotation and location. T
 **Reason.** Rule 1 applies D-096 rule 1 as written: a stated best fit is the source's own choice. In rule 2 the source states no preference, so the existing selection rule stands.
 
 **Data seen.** The two readings and the quoted lines. No v2 value has been computed.
+
+## D-102 — Tollerud 2012 velocity windows; Tucana V
+
+**Ruling (2026-11-04 21:00 MDT, JvH).** "Tollerud (b)+(c), Tucana V as recommended". **Proposed by** Claude (2026-11-04), from the resolution of the dwarf v2 second readings (`data/packages/aeg-d-dwarfs/v2/reading/resolutions.md`). **Adopted unchanged.**
+
+**Rules.**
+1. **Tollerud 2012's velocity windows are not applied.**
+   - The Atlas computes D-051 light coverage for ten Andromeda dwarfs from Tollerud's member table (mask and membership probability ≥ 0.1). Tollerud also rejects stars outside per-dwarf velocity windows.
+   - Those windows are drawn in figures and never printed as numbers, so D-096 rule 2 cannot be applied. The Atlas does not read cut-offs off a figure, because that would create numbers the source never published.
+   - The member set stays as it is. Known issue #156 is shown on the nine systems with rows.
+   - A query for the limits goes to the authors. It is not a release gate. If they supply the limits, a later version applies them.
+2. **Tucana V stays a possibility.** Hansen 2024 reports Conn 2018's view that Tucana V "is either an unbound part of the halo of the Small Magellanic Cloud (SMC) or a tidally disrupted star cluster", and disputes it in the next sentence ("On the other hand…"). A view the source reports and then disputes is not the source's statement of the system's state.
+3. **Readings confirmed:**
+   - "cannot rule out" is a possibility hedge;
+   - Leo I and And XIX are possibilities, from their hedged lines.
+
+**Reason.** The provenance rule (nothing invented) outranks reconstructing a cut the source never published. Rule 2 applies D-100's wording to what the source itself states.
+
+**Alternatives rejected.**
+- **Rule 1:** estimating the windows from the figures with two readers.
+- **Rule 2:** counting a reported and disputed view as a finding.
+
+**Data seen.** The readings and the quoted lines. No v2 value has been computed.
