@@ -17,7 +17,11 @@ const def = meas.find((r) => r.plotted === 'true');
 const alts = meas.filter((r) => r.role === 'alternative');
 const obs = (d.observables?.rows || []).filter((o) => o.system_id === sys.id);
 const plotted = P.status === 'plotted' && !!def;
-const repoDir = `data/packages/${d.name}/${d.version}`;
+// Readings and checks of the version the values come from (v1 for an unchanged re-issue).
+const repoDir = `data/packages/${d.name}/${pkg.evidence.version}`;
+// v2 (standard §2a rule 7; D-104 rule 3): the row notes say where the θ_E error is carried and where its effect is not computed.
+const thetaOnBar = /θ_E error carried by g_bar/.test(def?.notes || '');
+const thetaNotComputed = /θ_E error stated; effect on g_bar not computed/.test(def?.notes || '');
 const dsPage = `${base}datasets/${d.name}/${d.version}/`;
 
 const e10 = (v) => (v === null || v === undefined ? '–' : (v / 1e-10).toPrecision(3));
@@ -113,7 +117,7 @@ const gapRows = gap ? Object.entries(P.readings || {}).flatMap(([scope, e]) => [
 {plotted ? (
   <>
     <dl class="facts">
-      <div><dt><L t="g_obs at R_E, projected" p="Observed pull, in projection" /></dt><dd>{e10(def.g_obs)} × 10⁻¹⁰ m s⁻² <span class="small">{def.g_obs_err_lo == null ? '(no printed error)' : `(${errText(def.g_obs_err_lo, def.g_obs_err_hi, e10)}, from M_E at fixed R_E)`}</span></dd></div>
+      <div><dt><L t="g_obs at R_E, projected" p="Observed pull, in projection" /></dt><dd>{e10(def.g_obs)} × 10⁻¹⁰ m s⁻² <span class="small">{def.g_obs_err_lo == null ? (thetaOnBar ? `(no point error: the θ_E error${def.x_strong_lensing_theta_e_err_frac_hi != null ? ` (${pct(def.x_strong_lensing_theta_e_err_frac_hi)})` : ''} moves g_bar and R_E, not g_obs = π G Σ_cr; standard §2a rule 7)` : '(no printed error)') : `(${errText(def.g_obs_err_lo, def.g_obs_err_hi, e10)}, from M_E at fixed R_E)`}</span></dd></div>
       <div><dt><L t="g_bar at R_E, projected" p="Pull from detected matter, in projection" /></dt><dd>{e10(def.g_bar)} × 10⁻¹⁰ m s⁻² <span class="small">{def.g_bar_err_lo == null ? '(no printed error)' : `(${errText(def.g_bar_err_lo, def.g_bar_err_hi, e10)}, from the stellar mass only)`}</span></dd></div>
       <div><dt><L t="g_bar: stars / gas" p="From stars / from gas" /></dt><dd>{e10(def.g_bar_stars)} / {e10((def.g_bar_gas_hot || 0) + (def.g_bar_gas_cold || 0))} × 10⁻¹⁰ m s⁻²</dd></div>
       <div><dt><L t="g_obs / g_bar (projected)" p="Observed ÷ detected" /></dt><dd>{(def.g_obs / def.g_bar).toFixed(2)}</dd></div>
@@ -121,6 +125,7 @@ const gapRows = gap ? Object.entries(P.readings || {}).flatMap(([scope, e]) => [
       <div><dt>z_l / z_s</dt><dd>{def.x_strong_lensing_z_l} / {def.x_strong_lensing_z_s}</dd></div>
       <div><dt><L t="Survey · records" p="Where from" /></dt><dd>{P.scope} <span class="small">· {def.source_ref}</span></dd></div>
     </dl>
+    {thetaNotComputed && <Layer as="p" class="small"><Fragment slot="t">θ_E error stated; effect on g_bar not computed. The source prints no single-component light profile for this lens, so how g_bar changes with θ_E is not computed (D-104 rule 3).</Fragment><Fragment slot="p">The paper gives an uncertainty for the ring size, but not the light profile needed to work out how that changes the pull from visible matter, so that effect is not shown.</Fragment></Layer>}
     <p class="small" style="margin-top:8px"><L t="Projected (D-064): both sides are masses inside the same cylinder of radius R_E, expressed as G M / R_E². They are a different quantity from the 3D accelerations elsewhere in the Atlas and are never merged with them; g_obs / g_bar = M_E / M_bar(<R_E) exactly." p="Both pulls count everything inside a cylinder through the galaxy, the width of the ring. That is a different measurement from the other systems in the Atlas, so it keeps its own mark." /></p>
   </>
 ) : (
@@ -179,7 +184,7 @@ const gapRows = gap ? Object.entries(P.readings || {}).flatMap(([scope, e]) => [
         {fig.Mtop ? <li><span class="sw" style="border:1.5px dashed var(--range)" aria-hidden="true"></span><span><L t="Salpeter top (IMF slider)" p="Stars, upper value" /> {m10(fig.Mtop)}</span></li> : <li><span class="sw" style="border:1px solid var(--line)" aria-hidden="true"></span><span><L t="No Salpeter top read (imf_top_not_read)" p="No upper star value" /></span></li>}
         <li><span class="sw" style="background:var(--gas)" aria-hidden="true"></span><span><L t="Gas, default" p="Gas" /> {m10(fig.gas)} <span class="muted">(<L t="range" p="could be" /> {m10e(fig.gasMin)}–{m10e(fig.gasMax)}, <L t="the bracket under the bar" p="the thin bracket" />)</span></span></li>
       </ul>
-      <figcaption><b>Figure.</b> <L t={`Masses inside the same projected cylinder of radius R_E = ${def.r_kpc.toFixed(2)} kpc, in 10¹⁰ M☉, from the package row ${def.measurement_id}: M_E with the error carried on g_obs; stars at the default IMF with the error carried on g_bar and the Salpeter top as a dashed outline; gas at the registered default (${pct((def.x_strong_lensing_gas_hot_frac || 0) + (def.x_strong_lensing_gas_cold_frac || 0))} of the stars) with its registered range (${pct((def.x_strong_lensing_gas_hot_frac_min || 0) + (def.x_strong_lensing_gas_cold_frac_min || 0))}–${pct((def.x_strong_lensing_gas_hot_frac_max || 0) + (def.x_strong_lensing_gas_cold_frac_max || 0))}). The gas is too small to see at the default. The ratio of the two bars at their defaults is g_obs / g_bar.`} p="Top bar: the mass inside the ring measured by light-bending, with its uncertainty. Bottom bar: the mass of the stars and gas detected inside the same ring. The dashed outline shows how far the star mass could go with a different assumption about faint stars; the gas is a very thin sliver at the end." /></figcaption>
+      <figcaption><b>Figure.</b> <L t={`Masses inside the same projected cylinder of radius R_E = ${def.r_kpc.toFixed(2)} kpc, in 10¹⁰ M☉, from the package row ${def.measurement_id}: M_E ${def.g_obs_err_lo == null ? (thetaOnBar ? 'without a point error (its θ_E error moves R_E and g_bar, standard §2a rule 7)' : 'without a printed error') : 'with the error carried on g_obs'}; stars at the default IMF with the error carried on g_bar and the Salpeter top as a dashed outline; gas at the registered default (${pct((def.x_strong_lensing_gas_hot_frac || 0) + (def.x_strong_lensing_gas_cold_frac || 0))} of the stars) with its registered range (${pct((def.x_strong_lensing_gas_hot_frac_min || 0) + (def.x_strong_lensing_gas_cold_frac_min || 0))}–${pct((def.x_strong_lensing_gas_hot_frac_max || 0) + (def.x_strong_lensing_gas_cold_frac_max || 0))}). The gas is too small to see at the default. The ratio of the two bars at their defaults is g_obs / g_bar.`} p="Top bar: the mass inside the ring measured by light-bending, with its uncertainty. Bottom bar: the mass of the stars and gas detected inside the same ring. The dashed outline shows how far the star mass could go with a different assumption about faint stars; the gas is a very thin sliver at the end." /></figcaption>
     </figure>
   </>
 )}

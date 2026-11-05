@@ -1,0 +1,144 @@
+# %ECSV 1.0
+# ---
+# datatype:
+# - name: term_id
+#   datatype: string
+#   description: term_id
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: scale
+#   datatype: string
+#   description: scale
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: applies_to
+#   datatype: string
+#   description: applies_to
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: moves
+#   datatype: string
+#   description: moves
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: status
+#   datatype: string
+#   description: status
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: size_value
+#   datatype: float64
+#   description: size_value
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: size_lo
+#   datatype: float64
+#   description: size_lo
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: size_hi
+#   datatype: float64
+#   description: size_hi
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: size_unit
+#   datatype: string
+#   description: size_unit
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: size_column
+#   datatype: string
+#   description: size_column
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: size_kind
+#   datatype: string
+#   description: size_kind
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: assumption_id
+#   datatype: string
+#   description: assumption_id
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: correlated_with
+#   datatype: string
+#   description: correlated_with
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: covariance
+#   datatype: string
+#   description: covariance
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: citation
+#   datatype: string
+#   description: citation
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: locator
+#   datatype: string
+#   description: locator
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: note
+#   datatype: string
+#   description: note
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: in_error_columns
+#   datatype: string
+#   description: in_error_columns
+#   meta: !!omap
+#   - {ucd: meta.note}
+# delimiter: ','
+# meta: !!omap
+# - {dataset: aeg-d-strong-lensing}
+# - {version: v2}
+# - {standard_version: 2.5.1}
+# schema: astropy-2.0
+term_id,scale,applies_to,moves,status,size_value,size_lo,size_hi,size_unit,size_column,size_kind,assumption_id,correlated_with,covariance,citation,locator,note,in_error_columns
+theta_e,point,*,g_bar,given,,,,fraction,x_strong_lensing_theta_e_err_frac_hi,as_released,a6s_theta_e,,not_published,"R5 (Bolton et al. 2008); R20 (Sonnenfeld et al. 2013a); R32 (Smith et al. 2020); R29 (Collier, Smith & Lucey 2018b)","R5 ms_arxiv.tex l. 972–975; R20 sl2s-rm-pdflatex.tex l. 462, 477–478; R32 main.tex l. 176, l. 261; R29 newlens.tex l. 196","§2a rule 7, class A rows only (rule 5); the column is empty elsewhere, including NGC 6505. Moves g_bar and the coordinate R_E; g_obs = π G Σ_cr is unchanged. Two-sided: x_strong_lensing_theta_e_err_frac_lo holds the other side. SLACS: R5's adopted ""2% RMS fractional error"" (ms_arxiv.tex l. 972–975), no level stated (""RMS"" names a statistic, not a confidence level); R13 used ""a conservative 5%"" for its lensing masses only (plain.txt l. 1669–1671); R13 does not state that its M* errors include the θ_E error (v2 reading). R9 0.5 % (ms_v2.tex l. 138) and SL2S's 3 % in this note (F3). SL2S: R20's 68 % intervals including its 3 % systematic (sl2s-rm-pdflatex.tex l. 462, 477–478). MaNGA: R32 l. 176 and l. 261 (J1701: 10 per cent as stated; Table 1 prints 1.63 ± 0.16). J0403: ±0.03″ of 1.47″ (R29 l. 196). The a6s_theta_e formula is first order in ln θ_E; at J1701's 10 % the second-order term is not computed, and where no light profile is printed the effect on g_bar is not computed (D-104 rule 3)",
+theta_e_ngc6505,point,aeg-s-000509,g_bar,given,0.0004,,,fraction,,lower_bound,a6s_theta_e,,not_published,R30 (O'Riordan et al. 2025),ms.tex l. 798; θ_E l. 813,"0.001″ of 2.500″. ""should therefore be considered lower-bounds which only account for measurement uncertainty"" (R30 ms.tex l. 798; θ_E l. 813). The θ_E effect is not computed where no profile is printed (rule 5)",
+ellipticity_j0403,point,*,g_obs,given,,,,fraction,x_strong_lensing_mass_ellipticity_frac,as_released,,,not_published,"R29 (Collier, Smith & Lucey 2018b)",newlens.tex l. 210,"One-sided, upward; J0403−0239 only. ""Including a small ellipticity (e ≈ 0.1 as measured from galfit) increases the mass by 3 per cent"" (R29 newlens.tex l. 210); a change in M_E at fixed radius. R29's revised ""∼4 per cent"" total is not used, to avoid counting the 2 % θ_E part twice",no
+lens_model_profile,dataset,aeg-s-000408;aeg-s-000409;aeg-s-000410;aeg-s-000411;aeg-s-000412;aeg-s-000413;aeg-s-000414;aeg-s-000415;aeg-s-000417;aeg-s-000418;aeg-s-000419;aeg-s-000421;aeg-s-000422;aeg-s-000423;aeg-s-000424;aeg-s-000425;aeg-s-000426;aeg-s-000427;aeg-s-000430;aeg-s-000431;aeg-s-000432;aeg-s-000433;aeg-s-000434;aeg-s-000435;aeg-s-000436;aeg-s-000437;aeg-s-000438;aeg-s-000439;aeg-s-000440;aeg-s-000442;aeg-s-000443;aeg-s-000444;aeg-s-000445;aeg-s-000446;aeg-s-000448;aeg-s-000449;aeg-s-000450;aeg-s-000451;aeg-s-000452;aeg-s-000453;aeg-s-000454;aeg-s-000455;aeg-s-000456;aeg-s-000457;aeg-s-000458;aeg-s-000459;aeg-s-000460;aeg-s-000461;aeg-s-000462;aeg-s-000463;aeg-s-000464;aeg-s-000465;aeg-s-000466;aeg-s-000467;aeg-s-000468;aeg-s-000469;aeg-s-000470;aeg-s-000471;aeg-s-000472;aeg-s-000473;aeg-s-000474;aeg-s-000475;aeg-s-000476;aeg-s-000477;aeg-s-000478;aeg-s-000479;aeg-s-000480;aeg-s-000481;aeg-s-000482;aeg-s-000483;aeg-s-000484;aeg-s-000485;aeg-s-000486;aeg-s-000487;aeg-s-000488;aeg-s-000489;aeg-s-000490;aeg-s-000491;aeg-s-000492;aeg-s-000493;aeg-s-000494;aeg-s-000495;aeg-s-000496;aeg-s-000497;aeg-s-000498;aeg-s-000499;aeg-s-000500;aeg-s-000506;aeg-s-000507;aeg-s-000508;aeg-s-000509,g_bar,not_given_by_source,,,,,,,a6s_theta_e,,not_published,R5; R9; R30,"R5 l. 843–848; R9 l. 398–400; R30 §4.3, l. 798, l. 778","Changes the fitted θ_E, so it moves g_bar and R_E (F1): ""the Einstein radius parameter … becomes somewhat dependent on the assumed mass model"" for asymmetric images (R5 l. 843–848); slope effects (R9 l. 398–400). NGC 6505: R30 §4.3, where the model systematic dominates the stated lower bounds but is not sized (l. 798); M_E printed without error (l. 778). Not SNL-0, whose SIS-against-MFL difference is already in its g_obs error (class B), and not SNL-1 or SNL-2 (apertures)",
+sie_axis_convention,dataset,aeg-s-000408;aeg-s-000409;aeg-s-000410;aeg-s-000411;aeg-s-000412;aeg-s-000413;aeg-s-000414;aeg-s-000415;aeg-s-000417;aeg-s-000418;aeg-s-000419;aeg-s-000421;aeg-s-000422;aeg-s-000423;aeg-s-000424;aeg-s-000425;aeg-s-000426;aeg-s-000427;aeg-s-000430;aeg-s-000431;aeg-s-000432;aeg-s-000433;aeg-s-000434;aeg-s-000435;aeg-s-000436;aeg-s-000437;aeg-s-000438;aeg-s-000439;aeg-s-000440;aeg-s-000442;aeg-s-000443;aeg-s-000444;aeg-s-000445;aeg-s-000446;aeg-s-000448;aeg-s-000449;aeg-s-000450;aeg-s-000451;aeg-s-000452;aeg-s-000453;aeg-s-000454;aeg-s-000455;aeg-s-000456;aeg-s-000457;aeg-s-000458;aeg-s-000459;aeg-s-000460;aeg-s-000461;aeg-s-000462;aeg-s-000463;aeg-s-000464;aeg-s-000465;aeg-s-000466;aeg-s-000467;aeg-s-000468;aeg-s-000469;aeg-s-000470;aeg-s-000471;aeg-s-000472;aeg-s-000473;aeg-s-000474;aeg-s-000475;aeg-s-000476;aeg-s-000477;aeg-s-000478;aeg-s-000479;aeg-s-000480;aeg-s-000481;aeg-s-000482;aeg-s-000483;aeg-s-000484;aeg-s-000485;aeg-s-000486;aeg-s-000487;aeg-s-000488;aeg-s-000489;aeg-s-000490;aeg-s-000491;aeg-s-000492;aeg-s-000493;aeg-s-000494;aeg-s-000495;aeg-s-000496;aeg-s-000497;aeg-s-000498,g_bar,not_given_by_source,,,,,,,a6s_theta_e,,not_published,R9 (Shu et al. 2015),ms_v2.tex l. 117,"Both use the b_SIE intermediate-axis convention (R9 ms_v2.tex l. 117). R9's ""accurate to < 1%"" is the accuracy of Huterer's conversion relation, not the size of the convention difference",
+external_shear,dataset,aeg-s-000462;aeg-s-000463;aeg-s-000464;aeg-s-000465;aeg-s-000466;aeg-s-000467;aeg-s-000468;aeg-s-000469;aeg-s-000470;aeg-s-000471;aeg-s-000472;aeg-s-000473;aeg-s-000474;aeg-s-000475;aeg-s-000476;aeg-s-000477;aeg-s-000478;aeg-s-000479;aeg-s-000480;aeg-s-000481;aeg-s-000482;aeg-s-000483;aeg-s-000484;aeg-s-000485;aeg-s-000486;aeg-s-000487;aeg-s-000488;aeg-s-000489;aeg-s-000490;aeg-s-000491;aeg-s-000492;aeg-s-000493;aeg-s-000494;aeg-s-000495;aeg-s-000496;aeg-s-000497;aeg-s-000498,g_bar,given,0.02,,,fraction,,as_released,a6s_theta_e,,not_published,R9 (Shu et al. 2015); R10 (Shu et al. 2017),R9 l. 388; R10 l. 308–309,"R9 compares ""the resulted Einstein radii"" with and without shear: ""The overall fractional discrepancy is on the level of 2%"" (R9 l. 388); ""about 4%"" in mocks. R10 omits shear ""as quantified in Shu15"" (R10 l. 308–309)",
+external_convergence,dataset,aeg-s-000408;aeg-s-000409;aeg-s-000410;aeg-s-000411;aeg-s-000412;aeg-s-000413;aeg-s-000414;aeg-s-000415;aeg-s-000417;aeg-s-000418;aeg-s-000419;aeg-s-000421;aeg-s-000422;aeg-s-000423;aeg-s-000424;aeg-s-000425;aeg-s-000426;aeg-s-000427;aeg-s-000430;aeg-s-000431;aeg-s-000432;aeg-s-000433;aeg-s-000434;aeg-s-000435;aeg-s-000436;aeg-s-000437;aeg-s-000438;aeg-s-000439;aeg-s-000440;aeg-s-000442;aeg-s-000443;aeg-s-000444;aeg-s-000445;aeg-s-000446;aeg-s-000448;aeg-s-000449;aeg-s-000450;aeg-s-000451;aeg-s-000452;aeg-s-000453;aeg-s-000454;aeg-s-000455;aeg-s-000456;aeg-s-000457;aeg-s-000458;aeg-s-000459;aeg-s-000460;aeg-s-000461;aeg-s-000462;aeg-s-000463;aeg-s-000464;aeg-s-000465;aeg-s-000466;aeg-s-000467;aeg-s-000468;aeg-s-000469;aeg-s-000470;aeg-s-000471;aeg-s-000472;aeg-s-000473;aeg-s-000474;aeg-s-000475;aeg-s-000476;aeg-s-000477;aeg-s-000478;aeg-s-000479;aeg-s-000480;aeg-s-000481;aeg-s-000482;aeg-s-000483;aeg-s-000484;aeg-s-000485;aeg-s-000486;aeg-s-000487;aeg-s-000488;aeg-s-000489;aeg-s-000490;aeg-s-000491;aeg-s-000492;aeg-s-000493;aeg-s-000494;aeg-s-000495;aeg-s-000496;aeg-s-000497;aeg-s-000498;aeg-s-000499;aeg-s-000500;aeg-s-000504;aeg-s-000505;aeg-s-000506;aeg-s-000507;aeg-s-000508;aeg-s-000509,g_obs,not_given_by_source,,,,,,,,,not_published,R9 (Shu et al. 2015),l. 386,"Changes M_E at a fixed radius: ""no more than a few percent"" (R9 l. 386). SNL-0's is the next row",
+line_of_sight_snl0,point,*,g_obs,given,,,,fraction,x_strong_lensing_los_frac,as_released,,,not_published,"R28 (Smith & Lucey 2013), citing Taruya et al. 2002",lensz_arXiv.tex l. 320–322,"SNL-0 only. in_error_columns = no (the validator requires point and given for that form; R28 states the size itself, citing Taruya et al. 2002). ""∼2 per cent for a z = 2 source (Taruya et al. 2002)"" (R28 l. 320–322)",no
+lens_light_subtraction,dataset,aeg-s-000462;aeg-s-000463;aeg-s-000464;aeg-s-000465;aeg-s-000466;aeg-s-000467;aeg-s-000468;aeg-s-000469;aeg-s-000470;aeg-s-000471;aeg-s-000472;aeg-s-000473;aeg-s-000474;aeg-s-000475;aeg-s-000476;aeg-s-000477;aeg-s-000478;aeg-s-000479;aeg-s-000480;aeg-s-000481;aeg-s-000482;aeg-s-000483;aeg-s-000484;aeg-s-000485;aeg-s-000486;aeg-s-000487;aeg-s-000488;aeg-s-000489;aeg-s-000490;aeg-s-000491;aeg-s-000492;aeg-s-000493;aeg-s-000494;aeg-s-000495;aeg-s-000496;aeg-s-000497;aeg-s-000498,g_bar,not_given_by_source,,,,,,,a6s_theta_e,,not_published,R10 (Shu et al. 2017),l. 290–292,"The B-spline foreground subtraction ""could introduce some systematic uncertainties in the lens and source parameters"" (R10 l. 290–292)",
+aperture_radius_snl12,dataset,aeg-s-000504;aeg-s-000505,both,not_given_by_source,,,,,,,,,not_published,"R61 (Collier, Smith & Lucey 2018)","Table 1, l. 151 and l. 155","R_ap against the HST half-separation: 2.38″ and 2.21″ (R61 Table 1, l. 151; the test's ""Table 2"" is Table 1, v2 reading 3.3) against 2.43 ± 0.03″ and 2.30 ± 0.03″ (l. 155); a difference, not an error",
+companion_snl2,point,aeg-s-000505,g_obs,not_given_by_source,,,,,,,,,not_published,"R61 (Collier, Smith & Lucey 2018)",l. 317,"""tension between the measured and predicted flux ratios"" (R61 l. 317); SLC15's 8–16 % superseded",
+redshift_measurement,dataset,aeg-s-000408;aeg-s-000409;aeg-s-000410;aeg-s-000411;aeg-s-000412;aeg-s-000413;aeg-s-000414;aeg-s-000415;aeg-s-000417;aeg-s-000418;aeg-s-000419;aeg-s-000421;aeg-s-000422;aeg-s-000423;aeg-s-000424;aeg-s-000425;aeg-s-000426;aeg-s-000427;aeg-s-000430;aeg-s-000431;aeg-s-000432;aeg-s-000433;aeg-s-000434;aeg-s-000435;aeg-s-000436;aeg-s-000437;aeg-s-000438;aeg-s-000439;aeg-s-000440;aeg-s-000442;aeg-s-000443;aeg-s-000444;aeg-s-000445;aeg-s-000446;aeg-s-000448;aeg-s-000449;aeg-s-000450;aeg-s-000451;aeg-s-000452;aeg-s-000453;aeg-s-000454;aeg-s-000455;aeg-s-000456;aeg-s-000457;aeg-s-000458;aeg-s-000459;aeg-s-000460;aeg-s-000461;aeg-s-000462;aeg-s-000463;aeg-s-000464;aeg-s-000465;aeg-s-000466;aeg-s-000467;aeg-s-000468;aeg-s-000469;aeg-s-000470;aeg-s-000471;aeg-s-000472;aeg-s-000473;aeg-s-000474;aeg-s-000475;aeg-s-000476;aeg-s-000477;aeg-s-000478;aeg-s-000479;aeg-s-000480;aeg-s-000481;aeg-s-000482;aeg-s-000483;aeg-s-000484;aeg-s-000485;aeg-s-000486;aeg-s-000487;aeg-s-000488;aeg-s-000489;aeg-s-000490;aeg-s-000491;aeg-s-000492;aeg-s-000493;aeg-s-000494;aeg-s-000495;aeg-s-000496;aeg-s-000497;aeg-s-000498;aeg-s-000499;aeg-s-000500;aeg-s-000503;aeg-s-000504;aeg-s-000505;aeg-s-000506;aeg-s-000507;aeg-s-000508,both,not_given_by_source,,,,,,,,,not_published,the sources of each row,,No redshift errors printed except R30 (rows below),
+redshift_lens_ngc6505,point,aeg-s-000509,g_obs,given,3e-05,,,redshift,,as_released,,,not_published,R30 (O'Riordan et al. 2025),ms.tex l. 639,z_l (R30 l. 639); effect not computed in v2,
+redshift_source_ngc6505,point,aeg-s-000509,g_obs,given,0.003,,,redshift,,as_released,,,not_published,R30 (O'Riordan et al. 2025),ms.tex l. 698,z_s (R30 l. 698); effect not computed in v2,
+cosmology_h0,dataset,aeg-s-000408;aeg-s-000409;aeg-s-000410;aeg-s-000411;aeg-s-000412;aeg-s-000413;aeg-s-000414;aeg-s-000415;aeg-s-000417;aeg-s-000418;aeg-s-000419;aeg-s-000421;aeg-s-000422;aeg-s-000423;aeg-s-000424;aeg-s-000425;aeg-s-000426;aeg-s-000427;aeg-s-000430;aeg-s-000431;aeg-s-000432;aeg-s-000433;aeg-s-000434;aeg-s-000435;aeg-s-000436;aeg-s-000437;aeg-s-000438;aeg-s-000439;aeg-s-000440;aeg-s-000442;aeg-s-000443;aeg-s-000444;aeg-s-000445;aeg-s-000446;aeg-s-000448;aeg-s-000449;aeg-s-000450;aeg-s-000451;aeg-s-000452;aeg-s-000453;aeg-s-000454;aeg-s-000455;aeg-s-000456;aeg-s-000457;aeg-s-000458;aeg-s-000459;aeg-s-000460;aeg-s-000461;aeg-s-000462;aeg-s-000463;aeg-s-000464;aeg-s-000465;aeg-s-000466;aeg-s-000467;aeg-s-000468;aeg-s-000469;aeg-s-000470;aeg-s-000471;aeg-s-000472;aeg-s-000473;aeg-s-000474;aeg-s-000475;aeg-s-000476;aeg-s-000477;aeg-s-000478;aeg-s-000479;aeg-s-000480;aeg-s-000481;aeg-s-000482;aeg-s-000483;aeg-s-000484;aeg-s-000485;aeg-s-000486;aeg-s-000487;aeg-s-000488;aeg-s-000489;aeg-s-000490;aeg-s-000491;aeg-s-000492;aeg-s-000493;aeg-s-000494;aeg-s-000495;aeg-s-000496;aeg-s-000497;aeg-s-000498;aeg-s-000499;aeg-s-000500;aeg-s-000509,g_obs,not_given_by_source,,,,,,,a6s_source_cosmology,,not_published,R5; R13; R10; R20; R30,frozen reading distance.csv,Exact formula a6s_source_cosmology (g_obs ∝ H0 at fixed Ω_m; D-094). These sources test no alternative H0,
+cosmology_h0_snells,dataset,aeg-s-000503;aeg-s-000504;aeg-s-000505,g_obs,given,,67.0,70.0,km s-1 Mpc-1,,range,a6s_source_cosmology,,not_published,"R25 (Smith, Lucey & Conroy 2015)",snellsI_arxiv.tex l. 862–863; l. 188,"p = 67/70, from the term's own pair (applying D-094/D-104). ""Adopting $H_0$ = 67 … from the Planck cosmology (Planck Collaboration 2014), rather than … 70 … from WMAP7"" (R25 snellsI_arxiv.tex l. 862–863). R25 adopts 70.4 (l. 188); the pair is R25's own comparison, 67 against 70 (v2 reading, resolution 5). v1's rows carry 70.4 (WMAP7, R28 and R61), which does not enter p. In α: ""would yield smaller α by ∼5 per cent"" (l. 863)",
+cosmology_h0_j0403,dataset,aeg-s-000506,g_obs,given,,67.8,70.4,km s-1 Mpc-1,,range,a6s_source_cosmology,,not_published,"R29 (Collier, Smith & Lucey 2018b); Planck Collaboration 2016, A&A 594, A13 (arXiv 1502.01589)","newlens.tex l. 210, l. 241","p = 67.8/70.4 (applying D-094/D-104). Adopted 70.4 (R29 l. 210). Alternative: ""If we had prescribed the [Planck Collaboration 2016] cosmology"" (l. 241); that paper is A&A 594, A13 (arXiv 1502.01589), whose abstract gives ""H0= (67.8 +/- 0.9) km/s/Mpc"". In α: ""4 per cent lower, due to the variation in H0"" (l. 241)",
+cosmology_h0_manga,dataset,aeg-s-000507;aeg-s-000508,g_obs,given,,67.4,69.6,km s-1 Mpc-1,,range,a6s_source_cosmology,,not_published,"R32 (Smith et al. 2020); Planck Collaboration 2018 (arXiv 1807.06209); Bennett et al. 2014, ApJ 794, 135 (arXiv 1406.1718)","main.tex l. 100–101, l. 293","p = 69.6/67.4 (applying D-094/D-104). Adopted: ""We adopt the cosmological parameters from"" Planck Collaboration 2018 (R32 main.tex l. 100–101); arXiv 1807.06209 abstract: ""$H_0 = (67.4\pm 0.5)$km/s/Mpc"". Alternative: Bennett et al. 2014 (l. 293); arXiv 1406.1718 abstract: ""69.6+/-0.7 km/s/Mpc"". v1's MaNGA rows have no x_strong_lensing_h0, which does not enter p. In α: ""would increase α by 3.5 per cent"" (l. 293)",
+cosmology_omega_m,dataset,*,g_obs,not_given_by_source,,,,,,,,,not_published,each row's observed-side source,x_strong_lensing_om,"Ω_m as stated per source (x_strong_lensing_om); flags cosmology_named_only, flatness_not_stated as v1",
+lens_distance_snl0,system,aeg-s-000503,g_obs,given,,0.03,0.04,fraction of D_l,,as_released,a6s_lens_distance,,not_published,R26 (Newman et al. 2017),snells.tex l. 139,"""an uncertainty corresponding to a 500 km s⁻¹ peculiar velocity (3-4%)"" (R26 snells.tex l. 139), stated for the lensing M/L, which R26 states is proportional to distance; applied as a shift of ±size_hi in D_l (a6s_lens_distance, which assumes D_s ≫ D_l). In α: ""up to 5 per cent"" (R25 l. 864); R28: ""rescaling the distance assumed for [ESO 325-G004] affects $\alpha_{\rm MW}$ linearly"" (lensz_arXiv.tex l. 727–730), an α statement (v2 reading)",
+lens_distance_snl1,system,aeg-s-000504,g_obs,given,,0.03,0.04,fraction of D_l,,as_released,a6s_lens_distance,,not_published,R26 (Newman et al. 2017),snells.tex l. 139,As SNL-0 (R26 l. 139 covers the three SNELLS lenses of its Table 1),
+lens_distance_snl2,system,aeg-s-000505,g_obs,given,,0.03,0.04,fraction of D_l,,as_released,a6s_lens_distance,,not_published,R26 (Newman et al. 2017),snells.tex l. 139,As SNL-0 (R26 l. 139 covers the three SNELLS lenses of its Table 1),
+lens_distance_ngc6505,system,aeg-s-000509,g_obs,given,,0.04,0.04243,redshift,,range,a6s_lens_distance,,not_published,R30 (O'Riordan et al. 2025),ms.tex l. 639; l. 790,"z 0.04243 (spectroscopic, l. 639) against 0.041 ± 0.001 (cosmological). ""On top of the bulk flow peculiar velocities of individual galaxies are typically present at the $150\,\kms$ level. Combining these two effects results in a cosmological redshift of $z=0.041\pm0.001$"" (R30 ms.tex l. 790). R30 does not state which one it uses for distances (v2 reading 3.7). Effect not computed in v2 (applying D-094/D-104). v1's alternative row (z = 0.041) stays as it is",
+lens_distance_other,dataset,aeg-s-000408;aeg-s-000409;aeg-s-000410;aeg-s-000411;aeg-s-000412;aeg-s-000413;aeg-s-000414;aeg-s-000415;aeg-s-000417;aeg-s-000418;aeg-s-000419;aeg-s-000421;aeg-s-000422;aeg-s-000423;aeg-s-000424;aeg-s-000425;aeg-s-000426;aeg-s-000427;aeg-s-000430;aeg-s-000431;aeg-s-000432;aeg-s-000433;aeg-s-000434;aeg-s-000435;aeg-s-000436;aeg-s-000437;aeg-s-000438;aeg-s-000439;aeg-s-000440;aeg-s-000442;aeg-s-000443;aeg-s-000444;aeg-s-000445;aeg-s-000446;aeg-s-000448;aeg-s-000449;aeg-s-000450;aeg-s-000451;aeg-s-000452;aeg-s-000453;aeg-s-000454;aeg-s-000455;aeg-s-000456;aeg-s-000457;aeg-s-000458;aeg-s-000459;aeg-s-000460;aeg-s-000461;aeg-s-000462;aeg-s-000463;aeg-s-000464;aeg-s-000465;aeg-s-000466;aeg-s-000467;aeg-s-000468;aeg-s-000469;aeg-s-000470;aeg-s-000471;aeg-s-000472;aeg-s-000473;aeg-s-000474;aeg-s-000475;aeg-s-000476;aeg-s-000477;aeg-s-000478;aeg-s-000479;aeg-s-000480;aeg-s-000481;aeg-s-000482;aeg-s-000483;aeg-s-000484;aeg-s-000485;aeg-s-000486;aeg-s-000487;aeg-s-000488;aeg-s-000489;aeg-s-000490;aeg-s-000491;aeg-s-000492;aeg-s-000493;aeg-s-000494;aeg-s-000495;aeg-s-000496;aeg-s-000497;aeg-s-000498;aeg-s-000499;aeg-s-000500;aeg-s-000506;aeg-s-000507;aeg-s-000508,g_obs,not_given_by_source,,,,,,,a6s_lens_distance,,not_published,the sources of each row,frozen reading distance.csv,No peculiar-velocity or frame effect stated,
+aperture_factor_slacs,dataset,aeg-s-000408;aeg-s-000409;aeg-s-000410;aeg-s-000411;aeg-s-000412;aeg-s-000413;aeg-s-000414;aeg-s-000415;aeg-s-000417;aeg-s-000418;aeg-s-000419;aeg-s-000421;aeg-s-000422;aeg-s-000423;aeg-s-000424;aeg-s-000425;aeg-s-000426;aeg-s-000427;aeg-s-000430;aeg-s-000431;aeg-s-000432;aeg-s-000433;aeg-s-000434;aeg-s-000435;aeg-s-000436;aeg-s-000437;aeg-s-000438;aeg-s-000439;aeg-s-000440;aeg-s-000442;aeg-s-000443;aeg-s-000444;aeg-s-000445;aeg-s-000446;aeg-s-000448;aeg-s-000449;aeg-s-000450;aeg-s-000451;aeg-s-000452;aeg-s-000453;aeg-s-000454;aeg-s-000455;aeg-s-000456;aeg-s-000457;aeg-s-000458;aeg-s-000459;aeg-s-000460;aeg-s-000461,g_bar,not_given_by_source,,,,,,,,,not_published,R13 (Grillo et al. 2009),plain.txt l. 1701–1705,"""⟨f_ap⟩ = 0.36 ± 0.01"" is a sample mean (R13 l. 1701–1705); ""the stellar mass is traced by the light distribution""",
+r_eff_slacs,dataset,aeg-s-000408;aeg-s-000409;aeg-s-000410;aeg-s-000411;aeg-s-000412;aeg-s-000413;aeg-s-000414;aeg-s-000415;aeg-s-000417;aeg-s-000418;aeg-s-000419;aeg-s-000421;aeg-s-000422;aeg-s-000423;aeg-s-000424;aeg-s-000425;aeg-s-000426;aeg-s-000427;aeg-s-000430;aeg-s-000431;aeg-s-000432;aeg-s-000433;aeg-s-000434;aeg-s-000435;aeg-s-000436;aeg-s-000437;aeg-s-000438;aeg-s-000439;aeg-s-000440;aeg-s-000442;aeg-s-000443;aeg-s-000444;aeg-s-000445;aeg-s-000446;aeg-s-000448;aeg-s-000449;aeg-s-000450;aeg-s-000451;aeg-s-000452;aeg-s-000453;aeg-s-000454;aeg-s-000455;aeg-s-000456;aeg-s-000457;aeg-s-000458;aeg-s-000459;aeg-s-000460;aeg-s-000461,g_bar,given,0.035,,,fraction,,as_released,,,not_published,R5 (Bolton et al. 2008),l. 1072–1076,R_e error adopted by R5 (l. 1072–1076); its effect through f(<R_E) is not computed in v2,
+r_eff_sl2s,point,*,g_bar,given,,,,fraction,x_strong_lensing_r_eff_err_frac,as_released,,,not_published,R20 (Sonnenfeld et al. 2013a),sl2s-rm-pdflatex.tex l. 354–359,"SL2S rows only: CFHT R_e 0.30, HST R_e 0.10, by the imaging of each row's R_e (the frozen reading records both SL2S lenses with HST imaging; the CFHT R_e is v1's default, the HST R_e its alternative). R20 l. 354–359; effect not computed in v2",no
+r_eff_s4tm,dataset,aeg-s-000462;aeg-s-000463;aeg-s-000464;aeg-s-000465;aeg-s-000466;aeg-s-000467;aeg-s-000468;aeg-s-000469;aeg-s-000470;aeg-s-000471;aeg-s-000472;aeg-s-000473;aeg-s-000474;aeg-s-000475;aeg-s-000476;aeg-s-000477;aeg-s-000478;aeg-s-000479;aeg-s-000480;aeg-s-000481;aeg-s-000482;aeg-s-000483;aeg-s-000484;aeg-s-000485;aeg-s-000486;aeg-s-000487;aeg-s-000488;aeg-s-000489;aeg-s-000490;aeg-s-000491;aeg-s-000492;aeg-s-000493;aeg-s-000494;aeg-s-000495;aeg-s-000496;aeg-s-000497;aeg-s-000498,g_bar,not_given_by_source,,,,,,,,,not_published,R10 (Shu et al. 2017),l. 386,No R_e error printed (R10 l. 386),
+sps_templates_slacs,dataset,aeg-s-000408;aeg-s-000409;aeg-s-000410;aeg-s-000411;aeg-s-000412;aeg-s-000413;aeg-s-000414;aeg-s-000415;aeg-s-000417;aeg-s-000418;aeg-s-000419;aeg-s-000421;aeg-s-000422;aeg-s-000423;aeg-s-000424;aeg-s-000425;aeg-s-000426;aeg-s-000427;aeg-s-000430;aeg-s-000431;aeg-s-000432;aeg-s-000433;aeg-s-000434;aeg-s-000435;aeg-s-000436;aeg-s-000437;aeg-s-000438;aeg-s-000439;aeg-s-000440;aeg-s-000442;aeg-s-000443;aeg-s-000444;aeg-s-000445;aeg-s-000446;aeg-s-000448;aeg-s-000449;aeg-s-000450;aeg-s-000451;aeg-s-000452;aeg-s-000453;aeg-s-000454;aeg-s-000455;aeg-s-000456;aeg-s-000457;aeg-s-000458;aeg-s-000459;aeg-s-000460;aeg-s-000461,g_bar,not_given_by_source,,,,,,,,,not_published,R13 (Grillo et al. 2009),"l. 914–916, 1060–1064","solar-metallicity, dust-free templates (R13 l. 914–916, 1060–1064); Maraston pair kept as alternatives",
+sps_systematic_s4tm,dataset,aeg-s-000462;aeg-s-000463;aeg-s-000464;aeg-s-000465;aeg-s-000466;aeg-s-000467;aeg-s-000468;aeg-s-000469;aeg-s-000470;aeg-s-000471;aeg-s-000472;aeg-s-000473;aeg-s-000474;aeg-s-000475;aeg-s-000476;aeg-s-000477;aeg-s-000478;aeg-s-000479;aeg-s-000480;aeg-s-000481;aeg-s-000482;aeg-s-000483;aeg-s-000484;aeg-s-000485;aeg-s-000486;aeg-s-000487;aeg-s-000488;aeg-s-000489;aeg-s-000490;aeg-s-000491;aeg-s-000492;aeg-s-000493;aeg-s-000494;aeg-s-000495;aeg-s-000496;aeg-s-000497;aeg-s-000498,g_bar,given,0.5,,,dex,,as_released,,,not_published,R9 (Shu et al. 2015),l. 424–425,"""around 0.5 dex"" between the lower- and upper-bound models (R9 l. 424–425)",
+sps_template_sl2s,dataset,aeg-s-000499;aeg-s-000500,g_bar,given,0.06,,,dex,,as_released,,,not_published,R20 (Sonnenfeld et al. 2013a),l. 740,R20 l. 740; bias 0.01 dex,
+luminosity_corrections_manga,dataset,aeg-s-000507;aeg-s-000508,g_bar,not_given_by_source,,,,,,,,,not_published,R32 (Smith et al. 2020),l. 270–272,"extinction, band-shift and PSF corrections carry no stated error (R32 l. 270–272; F5)",
+upsilon_ref_manga,dataset,aeg-s-000507;aeg-s-000508,g_bar,given,,2.41,3.46,solar units (M☉/L☉),,range,,,not_published,R32 (Smith et al. 2020),main.tex l. 276–277,"""The full range in Υ_ref spanned by these models is 2.41–3.46; our calculations adopt this as the 2σ interval"" (R32 l. 276–277). One value for both lenses (F4); left out of g_bar_err_point_*",
+pop_model_family_j0403,system,aeg-s-000506,g_bar,not_given_by_source,,,,,,,,,not_published,"R29 (Collier, Smith & Lucey 2018b)",l. 241,"Stated only in α, which subtracts a modelled mass, so it is not a g_bar size (D-104 rule 1's reason; applying D-094/D-104). In α: Maraston models: ""α would increase by 10 per cent"" (R29 l. 241)",
+pop_age_j0403,system,aeg-s-000506,g_bar,not_given_by_source,,,,,,,,,not_published,"R29 (Collier, Smith & Lucey 2018b)",l. 241,"As above. In α: 8.5 Gyr: ""α would have increased by 14 per cent"" (R29 l. 241)",
+pop_model_family_manga,dataset,aeg-s-000507;aeg-s-000508,g_bar,not_given_by_source,,,,,,,,,not_published,R32 (Smith et al. 2020),l. 293,"As above. In α: ""using Maraston models for Υ_ref would increase α by ∼12 per cent"" (R32 l. 293)",
+alpha_fe,dataset,*,g_bar,not_given_by_source,,,,,,,,,not_published,SLC15; SL13,,"SLC15 ""∼4 per cent"" in J-band Υ; SL13 2–3 % in I-band; not for the bands v1 uses",
+stellar_imf,dataset,*,g_bar,given,,,,solMass,x_strong_lensing_mstar_top_msun,range,a6s_stellar_imf,,not_published,v1 slider (D-075 item 5; D-076 item 2),,"v1's slider, unchanged. Lower end: the printed Chabrier/Kroupa value; upper end in x_strong_lensing_mstar_top_msun",
+gas_in_re,dataset,*,g_bar,given_by_other_source,,,,fraction of M*(<R_E),x_strong_lensing_gas_hot_frac_max,range,a6s_gas_in_RE,,not_published,D-076 item 1 (gas_term.json),R28 l. 496; R25 l. 769; R32 l. 274,"v1's registered term (D-076 item 1); the sources call gas negligible (R28 l. 496; R25 l. 769; R32 l. 274). Hot fraction maximum in x_strong_lensing_gas_hot_frac_max, cold in x_strong_lensing_gas_cold_frac_max",
+neighbour_light_snl2,point,*,g_bar,given,,,,fraction,x_strong_lensing_neighbour_light_frac,as_released,,,not_published,R26 (Newman et al. 2017),snells.tex l. 141,"SNL-2 only. ""only 1.5%, a minor effect that we neglect"" (R26 l. 141)",no
+internal_dust_snl1,point,aeg-s-000504,g_bar,not_given_by_source,,,,,,,,,not_published,"R61 (Collier, Smith & Lucey 2018)",l. 313,R61 l. 313,
+lensed_source_light,dataset,*,g_bar,not_given_by_source,,,,,,,,,not_published,R13 (Grillo et al. 2009),,"""not affected in any significant way"" (R13)",
+solar_magnitude,dataset,*,g_bar,not_given_by_source,,,,,,,,,not_published,each stellar-side source,,"4.066 (F814W), 4.64 (r, AB), 4.534 and 4.53 (i), as each source states",
+aperture_shape,dataset,*,both,not_given_by_source,,,,,,,,,not_published,R13 (Grillo et al. 2009),l. 1646–1651,"circular disk for M* against the SIE's elliptical critical curve, ""expressed as in an 'effective' axisymmetric model"" (R13 l. 1646–1651)",

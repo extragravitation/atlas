@@ -1,0 +1,170 @@
+{
+ "name": "aeg-d-strong-lensing",
+ "version": "v2",
+ "title": "Galaxy-scale strong lenses: projected mass inside the Einstein radius against projected stars and gas in the same cylinder",
+ "description": "Atlas re-issue of aeg-d-strong-lensing/v1 under data standard 2.5.1 (D-083, D-084): the same 147 rows and values as v1 (one projected g_obs and g_bar per lens at the Einstein radius, D-064), with the uncertainty terms read at source in step A, confidence levels, and two corrections to how uncertainties are carried (known issue #139). (1) The Einstein-radius (θ_E) error moves from g_obs to g_bar (standard §2a rule 7; adjudication F1): where M_E is the mass inside the radius of mean convergence 1, g_obs = π G Σ_cr does not depend on θ_E, so a θ_E error moves g_bar and R_E, not g_obs; v1 carried it on g_obs \"at fixed R_E\". (2) Distance enters g_obs at first order (D-094, replacing D-064 item 4; F2): g_obs ∝ H0 at fixed Ω_m and ∝ 1/D_l for a lens-distance change, while the stellar g_bar is distance-free; the H0 pairs and peculiar-velocity sizes the sources state are uncertainty terms (D-104 rule 1). Where no single-component light profile is printed (the two MaNGA lenses, NGC 6505 and J0403−0239): θ_E error stated; effect on g_bar not computed (D-104 rule 3). The central black hole is not added to g_bar (D-104 rule 2): every size the sources quote comes from an M_BH–σ scaling of the lens's own velocity dispersion, an input from the system's own kinematics; R28 sizes it at \"2 per cent of M_Ein\" for SNL-0 (lensz_arXiv.tex l. 693), which is a larger share of M*(<R_E), and so of g_bar, because M* is only part of M_Ein. No value changes: the frozen second reading found no source-stated preferred value or exclusion that differs from v1 (D-096). See REPRODUCTION.md, REPRODUCTION_RESULT.md and SECOND_READING.md; v1's tests and checks stand for the unchanged values.",
+ "standard_version": "2.5.1",
+ "x_standard_version": "2.5.1",
+ "x_licence_status": "Original papers and journal tables: values transcribed with citation, not redistributed (all rights reserved at the journal or arXiv non-exclusive licence, per the packaging inventory; R9 and R33 are CC BY on arXiv). VizieR and AAS machine-readable tables: linked and hash-verified, not redistributed. Atlas tables intended CC BY 4.0 under D-004, citing the sources.",
+ "licenses": [],
+ "sources": [
+  {
+   "title": "Bolton et al. 2008, ApJ 682, 964 (SLACS V): VizieR J/ApJ/682/964 tables 4 and 5; arXiv:0805.1931v1",
+   "path": "https://vizier.cfa.harvard.edu/viz-bin/VizieR?-source=J/ApJ/682/964"
+  },
+  {
+   "title": "Grillo et al. 2009, A&A 501, 461: VizieR J/A+A/501/461 (lens table); arXiv:0904.3282v2",
+   "path": "https://vizier.cfa.harvard.edu/viz-bin/VizieR?-source=J/A+A/501/461"
+  },
+  {
+   "title": "Shu et al. 2017, ApJ 851, 48 (S4TM): Tables 1-2; arXiv:1711.00072v2. Method: Shu et al. 2015, ApJ 803, 71 (arXiv:1407.2240v2)",
+   "path": "https://content.cld.iop.org/journals/0004-637X/851/1/48/revision1/apjaa9794t2_ascii.txt"
+  },
+  {
+   "title": "Sonnenfeld et al. 2013, ApJ 777, 97 (SL2S III), Tables 4, 6, 7; ApJ 777, 98 (SL2S IV), Table 2",
+   "path": "https://content.cld.iop.org/journals/0004-637X/777/2/97/revision1/apj485108t7_mrt.txt"
+  },
+  {
+   "title": "SNELLS: Smith & Lucey 2013 (arXiv:1306.4983v1); Smith, Lucey & Conroy 2015 (arXiv:1503.02661v1); Newman et al. 2017 (arXiv:1612.00065v2); Collier, Smith & Lucey 2018 (arXiv:1709.01931v1)",
+   "path": "sources.json"
+  },
+  {
+   "title": "MNELLS J0403-0239: Collier, Smith & Lucey 2018b (arXiv:1803.07082v1); Collier, Smith & Lucey 2020 (arXiv:2002.07191v1)",
+   "path": "sources.json"
+  },
+  {
+   "title": "MaNGA lenses: Smith et al. 2020, MNRAS 493, L33 (arXiv:1911.06338v1)",
+   "path": "https://arxiv.org/abs/1911.06338"
+  },
+  {
+   "title": "NGC 6505: O'Riordan et al. 2025, A&A 694, A145 (arXiv:2502.06505v1)",
+   "path": "https://arxiv.org/abs/2502.06505"
+  },
+  {
+   "title": "Auger et al. 2009, ApJ 705, 1099 (SLACS IX), Table 4: printed M_Ein for the reported formula check only",
+   "path": "https://content.cld.iop.org/journals/0004-637X/705/2/1099/revision1/apj326624t4_ascii.txt"
+  },
+  {
+   "title": "Gas term (D-076 item 1): measured gas and stellar masses in the same apertures of early-type galaxies",
+   "path": "reading/gas/adjudication_gas.md"
+  }
+ ],
+ "x_citation": "Observed side: Bolton et al. 2008 (SLACS V); Shu et al. 2017 (S4TM); Sonnenfeld et al. 2013a (SL2S III); Smith & Lucey 2013; Collier, Smith & Lucey 2018a, 2018b; Smith et al. 2020; O'Riordan et al. 2025. Redshifts: the same, and Sonnenfeld et al. 2013b (SL2S IV). Stellar masses: Grillo et al. 2009; Shu et al. 2015, 2017; Sonnenfeld et al. 2013a; Newman et al. 2017; Collier, Smith & Lucey 2018a, 2018b; Smith et al. 2020; O'Riordan et al. 2025. Gas: the sources listed in reading/gas/adjudication_gas.md §3. Every value's record and location is in source_ref.",
+ "x_selection": [
+  {
+   "quantity": "kind",
+   "condition": "==",
+   "value": "galaxy-scale lens with one main deflector, early-type at source (A6); other kinds recorded with the reason",
+   "citation": "D-063 item 6; A6S_PRECEDENCE §1"
+  },
+  {
+   "quantity": "confirmation",
+   "condition": "==",
+   "value": "confirmed lens (SLACS and S4TM grade A; SL2S grade A); grades B and C recorded, not plotted",
+   "citation": "D-063 item 5"
+  },
+  {
+   "quantity": "redshifts",
+   "condition": "==",
+   "value": "spectroscopic lens and source redshifts, neither derived from the system's own velocity dispersion",
+   "citation": "D-063 items 3 and 5"
+  },
+  {
+   "quantity": "lens redshift",
+   "condition": "<",
+   "value": "0.30 exactly, as printed; systems at or above it are recorded, flagged epoch_gap_v1",
+   "citation": "D-066"
+  },
+  {
+   "quantity": "observed side",
+   "condition": "==",
+   "value": "the default record's printed M_E, or M_E from theta_E by A6S_PRECEDENCE §2.4 in the source's cosmology; originals first, full models over image-separation estimates",
+   "citation": "A6S_PRECEDENCE §2; D-063 item 2; D-075 items 2-4"
+  },
+  {
+   "quantity": "stellar mass",
+   "condition": "==",
+   "value": "inside the same cylinder: printed inside R_E, or L(<R_E) x population M/L with a named IMF, or printed total x f(<R_E) from the source's own light profile; Chabrier/Kroupa default",
+   "citation": "A6S_PRECEDENCE §3; D-063 item 1; D-075 items 2, 3, 5; D-076 items 2, 3"
+  },
+  {
+   "quantity": "source wording",
+   "condition": "==",
+   "value": "SLACS: 'grade-A' lenses modelled in SLACS V; S4TM: 'grade-A' lenses; SL2S: grade A = 'definite lens' (R20 §2)",
+   "citation": "reading/adjudicated_inputs.csv"
+  }
+ ],
+ "x_baryon_inventory": [
+  {
+   "component": "stars",
+   "status": "measured",
+   "citation": "Population-synthesis stellar masses or M/L with a named IMF (D-063 item 1): Grillo et al. 2009 (BC03, Chabrier; Salpeter top), Shu et al. 2015/2017 (FSPS, Chabrier; Salpeter top from O'Riordan et al. 2025's printed factor, D-076 item 2), Sonnenfeld et al. 2013a (BC03, Chabrier; own Salpeter), Newman et al. 2017 and Collier et al. 2018a (Kroupa), Collier et al. 2018b (Kroupa; alpha = 1.55), Smith et al. 2020 (Kroupa; alpha ~ 1.65), O'Riordan et al. 2025 (Chabrier; / 0.61)"
+  },
+  {
+   "component": "stellar remnants",
+   "status": "modelled",
+   "citation": "Included in the population-synthesis masses and M/L"
+  },
+  {
+   "component": "hot gas",
+   "status": "modelled",
+   "citation": "Registered term a6s_gas_in_RE (D-076 item 1, option G1): 0.12% of M*(<R_E), range 0.015-2.5%, from 28 same-aperture X-ray gas and stellar measurements of early-type galaxies (reading/gas/adjudication_gas.md §3-5)"
+  },
+  {
+   "component": "molecular gas",
+   "status": "modelled",
+   "citation": "Registered term a6s_gas_in_RE, cold component (molecular plus atomic): default 0, range 0-2% of M*(<R_E) (D-076 item 1; reading/gas/adjudication_gas.md §5)"
+  },
+  {
+   "component": "atomic gas",
+   "status": "modelled",
+   "citation": "Included in the cold component of a6s_gas_in_RE (top from a flagged sample bound of about 1%, D-076 item 1)"
+  },
+  {
+   "component": "dust",
+   "status": "not_addressed",
+   "citation": "No source read for v1"
+  }
+ ],
+ "x_precedence": "docs/methods/A6S_PRECEDENCE.md (frozen, D-065) applied by docs/sources/screening-A6S/packaging-tools/rank_a6s.py to metadata before any value was read; fallback records by D-075 item 2 (J0946+1006 and J1538+5817 to R13; J0403-0239 to R29's matched pair; SNL-1 to R61, D-076 item 3), flagged fallback_record. Alternatives (Maraston 2005 pair for SLACS, ugriz-only fit and HST R_e for SL2S, z = 0.041 for NGC 6505) are role = alternative rows, never plotted.",
+ "x_checks": [
+  {
+   "check": "REPRODUCTION.md items 1-13 (v2)",
+   "freeze_record": "data/frozen/lenses-v2-test.json",
+   "result": "REPRODUCTION_RESULT.md; reproduction/score.json"
+  },
+  {
+   "check": "item 7 formula checks on every a6s v2 registry entry (Python and JavaScript; combined)",
+   "freeze_record": "data/frozen/lenses-v2-test.json",
+   "result": "reproduction/check_formulas.py; reproduction/check_formulas.json"
+  },
+  {
+   "check": "v1 tests 1-4 and reported checks (unchanged values)",
+   "freeze_record": "data/frozen/a6s-reproduction.json",
+   "result": "../v1/SECOND_READING.md; ../v1/checks/"
+  }
+ ],
+ "x_search_log": "docs/sources/search-log-A6.md; docs/sources/screening-A6S/ (final.csv, packaging-inventory.md: records R5, R7, R9, R10, R13, R20, R21, R25-R30, R32, R33, R36, R61)",
+ "x_second_reading": {
+  "file": "SECOND_READING.md",
+  "reading": [
+   "reading/d096.csv",
+   "reading/theta_class.csv",
+   "reading/profiles.csv",
+   "reading/err_levels.csv",
+   "reading/distance.csv",
+   "reading/baryon_inventory.csv",
+   "reading/resolutions.md"
+  ],
+  "frozen": "data/frozen/lenses-v2-reading.json",
+  "v1_reading": "v1's second reading (1 496 of 1 496 numbers, version 5) carries over for the unchanged values; see ../v1/SECOND_READING.md"
+ },
+ "x_previous_version": "aeg-d-strong-lensing/v1 (standard 2.1.0); values identical; θ_E error moved to g_bar and distance terms added; see REPRODUCTION_RESULT.md",
+ "x_reproduction": {
+  "test": "REPRODUCTION.md (frozen, data/frozen/lenses-v2-test.json)",
+  "result": "REPRODUCTION_RESULT.md",
+  "v1_tests": "v1 tests 1-4 PASS (../v1/RESULT_SUMMARY.md); not re-run"
+ },
+ "x_known_issues": "known_issues.json (GitHub issues #139 and #174)",
+ "x_baryon_inventory_note": "The two central-black-hole components (D-104 rule 2) are added by convert.py from the frozen reading (reading/baryon_inventory.csv) into datapackage.json."
+}

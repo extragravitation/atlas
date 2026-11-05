@@ -1,0 +1,73 @@
+{
+ "1": {
+  "pass": true,
+  "problems": [],
+  "detail": "147 rows (94 defaults, 53 alternatives) in v1's order; 212 systems"
+ },
+ "2": {
+  "pass": true,
+  "problems": [],
+  "detail": "every v1 column compared on every row; allowed differences only (g_obs_err on 107 class A rows, IDs, baryonic_from, notes, assumptions, flags); 19 new columns as listed; systems unchanged; 630 observables unchanged apart from the prefix; 48 profile observables appended from o000631"
+ },
+ "3": {
+  "pass": true,
+  "problems": [],
+  "detail": "none expected, none found: 39 D-096 reading rows, all 'no'; 37 value columns bit-for-bit equal to v1 on all 147 rows"
+ },
+ "4": {
+  "pass": true,
+  "problems": [],
+  "detail": "1178 recomputations by aeg.lensing (v1's frozen test-3 code) to 1e-9; dlngbar_dlntheta on 139 rows to 1e-6; g_bar_stars_ref on 147 rows to 1e-12"
+ },
+ "5": {
+  "pass": true,
+  "problems": [],
+  "detail": "point columns equal the error columns except MaNGA g_bar (L_Ein error alone, recomputed); levels by source and side: R10 g_bar: ['(None, None)']; R10 g_obs: ['(None, None)']; R13 g_bar: [\"('stated', 0.683)\"]; R20 g_bar: [\"('not_given_by_source', None)\"]; R20 g_obs: ['(None, None)']; R26 g_bar: [\"('not_given_by_source', None)\"]; R28 g_obs: [\"('not_given_by_source', None)\"]; R29 g_bar: [\"('not_given_by_source', None)\"]; R29 g_obs: ['(None, None)']; R30 g_bar: [\"('not_given_by_source', None)\"]; R30 g_obs: ['(None, None)']; R32 g_bar: [\"('not_given_by_source', None)\"]; R32 g_obs: ['(None, None)']; R5 g_obs: ['(None, None)']; R61 g_bar: [\"('not_given_by_source', None)\"]; R61 g_obs: [\"('not_given_by_source', None)\"]"
+ },
+ "6": {
+  "pass": true,
+  "problems": [],
+  "detail": "θ_E fractions on 105 class A rows (NGC 6505 empty); profile columns on 96 rows; dlngbar on 139 rows with a printed profile; single-system sizes on J0403, SNL-0, SNL-2; r_eff_err_frac on 6 SL2S rows"
+ },
+ "7": {
+  "pass": true,
+  "problems": [],
+  "detail": "44 terms as frozen (scale, applies_to, moves, status, size, kind, unit, assumption, in_error_columns, covariance); registry v2 entries for 10 a6s entries; check_formulas.py: 23726 Python/JS evaluations, 0 problems; rows not evaluated: {'a6s_source_cosmology': 0, 'a6s_stellar_imf': 3, 'a6s_gas_in_RE': 0, 'a6s_theta_e': 8, 'a6s_lens_distance': 0}"
+ },
+ "8": {
+  "pass": true,
+  "problems": [],
+  "detail": "94 rows plotted, 53 alternatives plotted = false with alternative_value, as v1; epoch-gap systems unchanged"
+ },
+ "9": {
+  "pass": true,
+  "problems": [],
+  "detail": "F1/F2 on the dataset page (descriptor description) and in known issue #139; NGC 6505 lower-bound notes; black hole as two inventory components; 28 v1 sources with v1's hashes; abstract pages {'1502.01589': 'hash matches', '1807.06209': 'hash matches', '1406.1718': 'hash matches'}; page line found: True"
+ },
+ "10": {
+  "pass": true,
+  "problems": [],
+  "detail": "standard_version 2.5.1; no x_value_change_ruling; x_second_reading points to SECOND_READING.md, the seven reading files and their freeze record; inventory = v1's six components + the two black-hole components"
+ },
+ "11": {
+  "pass": true,
+  "problems": [],
+  "detail": "reading files unchanged since freezing; classes A 107, no θ_E error 37, aperture 2, B 1; θ_E, fractions, profiles, levels (item 5), H0 and distance sizes and black-hole statuses equal the reading. The SNELLS pair uses R25's own comparison 67 against 70 (resolution 5; R25's adopted 70.4 is in the term note)"
+ },
+ "12": {
+  "pass": true,
+  "problems": [],
+  "detail": {
+   "validate": "Standard validation passed.",
+   "formula_check": "formula check passed",
+   "test_lensing": "14 passed in 0.06s",
+   "check_formulas": "pass",
+   "site_built": true
+  }
+ },
+ "13": {
+  "pass": true,
+  "problems": [],
+  "detail": "75 v1 files identical to commit 5dc4091"
+ }
+}

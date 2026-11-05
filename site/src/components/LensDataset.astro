@@ -12,17 +12,21 @@ import { md, REPO } from '../lib/md.mjs';
 const { d } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const pkg = lensPackage(d), F = pkg.funnel;
-const repoDir = `data/packages/${d.name}/${d.version}`;
+// v1's readings, tests and reported checks stand for a later version's unchanged values (evidenceVersion).
+const ev = pkg.evidence, inherited = ev.version !== d.version;
+const repoDir = `data/packages/${d.name}/${ev.version}`;
+const ownDir = `data/packages/${d.name}/${d.version}`;
 const sysByName = Object.fromEntries(d.systems.rows.map((s) => [s.name_in_source, s.system_id]));
 const pctW = (n) => `${((n / F.read) * 100).toFixed(3)}%`;
 const f3 = (v) => (v === null || v === undefined ? '–' : v.toFixed(3));
 // The "Tests" section of RESULT_SUMMARY.md (the package's own record of tests 1-4).
-const summary = fs.readFileSync(path.join(d.dir, 'RESULT_SUMMARY.md'), 'utf8');
+const summary = fs.readFileSync(path.join(ev.dir, 'RESULT_SUMMARY.md'), 'utf8');
 const testsMd = (summary.match(/\n## Tests[^\n]*\n([\s\S]*?)(?=\n## )/) || [])[1] || '';
 const FC_LABEL = { R7: 'R7 (SLACS IX)', R10: 'R10 (S4TM)', R28: 'R28 (SNL-0)', R29: 'R29 (J0403−0239)', R30: 'R30 (NGC 6505)' };
 const TH_LABEL = { R5: 'R5 (SLACS V)' };
 ---
 <h2 id="tests"><L t="Tests" p="Was the conversion checked?" /></h2>
+{inherited && <Layer as="p" class="small"><Fragment slot="t">This version re-issues {ev.version}’s values unchanged, under its own frozen test (<a href={`${REPO}/blob/main/${ownDir}/REPRODUCTION.md`}>REPRODUCTION.md</a>; result in <a href={`${REPO}/blob/main/${ownDir}/REPRODUCTION_RESULT.md`}>REPRODUCTION_RESULT.md</a>). The tests, funnel and reported checks below are {ev.version}’s and stand for those values.</Fragment><Fragment slot="p">This version has the same numbers as {ev.version}, checked again by its own locked test. The checks below were done on {ev.version} and still hold.</Fragment></Layer>}
 <Layer as="p" class="small"><Fragment slot="t">From the package’s RESULT_SUMMARY.md. Tests 1–4 were frozen before the conversion was run (REPRODUCTION.md, D-065). Test 1 failed in version 2 on four numbers; that result stays on record. Version 3 adds one independent second reading and nothing else; version 4 adds the numbers of the lenses recorded at z_l ≥ 0.30.</Fragment><Fragment slot="p">Every number was read twice, copied, recomputed and tested by rules written down before the work started. One test failed at first on four numbers; the failure is kept on record, and an extra independent reading then settled them.</Fragment></Layer>
 <div class="prose" set:html={md(testsMd, repoDir)} />
 
