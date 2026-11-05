@@ -1,0 +1,30 @@
+page,reviewed,notes
+index.html,yes,"Read in full: visible text, slider labels and sources, aria labels, and legend/lens/axis strings in page JSON and linked _astro JS. Colour choices not judged (no rendering)."
+about/index.html,yes,"Read in full, including the embedded changelog."
+methods/index.html,yes,Read in full.
+known-issues/index.html,yes,Read in full; measurement-ID lists skimmed.
+for-data-providers/index.html,yes,Read in full; no findings.
+coverage/index.html,yes,"Read in full, including kinds table, matrix, protocol and release gate."
+datasets/aeg-d-dwarfs/v1/index.html,yes,"Summary, validation, embedded reproduction result, uncertainty terms, assumptions and known-issue sections read; column dictionaries, checksum lists and long data tables scanned by keyword search, not line by line."
+datasets/aeg-d-dwarfs/v2/index.html,yes,"Summary, validation, embedded reproduction result, uncertainty terms, assumptions and known-issue sections read; column dictionaries, checksum lists and long data tables scanned by keyword search, not line by line."
+datasets/aeg-d-gc-baumgardt/v1/index.html,yes,"Summary, validation, embedded reproduction result, uncertainty terms, assumptions and known-issue sections read; column dictionaries, checksum lists and long data tables scanned by keyword search, not line by line."
+datasets/aeg-d-gc-baumgardt/v2/index.html,yes,"Summary, validation, embedded reproduction result, uncertainty terms, assumptions and known-issue sections read; column dictionaries, checksum lists and long data tables scanned by keyword search, not line by line."
+datasets/aeg-d-kids1000-rar/v1/index.html,yes,"Summary, validation, embedded reproduction result, uncertainty terms, assumptions and known-issue sections read; column dictionaries, checksum lists and long data tables scanned by keyword search, not line by line."
+datasets/aeg-d-kids1000-rar/v2/index.html,yes,"Summary, validation, embedded reproduction result, uncertainty terms, assumptions and known-issue sections read; column dictionaries, checksum lists and long data tables scanned by keyword search, not line by line."
+datasets/aeg-d-sparc/v1/index.html,yes,"Summary, validation, embedded reproduction result, uncertainty terms, assumptions and known-issue sections read; column dictionaries, checksum lists and long data tables scanned by keyword search, not line by line."
+datasets/aeg-d-sparc/v2/index.html,yes,"Summary, validation, embedded reproduction result, uncertainty terms, assumptions and known-issue sections read; column dictionaries, checksum lists and long data tables scanned by keyword search, not line by line."
+datasets/aeg-d-strong-lensing/v1/index.html,yes,"Summary, validation, embedded reproduction result, uncertainty terms, assumptions and known-issue sections read; column dictionaries, checksum lists and long data tables scanned by keyword search, not line by line."
+datasets/aeg-d-strong-lensing/v2/index.html,yes,"Summary, validation, embedded reproduction result, uncertainty terms, assumptions and known-issue sections read; column dictionaries, checksum lists and long data tables scanned by keyword search, not line by line."
+datasets/aeg-d-xcop/v1/index.html,yes,"Summary, validation, embedded reproduction result, uncertainty terms, assumptions and known-issue sections read; column dictionaries, checksum lists and long data tables scanned by keyword search, not line by line."
+datasets/aeg-d-xcop/v2/index.html,yes,"Summary, validation, embedded reproduction result, uncertainty terms, assumptions and known-issue sections read; column dictionaries, checksum lists and long data tables scanned by keyword search, not line by line."
+datasets/index.html,yes,Read in full.
+systems/aeg-s-000081/index.html,yes,"Read in full (visible text, figure captions and aria labels, plus pull-budget labels in page JSON where present); measurement rows scanned, not checked value by value."
+systems/aeg-s-000067/index.html,yes,"Read in full (visible text, figure captions and aria labels, plus pull-budget labels in page JSON where present); measurement rows scanned, not checked value by value."
+systems/aeg-s-000183/index.html,yes,"Read in full (visible text, figure captions and aria labels, plus pull-budget labels in page JSON where present); measurement rows scanned, not checked value by value."
+systems/aeg-s-000185/index.html,yes,"Read in full (visible text, figure captions and aria labels, plus pull-budget labels in page JSON where present); measurement rows scanned, not checked value by value."
+systems/aeg-s-000500/index.html,yes,"Read in full (visible text, figure captions and aria labels, plus pull-budget labels in page JSON where present); measurement rows scanned, not checked value by value."
+systems/aeg-s-000410/index.html,yes,"Read in full (visible text, figure captions and aria labels, plus pull-budget labels in page JSON where present); measurement rows scanned, not checked value by value."
+systems/aeg-s-000241/index.html,yes,"Read in full (visible text, figure captions and aria labels, plus pull-budget labels in page JSON where present); measurement rows scanned, not checked value by value."
+systems/aeg-s-000255/index.html,yes,"Read in full (visible text, figure captions and aria labels, plus pull-budget labels in page JSON where present); measurement rows scanned, not checked value by value."
+systems/aeg-s-000388/index.html,yes,"Read in full (visible text, figure captions and aria labels, plus pull-budget labels in page JSON where present); measurement rows scanned, not checked value by value."
+systems/aeg-s-000344/index.html,yes,"Read in full (visible text, figure captions and aria labels, plus pull-budget labels in page JSON where present); measurement rows scanned, not checked value by value."

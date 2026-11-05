@@ -1,0 +1,45 @@
+measurement_id,g_obs,g_bar,status,notes
+aeg-d-xcop/v1/m000285,1.088754e-10,1.319957e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=1.212639e-11; g_stars=1.073181e-12
+aeg-d-xcop/v1/m000479,8.973535e-11,1.363342e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=1.278003e-11; g_stars=8.533981e-13
+aeg-d-xcop/v1/m000366,1.941631e-10,2.323561e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=2.067807e-11; g_stars=2.557546e-12
+aeg-d-xcop/v1/m000085,3.862200e-11,6.497370e-12,ok,stars measured (MSTAR_SMOOTHED); g_gas=6.311088e-12; g_stars=1.862826e-13
+aeg-d-xcop/v1/m000406,5.352492e-10,4.747412e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=1.072868e-11; g_stars=3.674544e-11
+aeg-d-xcop/v1/m000077,5.758572e-11,8.876378e-12,ok,stars measured (MSTAR_SMOOTHED); g_gas=8.564614e-12; g_stars=3.117636e-13
+aeg-d-xcop/v1/m000026,2.007518e-10,2.105470e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=1.689623e-11; g_stars=4.158467e-12
+aeg-d-xcop/v1/m000047,1.546387e-10,1.750724e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=1.569956e-11; g_stars=1.807673e-12
+aeg-d-xcop/v1/m000428,2.518134e-10,3.135730e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=1.962586e-11; g_stars=1.173144e-11
+aeg-d-xcop/v1/m000108,2.487833e-10,2.792280e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=1.404576e-11; g_stars=1.387704e-11
+aeg-d-xcop/v1/m000788,1.620119e-10,1.802115e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=5.456909e-12; g_stars=1.256424e-11
+aeg-d-xcop/v1/m000367,1.889649e-10,2.257647e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=2.023685e-11; g_stars=2.339625e-12
+aeg-d-xcop/v1/m000283,1.167243e-10,1.394901e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=1.273315e-11; g_stars=1.215859e-12
+aeg-d-xcop/v1/m000181,8.497142e-11,8.186255e-12,ok,stars modelled (D-022 item 3); g_gas=6.108406e-12; g_stars=2.077850e-12
+aeg-d-xcop/v1/m000389,7.808195e-11,1.138433e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=1.059734e-11; g_stars=7.869948e-13
+aeg-d-xcop/v1/m000087,4.313242e-10,6.917849e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=7.780660e-12; g_stars=6.139783e-11
+aeg-d-xcop/v1/m000539,5.229300e-11,8.528711e-12,ok,stars modelled (D-022 item 3); g_gas=7.773900e-12; g_stars=7.548112e-13
+aeg-d-xcop/v1/m000456,1.749319e-10,2.274493e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=2.043968e-11; g_stars=2.305250e-12
+aeg-d-xcop/v1/m000618,1.033706e-10,1.453302e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=1.372729e-11; g_stars=8.057300e-13
+aeg-d-xcop/v1/m000059,1.170099e-10,1.432603e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=1.348773e-11; g_stars=8.383028e-13
+aeg-d-xcop/v1/m000855,5.441292e-11,5.832305e-12,ok,stars measured (MSTAR_SMOOTHED); g_gas=5.555335e-12; g_stars=2.769698e-13
+aeg-d-xcop/v1/m000361,2.175496e-10,2.624978e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=2.279087e-11; g_stars=3.458913e-12
+aeg-d-xcop/v1/m000386,9.434377e-11,1.270114e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=1.179576e-11; g_stars=9.053784e-13
+aeg-d-xcop/v1/m000852,5.943713e-11,6.744862e-12,ok,stars measured (MSTAR_SMOOTHED); g_gas=6.398207e-12; g_stars=3.466546e-13
+aeg-d-xcop/v1/m000767,4.042023e-11,6.236532e-12,ok,stars modelled (D-022 item 3); g_gas=5.605562e-12; g_stars=6.309700e-13
+aeg-d-xcop/v1/m000838,1.009619e-10,1.074343e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=1.001520e-11; g_stars=7.282271e-13
+aeg-d-xcop/v1/m000804,1.404111e-10,1.279223e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=8.974356e-12; g_stars=3.817870e-12
+aeg-d-xcop/v1/m000023,2.071640e-10,2.201823e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=1.671058e-11; g_stars=5.307652e-12
+aeg-d-xcop/v1/m000718,5.908281e-11,8.841842e-12,ok,stars modelled (D-022 item 3); g_gas=8.321879e-12; g_stars=5.199627e-13
+aeg-d-xcop/v1/m000379,1.324544e-10,1.611432e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=1.482949e-11; g_stars=1.284835e-12
+aeg-d-xcop/v1/m000341,2.913853e-10,4.218199e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=2.814161e-11; g_stars=1.404039e-11
+aeg-d-xcop/v1/m000094,3.388216e-10,4.873946e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=9.722080e-12; g_stars=3.901738e-11
+aeg-d-xcop/v1/m000439,2.051004e-10,2.733243e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=2.208981e-11; g_stars=5.242622e-12
+aeg-d-xcop/v1/m000372,1.633898e-10,1.974446e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=1.797456e-11; g_stars=1.769904e-12
+aeg-d-xcop/v1/m000402,4.150852e-11,6.527387e-12,ok,stars measured (MSTAR_SMOOTHED); g_gas=6.090908e-12; g_stars=4.364799e-13
+aeg-d-xcop/v1/m000732,1.278041e-10,9.835179e-12,ok,stars modelled (D-022 item 3); g_gas=7.865205e-12; g_stars=1.969975e-12
+aeg-d-xcop/v1/m000394,5.768076e-11,9.359202e-12,ok,stars measured (MSTAR_SMOOTHED); g_gas=8.729634e-12; g_stars=6.295686e-13
+aeg-d-xcop/v1/m000602,1.775586e-10,1.796015e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=1.605677e-11; g_stars=1.903375e-12
+aeg-d-xcop/v1/m000414,3.734789e-10,4.063509e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=1.419072e-11; g_stars=2.644437e-11
+aeg-d-xcop/v1/m000755,6.936193e-11,8.464071e-12,ok,stars modelled (D-022 item 3); g_gas=7.421537e-12; g_stars=1.042533e-12
+aeg-d-xcop/v1/m000327,3.796221e-10,6.190153e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=2.463331e-11; g_stars=3.726822e-11
+aeg-d-xcop/v1/m000736,1.141387e-10,1.008599e-11,ok,stars modelled (D-022 item 3); g_gas=8.271417e-12; g_stars=1.814568e-12
+aeg-d-xcop/v1/m000796,1.484769e-10,1.444692e-11,ok,stars measured (MSTAR_SMOOTHED); g_gas=7.184692e-12; g_stars=7.262228e-12
+aeg-d-xcop/v1/m000201,7.238736e-11,7.603528e-12,ok,stars modelled (D-022 item 3); g_gas=6.273464e-12; g_stars=1.330064e-12

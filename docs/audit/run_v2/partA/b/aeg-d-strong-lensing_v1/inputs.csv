@@ -1,0 +1,99 @@
+measurement_id,input,value,unit,locator
+aeg-d-strong-lensing/v1/m000001,bSIE,0.96,arcsec,sources/vizier/J_ApJ_682_964_table5.tsv line 48 (Name=J0029-0055) col bSIE [R5]
+aeg-d-strong-lensing/v1/m000001,zFG,0.2270,,sources/vizier/J_ApJ_682_964_table4.tsv line 61 (Name=J0029-0055) col zFG [R5]
+aeg-d-strong-lensing/v1/m000001,zBG,0.9313,,sources/vizier/J_ApJ_682_964_table4.tsv line 61 (Name=J0029-0055) col zBG [R5]
+aeg-d-strong-lensing/v1/m000001,Omega_M,0.3,,"sources/arxiv/0805.1931v1.pdf p.2 Sec.1 ""matter-density parameter ΩM = 0.3"""
+aeg-d-strong-lensing/v1/m000001,Omega_Lambda,0.7,,"sources/arxiv/0805.1931v1.pdf p.2 Sec.1 ""vacuum energy-density parameter ΩΛ = 0.7"""
+aeg-d-strong-lensing/v1/m000001,H0,70,km s-1 Mpc-1,"sources/arxiv/0805.1931v1.pdf p.2 Sec.1 ""H0 = 70 km s−1 Mpc−1"""
+aeg-d-strong-lensing/v1/m000001,MChaBC2,5,10+10solMass,"sources/vizier/J_A+A_501_461_lens.tsv line 83 (SLACS=J0029-0055) col MChaBC2 (Cha,BC model, R<=R_Ein) [R13]"
+aeg-d-strong-lensing/v1/m000001,"thetaE (Grillo, check only)",0.96,arcsec,sources/vizier/J_A+A_501_461_lens.tsv line 83 (SLACS=J0029-0055) col thetaE [R13]; equals bSIE
+aeg-d-strong-lensing/v1/m000087,bSIE,1.27,arcsec,sources/vizier/J_ApJ_682_964_table5.tsv line 105 (Name=J2238-0754) col bSIE [R5]
+aeg-d-strong-lensing/v1/m000087,zFG,0.1371,,sources/vizier/J_ApJ_682_964_table4.tsv line 182 (Name=J2238-0754) col zFG [R5]
+aeg-d-strong-lensing/v1/m000087,zBG,0.7126,,sources/vizier/J_ApJ_682_964_table4.tsv line 182 (Name=J2238-0754) col zBG [R5]
+aeg-d-strong-lensing/v1/m000087,Omega_M,0.3,,"sources/arxiv/0805.1931v1.pdf p.2 Sec.1 ""matter-density parameter ΩM = 0.3"""
+aeg-d-strong-lensing/v1/m000087,Omega_Lambda,0.7,,"sources/arxiv/0805.1931v1.pdf p.2 Sec.1 ""vacuum energy-density parameter ΩΛ = 0.7"""
+aeg-d-strong-lensing/v1/m000087,H0,70,km s-1 Mpc-1,"sources/arxiv/0805.1931v1.pdf p.2 Sec.1 ""H0 = 70 km s−1 Mpc−1"""
+aeg-d-strong-lensing/v1/m000087,MChaBC2,5,10+10solMass,"sources/vizier/J_A+A_501_461_lens.tsv line 134 (SLACS=J2238-0754) col MChaBC2 (Cha,BC model, R<=R_Ein) [R13]"
+aeg-d-strong-lensing/v1/m000087,"thetaE (Grillo, check only)",1.27,arcsec,sources/vizier/J_A+A_501_461_lens.tsv line 134 (SLACS=J2238-0754) col thetaE [R13]; equals bSIE
+aeg-d-strong-lensing/v1/m000093,bSIE,1.60,arcsec,sources/vizier/J_ApJ_682_964_table5.tsv line 108 (Name=J2321-0939) col bSIE [R5]
+aeg-d-strong-lensing/v1/m000093,zFG,0.0819,,sources/vizier/J_ApJ_682_964_table4.tsv line 187 (Name=J2321-0939) col zFG [R5]
+aeg-d-strong-lensing/v1/m000093,zBG,0.5324,,sources/vizier/J_ApJ_682_964_table4.tsv line 187 (Name=J2321-0939) col zBG [R5]
+aeg-d-strong-lensing/v1/m000093,Omega_M,0.3,,"sources/arxiv/0805.1931v1.pdf p.2 Sec.1 ""matter-density parameter ΩM = 0.3"""
+aeg-d-strong-lensing/v1/m000093,Omega_Lambda,0.7,,"sources/arxiv/0805.1931v1.pdf p.2 Sec.1 ""vacuum energy-density parameter ΩΛ = 0.7"""
+aeg-d-strong-lensing/v1/m000093,H0,70,km s-1 Mpc-1,"sources/arxiv/0805.1931v1.pdf p.2 Sec.1 ""H0 = 70 km s−1 Mpc−1"""
+aeg-d-strong-lensing/v1/m000093,MChaBC2,6,10+10solMass,"sources/vizier/J_A+A_501_461_lens.tsv line 137 (SLACS=J2321-0939) col MChaBC2 (Cha,BC model, R<=R_Ein) [R13]"
+aeg-d-strong-lensing/v1/m000093,"thetaE (Grillo, check only)",1.60,arcsec,sources/vizier/J_A+A_501_461_lens.tsv line 137 (SLACS=J2321-0939) col thetaE [R13]; equals bSIE
+aeg-d-strong-lensing/v1/m000013,bSIE,1.25,arcsec,sources/vizier/J_ApJ_682_964_table5.tsv line 57 (Name=J0728+3835) col bSIE [R5]
+aeg-d-strong-lensing/v1/m000013,zFG,0.2058,,sources/vizier/J_ApJ_682_964_table4.tsv line 71 (Name=J0728+3835) col zFG [R5]
+aeg-d-strong-lensing/v1/m000013,zBG,0.6877,,sources/vizier/J_ApJ_682_964_table4.tsv line 71 (Name=J0728+3835) col zBG [R5]
+aeg-d-strong-lensing/v1/m000013,Omega_M,0.3,,"sources/arxiv/0805.1931v1.pdf p.2 Sec.1 ""matter-density parameter ΩM = 0.3"""
+aeg-d-strong-lensing/v1/m000013,Omega_Lambda,0.7,,"sources/arxiv/0805.1931v1.pdf p.2 Sec.1 ""vacuum energy-density parameter ΩΛ = 0.7"""
+aeg-d-strong-lensing/v1/m000013,H0,70,km s-1 Mpc-1,"sources/arxiv/0805.1931v1.pdf p.2 Sec.1 ""H0 = 70 km s−1 Mpc−1"""
+aeg-d-strong-lensing/v1/m000013,MChaBC2,6,10+10solMass,"sources/vizier/J_A+A_501_461_lens.tsv line 92 (SLACS=J0728+3835) col MChaBC2 (Cha,BC model, R<=R_Ein) [R13]"
+aeg-d-strong-lensing/v1/m000013,"thetaE (Grillo, check only)",1.25,arcsec,sources/vizier/J_A+A_501_461_lens.tsv line 92 (SLACS=J0728+3835) col thetaE [R13]; equals bSIE
+aeg-d-strong-lensing/v1/m000099,b_SIE,1.23,arcsec,sources/iop/apjaa9794t2_ascii.txt line 12 (SDSSJ0753+3416) col (2) b_SIE [R10 Table 2]
+aeg-d-strong-lensing/v1/m000099,log_10 (M_Ein/M_sun),11.05,dex(M_sun),sources/iop/apjaa9794t2_ascii.txt line 12 (SDSSJ0753+3416) col (7) [R10 Table 2]
+aeg-d-strong-lensing/v1/m000099,log10(M*^Chab/M_sun),11.23,dex(M_sun),"sources/iop/apjaa9794t2_ascii.txt line 12 (SDSSJ0753+3416) col (8), total, Chabrier [R10 Table 2]"
+aeg-d-strong-lensing/v1/m000099,z_L,0.1371,,sources/iop/apjaa9794t1_ascii.txt line 23 (SDSSJ0753+3416) col (3) [R10 Table 1]
+aeg-d-strong-lensing/v1/m000099,z_S,0.9628,,sources/iop/apjaa9794t1_ascii.txt line 23 (SDSSJ0753+3416) col (4) [R10 Table 1] (not needed: M_E printed)
+aeg-d-strong-lensing/v1/m000099,R_eff,1.89,arcsec,"sources/iop/apjaa9794t1_ascii.txt line 23 (SDSSJ0753+3416) col (8), de Vaucouleurs, intermediate-axis [R10 Table 1]"
+aeg-d-strong-lensing/v1/m000099,Omega_m,0.274,,"sources/arxiv/1711.00072v2.pdf p.2 Sec.1 ""Ωm = 0.274, ΩΛ = 0.726 and H0 = 70 km s−1 Mpc−1"""
+aeg-d-strong-lensing/v1/m000099,Omega_Lambda,0.726,,sources/arxiv/1711.00072v2.pdf p.2 Sec.1
+aeg-d-strong-lensing/v1/m000099,H0,70,km s-1 Mpc-1,sources/arxiv/1711.00072v2.pdf p.2 Sec.1
+aeg-d-strong-lensing/v1/m000114,b_SIE,1.18,arcsec,sources/iop/apjaa9794t2_ascii.txt line 28 (SDSSJ1101+1523) col (2) b_SIE [R10 Table 2]
+aeg-d-strong-lensing/v1/m000114,log_10 (M_Ein/M_sun),11.23,dex(M_sun),sources/iop/apjaa9794t2_ascii.txt line 28 (SDSSJ1101+1523) col (7) [R10 Table 2]
+aeg-d-strong-lensing/v1/m000114,log10(M*^Chab/M_sun),11.23,dex(M_sun),"sources/iop/apjaa9794t2_ascii.txt line 28 (SDSSJ1101+1523) col (8), total, Chabrier [R10 Table 2]"
+aeg-d-strong-lensing/v1/m000114,z_L,0.1780,,sources/iop/apjaa9794t1_ascii.txt line 63 (SDSSJ1101+1523) col (3) [R10 Table 1]
+aeg-d-strong-lensing/v1/m000114,z_S,0.5169,,sources/iop/apjaa9794t1_ascii.txt line 63 (SDSSJ1101+1523) col (4) [R10 Table 1] (not needed: M_E printed)
+aeg-d-strong-lensing/v1/m000114,R_eff,0.89,arcsec,"sources/iop/apjaa9794t1_ascii.txt line 63 (SDSSJ1101+1523) col (8), de Vaucouleurs, intermediate-axis [R10 Table 1]"
+aeg-d-strong-lensing/v1/m000114,Omega_m,0.274,,"sources/arxiv/1711.00072v2.pdf p.2 Sec.1 ""Ωm = 0.274, ΩΛ = 0.726 and H0 = 70 km s−1 Mpc−1"""
+aeg-d-strong-lensing/v1/m000114,Omega_Lambda,0.726,,sources/arxiv/1711.00072v2.pdf p.2 Sec.1
+aeg-d-strong-lensing/v1/m000114,H0,70,km s-1 Mpc-1,sources/arxiv/1711.00072v2.pdf p.2 Sec.1
+aeg-d-strong-lensing/v1/m000109,b_SIE,0.59,arcsec,sources/iop/apjaa9794t2_ascii.txt line 23 (SDSSJ1040+3626) col (2) b_SIE [R10 Table 2]
+aeg-d-strong-lensing/v1/m000109,log_10 (M_Ein/M_sun),10.54,dex(M_sun),sources/iop/apjaa9794t2_ascii.txt line 23 (SDSSJ1040+3626) col (7) [R10 Table 2]
+aeg-d-strong-lensing/v1/m000109,log10(M*^Chab/M_sun),10.99,dex(M_sun),"sources/iop/apjaa9794t2_ascii.txt line 23 (SDSSJ1040+3626) col (8), total, Chabrier [R10 Table 2]"
+aeg-d-strong-lensing/v1/m000109,z_L,0.1225,,sources/iop/apjaa9794t1_ascii.txt line 58 (SDSSJ1040+3626) col (3) [R10 Table 1]
+aeg-d-strong-lensing/v1/m000109,z_S,0.2846,,sources/iop/apjaa9794t1_ascii.txt line 58 (SDSSJ1040+3626) col (4) [R10 Table 1] (not needed: M_E printed)
+aeg-d-strong-lensing/v1/m000109,R_eff,1.30,arcsec,"sources/iop/apjaa9794t1_ascii.txt line 58 (SDSSJ1040+3626) col (8), de Vaucouleurs, intermediate-axis [R10 Table 1]"
+aeg-d-strong-lensing/v1/m000109,Omega_m,0.274,,"sources/arxiv/1711.00072v2.pdf p.2 Sec.1 ""Ωm = 0.274, ΩΛ = 0.726 and H0 = 70 km s−1 Mpc−1"""
+aeg-d-strong-lensing/v1/m000109,Omega_Lambda,0.726,,sources/arxiv/1711.00072v2.pdf p.2 Sec.1
+aeg-d-strong-lensing/v1/m000109,H0,70,km s-1 Mpc-1,sources/arxiv/1711.00072v2.pdf p.2 Sec.1
+aeg-d-strong-lensing/v1/m000122,b_SIE,1.01,arcsec,sources/iop/apjaa9794t2_ascii.txt line 36 (SDSSJ1330+1750) col (2) b_SIE [R10 Table 2]
+aeg-d-strong-lensing/v1/m000122,log_10 (M_Ein/M_sun),11.32,dex(M_sun),sources/iop/apjaa9794t2_ascii.txt line 36 (SDSSJ1330+1750) col (7) [R10 Table 2]
+aeg-d-strong-lensing/v1/m000122,log10(M*^Chab/M_sun),11.74,dex(M_sun),"sources/iop/apjaa9794t2_ascii.txt line 36 (SDSSJ1330+1750) col (8), total, Chabrier [R10 Table 2]"
+aeg-d-strong-lensing/v1/m000122,z_L,0.2074,,sources/iop/apjaa9794t1_ascii.txt line 92 (SDSSJ1330+1750) col (3) [R10 Table 1]
+aeg-d-strong-lensing/v1/m000122,z_S,0.3717,,sources/iop/apjaa9794t1_ascii.txt line 92 (SDSSJ1330+1750) col (4) [R10 Table 1] (not needed: M_E printed)
+aeg-d-strong-lensing/v1/m000122,R_eff,2.85,arcsec,"sources/iop/apjaa9794t1_ascii.txt line 92 (SDSSJ1330+1750) col (8), de Vaucouleurs, intermediate-axis [R10 Table 1]"
+aeg-d-strong-lensing/v1/m000122,Omega_m,0.274,,"sources/arxiv/1711.00072v2.pdf p.2 Sec.1 ""Ωm = 0.274, ΩΛ = 0.726 and H0 = 70 km s−1 Mpc−1"""
+aeg-d-strong-lensing/v1/m000122,Omega_Lambda,0.726,,sources/arxiv/1711.00072v2.pdf p.2 Sec.1
+aeg-d-strong-lensing/v1/m000122,H0,70,km s-1 Mpc-1,sources/arxiv/1711.00072v2.pdf p.2 Sec.1
+aeg-d-strong-lensing/v1/m000100,b_SIE,1.04,arcsec,sources/iop/apjaa9794t2_ascii.txt line 13 (SDSSJ0754+1927) col (2) b_SIE [R10 Table 2]
+aeg-d-strong-lensing/v1/m000100,log_10 (M_Ein/M_sun),10.99,dex(M_sun),sources/iop/apjaa9794t2_ascii.txt line 13 (SDSSJ0754+1927) col (7) [R10 Table 2]
+aeg-d-strong-lensing/v1/m000100,log10(M*^Chab/M_sun),11.13,dex(M_sun),"sources/iop/apjaa9794t2_ascii.txt line 13 (SDSSJ0754+1927) col (8), total, Chabrier [R10 Table 2]"
+aeg-d-strong-lensing/v1/m000100,z_L,0.1534,,sources/iop/apjaa9794t1_ascii.txt line 25 (SDSSJ0754+1927) col (3) [R10 Table 1]
+aeg-d-strong-lensing/v1/m000100,z_S,0.7401,,sources/iop/apjaa9794t1_ascii.txt line 25 (SDSSJ0754+1927) col (4) [R10 Table 1] (not needed: M_E printed)
+aeg-d-strong-lensing/v1/m000100,R_eff,1.46,arcsec,"sources/iop/apjaa9794t1_ascii.txt line 25 (SDSSJ0754+1927) col (8), de Vaucouleurs, intermediate-axis [R10 Table 1]"
+aeg-d-strong-lensing/v1/m000100,Omega_m,0.274,,"sources/arxiv/1711.00072v2.pdf p.2 Sec.1 ""Ωm = 0.274, ΩΛ = 0.726 and H0 = 70 km s−1 Mpc−1"""
+aeg-d-strong-lensing/v1/m000100,Omega_Lambda,0.726,,sources/arxiv/1711.00072v2.pdf p.2 Sec.1
+aeg-d-strong-lensing/v1/m000100,H0,70,km s-1 Mpc-1,sources/arxiv/1711.00072v2.pdf p.2 Sec.1
+aeg-d-strong-lensing/v1/m000140,M_Ein^MFL,1.50 ± 0.06 × 10^11,M_sun,"sources/arxiv/1306.4983v1.pdf p.9 Table 3 row ""Total lensing mass inside REin"" [R28]"
+aeg-d-strong-lensing/v1/m000140,REin,2.85,arcsec,"sources/arxiv/1306.4983v1.pdf p.9 Table 3 row ""Einstein radius"" [R28]"
+aeg-d-strong-lensing/v1/m000140,zl,0.0347,,"sources/arxiv/1306.4983v1.pdf p.9 Table 3 row ""Lens redshift (CMB frame)"" [R28]"
+aeg-d-strong-lensing/v1/m000140,Dl (check only),142,Mpc,"sources/arxiv/1306.4983v1.pdf p.9 Table 3 row ""Lens angular diameter distance"" [R28]"
+aeg-d-strong-lensing/v1/m000140,Angular scale at lens (check only),0.687,kpc/arcsec,sources/arxiv/1306.4983v1.pdf p.9 Table 3 [R28]
+aeg-d-strong-lensing/v1/m000140,H0,70.4,km s-1 Mpc-1,"sources/arxiv/1306.4983v1.pdf p.2 Sec.1 ""WMAP7: H0 = 70.4 km s−1 Mpc−1 , Ωm = 0.272 and ΩΛ = 0.728"""
+aeg-d-strong-lensing/v1/m000140,Omega_m,0.272,,sources/arxiv/1306.4983v1.pdf p.2 Sec.1
+aeg-d-strong-lensing/v1/m000140,Omega_Lambda,0.728,,sources/arxiv/1306.4983v1.pdf p.2 Sec.1
+aeg-d-strong-lensing/v1/m000140,"L_r,Ein",2.84 ± 0.06,"10^10 L_sun,r","sources/arxiv/1612.00065v2.pdf p.5 Table 1 row Lr,Ein col SNL-0 [R26]"
+aeg-d-strong-lensing/v1/m000140,(M*/L_r)_MW,4.04 ± 0.10,"(M/L)_sun,r","sources/arxiv/1612.00065v2.pdf p.5 Table 1 row (M*/Lr)MW col SNL-0, ""Kroupa IMF"" [R26]"
+aeg-d-strong-lensing/v1/m000140,"theta_Ein (R26, check only)",2.85,arcsec,sources/arxiv/1612.00065v2.pdf p.5 Table 1 row θEin col SNL-0; equals R28 REin
+aeg-d-strong-lensing/v1/m000001,hot gas fraction of M*(<R_E),0.12%,,"method/descriptor.json x_baryon_inventory ""hot gas"" (registered term a6s_gas_in_RE default); cold gas default 0 (same, ""molecular gas"")"
+aeg-d-strong-lensing/v1/m000013,hot gas fraction of M*(<R_E),0.12%,,"method/descriptor.json x_baryon_inventory ""hot gas"" (registered term a6s_gas_in_RE default); cold gas default 0 (same, ""molecular gas"")"
+aeg-d-strong-lensing/v1/m000087,hot gas fraction of M*(<R_E),0.12%,,"method/descriptor.json x_baryon_inventory ""hot gas"" (registered term a6s_gas_in_RE default); cold gas default 0 (same, ""molecular gas"")"
+aeg-d-strong-lensing/v1/m000093,hot gas fraction of M*(<R_E),0.12%,,"method/descriptor.json x_baryon_inventory ""hot gas"" (registered term a6s_gas_in_RE default); cold gas default 0 (same, ""molecular gas"")"
+aeg-d-strong-lensing/v1/m000099,hot gas fraction of M*(<R_E),0.12%,,"method/descriptor.json x_baryon_inventory ""hot gas"" (registered term a6s_gas_in_RE default); cold gas default 0 (same, ""molecular gas"")"
+aeg-d-strong-lensing/v1/m000100,hot gas fraction of M*(<R_E),0.12%,,"method/descriptor.json x_baryon_inventory ""hot gas"" (registered term a6s_gas_in_RE default); cold gas default 0 (same, ""molecular gas"")"
+aeg-d-strong-lensing/v1/m000109,hot gas fraction of M*(<R_E),0.12%,,"method/descriptor.json x_baryon_inventory ""hot gas"" (registered term a6s_gas_in_RE default); cold gas default 0 (same, ""molecular gas"")"
+aeg-d-strong-lensing/v1/m000114,hot gas fraction of M*(<R_E),0.12%,,"method/descriptor.json x_baryon_inventory ""hot gas"" (registered term a6s_gas_in_RE default); cold gas default 0 (same, ""molecular gas"")"
+aeg-d-strong-lensing/v1/m000122,hot gas fraction of M*(<R_E),0.12%,,"method/descriptor.json x_baryon_inventory ""hot gas"" (registered term a6s_gas_in_RE default); cold gas default 0 (same, ""molecular gas"")"
+aeg-d-strong-lensing/v1/m000140,hot gas fraction of M*(<R_E),0.12%,,"method/descriptor.json x_baryon_inventory ""hot gas"" (registered term a6s_gas_in_RE default); cold gas default 0 (same, ""molecular gas"")"

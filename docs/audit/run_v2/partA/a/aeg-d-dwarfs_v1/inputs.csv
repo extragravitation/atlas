@@ -1,0 +1,147 @@
+measurement_id,input,value,unit,locator
+aeg-d-dwarfs/v1/m000003,sigma_LOS,9.3,km s-1,"papers/Tollerud2012ApJ...752...45T.pdf p.9, Table 3 (Summary of M31 dSph properties), row And III, col sigma_LOS (9)"
+aeg-d-dwarfs/v1/m000003,sigma err+-,1.4,km s-1,same cell
+aeg-d-dwarfs/v1/m000003,epsilon,0.59,dimensionless (1-b/a),"papers/Martin2016ApJ...833..167M.pdf p.9, Table 1 (Derived structural parameters of the dwarf galaxies), row And III, col epsilon"
+aeg-d-dwarfs/v1/m000003,epsilon err+-,0.04,,same cell
+aeg-d-dwarfs/v1/m000003,rh,2.0,"arcmin (semi-major; elliptical radius, Martin 2016 eqs. 3 and 5)","papers/Martin2016ApJ...833..167M.pdf p.9, Table 1 (Derived structural parameters of the dwarf galaxies), row And III, col rh (arcmin)"
+aeg-d-dwarfs/v1/m000003,rh err+-,0.2,arcmin,same cell
+aeg-d-dwarfs/v1/m000003,mu,24.29,mag,"papers/Savino2022ApJ...938..101S.pdf p.15, Table 5, row And III, col mu"
+aeg-d-dwarfs/v1/m000003,mu err+-,0.05,mag,same cell
+aeg-d-dwarfs/v1/m000003,"mV,0",14.8,mag (extinction-corrected apparent V),"papers/Martin2016ApJ...833..167M.pdf p.9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And III, col mV,0"
+aeg-d-dwarfs/v1/m000003,"mV,0 err+-",0.2,mag,same cell
+aeg-d-dwarfs/v1/m000003,"MV,sun",+4.85,mag,"readers/a/aeg-d-dwarfs_v1/downloads/astro-ph_0605132.pdf (arXiv:astro-ph/0605132, McLaughlin & van der Marel 2005) p.22, Sec. 4 bullet on log I0: 'corresponds to a solar absolute magnitude MV,sun = +4.85'"
+aeg-d-dwarfs/v1/m000003,l_MHI MHI,< 6.2E+04,Msun (5 sigma upper limit),"packets/aeg-d-dwarfs_v1/sources/gas/putman2021/apjabe391t1_mrt.txt line 162 (Andromeda III), bytes 86-94"
+aeg-d-dwarfs/v1/m000007,sigma_LOS,10.9,km s-1,"papers/Tollerud2012ApJ...752...45T.pdf p.9, Table 3 (Summary of M31 dSph properties), row And IX, col sigma_LOS (9)"
+aeg-d-dwarfs/v1/m000007,sigma err+-,2.0,km s-1,same cell
+aeg-d-dwarfs/v1/m000007,epsilon,0.00,dimensionless (1-b/a),"papers/Martin2016ApJ...833..167M.pdf p.9, Table 1 (Derived structural parameters of the dwarf galaxies), row And IX, col epsilon"
+aeg-d-dwarfs/v1/m000007,epsilon err+,0.16,,same cell
+aeg-d-dwarfs/v1/m000007,epsilon err-,0.00,,same cell
+aeg-d-dwarfs/v1/m000007,rh,2.0,"arcmin (semi-major; elliptical radius, Martin 2016 eqs. 3 and 5)","papers/Martin2016ApJ...833..167M.pdf p.9, Table 1 (Derived structural parameters of the dwarf galaxies), row And IX, col rh (arcmin)"
+aeg-d-dwarfs/v1/m000007,rh err+,0.3,arcmin,same cell
+aeg-d-dwarfs/v1/m000007,rh err-,0.2,arcmin,same cell
+aeg-d-dwarfs/v1/m000007,mu,24.23,mag,"papers/Savino2022ApJ...938..101S.pdf p.15, Table 5, row And IX, col mu"
+aeg-d-dwarfs/v1/m000007,mu err+-,0.06,mag,same cell
+aeg-d-dwarfs/v1/m000007,"mV,0",15.6,mag (extinction-corrected apparent V),"papers/Martin2016ApJ...833..167M.pdf p.9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And IX, col mV,0"
+aeg-d-dwarfs/v1/m000007,"mV,0 err+-",0.3,mag,same cell
+aeg-d-dwarfs/v1/m000007,"MV,sun",+4.85,mag,"readers/a/aeg-d-dwarfs_v1/downloads/astro-ph_0605132.pdf (arXiv:astro-ph/0605132, McLaughlin & van der Marel 2005) p.22, Sec. 4 bullet on log I0: 'corresponds to a solar absolute magnitude MV,sun = +4.85'"
+aeg-d-dwarfs/v1/m000007,l_MHI MHI,< 5.5E+04,Msun (5 sigma upper limit),"packets/aeg-d-dwarfs_v1/sources/gas/putman2021/apjabe391t1_mrt.txt line 168 (Andromeda IX), bytes 86-94"
+aeg-d-dwarfs/v1/m000010,sigma_v,0.0,km s-1,"papers/Collins2013ApJ...768..172C.pdf p.27, Table 4 (Kinematic properties of Andromeda dSph galaxies), row And XII, col sigma_v"
+aeg-d-dwarfs/v1/m000010,sigma err+,4.0,km s-1,same cell
+aeg-d-dwarfs/v1/m000010,sigma err-,(none printed),km s-1,same cell
+aeg-d-dwarfs/v1/m000010,epsilon,0.61,dimensionless (1-b/a),"papers/Martin2016ApJ...833..167M.pdf p.9, Table 1 (Derived structural parameters of the dwarf galaxies), row And XII, col epsilon"
+aeg-d-dwarfs/v1/m000010,epsilon err+,0.16,,same cell
+aeg-d-dwarfs/v1/m000010,epsilon err-,0.48,,same cell
+aeg-d-dwarfs/v1/m000010,rh,1.8,"arcmin (semi-major; elliptical radius, Martin 2016 eqs. 3 and 5)","papers/Martin2016ApJ...833..167M.pdf p.9, Table 1 (Derived structural parameters of the dwarf galaxies), row And XII, col rh (arcmin)"
+aeg-d-dwarfs/v1/m000010,rh err+,1.2,arcmin,same cell
+aeg-d-dwarfs/v1/m000010,rh err-,0.7,arcmin,same cell
+aeg-d-dwarfs/v1/m000010,mu,24.28,mag,"papers/Savino2022ApJ...938..101S.pdf p.15, Table 5, row And XII, col mu"
+aeg-d-dwarfs/v1/m000010,mu err+,0.08,mag,same cell
+aeg-d-dwarfs/v1/m000010,mu err-,0.07,mag,same cell
+aeg-d-dwarfs/v1/m000010,"mV,0",17.7,mag (extinction-corrected apparent V),"papers/Martin2016ApJ...833..167M.pdf p.9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And XII, col mV,0"
+aeg-d-dwarfs/v1/m000010,"mV,0 err+-",0.5,mag,same cell
+aeg-d-dwarfs/v1/m000010,sigma_v note,unresolved; upper bound is the formal 1 sigma uncertainty,,"papers/Collins2013ApJ...768..172C.pdf p.40, App. B.4: 'an unresolved velocity dispersion of sigma_v = 0.0+4.0 km s-1, where the upper bound represents the formal 1 sigma uncertainty'"
+aeg-d-dwarfs/v1/m000010,[Fe/H]spec,-2.2,dex,"papers/Collins2013ApJ...768..172C.pdf p.27, Table 4 (Kinematic properties of Andromeda dSph galaxies), row And XII, col [Fe/H]spec (err 0.2)"
+aeg-d-dwarfs/v1/m000010,"MV,sun",+4.85,mag,"readers/a/aeg-d-dwarfs_v1/downloads/astro-ph_0605132.pdf (arXiv:astro-ph/0605132, McLaughlin & van der Marel 2005) p.22, Sec. 4 bullet on log I0: 'corresponds to a solar absolute magnitude MV,sun = +4.85'"
+aeg-d-dwarfs/v1/m000010,l_MHI MHI,< 7.9E+04,Msun (5 sigma upper limit),"packets/aeg-d-dwarfs_v1/sources/gas/putman2021/apjabe391t1_mrt.txt line 188 (Andromeda XII), bytes 86-94"
+aeg-d-dwarfs/v1/m000012,sigma_LOS,4.0,km s-1,"papers/Tollerud2012ApJ...752...45T.pdf p.9, Table 3 (Summary of M31 dSph properties), row And XV, col sigma_LOS (9)"
+aeg-d-dwarfs/v1/m000012,sigma err+-,1.4,km s-1,same cell
+aeg-d-dwarfs/v1/m000012,epsilon,0.24,dimensionless (1-b/a),"papers/Martin2016ApJ...833..167M.pdf p.9, Table 1 (Derived structural parameters of the dwarf galaxies), row And XV, col epsilon"
+aeg-d-dwarfs/v1/m000012,epsilon err+-,0.10,,same cell
+aeg-d-dwarfs/v1/m000012,rh,1.3,"arcmin (semi-major; elliptical radius, Martin 2016 eqs. 3 and 5)","papers/Martin2016ApJ...833..167M.pdf p.9, Table 1 (Derived structural parameters of the dwarf galaxies), row And XV, col rh (arcmin)"
+aeg-d-dwarfs/v1/m000012,rh err+-,0.1,arcmin,same cell
+aeg-d-dwarfs/v1/m000012,mu,24.37,mag,"papers/Savino2022ApJ...938..101S.pdf p.15, Table 5, row And XV, col mu"
+aeg-d-dwarfs/v1/m000012,mu err+-,0.05,mag,same cell
+aeg-d-dwarfs/v1/m000012,"mV,0",16.0,mag (extinction-corrected apparent V),"papers/Martin2016ApJ...833..167M.pdf p.9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And XV, col mV,0"
+aeg-d-dwarfs/v1/m000012,"mV,0 err+-",0.3,mag,same cell
+aeg-d-dwarfs/v1/m000012,"MV,sun",+4.85,mag,"readers/a/aeg-d-dwarfs_v1/downloads/astro-ph_0605132.pdf (arXiv:astro-ph/0605132, McLaughlin & van der Marel 2005) p.22, Sec. 4 bullet on log I0: 'corresponds to a solar absolute magnitude MV,sun = +4.85'"
+aeg-d-dwarfs/v1/m000012,l_MHI MHI,< 4.1E+04,Msun (5 sigma upper limit),"packets/aeg-d-dwarfs_v1/sources/gas/putman2021/apjabe391t1_mrt.txt line 151 (Andromeda XV), bytes 86-94"
+aeg-d-dwarfs/v1/m000013,sigma_LOS,3.8,km s-1,"papers/Tollerud2012ApJ...752...45T.pdf p.9, Table 3 (Summary of M31 dSph properties), row And XVI, col sigma_LOS (9)"
+aeg-d-dwarfs/v1/m000013,sigma err+-,2.9,km s-1,same cell
+aeg-d-dwarfs/v1/m000013,epsilon,0.29,dimensionless (1-b/a),"papers/Martin2016ApJ...833..167M.pdf p.9, Table 1 (Derived structural parameters of the dwarf galaxies), row And XVI, col epsilon"
+aeg-d-dwarfs/v1/m000013,epsilon err+-,0.08,,same cell
+aeg-d-dwarfs/v1/m000013,rh,1.0,"arcmin (semi-major; elliptical radius, Martin 2016 eqs. 3 and 5)","papers/Martin2016ApJ...833..167M.pdf p.9, Table 1 (Derived structural parameters of the dwarf galaxies), row And XVI, col rh (arcmin)"
+aeg-d-dwarfs/v1/m000013,rh err+-,0.1,arcmin,same cell
+aeg-d-dwarfs/v1/m000013,mu0 (PWR),23.70,mag,"papers/MartinezVazquez2017ApJ...850..137M.pdf p.18, Table 8, row And XVI, col PWR (the paper's adopted distances: p.17 'We adopt the distances obtained with the PWR')"
+aeg-d-dwarfs/v1/m000013,mu err+-,0.08 (0.09),mag,same cell
+aeg-d-dwarfs/v1/m000013,"mV,0",16.1,mag (extinction-corrected apparent V),"papers/Martin2016ApJ...833..167M.pdf p.9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And XVI, col mV,0"
+aeg-d-dwarfs/v1/m000013,"mV,0 err+-",0.3,mag,same cell
+aeg-d-dwarfs/v1/m000013,"MV,sun",+4.85,mag,"readers/a/aeg-d-dwarfs_v1/downloads/astro-ph_0605132.pdf (arXiv:astro-ph/0605132, McLaughlin & van der Marel 2005) p.22, Sec. 4 bullet on log I0: 'corresponds to a solar absolute magnitude MV,sun = +4.85'"
+aeg-d-dwarfs/v1/m000013,l_MHI MHI,< 2.0E+04,Msun (5 sigma upper limit),"packets/aeg-d-dwarfs_v1/sources/gas/putman2021/apjabe391t1_mrt.txt line 148 (Andromeda XVI), bytes 86-94"
+aeg-d-dwarfs/v1/m000020,sigma_v,7.1,km s-1,"papers/Collins2013ApJ...768..172C.pdf p.27, Table 4 (Kinematic properties of Andromeda dSph galaxies), row And XXIII, col sigma_v"
+aeg-d-dwarfs/v1/m000020,sigma err+-,1.0,km s-1,same cell
+aeg-d-dwarfs/v1/m000020,epsilon,0.41,dimensionless (1-b/a),"papers/Martin2016ApJ...833..167M.pdf p.9, Table 1 (Derived structural parameters of the dwarf galaxies), row And XXIII, col epsilon"
+aeg-d-dwarfs/v1/m000020,epsilon err+,0.05,,same cell
+aeg-d-dwarfs/v1/m000020,epsilon err-,0.06,,same cell
+aeg-d-dwarfs/v1/m000020,rh,5.4,"arcmin (semi-major; elliptical radius, Martin 2016 eqs. 3 and 5)","papers/Martin2016ApJ...833..167M.pdf p.9, Table 1 (Derived structural parameters of the dwarf galaxies), row And XXIII, col rh (arcmin)"
+aeg-d-dwarfs/v1/m000020,rh err+-,0.4,arcmin,same cell
+aeg-d-dwarfs/v1/m000020,mu,24.36,mag,"papers/Savino2022ApJ...938..101S.pdf p.15, Table 5, row And XXIII, col mu"
+aeg-d-dwarfs/v1/m000020,mu err+-,0.07,mag,same cell
+aeg-d-dwarfs/v1/m000020,"mV,0",14.6,mag (extinction-corrected apparent V),"papers/Martin2016ApJ...833..167M.pdf p.9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And XXIII, col mV,0"
+aeg-d-dwarfs/v1/m000020,"mV,0 err+-",0.2,mag,same cell
+aeg-d-dwarfs/v1/m000020,[Fe/H]spec,-2.2,dex,"papers/Collins2013ApJ...768..172C.pdf p.27, Table 4 (Kinematic properties of Andromeda dSph galaxies), row And XXIII, col [Fe/H]spec (err 0.3)"
+aeg-d-dwarfs/v1/m000020,"MV,sun",+4.85,mag,"readers/a/aeg-d-dwarfs_v1/downloads/astro-ph_0605132.pdf (arXiv:astro-ph/0605132, McLaughlin & van der Marel 2005) p.22, Sec. 4 bullet on log I0: 'corresponds to a solar absolute magnitude MV,sun = +4.85'"
+aeg-d-dwarfs/v1/m000020,l_MHI MHI,< 8.2E+04,Msun (5 sigma upper limit),"packets/aeg-d-dwarfs_v1/sources/gas/putman2021/apjabe391t1_mrt.txt line 170 (Andromeda XXIII), bytes 86-94"
+aeg-d-dwarfs/v1/m000031,sigma,5.28,"km s-1 (stars inside 2*Reff, MRT note 4)","papers/Geha2026ApJ...999..140G.pdf p.32, Table A1, row CVn II, col 14; same in sources/members/geha2026/apjae290dt1_mrt.txt line 56, bytes 85-91"
+aeg-d-dwarfs/v1/m000031,e_sigma,0.96,km s-1,"same row, col 15 / MRT bytes 93-99"
+aeg-d-dwarfs/v1/m000031,E_sigma,1.25,km s-1,"same row, col 16 / MRT bytes 101-107"
+aeg-d-dwarfs/v1/m000031,"re,s",1.51,arcmin,"papers/Munoz2018ApJ...860...66M.pdf p.27, Table 5 (Measured Structural Parameters: Sersic Models), Primary Sample, row 26 CVn II, col re,s (arcmin)"
+aeg-d-dwarfs/v1/m000031,"re,s err+-",0.23,arcmin,same cell
+aeg-d-dwarfs/v1/m000031,epsilon_s,0.46,dimensionless,"papers/Munoz2018ApJ...860...66M.pdf p.27, Table 5 (Measured Structural Parameters: Sersic Models), Primary Sample, row 26 CVn II, col epsilon_s (not named in locator; same table row)"
+aeg-d-dwarfs/v1/m000031,epsilon_s err+-,0.11,,same cell
+aeg-d-dwarfs/v1/m000031,mu0,21.02,mag,"papers/Greco2008ApJ...675L..73G.pdf p.7, Sec. 5 'the distance modulus of CVn II is 21.02 +- 0.06 mag'"
+aeg-d-dwarfs/v1/m000031,mu0 err+-,0.06,mag,same sentence
+aeg-d-dwarfs/v1/m000031,MV,-5.17,mag,"papers/Munoz2018ApJ...860...66M.pdf p.28, Table 6 (Derived Parameters: Magnitude, Luminosity and Surface Brightness), Primary Sample, row 26 CVn II, col MV"
+aeg-d-dwarfs/v1/m000031,MV err+-,0.32,mag,same cell
+aeg-d-dwarfs/v1/m000031,R,160.0,kpc,"papers/Munoz2018ApJ...860...66M.pdf p.22, Table 1 (Adopted and Derived Parameters), Primary Sample, row 26 CVn II, col R (kpc)"
+aeg-d-dwarfs/v1/m000031,[Fe/H] (not used: Munoz Table 1 literature value),-2.12,dex,"papers/Munoz2018ApJ...860...66M.pdf p.22, Table 1 (Adopted and Derived Parameters), Primary Sample, row 26 CVn II, col [Fe/H]; recorded only, see notes"
+aeg-d-dwarfs/v1/m000031,"MV,sun",+4.85,mag,"readers/a/aeg-d-dwarfs_v1/downloads/astro-ph_0605132.pdf (arXiv:astro-ph/0605132, McLaughlin & van der Marel 2005) p.22, Sec. 4 bullet on log I0: 'corresponds to a solar absolute magnitude MV,sun = +4.85'"
+aeg-d-dwarfs/v1/m000031,l_MHI MHI,< 2.4E+03,Msun (5 sigma upper limit),"packets/aeg-d-dwarfs_v1/sources/gas/putman2021/apjabe391t1_mrt.txt line 134 (Canes Venatici II), bytes 86-94"
+aeg-d-dwarfs/v1/m000036,sigma_v,< 2.6,"km s-1 (95% credible upper limit, table note)","papers/Cerny2026arXiv260217652C.pdf p.38, Table 3 (Dynamical Properties of the UFCSs), row Draco II, col sigma_v"
+aeg-d-dwarfs/v1/m000036,rh,3.0,"arcmin (half-light radius along the major axis, p.5 Sec. 3)","papers/Longeard2018MNRAS.480.2609L.pdf p.8, Table 1 (Inferred properties of Dra II), row rh (arcmin), Favoured model"
+aeg-d-dwarfs/v1/m000036,rh err+,0.7,arcmin,same row
+aeg-d-dwarfs/v1/m000036,rh err-,0.5,arcmin,same row
+aeg-d-dwarfs/v1/m000036,epsilon,0.23,dimensionless (1-b/a),"papers/Longeard2018MNRAS.480.2609L.pdf p.8, Table 1 (Inferred properties of Dra II), row ellipticity (symbol not rendered in text layer; between theta and Distance modulus), Favoured model"
+aeg-d-dwarfs/v1/m000036,epsilon err+-,0.15,,same row
+aeg-d-dwarfs/v1/m000036,Distance modulus,16.67,mag,"papers/Longeard2018MNRAS.480.2609L.pdf p.8, Table 1 (Inferred properties of Dra II), row Distance modulus"
+aeg-d-dwarfs/v1/m000036,Distance modulus err+-,0.05,mag,same row
+aeg-d-dwarfs/v1/m000036,MV,-0.8,mag,"papers/Longeard2018MNRAS.480.2609L.pdf p.8, Table 1 (Inferred properties of Dra II), row MV"
+aeg-d-dwarfs/v1/m000036,MV err+,0.4,mag,same row
+aeg-d-dwarfs/v1/m000036,MV err-,1.0,mag,same row
+aeg-d-dwarfs/v1/m000036,[Fe/H]model,-2.94,dex,"papers/Cerny2026arXiv260217652C.pdf p.40, Table 4 (Metallicity Properties), row Draco II, col [Fe/H]model (+0.32 -0.39); same table also gives [Fe/H]w.avg. -2.74 and [Fe/H]brightest -2.49"
+aeg-d-dwarfs/v1/m000036,"MV,sun",+4.85,mag,"readers/a/aeg-d-dwarfs_v1/downloads/astro-ph_0605132.pdf (arXiv:astro-ph/0605132, McLaughlin & van der Marel 2005) p.22, Sec. 4 bullet on log I0: 'corresponds to a solar absolute magnitude MV,sun = +4.85'"
+aeg-d-dwarfs/v1/m000036,l_MHI MHI,< 57,Msun (5 sigma upper limit),"packets/aeg-d-dwarfs_v1/sources/gas/putman2021/apjabe391t1_mrt.txt line 86 (Draco II), bytes 86-94"
+aeg-d-dwarfs/v1/m000042,dispersion (combined GMOS plus DEIMOS),9.9,km s-1,"downloads/astro-ph_0611372.pdf (Koch et al. 2007, ApJ 657, 241) p.5, Sec. 3: 'a dispersion of 9.9 +-1.5 km s-1 from the combined GMOS plus DEIMOS sample'"
+aeg-d-dwarfs/v1/m000042,dispersion err+-,1.5,km s-1,same sentence
+aeg-d-dwarfs/v1/m000042,"re,s",3.30,arcmin,"papers/Munoz2018ApJ...860...66M.pdf p.27, Table 5 (Measured Structural Parameters: Sersic Models), Primary Sample, row 16 Leo I, col re,s (arcmin)"
+aeg-d-dwarfs/v1/m000042,"re,s err+-",0.03,arcmin,same cell
+aeg-d-dwarfs/v1/m000042,epsilon_s,0.30,dimensionless,"papers/Munoz2018ApJ...860...66M.pdf p.27, Table 5 (Measured Structural Parameters: Sersic Models), Primary Sample, row 16 Leo I, col epsilon_s (not named in locator; same table row)"
+aeg-d-dwarfs/v1/m000042,epsilon_s err+-,0.01,,same cell
+aeg-d-dwarfs/v1/m000042,mu0 ([Fe/H]=-1.43),22.06,mag,"papers/Stetson2014PASP..126..616S.pdf p.11, Sec. 5: 'the two distance moduli turn out to be mu0 = 22.06 +- 0.08 and 22.25 +- 0.07 mag'"
+aeg-d-dwarfs/v1/m000042,mu0 ([Fe/H]=-1.43) err+-,0.08,mag,same sentence
+aeg-d-dwarfs/v1/m000042,mu0 ([Fe/H]=-2.15),22.25,mag,same sentence
+aeg-d-dwarfs/v1/m000042,mu0 ([Fe/H]=-2.15) err+-,0.07,mag,same sentence
+aeg-d-dwarfs/v1/m000042,MV,-11.78,mag,"papers/Munoz2018ApJ...860...66M.pdf p.28, Table 6 (Derived Parameters: Magnitude, Luminosity and Surface Brightness), Primary Sample, row 16 Leo I, col MV"
+aeg-d-dwarfs/v1/m000042,MV err+-,0.28,mag,same cell
+aeg-d-dwarfs/v1/m000042,R,254.0,kpc,"papers/Munoz2018ApJ...860...66M.pdf p.22, Table 1 (Adopted and Derived Parameters), Primary Sample, row 16 Leo I, col R (kpc)"
+aeg-d-dwarfs/v1/m000042,median [Fe/H] (CG97 scale),-1.31,dex,"downloads/astro-ph_0611372.pdf p.12, Sec. 8.2: 'median metallicity of -1.31 +- 0.02 dex on the scale of CG97 ... (-1.61 on the scale of Zinn & West 1984)'"
+aeg-d-dwarfs/v1/m000042,median [Fe/H] (ZW84 scale),-1.61,dex,same sentence
+aeg-d-dwarfs/v1/m000042,"MV,sun",+4.85,mag,"readers/a/aeg-d-dwarfs_v1/downloads/astro-ph_0605132.pdf (arXiv:astro-ph/0605132, McLaughlin & van der Marel 2005) p.22, Sec. 4 bullet on log I0: 'corresponds to a solar absolute magnitude MV,sun = +4.85'"
+aeg-d-dwarfs/v1/m000042,l_MHI MHI,< 1.0E+04,Msun (5 sigma upper limit),"packets/aeg-d-dwarfs_v1/sources/gas/putman2021/apjabe391t1_mrt.txt line 143 (Leo I), bytes 86-94"
+aeg-d-dwarfs/v1/m000059,"sigma_v,Tuc",14.4,km s-1,"downloads/1902.07228.pdf (Gregory et al. 2019, arXiv v2) p.8, Sec. 3: 'Removing object 37852 reduces the velocity dispersion to sigma_v,Tuc = 14.4+2.8-2.3 km s-1'; also abstract p.1 and conclusions"
+aeg-d-dwarfs/v1/m000059,"sigma_v,Tuc err+",2.8,km s-1,same
+aeg-d-dwarfs/v1/m000059,"sigma_v,Tuc err-",2.3,km s-1,same
+aeg-d-dwarfs/v1/m000059,"sigma_v,Tuc (all 37 members, not adopted by the paper)",16.6,km s-1,"downloads/1902.07228.pdf p.7: 'a velocity dispersion of sigma_v,Tuc = 16.6+3.1-2.6'; recorded only"
+aeg-d-dwarfs/v1/m000059,Re (pc),205,"pc (effective GEOMETRIC radius, p.10: 'The effective geometric radius Re')","downloads/astro-ph_9601165.pdf (Saviane et al. 1996) p.9, Table 5 (Structural parameters for Tucana), row Re (pc)"
+aeg-d-dwarfs/v1/m000059,Re (pc) err+-,32,pc,same
+aeg-d-dwarfs/v1/m000059,1 - b/a,0.48,dimensionless,"downloads/astro-ph_9601165.pdf p.9, Table 5, row 1 - b/a"
+aeg-d-dwarfs/v1/m000059,1 - b/a err+-,0.03,,same
+aeg-d-dwarfs/v1/m000059,(m - M)0 (Saviane TRGB),24.69,mag,downloads/astro-ph_9601165.pdf p.1 abstract '(m - M)0 = 24.69 +- 0.16'; p.7 Sec. 4 '(m - M) = 24.69 +- 0.16'
+aeg-d-dwarfs/v1/m000059,(m - M)0 (Saviane TRGB) err+-,0.16,mag,same
+aeg-d-dwarfs/v1/m000059,"(m-M)0,Tuc (Bernard RR Lyrae)",24.74,mag,"downloads/0904.4463.pdf (Bernard et al. 2009) p.19, Sec. 6.3: 'we adopt reddening-corrected distance moduli of 24.46+-0.12 and 24.74+-0.12' (Cetus, Tucana)"
+aeg-d-dwarfs/v1/m000059,"(m-M)0,Tuc err+-",0.12,mag,same
+aeg-d-dwarfs/v1/m000059,MV,-9.55,mag,"downloads/astro-ph_9601165.pdf p.9, Table 5, row MV"
+aeg-d-dwarfs/v1/m000059,MV err+-,0.27,mag,same
+aeg-d-dwarfs/v1/m000059,"VT (recorded, not used)",15.15,mag,"downloads/astro-ph_9601165.pdf p.9, Table 5, row VT"
+aeg-d-dwarfs/v1/m000059,"[Fe/H] (Taibi 2020; supplementary only, not named by method or locator)",-1.58,dex,"papers/Taibi2020A&A...635A.152T.pdf p.3, Table 1, row [Fe/H] (ref 4 = this work)"
+aeg-d-dwarfs/v1/m000059,"MV,sun",+4.85,mag,"readers/a/aeg-d-dwarfs_v1/downloads/astro-ph_0605132.pdf (arXiv:astro-ph/0605132, McLaughlin & van der Marel 2005) p.22, Sec. 4 bullet on log I0: 'corresponds to a solar absolute magnitude MV,sun = +4.85'"
+aeg-d-dwarfs/v1/m000059,l_MHI MHI,< 8.5E+04,Msun (5 sigma upper limit),"packets/aeg-d-dwarfs_v1/sources/gas/putman2021/apjabe391t1_mrt.txt line 185 (Tucana), bytes 86-94"

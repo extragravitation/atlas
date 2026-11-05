@@ -1,0 +1,509 @@
+measurement_id,input,value,unit,locator
+aeg-d-xcop/v1/m000285,RADIUS,512.2058,kpc,allfiles.tar.gz:A1795/A1795_hydro_mass.fits ext HYDRO_MASS row 62 col RADIUS
+aeg-d-xcop/v1/m000285,M_FORW,2.0493128e+14,Msun,allfiles.tar.gz:A1795/A1795_hydro_mass.fits ext HYDRO_MASS row 62 col M_FORW
+aeg-d-xcop/v1/m000285,R500,1153.0,kpc,allfiles.tar.gz:A1795/A1795_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000285,RADIUS,0.417893,R/R500,allfiles.tar.gz:A1795/A1795_fgas_profile.fits ext FGAS row 34 col RADIUS
+aeg-d-xcop/v1/m000285,MGAS,2.0874151e+13,Msun,allfiles.tar.gz:A1795/A1795_fgas_profile.fits ext FGAS row 34 col MGAS
+aeg-d-xcop/v1/m000285,RADIUS,0.45457953,R/R500,allfiles.tar.gz:A1795/A1795_fgas_profile.fits ext FGAS row 35 col RADIUS
+aeg-d-xcop/v1/m000285,MGAS,2.3605681e+13,Msun,allfiles.tar.gz:A1795/A1795_fgas_profile.fits ext FGAS row 35 col MGAS
+aeg-d-xcop/v1/m000285,RADIUS,510.779,kpc,allfiles.tar.gz:A1795/A1795_mstar.fits ext MSTAR_SMOOTHED row 151 col RADIUS
+aeg-d-xcop/v1/m000285,MSTAR,2.02e+12,M_sun,allfiles.tar.gz:A1795/A1795_mstar.fits ext MSTAR_SMOOTHED row 151 col MSTAR
+aeg-d-xcop/v1/m000285,RADIUS,513.085,kpc,allfiles.tar.gz:A1795/A1795_mstar.fits ext MSTAR_SMOOTHED row 152 col RADIUS
+aeg-d-xcop/v1/m000285,MSTAR,2.02e+12,M_sun,allfiles.tar.gz:A1795/A1795_mstar.fits ext MSTAR_SMOOTHED row 152 col MSTAR
+aeg-d-xcop/v1/m000479,RADIUS,982.36475,kpc,allfiles.tar.gz:A2142/A2142_hydro_mass.fits ext HYDRO_MASS row 76 col RADIUS
+aeg-d-xcop/v1/m000479,M_FORW,6.21296e+14,Msun,allfiles.tar.gz:A2142/A2142_hydro_mass.fits ext HYDRO_MASS row 76 col M_FORW
+aeg-d-xcop/v1/m000479,R500,1424.0,kpc,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000479,RADIUS,0.67840916,R/R500,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS row 40 col RADIUS
+aeg-d-xcop/v1/m000479,MGAS,8.651785e+13,Msun,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS row 40 col MGAS
+aeg-d-xcop/v1/m000479,RADIUS,0.74157095,R/R500,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS row 41 col RADIUS
+aeg-d-xcop/v1/m000479,MGAS,9.75003e+13,Msun,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS row 41 col MGAS
+aeg-d-xcop/v1/m000479,RADIUS,979.712,kpc,allfiles.tar.gz:A2142/A2142_mstar.fits ext MSTAR_SMOOTHED row 249 col RADIUS
+aeg-d-xcop/v1/m000479,MSTAR,5.89e+12,M_sun,allfiles.tar.gz:A2142/A2142_mstar.fits ext MSTAR_SMOOTHED row 249 col MSTAR
+aeg-d-xcop/v1/m000479,RADIUS,982.56,kpc,allfiles.tar.gz:A2142/A2142_mstar.fits ext MSTAR_SMOOTHED row 250 col RADIUS
+aeg-d-xcop/v1/m000479,MSTAR,5.91e+12,M_sun,allfiles.tar.gz:A2142/A2142_mstar.fits ext MSTAR_SMOOTHED row 250 col MSTAR
+aeg-d-xcop/v1/m000366,RADIUS,369.85403,kpc,allfiles.tar.gz:A2029/A2029_hydro_mass.fits ext HYDRO_MASS row 55 col RADIUS
+aeg-d-xcop/v1/m000366,M_FORW,1.9055344e+14,Msun,allfiles.tar.gz:A2029/A2029_hydro_mass.fits ext HYDRO_MASS row 55 col M_FORW
+aeg-d-xcop/v1/m000366,R500,1414.0,kpc,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000366,RADIUS,0.24776599,R/R500,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 29 col RADIUS
+aeg-d-xcop/v1/m000366,MGAS,1.866395e+13,Msun,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 29 col MGAS
+aeg-d-xcop/v1/m000366,RADIUS,0.27049413,R/R500,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 30 col RADIUS
+aeg-d-xcop/v1/m000366,MGAS,2.137343e+13,Msun,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 30 col MGAS
+aeg-d-xcop/v1/m000366,RADIUS,367.64,kpc,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 78 col RADIUS
+aeg-d-xcop/v1/m000366,MSTAR,2.51e+12,M_sun,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 78 col MSTAR
+aeg-d-xcop/v1/m000366,RADIUS,371.882,kpc,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 79 col RADIUS
+aeg-d-xcop/v1/m000366,MSTAR,2.51e+12,M_sun,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 79 col MSTAR
+aeg-d-xcop/v1/m000085,RADIUS,1564.2025,kpc,allfiles.tar.gz:A85/A85_hydro_mass.fits ext HYDRO_MASS row 86 col RADIUS
+aeg-d-xcop/v1/m000085,M_FORW,6.779695e+14,Msun,allfiles.tar.gz:A85/A85_hydro_mass.fits ext HYDRO_MASS row 86 col M_FORW
+aeg-d-xcop/v1/m000085,R500,1235.0,kpc,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000085,RADIUS,1.2013844,R/R500,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS row 45 col RADIUS
+aeg-d-xcop/v1/m000085,MGAS,1.0493121e+14,Msun,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS row 45 col MGAS
+aeg-d-xcop/v1/m000085,RADIUS,1.3127562,R/R500,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS row 46 col RADIUS
+aeg-d-xcop/v1/m000085,MGAS,1.1493849e+14,Msun,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS row 46 col MGAS
+aeg-d-xcop/v1/m000085,RADIUS,1562.275,kpc,allfiles.tar.gz:A85/A85_mstar.fits ext MSTAR_SMOOTHED row 480 col RADIUS
+aeg-d-xcop/v1/m000085,MSTAR,3.27e+12,M_sun,allfiles.tar.gz:A85/A85_mstar.fits ext MSTAR_SMOOTHED row 480 col MSTAR
+aeg-d-xcop/v1/m000085,RADIUS,1565.98,kpc,allfiles.tar.gz:A85/A85_mstar.fits ext MSTAR_SMOOTHED row 481 col RADIUS
+aeg-d-xcop/v1/m000085,MSTAR,3.27e+12,M_sun,allfiles.tar.gz:A85/A85_mstar.fits ext MSTAR_SMOOTHED row 481 col MSTAR
+aeg-d-xcop/v1/m000406,RADIUS,32.92496,kpc,allfiles.tar.gz:A2142/A2142_hydro_mass.fits ext HYDRO_MASS row 3 col RADIUS
+aeg-d-xcop/v1/m000406,M_FORW,4.1629005e+12,Msun,allfiles.tar.gz:A2142/A2142_hydro_mass.fits ext HYDRO_MASS row 3 col M_FORW
+aeg-d-xcop/v1/m000406,R500,1424.0,kpc,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000406,RADIUS,0.023034254,R/R500,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS row 2 col RADIUS
+aeg-d-xcop/v1/m000406,MGAS,8.256248e+10,Msun,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS row 2 col MGAS
+aeg-d-xcop/v1/m000406,RADIUS,0.025178807,R/R500,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS row 3 col RADIUS
+aeg-d-xcop/v1/m000406,MGAS,1.0598217e+11,Msun,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS row 3 col MGAS
+aeg-d-xcop/v1/m000406,RADIUS,32.752,kpc,allfiles.tar.gz:A2142/A2142_mstar.fits ext MSTAR_SMOOTHED row 9 col RADIUS
+aeg-d-xcop/v1/m000406,MSTAR,2.84e+11,M_sun,allfiles.tar.gz:A2142/A2142_mstar.fits ext MSTAR_SMOOTHED row 9 col MSTAR
+aeg-d-xcop/v1/m000406,RADIUS,39.872,kpc,allfiles.tar.gz:A2142/A2142_mstar.fits ext MSTAR_SMOOTHED row 10 col RADIUS
+aeg-d-xcop/v1/m000406,MSTAR,3.59e+11,M_sun,allfiles.tar.gz:A2142/A2142_mstar.fits ext MSTAR_SMOOTHED row 10 col MSTAR
+aeg-d-xcop/v1/m000077,RADIUS,1078.144,kpc,allfiles.tar.gz:A85/A85_hydro_mass.fits ext HYDRO_MASS row 78 col RADIUS
+aeg-d-xcop/v1/m000077,M_FORW,4.8023945e+14,Msun,allfiles.tar.gz:A85/A85_hydro_mass.fits ext HYDRO_MASS row 78 col M_FORW
+aeg-d-xcop/v1/m000077,R500,1235.0,kpc,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000077,RADIUS,0.84270126,R/R500,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS row 41 col RADIUS
+aeg-d-xcop/v1/m000077,MGAS,6.822139e+13,Msun,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS row 41 col MGAS
+aeg-d-xcop/v1/m000077,RADIUS,0.9208221,R/R500,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS row 42 col RADIUS
+aeg-d-xcop/v1/m000077,MGAS,7.655195e+13,Msun,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS row 42 col MGAS
+aeg-d-xcop/v1/m000077,RADIUS,1074.45,kpc,allfiles.tar.gz:A85/A85_mstar.fits ext MSTAR_SMOOTHED row 322 col RADIUS
+aeg-d-xcop/v1/m000077,MSTAR,2.59e+12,M_sun,allfiles.tar.gz:A85/A85_mstar.fits ext MSTAR_SMOOTHED row 322 col MSTAR
+aeg-d-xcop/v1/m000077,RADIUS,1078.155,kpc,allfiles.tar.gz:A85/A85_mstar.fits ext MSTAR_SMOOTHED row 323 col RADIUS
+aeg-d-xcop/v1/m000077,MSTAR,2.6e+12,M_sun,allfiles.tar.gz:A85/A85_mstar.fits ext MSTAR_SMOOTHED row 323 col MSTAR
+aeg-d-xcop/v1/m000026,RADIUS,100.54808,kpc,allfiles.tar.gz:A85/A85_hydro_mass.fits ext HYDRO_MASS row 27 col RADIUS
+aeg-d-xcop/v1/m000026,M_FORW,1.4561179e+13,Msun,allfiles.tar.gz:A85/A85_hydro_mass.fits ext HYDRO_MASS row 27 col M_FORW
+aeg-d-xcop/v1/m000026,R500,1235.0,kpc,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000026,RADIUS,0.07693381,R/R500,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS row 14 col RADIUS
+aeg-d-xcop/v1/m000026,MGAS,1.09074946e+12,Msun,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS row 14 col MGAS
+aeg-d-xcop/v1/m000026,RADIUS,0.084065795,R/R500,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS row 15 col RADIUS
+aeg-d-xcop/v1/m000026,MGAS,1.3090516e+12,Msun,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS row 15 col MGAS
+aeg-d-xcop/v1/m000026,RADIUS,90.155,kpc,allfiles.tar.gz:A85/A85_mstar.fits ext MSTAR_SMOOTHED row 15 col RADIUS
+aeg-d-xcop/v1/m000026,MSTAR,2.94e+11,M_sun,allfiles.tar.gz:A85/A85_mstar.fits ext MSTAR_SMOOTHED row 15 col MSTAR
+aeg-d-xcop/v1/m000026,RADIUS,109.915,kpc,allfiles.tar.gz:A85/A85_mstar.fits ext MSTAR_SMOOTHED row 16 col RADIUS
+aeg-d-xcop/v1/m000026,MSTAR,3.08e+11,M_sun,allfiles.tar.gz:A85/A85_mstar.fits ext MSTAR_SMOOTHED row 16 col MSTAR
+aeg-d-xcop/v1/m000047,RADIUS,267.0645,kpc,allfiles.tar.gz:A85/A85_hydro_mass.fits ext HYDRO_MASS row 48 col RADIUS
+aeg-d-xcop/v1/m000047,M_FORW,7.9129815e+13,Msun,allfiles.tar.gz:A85/A85_hydro_mass.fits ext HYDRO_MASS row 48 col M_FORW
+aeg-d-xcop/v1/m000047,R500,1235.0,kpc,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000047,RADIUS,0.20400472,R/R500,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS row 25 col RADIUS
+aeg-d-xcop/v1/m000047,MGAS,7.2271596e+12,Msun,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS row 25 col MGAS
+aeg-d-xcop/v1/m000047,RADIUS,0.22291654,R/R500,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS row 26 col RADIUS
+aeg-d-xcop/v1/m000047,MGAS,8.4890265e+12,Msun,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS row 26 col MGAS
+aeg-d-xcop/v1/m000047,RADIUS,265.525,kpc,allfiles.tar.gz:A85/A85_mstar.fits ext MSTAR_SMOOTHED row 60 col RADIUS
+aeg-d-xcop/v1/m000047,MSTAR,9.25e+11,M_sun,allfiles.tar.gz:A85/A85_mstar.fits ext MSTAR_SMOOTHED row 60 col MSTAR
+aeg-d-xcop/v1/m000047,RADIUS,267.995,kpc,allfiles.tar.gz:A85/A85_mstar.fits ext MSTAR_SMOOTHED row 61 col RADIUS
+aeg-d-xcop/v1/m000047,MSTAR,9.25e+11,M_sun,allfiles.tar.gz:A85/A85_mstar.fits ext MSTAR_SMOOTHED row 61 col MSTAR
+aeg-d-xcop/v1/m000428,RADIUS,91.61566,kpc,allfiles.tar.gz:A2142/A2142_hydro_mass.fits ext HYDRO_MASS row 25 col RADIUS
+aeg-d-xcop/v1/m000428,M_FORW,1.5163792e+13,Msun,allfiles.tar.gz:A2142/A2142_hydro_mass.fits ext HYDRO_MASS row 25 col M_FORW
+aeg-d-xcop/v1/m000428,R500,1424.0,kpc,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000428,RADIUS,0.061326057,R/R500,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS row 13 col RADIUS
+aeg-d-xcop/v1/m000428,MGAS,1.05699436e+12,Msun,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS row 13 col MGAS
+aeg-d-xcop/v1/m000428,RADIUS,0.06703568,R/R500,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS row 14 col RADIUS
+aeg-d-xcop/v1/m000428,MGAS,1.3005534e+12,Msun,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS row 14 col MGAS
+aeg-d-xcop/v1/m000428,RADIUS,86.864,kpc,allfiles.tar.gz:A2142/A2142_mstar.fits ext MSTAR_SMOOTHED row 14 col RADIUS
+aeg-d-xcop/v1/m000428,MSTAR,6.82e+11,M_sun,allfiles.tar.gz:A2142/A2142_mstar.fits ext MSTAR_SMOOTHED row 14 col MSTAR
+aeg-d-xcop/v1/m000428,RADIUS,103.952,kpc,allfiles.tar.gz:A2142/A2142_mstar.fits ext MSTAR_SMOOTHED row 15 col RADIUS
+aeg-d-xcop/v1/m000428,MSTAR,7.68e+11,M_sun,allfiles.tar.gz:A2142/A2142_mstar.fits ext MSTAR_SMOOTHED row 15 col MSTAR
+aeg-d-xcop/v1/m000108,RADIUS,87.45159,kpc,allfiles.tar.gz:A644/A644_hydro_mass.fits ext HYDRO_MASS row 24 col RADIUS
+aeg-d-xcop/v1/m000108,M_FORW,1.3650424e+13,Msun,allfiles.tar.gz:A644/A644_hydro_mass.fits ext HYDRO_MASS row 24 col M_FORW
+aeg-d-xcop/v1/m000108,R500,1250.0,kpc,allfiles.tar.gz:A644/A644_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000108,RADIUS,0.065693654,R/R500,allfiles.tar.gz:A644/A644_fgas_profile.fits ext FGAS row 12 col RADIUS
+aeg-d-xcop/v1/m000108,MGAS,6.6123923e+11,Msun,allfiles.tar.gz:A644/A644_fgas_profile.fits ext FGAS row 12 col MGAS
+aeg-d-xcop/v1/m000108,RADIUS,0.071989074,R/R500,allfiles.tar.gz:A644/A644_fgas_profile.fits ext FGAS row 13 col RADIUS
+aeg-d-xcop/v1/m000108,MGAS,8.2616045e+11,Msun,allfiles.tar.gz:A644/A644_fgas_profile.fits ext FGAS row 13 col MGAS
+aeg-d-xcop/v1/m000108,RADIUS,75.03,kpc,allfiles.tar.gz:A644/A644_mstar.fits ext MSTAR_SMOOTHED row 14 col RADIUS
+aeg-d-xcop/v1/m000108,MSTAR,6.82e+11,M_sun,allfiles.tar.gz:A644/A644_mstar.fits ext MSTAR_SMOOTHED row 14 col MSTAR
+aeg-d-xcop/v1/m000108,RADIUS,89.79,kpc,allfiles.tar.gz:A644/A644_mstar.fits ext MSTAR_SMOOTHED row 15 col RADIUS
+aeg-d-xcop/v1/m000108,MSTAR,7.76e+11,M_sun,allfiles.tar.gz:A644/A644_mstar.fits ext MSTAR_SMOOTHED row 15 col MSTAR
+aeg-d-xcop/v1/m000788,RADIUS,66.15392,kpc,allfiles.tar.gz:ZW1215/ZW1215_hydro_mass.fits ext HYDRO_MASS row 18 col RADIUS
+aeg-d-xcop/v1/m000788,M_FORW,5.0868356e+12,Msun,allfiles.tar.gz:ZW1215/ZW1215_hydro_mass.fits ext HYDRO_MASS row 18 col M_FORW
+aeg-d-xcop/v1/m000788,R500,1358.0,kpc,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000788,RADIUS,0.04797863,R/R500,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS row 10 col RADIUS
+aeg-d-xcop/v1/m000788,MGAS,1.6424242e+11,Msun,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS row 10 col MGAS
+aeg-d-xcop/v1/m000788,RADIUS,0.05230081,R/R500,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS row 11 col RADIUS
+aeg-d-xcop/v1/m000788,MGAS,2.0872731e+11,Msun,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS row 11 col MGAS
+aeg-d-xcop/v1/m000788,RADIUS,55.678,kpc,allfiles.tar.gz:ZW1215/ZW1215_mstar.fits ext MSTAR_SMOOTHED row 12 col RADIUS
+aeg-d-xcop/v1/m000788,MSTAR,3.54e+11,M_sun,allfiles.tar.gz:ZW1215/ZW1215_mstar.fits ext MSTAR_SMOOTHED row 12 col MSTAR
+aeg-d-xcop/v1/m000788,RADIUS,67.9,kpc,allfiles.tar.gz:ZW1215/ZW1215_mstar.fits ext MSTAR_SMOOTHED row 13 col RADIUS
+aeg-d-xcop/v1/m000788,MSTAR,4.01e+11,M_sun,allfiles.tar.gz:ZW1215/ZW1215_mstar.fits ext MSTAR_SMOOTHED row 13 col MSTAR
+aeg-d-xcop/v1/m000367,RADIUS,387.4649,kpc,allfiles.tar.gz:A2029/A2029_hydro_mass.fits ext HYDRO_MASS row 56 col RADIUS
+aeg-d-xcop/v1/m000367,M_FORW,2.0353328e+14,Msun,allfiles.tar.gz:A2029/A2029_hydro_mass.fits ext HYDRO_MASS row 56 col M_FORW
+aeg-d-xcop/v1/m000367,R500,1414.0,kpc,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000367,RADIUS,0.27049413,R/R500,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 30 col RADIUS
+aeg-d-xcop/v1/m000367,MGAS,2.137343e+13,Msun,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 30 col MGAS
+aeg-d-xcop/v1/m000367,RADIUS,0.29530716,R/R500,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 31 col RADIUS
+aeg-d-xcop/v1/m000367,MGAS,2.4413253e+13,Msun,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 31 col MGAS
+aeg-d-xcop/v1/m000367,RADIUS,386.022,kpc,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 83 col RADIUS
+aeg-d-xcop/v1/m000367,MSTAR,2.52e+12,M_sun,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 83 col MSTAR
+aeg-d-xcop/v1/m000367,RADIUS,388.85,kpc,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 84 col RADIUS
+aeg-d-xcop/v1/m000367,MSTAR,2.52e+12,M_sun,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 84 col MSTAR
+aeg-d-xcop/v1/m000283,RADIUS,466.70285,kpc,allfiles.tar.gz:A1795/A1795_hydro_mass.fits ext HYDRO_MASS row 60 col RADIUS
+aeg-d-xcop/v1/m000283,M_FORW,1.8240278e+14,Msun,allfiles.tar.gz:A1795/A1795_hydro_mass.fits ext HYDRO_MASS row 60 col M_FORW
+aeg-d-xcop/v1/m000283,R500,1153.0,kpc,allfiles.tar.gz:A1795/A1795_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000283,RADIUS,0.38416725,R/R500,allfiles.tar.gz:A1795/A1795_fgas_profile.fits ext FGAS row 33 col RADIUS
+aeg-d-xcop/v1/m000283,MGAS,1.8396467e+13,Msun,allfiles.tar.gz:A1795/A1795_fgas_profile.fits ext FGAS row 33 col MGAS
+aeg-d-xcop/v1/m000283,RADIUS,0.417893,R/R500,allfiles.tar.gz:A1795/A1795_fgas_profile.fits ext FGAS row 34 col RADIUS
+aeg-d-xcop/v1/m000283,MGAS,2.0874151e+13,Msun,allfiles.tar.gz:A1795/A1795_fgas_profile.fits ext FGAS row 34 col MGAS
+aeg-d-xcop/v1/m000283,RADIUS,464.659,kpc,allfiles.tar.gz:A1795/A1795_mstar.fits ext MSTAR_SMOOTHED row 135 col RADIUS
+aeg-d-xcop/v1/m000283,MSTAR,1.9e+12,M_sun,allfiles.tar.gz:A1795/A1795_mstar.fits ext MSTAR_SMOOTHED row 135 col MSTAR
+aeg-d-xcop/v1/m000283,RADIUS,466.965,kpc,allfiles.tar.gz:A1795/A1795_mstar.fits ext MSTAR_SMOOTHED row 136 col RADIUS
+aeg-d-xcop/v1/m000283,MSTAR,1.9e+12,M_sun,allfiles.tar.gz:A1795/A1795_mstar.fits ext MSTAR_SMOOTHED row 136 col MSTAR
+aeg-d-xcop/v1/m000181,RADIUS,202.02452,kpc,allfiles.tar.gz:A1644/A1644_hydro_mass.fits ext HYDRO_MASS row 42 col RADIUS
+aeg-d-xcop/v1/m000181,M_FORW,2.4881152e+13,Msun,allfiles.tar.gz:A1644/A1644_hydro_mass.fits ext HYDRO_MASS row 42 col M_FORW
+aeg-d-xcop/v1/m000181,R500,1054.0,kpc,allfiles.tar.gz:A1644/A1644_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000181,RADIUS,0.18862738,R/R500,allfiles.tar.gz:A1644/A1644_fgas_profile.fits ext FGAS row 24 col RADIUS
+aeg-d-xcop/v1/m000181,MGAS,1.7269803e+12,Msun,allfiles.tar.gz:A1644/A1644_fgas_profile.fits ext FGAS row 24 col MGAS
+aeg-d-xcop/v1/m000181,RADIUS,0.20479614,R/R500,allfiles.tar.gz:A1644/A1644_fgas_profile.fits ext FGAS row 25 col RADIUS
+aeg-d-xcop/v1/m000181,MGAS,2.0677582e+12,Msun,allfiles.tar.gz:A1644/A1644_fgas_profile.fits ext FGAS row 25 col MGAS
+aeg-d-xcop/v1/m000181,R_500,1.054,Mpc,"arXiv:1805.00035 e-print mass_xcop.tex line 315, Table 1, row A1644, col R_500"
+aeg-d-xcop/v1/m000181,M_500,3.48,1e14 Msun,"arXiv:1805.00035 e-print mass_xcop.tex line 315, Table 1, row A1644, col M_500"
+aeg-d-xcop/v1/m000181,R_200,1.778,Mpc,"arXiv:1805.00035 e-print mass_xcop.tex line 315, Table 1, row A1644, col R_200"
+aeg-d-xcop/v1/m000181,RADIUS,0.9771153,R/R500,allfiles.tar.gz:A1644/A1644_fgas_profile.fits ext FGAS row 44 col RADIUS
+aeg-d-xcop/v1/m000181,MGAS,4.275196e+13,Msun,allfiles.tar.gz:A1644/A1644_fgas_profile.fits ext FGAS row 44 col MGAS
+aeg-d-xcop/v1/m000181,RADIUS,1.0608716,R/R500,allfiles.tar.gz:A1644/A1644_fgas_profile.fits ext FGAS row 45 col RADIUS
+aeg-d-xcop/v1/m000181,MGAS,4.8425383e+13,Msun,allfiles.tar.gz:A1644/A1644_fgas_profile.fits ext FGAS row 45 col MGAS
+aeg-d-xcop/v1/m000389,RADIUS,1078.144,kpc,allfiles.tar.gz:A2029/A2029_hydro_mass.fits ext HYDRO_MASS row 78 col RADIUS
+aeg-d-xcop/v1/m000389,M_FORW,6.51169e+14,Msun,allfiles.tar.gz:A2029/A2029_hydro_mass.fits ext HYDRO_MASS row 78 col M_FORW
+aeg-d-xcop/v1/m000389,R500,1414.0,kpc,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000389,RADIUS,0.7102896,R/R500,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 41 col RADIUS
+aeg-d-xcop/v1/m000389,MGAS,8.10359e+13,Msun,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 41 col MGAS
+aeg-d-xcop/v1/m000389,RADIUS,0.77544606,R/R500,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 42 col RADIUS
+aeg-d-xcop/v1/m000389,MGAS,9.021906e+13,Msun,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 42 col MGAS
+aeg-d-xcop/v1/m000389,RADIUS,1077.468,kpc,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 279 col RADIUS
+aeg-d-xcop/v1/m000389,MSTAR,6.56e+12,M_sun,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 279 col MSTAR
+aeg-d-xcop/v1/m000389,RADIUS,1081.71,kpc,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 280 col RADIUS
+aeg-d-xcop/v1/m000389,MSTAR,6.58e+12,M_sun,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 280 col MSTAR
+aeg-d-xcop/v1/m000087,RADIUS,32.92496,kpc,allfiles.tar.gz:A644/A644_hydro_mass.fits ext HYDRO_MASS row 3 col RADIUS
+aeg-d-xcop/v1/m000087,M_FORW,3.354624e+12,Msun,allfiles.tar.gz:A644/A644_hydro_mass.fits ext HYDRO_MASS row 3 col M_FORW
+aeg-d-xcop/v1/m000087,R500,1250.0,kpc,allfiles.tar.gz:A644/A644_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000087,RADIUS,0.026308218,R/R500,allfiles.tar.gz:A644/A644_fgas_profile.fits ext FGAS row 2 col RADIUS
+aeg-d-xcop/v1/m000087,MGAS,6.0314546e+10,Msun,allfiles.tar.gz:A644/A644_fgas_profile.fits ext FGAS row 2 col MGAS
+aeg-d-xcop/v1/m000087,RADIUS,0.028829336,R/R500,allfiles.tar.gz:A644/A644_fgas_profile.fits ext FGAS row 3 col RADIUS
+aeg-d-xcop/v1/m000087,MGAS,7.749039e+10,Msun,allfiles.tar.gz:A644/A644_fgas_profile.fits ext FGAS row 3 col MGAS
+aeg-d-xcop/v1/m000087,RADIUS,28.29,kpc,allfiles.tar.gz:A644/A644_mstar.fits ext MSTAR_SMOOTHED row 9 col RADIUS
+aeg-d-xcop/v1/m000087,MSTAR,4.23e+11,M_sun,allfiles.tar.gz:A644/A644_mstar.fits ext MSTAR_SMOOTHED row 9 col MSTAR
+aeg-d-xcop/v1/m000087,RADIUS,34.44,kpc,allfiles.tar.gz:A644/A644_mstar.fits ext MSTAR_SMOOTHED row 10 col RADIUS
+aeg-d-xcop/v1/m000087,MSTAR,4.95e+11,M_sun,allfiles.tar.gz:A644/A644_mstar.fits ext MSTAR_SMOOTHED row 10 col MSTAR
+aeg-d-xcop/v1/m000539,RADIUS,1183.2618,kpc,allfiles.tar.gz:A2255/A2255_hydro_mass.fits ext HYDRO_MASS row 80 col RADIUS
+aeg-d-xcop/v1/m000539,M_FORW,5.252847e+14,Msun,allfiles.tar.gz:A2255/A2255_hydro_mass.fits ext HYDRO_MASS row 80 col M_FORW
+aeg-d-xcop/v1/m000539,R500,1196.0,kpc,allfiles.tar.gz:A2255/A2255_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000539,RADIUS,0.94602895,R/R500,allfiles.tar.gz:A2255/A2255_fgas_profile.fits ext FGAS row 43 col RADIUS
+aeg-d-xcop/v1/m000539,MGAS,7.31149e+13,Msun,allfiles.tar.gz:A2255/A2255_fgas_profile.fits ext FGAS row 43 col MGAS
+aeg-d-xcop/v1/m000539,RADIUS,1.0314265,R/R500,allfiles.tar.gz:A2255/A2255_fgas_profile.fits ext FGAS row 44 col RADIUS
+aeg-d-xcop/v1/m000539,MGAS,8.301951e+13,Msun,allfiles.tar.gz:A2255/A2255_fgas_profile.fits ext FGAS row 44 col MGAS
+aeg-d-xcop/v1/m000539,R_500,1.196,Mpc,"arXiv:1805.00035 e-print mass_xcop.tex line 319, Table 1, row A2255, col R_500"
+aeg-d-xcop/v1/m000539,M_500,5.26,1e14 Msun,"arXiv:1805.00035 e-print mass_xcop.tex line 319, Table 1, row A2255, col M_500"
+aeg-d-xcop/v1/m000539,R_200,2.033,Mpc,"arXiv:1805.00035 e-print mass_xcop.tex line 319, Table 1, row A2255, col R_200"
+aeg-d-xcop/v1/m000539,RADIUS,0.94602895,R/R500,allfiles.tar.gz:A2255/A2255_fgas_profile.fits ext FGAS row 43 col RADIUS
+aeg-d-xcop/v1/m000539,MGAS,7.31149e+13,Msun,allfiles.tar.gz:A2255/A2255_fgas_profile.fits ext FGAS row 43 col MGAS
+aeg-d-xcop/v1/m000539,RADIUS,1.0314265,R/R500,allfiles.tar.gz:A2255/A2255_fgas_profile.fits ext FGAS row 44 col RADIUS
+aeg-d-xcop/v1/m000539,MGAS,8.301951e+13,Msun,allfiles.tar.gz:A2255/A2255_fgas_profile.fits ext FGAS row 44 col MGAS
+aeg-d-xcop/v1/m000456,RADIUS,336.99722,kpc,allfiles.tar.gz:A2142/A2142_hydro_mass.fits ext HYDRO_MASS row 53 col RADIUS
+aeg-d-xcop/v1/m000456,M_FORW,1.425316e+14,Msun,allfiles.tar.gz:A2142/A2142_hydro_mass.fits ext HYDRO_MASS row 53 col M_FORW
+aeg-d-xcop/v1/m000456,R500,1424.0,kpc,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000456,RADIUS,0.23310944,R/R500,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS row 28 col RADIUS
+aeg-d-xcop/v1/m000456,MGAS,1.6242276e+13,Msun,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS row 28 col MGAS
+aeg-d-xcop/v1/m000456,RADIUS,0.25481257,R/R500,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS row 29 col RADIUS
+aeg-d-xcop/v1/m000456,MGAS,1.882518e+13,Msun,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS row 29 col MGAS
+aeg-d-xcop/v1/m000456,RADIUS,334.64,kpc,allfiles.tar.gz:A2142/A2142_mstar.fits ext MSTAR_SMOOTHED row 68 col RADIUS
+aeg-d-xcop/v1/m000456,MSTAR,1.87e+12,M_sun,allfiles.tar.gz:A2142/A2142_mstar.fits ext MSTAR_SMOOTHED row 68 col MSTAR
+aeg-d-xcop/v1/m000456,RADIUS,337.488,kpc,allfiles.tar.gz:A2142/A2142_mstar.fits ext MSTAR_SMOOTHED row 69 col RADIUS
+aeg-d-xcop/v1/m000456,MSTAR,1.88e+12,M_sun,allfiles.tar.gz:A2142/A2142_mstar.fits ext MSTAR_SMOOTHED row 69 col MSTAR
+aeg-d-xcop/v1/m000618,RADIUS,854.41077,kpc,allfiles.tar.gz:A2319/A2319_hydro_mass.fits ext HYDRO_MASS row 73 col RADIUS
+aeg-d-xcop/v1/m000618,M_FORW,5.41402e+14,Msun,allfiles.tar.gz:A2319/A2319_hydro_mass.fits ext HYDRO_MASS row 73 col M_FORW
+aeg-d-xcop/v1/m000618,R500,1368.0,kpc,allfiles.tar.gz:A2319/A2319_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000618,RADIUS,0.5708426,R/R500,allfiles.tar.gz:A2319/A2319_fgas_profile.fits ext FGAS row 37 col RADIUS
+aeg-d-xcop/v1/m000618,MGAS,6.226013e+13,Msun,allfiles.tar.gz:A2319/A2319_fgas_profile.fits ext FGAS row 37 col MGAS
+aeg-d-xcop/v1/m000618,RADIUS,0.6249334,R/R500,allfiles.tar.gz:A2319/A2319_fgas_profile.fits ext FGAS row 38 col RADIUS
+aeg-d-xcop/v1/m000618,MGAS,7.196357e+13,Msun,allfiles.tar.gz:A2319/A2319_fgas_profile.fits ext FGAS row 38 col MGAS
+aeg-d-xcop/v1/m000618,RADIUS,850.672,kpc,allfiles.tar.gz:A2319/A2319_mstar.fits ext MSTAR_SMOOTHED row 227 col RADIUS
+aeg-d-xcop/v1/m000618,MSTAR,4.22e+12,M_sun,allfiles.tar.gz:A2319/A2319_mstar.fits ext MSTAR_SMOOTHED row 227 col MSTAR
+aeg-d-xcop/v1/m000618,RADIUS,854.71,kpc,allfiles.tar.gz:A2319/A2319_mstar.fits ext MSTAR_SMOOTHED row 228 col RADIUS
+aeg-d-xcop/v1/m000618,MSTAR,4.22e+12,M_sun,allfiles.tar.gz:A2319/A2319_mstar.fits ext MSTAR_SMOOTHED row 228 col MSTAR
+aeg-d-xcop/v1/m000059,RADIUS,466.70285,kpc,allfiles.tar.gz:A85/A85_hydro_mass.fits ext HYDRO_MASS row 60 col RADIUS
+aeg-d-xcop/v1/m000059,M_FORW,1.8284916e+14,Msun,allfiles.tar.gz:A85/A85_hydro_mass.fits ext HYDRO_MASS row 60 col M_FORW
+aeg-d-xcop/v1/m000059,R500,1235.0,kpc,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000059,RADIUS,0.3472584,R/R500,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS row 31 col RADIUS
+aeg-d-xcop/v1/m000059,MGAS,1.8316916e+13,Msun,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS row 31 col MGAS
+aeg-d-xcop/v1/m000059,RADIUS,0.37945023,R/R500,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS row 32 col RADIUS
+aeg-d-xcop/v1/m000059,MGAS,2.1221018e+13,Msun,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS row 32 col MGAS
+aeg-d-xcop/v1/m000059,RADIUS,463.125,kpc,allfiles.tar.gz:A85/A85_mstar.fits ext MSTAR_SMOOTHED row 124 col RADIUS
+aeg-d-xcop/v1/m000059,MSTAR,1.31e+12,M_sun,allfiles.tar.gz:A85/A85_mstar.fits ext MSTAR_SMOOTHED row 124 col MSTAR
+aeg-d-xcop/v1/m000059,RADIUS,466.83,kpc,allfiles.tar.gz:A85/A85_mstar.fits ext MSTAR_SMOOTHED row 125 col RADIUS
+aeg-d-xcop/v1/m000059,MSTAR,1.31e+12,M_sun,allfiles.tar.gz:A85/A85_mstar.fits ext MSTAR_SMOOTHED row 125 col MSTAR
+aeg-d-xcop/v1/m000855,RADIUS,1493.107,kpc,allfiles.tar.gz:ZW1215/ZW1215_hydro_mass.fits ext HYDRO_MASS row 85 col RADIUS
+aeg-d-xcop/v1/m000855,M_FORW,8.703088e+14,Msun,allfiles.tar.gz:ZW1215/ZW1215_hydro_mass.fits ext HYDRO_MASS row 85 col M_FORW
+aeg-d-xcop/v1/m000855,R500,1358.0,kpc,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000855,RADIUS,1.0706065,R/R500,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS row 46 col RADIUS
+aeg-d-xcop/v1/m000855,MGAS,8.6688764e+13,Msun,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS row 46 col MGAS
+aeg-d-xcop/v1/m000855,RADIUS,1.1670527,R/R500,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS row 47 col RADIUS
+aeg-d-xcop/v1/m000855,MGAS,9.3906046e+13,Msun,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS row 47 col MGAS
+aeg-d-xcop/v1/m000855,RADIUS,1489.726,kpc,allfiles.tar.gz:ZW1215/ZW1215_mstar.fits ext MSTAR_SMOOTHED row 413 col RADIUS
+aeg-d-xcop/v1/m000855,MSTAR,4.43e+12,M_sun,allfiles.tar.gz:ZW1215/ZW1215_mstar.fits ext MSTAR_SMOOTHED row 413 col MSTAR
+aeg-d-xcop/v1/m000855,RADIUS,1493.8,kpc,allfiles.tar.gz:ZW1215/ZW1215_mstar.fits ext MSTAR_SMOOTHED row 414 col RADIUS
+aeg-d-xcop/v1/m000855,MSTAR,4.43e+12,M_sun,allfiles.tar.gz:ZW1215/ZW1215_mstar.fits ext MSTAR_SMOOTHED row 414 col MSTAR
+aeg-d-xcop/v1/m000361,RADIUS,293.103,kpc,allfiles.tar.gz:A2029/A2029_hydro_mass.fits ext HYDRO_MASS row 50 col RADIUS
+aeg-d-xcop/v1/m000361,M_FORW,1.34087495e+14,Msun,allfiles.tar.gz:A2029/A2029_hydro_mass.fits ext HYDRO_MASS row 50 col M_FORW
+aeg-d-xcop/v1/m000361,R500,1414.0,kpc,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000361,RADIUS,0.19041154,R/R500,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 26 col RADIUS
+aeg-d-xcop/v1/m000361,MGAS,1.2224764e+13,Msun,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 26 col MGAS
+aeg-d-xcop/v1/m000361,RADIUS,0.20787843,R/R500,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 27 col RADIUS
+aeg-d-xcop/v1/m000361,MGAS,1.4112948e+13,Msun,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 27 col MGAS
+aeg-d-xcop/v1/m000361,RADIUS,292.698,kpc,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 57 col RADIUS
+aeg-d-xcop/v1/m000361,MSTAR,2.13e+12,M_sun,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 57 col MSTAR
+aeg-d-xcop/v1/m000361,RADIUS,296.94,kpc,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 58 col RADIUS
+aeg-d-xcop/v1/m000361,MSTAR,2.15e+12,M_sun,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 58 col MSTAR
+aeg-d-xcop/v1/m000386,RADIUS,937.7148,kpc,allfiles.tar.gz:A2029/A2029_hydro_mass.fits ext HYDRO_MASS row 75 col RADIUS
+aeg-d-xcop/v1/m000386,M_FORW,5.9517435e+14,Msun,allfiles.tar.gz:A2029/A2029_hydro_mass.fits ext HYDRO_MASS row 75 col M_FORW
+aeg-d-xcop/v1/m000386,R500,1414.0,kpc,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000386,RADIUS,0.6506078,R/R500,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 40 col RADIUS
+aeg-d-xcop/v1/m000386,MGAS,7.266883e+13,Msun,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 40 col MGAS
+aeg-d-xcop/v1/m000386,RADIUS,0.7102896,R/R500,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 41 col RADIUS
+aeg-d-xcop/v1/m000386,MGAS,8.10359e+13,Msun,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 41 col MGAS
+aeg-d-xcop/v1/m000386,RADIUS,936.068,kpc,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 239 col RADIUS
+aeg-d-xcop/v1/m000386,MSTAR,5.7e+12,M_sun,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 239 col MSTAR
+aeg-d-xcop/v1/m000386,RADIUS,940.31,kpc,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 240 col RADIUS
+aeg-d-xcop/v1/m000386,MSTAR,5.73e+12,M_sun,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 240 col MSTAR
+aeg-d-xcop/v1/m000852,RADIUS,1298.6284,kpc,allfiles.tar.gz:ZW1215/ZW1215_hydro_mass.fits ext HYDRO_MASS row 82 col RADIUS
+aeg-d-xcop/v1/m000852,M_FORW,7.1914604e+14,Msun,allfiles.tar.gz:ZW1215/ZW1215_hydro_mass.fits ext HYDRO_MASS row 82 col M_FORW
+aeg-d-xcop/v1/m000852,R500,1358.0,kpc,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000852,RADIUS,0.9009665,R/R500,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS row 44 col RADIUS
+aeg-d-xcop/v1/m000852,MGAS,7.266063e+13,Msun,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS row 44 col MGAS
+aeg-d-xcop/v1/m000852,RADIUS,0.98213065,R/R500,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS row 45 col RADIUS
+aeg-d-xcop/v1/m000852,MGAS,7.964101e+13,Msun,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS row 45 col MGAS
+aeg-d-xcop/v1/m000852,RADIUS,1296.89,kpc,allfiles.tar.gz:ZW1215/ZW1215_mstar.fits ext MSTAR_SMOOTHED row 356 col RADIUS
+aeg-d-xcop/v1/m000852,MSTAR,4.19e+12,M_sun,allfiles.tar.gz:ZW1215/ZW1215_mstar.fits ext MSTAR_SMOOTHED row 356 col MSTAR
+aeg-d-xcop/v1/m000852,RADIUS,1300.964,kpc,allfiles.tar.gz:ZW1215/ZW1215_mstar.fits ext MSTAR_SMOOTHED row 357 col RADIUS
+aeg-d-xcop/v1/m000852,MSTAR,4.2e+12,M_sun,allfiles.tar.gz:ZW1215/ZW1215_mstar.fits ext MSTAR_SMOOTHED row 357 col MSTAR
+aeg-d-xcop/v1/m000767,RADIUS,1298.6284,kpc,allfiles.tar.gz:RXC1825/RXC1825_hydro_mass.fits ext HYDRO_MASS row 82 col RADIUS
+aeg-d-xcop/v1/m000767,M_FORW,4.890554e+14,Msun,allfiles.tar.gz:RXC1825/RXC1825_hydro_mass.fits ext HYDRO_MASS row 82 col M_FORW
+aeg-d-xcop/v1/m000767,R500,1105.0,kpc,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000767,RADIUS,1.1650314,R/R500,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 46 col RADIUS
+aeg-d-xcop/v1/m000767,MGAS,6.7046428e+13,Msun,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 46 col MGAS
+aeg-d-xcop/v1/m000767,RADIUS,1.2665466,R/R500,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 47 col RADIUS
+aeg-d-xcop/v1/m000767,MGAS,7.48744e+13,Msun,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 47 col MGAS
+aeg-d-xcop/v1/m000767,R_500,1.105,Mpc,"arXiv:1805.00035 e-print mass_xcop.tex line 324, Table 1, row RXC1825, col R_500"
+aeg-d-xcop/v1/m000767,M_500,4.08,1e14 Msun,"arXiv:1805.00035 e-print mass_xcop.tex line 324, Table 1, row RXC1825, col M_500"
+aeg-d-xcop/v1/m000767,R_200,1.719,Mpc,"arXiv:1805.00035 e-print mass_xcop.tex line 324, Table 1, row RXC1825, col R_200"
+aeg-d-xcop/v1/m000767,RADIUS,0.9857586,R/R500,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 44 col RADIUS
+aeg-d-xcop/v1/m000767,MGAS,5.2941117e+13,Msun,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 44 col MGAS
+aeg-d-xcop/v1/m000767,RADIUS,1.0716529,R/R500,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 45 col RADIUS
+aeg-d-xcop/v1/m000767,MGAS,5.9716865e+13,Msun,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 45 col MGAS
+aeg-d-xcop/v1/m000838,RADIUS,677.1059,kpc,allfiles.tar.gz:ZW1215/ZW1215_hydro_mass.fits ext HYDRO_MASS row 68 col RADIUS
+aeg-d-xcop/v1/m000838,M_FORW,3.3209338e+14,Msun,allfiles.tar.gz:ZW1215/ZW1215_hydro_mass.fits ext HYDRO_MASS row 68 col M_FORW
+aeg-d-xcop/v1/m000838,R500,1358.0,kpc,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000838,RADIUS,0.4925886,R/R500,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS row 37 col RADIUS
+aeg-d-xcop/v1/m000838,MGAS,3.2333468e+13,Msun,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS row 37 col MGAS
+aeg-d-xcop/v1/m000838,RADIUS,0.53696376,R/R500,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS row 38 col RADIUS
+aeg-d-xcop/v1/m000838,MGAS,3.692107e+13,Msun,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS row 38 col MGAS
+aeg-d-xcop/v1/m000838,RADIUS,674.926,kpc,allfiles.tar.gz:ZW1215/ZW1215_mstar.fits ext MSTAR_SMOOTHED row 173 col RADIUS
+aeg-d-xcop/v1/m000838,MSTAR,2.39e+12,M_sun,allfiles.tar.gz:ZW1215/ZW1215_mstar.fits ext MSTAR_SMOOTHED row 173 col MSTAR
+aeg-d-xcop/v1/m000838,RADIUS,679.0,kpc,allfiles.tar.gz:ZW1215/ZW1215_mstar.fits ext MSTAR_SMOOTHED row 174 col RADIUS
+aeg-d-xcop/v1/m000838,MSTAR,2.4e+12,M_sun,allfiles.tar.gz:ZW1215/ZW1215_mstar.fits ext MSTAR_SMOOTHED row 174 col MSTAR
+aeg-d-xcop/v1/m000804,RADIUS,139.24767,kpc,allfiles.tar.gz:ZW1215/ZW1215_hydro_mass.fits ext HYDRO_MASS row 34 col RADIUS
+aeg-d-xcop/v1/m000804,M_FORW,1.9532907e+13,Msun,allfiles.tar.gz:ZW1215/ZW1215_hydro_mass.fits ext HYDRO_MASS row 34 col M_FORW
+aeg-d-xcop/v1/m000804,R500,1358.0,kpc,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000804,RADIUS,0.095660515,R/R500,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS row 18 col RADIUS
+aeg-d-xcop/v1/m000804,MGAS,1.04766354e+12,Msun,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS row 18 col MGAS
+aeg-d-xcop/v1/m000804,RADIUS,0.104278155,R/R500,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS row 19 col RADIUS
+aeg-d-xcop/v1/m000804,MGAS,1.3026124e+12,Msun,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS row 19 col MGAS
+aeg-d-xcop/v1/m000804,RADIUS,120.862,kpc,allfiles.tar.gz:ZW1215/ZW1215_mstar.fits ext MSTAR_SMOOTHED row 16 col RADIUS
+aeg-d-xcop/v1/m000804,MSTAR,5.18e+11,M_sun,allfiles.tar.gz:ZW1215/ZW1215_mstar.fits ext MSTAR_SMOOTHED row 16 col MSTAR
+aeg-d-xcop/v1/m000804,RADIUS,146.664,kpc,allfiles.tar.gz:ZW1215/ZW1215_mstar.fits ext MSTAR_SMOOTHED row 17 col RADIUS
+aeg-d-xcop/v1/m000804,MSTAR,5.36e+11,M_sun,allfiles.tar.gz:ZW1215/ZW1215_mstar.fits ext MSTAR_SMOOTHED row 17 col MSTAR
+aeg-d-xcop/v1/m000023,RADIUS,87.45159,kpc,allfiles.tar.gz:A85/A85_hydro_mass.fits ext HYDRO_MASS row 24 col RADIUS
+aeg-d-xcop/v1/m000023,M_FORW,1.1366826e+13,Msun,allfiles.tar.gz:A85/A85_hydro_mass.fits ext HYDRO_MASS row 24 col M_FORW
+aeg-d-xcop/v1/m000023,R500,1235.0,kpc,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000023,RADIUS,0.070406884,R/R500,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS row 13 col RADIUS
+aeg-d-xcop/v1/m000023,MGAS,9.059665e+11,Msun,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS row 13 col MGAS
+aeg-d-xcop/v1/m000023,RADIUS,0.07693381,R/R500,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS row 14 col RADIUS
+aeg-d-xcop/v1/m000023,MGAS,1.09074946e+12,Msun,allfiles.tar.gz:A85/A85_fgas_profile.fits ext FGAS row 14 col MGAS
+aeg-d-xcop/v1/m000023,RADIUS,75.335,kpc,allfiles.tar.gz:A85/A85_mstar.fits ext MSTAR_SMOOTHED row 14 col RADIUS
+aeg-d-xcop/v1/m000023,MSTAR,2.78e+11,M_sun,allfiles.tar.gz:A85/A85_mstar.fits ext MSTAR_SMOOTHED row 14 col MSTAR
+aeg-d-xcop/v1/m000023,RADIUS,90.155,kpc,allfiles.tar.gz:A85/A85_mstar.fits ext MSTAR_SMOOTHED row 15 col RADIUS
+aeg-d-xcop/v1/m000023,MSTAR,2.94e+11,M_sun,allfiles.tar.gz:A85/A85_mstar.fits ext MSTAR_SMOOTHED row 15 col MSTAR
+aeg-d-xcop/v1/m000718,RADIUS,1360.4635,kpc,allfiles.tar.gz:A3266/A3266_hydro_mass.fits ext HYDRO_MASS row 83 col RADIUS
+aeg-d-xcop/v1/m000718,M_FORW,7.845568e+14,Msun,allfiles.tar.gz:A3266/A3266_hydro_mass.fits ext HYDRO_MASS row 83 col M_FORW
+aeg-d-xcop/v1/m000718,R500,1430.0,kpc,allfiles.tar.gz:A3266/A3266_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000718,RADIUS,0.87984794,R/R500,allfiles.tar.gz:A3266/A3266_fgas_profile.fits ext FGAS row 47 col RADIUS
+aeg-d-xcop/v1/m000718,MGAS,1.01398675e+14,Msun,allfiles.tar.gz:A3266/A3266_fgas_profile.fits ext FGAS row 47 col MGAS
+aeg-d-xcop/v1/m000718,RADIUS,0.95429265,R/R500,allfiles.tar.gz:A3266/A3266_fgas_profile.fits ext FGAS row 48 col RADIUS
+aeg-d-xcop/v1/m000718,MGAS,1.1087893e+14,Msun,allfiles.tar.gz:A3266/A3266_fgas_profile.fits ext FGAS row 48 col MGAS
+aeg-d-xcop/v1/m000718,R_500,1.430,Mpc,"arXiv:1805.00035 e-print mass_xcop.tex line 322, Table 1, row A3266, col R_500"
+aeg-d-xcop/v1/m000718,M_500,8.80,1e14 Msun,"arXiv:1805.00035 e-print mass_xcop.tex line 322, Table 1, row A3266, col M_500"
+aeg-d-xcop/v1/m000718,R_200,2.325,Mpc,"arXiv:1805.00035 e-print mass_xcop.tex line 322, Table 1, row A3266, col R_200"
+aeg-d-xcop/v1/m000718,RADIUS,0.95429265,R/R500,allfiles.tar.gz:A3266/A3266_fgas_profile.fits ext FGAS row 48 col RADIUS
+aeg-d-xcop/v1/m000718,MGAS,1.1087893e+14,Msun,allfiles.tar.gz:A3266/A3266_fgas_profile.fits ext FGAS row 48 col MGAS
+aeg-d-xcop/v1/m000718,RADIUS,1.0350361,R/R500,allfiles.tar.gz:A3266/A3266_fgas_profile.fits ext FGAS row 49 col RADIUS
+aeg-d-xcop/v1/m000718,MGAS,1.2010732e+14,Msun,allfiles.tar.gz:A3266/A3266_fgas_profile.fits ext FGAS row 49 col MGAS
+aeg-d-xcop/v1/m000379,RADIUS,677.1059,kpc,allfiles.tar.gz:A2029/A2029_hydro_mass.fits ext HYDRO_MASS row 68 col RADIUS
+aeg-d-xcop/v1/m000379,M_FORW,4.3568148e+14,Msun,allfiles.tar.gz:A2029/A2029_hydro_mass.fits ext HYDRO_MASS row 68 col M_FORW
+aeg-d-xcop/v1/m000379,R500,1414.0,kpc,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000379,RADIUS,0.45798865,R/R500,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 36 col RADIUS
+aeg-d-xcop/v1/m000379,MGAS,4.5912504e+13,Msun,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 36 col MGAS
+aeg-d-xcop/v1/m000379,RADIUS,0.50000095,R/R500,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 37 col RADIUS
+aeg-d-xcop/v1/m000379,MGAS,5.1728083e+13,Msun,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 37 col MGAS
+aeg-d-xcop/v1/m000379,RADIUS,674.478,kpc,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 165 col RADIUS
+aeg-d-xcop/v1/m000379,MSTAR,4.22e+12,M_sun,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 165 col MSTAR
+aeg-d-xcop/v1/m000379,RADIUS,678.72,kpc,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 166 col RADIUS
+aeg-d-xcop/v1/m000379,MSTAR,4.23e+12,M_sun,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 166 col MSTAR
+aeg-d-xcop/v1/m000341,RADIUS,115.60586,kpc,allfiles.tar.gz:A2029/A2029_hydro_mass.fits ext HYDRO_MASS row 30 col RADIUS
+aeg-d-xcop/v1/m000341,M_FORW,2.7939383e+13,Msun,allfiles.tar.gz:A2029/A2029_hydro_mass.fits ext HYDRO_MASS row 30 col M_FORW
+aeg-d-xcop/v1/m000341,R500,1414.0,kpc,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000341,RADIUS,0.07916474,R/R500,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 16 col RADIUS
+aeg-d-xcop/v1/m000341,MGAS,2.530769e+12,Msun,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 16 col MGAS
+aeg-d-xcop/v1/m000341,RADIUS,0.086426705,R/R500,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 17 col RADIUS
+aeg-d-xcop/v1/m000341,MGAS,3.013503e+12,Msun,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 17 col MGAS
+aeg-d-xcop/v1/m000341,RADIUS,103.222,kpc,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 15 col RADIUS
+aeg-d-xcop/v1/m000341,MSTAR,1.29e+12,M_sun,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 15 col MSTAR
+aeg-d-xcop/v1/m000341,RADIUS,125.846,kpc,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 16 col RADIUS
+aeg-d-xcop/v1/m000341,MSTAR,1.39e+12,M_sun,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 16 col MSTAR
+aeg-d-xcop/v1/m000094,RADIUS,45.597332,kpc,allfiles.tar.gz:A644/A644_hydro_mass.fits ext HYDRO_MASS row 10 col RADIUS
+aeg-d-xcop/v1/m000094,M_FORW,5.054048e+12,Msun,allfiles.tar.gz:A644/A644_hydro_mass.fits ext HYDRO_MASS row 10 col M_FORW
+aeg-d-xcop/v1/m000094,R500,1250.0,kpc,allfiles.tar.gz:A644/A644_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000094,RADIUS,0.034619518,R/R500,allfiles.tar.gz:A644/A644_fgas_profile.fits ext FGAS row 5 col RADIUS
+aeg-d-xcop/v1/m000094,MGAS,1.261914e+11,Msun,allfiles.tar.gz:A644/A644_fgas_profile.fits ext FGAS row 5 col MGAS
+aeg-d-xcop/v1/m000094,RADIUS,0.03793711,R/R500,allfiles.tar.gz:A644/A644_fgas_profile.fits ext FGAS row 6 col RADIUS
+aeg-d-xcop/v1/m000094,MGAS,1.6096636e+11,Msun,allfiles.tar.gz:A644/A644_fgas_profile.fits ext FGAS row 6 col MGAS
+aeg-d-xcop/v1/m000094,RADIUS,41.82,kpc,allfiles.tar.gz:A644/A644_mstar.fits ext MSTAR_SMOOTHED row 11 col RADIUS
+aeg-d-xcop/v1/m000094,MSTAR,5.59e+11,M_sun,allfiles.tar.gz:A644/A644_mstar.fits ext MSTAR_SMOOTHED row 11 col MSTAR
+aeg-d-xcop/v1/m000094,RADIUS,50.43,kpc,allfiles.tar.gz:A644/A644_mstar.fits ext MSTAR_SMOOTHED row 12 col RADIUS
+aeg-d-xcop/v1/m000094,MSTAR,6.1e+11,M_sun,allfiles.tar.gz:A644/A644_mstar.fits ext MSTAR_SMOOTHED row 12 col MSTAR
+aeg-d-xcop/v1/m000439,RADIUS,152.82414,kpc,allfiles.tar.gz:A2142/A2142_hydro_mass.fits ext HYDRO_MASS row 36 col RADIUS
+aeg-d-xcop/v1/m000439,M_FORW,3.4366869e+13,Msun,allfiles.tar.gz:A2142/A2142_hydro_mass.fits ext HYDRO_MASS row 36 col M_FORW
+aeg-d-xcop/v1/m000439,R500,1424.0,kpc,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000439,RADIUS,0.1046191,R/R500,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS row 19 col RADIUS
+aeg-d-xcop/v1/m000439,MGAS,3.5061485e+12,Msun,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS row 19 col MGAS
+aeg-d-xcop/v1/m000439,RADIUS,0.11435942,R/R500,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS row 20 col RADIUS
+aeg-d-xcop/v1/m000439,MGAS,4.236596e+12,Msun,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS row 20 col MGAS
+aeg-d-xcop/v1/m000439,RADIUS,126.736,kpc,allfiles.tar.gz:A2142/A2142_mstar.fits ext MSTAR_SMOOTHED row 16 col RADIUS
+aeg-d-xcop/v1/m000439,MSTAR,8.34e+11,M_sun,allfiles.tar.gz:A2142/A2142_mstar.fits ext MSTAR_SMOOTHED row 16 col MSTAR
+aeg-d-xcop/v1/m000439,RADIUS,153.792,kpc,allfiles.tar.gz:A2142/A2142_mstar.fits ext MSTAR_SMOOTHED row 17 col RADIUS
+aeg-d-xcop/v1/m000439,MSTAR,8.8e+11,M_sun,allfiles.tar.gz:A2142/A2142_mstar.fits ext MSTAR_SMOOTHED row 17 col MSTAR
+aeg-d-xcop/v1/m000372,RADIUS,488.92526,kpc,allfiles.tar.gz:A2029/A2029_hydro_mass.fits ext HYDRO_MASS row 61 col RADIUS
+aeg-d-xcop/v1/m000372,M_FORW,2.8022023e+14,Msun,allfiles.tar.gz:A2029/A2029_hydro_mass.fits ext HYDRO_MASS row 61 col M_FORW
+aeg-d-xcop/v1/m000372,R500,1414.0,kpc,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000372,RADIUS,0.32239637,R/R500,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 32 col RADIUS
+aeg-d-xcop/v1/m000372,MGAS,2.7819541e+13,Msun,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 32 col MGAS
+aeg-d-xcop/v1/m000372,RADIUS,0.35197052,R/R500,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 33 col RADIUS
+aeg-d-xcop/v1/m000372,MGAS,3.1640491e+13,Msun,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 33 col MGAS
+aeg-d-xcop/v1/m000372,RADIUS,487.83,kpc,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 112 col RADIUS
+aeg-d-xcop/v1/m000372,MSTAR,3.02e+12,M_sun,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 112 col MSTAR
+aeg-d-xcop/v1/m000372,RADIUS,490.658,kpc,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 113 col RADIUS
+aeg-d-xcop/v1/m000372,MSTAR,3.06e+12,M_sun,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 113 col MSTAR
+aeg-d-xcop/v1/m000402,RADIUS,1973.7997,kpc,allfiles.tar.gz:A2029/A2029_hydro_mass.fits ext HYDRO_MASS row 91 col RADIUS
+aeg-d-xcop/v1/m000402,M_FORW,1.1602e+15,Msun,allfiles.tar.gz:A2029/A2029_hydro_mass.fits ext HYDRO_MASS row 91 col M_FORW
+aeg-d-xcop/v1/m000402,R500,1414.0,kpc,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000402,RADIUS,1.3129508,R/R500,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 48 col RADIUS
+aeg-d-xcop/v1/m000402,MGAS,1.6107298e+14,Msun,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 48 col MGAS
+aeg-d-xcop/v1/m000402,RADIUS,1.4333907,R/R500,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 49 col RADIUS
+aeg-d-xcop/v1/m000402,MGAS,1.7437537e+14,Msun,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 49 col MGAS
+aeg-d-xcop/v1/m000402,RADIUS,1972.53,kpc,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 532 col RADIUS
+aeg-d-xcop/v1/m000402,MSTAR,1.22e+13,M_sun,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 532 col MSTAR
+aeg-d-xcop/v1/m000402,RADIUS,1975.358,kpc,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 533 col RADIUS
+aeg-d-xcop/v1/m000402,MSTAR,1.22e+13,M_sun,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 533 col MSTAR
+aeg-d-xcop/v1/m000732,RADIUS,254.92603,kpc,allfiles.tar.gz:RXC1825/RXC1825_hydro_mass.fits ext HYDRO_MASS row 47 col RADIUS
+aeg-d-xcop/v1/m000732,M_FORW,5.9588498e+13,Msun,allfiles.tar.gz:RXC1825/RXC1825_hydro_mass.fits ext HYDRO_MASS row 47 col M_FORW
+aeg-d-xcop/v1/m000732,R500,1105.0,kpc,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000732,RADIUS,0.21911243,R/R500,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 26 col RADIUS
+aeg-d-xcop/v1/m000732,MGAS,3.2545744e+12,Msun,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 26 col MGAS
+aeg-d-xcop/v1/m000732,RADIUS,0.2382048,R/R500,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 27 col RADIUS
+aeg-d-xcop/v1/m000732,MGAS,3.949217e+12,Msun,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 27 col MGAS
+aeg-d-xcop/v1/m000732,R_500,1.105,Mpc,"arXiv:1805.00035 e-print mass_xcop.tex line 324, Table 1, row RXC1825, col R_500"
+aeg-d-xcop/v1/m000732,M_500,4.08,1e14 Msun,"arXiv:1805.00035 e-print mass_xcop.tex line 324, Table 1, row RXC1825, col M_500"
+aeg-d-xcop/v1/m000732,R_200,1.719,Mpc,"arXiv:1805.00035 e-print mass_xcop.tex line 324, Table 1, row RXC1825, col R_200"
+aeg-d-xcop/v1/m000732,RADIUS,0.9857586,R/R500,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 44 col RADIUS
+aeg-d-xcop/v1/m000732,MGAS,5.2941117e+13,Msun,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 44 col MGAS
+aeg-d-xcop/v1/m000732,RADIUS,1.0716529,R/R500,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 45 col RADIUS
+aeg-d-xcop/v1/m000732,MGAS,5.9716865e+13,Msun,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 45 col MGAS
+aeg-d-xcop/v1/m000394,RADIUS,1360.4635,kpc,allfiles.tar.gz:A2029/A2029_hydro_mass.fits ext HYDRO_MASS row 83 col RADIUS
+aeg-d-xcop/v1/m000394,M_FORW,7.65939e+14,Msun,allfiles.tar.gz:A2029/A2029_hydro_mass.fits ext HYDRO_MASS row 83 col M_FORW
+aeg-d-xcop/v1/m000394,R500,1414.0,kpc,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000394,RADIUS,0.9242381,R/R500,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 44 col RADIUS
+aeg-d-xcop/v1/m000394,MGAS,1.1079502e+14,Msun,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 44 col MGAS
+aeg-d-xcop/v1/m000394,RADIUS,1.0090206,R/R500,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 45 col RADIUS
+aeg-d-xcop/v1/m000394,MGAS,1.22295075e+14,Msun,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 45 col MGAS
+aeg-d-xcop/v1/m000394,RADIUS,1357.44,kpc,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 358 col RADIUS
+aeg-d-xcop/v1/m000394,MSTAR,8.36e+12,M_sun,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 358 col MSTAR
+aeg-d-xcop/v1/m000394,RADIUS,1361.682,kpc,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 359 col RADIUS
+aeg-d-xcop/v1/m000394,MSTAR,8.36e+12,M_sun,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 359 col MSTAR
+aeg-d-xcop/v1/m000602,RADIUS,405.91434,kpc,allfiles.tar.gz:A2319/A2319_hydro_mass.fits ext HYDRO_MASS row 57 col RADIUS
+aeg-d-xcop/v1/m000602,M_FORW,2.0989393e+14,Msun,allfiles.tar.gz:A2319/A2319_hydro_mass.fits ext HYDRO_MASS row 57 col M_FORW
+aeg-d-xcop/v1/m000602,R500,1368.0,kpc,allfiles.tar.gz:A2319/A2319_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000602,RADIUS,0.27667975,R/R500,allfiles.tar.gz:A2319/A2319_fgas_profile.fits ext FGAS row 29 col RADIUS
+aeg-d-xcop/v1/m000602,MGAS,1.6592094e+13,Msun,allfiles.tar.gz:A2319/A2319_fgas_profile.fits ext FGAS row 29 col MGAS
+aeg-d-xcop/v1/m000602,RADIUS,0.30289686,R/R500,allfiles.tar.gz:A2319/A2319_fgas_profile.fits ext FGAS row 30 col RADIUS
+aeg-d-xcop/v1/m000602,MGAS,1.9748048e+13,Msun,allfiles.tar.gz:A2319/A2319_fgas_profile.fits ext FGAS row 30 col MGAS
+aeg-d-xcop/v1/m000602,RADIUS,403.8,kpc,allfiles.tar.gz:A2319/A2319_mstar.fits ext MSTAR_SMOOTHED row 94 col RADIUS
+aeg-d-xcop/v1/m000602,MSTAR,2.25e+12,M_sun,allfiles.tar.gz:A2319/A2319_mstar.fits ext MSTAR_SMOOTHED row 94 col MSTAR
+aeg-d-xcop/v1/m000602,RADIUS,406.492,kpc,allfiles.tar.gz:A2319/A2319_mstar.fits ext MSTAR_SMOOTHED row 95 col RADIUS
+aeg-d-xcop/v1/m000602,MSTAR,2.25e+12,M_sun,allfiles.tar.gz:A2319/A2319_mstar.fits ext MSTAR_SMOOTHED row 95 col MSTAR
+aeg-d-xcop/v1/m000414,RADIUS,47.768482,kpc,allfiles.tar.gz:A2142/A2142_hydro_mass.fits ext HYDRO_MASS row 11 col RADIUS
+aeg-d-xcop/v1/m000414,M_FORW,6.114183e+12,Msun,allfiles.tar.gz:A2142/A2142_hydro_mass.fits ext HYDRO_MASS row 11 col M_FORW
+aeg-d-xcop/v1/m000414,R500,1424.0,kpc,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000414,RADIUS,0.032886535,R/R500,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS row 6 col RADIUS
+aeg-d-xcop/v1/m000414,MGAS,2.2037442e+11,Msun,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS row 6 col MGAS
+aeg-d-xcop/v1/m000414,RADIUS,0.035948362,R/R500,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS row 7 col RADIUS
+aeg-d-xcop/v1/m000414,MGAS,2.7926577e+11,Msun,allfiles.tar.gz:A2142/A2142_fgas_profile.fits ext FGAS row 7 col MGAS
+aeg-d-xcop/v1/m000414,RADIUS,39.872,kpc,allfiles.tar.gz:A2142/A2142_mstar.fits ext MSTAR_SMOOTHED row 10 col RADIUS
+aeg-d-xcop/v1/m000414,MSTAR,3.59e+11,M_sun,allfiles.tar.gz:A2142/A2142_mstar.fits ext MSTAR_SMOOTHED row 10 col MSTAR
+aeg-d-xcop/v1/m000414,RADIUS,48.416,kpc,allfiles.tar.gz:A2142/A2142_mstar.fits ext MSTAR_SMOOTHED row 11 col RADIUS
+aeg-d-xcop/v1/m000414,MSTAR,4.39e+11,M_sun,allfiles.tar.gz:A2142/A2142_mstar.fits ext MSTAR_SMOOTHED row 11 col MSTAR
+aeg-d-xcop/v1/m000755,RADIUS,743.1229,kpc,allfiles.tar.gz:RXC1825/RXC1825_hydro_mass.fits ext HYDRO_MASS row 70 col RADIUS
+aeg-d-xcop/v1/m000755,M_FORW,2.7480964e+14,Msun,allfiles.tar.gz:RXC1825/RXC1825_hydro_mass.fits ext HYDRO_MASS row 70 col M_FORW
+aeg-d-xcop/v1/m000755,R500,1105.0,kpc,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000755,RADIUS,0.64916176,R/R500,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 39 col RADIUS
+aeg-d-xcop/v1/m000755,MGAS,2.7797926e+13,Msun,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 39 col MGAS
+aeg-d-xcop/v1/m000755,RADIUS,0.70572656,R/R500,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 40 col RADIUS
+aeg-d-xcop/v1/m000755,MGAS,3.1745825e+13,Msun,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 40 col MGAS
+aeg-d-xcop/v1/m000755,R_500,1.105,Mpc,"arXiv:1805.00035 e-print mass_xcop.tex line 324, Table 1, row RXC1825, col R_500"
+aeg-d-xcop/v1/m000755,M_500,4.08,1e14 Msun,"arXiv:1805.00035 e-print mass_xcop.tex line 324, Table 1, row RXC1825, col M_500"
+aeg-d-xcop/v1/m000755,R_200,1.719,Mpc,"arXiv:1805.00035 e-print mass_xcop.tex line 324, Table 1, row RXC1825, col R_200"
+aeg-d-xcop/v1/m000755,RADIUS,0.9857586,R/R500,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 44 col RADIUS
+aeg-d-xcop/v1/m000755,MGAS,5.2941117e+13,Msun,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 44 col MGAS
+aeg-d-xcop/v1/m000755,RADIUS,1.0716529,R/R500,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 45 col RADIUS
+aeg-d-xcop/v1/m000755,MGAS,5.9716865e+13,Msun,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 45 col MGAS
+aeg-d-xcop/v1/m000327,RADIUS,60.27699,kpc,allfiles.tar.gz:A2029/A2029_hydro_mass.fits ext HYDRO_MASS row 16 col RADIUS
+aeg-d-xcop/v1/m000327,M_FORW,9.895643e+12,Msun,allfiles.tar.gz:A2029/A2029_hydro_mass.fits ext HYDRO_MASS row 16 col M_FORW
+aeg-d-xcop/v1/m000327,R500,1414.0,kpc,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000327,RADIUS,0.039228585,R/R500,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 8 col RADIUS
+aeg-d-xcop/v1/m000327,MGAS,5.2634593e+11,Msun,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 8 col MGAS
+aeg-d-xcop/v1/m000327,RADIUS,0.042827114,R/R500,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 9 col RADIUS
+aeg-d-xcop/v1/m000327,MGAS,6.492904e+11,Msun,allfiles.tar.gz:A2029/A2029_fgas_profile.fits ext FGAS row 9 col MGAS
+aeg-d-xcop/v1/m000327,RADIUS,57.974,kpc,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 12 col RADIUS
+aeg-d-xcop/v1/m000327,MSTAR,9.51e+11,M_sun,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 12 col MSTAR
+aeg-d-xcop/v1/m000327,RADIUS,70.7,kpc,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 13 col RADIUS
+aeg-d-xcop/v1/m000327,MSTAR,1.06e+12,M_sun,allfiles.tar.gz:A2029/A2029_mstar.fits ext MSTAR_SMOOTHED row 13 col MSTAR
+aeg-d-xcop/v1/m000736,RADIUS,307.0593,kpc,allfiles.tar.gz:RXC1825/RXC1825_hydro_mass.fits ext HYDRO_MASS row 51 col RADIUS
+aeg-d-xcop/v1/m000736,M_FORW,7.720884e+13,Msun,allfiles.tar.gz:RXC1825/RXC1825_hydro_mass.fits ext HYDRO_MASS row 51 col M_FORW
+aeg-d-xcop/v1/m000736,R500,1105.0,kpc,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000736,RADIUS,0.2589608,R/R500,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 28 col RADIUS
+aeg-d-xcop/v1/m000736,MGAS,4.7769494e+12,Msun,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 28 col MGAS
+aeg-d-xcop/v1/m000736,RADIUS,0.2815254,R/R500,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 29 col RADIUS
+aeg-d-xcop/v1/m000736,MGAS,5.7610045e+12,Msun,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 29 col MGAS
+aeg-d-xcop/v1/m000736,R_500,1.105,Mpc,"arXiv:1805.00035 e-print mass_xcop.tex line 324, Table 1, row RXC1825, col R_500"
+aeg-d-xcop/v1/m000736,M_500,4.08,1e14 Msun,"arXiv:1805.00035 e-print mass_xcop.tex line 324, Table 1, row RXC1825, col M_500"
+aeg-d-xcop/v1/m000736,R_200,1.719,Mpc,"arXiv:1805.00035 e-print mass_xcop.tex line 324, Table 1, row RXC1825, col R_200"
+aeg-d-xcop/v1/m000736,RADIUS,0.9857586,R/R500,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 44 col RADIUS
+aeg-d-xcop/v1/m000736,MGAS,5.2941117e+13,Msun,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 44 col MGAS
+aeg-d-xcop/v1/m000736,RADIUS,1.0716529,R/R500,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 45 col RADIUS
+aeg-d-xcop/v1/m000736,MGAS,5.9716865e+13,Msun,allfiles.tar.gz:RXC1825/RXC1825_fgas_profile.fits ext FGAS row 45 col MGAS
+aeg-d-xcop/v1/m000796,RADIUS,95.97801,kpc,allfiles.tar.gz:ZW1215/ZW1215_hydro_mass.fits ext HYDRO_MASS row 26 col RADIUS
+aeg-d-xcop/v1/m000796,M_FORW,9.812776e+12,Msun,allfiles.tar.gz:ZW1215/ZW1215_hydro_mass.fits ext HYDRO_MASS row 26 col M_FORW
+aeg-d-xcop/v1/m000796,R500,1358.0,kpc,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000796,RADIUS,0.067747034,R/R500,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS row 14 col RADIUS
+aeg-d-xcop/v1/m000796,MGAS,4.2394518e+11,Msun,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS row 14 col MGAS
+aeg-d-xcop/v1/m000796,RADIUS,0.073850065,R/R500,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS row 15 col RADIUS
+aeg-d-xcop/v1/m000796,MGAS,5.3412128e+11,Msun,allfiles.tar.gz:ZW1215/ZW1215_fgas_profile.fits ext FGAS row 15 col MGAS
+aeg-d-xcop/v1/m000796,RADIUS,82.838,kpc,allfiles.tar.gz:ZW1215/ZW1215_mstar.fits ext MSTAR_SMOOTHED row 14 col RADIUS
+aeg-d-xcop/v1/m000796,MSTAR,4.45e+11,M_sun,allfiles.tar.gz:ZW1215/ZW1215_mstar.fits ext MSTAR_SMOOTHED row 14 col MSTAR
+aeg-d-xcop/v1/m000796,RADIUS,99.134,kpc,allfiles.tar.gz:ZW1215/ZW1215_mstar.fits ext MSTAR_SMOOTHED row 15 col RADIUS
+aeg-d-xcop/v1/m000796,MSTAR,4.88e+11,M_sun,allfiles.tar.gz:ZW1215/ZW1215_mstar.fits ext MSTAR_SMOOTHED row 15 col MSTAR
+aeg-d-xcop/v1/m000201,RADIUS,512.2058,kpc,allfiles.tar.gz:A1644/A1644_hydro_mass.fits ext HYDRO_MASS row 62 col RADIUS
+aeg-d-xcop/v1/m000201,M_FORW,1.3625147e+14,Msun,allfiles.tar.gz:A1644/A1644_hydro_mass.fits ext HYDRO_MASS row 62 col M_FORW
+aeg-d-xcop/v1/m000201,R500,1054.0,kpc,allfiles.tar.gz:A1644/A1644_fgas_profile.fits ext FGAS header R500
+aeg-d-xcop/v1/m000201,RADIUS,0.46611416,R/R500,allfiles.tar.gz:A1644/A1644_fgas_profile.fits ext FGAS row 35 col RADIUS
+aeg-d-xcop/v1/m000201,MGAS,1.0872461e+13,Msun,allfiles.tar.gz:A1644/A1644_fgas_profile.fits ext FGAS row 35 col MGAS
+aeg-d-xcop/v1/m000201,RADIUS,0.5060686,R/R500,allfiles.tar.gz:A1644/A1644_fgas_profile.fits ext FGAS row 36 col RADIUS
+aeg-d-xcop/v1/m000201,MGAS,1.2795048e+13,Msun,allfiles.tar.gz:A1644/A1644_fgas_profile.fits ext FGAS row 36 col MGAS
+aeg-d-xcop/v1/m000201,R_500,1.054,Mpc,"arXiv:1805.00035 e-print mass_xcop.tex line 315, Table 1, row A1644, col R_500"
+aeg-d-xcop/v1/m000201,M_500,3.48,1e14 Msun,"arXiv:1805.00035 e-print mass_xcop.tex line 315, Table 1, row A1644, col M_500"
+aeg-d-xcop/v1/m000201,R_200,1.778,Mpc,"arXiv:1805.00035 e-print mass_xcop.tex line 315, Table 1, row A1644, col R_200"
+aeg-d-xcop/v1/m000201,RADIUS,0.9771153,R/R500,allfiles.tar.gz:A1644/A1644_fgas_profile.fits ext FGAS row 44 col RADIUS
+aeg-d-xcop/v1/m000201,MGAS,4.275196e+13,Msun,allfiles.tar.gz:A1644/A1644_fgas_profile.fits ext FGAS row 44 col MGAS
+aeg-d-xcop/v1/m000201,RADIUS,1.0608716,R/R500,allfiles.tar.gz:A1644/A1644_fgas_profile.fits ext FGAS row 45 col RADIUS
+aeg-d-xcop/v1/m000201,MGAS,4.8425383e+13,Msun,allfiles.tar.gz:A1644/A1644_fgas_profile.fits ext FGAS row 45 col MGAS
