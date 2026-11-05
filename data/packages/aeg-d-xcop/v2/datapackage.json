@@ -1,0 +1,839 @@
+{
+  "name": "aeg-d-xcop",
+  "version": "v2",
+  "title": "X-COP galaxy clusters: observed and baryonic accelerations as released by Eckert et al. 2022",
+  "description": "Atlas conversion of the accelerations released with Eckert et al. 2022 (A&A 662, A123) under data standard 2.5.1 (D-089, D-090): g_obs from the source's non-parametric hydrostatic reconstruction and g_bar from its gas, central-galaxy and satellite masses, both as released, at the radii of the data, for the five clusters with stellar data (109 radii). The seven other X-COP clusters are listed and recorded, not plotted (no stellar mass in the source). Values differ from v1 by ruling (D-090). Built under the frozen tests REPRODUCTION.md (part A) and REPRODUCTION_PART_B.md and the frozen second reading in reading/. Not published until the authors confirm (D-090 rule 5).",
+  "standard_version": "2.5.1",
+  "x_standard_version": "2.5.1",
+  "x_publication": "awaiting_authors_consent",
+  "x_publication_notice": "Version 2, built from Eckert et al. 2022, is ready and awaiting the authors' confirmation.",
+  "x_licence_status": "No licence stated by the source; asked (#19). The two archives shared by D. Eckert are fetched at build time, verified by hash and never redistributed (D-004). Atlas tables intended CC BY 4.0 under D-004, citing the source, once the authors confirm (D-090 rule 5).",
+  "licenses": [],
+  "sources": [
+    {
+      "title": "Eckert, Ettori, Pointecouteau, van der Burg & Loubser 2022, A&A 662, A123 (arXiv 2205.01110v1)",
+      "path": "https://arxiv.org/abs/2205.01110v1"
+    },
+    {
+      "title": "Eckert et al. 2022 data archives data_E22.tar.gz and mbar.tar.gz, shared by D. Eckert on 2026-11-03 (not redistributed)",
+      "path": "https://drive.switch.ch/index.php/s/nKxwcKwftb3Esjc/download"
+    }
+  ],
+  "x_citation": "Eckert, D., Ettori, S., Pointecouteau, E., van der Burg, R. F. J. & Loubser, S. I. 2022, A&A 662, A123 (arXiv 2205.01110): g_obs and g_bar. The programme behind the inputs: Ettori et al. 2019 (arXiv 1805.00035; A&A 621, A39), hydrostatic masses; Eckert et al. 2019 (arXiv 1805.00034), gas; Loubser et al. 2020 (arXiv 2006.05706), central galaxies; Ghizzardi et al. 2021 (arXiv 2007.01084), satellite stellar masses. Uncertainty terms also cite Eckert et al. 2022b, A&A 666, A41 (arXiv 2205.01123) and Ettori & Eckert 2022 (arXiv 2112.07554).",
+  "x_selection": [
+    {
+      "quantity": "cluster",
+      "condition": "in",
+      "value": "the five X-COP clusters with a released gbar_gobs file (A644, A1795, A2029, A2142, A2319)",
+      "citation": "Eckert et al. 2022 l. 103, 114, 402; part A §1 and A8; D-090 rule 4"
+    },
+    {
+      "quantity": "radius",
+      "condition": "==",
+      "value": "every released row: the radii of the data (no exclusion wording found; D-096 rule 2 as limited by D-098 rule 1 and D-105 O4)",
+      "citation": "Eckert et al. 2022 l. 263; reading/d096.csv"
+    }
+  ],
+  "x_baryon_inventory": [
+    {
+      "component": "hot gas",
+      "status": "measured",
+      "citation": "Eckert et al. 2022 l. 142–156 (X-ray and SZ gas density); released inside GBAR as a total"
+    },
+    {
+      "component": "central galaxy (BCG) stars",
+      "status": "measured",
+      "citation": "Eckert et al. 2022 l. 103–111 (dynamical mass-to-light ratio, Loubser et al. 2020); released inside GBAR as a total"
+    },
+    {
+      "component": "satellite galaxy stars",
+      "status": "measured",
+      "citation": "Eckert et al. 2022 l. 114–116 (van der Burg et al. 2015 method; Ghizzardi et al. 2021); released inside GBAR as a total"
+    },
+    {
+      "component": "intracluster light",
+      "status": "stated_negligible",
+      "citation": "Eckert et al. 2022 l. 410: \"the contribution of ICL to the total baryon budget is expected to be small ($<5\\%$)\"; its effect is the uncertainty term icl_omitted"
+    },
+    {
+      "component": "cold gas",
+      "status": "not_addressed",
+      "citation": "As v1: cold gas is not included by the source"
+    }
+  ],
+  "x_baryon_inventory_note": "The measured components are released as one total (GBAR), so v2's component columns are empty and their statuses are not_separable (REPRODUCTION_PART_B.md item 2).",
+  "x_value_change_ruling": "D-090",
+  "x_precedence": "D-089 (v2 from Eckert et al. 2022) and D-090 rule 1: the source's own released g_obs and g_bar are used, the one exception to D-083 item 3, so v2 is not compared with v1.",
+  "x_search_log": "docs/sources/uncertainty-readings.md §3, §3b, §3c; docs/sources/readings/xcop-e22-2026-11-03/ (step A readers A and B)",
+  "x_second_reading": {
+    "file": "SECOND_READING.md",
+    "reading": [
+      "reading/values.json",
+      "reading/error_form.md",
+      "reading/model_form.md",
+      "reading/d096.csv",
+      "reading/err_levels.csv",
+      "reading/properties.csv",
+      "reading/hse_statements.csv",
+      "reading/bcg_extra_mass_systems.md",
+      "reading/resolutions.md"
+    ],
+    "frozen": "data/frozen/xcop-v2-reading.json",
+    "off_repo": "source/reading/values.csv (the reader's parse of the archives; not committed; its hash is in the freeze record)"
+  },
+  "x_previous_version": "aeg-d-xcop/v1 (standard 1.2.1); values differ by ruling (D-090), not compared",
+  "x_reproduction": {
+    "part_a": "REPRODUCTION.md (frozen, data/frozen/xcop-v2-part-a.json); result REPRODUCTION_RESULT_PART_A.md (D-091)",
+    "part_b": "REPRODUCTION_PART_B.md (frozen, data/frozen/xcop-v2-part-b.json); result REPRODUCTION_RESULT_PART_B.md"
+  },
+  "x_cosmology": "As the source: H0 = 67.8 km/s/Mpc, Omega_m = 0.308 (Eckert et al. 2022 l. 56)",
+  "x_known_issues": [
+    "https://github.com/extragravitation/atlas/issues/124",
+    "https://github.com/extragravitation/atlas/issues/129",
+    "https://github.com/extragravitation/atlas/issues/136",
+    "https://github.com/extragravitation/atlas/issues/178",
+    "https://github.com/extragravitation/atlas/issues/179"
+  ],
+  "resources": [
+    {
+      "name": "measurements",
+      "path": "tables/measurements.ecsv",
+      "format": "ecsv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "dialect": {
+        "delimiter": ",",
+        "commentChar": "#",
+        "header": true
+      },
+      "schema": {
+        "fields": [
+          {
+            "name": "measurement_id",
+            "type": "string",
+            "description": "Permanent measurement identifier",
+            "ucd": "meta.id;meta.main"
+          },
+          {
+            "name": "system_id",
+            "type": "string",
+            "description": "Atlas system identifier",
+            "ucd": "meta.id"
+          },
+          {
+            "name": "kind",
+            "type": "string",
+            "description": "Kind of measurement",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "channel",
+            "type": "string",
+            "description": "Observational channel",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "method_class",
+            "type": "string",
+            "description": "Class of method",
+            "ucd": "meta.code.class"
+          },
+          {
+            "name": "method",
+            "type": "string",
+            "description": "Method",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "measured_quantity",
+            "type": "string",
+            "description": "Quantity measured (D-029)",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "r_kpc",
+            "type": "number",
+            "description": "Three-dimensional radius, RADIUS as released",
+            "ucd": "phys.size.radius",
+            "unit": "kpc"
+          },
+          {
+            "name": "r_kind",
+            "type": "string",
+            "description": "Radius is three-dimensional",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "g_obs",
+            "type": "number",
+            "description": "Observed acceleration, GOBS as released (the source's non-parametric hydrostatic g_obs)",
+            "ucd": "phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_obs_err_lo",
+            "type": "number",
+            "description": "GOBS_ERR_LO, read as an error magnitude (reading/error_form.md; part B item 5); level not given by the source",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_obs_err_hi",
+            "type": "number",
+            "description": "GOBS_ERR_HI, read as an error magnitude (reading/error_form.md; part B item 5); level not given by the source",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar",
+            "type": "number",
+            "description": "Baryonic acceleration, GBAR as released (gas, central galaxy and satellites, as one total)",
+            "ucd": "phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar_err_lo",
+            "type": "number",
+            "description": "GBAR_ERR, an error magnitude (reading/error_form.md); mixes point- and system-scale parts",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar_err_hi",
+            "type": "number",
+            "description": "GBAR_ERR, an error magnitude (reading/error_form.md); mixes point- and system-scale parts",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar_stars",
+            "type": "number",
+            "description": "Empty: the source releases g_bar as a total (part B item 2)",
+            "ucd": "phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar_gas_cold",
+            "type": "number",
+            "description": "Empty: the source releases g_bar as a total (part B item 2)",
+            "ucd": "phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar_gas_hot",
+            "type": "number",
+            "description": "Empty: the source releases g_bar as a total (part B item 2)",
+            "ucd": "phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "limit",
+            "type": "string",
+            "description": "Whether g_obs is a limit",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "stars_status",
+            "type": "string",
+            "description": "not_separable: the source's stars are inside the released g_bar total (part B item 2)",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "gas_cold_status",
+            "type": "string",
+            "description": "Cold gas not included by the source (as v1)",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "gas_hot_status",
+            "type": "string",
+            "description": "not_separable: the source's hot gas is inside the released g_bar total (part B item 2)",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "observed_from",
+            "type": "string",
+            "description": "Observable used on the observed side",
+            "ucd": "meta.ref"
+          },
+          {
+            "name": "baryonic_from",
+            "type": "string",
+            "description": "Observable used on the baryonic side",
+            "ucd": "meta.ref"
+          },
+          {
+            "name": "model_dependence",
+            "type": "string",
+            "description": "From reading/model_form.md (D-087; part B rule 3)",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "evidence_tier",
+            "type": "string",
+            "description": "Evidence tier (D-035)",
+            "ucd": "meta.code.qual"
+          },
+          {
+            "name": "role",
+            "type": "string",
+            "description": "Default value for the system, or an alternative",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "alternative_of",
+            "type": "string",
+            "description": "The default measurement this is an alternative to",
+            "ucd": "meta.ref"
+          },
+          {
+            "name": "plotted",
+            "type": "string",
+            "description": "Shown in default views",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "not_plotted_reason",
+            "type": "string",
+            "description": "Why not plotted (closed list)",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "assumptions",
+            "type": "string",
+            "description": "Named assumptions affecting this row (part B item 7)",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "adjustable",
+            "type": "string",
+            "description": "Assumptions whose sliders can change this row",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "flags",
+            "type": "string",
+            "description": "Atlas flags",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "known_issues",
+            "type": "string",
+            "description": "Open known issues affecting this row (GitHub issue numbers)",
+            "ucd": "meta.ref"
+          },
+          {
+            "name": "source_ref",
+            "type": "string",
+            "description": "Source file and row",
+            "ucd": "meta.ref"
+          },
+          {
+            "name": "notes",
+            "type": "string",
+            "description": "Notes (part B item 9)",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "err_level",
+            "type": "number",
+            "description": "Confidence level of g_obs_err_lo/hi; empty: not given by the source (reading/err_levels.csv)",
+            "ucd": "stat.value"
+          },
+          {
+            "name": "err_level_status",
+            "type": "string",
+            "description": "stated or not_given_by_source (reading/err_levels.csv)",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "g_bar_err_level",
+            "type": "number",
+            "description": "Confidence level of g_bar_err_lo/hi; empty: not given by the source (reading/err_levels.csv)",
+            "ucd": "stat.value"
+          },
+          {
+            "name": "g_bar_err_level_status",
+            "type": "string",
+            "description": "stated or not_given_by_source (reading/err_levels.csv)",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "g_obs_err_point_lo",
+            "type": "number",
+            "description": "Point-scale part of the g_obs error: equal to g_obs_err_lo, the per-radius posterior (part B item 5)",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_obs_err_point_hi",
+            "type": "number",
+            "description": "Point-scale part of the g_obs error: equal to g_obs_err_hi, the per-radius posterior (part B item 5)",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar_err_point_lo",
+            "type": "number",
+            "description": "Empty: GBAR_ERR mixes point-scale gas errors with the central galaxy's system-scale mass-to-light error; the source gives no point-scale part (term g_bar_point)",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "g_bar_err_point_hi",
+            "type": "number",
+            "description": "Empty: GBAR_ERR mixes point-scale gas errors with the central galaxy's system-scale mass-to-light error; the source gives no point-scale part (term g_bar_point)",
+            "ucd": "stat.error;phys.acceleration",
+            "unit": "m / s2"
+          },
+          {
+            "name": "x_xcop_centroid_w",
+            "type": "number",
+            "description": "Centroid shift w of the cluster, Paper II Table 2 (tab2.tex), as printed in its stated unit of 10⁻³ (as printed); repeated on every row (part A §5); empty never",
+            "ucd": "src.morph.param"
+          },
+          {
+            "name": "x_xcop_centroid_w_err",
+            "type": "number",
+            "description": "Printed ± error of x_xcop_centroid_w, in 10⁻³ (as printed); level not given by the source",
+            "ucd": "stat.error"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    },
+    {
+      "name": "observables",
+      "path": "tables/observables.ecsv",
+      "format": "ecsv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "dialect": {
+        "delimiter": ",",
+        "commentChar": "#",
+        "header": true
+      },
+      "schema": {
+        "fields": [
+          {
+            "name": "observable_id",
+            "type": "string",
+            "description": "Permanent observable identifier",
+            "ucd": "meta.id;meta.main"
+          },
+          {
+            "name": "system_id",
+            "type": "string",
+            "description": "Atlas system identifier",
+            "ucd": "meta.id"
+          },
+          {
+            "name": "side",
+            "type": "string",
+            "description": "Observed or baryonic side",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "quantity",
+            "type": "string",
+            "description": "acceleration_released: the source computed g (D-095)",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "value",
+            "type": "number",
+            "description": "Value as released (GOBS or GBAR)",
+            "ucd": "meta.number"
+          },
+          {
+            "name": "err_lo",
+            "type": "number",
+            "description": "Lower error as released (GOBS_ERR_LO or GBAR_ERR), an error magnitude",
+            "ucd": "stat.error"
+          },
+          {
+            "name": "err_hi",
+            "type": "number",
+            "description": "Upper error as released (GOBS_ERR_HI or GBAR_ERR), an error magnitude",
+            "ucd": "stat.error"
+          },
+          {
+            "name": "unit",
+            "type": "string",
+            "description": "Unit of value",
+            "ucd": "meta.unit"
+          },
+          {
+            "name": "band",
+            "type": "string",
+            "description": "Photometric band (none)",
+            "ucd": "instr.bandpass"
+          },
+          {
+            "name": "limit",
+            "type": "string",
+            "description": "Whether the value is a limit",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "r_kpc",
+            "type": "number",
+            "description": "Three-dimensional radius, RADIUS as released",
+            "ucd": "phys.size.radius",
+            "unit": "kpc"
+          },
+          {
+            "name": "r_kind",
+            "type": "string",
+            "description": "Radius kind",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "steps",
+            "type": "string",
+            "description": "Processing ladder from data to this quantity (§4b); every step is the source's",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "evidence_tier",
+            "type": "string",
+            "description": "Evidence tier (D-035)",
+            "ucd": "meta.code.qual"
+          },
+          {
+            "name": "source_ref",
+            "type": "string",
+            "description": "Source file and row, and what the source computed",
+            "ucd": "meta.ref"
+          },
+          {
+            "name": "err_level",
+            "type": "number",
+            "description": "Confidence level of err_lo/err_hi; empty: not given by the source (reading/err_levels.csv)",
+            "ucd": "stat.value"
+          },
+          {
+            "name": "err_level_status",
+            "type": "string",
+            "description": "stated or not_given_by_source",
+            "ucd": "meta.code"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    },
+    {
+      "name": "systems",
+      "path": "tables/systems.ecsv",
+      "format": "ecsv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "dialect": {
+        "delimiter": ",",
+        "commentChar": "#",
+        "header": true
+      },
+      "schema": {
+        "fields": [
+          {
+            "name": "system_id",
+            "type": "string",
+            "description": "Atlas system identifier",
+            "ucd": "meta.id;meta.main"
+          },
+          {
+            "name": "name_in_source",
+            "type": "string",
+            "description": "Cluster name as in Eckert et al. 2022 Table 1",
+            "ucd": "meta.id"
+          },
+          {
+            "name": "class_in_source",
+            "type": "string",
+            "description": "Class as the source gives it",
+            "ucd": "src.class"
+          },
+          {
+            "name": "taxonomy_kind",
+            "type": "string",
+            "description": "Taxonomy kind (A0–A10)",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "kind_label",
+            "type": "string",
+            "description": "Kind label",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "host",
+            "type": "string",
+            "description": "Host (none)",
+            "ucd": "meta.id"
+          },
+          {
+            "name": "distance_mpc",
+            "type": "number",
+            "description": "Not given; redshift is given (D-033)",
+            "ucd": "pos.distance",
+            "unit": "Mpc"
+          },
+          {
+            "name": "distance_method",
+            "type": "string",
+            "description": "Distance method (none)",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "distance_kinematic",
+            "type": "string",
+            "description": "Distance derived from kinematics",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "distance_ref",
+            "type": "string",
+            "description": "Distance source (none)",
+            "ucd": "meta.ref"
+          },
+          {
+            "name": "redshift",
+            "type": "number",
+            "description": "Redshift, Eckert et al. 2022 Table 1 (part A §2)",
+            "ucd": "src.redshift"
+          },
+          {
+            "name": "redshift_err",
+            "type": "number",
+            "description": "Not given",
+            "ucd": "stat.error;src.redshift"
+          },
+          {
+            "name": "metallicity_feh",
+            "type": "number",
+            "description": "Not given",
+            "ucd": "phys.abund.Fe"
+          },
+          {
+            "name": "properties",
+            "type": "string",
+            "description": "Source-given properties only: Table 1's R500,TOT, M500,TOT and M200,TOT (JSON; units in key names)",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "x_xcop_alpha_nt_r500",
+            "type": "number",
+            "description": "Non-thermal pressure fraction at R500, Ettori & Eckert 2022 tab:gamma_beta, last column (the present work, l. 274); unit as printed (per cent inferred, not stated); size of term nonthermal_pressure",
+            "ucd": "phys.pressure;arith.ratio"
+          },
+          {
+            "name": "x_xcop_alpha_nt_r500_err_lo",
+            "type": "number",
+            "description": "Printed lower (subscript) error of x_xcop_alpha_nt_r500, sign as printed (anomalous signs not repaired; reading/resolutions.md); 1 sigma (l. 276); unit as printed (per cent inferred, not stated)",
+            "ucd": "stat.error"
+          },
+          {
+            "name": "x_xcop_alpha_nt_r500_err_hi",
+            "type": "number",
+            "description": "Printed upper (superscript) error of x_xcop_alpha_nt_r500, sign as printed; 1 sigma (l. 276); unit as printed (per cent inferred, not stated)",
+            "ucd": "stat.error"
+          },
+          {
+            "name": "x_xcop_alpha_nt_r200",
+            "type": "number",
+            "description": "Non-thermal pressure fraction at R200, as x_xcop_alpha_nt_r500; unit as printed (per cent inferred, not stated); term nonthermal_pressure",
+            "ucd": "phys.pressure;arith.ratio"
+          },
+          {
+            "name": "x_xcop_alpha_nt_r200_err_lo",
+            "type": "number",
+            "description": "Printed lower error of x_xcop_alpha_nt_r200, sign as printed (not repaired); unit as printed (per cent inferred, not stated)",
+            "ucd": "stat.error"
+          },
+          {
+            "name": "x_xcop_alpha_nt_r200_err_hi",
+            "type": "number",
+            "description": "Printed upper error of x_xcop_alpha_nt_r200, sign as printed; unit as printed (per cent inferred, not stated)",
+            "ucd": "stat.error"
+          },
+          {
+            "name": "x_xcop_centroid_w",
+            "type": "number",
+            "description": "Centroid shift w, Paper II Table 2 (tab2.tex), in 10⁻³ (as printed); continuous, never a label (part A §5)",
+            "ucd": "src.morph.param"
+          },
+          {
+            "name": "x_xcop_centroid_w_err",
+            "type": "number",
+            "description": "Printed ± error of x_xcop_centroid_w, in 10⁻³ (as printed)",
+            "ucd": "stat.error"
+          },
+          {
+            "name": "x_xcop_mm_gp_ein",
+            "type": "number",
+            "description": "Part A A7: non-parametric / Einasto mass at R500 from R3 (result_part_a.json, stored precision); empty for the seven clusters without rows; term mass_model_choice",
+            "ucd": "phys.mass;arith.ratio"
+          },
+          {
+            "name": "x_xcop_mm_gp_nfw",
+            "type": "number",
+            "description": "Part A A7: non-parametric mass at R500 from R3 / Table 1 NFW M500 at Table 1's R500; empty for the seven; term mass_model_choice",
+            "ucd": "phys.mass;arith.ratio"
+          },
+          {
+            "name": "x_xcop_mm_ein_nfw",
+            "type": "number",
+            "description": "Part A A7: Einasto mass at R500 from R3 / Table 1 NFW M500 at Table 1's R500; empty for the seven; term mass_model_choice",
+            "ucd": "phys.mass;arith.ratio"
+          },
+          {
+            "name": "x_xcop_mass_model_frac",
+            "type": "number",
+            "description": "Size of term mass_model_choice: round(max |r − 1|, 4) over the three x_xcop_mm_* ratios (part B item 7; D-105 O2); Atlas-computed; empty for the seven",
+            "ucd": "stat.error;arith.ratio"
+          },
+          {
+            "name": "x_xcop_status",
+            "type": "string",
+            "description": "Atlas state: plotted (the five with rows) or recorded_not_plotted (the seven without stellar data; part B rule 2)",
+            "ucd": "meta.code"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    },
+    {
+      "name": "uncertainty_terms",
+      "path": "tables/uncertainty_terms.ecsv",
+      "format": "ecsv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "dialect": {
+        "delimiter": ",",
+        "commentChar": "#",
+        "header": true
+      },
+      "schema": {
+        "fields": [
+          {
+            "name": "term_id",
+            "type": "string",
+            "description": "Term identifier",
+            "ucd": "meta.id"
+          },
+          {
+            "name": "scale",
+            "type": "string",
+            "description": "point, system or dataset (standard 2.2.0 §2a)",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "applies_to",
+            "type": "string",
+            "description": "System(s), or * for all twelve",
+            "ucd": "meta.id"
+          },
+          {
+            "name": "moves",
+            "type": "string",
+            "description": "Axes the term moves",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "status",
+            "type": "string",
+            "description": "given, given_by_other_source or not_given_by_source",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "size_value",
+            "type": "number",
+            "description": "Size as the source states it",
+            "ucd": "stat.error"
+          },
+          {
+            "name": "size_lo",
+            "type": "number",
+            "description": "Lower end of a published range",
+            "ucd": "stat.min"
+          },
+          {
+            "name": "size_hi",
+            "type": "number",
+            "description": "Upper end of a published range",
+            "ucd": "stat.max"
+          },
+          {
+            "name": "size_unit",
+            "type": "string",
+            "description": "Unit of the size",
+            "ucd": "meta.unit"
+          },
+          {
+            "name": "size_column",
+            "type": "string",
+            "description": "Systems column holding a per-system size (standard 2.5.1 §12)",
+            "ucd": "meta.ref"
+          },
+          {
+            "name": "size_kind",
+            "type": "string",
+            "description": "one_sigma, range, as_released, upper_bound or lower_bound",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "assumption_id",
+            "type": "string",
+            "description": "Registry assumption whose formula moves the values",
+            "ucd": "meta.id"
+          },
+          {
+            "name": "correlated_with",
+            "type": "string",
+            "description": "Correlated terms",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "covariance",
+            "type": "string",
+            "description": "published, not_published or not_applicable",
+            "ucd": "meta.code"
+          },
+          {
+            "name": "citation",
+            "type": "string",
+            "description": "Where the size was read",
+            "ucd": "meta.bib"
+          },
+          {
+            "name": "locator",
+            "type": "string",
+            "description": "Section, table, line or quote",
+            "ucd": "meta.ref"
+          },
+          {
+            "name": "note",
+            "type": "string",
+            "description": "What the term is",
+            "ucd": "meta.note"
+          },
+          {
+            "name": "in_error_columns",
+            "type": "string",
+            "description": "yes or no: whether the term is inside the error columns (empty: not decided, §7a)",
+            "ucd": "meta.code"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    }
+  ]
+}

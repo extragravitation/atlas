@@ -1,0 +1,90 @@
+{
+  "name": "aeg-d-xcop",
+  "version": "v2",
+  "title": "X-COP galaxy clusters: observed and baryonic accelerations as released by Eckert et al. 2022",
+  "description": "Atlas conversion of the accelerations released with Eckert et al. 2022 (A&A 662, A123) under data standard 2.5.1 (D-089, D-090): g_obs from the source's non-parametric hydrostatic reconstruction and g_bar from its gas, central-galaxy and satellite masses, both as released, at the radii of the data, for the five clusters with stellar data (109 radii). The seven other X-COP clusters are listed and recorded, not plotted (no stellar mass in the source). Values differ from v1 by ruling (D-090). Built under the frozen tests REPRODUCTION.md (part A) and REPRODUCTION_PART_B.md and the frozen second reading in reading/. Not published until the authors confirm (D-090 rule 5).",
+  "standard_version": "2.5.1",
+  "x_standard_version": "2.5.1",
+  "x_publication": "awaiting_authors_consent",
+  "x_publication_notice": "Version 2, built from Eckert et al. 2022, is ready and awaiting the authors' confirmation.",
+  "x_licence_status": "No licence stated by the source; asked (#19). The two archives shared by D. Eckert are fetched at build time, verified by hash and never redistributed (D-004). Atlas tables intended CC BY 4.0 under D-004, citing the source, once the authors confirm (D-090 rule 5).",
+  "licenses": [],
+  "sources": [
+    {
+      "title": "Eckert, Ettori, Pointecouteau, van der Burg & Loubser 2022, A&A 662, A123 (arXiv 2205.01110v1)",
+      "path": "https://arxiv.org/abs/2205.01110v1"
+    },
+    {
+      "title": "Eckert et al. 2022 data archives data_E22.tar.gz and mbar.tar.gz, shared by D. Eckert on 2026-11-03 (not redistributed)",
+      "path": "https://drive.switch.ch/index.php/s/nKxwcKwftb3Esjc/download"
+    }
+  ],
+  "x_citation": "Eckert, D., Ettori, S., Pointecouteau, E., van der Burg, R. F. J. & Loubser, S. I. 2022, A&A 662, A123 (arXiv 2205.01110): g_obs and g_bar. The programme behind the inputs: Ettori et al. 2019 (arXiv 1805.00035; A&A 621, A39), hydrostatic masses; Eckert et al. 2019 (arXiv 1805.00034), gas; Loubser et al. 2020 (arXiv 2006.05706), central galaxies; Ghizzardi et al. 2021 (arXiv 2007.01084), satellite stellar masses. Uncertainty terms also cite Eckert et al. 2022b, A&A 666, A41 (arXiv 2205.01123) and Ettori & Eckert 2022 (arXiv 2112.07554).",
+  "x_selection": [
+    {
+      "quantity": "cluster",
+      "condition": "in",
+      "value": "the five X-COP clusters with a released gbar_gobs file (A644, A1795, A2029, A2142, A2319)",
+      "citation": "Eckert et al. 2022 l. 103, 114, 402; part A §1 and A8; D-090 rule 4"
+    },
+    {
+      "quantity": "radius",
+      "condition": "==",
+      "value": "every released row: the radii of the data (no exclusion wording found; D-096 rule 2 as limited by D-098 rule 1 and D-105 O4)",
+      "citation": "Eckert et al. 2022 l. 263; reading/d096.csv"
+    }
+  ],
+  "x_baryon_inventory": [
+    {
+      "component": "hot gas",
+      "status": "measured",
+      "citation": "Eckert et al. 2022 l. 142–156 (X-ray and SZ gas density); released inside GBAR as a total"
+    },
+    {
+      "component": "central galaxy (BCG) stars",
+      "status": "measured",
+      "citation": "Eckert et al. 2022 l. 103–111 (dynamical mass-to-light ratio, Loubser et al. 2020); released inside GBAR as a total"
+    },
+    {
+      "component": "satellite galaxy stars",
+      "status": "measured",
+      "citation": "Eckert et al. 2022 l. 114–116 (van der Burg et al. 2015 method; Ghizzardi et al. 2021); released inside GBAR as a total"
+    },
+    {
+      "component": "intracluster light",
+      "status": "stated_negligible",
+      "citation": "Eckert et al. 2022 l. 410: \"the contribution of ICL to the total baryon budget is expected to be small ($<5\\%$)\"; its effect is the uncertainty term icl_omitted"
+    },
+    {
+      "component": "cold gas",
+      "status": "not_addressed",
+      "citation": "As v1: cold gas is not included by the source"
+    }
+  ],
+  "x_baryon_inventory_note": "The measured components are released as one total (GBAR), so v2's component columns are empty and their statuses are not_separable (REPRODUCTION_PART_B.md item 2).",
+  "x_value_change_ruling": "D-090",
+  "x_precedence": "D-089 (v2 from Eckert et al. 2022) and D-090 rule 1: the source's own released g_obs and g_bar are used, the one exception to D-083 item 3, so v2 is not compared with v1.",
+  "x_search_log": "docs/sources/uncertainty-readings.md §3, §3b, §3c; docs/sources/readings/xcop-e22-2026-11-03/ (step A readers A and B)",
+  "x_second_reading": {
+    "file": "SECOND_READING.md",
+    "reading": [
+      "reading/values.json",
+      "reading/error_form.md",
+      "reading/model_form.md",
+      "reading/d096.csv",
+      "reading/err_levels.csv",
+      "reading/properties.csv",
+      "reading/hse_statements.csv",
+      "reading/bcg_extra_mass_systems.md",
+      "reading/resolutions.md"
+    ],
+    "frozen": "data/frozen/xcop-v2-reading.json",
+    "off_repo": "source/reading/values.csv (the reader's parse of the archives; not committed; its hash is in the freeze record)"
+  },
+  "x_previous_version": "aeg-d-xcop/v1 (standard 1.2.1); values differ by ruling (D-090), not compared",
+  "x_reproduction": {
+    "part_a": "REPRODUCTION.md (frozen, data/frozen/xcop-v2-part-a.json); result REPRODUCTION_RESULT_PART_A.md (D-091)",
+    "part_b": "REPRODUCTION_PART_B.md (frozen, data/frozen/xcop-v2-part-b.json); result REPRODUCTION_RESULT_PART_B.md"
+  },
+  "x_cosmology": "As the source: H0 = 67.8 km/s/Mpc, Omega_m = 0.308 (Eckert et al. 2022 l. 56)"
+}

@@ -1,0 +1,152 @@
+{
+ "standard_version": "2.5.1",
+ "dataset": "aeg-d-xcop",
+ "version": "v2",
+ "reproduction_file": {
+  "path": "REPRODUCTION.md",
+  "sha256": "c7c949a087317f137913829b5047104c204e08b41b273ac9e041a3d89c81c4c1",
+  "frozen": "2026-11-03",
+  "decision": "D-089, D-090",
+  "freeze_record": "data/frozen/xcop-v2-part-a.json"
+ },
+ "reproduction_file_part_b": {
+  "path": "REPRODUCTION_PART_B.md",
+  "sha256": "89640ef17b7d58d8ecca2002bfe6e24eabc61898d769f7e4c199266f85ea115d",
+  "frozen": "2026-11-05",
+  "decision": "D-089, D-090, D-105",
+  "freeze_record": "data/frozen/xcop-v2-part-b.json"
+ },
+ "second_reading": {
+  "path": "reading/",
+  "freeze_record": "data/frozen/xcop-v2-reading.json"
+ },
+ "status": "converted by convert.py under the frozen tests and reading; tables not committed until the authors confirm (D-090 rule 5)",
+ "values_from": "data_E22.tar.gz, the five gbar_gobs_<C>.fits files, as released",
+ "sources": [
+  {
+   "role": "Eckert et al. 2022 data archive 1: per-cluster gbar_gobs_<C>.fits (RADIUS, GBAR, GBAR_ERR, GOBS, GOBS_ERR_LO, GOBS_ERR_HI) and the profiles behind them, for A644, A1795, A2029, A2142 and A2319. Shared by D. Eckert on 2026-11-03 (part A §1)",
+   "url": "https://drive.switch.ch/index.php/s/nKxwcKwftb3Esjc/download",
+   "file": "data_E22.tar.gz",
+   "bytes": 161298,
+   "sha256": "ff9ad2129c7bd50f95783c32369643eb87cc9e5ac7a6bfc3eda090e31838953d",
+   "retrieved": "2026-11-03",
+   "licence": "not stated; asked (#19)",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "members_sha256": {
+    "A1795/A1795_BCG.txt": "9e7c85d9476422450e1182fe0b418e12989f61bfa32984b361a1c16171189137",
+    "A1795/EIN3_bar_mass.fits": "1095e52ca61f9e83718e4237fe8c8d8cfe5cd17f39c8a692cd1f2a007e69c281",
+    "A1795/GP_thermo.fits": "1de7b2d36c4dcef3505ad5df672788409c46190a8699d5c3ecdeafeaa3ef65e8",
+    "A1795/gbar_gobs_A1795.fits": "8a6ff9f7ae360047aa0f3be5c51442d0e217f989e81c15e75e7fa54766c4982c",
+    "A2029/A2029_BCG.txt": "6e5d39efd46408ba7dfcf3667e8d454b2d5b5c52d6a6c9ae370fb0d722e59d38",
+    "A2029/EIN3_bar_mass.fits": "f76d5ea2bc105aea218ada34dd06a6daaac6be42309c7fd560f7105fb28bee23",
+    "A2029/GP_thermo.fits": "0aa85a3b7f9eb3b86ad12aaef2a04f16bc5e40e3fd5c12d8c6f4db5a62e77a2b",
+    "A2029/gbar_gobs_A2029.fits": "8ed65afd32061e822e45730338ce55ae34b9098eecfddf9fba4cde5f88d83ed4",
+    "A2142/A2142_BCG.txt": "dfacfb90b28145f01dd187b866b6fdca09dc0f919bda4099aab3c507ebf9bc39",
+    "A2142/EIN3_bar_mass.fits": "aaeaf4978a17ec970e5c34cf575e0abc68f5675a3aa7f2d53e829b929c085a85",
+    "A2142/GP_thermo.fits": "fa648295427d80fbe4da39f421255c5dc87a22f75409241a6950f659f6912396",
+    "A2142/gbar_gobs_A2142.fits": "f700885754486cc6bddca599cb71b7e59431f9dba48135f88f58434bf0b7cb87",
+    "A2319/A2319_BCG.txt": "e596f88fb5de64db070596ebbbaec477a5065b57360ce8be7b4e3dd4d573a667",
+    "A2319/EIN3_bar_mass.fits": "bbcccd3d7a2173135ad9a0fb38b286eabd2f6cba61e63872925d4db0327e2e57",
+    "A2319/GP_thermo.fits": "1022d575889912e5ac997ec8a4f7494e705a2918c71a9cc035e075aaac82be2e",
+    "A2319/gbar_gobs_A2319.fits": "cb89b6b3a0fc3c4fa361a671713b33b47dc35dca9b837c17ad16cac9cc6c5cd9",
+    "A644/A644_BCG.txt": "5268448f6888ef04754a5d47b25642c495fd787202fd224745c95470ca8ea3fc",
+    "A644/EIN3_bar_mass.fits": "34f8efc307989effee29d5e768d56dfb6fc9db963274878b795248e2763bb5b3",
+    "A644/GP_thermo.fits": "16a7f339b6dfd48171fa8d8da551341faab7463e41ce7e421318cf20097a92e6",
+    "A644/gbar_gobs_A644.fits": "6994602130138d7f67ee1bdc542143efaa8e3788c0673968fb90e911a9da4b07"
+   },
+   "note": "Values used: the five gbar_gobs files (part B rule 1). Member hashes as recorded by the part A run (result_part_a.json A1) and re-checked by convert.py."
+  },
+  {
+   "role": "Eckert et al. 2022 data archive 2: GP_mass.fits for all twelve clusters and EIN3_bar_mass.fits for five. Shared by D. Eckert on 2026-11-03 (part A §1)",
+   "url": "https://drive.switch.ch/index.php/s/tzaoqQEnNm8Y3jb/download",
+   "file": "mbar.tar.gz",
+   "bytes": 157262,
+   "sha256": "0420a7edba60da7f2df6aa4f38cbb21135ab50949d579176a8c893bab712c496",
+   "retrieved": "2026-11-03",
+   "licence": "not stated; asked (#19)",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "members_sha256": {
+    "a1644/GP_mass.fits": "8aa8933a0c93a8f5a8233e8a9c778527333bab93b6d631c309ff12ad4fa51b73",
+    "a1795/EIN3_bar_mass.fits": "1095e52ca61f9e83718e4237fe8c8d8cfe5cd17f39c8a692cd1f2a007e69c281",
+    "a1795/GP_mass.fits": "0dd20ee948437883348ea0d30221ffbf7b8f93669249ba42cdb0776dbf1f417a",
+    "a2029/EIN3_bar_mass.fits": "f76d5ea2bc105aea218ada34dd06a6daaac6be42309c7fd560f7105fb28bee23",
+    "a2029/GP_mass.fits": "b25315b3cb3d6a17fe3e6985d70adfc09f68d85cc25ac3fc8a3a66d2938584df",
+    "a2142/EIN3_bar_mass.fits": "aaeaf4978a17ec970e5c34cf575e0abc68f5675a3aa7f2d53e829b929c085a85",
+    "a2142/GP_mass.fits": "6b5a8cd60515547498293586096f4950bb70f16c23fe365787174d4a75da35f0",
+    "a2255/GP_mass.fits": "36b474379f45e240a8be262e56eba995aab95a4d58b7bc1482f808f34bd9002c",
+    "a2319/EIN3_bar_mass.fits": "bbcccd3d7a2173135ad9a0fb38b286eabd2f6cba61e63872925d4db0327e2e57",
+    "a2319/GP_mass.fits": "42f354422223f4a4937a2612b91373528131486bbb2a47bd1959b4f428fe1ad2",
+    "a3158/GP_mass.fits": "1e596cd7899b9bc88a7265ff8fe6df50b5b2635862b3e3a7fc61254e2eeafba6",
+    "a3266/GP_mass.fits": "9a2abe321599fe72dc1fb81964b4cdbbcf338ae7b3d57d26747de98bd6cacd60",
+    "a644/EIN3_bar_mass.fits": "34f8efc307989effee29d5e768d56dfb6fc9db963274878b795248e2763bb5b3",
+    "a644/GP_mass.fits": "145ed56cd45f45c2fd2ff7e6f9d10e653540f0f21dcf8386aaa3ec5791021be6",
+    "a85/GP_mass.fits": "4ec825b16e2b9a5b25ead976edbd586d62f28ddcc7f47eb677478c328857d45e",
+    "rxc1825/GP_mass.fits": "36ae101ed24c9e51ebd3cd559b756ff035a03f6be4e420ea94768402d2baf8b8",
+    "zw1215/GP_mass.fits": "c256d03d3b2b8cd546e0671cef3fc8498fcc4b4089a4265a7519578ea7ba056e"
+   },
+   "note": "No value of this archive enters v2 (part B rule 2; D-105 O1). Listed because part A used it and the seven clusters' records rest on it."
+  },
+  {
+   "role": "Eckert, Ettori, Pointecouteau, van der Burg & Loubser 2022, A&A 662, A123 (E22): method, line citations of every term and note; file hydromass.tex",
+   "url": "https://arxiv.org/e-print/2205.01110v1",
+   "file": "eprints/ep_2205.01110v1",
+   "bytes": 8934112,
+   "sha256": "18fc2e8025f56c716a864e5ef9436cccb5f0be05cff7a0f004aedd4605e5c7d8",
+   "retrieved": "2026-11-05",
+   "licence": "arXiv non-exclusive distribution licence 1.0, as shown on the arXiv listing",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "Read at source for quotations and sizes, with line citations; not redistributed."
+  },
+  {
+   "role": "Eckert et al. 2022b (Paper II), A&A 666, A41: centroid shifts w (tab2.tex) and hydrostatic statements (einasto.tex)",
+   "url": "https://arxiv.org/e-print/2205.01123v1",
+   "file": "eprints/ep_2205.01123v1",
+   "bytes": 384130,
+   "sha256": "a138d88fec5d3b7627eeb9657d663c30f9aae7a12ce3e968edf08bba07503fcb",
+   "retrieved": "2026-11-05",
+   "licence": "arXiv non-exclusive distribution licence 1.0, as shown on the arXiv listing",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "Read at source for quotations and sizes, with line citations; not redistributed."
+  },
+  {
+   "role": "Ettori & Eckert 2022: non-thermal pressure fraction alpha at R500 and R200, table tab:gamma_beta, last column (p_nt_b_aa.tex)",
+   "url": "https://arxiv.org/e-print/2112.07554v1",
+   "file": "eprints/ep_2112.07554v1",
+   "bytes": 198522,
+   "sha256": "ef5cbd0a2d19b62428c362cfcbf973c3bdf928a3e8c6a36a547a6e9431a6e840",
+   "retrieved": "2026-11-05",
+   "licence": "arXiv non-exclusive distribution licence 1.0, as shown on the arXiv listing",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "Read at source for quotations and sizes, with line citations; not redistributed."
+  },
+  {
+   "role": "Loubser et al. 2020: central-galaxy dynamical models (bcg_jam_geometry; bcg_extra_mass_systems.md)",
+   "url": "https://arxiv.org/e-print/2006.05706v1",
+   "file": "eprints/ep_2006.05706v1",
+   "bytes": 5987405,
+   "sha256": "ded65c6d1457b3183ee21b573bf426bf5ddfd20575fc39f429eb0e887dd9044c",
+   "retrieved": "2026-11-05",
+   "licence": "arXiv non-exclusive distribution licence 1.0, as shown on the arXiv listing",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "Read at source for quotations and sizes, with line citations; not redistributed."
+  },
+  {
+   "role": "Ghizzardi et al. 2021: satellite stellar masses (satellite_mass_systematic, satellite_projection; part A A9); file xcop-metallicity.tex",
+   "url": "https://arxiv.org/e-print/2007.01084v1",
+   "file": "eprints/ep_2007.01084v1",
+   "bytes": 5793678,
+   "sha256": "88c8e91c036077e2ca660cd029943d576df1462daae914d3e58aa24169c5a9e8",
+   "retrieved": "2026-11-05",
+   "licence": "arXiv non-exclusive distribution licence 1.0, as shown on the arXiv listing",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "Read at source for quotations and sizes, with line citations; not redistributed."
+  }
+ ]
+}

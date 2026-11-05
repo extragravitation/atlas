@@ -13,7 +13,9 @@ import { REPO } from '../lib/md.mjs';
 const base = import.meta.env.BASE_URL;
 const ledger = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/reproduction.json'), 'utf8'));
 const atlas = loadAtlas();
-const shipped = new Set(atlas.all.map((d) => d.key));
+// A version awaiting the authors' consent (D-090 rule 5) is built only locally and gets its ledger
+// entry at publication (aeg-d-xcop/v2 REPRODUCTION_PART_B.md item 12).
+const shipped = new Set(atlas.all.filter((d) => !d.dp.x_publication || d.dp.x_publication === 'published').map((d) => d.key));
 const listed = new Set(ledger.datasets.map((e) => e.package));
 for (const k of shipped) if (!listed.has(k)) throw new Error(`reproduction ledger: shipped dataset ${k} has no entry`);
 const rows = ledger.datasets.map((e) => {

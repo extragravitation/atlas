@@ -18,6 +18,13 @@ export function drawMeasured(d, rows) {
       { k: 'x_sparc_v_bul', col: '--bulge', lab: ['V_bul at M/L = 1 (3.6 μm)', 'Speed the bulge stars alone would give, before choosing their mass-to-light ratio'] },
     ].filter((s) => rows.some((r) => r[s.k]));
     xlab = P ? 'distance from the centre (kpc)' : 'R (kpc)'; ylab = P ? 'speed (km s⁻¹)' : 'velocity (km s⁻¹)';
+  } else if (d.key === 'aeg-d-xcop/v2') {
+    // v2: the source released the accelerations themselves (acceleration_released, D-095).
+    series = [
+      { k: 'g_obs', err: 'g_obs_err_hi', unit: ' m s⁻²', col: '--sel', pts: true, lab: ['GOBS ± GOBS_ERR_HI, observed acceleration as released (source)', 'Observed pull, as the source released it'] },
+      { k: 'g_bar', unit: ' m s⁻²', col: '--gas', lab: ['GBAR, baryonic acceleration as released (gas, central galaxy and satellites; source)', 'Pull from visible matter, as the source released it'] },
+    ];
+    logX = true; logY = true; xlab = P ? 'distance from the centre (kpc, log scale)' : 'r (kpc, log scale)'; ylab = P ? 'pull (m s⁻², log)' : 'acceleration (m s⁻², log)';
   } else if (d.name === 'aeg-d-xcop') {
     series = [
       { k: 'x_xcop_m_forw', relErr: true, col: '--sel', pts: true, lab: ['M_HSE(&lt;r), forward-method hydrostatic mass (source)', 'Total mass inferred by the source from the hot gas'] },
@@ -57,7 +64,7 @@ export function drawMeasured(d, rows) {
     const rect = cv.getBoundingClientRect(), mx = ev.clientX - rect.left; let best = null, bd = 1e9;
     for (const h of hits) { const dd = Math.abs(h.x - mx); if (dd < bd) { bd = dd; best = h; } }
     if (!best || bd > 24) { $('meastip').hidden = true; return; }
-    const r = best.r, lines = series.map((s) => r[s.k] === null || r[s.k] === undefined ? '' : `${s.lab[0].split(',')[0].replace('&lt;', '<')} ${d.name === 'aeg-d-sparc' ? r[s.k] + ' km s⁻¹' : sci(r[s.k]) + ' M☉'}`).filter(Boolean);
+    const r = best.r, lines = series.map((s) => r[s.k] === null || r[s.k] === undefined ? '' : `${s.lab[0].split(',')[0].replace('&lt;', '<')} ${d.name === 'aeg-d-sparc' ? r[s.k] + ' km s⁻¹' : sci(r[s.k]) + (s.unit || ' M☉')}`).filter(Boolean);
     showTip($('meastip'), box, `<b>r = ${r.r_kpc < 10 ? r.r_kpc.toFixed(2) : Math.round(r.r_kpc)} kpc</b><br>${lines.join('<br>')}<br><span class="muted">${r.measurement_id}</span>`, best.x, best.y);
   };
   cv.onmouseleave = () => { $('meastip').hidden = true; };

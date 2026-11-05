@@ -4,9 +4,13 @@
 import L from './L.astro';
 const { sys } = Astro.props;
 const rows = sys.excluded || [];
+// The equilibrium explanation applies only to D-097 rows; other rows (e.g. X-COP v2's seven clusters
+// without stellar data, D-090 rule 4) state the register's own reason and nothing else.
+const d097 = rows.some((e) => /^D-097/.test(e.reason || ''));
 ---
 {rows.length > 0 && <section class="boxed" id="excluded" aria-labelledby="excluded-h" style="margin:12px 0 18px">
   <h2 id="excluded-h" style="margin-top:0"><L t="Recorded, not plotted" p="Kept on record, left off the map" /></h2>
-  <p class="small"><L t="The source this system's values come from describes it as out of equilibrium, unbound or tidally disrupted. The estimate of g_obs used here assumes a system in equilibrium, so the point is kept in the tables and downloads but left off the plots (D-025, D-097). The values themselves are unchanged." p="The scientists who measured this system say it is being pulled apart or is not settled. The way the observed pull is worked out here only works for a settled system, so the numbers are kept but not drawn on the map. Nothing about them was changed." /></p>
+  {!d097 && <p class="small"><L t="This system is listed in the dataset but has no plotted values, for the reason the exclusion register gives below." p="This system is kept on record but not drawn on the map, for the reason below." /></p>}
+  {d097 && <p class="small"><L t="The source this system's values come from describes it as out of equilibrium, unbound or tidally disrupted. The estimate of g_obs used here assumes a system in equilibrium, so the point is kept in the tables and downloads but left off the plots (D-025, D-097). The values themselves are unchanged." p="The scientists who measured this system say it is being pulled apart or is not settled. The way the observed pull is worked out here only works for a settled system, so the numbers are kept but not drawn on the map. Nothing about them was changed." /></p>}
   {rows.map((e) => <div class="small" style="margin-top:8px"><p style="margin:0">{e.reason}</p><p class="muted" style="margin:2px 0 0">{e.citation}</p></div>)}
 </section>}
