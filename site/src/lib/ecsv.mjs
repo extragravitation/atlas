@@ -12,8 +12,19 @@ export function parseECSV(text) {
   let cur = null;
   const meta = {};
   let inMeta = false;
-  for (const raw of header.slice(1)) {
-    const l = raw.replace(/^# ?/, '');
+  const hl = header.slice(1);
+  for (let h = 0; h < hl.length; h++) {
+    let l = hl[h].replace(/^# ?/, '');
+    // A double-quoted YAML scalar may continue over several lines: join them (an escaped line end joins with
+    // nothing, a plain one with a space) before decoding.
+    const open = l.match(/^ {2}(?:description|unit): "/);
+    if (open) {
+      const closed = (s) => /[^\\]"\s*$|^[^"]*"[^"]*"\s*$/.test(s.slice(s.indexOf('"') + 1)) || /(^|[^\\])"\s*$/.test(s.slice(s.indexOf('"') + 1));
+      while (!closed(l) && h + 1 < hl.length) {
+        const next = hl[++h].replace(/^# ?/, '').trim();
+        l = l.endsWith('\\') ? l.slice(0, -1) + next : l + ' ' + next;
+      }
+    }
     let m;
     if ((m = l.match(/^- name: (.+)$/))) { cur = { name: unq(m[1]), datatype: 'string', unit: null, description: '' }; columns.push(cur); inMeta = false; continue; }
     if (cur && (m = l.match(/^ {2}datatype: (.+)$/))) { cur.datatype = m[1].trim(); continue; }
@@ -42,7 +53,12 @@ export function parseECSV(text) {
 
 function unq(s) {
   s = s.trim();
-  if ((s.startsWith("'") && s.endsWith("'")) || (s.startsWith('"') && s.endsWith('"'))) return s.slice(1, -1).replace(/''/g, "'");
+  if (s.startsWith("'") && s.endsWith("'")) return s.slice(1, -1).replace(/''/g, "'");
+  // YAML double-quoted scalar: decode its escapes (\xHH, \uHHHH, \UHHHHHHHH, \", \\, \n, \t).
+  if (s.startsWith('"') && s.endsWith('"')) return s.slice(1, -1).replace(/\\(x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8}|.)/g, (_, e) => {
+    if (e[0] === 'x' || e[0] === 'u' || e[0] === 'U') return String.fromCodePoint(parseInt(e.slice(1), 16));
+    return ({ n: '\n', t: '\t', '"': '"', '\\': '\\', '/': '/', ' ': ' ', '0': '\0' })[e] ?? e;
+  });
   return s;
 }
 
