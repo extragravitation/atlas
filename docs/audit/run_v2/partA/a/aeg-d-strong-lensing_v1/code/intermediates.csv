@@ -1,0 +1,11 @@
+measurement_id,system,M_E_Msun,Mstar_in_RE_Msun,Mbar_in_RE_Msun,f_lt_RE,ME_over_Mbar,missing
+m000001,J0029-0055,,5.000000e+10,5.006000e+10,,,M_E from theta_E needs c and G; R_E needs c (D_l from H0); not stated in method
+m000087,J2238-0754,,5.000000e+10,5.006000e+10,,,M_E from theta_E needs c and G; R_E needs c (D_l from H0); not stated in method
+m000093,J2321-0939,,6.000000e+10,6.007200e+10,,,M_E from theta_E needs c and G; R_E needs c (D_l from H0); not stated in method
+m000013,J0728+3835,,6.000000e+10,6.007200e+10,,,M_E from theta_E needs c and G; R_E needs c (D_l from H0); not stated in method
+m000099,J0753+3416,1.122018e+11,6.532318e+10,6.540157e+10,0.384651,1.715583,R_E = theta_E D_l needs c (and kpc in m); G not stated
+m000114,J1101+1523,1.698244e+11,9.825965e+10,9.837756e+10,0.578596,1.726251,R_E = theta_E D_l needs c (and kpc in m); G not stated
+m000109,J1040+3626,3.467369e+10,2.907296e+10,2.910785e+10,0.297502,1.191214,R_E = theta_E D_l needs c (and kpc in m); G not stated
+m000122,J1330+1750,2.089296e+11,1.344793e+11,1.346406e+11,0.244712,1.551757,R_E = theta_E D_l needs c (and kpc in m); G not stated
+m000100,J0754+1927,9.772372e+10,5.505016e+10,5.511622e+10,0.408092,1.773048,R_E = theta_E D_l needs c (and kpc in m); G not stated
+m000140,ESO 325-G004 (SNL-0),1.500000e+11,1.147360e+11,1.148737e+11,,1.305782,R_E printed 1.96 kpc (R28 Fig.1 caption) / 0.687 kpc/arcsec; G and kpc-in-m not stated
