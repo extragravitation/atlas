@@ -78,3 +78,13 @@
 - **Not verified here:** whether the sources' own error sizes are right (not tested, as the test says), and the line numbers the readers recorded beyond what the reading's resolution checked.
 - **Noted, not a test item.** The site's dwarf page for an excluded system says no acceleration was computed. For a D-097 finding that is not so: the values are kept in the tables and downloads. The page shows the quotation and reason, as item 12 requires; the wording of the page is a site matter for a later pull request.
 - **Columba I.** As the test notes, v1 uses Geha 2026 because no original passes the plotting rules. Fritz 2019's preferred limit (< 16.1 km/s) is not a passing value, so D-096 does not change it.
+
+## Build fix after scoring (2026-11-05; disclosed, no value changed)
+
+- **What failed:** CI's rebuild of the package from fetched sources. `convert.py` read `v1/source/members/hendricks2014.csv`, a member table that v1's frozen extractor derives from the fetched VizieR VOTable. Derived files are not committed, so the file was absent in CI.
+- **The fix:** `convert.py` now regenerates that table, when it is missing, with v1's frozen extractor (`v1/reproduction/extract_members_batch3_v3.py`), as v1 did.
+- **Checked:**
+  - The regenerated file is byte-identical to the one used in the scored run.
+  - The rebuilt tables are identical to the committed ones; CI's "committed tables equal pipeline output" step checks this.
+- **Only `checksums.sha256` changes**, because it covers `convert.py`.
+- **Scoring is unchanged.** The scored outputs are the same, and the treatment matches JvH's ruling on the globular-cluster site fix ("item 12 pass", 2026-11-05).

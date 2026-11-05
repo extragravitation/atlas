@@ -340,7 +340,14 @@ def main() -> int:
            if r["key"] == key_of[FORNAX] and r["paper"] == inputs[key_of[FORNAX]]["sigma_paper"]]
     st = {r["key"]: r for r in csv.DictReader(open(V1 / "reading/structure_values.csv", encoding="utf-8"))}[key_of[FORNAX]]
     s = Structure(float(st["ra0_deg"]), float(st["dec0_deg"]), float(st["ellipticity"] or 0.0), float(st["pa_deg"] or 0.0), 20.1)
-    rows = list(csv.DictReader(open(V1 / "source/members" / cfg[0]["table_file"], encoding="utf-8")))
+    member_table = V1 / "source/members" / cfg[0]["table_file"]
+    if not member_table.exists():
+        # Build step only: regenerate the derived member table from its fetched VizieR VOTable with v1's
+        # frozen extractor (reproduction/extract_members_batch3_v3.py), exactly as v1 produced it. No value changes.
+        sys.path.insert(0, str(V1 / "reproduction"))
+        import extract_members_batch3_v3 as ext  # noqa: E402
+        ext.write("hendricks2014", [{"key": "fornax_1", **ext.pos(r), "H": r["H"].strip()} for r in ext.votable("vizier/J_A_A_572_A82")])
+    rows = list(csv.DictReader(open(member_table, encoding="utf-8")))
     used_rows = [r for r in rows if eval(cfg[0]["member_rule"], {"math": math}, dict(r))]  # noqa: S307 - v1's frozen rule
     cov = summarise([r_over_ah(float(r[cfg[0]["ra_col"]]), float(r[cfg[0]["dec_col"]]), s) for r in used_rows])
     if cov.get("passes") is not True:
