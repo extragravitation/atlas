@@ -1,0 +1,122 @@
+# %ECSV 1.0
+# ---
+# datatype:
+# - name: term_id
+#   datatype: string
+#   description: Term identifier
+#   meta: !!omap
+#   - {ucd: meta.id}
+# - name: scale
+#   datatype: string
+#   description: "point, system or dataset (standard 2.2.0 \xA72a)"
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: applies_to
+#   datatype: string
+#   description: System(s), or * for all twelve
+#   meta: !!omap
+#   - {ucd: meta.id}
+# - name: moves
+#   datatype: string
+#   description: Axes the term moves
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: status
+#   datatype: string
+#   description: given, given_by_other_source or not_given_by_source
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: size_value
+#   datatype: float64
+#   description: Size as the source states it
+#   meta: !!omap
+#   - {ucd: stat.error}
+# - name: size_lo
+#   datatype: float64
+#   description: Lower end of a published range
+#   meta: !!omap
+#   - {ucd: stat.min}
+# - name: size_hi
+#   datatype: float64
+#   description: Upper end of a published range
+#   meta: !!omap
+#   - {ucd: stat.max}
+# - name: size_unit
+#   datatype: string
+#   description: Unit of the size
+#   meta: !!omap
+#   - {ucd: meta.unit}
+# - name: size_column
+#   datatype: string
+#   description: "Systems column holding a per-system size (standard 2.5.1 \xA712)"
+#   meta: !!omap
+#   - {ucd: meta.ref}
+# - name: size_kind
+#   datatype: string
+#   description: one_sigma, range, as_released, upper_bound or lower_bound
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: assumption_id
+#   datatype: string
+#   description: Registry assumption whose formula moves the values
+#   meta: !!omap
+#   - {ucd: meta.id}
+# - name: correlated_with
+#   datatype: string
+#   description: Correlated terms
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: covariance
+#   datatype: string
+#   description: published, not_published or not_applicable
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: citation
+#   datatype: string
+#   description: Where the size was read
+#   meta: !!omap
+#   - {ucd: meta.bib}
+# - name: locator
+#   datatype: string
+#   description: Section, table, line or quote
+#   meta: !!omap
+#   - {ucd: meta.ref}
+# - name: note
+#   datatype: string
+#   description: What the term is
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: in_error_columns
+#   datatype: string
+#   description: "yes or no: whether the term is inside the error columns (empty: not decided, \xA77a)"
+#   meta: !!omap
+#   - {ucd: meta.code}
+# delimiter: ','
+# meta: !!omap
+# - {dataset: aeg-d-xcop}
+# - {version: v2}
+# - {standard_version: 2.5.1}
+# schema: astropy-2.0
+term_id,scale,applies_to,moves,status,size_value,size_lo,size_hi,size_unit,size_column,size_kind,assumption_id,correlated_with,covariance,citation,locator,note,in_error_columns
+radial_covariance,point,*,g_obs,not_given_by_source,,,,,,,,,not_published,"Eckert et al. 2022, A&A 662, A123 (arXiv 2205.01110v1), hydromass.tex","l. 91, 97 (E1, E2)","The SZ covariance is ""accounted for and propagated"" (E22 l. 91, 97), but no covariance between radii is released",
+g_bar_point,point,*,g_bar,not_given_by_source,,,,,,,,,not_published,"Eckert et al. 2022, A&A 662, A123 (arXiv 2205.01110v1), hydromass.tex",l. 111 (E18),"Part B item 5: GBAR_ERR mixes point-scale gas errors with the central galaxy's mass-to-light error, which is ""constant with radius""; the source gives no point-scale part",
+np_smoothing,point,*,g_obs,not_given_by_source,,,,,,,,,not_published,"Eckert et al. 2022, A&A 662, A123 (arXiv 2205.01110v1), hydromass.tex",l. 235 (E14),"""fluctuations on scales smaller than the bin size are suppressed"" (E22 l. 235)",
+reconstruction_bias,dataset,aeg-s-000177;aeg-s-000179;aeg-s-000180;aeg-s-000181;aeg-s-000183,g_obs,given,0.05,,,fraction,,upper_bound,,,not_published,"Eckert et al. 2022, A&A 662, A123 (arXiv 2205.01110v1), hydromass.tex","l. 309, §3.6 (E12)","""The nonparametric technique follows the true profile with minimal bias (<5\%)"" (E22 l. 309), from the source's mock test of its own pipeline (§3.6) on a cluster built to match X-COP's data, which counts as stated for the sample's method (part B item 7; unlike the lens test, where a source's figure from its own models went to the note). NFW ""at most 3\%"" (l. 309, l. 311) and Einasto ""about 6\%"" (l. 309)",
+hse_bias,dataset,aeg-s-000177;aeg-s-000179;aeg-s-000180;aeg-s-000181,g_obs,given,0.1,,,fraction,,upper_bound,xray_hse_bias,,not_published,"Eckert et al. 2022, A&A 662, A123 (arXiv 2205.01110v1), hydromass.tex",l. 502 (E5); l. 539; l. 373,"Valid for r ≤ R500 only. E22 l. 502, two sentences: (1) ""We find similar results in this analysis, as described in Sect. \ref{sec:fbar}, where we can see that, with the exception of a single system that is known to be strongly biased \citep[A2319;][]{ghirardini18}, the measured baryon fractions agree with the expectations at $R_{500}$ and slightly exceed the cosmic baryon fraction beyond this point, indicating a mild level of hydrostatic bias."" (2) ""Since the relative level of nonthermal pressure support is expected to increase with distance to the cluster core \citep[e.g.,][]{nelson14}, we conclude that our measurements are mildly biased ($<10\%$) out to $R_{500}$."" Then: ""The HSE assumption is likely to be a poorer approximation beyond this point."" Restricting the bound to the four clusters other than A2319 is the Atlas's reading of l. 502: the A2319 exception qualifies the baryon-fraction evidence in sentence (1), and the conclusion in sentence (2) names no exception. Which R500: l. 502 does not define it and the reading found no defining sentence (reading/hse_statements.csv), so Table 1's R500,TOT is used, an inference. Other figures in l. 502: ""X-COP hydrostatic masses are 10-15\% lower than weak lensing estimates""; Eckert 2019's ""7\% at $R_{500}$, 10\% at $R_{200}$""; simulations ""$5-30\%$ at $R_{500}$"". Beyond R500 the source gives ""a mild contribution of nonthermal pressure ($10-20\%$) at $R_{200}$"" (l. 539), a pressure fraction, not a size. ""although the validity of the HSE assumption at large radii is unclear"" (l. 373; E30). One-sided: hydrostatic g_obs is biased low. Never applied as a correction",
+hse_bias_a2319,dataset,aeg-s-000183,g_obs,not_given_by_source,,,,,,,xray_hse_bias,,not_published,"Eckert et al. 2022, A&A 662, A123 (arXiv 2205.01110v1), hydromass.tex; Eckert et al. 2022b, A&A 666, A41 (arXiv 2205.01123v1), einasto.tex","E22 l. 435, l. 502; Paper II l. 80 (E7)","""a single system that is known to be strongly biased \citep[A2319;][]{ghirardini18}"" (E22 l. 502); the statements in reading/hse_statements.csv, on every A2319 row. No size is stated for A2319",
+nonthermal_pressure,system,*,g_obs,given_by_other_source,,,,"as printed (per cent inferred, not stated)",x_xcop_alpha_nt_r500,as_released,,,not_published,"Ettori & Eckert 2022 (arXiv 2112.07554v1), p_nt_b_aa.tex","tab:gamma_beta, last column (l. 274); errors l. 276; l. 182; l. 377","Non-thermal pressure fraction at R500 in x_xcop_alpha_nt_r500; the R200 value in x_xcop_alpha_nt_r200; printed errors in the _err_lo/_err_hi columns, ""at $1 \sigma$ c.l."" (l. 276), signs as printed. The unit is as printed: per cent inferred from the magnitudes, not stated (reading/properties.csv). Same programme, not independent. Computed from the 2019 thermal-only masses (l. 182). Median trend ""$b(0.1 R_{500}) \approx 0.5 b(R_{500})$"" (l. 377). Overlaps hse_bias; the two are not added. Never applied as a correction (§3c)",
+gas_inhomogeneity,dataset,aeg-s-000177;aeg-s-000179;aeg-s-000180;aeg-s-000181;aeg-s-000183,g_obs,given,0.1,,,fraction,,upper_bound,,,not_published,"Eckert et al. 2022, A&A 662, A123 (arXiv 2205.01110v1), hydromass.tex",l. 504 (E8),"""the impact of gas inhomogeneities is small ($<10\%$)"" (E22 l. 504). Temperature inhomogeneities ""$\sim10\%$"" (l. 311, citing other work). Would also move the gas mass, and so g_bar; that effect is not stated",
+xmm_calibration,dataset,aeg-s-000177;aeg-s-000179;aeg-s-000180;aeg-s-000181;aeg-s-000183,g_obs,not_given_by_source,,,,,,,,,not_published,"Eckert et al. 2022, A&A 662, A123 (arXiv 2205.01110v1), hydromass.tex","l. 311, l. 506 (E9)","The size is cited from other work: ""effective area calibration (15\%)"" (E22 l. 311, citing Schellenberger 2015); ""reaches $\sim20\%$ for 10 keV plasma"" (l. 506). Conditional and one-sided: ""If the \emph{Chandra} temperatures are correct, our masses at fixed radii would be underestimated by a similar amount"" (l. 506); ""mostly affects the regions located inside $0.5 R_{500}$"" (l. 506)",
+mass_model_choice,system,*,g_obs,given,,,,fraction,x_xcop_mass_model_frac,as_released,,,not_published,"Part A result: REPRODUCTION_RESULT_PART_A.md and result_part_a.json (A7); Eckert et al. 2022, A&A 662, A123 (arXiv 2205.01110v1), hydromass.tex",part A A7 (l. 202 of the part A test); E22 l. 373,"The one Atlas-computed given size (part B item 7; D-105 O2). Per cluster, the largest |ratio − 1| across non-parametric/Einasto (R500 from R3), non-parametric/NFW and Einasto/NFW (NFW = Table 1 M500 at Table 1's R500), from result_part_a.json, in x_xcop_mm_*, rounded to 4 decimals. The max rule was fixed after part A's ratios were published, so it is not blind; all three pairs are forced by part A's frozen text, and the maximum is the conservative envelope over them. An equally conventional alternative, half the spread of the three masses, would give roughly half the size. The NFW pairs compare masses at Table 1's R500 with masses at R500 from R3, so the size partly reflects the R500 definition as well as the model choice, and it is applied as a fractional g_obs size at every radius. E22's sample statement: methods ""within 3\%"" in median and NFW against NP ""less than 10\%"" (l. 373). Empty for the seven clusters without rows. Never applied as a correction",
+cosmology,dataset,*,both,not_given_by_source,,,,,,,,,not_published,"Eckert et al. 2022, A&A 662, A123 (arXiv 2205.01110v1), hydromass.tex",l. 56; §3.2 item 3 of docs/sources/uncertainty-readings.md,"E22 adopts H0 = 67.8, Ω_m = 0.308 (l. 56); its central-galaxy and satellite sources assume H0 = 73 and 70, and harmonisation is not stated. No alternative is tested by the source; the distance dependence is not computed in v2",
+gas_density_conversion,dataset,aeg-s-000177;aeg-s-000179;aeg-s-000180;aeg-s-000181;aeg-s-000183,g_bar,not_given_by_source,,,,,,,,,not_published,"Eckert et al. 2022, A&A 662, A123 (arXiv 2205.01110v1), hydromass.tex",§3.1 of docs/sources/uncertainty-readings.md,The conversion from X-ray emissivity to gas density is not stated,
+bcg_ml,system,*,g_bar,not_given_by_source,,,,,,,,,not_published,"Eckert et al. 2022, A&A 662, A123 (arXiv 2205.01110v1), hydromass.tex",l. 111 (E18),"Dynamical mass-to-light ratio; its error is dominated by the weak-lensing mass and ""constant with radius"" (E22 l. 111). Photometry ""$< 0.25$ mag arcsec$^{-2}$"" and kinematics ""$\pm4.7$ per cent"" are inputs, not the size of this term",
+bcg_ml_extra_mass_model,dataset,aeg-s-000177;aeg-s-000183,g_bar,given,0.083,,,fraction,,as_released,,,not_published,"Eckert et al. 2022, A&A 662, A123 (arXiv 2205.01110v1), hydromass.tex; Loubser et al. 2020 (arXiv 2006.05706v1), BCG_v3_withoutBold.tex","E22 l. 109; reading/bcg_extra_mass_systems.md (E19, reader A)","Including an extra mass component in the central-galaxy dynamical models lowers the fitted mass-to-light ratio by ""8.3 $\pm$ 2.9 per cent on average"" (E22 l. 109, which names the component ""a DM mass component""). The second reading decided which central galaxies this describes (reading/bcg_extra_mass_systems.md)",
+bcg_jam_geometry,dataset,aeg-s-000177;aeg-s-000179;aeg-s-000180;aeg-s-000181;aeg-s-000183,g_bar,given_by_other_source,0.15,,,fraction,,upper_bound,,,not_published,"Loubser et al. 2020 (arXiv 2006.05706v1), BCG_v3_withoutBold.tex",l. 547 (E20),"""changing our cylindrically-aligned JAM models to spherically-aligned JAM models, results in the best-fitting $\Upsilon_{\star \rm DYN}$ parameters changing by up to $\sim$ 15 per cent"" (Loubser et al. 2020, l. 547). Same programme, not independent.",
+bcg_sersic_extrapolation,system,*,g_bar,not_given_by_source,,,,,,,,,not_published,"Eckert et al. 2022, A&A 662, A123 (arXiv 2205.01110v1), hydromass.tex",l. 404 (E21),"Measured ""only within a limited radial range out to $\sim50$ kpc"", then a Sérsic form (E22 l. 404)",
+satellite_cosmic_variance,system,*,g_bar,not_given_by_source,,,,,,,,,not_published,"Eckert et al. 2022, A&A 662, A123 (arXiv 2205.01110v1), hydromass.tex; Ghizzardi et al. 2021 (arXiv 2007.01084v1), xcop-metallicity.tex",E22 l. 116; Ghizzardi l. 705 (reader A's E22),Estimated with Moster et al. 2011 (E22 l. 116); shown separately by Ghizzardi (l. 705); no size stated in E22,
+satellite_flux,system,*,g_bar,not_given_by_source,,,,,,,,,not_published,"Ghizzardi et al. 2021 (arXiv 2007.01084v1), xcop-metallicity.tex",l. 712 (E23),Bootstrap of the fluxes (Ghizzardi l. 712); no size stated,
+satellite_gnfw_smoothing,system,*,g_bar,not_given_by_source,,,,,,,,,not_published,"Eckert et al. 2022, A&A 662, A123 (arXiv 2205.01110v1), hydromass.tex",l. 408 (E24),"The profiles are ""quite noisy and not smooth"" and fitted beyond 100 kpc with a gNFW of fixed shape (E22 l. 408); which parameter set is not stated",
+satellite_projection,system,*,g_bar,not_given_by_source,,,,,,,,,not_published,"Ghizzardi et al. 2021 (arXiv 2007.01084v1), xcop-metallicity.tex; Part A result: REPRODUCTION_RESULT_PART_A.md and result_part_a.json (A7)","Ghizzardi l. 715; part A A6, A9 (E25); #124","Whether the satellite profile was deprojected is not stated (#124). Ghizzardi: ""75$\%$ of the mass obtained integrating along the line of sight lies within the sphere with radius $R_{500}$"" (l. 715). Part A A6: undetermined; A9: 1.86–2.42 against Ghizzardi's spherical masses. Stated on every row's notes",
+satellite_mass_systematic,dataset,aeg-s-000177;aeg-s-000179;aeg-s-000180;aeg-s-000181;aeg-s-000183,g_bar,given_by_other_source,0.6,,,fraction,,upper_bound,,,not_published,"Ghizzardi et al. 2021 (arXiv 2007.01084v1), xcop-metallicity.tex","l. 923 (E26, reader A)","""Although we lack a clear understanding for the origin of different estimates of $M_{\rm star}$, our comparison shows that we may be underestimating stellar masses by as much as 60\%"" (Ghizzardi et al. 2021, l. 923). Same programme, not independent. Stated for Ghizzardi's own masses; part A A9 shows the shared files hold about twice those masses, so how far the size applies to GBAR is unclear. A Salpeter factor ""$\sim$ 1.74"" appears only in a commented-out line of the source file (l. 926, not printed) and is not used; reader A's ""factor ∼2"" is its paraphrase. One-sided, upward",
+icl_omitted,dataset,aeg-s-000177;aeg-s-000179;aeg-s-000180;aeg-s-000181;aeg-s-000183,g_bar,given,0.05,,,fraction of the baryon budget,,upper_bound,,,not_published,"Eckert et al. 2022, A&A 662, A123 (arXiv 2205.01110v1), hydromass.tex",l. 410 (E27),"""the contribution of ICL to the total baryon budget is expected to be small ($<5\%$)"" (E22 l. 410). One-sided, upward. Replaces v1's icl_fraction slider in v2 (D-105 O3)",

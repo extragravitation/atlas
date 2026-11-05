@@ -16,8 +16,8 @@ Inputs:
   - REPRODUCTION.md §2 (frozen): Table 1 of Eckert et al. 2022 as transcribed there.
 
 Writes tables/{measurements,observables,systems,uncertainty_terms}.ecsv, datapackage.json and
-checksums.sha256. The tables are NOT committed until the authors confirm (D-090 rule 5; part B rule 5):
-tables/ is gitignored and only checksums.sha256 is committed.
+checksums.sha256. The tables were held back until publication (D-090 rule 5; part B rule 5) and are
+committed since publication under D-106 (2026-11-05).
 
 CONSENT GATE: this script prints counts and hashes only, never a row value, and its error messages
 name rows by cluster and row number only (CI logs are public; part B rule 5).
@@ -433,7 +433,7 @@ def main() -> int:
                                    "uncertainty_terms": ("tables/uncertainty_terms.ecsv", terms)})
     write_checksums(HERE)
     print(f"{PID}: wrote {len(meas)} measurements ({sum(m['plotted'] == 'true' for m in M)} plotted), {len(obs_t)} observables, "
-          f"{len(sys_t)} systems, {len(terms)} terms; tables not committed (D-090 rule 5); no values printed")
+          f"{len(sys_t)} systems, {len(terms)} terms; no values printed")
     return 0
 
 
