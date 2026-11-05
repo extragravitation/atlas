@@ -1,0 +1,9 @@
+{
+  "description": "aeg-d-xcop/v2 reproduction test, part B (structure, uncertainties, second reading), revision 3, after two independent reviews and D-105. Frozen before the second reading and before any v2 conversion. Part A stays frozen in xcop-v2-part-a.json.",
+  "frozen_on": "2026-11-05",
+  "decision": "D-089, D-090, D-105",
+  "spec": "data/packages/aeg-d-xcop/v2/REPRODUCTION_PART_B.md",
+  "files": {
+    "data/packages/aeg-d-xcop/v2/REPRODUCTION_PART_B.md": "89640ef17b7d58d8ecca2002bfe6e24eabc61898d769f7e4c199266f85ea115d"
+  }
+}
