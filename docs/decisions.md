@@ -2240,7 +2240,7 @@ The frozen KiDS v2 test (item 11) makes any such finding a fail of that item. Th
 **Rules.**
 1. **D-096 rule 2 applies.** KiDS-bright rows 1–8 stay in the tables and downloads, recorded and not plotted, with the source's quotes and reason in `notes`. No value changes. GAMA rows and KiDS-bright rows 9–15 are unaffected.
 2. **The KiDS v2 test is re-issued as a new frozen file** (`REPRODUCTION_REV3.md`) that requires this. It gets one independent review and is frozen before the first conversion. The first frozen test stays as it is, and the v2 result reports its item 11 as failed for this reason.
-3. **Known issue:** the paper gives the limit as both "R < 3 h70⁻¹ Mpc" (l. 508, 821) and "R < 0.3 h70⁻¹ Mpc" (l. 483, 748). The acceleration threshold and "seven data points" are unambiguous.
+3. **Known issue:** the paper gives the limit as both 3 h70⁻¹ Mpc (l. 508 "R < 3"; l. 821 "R>3") and 0.3 h70⁻¹ Mpc (l. 483 and 489 "R > 0.3"; l. 748 "R < 0.3"). The acceleration threshold and "seven data points" are unambiguous. (Corrected before merge: the first draft of this rule reversed the inequality for l. 821, 483 and 489; found in the review of `REPRODUCTION_REV3.md`.)
 
 **Reason.** D-096 follows the authors' own judgement about their data. They excluded these points from every conclusion, for a stated measurement reason that affects g_obs directly. Shading them on a plot is a warning, not an endorsement.
 
