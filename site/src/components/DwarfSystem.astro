@@ -66,7 +66,8 @@ const FLAG_T = {
 )}
 
 <h2 id="inputs"><L t="Inputs" p="What went into the numbers" /></h2>
-{!plotted && <p class="small"><L t="No acceleration was computed for this system, so no inputs are converted; its readings are in the package's reading/ files." p="This galaxy has no point on the map, so nothing was converted." /></p>}
+{!plotted && (sys.excluded || []).length > 0 && meas.length > 0 && <p class="small"><L t={`Values are kept: g_obs = ${e10(meas[0].g_obs)} and g_bar = ${e10(meas[0].g_bar)} × 10⁻¹⁰ m s⁻² (row ${meas[0].measurement_id.split('/').pop()}), in the tables and downloads. They are left off the plots for the reason above (D-097).`} p="The numbers are kept in the downloadable tables; only the point on the map is left out." /></p>}
+{!plotted && !((sys.excluded || []).length > 0 && meas.length > 0) && <p class="small"><L t="No acceleration was computed for this system, so no inputs are converted; its readings are in the package's reading/ files." p="This galaxy has no point on the map, so nothing was converted." /></p>}
 {plotted && (
   <>
     <div tabindex="0" class="tablebox"><table>
