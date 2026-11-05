@@ -28,12 +28,24 @@ function grouped(rows, key, within) {
   return out;
 }
 
+// The version whose reading and checks a lens package rests on: the package itself if it holds them (v1),
+// otherwise the earliest version that does. v2 re-issues v1's values unchanged (aeg-d-strong-lensing/v2
+// REPRODUCTION.md), so v1's readings, checks and test summary stand for them and are not copied.
+export function evidenceVersion(d) {
+  if (fs.existsSync(path.join(d.dir, 'checks/formula_check.ecsv'))) return { dir: d.dir, version: d.version };
+  const root = path.dirname(d.dir);
+  for (const v of fs.readdirSync(root).sort()) {
+    if (fs.existsSync(path.join(root, v, 'checks/formula_check.ecsv'))) return { dir: path.join(root, v), version: v };
+  }
+  throw new Error(`lensing: no version of ${d.name} holds checks/formula_check.ecsv`);
+}
+
 export function lensPackage(d) {
   if (cache.has(d.key)) return cache.get(d.key);
-  const dir = d.dir;
+  const ev = evidenceVersion(d), dir = ev.dir;
   const formula = parseECSV(read(dir, 'checks/formula_check.ecsv'));
   const profile = parseECSV(read(dir, 'checks/profile_step.ecsv'));
-  const notTab = d.checks['not_tabulated.csv'] || [];
+  const notTab = dir === d.dir ? (d.checks['not_tabulated.csv'] || []) : parseCSV(read(dir, 'checks/not_tabulated.csv'));
   const adjudicated = [...parseCSV(read(dir, 'reading/adjudicated_inputs.csv')), ...parseCSV(read(dir, 'reading/adjudicated_supplement.csv'))];
 
   // Funnel. "Read" is every lens the two readers read in the A6 scopes: the tabulated systems (adjudicated below
@@ -63,7 +75,7 @@ export function lensPackage(d) {
     notTabulated: notTab.length, plottedByScope: byScope(plotted), recordedGroups: reasonGroups(recorded), notTabGroups };
 
   const out = {
-    formula, profile, adjudicated, funnel,
+    formula, profile, adjudicated, funnel, evidence: ev,
     formulaGroups: grouped(formula.rows, (r) => `${r.record_m_e}|${r.record_theta}`, null),
     profileGroups: grouped(profile.rows, (r) => r.imf, 0.10),
     formulaMeta: formula.meta, profileMeta: profile.meta,

@@ -598,6 +598,71 @@
       "scope_plain": "No number changed, a second reader agrees with every one, and only the team's own chosen bins are drawn. We do not redo the lensing measurement.",
       "matched": "every check of the re-issued test passed; the first test's item 11 failed and is reported",
       "matched_plain": "All checks passed under the re-issued test"
+    },
+    {
+      "package": "aeg-d-strong-lensing/v2",
+      "test_file": "REPRODUCTION.md",
+      "sha256": "49dc59c46e6cae4841f7833bfc50165b95dd3969f9b84157cbf96b45be66ab5a",
+      "frozen_before": "conversion",
+      "result": "pass",
+      "first_run": "2026-11-05",
+      "result_files": [
+        "REPRODUCTION_RESULT.md",
+        "SECOND_READING.md"
+      ],
+      "against": "v1 (unchanged values bit-for-bit), the frozen second reading (θ_E classes and errors, light profiles, confidence levels, H0 and distance statements, black-hole inventory), v1's frozen lensing code, and data standard 2.5.1.",
+      "against_plain": "The previous version, a second independent reading of the papers, and our own frozen code.",
+      "checks": [
+        {
+          "name": "Values unchanged from v1",
+          "plain": "Same numbers as before",
+          "outcome": "pass",
+          "detail": "147 of 147 rows; every v1 value column bit-for-bit identical; no D-096 case in the reading"
+        },
+        {
+          "name": "Einstein-radius error on the right side",
+          "plain": "Ring-size uncertainty moved to the visible-matter side",
+          "outcome": "pass",
+          "detail": "107 class A rows: θ_E error carried by g_bar (standard §2a rule 7); its effect on g_bar is not computed on the 5 of them with no printed light profile (D-104 rule 3)"
+        },
+        {
+          "name": "Arithmetic",
+          "plain": "Sums redone",
+          "outcome": "pass",
+          "detail": "1 178 recomputations with v1's frozen code to 1e-9; new slope column on 139 rows to 1e-6"
+        },
+        {
+          "name": "Uncertainties and confidence levels",
+          "plain": "Error bars and their meaning",
+          "outcome": "pass",
+          "detail": "44 uncertainty terms as frozen, including H0 and distance (D-094, D-104); every formula agrees in Python and JavaScript"
+        },
+        {
+          "name": "Package equals the frozen reading",
+          "plain": "Second reader agrees",
+          "outcome": "pass",
+          "detail": "every field the reading holds"
+        },
+        {
+          "name": "Standard 2.5.1, site and v1 untouched",
+          "plain": "Format rules and old version intact",
+          "outcome": "pass",
+          "detail": "validator, formula checks, lensing tests, site build and site check pass; all 75 v1 files unchanged"
+        }
+      ],
+      "issues": [
+        139,
+        174
+      ],
+      "flagged": 0,
+      "status": "Current version. Same values as v1. The Einstein-radius error now moves g_bar, not g_obs, and H0 and distance terms are carried (D-094, D-104; #139). Lens values stay projected (cylinder) accelerations (D-064).",
+      "status_plain": "The current lens version: the same numbers as before, with the uncertainty in the ring size now applied to the visible-matter side, where it belongs, and the effect of distance shown.",
+      "since": "",
+      "scope": "Establishes that v2 carries v1's numbers unchanged, moves each uncertainty to the side it affects, and agrees with an independent second reading. It does not re-fit the lens models or judge the sources' error sizes.",
+      "scope_plain": "Same numbers as v1, with each uncertainty on the right side, checked against a second reading. We do not redo the lens models.",
+      "since_plain": "",
+      "matched": "all 13 items of the frozen test hold",
+      "matched_plain": "All checks passed"
     }
   ]
 }

@@ -1010,6 +1010,12 @@
           "default": "GR lensing",
           "default_ref": "A6S_PRECEDENCE §2.4 (frozen, D-065); aeg.lensing.einstein_mass_msun (frozen)",
           "effects": []
+        },
+        "aeg-d-strong-lensing/v2": {
+          "default": "GR lensing",
+          "default_ref": "A6S_PRECEDENCE §2.4 (frozen, D-065); aeg.lensing.einstein_mass_msun (frozen)",
+          "effects": [],
+          "note": "v2: unchanged from v1 (REPRODUCTION.md item 7)."
         }
       },
       "scope": "dataset",
@@ -1031,6 +1037,39 @@
           "default_ref": "D-064 item 4; D-075 item 4; adjudication.md §3b",
           "effects": [],
           "note": "Enters M_E and R_E; g_obs/g_bar does not depend on it to first order (D-064 item 4). No slider."
+        },
+        "aeg-d-strong-lensing/v2": {
+          "default": 1,
+          "default_ref": "p = H0_alt / H0_adopted from the term's own pair in km s-1 Mpc-1 (cosmology_h0_snells, cosmology_h0_j0403, cosmology_h0_manga); p0 = 1 is the source's own cosmology. D-094 rule 4; D-104 rule 1; REPRODUCTION.md item 7",
+          "role": "uncertainty-term formula",
+          "not_adjustable_reason": "the effect of a stated H0 pair; making it a slider needs a ruling",
+          "effects": [
+            {
+              "column": "g_obs",
+              "formula": "g_obs * p / p0"
+            },
+            {
+              "column": "g_obs_err_lo",
+              "formula": "g_obs_err_lo * p / p0"
+            },
+            {
+              "column": "g_obs_err_hi",
+              "formula": "g_obs_err_hi * p / p0"
+            },
+            {
+              "column": "g_obs_err_point_lo",
+              "formula": "g_obs_err_point_lo * p / p0"
+            },
+            {
+              "column": "g_obs_err_point_hi",
+              "formula": "g_obs_err_point_hi * p / p0"
+            },
+            {
+              "column": "r_kpc",
+              "formula": "r_kpc * p0 / p"
+            }
+          ],
+          "note": "Enters M_E and R_E. All distances scale as 1/H0 at fixed Ω_m, so g_obs = π G Σ_cr ∝ H0 and R_E ∝ 1/H0, while the stellar g_bar is unchanged (M* ∝ D_L² and R_E² ∝ D_A²): the ratio depends on H0 at first order (D-094, replacing D-064 item 4). No row column enters p. Not a slider."
         }
       },
       "scope": "dataset",
@@ -1051,6 +1090,12 @@
           "default": "projected",
           "default_ref": "D-064 (option a)",
           "effects": []
+        },
+        "aeg-d-strong-lensing/v2": {
+          "default": "projected",
+          "default_ref": "D-064 (option a)",
+          "effects": [],
+          "note": "v2: unchanged from v1 (REPRODUCTION.md item 7)."
         }
       },
       "scope": "dataset",
@@ -1071,6 +1116,12 @@
           "default": "spectroscopic",
           "default_ref": "D-063 items 3 and 5; A6S_PRECEDENCE §1",
           "effects": []
+        },
+        "aeg-d-strong-lensing/v2": {
+          "default": "spectroscopic",
+          "default_ref": "D-063 items 3 and 5; A6S_PRECEDENCE §1",
+          "effects": [],
+          "note": "v2: unchanged from v1 (REPRODUCTION.md item 7)."
         }
       },
       "scope": "dataset",
@@ -1091,6 +1142,12 @@
           "default": "source's population model",
           "default_ref": "D-063 item 1; D-075 item 3; A6S_PRECEDENCE §3.1-3.3",
           "effects": []
+        },
+        "aeg-d-strong-lensing/v2": {
+          "default": "source's population model",
+          "default_ref": "D-063 item 1; D-075 item 3; A6S_PRECEDENCE §3.1-3.3",
+          "effects": [],
+          "note": "v2: unchanged from v1 (REPRODUCTION.md item 7)."
         }
       },
       "scope": "dataset",
@@ -1112,6 +1169,12 @@
           "default_ref": "A6S_PRECEDENCE §3.1; D-075 item 5 (S4TM R10 fit; SL2S CFHT fit)",
           "effects": [],
           "note": "Checked on SLACS against R13's printed masses inside R_E (checks/profile_step.ecsv; reported, not pass/fail)."
+        },
+        "aeg-d-strong-lensing/v2": {
+          "default": "source's light profile",
+          "default_ref": "A6S_PRECEDENCE §3.1; D-075 item 5 (S4TM R10 fit; SL2S CFHT fit)",
+          "effects": [],
+          "note": "Checked on SLACS against R13's printed masses inside R_E (checks/profile_step.ecsv; reported, not pass/fail). v2: unchanged from v1 (REPRODUCTION.md item 7)."
         }
       },
       "scope": "dataset",
@@ -1131,6 +1194,35 @@
       },
       "datasets": {
         "aeg-d-strong-lensing/v1": {
+          "default": 0,
+          "min": 0,
+          "max": 1,
+          "default_ref": "A6S_PRECEDENCE §3.2 (frozen); D-075 item 5 (SLACS Chabrier-BC03 default)",
+          "range_ref": "Top: Salpeter value printed by the same source (R13 Salpeter-BC03; R20 Salpeter), else the source's printed conversion (R29 α = 1.55; R32 α ≈ 1.65, flag salpeter_factor_approx_printed; R30 ÷ 0.61), and for S4TM R30's printed FSPS factor ÷ 0.61 = × 1.64 (D-076 item 2; other printed conversions span 1.55-1.71, reading/gas/adjudication_gas.md §6). Rows without a top (SNELLS: none read) are not offered the slider (flag imf_top_not_read).",
+          "range_basis": {
+            "min": "the source's own Chabrier/Kroupa value (default)",
+            "max": "the Salpeter value or printed conversion (A6S_PRECEDENCE §3.2; D-076 item 2)"
+          },
+          "effects": [
+            {
+              "column": "g_bar_stars",
+              "formula": "g_bar_stars * (1 + (x_strong_lensing_mstar_top_msun / x_strong_lensing_mstar_re_msun - 1) * p)"
+            },
+            {
+              "column": "g_bar_err_lo",
+              "formula": "g_bar_err_lo * (1 + (x_strong_lensing_mstar_top_msun / x_strong_lensing_mstar_re_msun - 1) * p)"
+            },
+            {
+              "column": "g_bar_err_hi",
+              "formula": "g_bar_err_hi * (1 + (x_strong_lensing_mstar_top_msun / x_strong_lensing_mstar_re_msun - 1) * p)"
+            },
+            {
+              "column": "g_bar",
+              "formula": "g_bar + g_bar_stars * (x_strong_lensing_mstar_top_msun / x_strong_lensing_mstar_re_msun - 1) * p"
+            }
+          ]
+        },
+        "aeg-d-strong-lensing/v2": {
           "default": 0,
           "min": 0,
           "max": 1,
@@ -1198,6 +1290,32 @@
             }
           ],
           "note": "The five systems whose sources state gas negligible (SNL-0, SNL-1, SNL-2, J1436+4943, J1701+3722) take the same term; the statements are kept as notes (D-076 item 1)."
+        },
+        "aeg-d-strong-lensing/v2": {
+          "default": 0,
+          "min": -1,
+          "max": 1,
+          "default_ref": "D-076 item 1 (option G1): hot default 0.12% = median of 28 same-aperture X-ray gas and stellar measurements of early-type galaxies (25 detected); cold default 0 (molecular: 40 of 56 are limits; atomic: central HI undetected in 85% of high-mass ATLAS3D early-types). gas_term.json; reading/gas/adjudication_gas.md §3-5",
+          "range_ref": "Hot: lowest measured 0.015% to highest measured 2.5%; cold: 0 to 2% (molecular top from a published bound of about 1%, atomic top from a flagged sample bound of about 1%). Radii never rescaled; single-dish beams at half their printed width; non-detections kept as limits (D-076 item 1).",
+          "range_basis": {
+            "min": "lowest measured value (hot); zero (cold, allowed by the limits)",
+            "max": "highest measured value (hot); published bounds (cold)"
+          },
+          "effects": [
+            {
+              "column": "g_bar_gas_hot",
+              "formula": "x_strong_lensing_g_bar_stars_ref * (x_strong_lensing_gas_hot_frac + (x_strong_lensing_gas_hot_frac_max - x_strong_lensing_gas_hot_frac_min) / 2 * p + (x_strong_lensing_gas_hot_frac_max + x_strong_lensing_gas_hot_frac_min - 2 * x_strong_lensing_gas_hot_frac) / 2 * abs(p))"
+            },
+            {
+              "column": "g_bar_gas_cold",
+              "formula": "x_strong_lensing_g_bar_stars_ref * (x_strong_lensing_gas_cold_frac + (x_strong_lensing_gas_cold_frac_max - x_strong_lensing_gas_cold_frac_min) / 2 * p + (x_strong_lensing_gas_cold_frac_max + x_strong_lensing_gas_cold_frac_min - 2 * x_strong_lensing_gas_cold_frac) / 2 * abs(p))"
+            },
+            {
+              "column": "g_bar",
+              "formula": "g_bar - g_bar_gas_hot - g_bar_gas_cold + x_strong_lensing_g_bar_stars_ref * ((x_strong_lensing_gas_hot_frac + (x_strong_lensing_gas_hot_frac_max - x_strong_lensing_gas_hot_frac_min) / 2 * p + (x_strong_lensing_gas_hot_frac_max + x_strong_lensing_gas_hot_frac_min - 2 * x_strong_lensing_gas_hot_frac) / 2 * abs(p)) + (x_strong_lensing_gas_cold_frac + (x_strong_lensing_gas_cold_frac_max - x_strong_lensing_gas_cold_frac_min) / 2 * p + (x_strong_lensing_gas_cold_frac_max + x_strong_lensing_gas_cold_frac_min - 2 * x_strong_lensing_gas_cold_frac) / 2 * abs(p)))"
+            }
+          ],
+          "note": "The five systems whose sources state gas negligible (SNL-0, SNL-1, SNL-2, J1436+4943, J1701+3722) take the same term; the statements are kept as notes (D-076 item 1). v2: G M*(<R_E)/R_E² at the default IMF is read from x_strong_lensing_g_bar_stars_ref (= g_obs × mstar_re_msun / m_e_msun, the same value at every default), so the gas term does not move with H0 or the lens distance and follows θ_E (REPRODUCTION.md item 7). Fractions and range as v1."
         }
       }
     },
@@ -1515,6 +1633,118 @@
           "default": "point_mass",
           "default_ref": "Brouwer et al. 2021 (arXiv:2106.11677) §4.3, l. 405–411: 'we can approximate M_bar(<r) as a point mass M_gal' at R > 30 h70⁻¹ kpc (step A reading K14; REPRODUCTION_REV3.md item 7, §2a rule 4)",
           "effects": []
+        }
+      }
+    },
+    {
+      "id": "a6s_theta_e",
+      "name_technical": "Einstein radius θ_E as printed; its error moves g_bar and R_E, not g_obs, where M_E is the mass inside the radius of mean convergence 1 (standard §2a rule 7; d ln g_bar / d ln θ_E from the printed light profile)",
+      "name_plain": "The size of the ring of lensed images, which sets how much of the starlight falls inside it",
+      "adjustable": false,
+      "status": "draft",
+      "parameter": {
+        "unit": "p = θ_E / θ_E,printed (1 = as printed)"
+      },
+      "scope": "dataset",
+      "role": "uncertainty-term formula",
+      "not_adjustable_reason": "the effect of a stated θ_E error; not a slider",
+      "datasets": {
+        "aeg-d-strong-lensing/v2": {
+          "default": 1,
+          "default_ref": "θ_E as printed by each source (v1 values); REPRODUCTION.md rule 5 and item 7",
+          "role": "uncertainty-term formula",
+          "not_adjustable_reason": "the effect of a stated θ_E error; not a slider",
+          "effects": [
+            {
+              "column": "g_bar",
+              "formula": "g_bar * (p / p0) ^ x_strong_lensing_dlngbar_dlntheta"
+            },
+            {
+              "column": "g_bar_stars",
+              "formula": "g_bar_stars * (p / p0) ^ x_strong_lensing_dlngbar_dlntheta"
+            },
+            {
+              "column": "g_bar_gas_cold",
+              "formula": "g_bar_gas_cold * (p / p0) ^ x_strong_lensing_dlngbar_dlntheta"
+            },
+            {
+              "column": "g_bar_gas_hot",
+              "formula": "g_bar_gas_hot * (p / p0) ^ x_strong_lensing_dlngbar_dlntheta"
+            },
+            {
+              "column": "x_strong_lensing_g_bar_stars_ref",
+              "formula": "x_strong_lensing_g_bar_stars_ref * (p / p0) ^ x_strong_lensing_dlngbar_dlntheta"
+            },
+            {
+              "column": "g_bar_err_lo",
+              "formula": "g_bar_err_lo * (p / p0) ^ x_strong_lensing_dlngbar_dlntheta"
+            },
+            {
+              "column": "g_bar_err_hi",
+              "formula": "g_bar_err_hi * (p / p0) ^ x_strong_lensing_dlngbar_dlntheta"
+            },
+            {
+              "column": "g_bar_err_point_lo",
+              "formula": "g_bar_err_point_lo * (p / p0) ^ x_strong_lensing_dlngbar_dlntheta"
+            },
+            {
+              "column": "g_bar_err_point_hi",
+              "formula": "g_bar_err_point_hi * (p / p0) ^ x_strong_lensing_dlngbar_dlntheta"
+            },
+            {
+              "column": "r_kpc",
+              "formula": "r_kpc * p / p0"
+            }
+          ],
+          "note": "Used by the terms theta_e, theta_e_ngc6505, lens_model_profile, sie_axis_convention, external_shear and lens_light_subtraction. g_obs is unchanged. Log-linear (first-order) in ln θ_E: adequate at 2 %; at J1701's 10 % the second-order term is not computed. Rows without x_strong_lensing_dlngbar_dlntheta (no printed light profile) are not evaluated: there the effect is not computed (D-104 rule 3)."
+        }
+      }
+    },
+    {
+      "id": "a6s_lens_distance",
+      "name_technical": "Lens distance D_l from the redshift in the source's frame, without a peculiar-velocity correction (g_obs ∝ 1/D_l and R_E ∝ D_l for D_s ≫ D_l; g_bar unchanged)",
+      "name_plain": "How far away the lensing galaxy is, from its redshift",
+      "adjustable": false,
+      "status": "draft",
+      "parameter": {
+        "unit": "p = fractional change in D_l (0 = as used)"
+      },
+      "scope": "dataset",
+      "role": "uncertainty-term formula",
+      "not_adjustable_reason": "the effect of a stated distance uncertainty; not a slider",
+      "datasets": {
+        "aeg-d-strong-lensing/v2": {
+          "default": 0,
+          "default_ref": "D_l as used by each source (v1 values); REPRODUCTION.md rule 6 and item 7 (D-094; D-104 rule 1)",
+          "role": "uncertainty-term formula",
+          "not_adjustable_reason": "the effect of a stated distance uncertainty; not a slider",
+          "effects": [
+            {
+              "column": "g_obs",
+              "formula": "g_obs * (1 + p0) / (1 + p)"
+            },
+            {
+              "column": "g_obs_err_lo",
+              "formula": "g_obs_err_lo * (1 + p0) / (1 + p)"
+            },
+            {
+              "column": "g_obs_err_hi",
+              "formula": "g_obs_err_hi * (1 + p0) / (1 + p)"
+            },
+            {
+              "column": "g_obs_err_point_lo",
+              "formula": "g_obs_err_point_lo * (1 + p0) / (1 + p)"
+            },
+            {
+              "column": "g_obs_err_point_hi",
+              "formula": "g_obs_err_point_hi * (1 + p0) / (1 + p)"
+            },
+            {
+              "column": "r_kpc",
+              "formula": "r_kpc * (1 + p) / (1 + p0)"
+            }
+          ],
+          "note": "Used by the terms lens_distance_snl0, _snl1, _snl2, lens_distance_ngc6505 and lens_distance_other. g_obs = π G Σ_cr ∝ D_s / (D_l D_ls), which is close to 1/D_l only when D_s ≫ D_l; that holds for the systems sized here (SNELLS, NGC 6505). g_bar is unchanged."
         }
       }
     }

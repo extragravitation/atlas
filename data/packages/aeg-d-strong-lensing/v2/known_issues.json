@@ -1,0 +1,19 @@
+{
+ "issues": [
+  {
+   "issue": 139,
+   "url": "https://github.com/extragravitation/atlas/issues/139",
+   "title": "Strong lenses v1: Einstein-radius error on the wrong axis; distance and H0 not carried (D-064 item 4)",
+   "status_in_v2": "corrected: the θ_E error is carried by g_bar on class A rows (standard §2a rule 7; terms theta_e and theta_e_ngc6505), and distance enters g_obs through the terms cosmology_h0_* and lens_distance_* (D-094; D-104 rule 1). v1 stays published unchanged.",
+   "dataset_versions": ["aeg-d-strong-lensing/v1"]
+  },
+  {
+   "issue": 174,
+   "url": "https://github.com/extragravitation/atlas/issues/174",
+   "title": "Strong lenses: gas stated in SNL-1, nebular emission and dust in J0403−0239, not yet in the package (second reading of v2)",
+   "status_in_v2": "open: recorded for the next version (v2 reading, resolutions 3 and 4); no value changes",
+   "dataset_versions": ["aeg-d-strong-lensing/v1", "aeg-d-strong-lensing/v2"],
+   "measurements": ["aeg-d-strong-lensing/v2/m000141", "aeg-d-strong-lensing/v2/m000143"]
+  }
+ ]
+}
