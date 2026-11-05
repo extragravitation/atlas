@@ -114,3 +114,11 @@ Applies to And I, And III, And V, And VII, And IX, And X, And XIV, And XV and An
 - **Phoenix II's ε error** is printed "±0.6" for the exponential fit (Richstein 2024 l. 784), probably a typo for 0.06. It is recorded as printed.
 - **Phoenix:** Kacharov 2017 prints only a σ corrected for the velocity gradient, so the D-038 addendum's value without the gradient does not exist.
 - **Fornax:** Wang 2019's Sérsic r_h (20.1′) has no printed error, like the exponential value.
+
+## Rulings after resolution (D-102, 2026-11-04 21:00 MDT)
+
+- **Tollerud 2012 velocity windows (10 systems, 9 with rows).** The exclusion cannot be applied: the windows are drawn in figures and never printed as numbers. The member set stays as it is, and known issue #156 is shown on these systems. A query goes to the authors; it is not a release gate. All 11 rows that were awaiting this ruling are now `ruled`.
+- **Tucana V** stays a possibility. Hansen 2024 reports Conn 2018's suggestion and disputes it in the next sentence ("On the other hand"). The suggestion is about what kind of object Tucana V is, not about its internal balance.
+- **Confirmed as resolved:** "cannot rule out" counts as a possibility hedge (Boötes II). Leo I is a possibility. And XIX is a possibility, from hedged lines other than the "altered by tides" line, which is "neither".
+
+No row is now awaiting a ruling.

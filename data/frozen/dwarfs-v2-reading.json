@@ -1,0 +1,15 @@
+{
+  "description": "Second reading for the dwarf v2 package, resolved and frozen before the first v2 conversion run (frozen test item 11; order of work). The converter takes D-096 changes, D-097 classes, confidence levels and binary-screening values only from these files. Rulings applied: D-096 to D-102.",
+  "frozen_on": "2026-11-04",
+  "decision": "D-096, D-097, D-098, D-099, D-100, D-101, D-102",
+  "files": {
+    "data/packages/aeg-d-dwarfs/v2/reading/resolved.csv": "40244aa45771750f4c0123d13bcb476deb7cbead955f883b6942705bb2193bc3",
+    "data/packages/aeg-d-dwarfs/v2/reading/resolutions.md": "85a25dd69eb1311b727b5e0a9c8744d79b4d0e5ea395be2b1d8e98459b04128f",
+    "data/packages/aeg-d-dwarfs/v2/reading/reader-A.csv": "2028263ab899375f51b4b31862fe56eef3140500a1fb51368555728e95820a0f",
+    "data/packages/aeg-d-dwarfs/v2/reading/reader-B.csv": "91b2803523725d1cf817ff67ea29c0b482f09271f19f477bacd1c091c88971b6",
+    "data/packages/aeg-d-dwarfs/v2/reading/BRIEF.md": "425368269e68c2bc2d81b31d8b1a51d9ab52ea33a6990bbf5f532446c19e80f1",
+    "data/packages/aeg-d-dwarfs/v2/reading/manifest_rows.csv": "da84ee0c999acf7661939c455176d90a8a9325436da547090ed702d4ece25f7a",
+    "data/packages/aeg-d-dwarfs/v2/reading/manifest_observables.csv": "32c11caf43a3d35cc1525d313ba08d37cfc69d6bbd5faece4663ecee84c38c53",
+    "data/packages/aeg-d-dwarfs/v2/reading/manifest_systems.csv": "42e365b2524c82b741363a55cb6e048b821b473427495ef772123edcb22daf5c"
+  }
+}
