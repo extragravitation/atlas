@@ -73,6 +73,30 @@ From JvH's question "Are there any other graphing or data representation methods
 
 Any of these used to state a result needs a frozen test first. Anything found by browsing is labelled exploratory.
 
+## Methods from materials science (added 2026-11-04)
+
+From JvH's question "Are there any data analysis techniques in the area of materials science that we could apply genuinely?". These are ways to analyse or draw the data, not interpretations: no mechanism is named on any of them.
+
+**15. Deformation-map view. JvH's priority.** This follows Ashby's deformation-mechanism maps. The axes are g_bar and the radius of the measurement (or the baryonic surface density), shaded or contoured by g_obs/g_bar. It covers every dataset with a radius, with lines of constant baryonic mass inside r as guides. It shows at a glance whether the ratio depends on g_bar alone (contours parallel to the size axis) or also on size. Rules: shading only where data exist, no regions labelled with mechanisms, and uncertainties shown. **A first exploratory version was made on 2026-11-04 from the current packages. It is not published.** Any claim from it needs a frozen test (see idea 10).
+
+**16. Ternary composition diagrams.** Place each radius by its split of detected matter between stellar disc, bulge and gas, coloured by the discrepancy at fixed g_bar. Question: at the same pull, do gas-dominated points behave differently from star-dominated ones?
+
+**17. Censored data, as in fatigue testing.** Draw upper limits as arrows ("run-outs") and include them with survival statistics (for example Kaplan–Meier), instead of dropping them. This matters most for the faintest dwarfs.
+
+**18. Probability plots of the spread.** Plot each point's offset from the median trend, divided by its stated error, on normal-probability or Weibull paper. A straight line means the errors explain the spread; bent tails show outliers or a second population. It is the visual companion to the scatter budget (idea 8).
+
+**19. Pole figures for orientation.** Plot offsets against each galaxy's inclination and on-sky orientation. If offsets cluster by orientation, the cause is in the measurement. It is a self-check.
+
+**20. Interlaboratory analysis (ASTM E691, ISO 5725). The strongest of the analysis methods.** Treat each source team or instrument as a "laboratory". Separate the scatter within each laboratory (repeatability) from the scatter between laboratories (reproducibility), and flag consistent offsets with Mandel's h and k statistics. The Atlas has the structure for it: several originals per dwarf; RV and IFU data for clusters; motions and light-bending for the same systems.
+
+**21. Ashby envelopes.** Draw each class of system as a shaded envelope on log-log axes, with guide lines of constant ratio, instead of tens of thousands of dots. It is the population view for the public.
+
+**22. Master curves, with shifts capped by errors.** Shift each system only within its published distance and mass-to-light errors, and report how much collapse those errors allow, and whether the shifts needed correlate with anything. Unlimited shifts would manufacture a collapse, so the caps are the point. Any claim from it needs a frozen test.
+
+**23. Model-discrepancy surfaces (Kennedy–O'Hagan).** Estimate g_obs − g_bar as a smooth unknown function of several inputs at once, with honest uncertainty and no assumed formula. It is a principled version of idea 10.
+
+**24. Averages of ratios (homogenisation).** The average of a ratio is not the ratio of averages. Any comparison of stacked results (KiDS) with individual systems must account for that before the two are drawn together. It is a prerequisite for the "motions against light-bending" view.
+
 ## Cautions, stated once
 
 - **A residual explorer**, plotting leftovers against any property, invites pattern-fishing. If it is built, anything found with it is labelled exploratory and needs a frozen test before it is stated.
