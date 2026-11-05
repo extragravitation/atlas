@@ -1,0 +1,10 @@
+{
+  "description": "aeg-d-strong-lensing/v2 reproduction test, revision 3, after two independent reviews. Frozen before the second reading and before any v2 value was computed.",
+  "frozen_on": "2026-11-05",
+  "decision": "D-094, D-096, D-104",
+  "merged_in": "b3de95c8d16d2446ae863345d88627300fd975de",
+  "spec": "data/packages/aeg-d-strong-lensing/v2/REPRODUCTION.md",
+  "files": {
+    "data/packages/aeg-d-strong-lensing/v2/REPRODUCTION.md": "49dc59c46e6cae4841f7833bfc50165b95dd3969f9b84157cbf96b45be66ab5a"
+  }
+}
