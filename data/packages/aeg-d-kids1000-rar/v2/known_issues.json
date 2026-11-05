@@ -1,0 +1,26 @@
+{
+  "issues": [
+    {
+      "issue": 168,
+      "url": "https://github.com/extragravitation/atlas/issues/168",
+      "title": "KiDS-1000 v2: hot-gas variant rows may be under-flagged by the KiDS-bright g_bar isolation limit",
+      "measurements": [
+        "aeg-d-kids1000-rar/v2/m000016", "aeg-d-kids1000-rar/v2/m000017", "aeg-d-kids1000-rar/v2/m000018",
+        "aeg-d-kids1000-rar/v2/m000019", "aeg-d-kids1000-rar/v2/m000020", "aeg-d-kids1000-rar/v2/m000021",
+        "aeg-d-kids1000-rar/v2/m000022", "aeg-d-kids1000-rar/v2/m000023", "aeg-d-kids1000-rar/v2/m000024",
+        "aeg-d-kids1000-rar/v2/m000025", "aeg-d-kids1000-rar/v2/m000026", "aeg-d-kids1000-rar/v2/m000027",
+        "aeg-d-kids1000-rar/v2/m000028", "aeg-d-kids1000-rar/v2/m000029", "aeg-d-kids1000-rar/v2/m000030"
+      ]
+    },
+    {
+      "issue": 169,
+      "url": "https://github.com/extragravitation/atlas/issues/169",
+      "title": "KiDS-1000 v2: the source gives the isolation limit as both 0.3 and 3 h70⁻¹ Mpc (D-103 rule 3)",
+      "measurements": [
+        "aeg-d-kids1000-rar/v2/m000001", "aeg-d-kids1000-rar/v2/m000002", "aeg-d-kids1000-rar/v2/m000003",
+        "aeg-d-kids1000-rar/v2/m000004", "aeg-d-kids1000-rar/v2/m000005", "aeg-d-kids1000-rar/v2/m000006",
+        "aeg-d-kids1000-rar/v2/m000007", "aeg-d-kids1000-rar/v2/m000008"
+      ]
+    }
+  ]
+}

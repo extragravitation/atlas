@@ -1,0 +1,81 @@
+{
+  "name": "aeg-d-kids1000-rar",
+  "version": "v2",
+  "title": "KiDS-1000 weak-lensing radial acceleration relation: stacked isolated lenses",
+  "description": "Atlas re-issue of aeg-d-kids1000-rar/v1 under data standard 2.5.1 (D-083, D-084, D-099): the same released ESD profiles behind Brouwer et al. 2021 Fig. 4 (KiDS-bright, KiDS-bright with hot gas, GAMA), with no value changed. Adds the observables table, the uncertainty terms read at source in step A, confidence levels and g_bar as the source's bin coordinate. Plotting follows the source's own choices: the hot-gas variant is an unplotted alternative (D-096 rule 3) and KiDS-bright rows 1–8, beyond the source's isolation limit, are recorded and not plotted (D-103; D-096 rule 2). See SOURCE.md in v1, REPRODUCTION_REV3.md and REPRODUCTION_RESULT.md.",
+  "standard_version": "2.5.1",
+  "x_standard_version": "2.5.1",
+  "x_licence_status": "No licence stated by the source; Atlas tables intended CC BY 4.0 under D-004, citing the source. Source file not redistributed.",
+  "licenses": [],
+  "sources": [
+    {
+      "title": "KiDS science-data release, Brouwer et al. 2021",
+      "path": "https://kids.strw.leidenuniv.nl/sci_data/brouwer2021_rar.tar"
+    }
+  ],
+  "x_citation": "Brouwer, M. M. et al. 2021, A&A 650, A113, with the KiDS acknowledgement given in that paper.",
+  "x_h": 0.7,
+  "x_units_note": "ΔΣ in h70 M☉ pc⁻² as released; distances with h = 0.7 and the source's flat ΛCDM cosmology (App. A, l. 746).",
+  "x_previous_version": "aeg-d-kids1000-rar/v1",
+  "x_selection": [
+    {
+      "sample": "kids_bright",
+      "quantity": "lens selection",
+      "condition": "==",
+      "value": "KiDS-bright: z_ANN < 0.5 and m_r < 20.0; isolated (no neighbour above 10 % of the lens stellar mass within 3 h70⁻¹ Mpc; M★ < 10¹¹ h70⁻² M☉)",
+      "citation": "Brouwer et al. 2021 §3.3"
+    },
+    {
+      "sample": "gama",
+      "quantity": "lens selection",
+      "condition": "==",
+      "value": "GAMA: nQ ≥ 3 and m_r,Petro < 19.8; isolated, as KiDS-bright",
+      "citation": "Brouwer et al. 2021 §3.2"
+    },
+    {
+      "sample": "all",
+      "quantity": "g_bar bins",
+      "condition": "==",
+      "value": "15 logarithmic bins between 1×10⁻¹⁵ and 5×10⁻¹² m s⁻²; the released g_bar is the arithmetic midpoint of each bin",
+      "citation": "Brouwer et al. 2021 §2.1, l. 174; v2/reading/kids-bins.md"
+    },
+    {
+      "sample": "kids_bright",
+      "quantity": "plotted",
+      "condition": "g_bar >",
+      "value": "7.56×10⁻¹⁴ m s⁻² (rows 9–15, 'the seven data points within the isolation criterion limit'); rows 1–8 recorded, not plotted",
+      "citation": "Brouwer et al. 2021 l. 508, 748, 821; D-103"
+    }
+  ],
+  "x_precedence": "Stars plus cold gas is the source's 'fiducial estimate' (§4.3, l. 421): the KiDS-bright and GAMA rows are the defaults. The hot-gas variant ('only a rough order of magnitude estimate', §5.2, l. 512) is an unplotted alternative (D-096 rule 3). KiDS-bright rows 1–8 are recorded and not plotted (D-103; D-096 rule 2).",
+  "x_baryon_inventory": [
+    {
+      "component": "stars",
+      "status": "measured",
+      "note": "KiDS-bright: 9-band LePhare SPS fits (BC03, Chabrier IMF), normalised to the GAMA mean (−0.056 dex, K10). GAMA: Taylor et al. 2011 ugrizZY SPS (BC03, Chabrier). Brouwer et al. 2021 §3.3, l. 349, 362, 370."
+    },
+    {
+      "component": "cold gas",
+      "status": "modelled",
+      "note": "Boselli et al. 2014 scaling relation, log(f_cold) = −0.69 log(M★/h70⁻² M☉) + 6.63 (§4.3, l. 409; K11)."
+    },
+    {
+      "component": "hot gas",
+      "status": "known_unmeasured",
+      "note": "Not counted in the fiducial g_bar, which 'serves as a secure lower limit on g_bar' (§4.3, l. 421). One released alternative adds an assumed isothermal halo with M_gas = M★ within 100 h70⁻¹ kpc (Fig. 4 caption, l. 483; §5.2, l. 512)."
+    },
+    {
+      "component": "cool and warm (ionised) gas, dust",
+      "status": "known_unmeasured",
+      "note": "Discussed by the source and not counted (§4.3, l. 419; §5.2, l. 512)."
+    },
+    {
+      "component": "remnants",
+      "status": "not_addressed",
+      "note": ""
+    }
+  ],
+  "x_search_log": "Admitted by D-005 before search logs existed (as v1).",
+  "x_second_reading": "SECOND_READING.md",
+  "x_reproduction": "REPRODUCTION_REV3.md (supersedes REPRODUCTION.md under D-103); result in REPRODUCTION_RESULT.md"
+}

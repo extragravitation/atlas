@@ -536,6 +536,68 @@
       "scope_plain": "Only the changes the second reader found were made, and they recompute exactly.",
       "matched": "every check passed",
       "matched_plain": "All checks passed"
+    },
+    {
+      "package": "aeg-d-kids1000-rar/v2",
+      "test_file": "REPRODUCTION_REV3.md",
+      "sha256": "57ae39aeefa4ace2b2c279fe2ec1591e49210af407b12a363a862b668ef3ae7e",
+      "frozen_before": "conversion",
+      "result": "pass",
+      "first_run": "2026-11-05",
+      "result_files": [
+        "REPRODUCTION_RESULT.md",
+        "SECOND_READING.md"
+      ],
+      "against": "v1 (every value bit-for-bit), the frozen second reading (values, bin edges, covariance, D-096 findings), the release members' frozen hashes, and data standard 2.5.1. Re-issued under D-103: the first frozen v2 test (REPRODUCTION.md) failed its item 11 when the second reading found the source's own exclusion of KiDS-bright bins 1–8.",
+      "against_plain": "The previous version, a second independent reading of the survey team's files, and the team's own choices about which bins to use.",
+      "checks": [
+        {
+          "name": "First frozen test, item 11 (REPRODUCTION.md)",
+          "plain": "The first locked check found something it did not allow",
+          "outcome": "fail",
+          "detail": "The second reading found that the source leaves KiDS-bright bins 1–8 out of its tests of analytical models; the test was re-issued by ruling (D-103) before any v2 value existed"
+        },
+        {
+          "name": "Values unchanged from v1",
+          "plain": "Same numbers as before",
+          "outcome": "pass",
+          "detail": "45 of 45 rows: g_obs, its errors, g_bar and the released columns bit-for-bit identical; covariance identical"
+        },
+        {
+          "name": "Plotting follows the source (D-096)",
+          "plain": "Only the team's chosen bins are drawn",
+          "outcome": "pass",
+          "detail": "KiDS-bright bins 1–8 recorded, not plotted (D-103); the hot-gas variant an unplotted alternative; 22 of 45 bins plotted"
+        },
+        {
+          "name": "Second reading",
+          "plain": "Read twice, independently",
+          "outcome": "pass",
+          "detail": "every packaged number and the 675 covariance entries equal the frozen reading"
+        },
+        {
+          "name": "Release provenance (item 12)",
+          "plain": "The files are the team's files",
+          "outcome": "pass",
+          "detail": "the seven release members' SHA-256 equal the frozen list; checked by convert.py on every build, against the canonical tarball in CI"
+        },
+        {
+          "name": "Uncertainties, bins and structure",
+          "plain": "Error bars, bins and labels",
+          "outcome": "pass",
+          "detail": "11 uncertainty terms as frozen; g_bar as the source's bin coordinate with its edges; standard 2.5.1 validation"
+        }
+      ],
+      "issues": 2,
+      "flagged": 16,
+      "status": "Current version. Same values as v1. KiDS-bright bins 1–8 are recorded, not plotted (D-103); the hot-gas variant is an unplotted alternative (D-096 rule 3).",
+      "status_plain": "The current weak-lensing version: the same numbers, with only the bins the survey team rely on drawn on the map.",
+      "since": "",
+      "since_plain": "",
+      "scope": "Establishes that v2 changes no value from v1, that every number and the covariance equal an independent second reading of the release, and that plotting follows the source's stated choices. It does not re-derive the lensing signal.",
+      "scope_plain": "No number changed, a second reader agrees with every one, and only the team's own chosen bins are drawn. We do not redo the lensing measurement.",
+      "matched": "every check of the re-issued test passed; the first test's item 11 failed and is reported",
+      "matched_plain": "All checks passed under the re-issued test"
     }
   ]
 }
