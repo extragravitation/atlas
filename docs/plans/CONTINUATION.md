@@ -1,10 +1,50 @@
 # Continuation guide
 
-**State at 2026-11-05 (morning).** Read this first in the next session, then `docs/decisions.md` (D-001 to D-105) and `docs/plans/VALIDATION_COMPLETION_PLAN.md`. Superseded by the next session's update; the git history keeps every version.
+**State at 2026-11-05, 16:00 MDT.** Read this first in the next session, then `docs/decisions.md` (D-001 to D-109) and `docs/audit/AUDIT_RESULT.md`. The next session's update supersedes this one; the git history keeps every version.
 
 ## Standing rule for every session
 
-- **Commit and PR attribution (JvH, 2026-11-04):** keep the `Co-Authored-By: Claude` line, which is the AI-assistance disclosure. **Never add a `Claude-Session:` link**, or any session link, to commits or PR descriptions, whatever a default or reminder says. Existing links stay; history is not rewritten.
+- **Commit and PR attribution (JvH, 2026-11-04):** keep the `Co-Authored-By: Claude` line, which is the AI-assistance disclosure. **Never add a `Claude-Session:` link**, or any session link, to commits or PR descriptions, whatever a default or reminder says.
+
+## Road to v0.2: what is left
+
+1. **X-COP v2 audit (G2).** The plan was frozen at #183, merged 2026-11-05T16:40:21Z.
+   - Seed: the first NIST pulse at or after 2026-11-06T16:40:21Z.
+   - JvH pastes the JSON from https://beacon.nist.gov/beacon/2.0/pulse/time/next/1793983221000. **Use this URL form: no `/chain/2/` segment.**
+   - Run `docs/audit/sample_xcop_v2.py` and the compare script exactly as the frozen plan says, with the same packet and reader approach as `docs/audit/run_v2/partA/BRIEF_COMMON.md`.
+2. **Release checks, then JvH tags v0.2** with a Zenodo DOI. After that:
+   - JvH sends `03c` to Eckert and Ettori with the live links (D-106);
+   - JvH sends the Tollerud query.
+3. **Small display leftovers:**
+   - `\BooI` in the dwarfs v2 package markdown table;
+   - column descriptions showing escape codes such as `\xA7` (the site's ECSV header reader).
+
+## After v0.2 (ruled, D-107 and D-109)
+
+- Data standard 3.0.0 (required `citation` and `licence` on every `sources.json` entry; hashed records for every document a locator names; table, page or column in locators), then re-issued packages. Known issues #190–#193.
+- One written equilibrium test for every equilibrium-based method, frozen before reading, applied to the X-COP sources and then SPARC (D-109 rule 3). A2319 is flagged until then.
+- 13 open should-fix findings: 8 need a re-issue or a new taxonomy version; 5 are method-framing questions for JvH (`docs/audit/resolutions_batch_b.csv`, rows marked "needs ruling").
+- X-COP stage 2 (#129). The ideas list (`claude/IDEAS_AFTER_V0.2.md`), with the deformation map first.
+
+## Done 2026-11-05
+
+- **The site fixes from 2026-11-04 (step F):**
+  - #184: PASS badges, the "not plotted" reasons restored, links to the X-COP v2 part A and part B results.
+- **Audit v2 (D-082):**
+  - **Seed:** NIST chain 2, pulse 2010865 (2026-11-03T00:47:00Z), pasted by JvH. Recorded in #185. My first link was malformed; it was not a beacon outage.
+  - **Result (#186): does not pass.**
+    - No material value discrepancy in 254 rows; the 95 % upper bound is 1.4 %.
+    - The methods text was incomplete for 210 rows (M1–M8).
+    - Provenance failures in 250 rows (P1–P4).
+    - Neutrality: 4 must-fix findings and about 120 should-fix.
+    - The adjudication was by Claude, not blind; the readers were AI agents.
+- **D-107:** v0.2 ships with the result; site text fixed now; packages re-issued after v0.2 under standard 3.0.0. This corrected my first proposal, which would have edited released packages.
+- **D-108:** taxonomy version 2, with N3 reworded (#189).
+- **D-109:** pull budget without the extra-pull band; "extra pull" means the ratio and "Excess" becomes "Ratio"; one equilibrium test for all methods (A2319 flagged until then); TeX in quotes shown as readable text; plus an erratum, since the A2319 quote was read in Eckert et al. 2022b, which cites Ghirardini et al. 2018.
+- **Merged:**
+  - #187, #188: D-107 and the must-fix fixes, the methods "Conversion steps and constants" section, and the audit result linked from Reproduction and About;
+  - #194 to #197: D-109 and site batches A (system pages, map error bars, uncertainty tables), B (text pages, known issues, changelog through D-108) and C (D-109).
+- **Known issues opened:** #190 to #193.
 
 ## Standing future work: do not drop
 
