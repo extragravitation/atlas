@@ -42,7 +42,7 @@ const toc = [['stance', 'Stance'], ['quantities', 'What is measured'], ['baselin
         <ul>
           <li><b>g_obs</b>, the observed acceleration: inferred from motions (dynamics) or from light-bending (lensing), as the source measured it.</li>
           <li><b>g_bar</b>, the baryonic acceleration: Newtonian gravity from the baryonic matter the source detected (stars and gas), at the same radius.</li>
-          <li><b>g_obs / g_bar</b>, the acceleration discrepancy. Equal to 1 where Newtonian gravity on detected matter accounts for the observed acceleration.</li>
+          <li><b>g_obs / g_bar</b>, the acceleration discrepancy. Equal to 1 where g_obs = g_bar; below 1 where g_obs is less than g_bar.</li>
         </ul>
         <p>g_obs and g_bar are themselves inferred from what was observed: rotation speeds, velocity dispersions, X-ray temperatures and densities, lensing signals, starlight and gas. System pages show these source quantities in an <b>As measured</b> panel; under data standard 2.0 (D-029) every package records them with the processing steps that led to them.</p>
         <p>All accelerations are in m s⁻², radii in kpc. The conventional name for the same comparison is the "mass discrepancy"; the Atlas does not use it, because it presumes the difference is due to mass.</p>
@@ -50,7 +50,7 @@ const toc = [['stance', 'Stance'], ['quantities', 'What is measured'], ['baselin
         <ul>
           <li><b>Observed pull</b>: how strong gravity is, worked out from how things move or how light bends.</li>
           <li><b>Pull from detected matter</b>: how strong gravity should be from the stars and gas that were detected, using Newton’s law.</li>
-          <li><b>Extra pull</b>: how many times stronger the observed pull is. A value of 1 means no extra pull.</li>
+          <li><b>Extra pull</b>: observed pull ÷ pull from detected matter. 1 means they are equal; below 1, the observed pull is less.</li>
         </ul>
       </Fragment></Layer>
 
@@ -241,7 +241,8 @@ const toc = [['stance', 'Stance'], ['quantities', 'What is measured'], ['baselin
         <tbody>
           <tr><td class="l">g_obs, observed acceleration</td><td class="l">observed pull</td></tr>
           <tr><td class="l">g_bar, baryonic acceleration (Newtonian, detected baryons)</td><td class="l">pull from detected matter</td></tr>
-          <tr><td class="l">g_obs / g_bar, acceleration discrepancy</td><td class="l">extra pull</td></tr>
+          <tr><td class="l">g_obs / g_bar, acceleration discrepancy</td><td class="l">extra pull (observed pull ÷ pull from detected matter; 1 = equal, below 1 = less)</td></tr>
+          <tr><td class="l">g_obs − g_bar, the difference</td><td class="l">difference between the observed pull and the pull from detected matter</td></tr>
           <tr><td class="l">dynamics</td><td class="l">motions</td></tr>
           <tr><td class="l">gravitational lensing</td><td class="l">light-bending</td></tr>
         </tbody>

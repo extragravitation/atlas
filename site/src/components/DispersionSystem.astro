@@ -3,6 +3,7 @@
 // first case: globular clusters, D-025, D-036 ii, D-045). Everything shown is read from the
 // package tables and checks/; nothing is computed here except unit conversions for display.
 import L from './L.astro';
+import Quote from './Quote.astro';
 import SystemUncertainties from './SystemUncertainties.astro';
 import { loadAtlas } from '../lib/atlas.mjs';
 
@@ -54,7 +55,7 @@ const halfR = R.distance_mpc && P.r_h_pc ? (P.r_h_pc / (R.distance_mpc * 1e6)) *
 ) : (
   <div class="boxed">
     <p><b><L t="Not plotted." p="Not on the map." /></b> <L t="Reasons, as recorded in the package:" p="Why:" /></p>
-    <ul class="small">{(P.reasons_not_plotted || []).map((r) => <li>{r}</li>)}</ul>
+    <ul class="small">{(P.reasons_not_plotted || []).map((r) => <li><Quote text={r} /></li>)}</ul>
   </div>
 )}
 {alts.length > 0 && (
@@ -62,7 +63,7 @@ const halfR = R.distance_mpc && P.r_h_pc ? (P.r_h_pc / (R.distance_mpc * 1e6)) *
     <h3><L t="Other values (not plotted)" p="Other values kept in the record" /></h3>
     <div tabindex="0" class="tablebox"><table>
       <thead><tr><th class="l">Dataset</th><th>σ (km s⁻¹)</th><th>Light coverage</th><th>g_obs (10⁻¹⁰ m s⁻²)</th><th>g_bar</th><th class="l">Why not plotted</th></tr></thead>
-      <tbody>{alts.map((r) => <tr><td class="l">{r.x_gc_baumgardt_dataset}</td><td>{fmt(r.x_gc_baumgardt_sigma)}</td><td>{(r.x_gc_baumgardt_coverage * 100).toFixed(0)}%</td><td>{e10(r.g_obs)}</td><td>{e10(r.g_bar)}</td><td class="l">{r.not_plotted_reason}{r.notes ? ` · ${r.notes}` : ''}</td></tr>)}</tbody>
+      <tbody>{alts.map((r) => <tr><td class="l">{r.x_gc_baumgardt_dataset}</td><td>{fmt(r.x_gc_baumgardt_sigma)}</td><td>{(r.x_gc_baumgardt_coverage * 100).toFixed(0)}%</td><td>{e10(r.g_obs)}</td><td>{e10(r.g_bar)}</td><td class="l"><Quote text={`${r.not_plotted_reason || ''}${r.notes ? ` · ${r.notes}` : ''}`} /></td></tr>)}</tbody>
     </table></div>
   </>
 )}

@@ -10,6 +10,8 @@ import DwarfSystem from '../../components/DwarfSystem.astro';
 import LensSystem from '../../components/LensSystem.astro';
 import UncertaintyTerms from '../../components/UncertaintyTerms.astro';
 import Excluded from '../../components/Excluded.astro';
+import Quote from '../../components/Quote.astro';
+import EqFlag from '../../components/EqFlag.astro';
 import { isLensing } from '../../lib/lensing.mjs';
 import { loadAtlas, ringed } from '../../lib/atlas.mjs';
 import { datasetLabel, assumptionLabel, sigFig } from '../../lib/labels.mjs';
@@ -114,17 +116,16 @@ const cfg = {
   dataset: d.key, system: sys.id, names,
   acc: ['Acceleration (10⁻¹⁰ m s⁻²)', 'Pull (10⁻¹⁰ m s⁻²)'],
   spd: ['Circular speed √(g r) (km s⁻¹)', 'Equivalent orbital speed (km s⁻¹)'],
-  share: ['g_bar / g_obs', 'Share explained'],
+  share: ['g_bar / g_obs', 'Share matched'],
   gbar: ['g_bar, Newtonian gravity on detected matter (total)', 'Pull from all detected matter'],
   vbar: ['V_bar = √(g_bar r)', 'Orbital speed the detected matter would give'],
   gobs: ['g_obs, observed', 'Observed pull'],
   vobs: ['V_obs = √(g_obs r)', 'Observed orbital speed'],
-  rem: ['g_obs − g_bar, the difference', 'Extra pull: observed minus detected'],
   ebText: d.terms ? 'g_bar uncertainty as the source gives it (one sigma). It is shared by the whole system, not independent from point to point: see Uncertainties below' : 'g_bar uncertainty (one sigma, as the source gives it or as the Atlas propagates it; see Methods)',
-  ariaAcc: [`Pull budget of ${sys.name}: baryonic components stacked against radius, with the observed acceleration as points`, `How much of the pull in ${sys.name} is matched by Newton’s gravity from the detected matter, at each distance from the centre`],
+  ariaAcc: [`Pull budget of ${sys.name}: detected baryonic components stacked against radius, their sum g_bar, with g_obs as points`, `The observed pull in ${sys.name}, and the pull from each kind of detected matter added up, at each distance from the centre`],
   ariaSpeed: [`Speeds of ${sys.name}: circular speed from each baryonic component and from g_obs, against radius`, `Orbital speeds in ${sys.name}: observed, and what the detected matter would give`],
-  ariaShare: [`Share g_bar / g_obs against radius for ${sys.name}`, `Share of the observed pull explained by detected matter in ${sys.name}`],
-  capAcc: ['Baryonic components (Newtonian, from the source) stacked; their sum is g_bar. Points: g_obs. The light band between them is the difference g_obs − g_bar.', 'Coloured layers: the pull from each kind of detected matter, added up. Points: the observed pull. The pale band is the extra pull.'],
+  ariaShare: [`g_bar / g_obs against radius for ${sys.name}`, `Share of the observed pull matched by Newton’s gravity from detected matter in ${sys.name}, at each distance from the centre`],
+  capAcc: ['Detected baryonic components (Newtonian, from the source) stacked; their sum is g_bar (line). Points: g_obs. Only detected components are drawn (D-109).', 'Coloured layers: the pull from each kind of detected matter, added up (line). Points: the observed pull. Only matter that was detected is drawn.'],
   capSpeed: ['Equivalent circular speed √(g r) for g_obs and for each baryonic component; components add in quadrature, not linearly, so they are drawn as lines.', 'The same accelerations written as orbital speeds. Speeds from the separate kinds of matter do not simply add, so each is drawn as its own line.'],
 };
 const desc = `${sys.name}: ${lab.kind_t.toLowerCase()} in ${lab.t}. Observed acceleration against Newtonian gravity on detected matter at ${rows.length} radii.`;
@@ -179,16 +180,17 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
       <p class="kicker"><a href={`${base}systems/`} style="color:inherit">Systems</a> · {lab.t} · {sys.id}</p>
       <h1>{sys.name}</h1>
       <Excluded sys={sys} />
+      <EqFlag dataset={d.key} system={sys.id} />
       <p class="lede"><L t={`${R.class_in_source}. ${lab.method_t}. ${rows.length} radii, ${fmtR(rMin)}–${fmtR(rMax)} kpc.`} p={`${lab.one_p || lab.kind_p}. Measured at ${rows.length} distances from the centre, ${fmtR(rMin)} to ${fmtR(rMax)} kpc.`} /></p>
       {d.key === 'aeg-d-xcop/v2' && noteSegs.length > 0 && <section class="boxed" id="notes" style="margin:12px 0 18px">
         <h2 style="margin-top:0"><L t="Notes on these values" p="Notes on these numbers" /></h2>
         {d092Note && <Layer as="p"><Fragment slot="t">{d092Note}</Fragment><Fragment slot="p">{"The published pull from detected matter for this cluster doesn't match the separate files we were given. We show the published values and have asked the authors."}</Fragment></Layer>}
         {hseNotes.length > 0 && <>
           <p class="small"><L t="The source's own statements on whether this cluster's gas is in hydrostatic equilibrium, in file order (on every row of this cluster):" p="What the source says about whether this cluster's hot gas is settled, in its own words:" /></p>
-          <ul class="small">{hseNotes.map((s) => <li>{s}</li>)}</ul>
-          <Layer as="p"><Fragment slot="t">{"The Atlas rule that removes systems a source calls out of equilibrium (D-025; D-097 to D-100) applies to velocity-dispersion measurements only. This cluster's hydrostatic values are therefore plotted, with the source's own statements shown above (part A §5)."}</Fragment><Fragment slot="p">{"For star clusters and dwarf galaxies, a statement like this from the source takes the system off the map. That rule is for a different kind of measurement, so this cluster stays on the map, with the source's own words shown."}</Fragment></Layer>
+          <ul class="small">{hseNotes.map((s) => <li><Quote text={s} /></li>)}</ul>
+          <Layer as="p"><Fragment slot="t">{"The Atlas rule that removes systems a source calls out of equilibrium (D-025; D-097 to D-100) is so far written for velocity-dispersion measurements. D-109 rule 3 extends one written equilibrium test to hydrostatic masses and rotation curves, to be applied after v0.2. Until then this cluster's hydrostatic values stay plotted, with the source's own statements shown above (part A §5)."}</Fragment><Fragment slot="p">{"For star clusters and dwarf galaxies, a statement like this from the source takes the system off the map. That rule was written for a different kind of measurement. One test for every method is to be applied after version 0.2; until then this cluster stays on the map, with the source's own words shown."}</Fragment></Layer>
         </>}
-        {otherNotes.length > 0 && <ul class="small">{otherNotes.map((s) => <li>{s}</li>)}</ul>}
+        {otherNotes.length > 0 && <ul class="small">{otherNotes.map((s) => <li><Quote text={s} /></li>)}</ul>}
       </section>}
 
       <h2 id="budget"><L t="Pull budget" p="Observed pull and the pull from detected matter" /></h2>
@@ -227,7 +229,7 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
       <h3><L t="Detected matter counted in g_bar" p="What the detected matter includes" /></h3>
       <ul class="small">{inventory.map(([k, v, extra]) => <li><b><L t={k[0]} p={k[1]} /></b>: <L t={v[0] + extra} p={v[1] + extra} /></li>)}</ul>
       <p class="small"><L t="From the status columns of this system’s rows (D-034); where a row records a component as absent, the reason comes from the package’s baryon inventory (x_baryon_inventory)." p="Matter marked “not counted” adds nothing to the pull from detected matter. The list below says why." /></p>
-      {inv.length > 0 && <details class="small"><summary><L t="Baryon inventory of the dataset" p="Every kind of matter the dataset considers" /></summary><ul>{inv.map((e) => <li><b>{e.component}</b>: {INV_STATUS[e.status] || e.status}{(e.citation || e.note) ? <span class="muted"> · {e.citation || e.note}</span> : ''}</li>)}</ul></details>}
+      {inv.length > 0 && <details class="small"><summary><L t="Baryon inventory of the dataset" p="Every kind of matter the dataset considers" /></summary><ul>{inv.map((e) => <li><b>{e.component}</b>: {INV_STATUS[e.status] || e.status}{(e.citation || e.note) ? <span class="muted"> · <Quote text={e.citation || e.note} /></span> : ''}</li>)}</ul></details>}
       </div>
       <div class="post">
       <h2 id="facts"><L t="Facts" p="About this system" /></h2>

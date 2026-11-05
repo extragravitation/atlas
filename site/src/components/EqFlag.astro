@@ -1,0 +1,13 @@
+---
+// Equilibrium flag on a plotted system (D-109 rule 3). The quote and where it was read come from
+// lib/flags.mjs, which checks them against the package's reading record at build.
+import Layer from './Layer.astro';
+import { flagFor } from '../lib/flags.mjs';
+const { dataset, system } = Astro.props;
+const f = flagFor(dataset, system);
+const from = f ? `${f.where}${f.cites ? `, citing ${f.cites}` : ''}` : '';
+---
+{f && <section class="eqflag" id="flag" aria-labelledby="flag-h">
+  <Layer as="p"><Fragment slot="t"><b id="flag-h">Flag: source states a breakdown of equilibrium ({f.decision}).</b> The source says this cluster shows “{f.quote}” ({from}). The g_obs values here are hydrostatic estimates, which assume equilibrium. They stay plotted, with this flag, until one written equilibrium test for every equilibrium-based method, frozen before it is applied, has been applied by two independent readers to the X-COP sources after v0.2 ({`${f.decision} ${f.rule}`}).</Fragment><Fragment slot="p"><b>Note: the source says this cluster’s gas is not settled.</b> The scientists who measured it report “{f.quote}”. The way the observed pull is worked out here assumes settled gas. The cluster stays on the map with this note until one written test, the same for every method, is applied after version 0.2.</Fragment></Layer>
+  <p class="small"><a href={f.decisionUrl}>{f.decision}</a> · <a href={f.recordUrl}>Reading record</a> (hse_statements.csv, row {f.order})</p>
+</section>}

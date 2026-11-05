@@ -6,6 +6,7 @@ import path from 'node:path';
 import Base from '../layouts/Base.astro';
 import L from '../components/L.astro';
 import Layer from '../components/Layer.astro';
+import EpochCut from '../components/EpochCut.astro';
 import { ROOT, loadAtlas } from '../lib/atlas.mjs';
 import { datasetLabel, datasetCount, datasetNames, plottedSystemCount, joinAnd } from '../lib/labels.mjs';
 import { md, REPO } from '../lib/md.mjs';
@@ -81,6 +82,7 @@ const inHand = atlas.datasets.map((d) => {
 
       <h2 id="epoch-gap"><L t="The cosmic-epoch gap" p="Earlier in the history of the universe" /></h2>
       <Layer as="p"><Fragment slot="t">v1.0 plots a system with its own redshift only if that redshift, as printed by the source, is below 0.30 (D-066). Systems at or above it are recorded in full, flagged epoch_gap_v1, and counted here as part of the documented gap in cosmic epoch (D-033 item 5). They have no point on the map. Stacked samples whose bins span a range of redshift are not covered by this count (D-066 item 4).</Fragment><Fragment slot="p">This version only puts on the map objects near enough (redshift below 0.30). Farther objects, whose light set out longer ago, are kept in the record and counted here, so the gap is visible.</Fragment></Layer>
+      <EpochCut />
       {gapRows.length > 0 ? (
         <div class="tablebox" tabindex="0" style="max-height:none;margin-top:8px" role="region" aria-label="Systems in the epoch gap"><table><thead><tr><th class="l">Dataset</th><th class="l"><L t="Survey" p="From" /></th><th><L t="Systems at z ≥ 0.30" p="Farther objects" /></th><th class="l"><L t="Redshift range (as printed)" p="Redshift range" /></th></tr></thead><tbody>
           {gapRows.map((g) => <tr><td class="l"><a href={`${base}datasets/${g.d.name}/${g.d.version}/#epoch-gap`}>{datasetLabel(g.d.name).t}</a></td><td class="l">{g.survey}</td><td>{g.n}</td><td class="l">{g.z}</td></tr>)}

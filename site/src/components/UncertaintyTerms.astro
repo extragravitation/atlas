@@ -4,6 +4,8 @@
 // system (size_column, in the systems table or, from 2.4.0, in the measurements table) are resolved
 // for it. Everything shown is read from the package; nothing is filled in.
 import L from './L.astro';
+import Layer from './Layer.astro';
+import Quote from './Quote.astro';
 const { d, sys = null, compact = false } = Astro.props;
 const terms = d.terms || [];
 const SCALE = {
@@ -223,13 +225,13 @@ const nSys = (t) => String(t.applies_to || '').split(';').filter(Boolean).length
     <table>
       <thead><tr><th class="l" scope="col"><L t="Uncertainty" p="Uncertainty" /></th><th class="l" scope="col"><L t="Scale" p="Affects" /></th><th class="l" scope="col"><L t="Moves" p="Moves" /></th><th class="l" scope="col"><L t="Status" p="Given?" /></th><th class="l" scope="col"><L t="Size" p="Size" /></th>{hasInErr && <th class="l" scope="col"><L t="In error columns" p="In the error bars?" /></th>}{!compact && <th class="l" scope="col"><L t="Source" p="Source" /></th>}</tr></thead>
       <tbody>{rows.map(({ t, sz }) => { const n = NAMES[base(t.term_id)] || [t.term_id.replace(/_/g, ' '), t.term_id.replace(/_/g, ' '), 'See the dataset page.']; const slider = t.assumption_id && sliderIds.has(t.assumption_id); return <tr>
-        <td class="l termcell"><b><L t={n[0]} p={n[1]} /></b>{!sys && t.applies_to !== '*' && <span class="small"> <L t={`(applies to ${nSys(t)} system${nSys(t) === 1 ? '' : 's'})`} p={`(${nSys(t)} system${nSys(t) === 1 ? '' : 's'} only)`} /></span>}<br /><span class="small"><L t={t.note || '—'} p={n[2] + (slider ? ' It can be changed with a slider on the map.' : '')} /></span></td>
+        <td class="l termcell"><b><L t={n[0]} p={n[1]} /></b>{!sys && t.applies_to !== '*' && <span class="small"> <L t={`(applies to ${nSys(t)} system${nSys(t) === 1 ? '' : 's'})`} p={`(${nSys(t)} system${nSys(t) === 1 ? '' : 's'} only)`} /></span>}<br /><span class="small"><Layer as="span"><Fragment slot="t"><Quote text={t.note || '—'} /></Fragment><Fragment slot="p">{n[2] + (slider ? ' It can be changed with a slider on the map.' : '')}</Fragment></Layer></span></td>
         <td class="l"><L t={SCALE[t.scale]?.[0] || t.scale} p={SCALE[t.scale]?.[1] || t.scale} /></td>
         <td class="l"><L t={MOVES[t.moves]?.[0] || t.moves} p={MOVES[t.moves]?.[1] || t.moves} /></td>
         <td class="l"><L t={STATUS[t.status]?.[0] || t.status} p={STATUS[t.status]?.[1] || t.status} /></td>
         <td class="l">{sz ? <L t={sz[0]} p={sz[1]} /> : '–'}</td>
         {hasInErr && <td class="l">{IN_ERR[t.in_error_columns] ? <L t={IN_ERR[t.in_error_columns][0]} p={IN_ERR[t.in_error_columns][1]} /> : '–'}</td>}
-        {!compact && <td class="l small srccell">{t.citation}{t.locator ? ` — ${t.locator}` : ''}</td>}
+        {!compact && <td class="l small srccell"><Quote text={`${t.citation || ''}${t.locator ? ` — ${t.locator}` : ''}`} /></td>}
       </tr>; })}</tbody>
     </table>
   </div>

@@ -4,6 +4,7 @@
 import { loadAtlas } from './atlas.mjs';
 import { md } from './md.mjs';
 import { marked } from 'marked';
+import { tex } from './tex.mjs';
 
 const API = 'https://api.github.com/repos/extragravitation/atlas/issues?labels=known-issue&state=all&per_page=100';
 let cache = null;
@@ -29,6 +30,10 @@ function whatOf(body) {
   t = t.replace(/^\*\*What[:.]\*\*\s*/, '');
   return t.trim() || null;
 }
+
+// Quoted source text with TeX (a citation command, or $…$ holding a TeX command) is shown readably;
+// the text as written stays available under "show as read" (D-109 rule 4). Code blocks are left alone.
+const texy = (s) => !!s && !/```/.test(s) && /\\cite[a-z]*[\[{]|\$[^$\n`]*\\[A-Za-z][^$\n`]*\$/.test(s);
 
 export async function loadIssues() {
   if (cache) return cache;
@@ -61,7 +66,8 @@ export async function loadIssues() {
       number: n, url: g ? g.html_url : ls[0]?.url, title: g ? g.title : ls[0]?.title,
       state: g ? g.state : 'open', status: statusRaw, statusHtml: inline(statusRaw),
       found: g ? field(g.body, 'Found') || g.created_at.slice(0, 10) : null, foundHtml: g ? inline(field(g.body, 'Found') || g.created_at.slice(0, 10)) : '', closed: g?.closed_at ? g.closed_at.slice(0, 10) : null,
-      whatHtml: what ? md(esc(what)) : '',
+      whatHtml: what ? md(esc(texy(what) ? tex(what) : what)) : '',
+      whatRaw: what && texy(what) ? what : null,
       // Dataset versions the issue names in its body, e.g. `aeg-d-dwarfs/v1` (issues not listed in a package file).
       mentions: g ? [...new Set(((g.title || '') + '\n' + (g.body || '')).match(/aeg-d-[a-z0-9-]+\/v\d+/g) || [])] : [],
       packages: ls.map((k) => ({ dataset: k.dataset, name: k.datasetName, version: k.version, flag: k.flag, measurements: k.measurements || [], clusters: k.clusters || [] })),

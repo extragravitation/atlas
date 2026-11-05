@@ -2430,3 +2430,5 @@ The frozen KiDS v2 test (item 11) makes any such finding a fail of that item. Th
 - For TeX: a maths-rendering library.
 
 **Data seen.** The audit findings. No new data.
+
+**Erratum (2026-11-05, Claude, recorded with the implementation).** Rule 3 attributes the A2319 quote to Ghirardini et al. 2018. The Atlas read that sentence in Eckert et al. 2022b (Paper II, A&A 666, A41; arXiv 2205.01123v1, `einasto.tex` l. 80), which cites Ghirardini et al. 2018 for it (`aeg-d-xcop/v2/reading/hse_statements.csv`, row 27). Ghirardini et al. 2018 itself has not been read. The site cites the place where the quote was read. The ruling is unchanged.

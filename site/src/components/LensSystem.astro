@@ -4,6 +4,8 @@
 // reported checks. Everything shown is read from the package files; the only arithmetic here turns the
 // package's accelerations into masses inside the same cylinder (M = g R_E² / G = g × M_E / g_obs).
 import L from './L.astro';
+import Quote from './Quote.astro';
+import EpochCut from './EpochCut.astro';
 import Layer from './Layer.astro';
 import SystemUncertainties from './SystemUncertainties.astro';
 import { lensPackage, cosmologyRows, kindWords, surveyName } from '../lib/lensing.mjs';
@@ -132,9 +134,10 @@ const gapRows = gap ? Object.entries(P.readings || {}).flatMap(([scope, e]) => [
 ) : (
   <div class="boxed">
     <p><b><L t="Not plotted." p="Not on the map." /></b> <L t="Reasons, as recorded in the package:" p="Why:" /></p>
-    <ul class="small">{(P.reasons_not_plotted || []).map((r) => <li>{r}</li>)}</ul>
+    <ul class="small">{(P.reasons_not_plotted || []).map((r) => <li><Quote text={r} /></li>)}</ul>
     <p class="small"><L t={`Survey: ${P.scope}. Lens redshift ${R.redshift ?? '–'}${zs != null ? `, source redshift ${zs}` : ''} (${R.distance_ref || 'as printed'}).`} p={`From ${surveyName((P.scope || '').split(' | ')[0])}.`} /></p>
     {gap && <p class="small"><L t={`Epoch gap (D-066 item 2): flagged epoch_gap_v1. No g_obs or g_bar is computed for lenses at z_l ≥ 0.30 in this version.${P.z_l_all_readings && P.z_l_all_readings.length > 1 ? ` The readings give z_l = ${P.z_l_all_readings.join(', ')}; the redshift column holds the lowest, so the cut holds for every reading.` : ''}`} p="This lens is far enough away that its light set out long ago. This version of the Atlas records it but leaves it off the map." /></p>}
+    {gap && <EpochCut />}
   </div>
 )}
 
@@ -144,7 +147,7 @@ const gapRows = gap ? Object.entries(P.readings || {}).flatMap(([scope, e]) => [
     <Layer as="p" class="small"><Fragment slot="t">{differ ? 'The two independent readings differ on at least one item (flag readers_differ). Both are kept; nothing was chosen between them, and differing rows are marked. ' : 'The two independent readings agree on every item below. '}Methods are shown as each reader wrote them. Identifiers: {(P.identifiers || []).join(' · ')}.</Fragment><Fragment slot="p">Two people read the paper separately. {differ ? 'Where they wrote different things, both are shown and marked.' : 'They wrote the same things.'}</Fragment></Layer>
     <div tabindex="0" class="tablebox wrapcells" style="max-height:none;margin-top:8px" role="region" aria-label="Readings of this lens"><table>
       <thead><tr><th class="l"><L t="Survey" p="From" /></th><th class="l"><L t="Item" p="What" /></th><th class="l"><L t="Reader A" p="First reader" /></th><th class="l"><L t="Reader B" p="Second reader" /></th><th class="l"><L t="Readers" p="Same?" /></th></tr></thead>
-      <tbody>{gapRows.map((r) => <tr><td class="l">{r.scope}</td><td class="l">{r.label}</td><td class="l">{r.a}</td><td class="l">{r.b}</td><td class="l">{r.diff ? <b><L t="differ" p="differ" /></b> : <L t="agree" p="same" />}</td></tr>)}</tbody>
+      <tbody>{gapRows.map((r) => <tr><td class="l">{r.scope}</td><td class="l">{r.label}</td><td class="l"><Quote text={r.a} /></td><td class="l"><Quote text={r.b} /></td><td class="l">{r.diff ? <b><L t="differ" p="differ" /></b> : <L t="agree" p="same" />}</td></tr>)}</tbody>
     </table></div>
     <p class="small" style="margin-top:6px"><L t={`Kind used for this lens: ${R.taxonomy_kind}, ${R.kind_label}. Lens redshift from ${(R.distance_ref || '').replace(/^lens redshift /, '')}.`} p="Read straight from the papers; not yet checked by a third person." /> <a href={`${REPO}/blob/main/${repoDir}/SECOND_READING.md#epoch-gap-systems-d-066-item-2`}>SECOND_READING.md</a></p>
   </>
@@ -241,7 +244,7 @@ const gapRows = gap ? Object.entries(P.readings || {}).flatMap(([scope, e]) => [
       <div><dt>Ω_m</dt><dd>{def.x_strong_lensing_om} <span class="small">(flat, Ω_Λ = 1 − Ω_m)</span></dd></div>
       <div><dt><L t="Read from" p="From" /></dt><dd>{recs.observed}</dd></div>
     </dl>
-    {cosmo.length > 0 && <ul class="small" style="margin-top:8px">{cosmo.map((c) => <li><b>{c.quantity}</b> = {c.value} · {c.location}{c.note ? <> · <span class="muted">{c.note}</span></> : ''}{c.url && <> · <a href={c.url}>source</a></>}</li>)}</ul>}
+    {cosmo.length > 0 && <ul class="small" style="margin-top:8px">{cosmo.map((c) => <li><b>{c.quantity}</b> = <Quote text={c.value} /> · {c.location}{c.note ? <> · <span class="muted"><Quote text={c.note} /></span></> : ''}{c.url && <> · <a href={c.url}>source</a></>}</li>)}</ul>}
     {['flat_from_omega_lambda', 'cosmology_named_only', 'cosmology_by_reference', 'flatness_not_stated'].filter((f) => pkgFlags.includes(f)).map((f) => <p class="small flagnote" style="margin-top:4px"><code>{f}</code>: <L t={FLAG[f][0]} p={FLAG[f][1]} /></p>)}
 
     <h2 id="gas"><L t="Gas inside R_E" p="Gas inside the ring" /></h2>
@@ -253,7 +256,7 @@ const gapRows = gap ? Object.entries(P.readings || {}).flatMap(([scope, e]) => [
         <tr><td class="l"><L t="Cold gas (molecular + atomic)" p="Cold gas" /></td><td>{pct(def.x_strong_lensing_gas_cold_frac)}</td><td>{pct(def.x_strong_lensing_gas_cold_frac_min)}–{pct(def.x_strong_lensing_gas_cold_frac_max)}</td><td>{m10((def.g_bar_gas_cold || 0) * fig.k)}</td></tr>
       </tbody>
     </table></div>
-    {def.x_strong_lensing_gas_statement && <p class="small" style="margin-top:8px"><b><L t="Source statement:" p="What the paper says:" /></b> {def.x_strong_lensing_gas_statement}</p>}
+    {def.x_strong_lensing_gas_statement && <div class="small" style="margin-top:8px"><b><L t="Source statement:" p="What the paper says:" /></b> <Quote text={def.x_strong_lensing_gas_statement} /></div>}
     <p class="small" style="margin-top:8px"><L t="Evidence:" p="Where the gas share comes from:" /> <a href={`${REPO}/blob/main/${repoDir}/reading/gas/adjudication_gas.md`}>reading/gas/adjudication_gas.md</a> (<L t="measurement table and quotes" p="the measurements and quotes" />) · <a href={`${REPO}/blob/main/docs/decisions.md#d-076--a6-strong-lensing-gas-term-salpeter-top-for-s4tm-snl-1-record-data-standard-210`}>D-076</a> · <a href={`${dsPage}#assumptions`}><L t="registry entry" p="all assumptions" /></a></p>
   </>
 )}

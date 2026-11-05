@@ -3,6 +3,7 @@
 // structure, distance and magnitude from the double-read originals (D-048 to D-062). Everything
 // shown is read from the package tables; nothing is computed here except unit conversions.
 import L from './L.astro';
+import Quote from './Quote.astro';
 import SystemUncertainties from './SystemUncertainties.astro';
 
 const { sys, d, lab } = Astro.props;
@@ -55,7 +56,7 @@ const FLAG_T = {
   </dl>
 ) : (
   <div class="boxed">
-    <p><b><L t="Not plotted." p="Not on the map." /></b> {P.reason_not_plotted || 'No dispersion that passes the plotting rules.'}</p>
+    <div><b><L t="Not plotted." p="Not on the map." /></b> <Quote text={P.reason_not_plotted || 'No dispersion that passes the plotting rules.'} /></div>
   </div>
 )}
 

@@ -8,6 +8,7 @@ import { parseECSV, splitCSV, toCSV } from '../src/lib/ecsv.mjs';
 import { parse, evaluate, names } from '../src/formula.mjs';
 import { fmtParam, sigFig } from '../src/lib/labels.mjs';
 import { md, resultLine } from '../src/lib/md.mjs';
+import { tex, texHtml, hasTex } from '../src/lib/tex.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const tables = fs.readdirSync(path.join(ROOT, 'data/packages')).flatMap((n) => fs.readdirSync(path.join(ROOT, 'data/packages', n)).flatMap((v) => {
@@ -77,4 +78,15 @@ test('markdown: relative links go to the repository; result lines are read', () 
   assert.match(md('[t](https://example.org)'), /href="https:\/\/example.org"/);
   assert.deepEqual(resultLine('**Result: PASSED** (x)'), { text: 'PASSED', pass: true });
   assert.equal(resultLine('**Result: FAILED** for 3').pass, false);
+});
+
+test('TeX in quotes is shown readably; text without TeX is unchanged (D-109 rule 4)', () => {
+  const q = String.raw`clear evidence of a breakdown of hydrostatic equilibrium \citep[A2319,][]{ghirardini18}, valid at the $\lesssim20\%$ level out to $R_{200}$`;
+  assert.equal(tex(q), 'clear evidence of a breakdown of hydrostatic equilibrium (A2319, citation), valid at the ≲20% level out to R₂₀₀');
+  assert.equal(texHtml(q), 'clear evidence of a breakdown of hydrostatic equilibrium (A2319, citation), valid at the ≲20% level out to R<sub>200</sub>');
+  assert.equal(tex(String.raw`NGC~2298 \citep{a, b}`), 'NGC 2298 (citation)');
+  assert.equal(tex(String.raw`$1 \sigma$ $z=0.041\pm0.001$ $\alpha\gtrsim 0.5$ $3\times10$`), '1 σ z=0.041±0.001 α≳ 0.5 3×10');
+  assert.equal(texHtml(String.raw`$M_{\rm star}$ $10^{-3}$ $150\,{\rm km}$`), 'M<sub>star</sub> 10<sup>-3</sup> 150 km');
+  assert.equal(texHtml(String.raw`$a < b$`), 'a &lt; b');
+  for (const plain of ['g_obs / g_bar ~ 1', 'x_gc_baumgardt_log_rh_err_lo', 'Ω_m as stated']) { assert.equal(hasTex(plain), false); assert.equal(tex(plain), plain); }
 });

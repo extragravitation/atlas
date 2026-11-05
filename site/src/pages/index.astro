@@ -5,6 +5,8 @@ import Layer from '../components/Layer.astro';
 import Slider from '../components/Slider.astro';
 import { loadAtlas, ringed } from '../lib/atlas.mjs';
 import { datasetLabel } from '../lib/labels.mjs';
+import { systemFlags } from '../lib/flags.mjs';
+import { decisionUrl } from '../lib/refs.mjs';
 
 const atlas = loadAtlas();
 const weight = {}, ds = {};
@@ -38,7 +40,7 @@ const labels = {
   line: ['g_obs = g_bar · Newtonian gravity on detected matter', 'No extra pull: Newton’s gravity from the matter we detect'],
   zero: ['g_obs = g_bar', 'No extra pull'],
   aria_obs: ['Map of observed against baryonic acceleration for every packaged measurement, log axes, with the line g_obs = g_bar', 'Map of the observed pull against the pull from detected matter for every measurement'],
-  aria_ex: ['Acceleration discrepancy against baryonic acceleration for every packaged measurement', 'Extra pull against the pull from detected matter'],
+  aria_ratio: ['Acceleration discrepancy against baryonic acceleration for every packaged measurement', 'Extra pull against the pull from detected matter'],
   aria_rad: ['Acceleration discrepancy against radius for every packaged measurement with a radius', 'Extra pull against distance from the centre'],
   xm: ['log M_bar(<r), baryonic mass within r (M☉)', 'Mass of detected matter within that distance (log, M☉)'], xms: ['log M_bar (M☉)', 'Detected mass (log, M☉)'],
   ym: ['log M_obs(<r) = g_obs r² / G (M☉)', 'Mass implied by the observed pull (log, M☉)'], yms: ['log M_obs (M☉)', 'Implied mass (log, M☉)'],
@@ -48,7 +50,7 @@ const labels = {
   aria_speed: ['Equivalent circular speed from the observed acceleration against radius, log axes', 'Orbital speed from the observed pull against distance from the centre'],
   lens: {
     obs: ['<b>Acceleration lens.</b> Observed against Newtonian baryonic acceleration, measurement by measurement: the plane used in radial-acceleration-relation studies.', '<b>Pull view.</b> Each mark compares the pull we see with the pull the detected matter gives, at one place.'],
-    ex: ['<b>Acceleration lens, excess form.</b> log (g_obs / g_bar) against g_bar.', '<b>Extra-pull view.</b> How many times stronger the observed pull is, against the pull from detected matter.'],
+    ratio: ['<b>Ratio lens.</b> log (g_obs / g_bar), the acceleration discrepancy, against g_bar. Zero is g_obs = g_bar; below zero, g_obs is less than g_bar.', '<b>Ratio view.</b> Observed pull ÷ pull from detected matter (1 = equal; below 1 = less), on a log scale, against the pull from detected matter.'],
     mass: ['<b>Mass lens.</b> Spherical-equivalent enclosed mass, M(&lt;r) = g r² / G, for both sides: the framing of mass-modelling studies. For discs it is a convention, not the true enclosed mass. M_obs / M_bar equals g_obs / g_bar at every point; only the axes change.', '<b>Mass view.</b> The same measurements written as masses: how much mass the observed pull implies within each distance, against the detected mass. The conversion assumes round systems.'],
     rad: ['<b>Scale lens.</b> log (g_obs / g_bar) against radius, from the smallest to the largest scales measured.', '<b>Distance view.</b> Extra pull against distance from the centre.'],
     speed: ['<b>Speed lens.</b> Equivalent circular speed V = √(g_obs r) against radius. For disc galaxies these are their rotation curves; for clusters it is the speed a circular orbit would need, not a measured speed.', '<b>Speed view.</b> The observed pull written as the speed of an orbit at each distance. For spinning galaxies this is how fast they turn.'],
@@ -60,11 +62,15 @@ const labels = {
   // Projected points (D-064 item 3): what the ring means in each lens, and in the tooltip.
   projected: {
     obs: ['<b>Ring-and-dot marks:</b> strong lensing, projected. Both sides are masses inside the same cylinder of radius R_E, as G M / R_E²; they are not 3D accelerations and are never joined to them.', '<b>Ring-and-dot marks:</b> light-bending, measured in projection inside the ring of images. Both pulls count everything along the line of sight through the ring, so they are a different quantity from the other marks.'],
-    ex: ['<b>Ring-and-dot marks:</b> strong lensing, projected at R_E (M_E / M_bar inside the same cylinder); not 3D values.', '<b>Ring-and-dot marks:</b> light-bending, measured in projection inside the ring; a different quantity from the other marks.'],
+    ratio: ['<b>Ring-and-dot marks:</b> strong lensing, projected at R_E (M_E / M_bar inside the same cylinder); not 3D values.', '<b>Ring-and-dot marks:</b> light-bending, measured in projection inside the ring; a different quantity from the other marks.'],
     mass: ['<b>Ring-and-dot marks:</b> for strong lensing, g r² / G at R_E is the projected mass inside the cylinder, M_E, not a spherical enclosed mass.', '<b>Ring-and-dot marks:</b> for light-bending, this is the mass inside a cylinder through the galaxy, not inside a ball.'],
     rad: ['<b>Ring-and-dot marks:</b> strong lensing, at the projected Einstein radius R_E.', '<b>Ring-and-dot marks:</b> light-bending, at the radius of the ring of images, seen in projection.'],
     speed: ['<b>Ring-and-dot marks:</b> for strong lensing, √(g R_E) uses a projected acceleration; it is not a circular speed.', '<b>Ring-and-dot marks:</b> for light-bending, this speed comes from a pull measured in projection; no orbit was measured.'],
   },
+  // The lens epoch cut (D-033 item 5, D-066), stated where lenses are shown (D-109, context).
+  lensCut: [`Strong lenses are plotted only below a printed z of 0.30: cosmic epoch is a documented gap for v1.0, because the Atlas describes the nearby universe and high-redshift baryon inventories often rely on scaling relations (<a href="${decisionUrl('D-033')}">D-033</a> item 5, <a href="${decisionUrl('D-066')}">D-066</a>). Lenses at z ≥ 0.30 are recorded in full and flagged epoch_gap_v1.`, `Only nearby lenses are drawn (redshift below 0.30). For more distant ones the amount of ordinary matter is often estimated rather than measured, so they are kept in the record, not drawn (<a href="${decisionUrl('D-033')}">D-033</a>, <a href="${decisionUrl('D-066')}">D-066</a>).`],
+  // Per-system flags for the selected-system card (D-109 rule 3), checked against the reading record.
+  eqFlags: Object.fromEntries(Object.values(systemFlags()).map((f) => [f.system, { dataset: f.dataset, quote: f.quote, where: f.where, cites: f.cites, decision: f.decision, url: f.decisionUrl }])),
   projTip: ['Projected: G M / R_E² on both sides, inside the same cylinder (D-064)', 'Measured in projection inside the ring of images'],
   kidsErr,
   ds, weight, flagged: [`Thin ring around a mark: flagged. ${flagged} measurements with a reproduction mismatch or the source’s own quality caveat (see Known issues)`, `Thin ring around a mark: a measurement with a known issue (${flagged}; see Known issues)`], bin: 'Stacked lensing bin',
@@ -80,7 +86,7 @@ const nWords = ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'ei
         <p class="cap"><L t="Lens" p="View" /></p>
         <div class="seg" role="group" aria-label="Lens">
           <button class="btn" data-view="obs" aria-pressed="true"><L t="Acceleration" p="Pull" /></button>
-          <button class="btn" data-view="ex" aria-pressed="false"><L t="Excess" p="Extra pull" /></button>
+          <button class="btn" data-view="ratio" aria-pressed="false"><L t="Ratio" p="Ratio" /></button>
           <button class="btn" data-view="mass" aria-pressed="false">Mass</button>
           <button class="btn" data-view="rad" aria-pressed="false"><L t="Scale" p="Distance" /></button>
           <button class="btn" data-view="speed" aria-pressed="false">Speed</button>
@@ -182,6 +188,7 @@ const nWords = ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'ei
         <canvas id="card-prof" role="img" aria-label=""></canvas>
         <p class="small"><span style="color:var(--sel)">●</span> g_obs · <span style="color:var(--bar)">━</span> g_bar</p>
         <p class="small" id="card-flags"></p>
+        <p class="small eqflag" id="card-eq" hidden></p>
         <a class="btn primary" id="card-link" href="#" style="margin-top:10px;min-height:44px"><L t="Open system page · pull budget" p="Open its page" /></a>
         <button class="btn" type="button" id="card-clear" style="margin-top:6px">Clear selection</button>
       </div>

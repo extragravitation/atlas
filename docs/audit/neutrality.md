@@ -87,3 +87,17 @@ Resolved by the "site fixes 1" pull request after #187. Each fix was re-checked 
 | T4 ("halo" ×4, KiDS v2 page) | **Partly changed.** "Assumed hot-gas component" is now used in the site text and the assumption registry (2 of 4). The other 2 come from the KiDS v2 package's own `datapackage.json` and frozen result text. Packages are not edited (D-006), so these change when the package is re-issued (D-107 rule 4). |
 
 The should-fix findings are resolved in later batches and logged here.
+
+### Should-fix findings
+
+Counts from the three resolution files. Batches A and B are #195 and #196; batch C applies D-109 and resolves the batch A and B items marked `needs ruling` that D-109 covers.
+
+| File | Changed | No change | Needs ruling |
+|---|---:|---:|---:|
+| `resolutions_batch_a.csv` | 19 | 2 | 7 |
+| `resolutions_batch_b.csv` | 67 | 14 | 18 |
+| `resolutions_batch_c.csv` | 12 | 0 | 0 |
+
+Batch C changes all 7 open items of batch A and 5 of batch B (pull budget, "extra pull", the Excess lens, the A2319 equilibrium asymmetry, the reason for the z < 0.30 cut). No `needs ruling` row concerned TeX in quotes; D-109 rule 4 is applied across the site anyway.
+
+**Still open: 13 items of batch B.** Eight change only with a package re-issue (package titles and column text, a registry identifier) or a new taxonomy version. Five are method-framing questions held for JvH after v0.2 (the default-lens lineage sentence, the pattern schedule, independence of exclusion evidence, the hydrostatic-bias labels and range).
