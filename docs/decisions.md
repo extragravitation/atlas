@@ -2363,3 +2363,26 @@ The frozen KiDS v2 test (item 11) makes any such finding a fail of that item. Th
 - **Patching v2 in place:** this breaks D-006.
 
 **Data seen.** The audit result (#186). No new data.
+
+## D-108 — Taxonomy version 2: a release-gate item reworded (audit finding N3)
+
+**Ruling (2026-11-05 14:08 MDT, JvH).** "N3 as recommended." **Proposed by** Claude (2026-11-05). **Adopted unchanged.**
+
+**Context.**
+- Both neutrality readers in the audit (D-082, #186) found that the Coverage page calls globular clusters and the Solar System "a control where Newtonian gravity on detected matter is expected to suffice". That labels a kind by an expected result, which the standards forbid. It would also contradict the data if the data showed otherwise.
+- The text is in `docs/plans/TAXONOMY.md` §7 (D-028), frozen in `data/taxonomy.json`, and the Coverage page renders that file.
+- No other wording in the taxonomy carries an expected result. Claude checked it for "expect", "control", "suffice", "explain", "dark", "halo", "missing", "evidence for" and "regime".
+
+**Rules.**
+1. **A new version, `docs/plans/TAXONOMY_v2.md`,** frozen on merge in `data/frozen/taxonomy-v2.json`. It is identical to version 1 except for that one item, which now reads: "the high-acceleration end of the range: the Solar System (as a limit) and globular clusters".
+2. **The release gate is unchanged in effect.** The same systems qualify, and nothing about what is measured, plotted or required changes.
+3. **The Coverage page renders version 2,** with a link to version 1.
+4. **Version 1 and D-028's text stay as written.** The change is logged as deviation #22 in `docs/plans/DEVIATIONS.md`.
+
+**Reason.** The item is placed by g_bar, the axis computed from detected matter, rather than by the result. This keeps the gate's purpose (coverage at the high-acceleration end) without prejudging what the data show.
+
+**Alternatives rejected.**
+- **Keeping the wording as the textbook expectation:** it is still a label that carries a result.
+- **Overriding the text on the Coverage page only:** the page would no longer show the frozen file it claims to render.
+
+**Data seen.** The audit result (#186). No new data.
