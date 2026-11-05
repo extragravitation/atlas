@@ -2183,3 +2183,20 @@ The resolved dwarf reading records each class with its quotation and location. T
 - **Ruling system by system:** that would invite choice by outcome.
 
 **Data seen.** The two readings and the quotations above. No v2 value has been computed. Not fully blind: v1's values are public on the site. Neither JvH nor Claude looked at where any of these systems sit before the ruling.
+
+## D-101 — Fornax structure fit and Hercules dispersion in dwarfs v2
+
+**Ruling (2026-11-04 18:09 MDT, JvH).** "Fornax and Hercules as recommended". **Proposed by** Claude (2026-11-04), from the dwarf v2 second readings (reader A). **Adopted unchanged.**
+
+**Rules.**
+1. **Fornax: the Sérsic fit, under D-096 rule 1.**
+   - Wang et al. 2019 (arXiv 1809.07801v1, `Fornax_main.tex` l. 333) "found that Sersic model gives the best fit to the data while other models seem to fail to capture the complex light profile shape of Fornax."
+   - A stated best fit is the source's preference. So the Sérsic 2D half-light radius, 20.1′ (l. 106; no printed error), becomes the default, and the exponential 19.8′ becomes an alternative.
+   - v1 treated the paper as adopting no fit and took the first fit in D-052 item 1's fixed order. That order still applies where a paper states no preference.
+2. **Hercules: no change.**
+   - Ou et al. 2024 quote 1.9 km/s in their abstract, from a fit that includes a velocity gradient. v1 uses 1.8 km/s, without the gradient, under the D-038 addendum.
+   - The paper marks neither as preferred, so D-096 rule 1 does not apply.
+
+**Reason.** Rule 1 applies D-096 rule 1 as written: a stated best fit is the source's own choice. In rule 2 the source states no preference, so the existing selection rule stands.
+
+**Data seen.** The two readings and the quoted lines. No v2 value has been computed.
