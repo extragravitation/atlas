@@ -1,6 +1,6 @@
 # Independent audit of X-COP v2: plan (frozen on merge)
 
-**Frozen on merge**, under D-090 rule 3 and D-106 rule 4. The plan was written after X-COP v2 was published (#182, 2026-11-05) and before its seed exists. The hashes of this file and of `docs/audit/sample_xcop_v2.py` are in `data/frozen/audit-plan-xcop-v2.json`. Any change after freezing is a new version, with the reason logged.
+**Frozen on merge**, under D-090 rule 3 and D-106 rule 4. The plan was written after X-COP v2 was published (#182, 2026-11-05) and before its seed exists. The hashes of this file, `docs/audit/sample_xcop_v2.py` and `docs/audit/compare_xcop_v2.py` are in `data/frozen/audit-plan-xcop-v2.json`. Any change after freezing is a new version, with the reason logged.
 
 Nothing in this plan changes the frozen general audit (`AUDIT_PLAN_v2.md`, D-082), whose X-COP stratum audits v1 (D-090 rule 2).
 
@@ -67,7 +67,7 @@ The method is that of `AUDIT_PLAN_v2.md`, applied to one stratum. Results are pu
 
 ### 2.7 Comparison
 
-- **Script:** `docs/audit/compare_xcop_v2.py`, written and committed before any reading is opened. It compares each reader with the other and with the Atlas row.
+- **Script:** `docs/audit/compare_xcop_v2.py`, frozen with this plan, before any reading is opened. It compares each reader with the other and with the Atlas row, and prints counts and identifiers only, never values. Each reader's return is transcribed into the script's input columns (its docstring).
 - **Tolerances, fixed now:**
   - **Values read from the file** (radius, GOBS, GBAR and the error columns): equal to the stored value, at |relative difference| ≤ 1 × 10⁻¹².
   - **Accelerations as packaged** (`g_obs`, `g_bar`, `r_kpc` and the error columns): the same tolerance.
