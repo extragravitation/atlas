@@ -2319,3 +2319,47 @@ The frozen KiDS v2 test (item 11) makes any such finding a fail of that item. Th
 - **A two-week notice before publishing**, as proposed.
 
 **Data seen.** The email thread of 2026-11-02/03 and the part B result. No new data.
+
+## D-107 — Audit v2 result: v0.2 ships with it; corrections by re-issue after v0.2
+
+**Ruling (2026-11-05, JvH).**
+- 13:34 MDT: "as reccomended", on Claude's two proposals.
+- 13:40 MDT: "Ship v2, re-issue after", on Claude's correction to the first proposal.
+
+**Proposed by** Claude (2026-11-05).
+
+**Context.**
+- The frozen audit (D-082) ran on 2026-11-05 and does not pass. Its result is in `docs/audit/AUDIT_RESULT.md` (#186):
+  - zero material value discrepancies in 254 rows;
+  - methods text incomplete for 210 rows (M1–M8);
+  - provenance failures in 250 rows (P1–P4);
+  - 4 must-fix neutrality findings (N1–N4) and about 120 should-fix.
+- **Correction.** Claude first proposed patching citation and licence fields into the v2 `sources.json` files, with the fields required by a standard 2.6.0. That conflicts with three rules:
+  - D-006 and data standard §0: a package is never edited, only re-issued.
+  - Making a field required is a major change (3.0.0), not a minor one.
+  - The audit plan's §2.10: confirmed errors are corrected by a new version.
+
+  JvH ruled on the corrected options.
+
+**Rules.**
+1. **v0.2 ships with the audit result as observed.**
+   - The result is linked from the Reproduction and About pages.
+   - It is not re-scored.
+2. **Before the v0.2 tag, the site text is fixed** (site text is not package data):
+   - the must-fix neutrality findings N1–N4;
+   - the methods page's missing steps M1–M8, written out on the methods page, including the constants and their source;
+   - the should-fix findings, in batches, each resolved in `docs/audit/neutrality.md`.
+3. **The v2 packages ship unchanged.** P1–P4 are recorded as known issues on the affected datasets.
+4. **After v0.2:**
+   - Data standard 3.0.0 makes `citation` and `licence` required on every `sources.json` entry. It also requires a hashed record for every document a locator names, and a table, page or column in every locator.
+   - The affected packages are re-issued under 3.0.0, with their method files completed. Each re-issue is checked by its own frozen test.
+   - Each confirmed error is entered in the public corrections log (audit plan §2.10).
+5. **The provenance causes are checked across each whole package** (§2.10). This is labelled exploratory, and the counts are published with the re-issues.
+
+**Reason.** Every sampled value is right, and the failures are in the records and the text around them. Fixing the text now and re-issuing the packages under a stricter standard follows the never-edit rule and the audit's own correction rule, and keeps v0.2 close.
+
+**Alternatives rejected.**
+- **Re-issuing all six packages before v0.2:** several days' delay for metadata alone.
+- **Patching v2 in place:** this breaks D-006.
+
+**Data seen.** The audit result (#186). No new data.
