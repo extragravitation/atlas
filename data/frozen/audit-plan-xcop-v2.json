@@ -1,0 +1,10 @@
+{
+  "description": "X-COP v2 audit plan (D-090 rule 3; D-106 rule 4): same method as audit plan v2, one stratum (aeg-d-xcop/v2, 109 default rows, n = 10). Seed: NIST beacon v2.0 chain 2 outputValue of the earliest pulse at least 24 hours after the merge commit that freezes this plan; drand mainnet fallback. Frozen before the seed exists and before any audit reading.",
+  "frozen_on": "2026-11-05",
+  "decision": "D-090, D-106",
+  "spec": "docs/audit/AUDIT_PLAN_XCOP_v2.md",
+  "files": {
+    "docs/audit/AUDIT_PLAN_XCOP_v2.md": "9d93506052244a143eacda2adb344806f4107e5051a9a5ec3a797a1441ded730",
+    "docs/audit/sample_xcop_v2.py": "da3fdab0b166709b20924aabacf1f08c2b2fa9b06af053a068c924fd63296918"
+  }
+}
