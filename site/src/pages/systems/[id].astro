@@ -152,6 +152,7 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
     <h1>{sys.name}</h1>
     <Excluded sys={sys} />
     {isLens ? <LensSystem sys={sys} d={d} lab={lab} /> : d.name === 'aeg-d-dwarfs' ? <DwarfSystem sys={sys} d={d} lab={lab} /> : <DispersionSystem sys={sys} d={d} lab={lab} />}
+    {issues.length > 0 && <><h2 id="issues"><L t="Known issues" p="Known problems" /></h2><ul>{issues.map((k) => <li><a href={k.url}>#{k.issue}</a>: {k.title}{k.decision ? ` (${k.decision})` : ''}</li>)}</ul></>}
     <h2 id="cite"><L t="Cite" p="How to cite" /></h2>
     <p class="boxed" style="font-family:var(--mono);font-size:13px">{cite}</p>
     <p class="small"><a href={`${base}datasets/${d.name}/${d.version}/`}>{d.title}</a> · <a href={`${base}downloads/${d.name}/${d.version}/measurements.csv`}>CSV</a></p>
