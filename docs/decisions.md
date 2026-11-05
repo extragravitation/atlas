@@ -2272,3 +2272,21 @@ The frozen KiDS v2 test (item 11) makes any such finding a fail of that item. Th
 - Rule 3 adds no assumption.
 
 **Data seen.** The review and the quoted lines. No lens v2 value has been computed.
+
+## D-105 — X-COP v2 part B: four open items
+
+**Ruling (2026-11-05 08:04 MDT, JvH).** "D-105 as recommended". **Proposed by** Claude (2026-11-05), from the draft part B test and its first independent review (`docs/sources/readings/step-d-2026-11-05/xcop-part-b-review-1.md`). **Adopted unchanged.**
+
+**Context.** JvH confirmed (2026-11-05) that the X-COP archives cited in part A are the authors' public release. The consent gate (D-090 rule 5) is therefore a courtesy about publishing the Atlas's re-processed v2, not about keeping the data private.
+
+**Rules.**
+1. **O1:** the seven clusters without stellar data get no measurement or observables rows in v2. They have systems rows and exclusion-register entries, with part A's reason text.
+2. **O2:** the `mass_model_choice` term is sized per cluster as the largest |ratio − 1| across all three of part A's published A7 mass pairs (non-parametric/Einasto, non-parametric/NFW, Einasto/NFW). It is the one `given` term whose size the Atlas computes, not reads; its note says so and cites E22 l. 373. The ratios are already public in part A's result, so the rule is not blind. It is the rule that keeps everything part A fixed, rather than a subset.
+3. **O3:** the `xray_hse_bias` slider is kept, with v2 references read from Eckert et al. 2022 (l. 502, l. 539). The `icl_fraction` slider is dropped: the source gives no radial profile of intracluster light, so any formula on the total g_bar would assume one. Its "below 5 %" statement becomes an uncertainty term.
+4. **O4:** the source's "[0.01–2] R500" counts as an exclusion under D-096 rule 2 only if it is stated with explicit exclusion wording. The expected outcome is no exclusion. A valid range stated later by the authors comes in under a new ruling.
+
+**Reason.**
+- Rules 1, 3 and 4 add no assumption and invent no number.
+- Rule 2 carries part A's frozen definition of the term in full, rather than a favourable subset.
+
+**Data seen.** Part A's published result (the A7 ratios and radial ranges) and the review. No v2 table has been computed for publication.
