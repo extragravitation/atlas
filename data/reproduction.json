@@ -465,6 +465,77 @@
       "scope_plain": "Only the authors' own choices change any number, and a second reading confirms everything added. We do not re-measure the star motions.",
       "matched": "every check passed",
       "matched_plain": "All checks passed"
+    },
+    {
+      "package": "aeg-d-gc-baumgardt/v2",
+      "test_file": "REPRODUCTION.md",
+      "sha256": "4bb0d6da0bf00bab5be644588d68006ee419fc43d5a361f04c53a6e6ec5585e4",
+      "frozen_before": "conversion",
+      "result": "pass",
+      "first_run": "2026-11-05",
+      "result_files": [
+        "REPRODUCTION_RESULT.md",
+        "SECOND_READING.md"
+      ],
+      "against": "v1 (unchanged values bit-for-bit), the frozen second reading (D-096 changes, D-097 classes, confidence levels, binary screening), v1's frozen dispersion code for the one change, and data standard 2.5.1.",
+      "against_plain": "The previous version, a second independent reading of the papers, and our own frozen code.",
+      "checks": [
+        {
+          "name": "Values unchanged from v1",
+          "plain": "Same numbers as before",
+          "outcome": "pass",
+          "detail": "78 of 79 rows bit-for-bit identical; every v1 column checked"
+        },
+        {
+          "name": "The one source-stated change (D-096)",
+          "plain": "One value follows the authors' own cut",
+          "outcome": "pass",
+          "detail": "M54: the 3 bins beyond 200″ that Baumgardt 2017 excluded are dropped; recomputed with v1's frozen code to 1e-9"
+        },
+        {
+          "name": "Out-of-equilibrium exclusions (D-097)",
+          "plain": "Two clusters kept on record, off the charts",
+          "outcome": "pass",
+          "detail": "NGC 2298 and Pal 5 recorded, not plotted, with the source's quotation on their pages"
+        },
+        {
+          "name": "Arithmetic",
+          "plain": "Sums redone",
+          "outcome": "pass",
+          "detail": "g_obs and g_bar recomputed on all 79 rows to 1e-9"
+        },
+        {
+          "name": "Uncertainties and confidence levels",
+          "plain": "Error bars and their meaning",
+          "outcome": "pass",
+          "detail": "27 uncertainty terms as frozen; levels per dataset code from the frozen reading"
+        },
+        {
+          "name": "Package equals the frozen reading",
+          "plain": "Second reader agrees",
+          "outcome": "pass",
+          "detail": "every field the reading holds"
+        },
+        {
+          "name": "Standard 2.5.1, site and v1 untouched",
+          "plain": "Format rules and old version intact",
+          "outcome": "pass",
+          "detail": "validator, site build and site check pass; every v1 file unchanged"
+        }
+      ],
+      "issues": [
+        159,
+        160
+      ],
+      "flagged": 0,
+      "status": "Current version. Same values as v1 except M54 (D-096). NGC 2298 and Pal 5 are recorded, not plotted (D-097). MW-PAL1 stays recorded (D-046).",
+      "status_plain": "The current globular-cluster version: the same numbers, one cluster updated to follow the authors' own data cut, and two clusters kept on record but off the charts because their sources say they are being pulled apart.",
+      "since": "",
+      "since_plain": "",
+      "scope": "Establishes that v2 changes only what the frozen reading requires, that the one change reproduces with v1's frozen code, and that every value the reading holds is in the package. v1's test 2 result (Pal 1, D-046) carries over.",
+      "scope_plain": "Only the changes the second reader found were made, and they recompute exactly.",
+      "matched": "every check passed",
+      "matched_plain": "All checks passed"
     }
   ]
 }

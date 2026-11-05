@@ -47,7 +47,7 @@ const rows = terms.slice().sort((a, b) => order[a.scale] - order[b.scale]);
     <table>
       <thead><tr><th class="l" scope="col"><L t="Uncertainty" p="Uncertainty" /></th><th class="l" scope="col"><L t="Scale" p="Affects" /></th><th class="l" scope="col"><L t="Moves" p="Moves" /></th><th class="l" scope="col"><L t="Size" p="Size" /></th>{!compact && <th class="l" scope="col"><L t="Source" p="Source" /></th>}</tr></thead>
       <tbody>{rows.map((t) => { const sz = size(t); return <tr>
-        <td class="l termcell"><b><L t={(NAMES[t.term_id] || [t.term_id.replace(/_/g, ' ')])[0]} p={(NAMES[t.term_id] || [null, t.term_id.replace(/_/g, ' ')])[1]} /></b><br /><span class="small"><L t={t.note || ''} p={t.note || ''} /></span></td>
+        <td class="l termcell"><b><L t={(NAMES[t.term_id] || [t.term_id.replace(/_/g, ' ')])[0]} p={(NAMES[t.term_id] || [null, t.term_id.replace(/_/g, ' ')])[1]} /></b>{t.note && <><br /><span class="small"><L t={t.note} p={t.note} /></span></>}</td>
         <td class="l"><L t={SCALE[t.scale]?.[0] || t.scale} p={SCALE[t.scale]?.[1] || t.scale} /></td>
         <td class="l"><L t={MOVES[t.moves]?.[0] || t.moves} p={MOVES[t.moves]?.[1] || t.moves} /></td>
         <td class="l"><L t={sz[0]} p={sz[1]} /></td>

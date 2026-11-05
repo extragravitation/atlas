@@ -1,0 +1,28 @@
+{
+  "issues": [
+    {
+      "issue": 159,
+      "url": "https://github.com/extragravitation/atlas/issues/159",
+      "title": "Globular clusters v2: M54 bins that may straddle the 200″ cut (D-096, D-098)",
+      "measurements": [
+        "aeg-d-gc-baumgardt/v2/m000067"
+      ]
+    },
+    {
+      "issue": 160,
+      "url": "https://github.com/extragravitation/atlas/issues/160",
+      "title": "Globular clusters v2: Harris (2010) distance calibration includes dynamical parallaxes of nine clusters (D-099 rule 3)",
+      "clusters": [
+        "NGC 104",
+        "NGC 5139",
+        "NGC 5272",
+        "NGC 5904",
+        "NGC 6121",
+        "NGC 6205",
+        "NGC 6341",
+        "NGC 6656",
+        "NGC 7089"
+      ]
+    }
+  ]
+}
