@@ -1651,7 +1651,7 @@
     },
     {
       "id": "baryons_point_mass",
-      "name_technical": "Baryons as a point mass at the lens centre: g_bar = G M_gal / r², with M_gal the stellar plus cold-gas mass (plus the assumed hot-gas halo in the variant)",
+      "name_technical": "Baryons as a point mass at the lens centre: g_bar = G M_gal / r², with M_gal the stellar plus cold-gas mass (plus the assumed hot-gas component in the variant)",
       "name_plain": "The visible matter of each galaxy treated as if it sat at one point",
       "adjustable": false,
       "status": "confirmed",

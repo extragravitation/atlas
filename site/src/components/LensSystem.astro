@@ -232,7 +232,7 @@ const gapRows = gap ? Object.entries(P.readings || {}).flatMap(([scope, e]) => [
 {plotted && (
   <>
     <h2 id="cosmology"><L t="Cosmology" p="Model of the expanding universe" /></h2>
-    <Layer as="p" class="small"><Fragment slot="t">R_E in kpc and M_E use the cosmology of the source of the observed side (D-064 item 4, D-029), registered as a6s_source_cosmology. The ratio g_obs / g_bar does not depend on it to first order, because both masses scale with the same distances.</Fragment><Fragment slot="p">Turning the ring’s angle into a size needs the distance, which comes from each paper’s own model of the expanding universe. The comparison between the two bars hardly depends on it.</Fragment></Layer>
+    <Layer as="p" class="small"><Fragment slot="t">R_E in kpc and M_E use the cosmology of the source of the observed side (D-029), registered as a6s_source_cosmology. The ratio depends on distance at first order, g_obs / g_bar ∝ 1/D, because g_obs = π G Σ_cr and the stellar g_bar is nearly distance-free (D-094, which corrects D-064 item 4).</Fragment><Fragment slot="p">Turning the ring’s angle into a size needs the distance, which comes from each paper’s own model of the expanding universe. The comparison between the two bars does depend on it: a larger distance gives a smaller observed pull, while the pull from the stars barely changes.</Fragment></Layer>
     <dl class="facts">
       <div><dt>H0</dt><dd>{def.x_strong_lensing_h0} km s⁻¹ Mpc⁻¹</dd></div>
       <div><dt>Ω_m</dt><dd>{def.x_strong_lensing_om} <span class="small">(flat, Ω_Λ = 1 − Ω_m)</span></dd></div>

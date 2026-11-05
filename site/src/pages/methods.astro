@@ -17,7 +17,7 @@ const nDs = datasetCount(atlas.datasets);
 // Lensing datasets, counted and described from the packages: stacked (no systems) or individual (projected at R_E).
 const lensDs = atlas.datasets.filter((d) => d.measurements.rows.some((r) => r.method_class === 'lensing'));
 const lensText = lensDs.length === 0 ? 'No lensing dataset yet.' : `${countWord(lensDs.length).replace(/^./, (c) => c.toUpperCase())} lensing dataset${lensDs.length === 1 ? '' : 's'}: ${joinAnd(lensDs.map((d) => `${datasetLabel(d.name).t} (${d.systems ? 'individual systems' + (d.measurements.rows.some((r) => r.r_kind === 'projected') ? ', projected values at the Einstein radius' : '') : 'stacked averages'})`))}.`;
-const toc = [['stance', 'Stance'], ['quantities', 'What is measured'], ['baseline', 'The baseline'], ['channels', 'Two channels'], ['datasets', 'Each dataset'], ['assumptions', 'Assumptions'], ['uncertainties', 'Uncertainties'], ['flags', 'Flags and known issues'], ['tests', 'Frozen tests'], ['lenses', 'Lenses'], ['display', 'Display choices'], ['speed', 'Orbital-speed view'], ['gaps', 'Limitations and gaps'], ['vocabulary', 'Vocabulary']];
+const toc = [['stance', 'Stance'], ['quantities', 'What is measured'], ['baseline', 'The baseline'], ['channels', 'Two channels'], ['datasets', 'Each dataset'], ['conversion', 'Conversion steps'], ['assumptions', 'Assumptions'], ['uncertainties', 'Uncertainties'], ['flags', 'Flags and known issues'], ['tests', 'Frozen tests'], ['lenses', 'Lenses'], ['display', 'Display choices'], ['speed', 'Orbital-speed view'], ['gaps', 'Limitations and gaps'], ['vocabulary', 'Vocabulary']];
 ---
 <Base title="Methods" active="methods">
   <div class="doc">
@@ -55,7 +55,7 @@ const toc = [['stance', 'Stance'], ['quantities', 'What is measured'], ['baselin
       <Layer><Fragment slot="t">
         <p>Every comparison is against Newtonian gravity acting on the baryons each source detected, computed by the source or from the source’s published components. Components are kept separate in the tables (stars, disc and bulge where given, cold gas, hot gas) and summed into g_bar. What counts as detected is stated per dataset below; matter a source did not measure is not added. On the map, the dashed line g_obs = g_bar marks this baseline.</p>
       </Fragment><Fragment slot="p">
-        <p>We always compare with Newton’s gravity from the stars and gas that each study actually measured. We do not add anything they did not measure. On the map, the dashed line shows where the detected matter explains all of the pull.</p>
+        <p>We always compare with Newton’s gravity from the stars and gas that each study actually measured. We do not add anything they did not measure. On the map, the dashed line shows where Newton’s gravity from the detected matter matches all of the pull.</p>
       </Fragment></Layer>
 
       <h2 id="channels"><L t="Two channels: dynamics and lensing" p="Two ways to measure the pull" /></h2>
@@ -74,6 +74,61 @@ const toc = [['stance', 'Stance'], ['quantities', 'What is measured'], ['baselin
         {d.key === 'aeg-d-xcop/v1' && <Layer><Fragment slot="t"><p>{d.systems.rows.length} massive galaxy clusters (X-COP). g_obs = G M_HSE(&lt;r) / r², from the X-ray hydrostatic mass profile (forward method, Ettori et al. 2019). g_bar = G (M_gas + M_★)(&lt;r) / r², from the hot-gas mass (Eckert et al. 2019) and stellar mass (Ghizzardi et al. 2020) profiles. For 5 clusters without measured stellar profiles, the stellar mass is modelled and kept only where the model reproduces the measured clusters (D-023).</p></Fragment><Fragment slot="p"><p>{d.systems.rows.length} big clusters of galaxies. The observed pull comes from how the hot gas between the galaxies is held in place; the pull from detected matter comes from that hot gas plus the stars.</p></Fragment></Layer>}
         {d.name === 'aeg-d-kids1000-rar' && <Layer><Fragment slot="t"><p>{d.measurements.rows.length} stacked bins of isolated galaxies (Brouwer et al. 2021). g_obs = 4 G ΔΣ from the excess surface density (singular-isothermal-sphere deprojection, validated by the authors against a shape-free method). g_bar from stellar mass plus cold gas treated as a point mass. These are averages over many lens galaxies, not single systems. The authors’ ±0.2 dex stellar-mass systematic is stated in words, not drawn (D-021).</p></Fragment><Fragment slot="p"><p>Averages over many lone galaxies. The pull is measured from how much they bend light from galaxies far behind them. Each point is an average, not one galaxy.</p></Fragment></Layer>}
       </>; })}
+
+      <h2 id="conversion"><L t="Conversion steps and constants" p="How the numbers are worked out" /></h2>
+      <Layer><Fragment slot="t">
+        <p class="small">This section was added after the independent audit found steps that the written methods did not state (audit findings M1–M7; <a href={`${REPO}/blob/main/docs/audit/AUDIT_RESULT.md`}>audit result</a>, D-107). It describes what the conversions do. It does not change any value. Each package's own method file is completed when the package is re-issued.</p>
+        <h3>Constants and units (all datasets)</h3>
+        <ul>
+          <li><b>G</b> = 6.67430 × 10⁻¹¹ m³ kg⁻¹ s⁻² (CODATA 2018; the same value as CODATA 2022).</li>
+          <li><b>M☉</b> = 1.98840987 × 10³⁰ kg (IAU 2015 nominal).</li>
+          <li><b>1 pc</b> = 3.0856775814913673 × 10¹⁶ m (IAU 2015 B2); 1 kpc = 10³ pc; 1 Mpc = 10⁶ pc.</li>
+          <li><b>c</b> = 299 792 458 m s⁻¹ (exact).</li>
+          <li><b>Solar absolute V magnitude</b> = +4.85, as adopted by McLaughlin &amp; van der Marel (2005).</li>
+          <li><b>Where the constants come from in the code.</b> SPARC, X-COP, KiDS-1000 and the globular clusters take them from astropy (version 6.1 or later). The dwarfs and lenses state them in code. All give the values above.</li>
+        </ul>
+        <h3>KiDS-1000</h3>
+        <ul>
+          <li>g_obs = 4 G ΔΣ / bias, where ΔΣ is the released <code>ESD_t</code> (h70 M☉ pc⁻², h = 0.7) and bias is the released <code>bias(1+K)</code> column, as the release README instructs.</li>
+          <li>g_bar is the released first column. It is the arithmetic midpoint of the source's §2.1 bin, the g_bar at which the lenses were binned (stars plus cold gas, from each lens's stellar mass).</li>
+          <li>The hot-gas variant file adds the authors' assumed hot-gas component to g_bar. That file is recorded and labelled as a variant.</li>
+        </ul>
+        <h3>Globular clusters</h3>
+        <ul>
+          <li><b>Profile.</b> The line-of-sight dispersion profile is taken from the Baumgardt et al. database (radial-velocity bins first, D-042).</li>
+          <li><b>Bin edges.</b> The first edge is 0. Each inner edge is the midpoint between consecutive mean radii. The last edge is r_n + (r_n − r_n−1)/2.</li>
+          <li><b>Weights.</b> Each bin's weight w_i is the fraction of the cluster's total light projected inside its annulus, under the King (1966) fit of McLaughlin &amp; van der Marel (2005).</li>
+          <li><b>Dispersion.</b> ⟨σ²⟩ = Σ w_i σ_i² / Σ w_i. Coverage is Σ w_i, and a point is plotted only if coverage ≥ 0.80.</li>
+          <li><b>Accelerations.</b> g_obs = 3 ⟨σ²⟩ / r½ and g_bar = G (½ L_V Υ_V) / r½², with r½ = 4/3 R_h (Wolf et al. 2010).
+            <ul>
+              <li>R_h is the McLaughlin &amp; van der Marel value, rescaled to the Harris (2010) distance.</li>
+              <li>L_V comes from the Harris integrated M_V.</li>
+              <li>Υ_V is the McLaughlin &amp; van der Marel (M/L)₁.</li>
+            </ul>
+          </li>
+        </ul>
+        <h3>Dwarf galaxies</h3>
+        <ul>
+          <li><b>Accelerations.</b> The same estimator as for globular clusters: g_obs = 3 σ² / r½ and g_bar = G (½ L_V Υ_V + M_gas(&lt;r½)) / r½², with r½ = 4/3 R_h.</li>
+          <li><b>Radius.</b> A semi-major r_h is circularised as R_h = a √(1 − ε). A radius the source prints as already circularised (for example an "effective geometric radius") is used as printed (D-052).</li>
+          <li><b>Mass-to-light ratio.</b> Υ_V is interpolated in [Fe/H] in the McLaughlin &amp; van der Marel (2005) table. The [Fe/H] is the mean spectroscopic value from the original paper that the Local Volume Database cites (D-057). If there is none, the photometric or isochrone original is used. If that is missing too, the dispersion paper's value is used (D-059).</li>
+          <li><b>Choosing among values.</b> Where a source prints several values, the one the source adopts is used. Where the same value is printed at two precisions, the more precise printing is used; for example, Tucana's σ = 14.35 km/s comes from the Fig. 5 panel of Gregory et al. 2019.</li>
+          <li><b>Gas.</b> Gas marked "absent (measured limit)" enters g_bar as zero, and the limit is shown in the point's notes.</li>
+        </ul>
+        <h3>Strong lenses</h3>
+        <ul>
+          <li><b>Distances.</b> Flat ΛCDM in each source's own cosmology, with radiation neglected: D_A from the comoving distance, and D_ls = (D_C(z_s) − D_C(z_l)) / (1 + z_s).</li>
+          <li><b>Einstein mass.</b> M_E = θ_E² c² D_s D_l / (4 G D_ls), with R_E = θ_E D_l. Where the source prints M_E, the printed value is used.</li>
+          <li><b>Stellar mass.</b> M★(&lt;R_E) is the total stellar mass times the projected light fraction inside R_E, for the source's light profile (de Vaucouleurs, n = 4).</li>
+          <li><b>Gas.</b> Cold gas inside R_E is the registered term of 0.12 % of M★(&lt;R_E), with a range of 0.015–2.5 % (D-076).</li>
+          <li><b>Accelerations.</b> g = G M / R_E² on both sides.</li>
+          <li><b>ESO 325-G004 (SNL-0).</b> The CMB-frame redshift (0.0347) is used. The registered gas term applies there too.</li>
+        </ul>
+        <h3>X-COP</h3>
+        <p>The current version follows the source's released accelerations (above). The superseded v1 conversion is described in <a href={`${REPO}/blob/main/data/packages/aeg-d-xcop/v1/SOURCE.md`}>its SOURCE.md</a>. Its row locators count rows from 1.</p>
+      </Fragment><Fragment slot="p">
+        <p>Every number uses the same physical constants: the standard values of the strength of gravity, the mass of the Sun, the length of a parsec and the speed of light. For each kind of system, this section spells out every step from the published numbers to the two pulls, so that anyone can redo them. It was added after an outside-style audit showed that some steps had not been written down.</p>
+      </Fragment></Layer>
 
       <h2 id="assumptions"><L t="Assumptions and sliders" p="Assumptions you can change" /></h2>
       <Layer><Fragment slot="t">
@@ -122,8 +177,8 @@ const toc = [['stance', 'Stance'], ['quantities', 'What is measured'], ['baselin
       <Layer><Fragment slot="t">
         <p>Each lens is a different framing of the same measurements (D-030); none is privileged as the true picture, and each comes from a research tradition.</p>
         <ul>
-          <li><b>Acceleration</b>: g_obs against g_bar. This plane is standard in studies of the radial acceleration relation, a line of work that grew out of modified Newtonian dynamics (MOND).</li>
-          <li><b>Mass</b>: spherical-equivalent enclosed mass M(&lt;r) = g r² / G, observed against baryonic. Enclosed-mass profiles and dynamical-to-baryonic mass ratios are standard in mass modelling, including models of dark-matter halos. For flattened systems the spherical-equivalent mass is a convention, not the true enclosed mass; the ratio at each point equals g_obs / g_bar.</li>
+          <li><b>Acceleration</b>: g_obs against g_bar. This plane is the one used in published studies of the radial acceleration relation.</li>
+          <li><b>Mass</b>: spherical-equivalent enclosed mass M(&lt;r) = g r² / G, observed against baryonic. Enclosed-mass profiles and dynamical-to-baryonic mass ratios are standard in mass modelling. For flattened systems the spherical-equivalent mass is a convention, not the true enclosed mass; the ratio at each point equals g_obs / g_bar.</li>
           <li><b>Scale</b>: log (g_obs / g_bar) against radius, across all scales.</li>
           <li><b>Speed</b>: equivalent circular speed √(g_obs r) against radius; for disc galaxies, their rotation curves.</li>
           <li><b>Surface density</b>: needs the observables recorded under data standard 2.0 and arrives with the next packages.</li>
@@ -157,7 +212,7 @@ const toc = [['stance', 'Stance'], ['quantities', 'What is measured'], ['baselin
       <h2 id="gaps"><L t="Limitations and gaps" p="What is missing" /></h2>
       <Layer><Fragment slot="t">
         <ul>
-          <li>{nDs.replace(/^./, (c) => c.toUpperCase())} so far. The first public release (v1.0) covers every kind of system in the taxonomy, each packaged or shown as a documented gap, including controls where Newtonian gravity on detected matter is expected to suffice and the lowest-acceleration individual systems (D-028; see <a href={`${base}coverage/`}>Coverage</a>).</li>
+          <li>{nDs.replace(/^./, (c) => c.toUpperCase())} so far. The first public release (v1.0) covers every kind of system in the taxonomy, each packaged or shown as a documented gap, including the high-acceleration end (the Solar System as a limit; globular clusters) and the lowest-acceleration individual systems (D-028; see <a href={`${base}coverage/`}>Coverage</a>).</li>
           <li>Disc galaxies dominate the current measurements ({nSparc.toLocaleString('en')} of {nAll.toLocaleString('en')}).</li>
           <li>{lensText}</li>
           <li>KiDS-bright: the authors state their isolation criterion becomes unreliable for g_bar ≲ 10⁻¹³ m s⁻².</li>
