@@ -1,0 +1,9 @@
+{
+  "description": "aeg-d-kids1000-rar/v2 reproduction test, re-issue under D-103 (revision 3). Supersedes REPRODUCTION.md for the v2 conversion; that file stays frozen and unedited. Frozen before any v2 value was computed.",
+  "frozen_on": "2026-11-05",
+  "decision": "D-103",
+  "spec": "data/packages/aeg-d-kids1000-rar/v2/REPRODUCTION_REV3.md",
+  "files": {
+    "data/packages/aeg-d-kids1000-rar/v2/REPRODUCTION_REV3.md": "4959879fb5c8598bc3aa3ed32f9dea40c21d43b758221bccb54cffee454b68e8"
+  }
+}

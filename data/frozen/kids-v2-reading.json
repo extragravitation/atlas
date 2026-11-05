@@ -1,0 +1,14 @@
+{
+  "description": "Independent second reading for the KiDS-1000 v2 package (item 11 of REPRODUCTION_REV3.md), frozen before the first v2 conversion run. Files read from the public GitHub mirror rstpier/EFF_G_GALAXIES at commit 7606a21d5e7118b49ec57aef79d357da87118346, because the canonical tarball is refused by the workspace proxy; the README hash is checked against the tarball in CI (item 12). The covariance reading transcribes a non-redistributable release file, so it is not committed: the conversion regenerates it with reading/scripts/read.py from the fetched release and must match the hash under off_repo.",
+  "frozen_on": "2026-11-05",
+  "decision": "D-096, D-098, D-103",
+  "files": {
+    "data/packages/aeg-d-kids1000-rar/v2/reading/kids-second-reading.csv": "eaca59f79ddc1a9d0f1e5578ee8a4df3767563d6aca709e50c8aeb6a27cbf860",
+    "data/packages/aeg-d-kids1000-rar/v2/reading/kids-bins.md": "0d66b5b55d7bd8190843c25fe38d5e1cf630bea511414c1e665576721b18caf4",
+    "data/packages/aeg-d-kids1000-rar/v2/reading/kids-d096.md": "2682b11760f1b23e89de373952f337eedf3da336c6d573ed1f525f12b7a708d4",
+    "data/packages/aeg-d-kids1000-rar/v2/reading/scripts/read.py": "8f7112746c064473c2f7d2afa3ad33a2c77c5c4eec9c3b464c178e95f8a9ae87"
+  },
+  "off_repo": {
+    "data/packages/aeg-d-kids1000-rar/v2/reading/kids-covariance.csv": "1d1111698f425e378f9941a6f23a51cb144b3f1f2bcfde74fd37e5ecd9c36e60"
+  }
+}
