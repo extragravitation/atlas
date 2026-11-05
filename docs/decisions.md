@@ -2290,3 +2290,32 @@ The frozen KiDS v2 test (item 11) makes any such finding a fail of that item. Th
 - Rule 2 carries part A's frozen definition of the term in full, rather than a favourable subset.
 
 **Data seen.** Part A's published result (the A7 ratios and radial ranges) and the review. No v2 table has been computed for publication.
+
+## D-106 — X-COP v2: publish now, then invite the authors' review; correction to D-105
+
+**Ruling (2026-11-05 09:35 MDT, JvH).** "D106 as reccomended. I think I would like to publish the site and then forward them links to it for their review should they want to do it." **Proposed by** Claude (2026-11-05). Adopted with JvH's change: publish first, then invite review, instead of a two-week notice.
+
+**Context.**
+- **Correction to D-105.** D-105's context says the X-COP archives "are the authors' public release". That is wrong. Claude recorded it from a chat remark without checking it against D-090 and part A §1. The v2 files came by SWITCHdrive share links in D. Eckert's reply of 2026-11-03 ("You can find the results for these five clusters here, including directly the estimates of gobs and gbar"). v1 came from the public archive on the X-COP data page. D-105's rules are unaffected.
+- **The rule being replaced.** D-090 rule 5 made publication of v2's rows wait for the authors' explicit consent: a preview first, and a follow-up after four weeks. That rule is courtesy, not a legal requirement.
+  - Eckert sent the g_obs and g_bar files in answer to a request to include X-COP in an open atlas, which shows clear intent.
+  - JvH's direct question of 2026-11-03 ("may we include values from them in our downloads, with that citation?") is still unanswered.
+
+**Rules (replacing D-090 rule 5's waiting period).**
+1. **X-COP v2 is published now:** the tables are committed, `x_publication = published`, and v1 is kept and marked superseded. It is cited as Eckert et al. 2022, with D-092's A644 note and the known issues (#136, #178, #179) in place. The archives themselves are still never committed or redistributed (D-004). Only the derived rows and the observables the Atlas records are published.
+2. **The authors are told the same day.** JvH replies in the existing thread with:
+   - links to the v2 dataset page and the part B result;
+   - an invitation to review;
+   - the `03c` questions.
+
+   This replaces D-092 rule 4's "03c first" ordering with "03c with the link, the same day".
+3. **Their wishes are followed.** A correction becomes a new version. A request to withdraw or change how the data are served is honoured at once, and logged.
+4. **The X-COP v2 audit (D-090 rule 3)** is still written and frozen after publication, before its seed exists.
+
+**Reason.** The author shared the files for this purpose. A live page is easier for the authors to review than a private build. Every check (part A, part B, both readings) is public. The remaining courtesy is to tell them at once and follow what they ask.
+
+**Alternatives rejected.**
+- **D-090 rule 5 as it stood** (a four-week wait for explicit consent).
+- **A two-week notice before publishing**, as proposed.
+
+**Data seen.** The email thread of 2026-11-02/03 and the part B result. No new data.
