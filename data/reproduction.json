@@ -663,6 +663,76 @@
       "since_plain": "",
       "matched": "all 13 items of the frozen test hold",
       "matched_plain": "All checks passed"
+    },
+    {
+      "package": "aeg-d-xcop/v2",
+      "test_file": "REPRODUCTION.md",
+      "sha256": "c7c949a087317f137913829b5047104c204e08b41b273ac9e041a3d89c81c4c1",
+      "frozen_before": "conversion",
+      "result": "fail",
+      "first_run": "2026-11-03",
+      "result_files": [
+        "REPRODUCTION_RESULT_PART_A.md",
+        "REPRODUCTION_PART_B.md",
+        "REPRODUCTION_RESULT_PART_B.md",
+        "SECOND_READING.md"
+      ],
+      "against": "Part A: the shared archives of Eckert et al. 2022 against the papers (row structure, g_bar from gas plus stars, Table 4 fractions, R500, stage-1 checks of the seven clusters without stellar data). Part B (REPRODUCTION_PART_B.md, frozen separately): the v2 package against the frozen second reading, data standard 2.5.1 and the site.",
+      "against_plain": "First, the authors' files against their own papers. Second, our package against an independent reading of those files and papers.",
+      "issues": [
+        124,
+        129,
+        136,
+        178,
+        179
+      ],
+      "flagged": 19,
+      "status": "Current version, published 2026-11-05 under D-106. g_obs and g_bar as released by Eckert et al. 2022 for five clusters, so values differ from v1 by ruling (D-090). Part A failed five checks (A1 by the Atlas's own error, D-091; A2 on A644; A3; A4; A8 on A3158) and stands unchanged; part B passed all 13 items. A644 carries D-092's note.",
+      "status_plain": "The current cluster version, using the numbers the authors released in 2022 for five clusters. Some of our checks of their files failed and are shown as they are; the package itself passed all its checks.",
+      "since": "",
+      "since_plain": "",
+      "scope": "Part A tests whether the shared files fit together and match the papers; it does not test the hydrostatic method. Part B tests that the package equals an independent reading of the released values and meets the standard. Neither re-derives the masses.",
+      "scope_plain": "We checked the authors' files against their papers, and our package against a second reading. We did not redo the mass measurements.",
+      "matched": "part A: 5 checks failed, 1 undetermined, 3 reported (D-091); part B: all 13 items hold",
+      "matched_plain": "Some file checks failed; the package passed",
+      "checks": [
+        {
+          "name": "A1 Completeness and structure",
+          "plain": "Files complete",
+          "outcome": "fail",
+          "detail": "Row counts differ from the test's \"exactly 21\": the Atlas's error in writing the test (D-091). Everything else passes."
+        },
+        {
+          "name": "A2 g_bar = gas + stars",
+          "plain": "Visible-matter pull rebuilt from its parts",
+          "outcome": "fail",
+          "detail": "Four clusters to 0.1 %; A644 deviates by up to 32 % (D-092; #136)."
+        },
+        {
+          "name": "A3 Stage-2 condition",
+          "plain": "Enough detail to add the other seven clusters",
+          "outcome": "fail",
+          "detail": "Mass grid too coarse at the innermost rows; stage 2 stays blocked (#129)."
+        },
+        {
+          "name": "A4 Table 4 fractions",
+          "plain": "Published fractions reproduced",
+          "outcome": "fail",
+          "detail": "39 of 45 entries within tolerance."
+        },
+        {
+          "name": "A8 Stage-1 checks",
+          "plain": "The other seven clusters' files",
+          "outcome": "fail",
+          "detail": "A3158 has negative total mass at 6 rows (#178); the other six pass."
+        },
+        {
+          "name": "Part B (13 items)",
+          "plain": "Our package checked",
+          "outcome": "pass",
+          "detail": "Rows, values, errors, terms, second reading, standard and site: all 13 items hold (REPRODUCTION_RESULT_PART_B.md)."
+        }
+      ]
     }
   ]
 }

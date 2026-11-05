@@ -1,0 +1,166 @@
+# %ECSV 1.0
+# ---
+# datatype:
+# - name: system_id
+#   datatype: string
+#   description: Atlas system identifier
+#   meta: !!omap
+#   - {ucd: meta.id;meta.main}
+# - name: name_in_source
+#   datatype: string
+#   description: Cluster name as in Eckert et al. 2022 Table 1
+#   meta: !!omap
+#   - {ucd: meta.id}
+# - name: class_in_source
+#   datatype: string
+#   description: Class as the source gives it
+#   meta: !!omap
+#   - {ucd: src.class}
+# - name: taxonomy_kind
+#   datatype: string
+#   description: "Taxonomy kind (A0\u2013A10)"
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: kind_label
+#   datatype: string
+#   description: Kind label
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: host
+#   datatype: string
+#   description: Host (none)
+#   meta: !!omap
+#   - {ucd: meta.id}
+# - name: distance_mpc
+#   unit: Mpc
+#   datatype: float64
+#   description: Not given; redshift is given (D-033)
+#   meta: !!omap
+#   - {ucd: pos.distance}
+# - name: distance_method
+#   datatype: string
+#   description: Distance method (none)
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: distance_kinematic
+#   datatype: string
+#   description: Distance derived from kinematics
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: distance_ref
+#   datatype: string
+#   description: Distance source (none)
+#   meta: !!omap
+#   - {ucd: meta.ref}
+# - name: redshift
+#   datatype: float64
+#   description: "Redshift, Eckert et al. 2022 Table 1 (part A \xA72)"
+#   meta: !!omap
+#   - {ucd: src.redshift}
+# - name: redshift_err
+#   datatype: float64
+#   description: Not given
+#   meta: !!omap
+#   - {ucd: stat.error;src.redshift}
+# - name: metallicity_feh
+#   datatype: float64
+#   description: Not given
+#   meta: !!omap
+#   - {ucd: phys.abund.Fe}
+# - name: properties
+#   datatype: string
+#   description: 'Source-given properties only: Table 1''s R500,TOT, M500,TOT and M200,TOT (JSON; units in key names)'
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: x_xcop_alpha_nt_r500
+#   datatype: float64
+#   description: Non-thermal pressure fraction at R500, Ettori & Eckert 2022 tab:gamma_beta, last column (the present work, l. 274); unit
+#     as printed (per cent inferred, not stated); size of term nonthermal_pressure
+#   meta: !!omap
+#   - {ucd: phys.pressure;arith.ratio}
+# - name: x_xcop_alpha_nt_r500_err_lo
+#   datatype: float64
+#   description: Printed lower (subscript) error of x_xcop_alpha_nt_r500, sign as printed (anomalous signs not repaired; reading/resolutions.md);
+#     1 sigma (l. 276); unit as printed (per cent inferred, not stated)
+#   meta: !!omap
+#   - {ucd: stat.error}
+# - name: x_xcop_alpha_nt_r500_err_hi
+#   datatype: float64
+#   description: Printed upper (superscript) error of x_xcop_alpha_nt_r500, sign as printed; 1 sigma (l. 276); unit as printed (per cent
+#     inferred, not stated)
+#   meta: !!omap
+#   - {ucd: stat.error}
+# - name: x_xcop_alpha_nt_r200
+#   datatype: float64
+#   description: Non-thermal pressure fraction at R200, as x_xcop_alpha_nt_r500; unit as printed (per cent inferred, not stated); term
+#     nonthermal_pressure
+#   meta: !!omap
+#   - {ucd: phys.pressure;arith.ratio}
+# - name: x_xcop_alpha_nt_r200_err_lo
+#   datatype: float64
+#   description: Printed lower error of x_xcop_alpha_nt_r200, sign as printed (not repaired); unit as printed (per cent inferred, not
+#     stated)
+#   meta: !!omap
+#   - {ucd: stat.error}
+# - name: x_xcop_alpha_nt_r200_err_hi
+#   datatype: float64
+#   description: Printed upper error of x_xcop_alpha_nt_r200, sign as printed; unit as printed (per cent inferred, not stated)
+#   meta: !!omap
+#   - {ucd: stat.error}
+# - name: x_xcop_centroid_w
+#   datatype: float64
+#   description: "Centroid shift w, Paper II Table 2 (tab2.tex), in 10\u207B\xB3 (as printed); continuous, never a label (part A \xA7\
+#     5)"
+#   meta: !!omap
+#   - {ucd: src.morph.param}
+# - name: x_xcop_centroid_w_err
+#   datatype: float64
+#   description: "Printed \xB1 error of x_xcop_centroid_w, in 10\u207B\xB3 (as printed)"
+#   meta: !!omap
+#   - {ucd: stat.error}
+# - name: x_xcop_mm_gp_ein
+#   datatype: float64
+#   description: 'Part A A7: non-parametric / Einasto mass at R500 from R3 (result_part_a.json, stored precision); empty for the seven
+#     clusters without rows; term mass_model_choice'
+#   meta: !!omap
+#   - {ucd: phys.mass;arith.ratio}
+# - name: x_xcop_mm_gp_nfw
+#   datatype: float64
+#   description: 'Part A A7: non-parametric mass at R500 from R3 / Table 1 NFW M500 at Table 1''s R500; empty for the seven; term mass_model_choice'
+#   meta: !!omap
+#   - {ucd: phys.mass;arith.ratio}
+# - name: x_xcop_mm_ein_nfw
+#   datatype: float64
+#   description: 'Part A A7: Einasto mass at R500 from R3 / Table 1 NFW M500 at Table 1''s R500; empty for the seven; term mass_model_choice'
+#   meta: !!omap
+#   - {ucd: phys.mass;arith.ratio}
+# - name: x_xcop_mass_model_frac
+#   datatype: float64
+#   description: "Size of term mass_model_choice: round(max |r \u2212 1|, 4) over the three x_xcop_mm_* ratios (part B item 7; D-105 O2);\
+#     \ Atlas-computed; empty for the seven"
+#   meta: !!omap
+#   - {ucd: stat.error;arith.ratio}
+# - name: x_xcop_status
+#   datatype: string
+#   description: 'Atlas state: plotted (the five with rows) or recorded_not_plotted (the seven without stellar data; part B rule 2)'
+#   meta: !!omap
+#   - {ucd: meta.code}
+# delimiter: ','
+# meta: !!omap
+# - {dataset: aeg-d-xcop}
+# - {version: v2}
+# - {standard_version: 2.5.1}
+# schema: astropy-2.0
+system_id,name_in_source,class_in_source,taxonomy_kind,kind_label,host,distance_mpc,distance_method,distance_kinematic,distance_ref,redshift,redshift_err,metallicity_feh,properties,x_xcop_alpha_nt_r500,x_xcop_alpha_nt_r500_err_lo,x_xcop_alpha_nt_r500_err_hi,x_xcop_alpha_nt_r200,x_xcop_alpha_nt_r200_err_lo,x_xcop_alpha_nt_r200_err_hi,x_xcop_centroid_w,x_xcop_centroid_w_err,x_xcop_mm_gp_ein,x_xcop_mm_gp_nfw,x_xcop_mm_ein_nfw,x_xcop_mass_model_frac,x_xcop_status
+aeg-s-000176,A85,Galaxy cluster (X-COP sample),A9,galaxy cluster,,,,false,,0.0555,,,"{""r500_tot_kpc"":1214.0,""r500_tot_err_lo_kpc"":4.0,""r500_tot_err_hi_kpc"":4.0,""m500_tot_1e14_solMass"":5.03,""m500_tot_err_lo_1e14_solMass"":0.05,""m500_tot_err_hi_1e14_solMass"":0.05,""m200_tot_1e14_solMass"":7.04,""m200_tot_err_lo_1e14_solMass"":0.07,""m200_tot_err_hi_1e14_solMass"":0.08,""ref"":""Eckert et al. 2022 Table 1 (tab:master, l. 324–335; NFW fits, errors as printed), as transcribed in REPRODUCTION.md §2""}",14.7,-2.7,3.4,18.1,-6.3,8.7,3.85,0.02,,,,,recorded_not_plotted
+aeg-s-000177,A644,Galaxy cluster (X-COP sample),A9,galaxy cluster,,,,false,,0.0704,,,"{""r500_tot_kpc"":1398.0,""r500_tot_err_lo_kpc"":16.0,""r500_tot_err_hi_kpc"":16.0,""m500_tot_1e14_solMass"":7.8,""m500_tot_err_lo_1e14_solMass"":0.27,""m500_tot_err_hi_1e14_solMass"":0.26,""m200_tot_1e14_solMass"":10.97,""m200_tot_err_lo_1e14_solMass"":0.43,""m200_tot_err_hi_1e14_solMass"":0.45,""ref"":""Eckert et al. 2022 Table 1 (tab:master, l. 324–335; NFW fits, errors as printed), as transcribed in REPRODUCTION.md §2""}",0.0,3.9,14.6,0.0,1.1,26.6,20.97,0.15,1.0327,0.8013,0.7759,0.2241,plotted
+aeg-s-000178,A1644,Galaxy cluster (X-COP sample),A9,galaxy cluster,,,,false,,0.0473,,,"{""r500_tot_kpc"":1031.0,""r500_tot_err_lo_kpc"":10.0,""r500_tot_err_hi_kpc"":11.0,""m500_tot_1e14_solMass"":3.06,""m500_tot_err_lo_1e14_solMass"":0.09,""m500_tot_err_hi_1e14_solMass"":0.09,""m200_tot_1e14_solMass"":4.93,""m200_tot_err_lo_1e14_solMass"":0.2,""m200_tot_err_hi_1e14_solMass"":0.21,""ref"":""Eckert et al. 2022 Table 1 (tab:master, l. 324–335; NFW fits, errors as printed), as transcribed in REPRODUCTION.md §2""}",0.0,0.0,0.0,0.0,0.0,0.0,13.76,0.08,,,,,recorded_not_plotted
+aeg-s-000179,A1795,Galaxy cluster (X-COP sample),A9,galaxy cluster,,,,false,,0.0622,,,"{""r500_tot_kpc"":1160.0,""r500_tot_err_lo_kpc"":6.0,""r500_tot_err_hi_kpc"":6.0,""m500_tot_1e14_solMass"":4.42,""m500_tot_err_lo_1e14_solMass"":0.07,""m500_tot_err_hi_1e14_solMass"":0.07,""m200_tot_1e14_solMass"":6.04,""m200_tot_err_lo_1e14_solMass"":0.11,""m200_tot_err_hi_1e14_solMass"":0.11,""ref"":""Eckert et al. 2022 Table 1 (tab:master, l. 324–335; NFW fits, errors as printed), as transcribed in REPRODUCTION.md §2""}",6.6,-2.0,3.8,8.0,-5.6,12.6,2.36,0.02,0.9692,0.9383,0.9681,0.0617,plotted
+aeg-s-000180,A2029,Galaxy cluster (X-COP sample),A9,galaxy cluster,,,,false,,0.0766,,,"{""r500_tot_kpc"":1340.0,""r500_tot_err_lo_kpc"":9.0,""r500_tot_err_hi_kpc"":9.0,""m500_tot_1e14_solMass"":6.91,""m500_tot_err_lo_1e14_solMass"":0.14,""m500_tot_err_hi_1e14_solMass"":0.14,""m200_tot_1e14_solMass"":9.29,""m200_tot_err_lo_1e14_solMass"":0.21,""m200_tot_err_hi_1e14_solMass"":0.22,""ref"":""Eckert et al. 2022 Table 1 (tab:master, l. 324–335; NFW fits, errors as printed), as transcribed in REPRODUCTION.md §2""}",11.3,-3.5,5.0,18.3,-10.1,11.0,0.85,0.01,1.0417,1.1459,1.1001,0.1459,plotted
+aeg-s-000181,A2142,Galaxy cluster (X-COP sample),A9,galaxy cluster,,,,false,,0.09,,,"{""r500_tot_kpc"":1453.0,""r500_tot_err_lo_kpc"":9.0,""r500_tot_err_hi_kpc"":9.0,""m500_tot_1e14_solMass"":8.93,""m500_tot_err_lo_1e14_solMass"":0.16,""m500_tot_err_hi_1e14_solMass"":0.17,""m200_tot_1e14_solMass"":13.33,""m200_tot_err_lo_1e14_solMass"":0.3,""m200_tot_err_hi_1e14_solMass"":0.32,""ref"":""Eckert et al. 2022 Table 1 (tab:master, l. 324–335; NFW fits, errors as printed), as transcribed in REPRODUCTION.md §2""}",19.9,-2.3,2.9,23.4,-5.6,7.6,4.51,0.03,0.9856,1.0696,1.0852,0.0852,plotted
+aeg-s-000182,A2255,Galaxy cluster (X-COP sample),A9,galaxy cluster,,,,false,,0.0809,,,"{""r500_tot_kpc"":1202.0,""r500_tot_err_lo_kpc"":16.0,""r500_tot_err_hi_kpc"":17.0,""m500_tot_1e14_solMass"":5.01,""m500_tot_err_lo_1e14_solMass"":0.2,""m500_tot_err_hi_1e14_solMass"":0.22,""m200_tot_1e14_solMass"":8.94,""m200_tot_err_lo_1e14_solMass"":0.56,""m200_tot_err_hi_1e14_solMass"":0.66,""ref"":""Eckert et al. 2022 Table 1 (tab:master, l. 324–335; NFW fits, errors as printed), as transcribed in REPRODUCTION.md §2""}",11.0,-2.3,8.0,6.2,-3.3,17.1,31.4,0.26,,,,,recorded_not_plotted
+aeg-s-000183,A2319,Galaxy cluster (X-COP sample),A9,galaxy cluster,,,,false,,0.0557,,,"{""r500_tot_kpc"":1424.0,""r500_tot_err_lo_kpc"":4.0,""r500_tot_err_hi_kpc"":5.0,""m500_tot_1e14_solMass"":8.12,""m500_tot_err_lo_1e14_solMass"":0.08,""m500_tot_err_hi_1e14_solMass"":0.08,""m200_tot_1e14_solMass"":11.61,""m200_tot_err_lo_1e14_solMass"":0.14,""m200_tot_err_hi_1e14_solMass"":0.14,""ref"":""Eckert et al. 2022 Table 1 (tab:master, l. 324–335; NFW fits, errors as printed), as transcribed in REPRODUCTION.md §2""}",54.4,-7.3,11.8,67.4,-10.7,12.5,33.08,0.17,0.9941,0.9482,0.9538,0.0518,plotted
+aeg-s-000184,A3158,Galaxy cluster (X-COP sample),A9,galaxy cluster,,,,false,,0.059,,,"{""r500_tot_kpc"":1146.0,""r500_tot_err_lo_kpc"":11.0,""r500_tot_err_hi_kpc"":12.0,""m500_tot_1e14_solMass"":4.25,""m500_tot_err_lo_1e14_solMass"":0.13,""m500_tot_err_hi_1e14_solMass"":0.14,""m200_tot_1e14_solMass"":6.46,""m200_tot_err_lo_1e14_solMass"":0.25,""m200_tot_err_hi_1e14_solMass"":0.28,""ref"":""Eckert et al. 2022 Table 1 (tab:master, l. 324–335; NFW fits, errors as printed), as transcribed in REPRODUCTION.md §2""}",13.2,-6.0,5.8,18.3,-13.3,14.0,5.87,0.04,,,,,recorded_not_plotted
+aeg-s-000185,A3266,Galaxy cluster (X-COP sample),A9,galaxy cluster,,,,false,,0.0589,,,"{""r500_tot_kpc"":1381.0,""r500_tot_err_lo_kpc"":10.0,""r500_tot_err_hi_kpc"":10.0,""m500_tot_1e14_solMass"":7.43,""m500_tot_err_lo_1e14_solMass"":0.15,""m500_tot_err_hi_1e14_solMass"":0.16,""m200_tot_1e14_solMass"":12.22,""m200_tot_err_lo_1e14_solMass"":0.36,""m200_tot_err_hi_1e14_solMass"":0.41,""ref"":""Eckert et al. 2022 Table 1 (tab:master, l. 324–335; NFW fits, errors as printed), as transcribed in REPRODUCTION.md §2""}",0.0,0.0,0.0,0.0,0.0,0.0,30.84,0.16,,,,,recorded_not_plotted
+aeg-s-000186,RXC1825,Galaxy cluster (X-COP sample),A9,galaxy cluster,,,,false,,0.065,,,"{""r500_tot_kpc"":1109.0,""r500_tot_err_lo_kpc"":8.0,""r500_tot_err_hi_kpc"":9.0,""m500_tot_1e14_solMass"":3.88,""m500_tot_err_lo_1e14_solMass"":0.08,""m500_tot_err_hi_1e14_solMass"":0.09,""m200_tot_1e14_solMass"":5.66,""m200_tot_err_lo_1e14_solMass"":0.17,""m200_tot_err_hi_1e14_solMass"":0.18,""ref"":""Eckert et al. 2022 Table 1 (tab:master, l. 324–335; NFW fits, errors as printed), as transcribed in REPRODUCTION.md §2""}",0.0,9.8,28.9,0.0,14.1,57.8,8.03,0.06,,,,,recorded_not_plotted
+aeg-s-000187,Zw1215,Galaxy cluster (X-COP sample),A9,galaxy cluster,,,,false,,0.0766,,,"{""r500_tot_kpc"":1346.0,""r500_tot_err_lo_kpc"":21.0,""r500_tot_err_hi_kpc"":21.0,""m500_tot_1e14_solMass"":7.0,""m500_tot_err_lo_1e14_solMass"":0.32,""m500_tot_err_hi_1e14_solMass"":0.35,""m200_tot_1e14_solMass"":11.44,""m200_tot_err_lo_1e14_solMass"":0.7,""m200_tot_err_hi_1e14_solMass"":0.76,""ref"":""Eckert et al. 2022 Table 1 (tab:master, l. 324–335; NFW fits, errors as printed), as transcribed in REPRODUCTION.md §2""}",0.0,0.0,0.0,0.0,0.0,0.0,3.73,0.03,,,,,recorded_not_plotted

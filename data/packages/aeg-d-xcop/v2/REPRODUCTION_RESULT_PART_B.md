@@ -36,3 +36,16 @@
 ## Not tested here
 
 As the test lists: the source's error sizes; part A's checks; the questions with the authors (A644's GBAR, Table 4 units, the stellar projection, A3158's negative masses, the valid radial range, the meaning of the error columns); the seven clusters' g_bar and stage 2 (#129); the X-COP v2 audit (D-090 rule 3).
+
+## Published (D-106)
+
+- **Published 2026-11-05** under D-106 (JvH: "publish the site and then forward them links to it for their review"), replacing D-090 rule 5's waiting period. The authors are told the same day, with links and the `03c` questions, and their wishes are followed.
+- **What changed at publication:**
+  - the v2 tables are committed, and the ignore rule for them is removed;
+  - `x_publication` is `published` in the descriptor;
+  - the reproduction ledger has its v2 entry;
+  - the descriptor's description and licence-status text no longer say the version waits for the authors;
+  - `sources.json` status, `convert.py` docstring and one print line are updated.
+- **Determinism.** `aeg.fetch` followed by `convert.py` reproduced the four table hashes in the `checksums.sha256` committed by #180, byte for byte. Only the metadata files' hashes change.
+- **What did not change:** no value, row, rule or test. This section is the only addition to this file. The scored outcomes above stand.
+- **The archives are still not committed** (D-004). Only the derived rows and their observables are published.

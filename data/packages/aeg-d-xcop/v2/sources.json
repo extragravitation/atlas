@@ -20,7 +20,7 @@
   "path": "reading/",
   "freeze_record": "data/frozen/xcop-v2-reading.json"
  },
- "status": "converted by convert.py under the frozen tests and reading; tables not committed until the authors confirm (D-090 rule 5)",
+ "status": "converted by convert.py under the frozen tests and reading; published 2026-11-05 under D-106 (tables committed)",
  "values_from": "data_E22.tar.gz, the five gbar_gobs_<C>.fits files, as released",
  "sources": [
   {
