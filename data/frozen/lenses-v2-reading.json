@@ -1,0 +1,14 @@
+{
+  "description": "Second reading for the strong-lens v2 package, resolved and frozen before the first v2 conversion run (frozen test item 11; order of work step 3). The converter takes D-096 changes, θ_E classes and sizes, profiles, confidence levels, distance sizes and inventory statements only from these files.",
+  "frozen_on": "2026-11-05",
+  "decision": "D-094, D-096, D-104",
+  "files": {
+    "data/packages/aeg-d-strong-lensing/v2/reading/baryon_inventory.csv": "c4eac40b18e2ede5e7627a1429d30798ba9d702c451f798425b4a1bec1d4aea5",
+    "data/packages/aeg-d-strong-lensing/v2/reading/d096.csv": "fad6b9f9de43763a8d9d129f651b8443a192cd61f32d23b6de7ce96b4ea42317",
+    "data/packages/aeg-d-strong-lensing/v2/reading/distance.csv": "ea60559efc65aee815366e28089721b168aaba992fcaf2b4b82baf4ff51b8c0a",
+    "data/packages/aeg-d-strong-lensing/v2/reading/err_levels.csv": "c0fbaaa78ada1f94c509d6b93a02a10a8105f8ebb8abdc22b1821744189a4d21",
+    "data/packages/aeg-d-strong-lensing/v2/reading/profiles.csv": "3ef1cc323486d6d360c95109c9fa566da758086297de99aa2494fd890da0a343",
+    "data/packages/aeg-d-strong-lensing/v2/reading/resolutions.md": "dac6984d35c7c89bc1c4cc2a3514cf4fc77ee4d95ea2504d08a249a45ccd6fe6",
+    "data/packages/aeg-d-strong-lensing/v2/reading/theta_class.csv": "084d6967c7805ffb6bba2a123192a3d2df7feb9ea07f5c2d11a72010cc4bb67f"
+  }
+}
