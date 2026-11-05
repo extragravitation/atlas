@@ -1,0 +1,33 @@
+{
+  "issues": [
+    {
+      "issue": 156,
+      "url": "https://github.com/extragravitation/atlas/issues/156",
+      "title": "Dwarfs v2: Tollerud 2012 velocity windows cannot be applied to the coverage check (not published as numbers)",
+      "systems": [
+        "aeg-s-000343",
+        "aeg-s-000345",
+        "aeg-s-000346",
+        "aeg-s-000348",
+        "aeg-s-000349",
+        "aeg-s-000350",
+        "aeg-s-000353",
+        "aeg-s-000354",
+        "aeg-s-000355",
+        "aeg-s-000356"
+      ],
+      "measurements": [
+        "aeg-d-dwarfs/v2/m000001",
+        "aeg-d-dwarfs/v2/m000003",
+        "aeg-d-dwarfs/v2/m000004",
+        "aeg-d-dwarfs/v2/m000006",
+        "aeg-d-dwarfs/v2/m000007",
+        "aeg-d-dwarfs/v2/m000008",
+        "aeg-d-dwarfs/v2/m000011",
+        "aeg-d-dwarfs/v2/m000012",
+        "aeg-d-dwarfs/v2/m000013"
+      ],
+      "decision": "D-102"
+    }
+  ]
+}

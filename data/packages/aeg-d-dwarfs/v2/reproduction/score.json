@@ -1,0 +1,234 @@
+{
+ "1": {
+  "pass": true,
+  "rows_v1": 64,
+  "rows_v2": 66,
+  "appended": [
+   "aeg-d-dwarfs/v2/m000065",
+   "aeg-d-dwarfs/v2/m000066"
+  ],
+  "r_kpc_differs_on": [
+   "aeg-s-000381"
+  ]
+ },
+ "2": {
+  "pass": true,
+  "g_mismatch": [],
+  "other_mismatch": [],
+  "id_mismatch": [],
+  "alternative_mismatch": [],
+  "new_columns": [
+   "alternative_of",
+   "err_level",
+   "err_level_status",
+   "g_bar_err_level",
+   "g_bar_err_level_status",
+   "g_bar_err_point_hi",
+   "g_bar_err_point_lo",
+   "x_dwarfs_binary_screening",
+   "x_dwarfs_distance_err_hi_kpc",
+   "x_dwarfs_distance_err_lo_kpc",
+   "x_dwarfs_ellipticity",
+   "x_dwarfs_ellipticity_err_hi",
+   "x_dwarfs_ellipticity_err_lo",
+   "x_dwarfs_eps_used",
+   "x_dwarfs_gbar_stars_distance_exponent",
+   "x_dwarfs_rh_err_hi_arcmin",
+   "x_dwarfs_rh_err_lo_arcmin",
+   "x_dwarfs_rh_semimajor_assumed"
+  ],
+  "unexpected_new_columns": [],
+  "2a_observables": {
+   "pass": true,
+   "mismatch": [],
+   "new_columns": [
+    "err_level",
+    "err_level_status"
+   ],
+   "appended": [
+    [
+     "aeg-d-dwarfs/v2/o000587",
+     "aeg-s-000394",
+     "sigma_los",
+     11.0
+    ],
+    [
+     "aeg-d-dwarfs/v2/o000588",
+     "aeg-s-000381",
+     "half_light_radius",
+     20.1
+    ]
+   ]
+  },
+  "2b_systems": {
+   "pass": true,
+   "mismatch": []
+  }
+ },
+ "3": {
+  "pass": true,
+  "rows_whose_values_differ": [
+   "aeg-s-000381",
+   "aeg-s-000394"
+  ],
+  "listed_changes": [
+   "aeg-s-000381",
+   "aeg-s-000394"
+  ],
+  "reading_rows_marking_a_change": [
+   "aeg-s-000381",
+   "aeg-s-000382",
+   "aeg-s-000394"
+  ],
+  "changes": [
+   {
+    "system_id": "aeg-s-000394",
+    "name": "Phoenix II",
+    "rule": "D-096 rule 1 (D-098 rule 5)",
+    "reading": "reading/resolved.csv: d096_preferred, role=sigma, resolution=ruled",
+    "quote": "We indicate in bold which determination we prefer (Fritz 2019, l. 436); bold row 11.0 (+9.4/-5.3) km/s (l. 452)",
+    "old": {
+     "sigma": "9.5",
+     "err": [
+      "4.4",
+      "6.8"
+     ],
+     "r_kpc": 0.038066853492174604,
+     "g_obs": 2.3050000515473055e-10,
+     "g_bar": 8.868885509469919e-14
+    },
+    "new": {
+     "sigma": "11.0",
+     "err": [
+      "5.3",
+      "9.4"
+     ],
+     "r_kpc": 0.038066853492174604,
+     "g_obs": 3.090360179913839e-10,
+     "g_bar": 8.868885509469919e-14
+    },
+    "plotting": "D-038 1A: v1 coding phoenix_2/v2 has coverage = beyond_rh (Fritz Table 2), so it passes; plotted"
+   },
+   {
+    "system_id": "aeg-s-000381",
+    "name": "Fornax",
+    "rule": "D-096 rule 1 (D-101)",
+    "reading": "reading/resolved.csv: d096_preferred and d096_conflict, role=structure, resolution=ruled",
+    "quote": "found that Sersic model gives the best fit to the data while other models seem to fail to capture the complex light profile shape of Fornax (Wang 2019, Fornax_main.tex l. 333)",
+    "old": {
+     "rh_printed": "19.8",
+     "R_h_arcmin": "16.4471",
+     "r_kpc": 0.909399937201553,
+     "g_obs": 1.4987154844864755e-11,
+     "g_bar": 3.4911898949305317e-12
+    },
+    "new": {
+     "rh_printed": "20.1",
+     "R_h_arcmin": "16.6963",
+     "r_kpc": 0.9231788079052413,
+     "g_obs": 1.4763464626831993e-11,
+     "g_bar": 3.3877523774120285e-12
+    },
+    "plotting": "D-038 1A with D-051 (Hendricks 2014 member table, v1's frozen rule, a_h = 20.1′): {'n_members': 340, 'n_beyond': 327, 'fraction_beyond': 0.961764705882353, 'max_r_over_rh': 2.360073566030228, 'passes': True}",
+    "coverage": {
+     "n_members": 340,
+     "n_beyond": 327,
+     "fraction_beyond": 0.961764705882353,
+     "max_r_over_rh": 2.360073566030228,
+     "passes": true
+    }
+   }
+  ]
+ },
+ "4": {
+  "pass": true,
+  "max_relative_difference": 2.220446049250313e-16
+ },
+ "5": {
+  "pass": true,
+  "problems": [],
+  "mv_modulus_match": {
+   "Andromeda VI": "yes",
+   "Andromeda VII": "yes",
+   "Leo T": "yes (numerically; not stated explicitly)",
+   "Phoenix": "yes",
+   "Tucana": "yes (implied)"
+  },
+  "levels": {
+   "sigma_stated": 33,
+   "magnitude_stated": 47
+  }
+ },
+ "6": {
+  "pass": true,
+  "problems": [],
+  "rh_errors_agreeing_with_v1_structure_reading": 60,
+  "rh_errors_differing_from_v1_structure_reading": []
+ },
+ "7": {
+  "pass": true,
+  "problems": [],
+  "n_terms": 34,
+  "per_system": [
+   "distance_aeg-s-000367",
+   "distance_aeg-s-000400",
+   "half_light_radius_aeg-s-000347",
+   "half_light_radius_aeg-s-000348",
+   "half_light_radius_aeg-s-000381"
+  ],
+  "effects_at_default_max_relative_difference": 2.220446049250313e-16
+ },
+ "8": {
+  "pass": true,
+  "problems": [],
+  "findings": [
+   "aeg-s-000361",
+   "aeg-s-000365",
+   "aeg-s-000367",
+   "aeg-s-000370",
+   "aeg-s-000372",
+   "aeg-s-000382",
+   "aeg-s-000405",
+   "aeg-s-000407"
+  ],
+  "plotted_defaults": 56
+ },
+ "9": {
+  "pass": true,
+  "problems": [],
+  "distance_inherited_count": 0,
+  "binary_screening": {
+   "multi_epoch_stated": 31,
+   "no_multi_epoch_stated": 2,
+   "not_stated": 31
+  },
+  "note": "Every v1 row's selected σ passed D-038 1A in v1's coding (sigma_rules_rows_v3.csv status default: 18 by coverage = beyond_rh, 46 by a passing D-051 member table)"
+ },
+ "10": {
+  "pass": true,
+  "standard_version": "2.5.1",
+  "x_value_change_ruling": "D-096"
+ },
+ "11": {
+  "pass": true,
+  "reading_hash_matches_freeze_record_and_sources_json": true,
+  "mismatches": [],
+  "d096_changes": 2,
+  "d097_system_classes_with_rows": {
+   "finding": 8,
+   "possibility": 14,
+   "none": 42
+  },
+  "d097_statements": {
+   "finding": 29,
+   "possibility": 49,
+   "neither": 126
+  }
+ },
+ "13": {
+  "pass": true,
+  "files_checked": 190,
+  "changed": [],
+  "added_or_removed": []
+ }
+}

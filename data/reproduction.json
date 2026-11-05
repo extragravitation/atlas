@@ -1,6 +1,6 @@
 {
   "description": "Reproduction ledger: one entry per shipped dataset, summarising its frozen reproduction test and result. Every statement here is taken from the package's own result files, which are linked. The site build recomputes each frozen file's SHA-256 and fails if it differs from this ledger or from the package's sources.json.",
-  "updated": "2026-11-01",
+  "updated": "2026-11-05",
   "datasets": [
     {
       "package": "aeg-d-sparc/v1",
@@ -393,6 +393,77 @@
       "scope_plain": "Every input is the one printed in its original paper. We do not re-measure the star motions.",
       "since_plain": "",
       "matched": "all 534 input numbers found as printed; every check passed",
+      "matched_plain": "All checks passed"
+    },
+    {
+      "package": "aeg-d-dwarfs/v2",
+      "test_file": "REPRODUCTION.md",
+      "sha256": "395460b84359dc10de812fd3c86791832f17575c531272b0b457a7c4c75c020e",
+      "frozen_before": "conversion, and before the second reading",
+      "result": "pass",
+      "first_run": "2026-11-05",
+      "result_files": [
+        "REPRODUCTION_RESULT.md",
+        "SECOND_READING.md",
+        "reproduction/score.json"
+      ],
+      "against": "v1 (unchanged values must be bit-for-bit identical), and the frozen, resolved second reading of every system's sources by two independent readers (D-096 changes, D-097 classes, confidence levels, binary screening, R_h, ellipticity and distance errors).",
+      "against_plain": "The previous version, and a second, independent reading of every system's original papers.",
+      "checks": [
+        {
+          "name": "Values unchanged from v1",
+          "plain": "Same numbers as before",
+          "outcome": "pass",
+          "detail": "g_obs, g_bar, components and errors bit-for-bit identical on the 62 unchanged rows; observables and systems as v1 apart from the allowed fields"
+        },
+        {
+          "name": "Changes only where D-096 requires",
+          "plain": "Only the authors' own choices change values",
+          "outcome": "pass",
+          "detail": "2 rows: Phoenix II (preferred certain-members σ, D-098 rule 5) and Fornax (stated best-fit Sérsic radius, D-101); each traceable to the reading; the previous values kept as alternatives"
+        },
+        {
+          "name": "Arithmetic",
+          "plain": "Sums re-done",
+          "outcome": "pass",
+          "detail": "g_obs and g_bar recomputed from the stored inputs to 2.2e-16"
+        },
+        {
+          "name": "Uncertainties",
+          "plain": "Error bars and shared uncertainties",
+          "outcome": "pass",
+          "detail": "confidence levels from the reading; R_h, ellipticity and distance errors added; 34 uncertainty terms exactly as frozen"
+        },
+        {
+          "name": "Out-of-equilibrium systems (D-097)",
+          "plain": "Systems their own papers call disturbed",
+          "outcome": "pass",
+          "detail": "8 recorded, not plotted, with the quotation; 14 plotted with the quotation"
+        },
+        {
+          "name": "Package equals the frozen reading",
+          "plain": "Matches the second reading",
+          "outcome": "pass",
+          "detail": "every class, level, screening value and D-096 change; reading hash equals its freeze record"
+        },
+        {
+          "name": "Standard 2.5.1, site, v1 untouched",
+          "plain": "Format rules and old version intact",
+          "outcome": "pass",
+          "detail": "validator, formula check, site build and site check pass; every v1 file unchanged"
+        }
+      ],
+      "issues": [
+        156
+      ],
+      "flagged": 0,
+      "status": "Current version. Two values change under D-096; eight systems are recorded, not plotted, as D-097 findings.",
+      "status_plain": "The current dwarf-galaxy version: two values follow the authors' stated choices, and eight galaxies their own papers call disturbed are kept but not drawn.",
+      "since": "",
+      "since_plain": "",
+      "scope": "Establishes that v2 changes v1 only where the authors' stated choices require it, and that every class, level and error it adds is the one the frozen second reading found at source. It does not re-measure velocity dispersions.",
+      "scope_plain": "Only the authors' own choices change any number, and a second reading confirms everything added. We do not re-measure the star motions.",
+      "matched": "every check passed",
       "matched_plain": "All checks passed"
     }
   ]
