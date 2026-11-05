@@ -1,0 +1,8 @@
+{
+  "description": "Taxonomy version 2: version 1 (docs/plans/TAXONOMY.md, frozen in data/taxonomy.json, D-028) with one release-gate item in section 7 reworded so that it no longer carries an expected result (audit v2 finding N3). Version 1 stays frozen at its own path.",
+  "frozen_on": "2026-11-05",
+  "decision": "D-108",
+  "files": {
+    "docs/plans/TAXONOMY_v2.md": "52f35abcdbb9eee3e192f904899ba19e3b3adad56a244cf05b3649474ced275e"
+  }
+}
