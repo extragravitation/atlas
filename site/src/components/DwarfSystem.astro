@@ -3,6 +3,7 @@
 // structure, distance and magnitude from the double-read originals (D-048 to D-062). Everything
 // shown is read from the package tables; nothing is computed here except unit conversions.
 import L from './L.astro';
+import SystemUncertainties from './SystemUncertainties.astro';
 
 const { sys, d, lab } = Astro.props;
 const P = sys.props, R = sys.row;
@@ -74,7 +75,7 @@ const FLAG_T = {
       <thead><tr><th class="l">Quantity</th><th>Value</th><th>Error</th><th class="l">Unit</th><th class="l">Source</th></tr></thead>
       <tbody>{[sig, ...inputs].filter(Boolean).map((o) => <tr><td class="l">{o.quantity.replace(/_/g, ' ')}{o.x_dwarfs_parameter ? ` (${o.x_dwarfs_parameter})` : ''}{o.limit === 'upper' ? ' · upper limit' : ''}</td><td>{o.value}</td><td>{o.err_lo == null ? '–' : o.err_lo === o.err_hi ? `± ${o.err_lo}` : `−${o.err_lo} / +${o.err_hi}`}</td><td class="l">{o.unit}</td><td class="l small">{o.source_ref}</td></tr>)}</tbody>
     </table></div>
-    <p class="small"><L t="Every printed input was read twice from the original paper and checked by an independent second reading (SECOND_READING.md); the version of record was checked where it differs from arXiv (D-050)." p="Each number was read from the original paper by two readers, and checked again by a third." /></p>
+    <p class="small"><L t="Every printed input was read twice from the original paper and checked by an independent second reading (SECOND_READING.md); the version of record was checked where it differs from arXiv (D-050)." p="Each number was read twice from the original paper, and then checked by a separate second reading." /></p>
   </>
 )}
 <dl class="facts" style="margin-top:12px">
@@ -82,3 +83,5 @@ const FLAG_T = {
   <div><dt>[Fe/H]</dt><dd>{R.metallicity_feh ?? '–'}</dd></div>
   <div><dt>Position (J2000)</dt><dd>{R.ra_deg?.toFixed?.(4)}°, {R.dec_deg?.toFixed?.(4)}°</dd></div>
 </dl>
+
+<SystemUncertainties d={d} sys={sys} lab={lab} row={def || meas[0] || null} />

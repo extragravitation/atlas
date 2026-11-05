@@ -22,7 +22,7 @@ export function drawMeasured(d, rows) {
     // v2: the source released the accelerations themselves (acceleration_released, D-095).
     series = [
       { k: 'g_obs', err: 'g_obs_err_hi', unit: ' m s⁻²', col: '--sel', pts: true, lab: ['GOBS ± GOBS_ERR_HI, observed acceleration as released (source)', 'Observed pull, as the source released it'] },
-      { k: 'g_bar', unit: ' m s⁻²', col: '--gas', lab: ['GBAR, baryonic acceleration as released (gas, central galaxy and satellites; source)', 'Pull from visible matter, as the source released it'] },
+      { k: 'g_bar', unit: ' m s⁻²', col: '--gas', lab: ['GBAR, baryonic acceleration as released (gas, central galaxy and satellites; source)', 'Pull from detected matter, as the source released it'] },
     ];
     logX = true; logY = true; xlab = P ? 'distance from the centre (kpc, log scale)' : 'r (kpc, log scale)'; ylab = P ? 'pull (m s⁻², log)' : 'acceleration (m s⁻², log)';
   } else if (d.name === 'aeg-d-xcop') {

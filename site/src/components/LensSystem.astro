@@ -5,6 +5,7 @@
 // package's accelerations into masses inside the same cylinder (M = g R_E² / G = g × M_E / g_obs).
 import L from './L.astro';
 import Layer from './Layer.astro';
+import SystemUncertainties from './SystemUncertainties.astro';
 import { lensPackage, cosmologyRows, kindWords, surveyName } from '../lib/lensing.mjs';
 import { REPO } from '../lib/md.mjs';
 
@@ -125,7 +126,7 @@ const gapRows = gap ? Object.entries(P.readings || {}).flatMap(([scope, e]) => [
       <div><dt>z_l / z_s</dt><dd>{def.x_strong_lensing_z_l} / {def.x_strong_lensing_z_s}</dd></div>
       <div><dt><L t="Survey · records" p="Where from" /></dt><dd>{P.scope} <span class="small">· {def.source_ref}</span></dd></div>
     </dl>
-    {thetaNotComputed && <Layer as="p" class="small"><Fragment slot="t">θ_E error stated; effect on g_bar not computed. The source prints no single-component light profile for this lens, so how g_bar changes with θ_E is not computed (D-104 rule 3).</Fragment><Fragment slot="p">The paper gives an uncertainty for the ring size, but not the light profile needed to work out how that changes the pull from visible matter, so that effect is not shown.</Fragment></Layer>}
+    {thetaNotComputed && <Layer as="p" class="small"><Fragment slot="t">θ_E error stated; effect on g_bar not computed. The source prints no single-component light profile for this lens, so how g_bar changes with θ_E is not computed (D-104 rule 3).</Fragment><Fragment slot="p">The paper gives an uncertainty for the ring size, but not the light profile needed to work out how that changes the pull from detected matter, so that effect is not shown.</Fragment></Layer>}
     <p class="small" style="margin-top:8px"><L t="Projected (D-064): both sides are masses inside the same cylinder of radius R_E, expressed as G M / R_E². They are a different quantity from the 3D accelerations elsewhere in the Atlas and are never merged with them; g_obs / g_bar = M_E / M_bar(<R_E) exactly." p="Both pulls count everything inside a cylinder through the galaxy, the width of the ring. That is a different measurement from the other systems in the Atlas, so it keeps its own mark." /></p>
   </>
 ) : (
@@ -225,9 +226,11 @@ const gapRows = gap ? Object.entries(P.readings || {}).flatMap(([scope, e]) => [
         <td class="l wrap">{o.x_strong_lensing_parameter}</td>
       </tr>; })}</tbody>
     </table></div>
-    <p class="small" style="margin-top:6px"><L t="Every input was read twice at source by independent readers and adjudicated at source where they differed (SECOND_READING.md; reading/adjudication.md). 'As printed' is the reader’s transcription: value, errors, form and unit." p="Two people read each number from the original paper separately; where they differed, a third checked the paper. 'As printed' shows the number exactly as the paper gives it." /> <a href={`${REPO}/blob/main/${repoDir}/SECOND_READING.md`}>SECOND_READING.md</a></p>
+    <p class="small" style="margin-top:6px"><L t="Every input was read twice at source by independent readers and adjudicated at source where they differed (SECOND_READING.md; reading/adjudication.md). 'As printed' is the reader’s transcription: value, errors, form and unit." p="Each number was read twice from the original paper, independently; where the two readings differed, the paper was checked again. 'As printed' shows the number exactly as the paper gives it." /> <a href={`${REPO}/blob/main/${repoDir}/SECOND_READING.md`}>SECOND_READING.md</a></p>
   </>
 ) : gap ? <p class="small"><L t="No Einstein radius, mass or stellar mass is tabulated for lenses at z_l ≥ 0.30 (D-066 item 2). Their redshifts and kind are under As read; every reading is in the package's reading/ files." p="Nothing beyond the distance and type was converted for this lens." /></p> : <p class="small"><L t="No input of this lens is tabulated: it has no Einstein radius or Einstein mass in the inputs. Its readings are in the package's reading/ files." p="Nothing was converted for this lens." /></p>}
+
+<SystemUncertainties d={d} sys={sys} lab={lab} row={def || null} />
 
 {plotted && (
   <>

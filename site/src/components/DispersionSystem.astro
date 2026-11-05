@@ -3,7 +3,8 @@
 // first case: globular clusters, D-025, D-036 ii, D-045). Everything shown is read from the
 // package tables and checks/; nothing is computed here except unit conversions for display.
 import L from './L.astro';
-import { sigFig } from '../lib/labels.mjs';
+import SystemUncertainties from './SystemUncertainties.astro';
+import { loadAtlas } from '../lib/atlas.mjs';
 
 const { sys, d, lab } = Astro.props;
 const base = import.meta.env.BASE_URL;
@@ -17,8 +18,12 @@ const inputs = obs.filter((o) => o.side === 'baryonic');
 const byDs = {};
 for (const b of bins) (byDs[b.x_gc_baumgardt_dataset] = byDs[b.x_gc_baumgardt_dataset] || []).push(b);
 const dsNames = Object.keys(byDs).sort((a, b) => (a === 'RV' ? -1 : b === 'RV' ? 1 : a.localeCompare(b)));
-const repro = (d.checks['d037_rv_clusters.csv'] || []).find((c) => c.cluster === sys.name);
-const reproBins = (d.checks['d037_rv_bins.csv'] || []).filter((c) => c.cluster === sys.name);
+// The D-037 reproduction check (checks/ of the package). A later version without its own checks/
+// shows the check of the latest earlier version that has one, labelled with that version.
+const withChecks = d.checks['d037_rv_clusters.csv'] ? d : loadAtlas().all.filter((x) => x.name === d.name && x.key !== d.key && x.checks['d037_rv_clusters.csv']).pop();
+const checkFrom = withChecks && withChecks !== d ? withChecks.version : null;
+const repro = (withChecks?.checks['d037_rv_clusters.csv'] || []).find((c) => c.cluster === sys.name);
+const reproBins = (withChecks?.checks['d037_rv_bins.csv'] || []).filter((c) => c.cluster === sys.name);
 const plotted = P.status === 'plotted';
 const fmt = (v, n = 3) => (v === null || v === undefined || v === '' ? '–' : Number(v).toPrecision(n));
 const e10 = (v) => (v === null || v === undefined ? '–' : (v / 1e-10).toPrecision(3));
@@ -41,7 +46,7 @@ const halfR = R.distance_mpc && P.r_h_pc ? (P.r_h_pc / (R.distance_mpc * 1e6)) *
 {plotted ? (
   <dl class="facts">
     <div><dt>g_obs at r½</dt><dd>{e10(def.g_obs)} × 10⁻¹⁰ m s⁻² <span class="small">(−{e10(def.g_obs_err_lo)} / +{e10(def.g_obs_err_hi)})</span></dd></div>
-    <div><dt>g_bar at r½</dt><dd>{e10(def.g_bar)} × 10⁻¹⁰ m s⁻² <span class="small">(± {e10(def.g_bar_err_lo)}, from Υ_V only)</span></dd></div>
+    <div><dt>g_bar at r½</dt><dd>{e10(def.g_bar)} × 10⁻¹⁰ m s⁻² <span class="small">({def.g_bar_err_lo === def.g_bar_err_hi ? `± ${e10(def.g_bar_err_lo)}` : `−${e10(def.g_bar_err_lo)} / +${e10(def.g_bar_err_hi)}`}, from Υ_V only)</span></dd></div>
     <div><dt>g_obs / g_bar</dt><dd>{(def.g_obs / def.g_bar).toFixed(2)}</dd></div>
     <div><dt>r½ (3D half-light)</dt><dd>{(def.r_kpc * 1000).toFixed(2)} pc</dd></div>
     <div><dt>Light-weighted σ</dt><dd>{fmt(def.x_gc_baumgardt_sigma)} km s⁻¹ <span class="small">(−{fmt(def.x_gc_baumgardt_sigma_err_lo, 2)} / +{fmt(def.x_gc_baumgardt_sigma_err_hi, 2)}), dataset {def.x_gc_baumgardt_dataset}, {def.x_gc_baumgardt_n_bins} bins, light coverage {(def.x_gc_baumgardt_coverage * 100).toFixed(0)}%</span></dd></div>
@@ -97,10 +102,13 @@ const halfR = R.distance_mpc && P.r_h_pc ? (P.r_h_pc / (R.distance_mpc * 1e6)) *
   <div><dt>Structural model</dt><dd>{P.structural_model || '–'}</dd></div>
   <div><dt>Half-light radius</dt><dd>{P.r_h_pc ? `${P.r_h_pc.toFixed(2)} pc` : '–'}<span class="small" style="display:block">{P.r_h_source}</span></dd></div>
   <div><dt>[Fe/H]</dt><dd>{R.metallicity_feh ?? '–'}</dd></div>
-  <div><dt>Gas</dt><dd><L t="Absent: literature limit for the kind (D-036 #4)" p="Too little to count" /></dd></div>
+  <div><dt>Gas</dt><dd><L t="Not counted (zero in g_bar): no gas measurement for this cluster; the literature limit for globular clusters is used instead (absent_literature_limit, D-036 #4)" p="Not counted. Gas was not measured in this cluster; studies of clusters like it find very little, so none is included." /></dd></div>
 </dl>
 
+<SystemUncertainties d={d} sys={sys} lab={lab} row={def} />
+
 <h2 id="repro"><L t="Reproduction check (D-037)" p="Can the published numbers be re-derived?" /></h2>
+{checkFrom && <p class="small"><L t={`This version (${d.version}) has no checks/ folder; the check below is the one packaged with ${checkFrom} of this dataset (checks/d037_rv_clusters.csv), run on the per-star velocity files. It is not repeated for ${d.version}.`} p={`This check was run on an earlier version (${checkFrom}) of this dataset and is shown as it was.`} /></p>}
 {repro ? (
   <>
     <p><b>{repro.outcome.replace('_', ' ')}</b> · {repro.label}. {repro.reason || `${repro.n_pass} of ${repro.n_bins} bins pass.`}</p>
@@ -110,4 +118,4 @@ const halfR = R.distance_mpc && P.r_h_pc ? (P.r_h_pc / (R.distance_mpc * 1e6)) *
     </table></div>}
     <p class="small"><L t="A recomputation from the released per-star velocities, by a method frozen before any velocity file was opened. Bins are rebuilt by a frozen rule because the database does not publish bin edges, so a fail may come from the binning. Never plotted." p="We try to re-derive each published number from the star-by-star data. The result is shown whichever way it goes; it never replaces the published number." /></p>
   </>
-) : <p class="small">No RV-type bins for this cluster.</p>}
+) : byDs.RV ? <p class="small"><L t="This cluster has RV line-of-sight bins in the profile above, but the D-037 check records no result for it." p="No re-derivation was recorded for this cluster." /></p> : <p class="small"><L t="No RV-type bins for this cluster, so the D-037 check does not apply." p="There are no star-by-star speeds of the kind the check needs." /></p>}

@@ -33,6 +33,8 @@ const adj = d.assumptions.filter((a) => a.adjustable && a.status === 'confirmed'
 const perSys = adj.filter((a) => a.scope === 'system');
 const wide = adj.filter((a) => a.scope === 'dataset');
 const fixed = d.assumptions.filter((a) => !a.adjustable || a.status !== 'confirmed');
+// Dispersion datasets: the dataset-wide sliders that exist on the map (registry: adjustable, confirmed).
+const dispSliders = d.assumptions.filter((a) => a.adjustable && a.status === 'confirmed' && a.scope === 'dataset' && d.measurements.rows.some((r) => (r.adjustable || '').split(';').includes(a.id)));
 const issues = d.knownIssues.filter((k) => (k.measurements || []).some((m) => rows.some((r) => r.measurement_id === m)) || (k.clusters || []).includes(sys.name));
 const nRinged = rows.filter((r) => ringed(r.flags)).length;
 const otherFlags = [...new Set(rows.flatMap((r) => (r.flags || '').split(';').filter(Boolean)))];
@@ -73,13 +75,40 @@ if (d.name === 'aeg-d-sparc') {
 facts.push(['Radii measured', noRows ? 'none in this version' : `${rows.length}, from ${fmtR(rMin)} to ${fmtR(rMax)} kpc`]);
 facts.push(['Method', lab.method_t]);
 
-const statusOf = (col) => { const v = [...new Set(rows.map((r) => r[col]).filter(Boolean))]; return v.length ? v.join(', ') : null; };
+// What g_bar counts, from the rows' status columns (D-034), in words. Where a row says `absent`, the
+// package's own inventory (descriptor x_baryon_inventory, standard §9) says why: not addressed by the
+// source, known but unmeasured, or a literature limit. `absent` alone is never shown as "none exists".
+const inv = Array.isArray(d.dp.x_baryon_inventory) ? d.dp.x_baryon_inventory : [];
+const invFor = (names) => inv.find((e) => names.includes(String(e.component).toLowerCase()));
+const ABSENT = {
+  not_addressed: ['not addressed by the source; counted as zero', 'not measured by the source, so not counted'],
+  known_unmeasured: ['known to exist, not measured; counted as zero', 'known to be there but not measured, so not counted'],
+  stated_negligible: ['stated negligible by the source; counted as zero', 'the source says it is too little to matter, so not counted'],
+  absent_literature_limit: ['below the literature limit for this kind of system; counted as zero', 'not measured here; studies of similar systems find very little, so not counted'],
+  absent_limit: ['measured upper limit only; counted as zero', 'only a limit was measured, so not counted'],
+};
+const WORD = {
+  measured: ['measured', 'measured'],
+  modelled: ['modelled', 'estimated from a model'],
+  not_separable: ['not separable: inside the source’s total', 'included in the source’s total, not given separately'],
+  absent: ['absent: counted as zero', 'not counted'],
+};
+function statusWords(col, names) {
+  const v = [...new Set(rows.map((r) => r[col]).filter(Boolean))];
+  if (!v.length) return null;
+  const e = invFor(names);
+  const one = (x) => (x === 'absent' && e && ABSENT[e.status] ? ABSENT[e.status] : WORD[x] || [x, x]);
+  return [v.map((x) => one(x)[0]).join('; '), v.map((x) => one(x)[1]).join('; ')];
+}
 const nMod = rows.filter((r) => r.stars_status === 'modelled').length;
 const inventory = [
-  ['Stars', statusOf('stars_status') + (nMod && nMod < rows.length ? ` (${nMod} of ${rows.length} radii modelled)` : '')],
-  ['Cold gas', statusOf('gas_cold_status')],
-  ['Hot gas', statusOf('gas_hot_status')],
-].filter(([, v]) => v && v !== 'null');
+  [['Stars', 'Stars'], statusWords('stars_status', ['stars']), nMod && nMod < rows.length ? ` (${nMod} of ${rows.length} radii modelled)` : ''],
+  [['Cold gas', 'Cold gas'], statusWords('gas_cold_status', ['cold gas', 'atomic gas']), ''],
+  [['Hot gas', 'Hot gas'], statusWords('gas_hot_status', ['hot gas']), ''],
+].filter(([, v]) => v);
+const INV_STATUS = { measured: 'measured', modelled: 'modelled', known_unmeasured: 'known, not measured', stated_negligible: 'stated negligible by the source', absent_limit: 'upper limit only', absent_literature_limit: 'literature limit for the kind', not_addressed: 'not addressed by the source' };
+// Sliders actually on this page, named (the sentence above the uncertainty table must match them).
+const pageSliders = adj.map((a) => assumptionLabel(a.id).t);
 const names = Object.fromEntries(adj.map((a) => [a.id, assumptionLabel(a.id).short]));
 const cfg = {
   dataset: d.key, system: sys.id, names,
@@ -133,13 +162,15 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
       ? <p class="small" style="margin-top:6px"><L t="The IMF (a6s_stellar_imf) and gas (a6s_gas_in_RE) sliders are on the map and the scale strip; they move every lens together. This page shows the defaults, with both ranges in the figure." p="The star and gas assumptions can be changed on the map. This page shows the default values, with the ranges in the figure." /> <a href={`${base}?hide=${atlas.datasets.filter((x) => x.key !== d.key).map((x) => x.key).join(',')}&sel=${sys.id}`}><L t="Lenses on the map" p="See the lenses on the map" /></a></p>
       : d.name === 'aeg-d-dwarfs'
       ? <p class="small" style="margin-top:6px"><L t="The stellar mass-to-light range (D-060) is a slider on the map; its default and range for this galaxy are under Status." p="How much the starlight weighs can be changed on the map." /></p>
-      : <p class="small" style="margin-top:6px"><L t="No sliders yet for this dataset: the stellar mass-to-light range (D-039) is added with its formulas in a later pull request." p="Sliders for this dataset come later." /></p>}
+      : dispSliders.length > 0
+      ? <p class="small" style="margin-top:6px"><L t={`On the map: ${dispSliders.map((a) => `${assumptionLabel(a.id).t} (${a.id})`).join('; ')}, for every cluster of this dataset at once. This page shows the default; the range for this cluster is under Uncertainties.`} p="How much the starlight weighs can be changed on the map. This page shows the default." /></p>
+      : <p class="small" style="margin-top:6px"><L t="No assumption of this dataset has a slider." p="Nothing here can be changed with a slider." /></p>}
     <p class="cap" style="margin-top:14px">On this page</p>
     {isLens
-      ? <nav class="toc"><a href="#status">Status</a>{rows.some((r) => r.plotted === 'true') && <><a href="#figure"><L t="Inside R_E" p="Inside the ring" /></a></>}{(P.flags || []).includes('epoch_gap_v1') && <a href="#readings"><L t="As read" p="As read" /></a>}<a href="#inputs">Inputs</a>{rows.some((r) => r.plotted === 'true') && <><a href="#cosmology">Cosmology</a><a href="#gas">Gas</a></>}<a href="#cite">Cite</a></nav>
+      ? <nav class="toc"><a href="#status">Status</a>{rows.some((r) => r.plotted === 'true') && <><a href="#figure"><L t="Inside R_E" p="Inside the ring" /></a></>}{(P.flags || []).includes('epoch_gap_v1') && <a href="#readings"><L t="As read" p="As read" /></a>}<a href="#inputs">Inputs</a>{d.terms && <a href="#uncertainties"><L t="Uncertainties" p="Uncertainties" /></a>}{rows.some((r) => r.plotted === 'true') && <><a href="#cosmology">Cosmology</a><a href="#gas">Gas</a></>}<a href="#cite">Cite</a></nav>
       : d.name === 'aeg-d-dwarfs'
-      ? <nav class="toc"><a href="#status">Status</a><a href="#inputs">Inputs</a><a href="#cite">Cite</a></nav>
-      : <nav class="toc"><a href="#status">Status</a><a href="#measured"><L t="Profile" p="Profile" /></a><a href="#inputs">Inputs</a><a href="#repro"><L t="Reproduction" p="Re-derived?" /></a><a href="#cite">Cite</a></nav>}
+      ? <nav class="toc"><a href="#status">Status</a><a href="#inputs">Inputs</a>{d.terms && <a href="#uncertainties"><L t="Uncertainties" p="Uncertainties" /></a>}<a href="#cite">Cite</a></nav>
+      : <nav class="toc"><a href="#status">Status</a><a href="#measured"><L t="Profile" p="Profile" /></a><a href="#inputs">Inputs</a>{d.terms && <a href="#uncertainties"><L t="Uncertainties" p="Uncertainties" /></a>}<a href="#repro"><L t="Reproduction" p="Re-derived?" /></a><a href="#cite">Cite</a></nav>}
   </div></aside></div>
   ) : (
   <div class="olayout">
@@ -151,7 +182,7 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
       <p class="lede"><L t={`${R.class_in_source}. ${lab.method_t}. ${rows.length} radii, ${fmtR(rMin)}–${fmtR(rMax)} kpc.`} p={`${lab.one_p || lab.kind_p}. Measured at ${rows.length} distances from the centre, ${fmtR(rMin)} to ${fmtR(rMax)} kpc.`} /></p>
       {d.key === 'aeg-d-xcop/v2' && noteSegs.length > 0 && <section class="boxed" id="notes" style="margin:12px 0 18px">
         <h2 style="margin-top:0"><L t="Notes on these values" p="Notes on these numbers" /></h2>
-        {d092Note && <Layer as="p"><Fragment slot="t">{d092Note}</Fragment><Fragment slot="p">{"The published pull from visible matter for this cluster doesn't match the separate files we were given. We show the published values and have asked the authors."}</Fragment></Layer>}
+        {d092Note && <Layer as="p"><Fragment slot="t">{d092Note}</Fragment><Fragment slot="p">{"The published pull from detected matter for this cluster doesn't match the separate files we were given. We show the published values and have asked the authors."}</Fragment></Layer>}
         {hseNotes.length > 0 && <>
           <p class="small"><L t="The source's own statements on whether this cluster's gas is in hydrostatic equilibrium, in file order (on every row of this cluster):" p="What the source says about whether this cluster's hot gas is settled, in its own words:" /></p>
           <ul class="small">{hseNotes.map((s) => <li>{s}</li>)}</ul>
@@ -160,7 +191,7 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
         {otherNotes.length > 0 && <ul class="small">{otherNotes.map((s) => <li>{s}</li>)}</ul>}
       </section>}
 
-      <h2 id="budget"><L t="Pull budget" p="Where the pull comes from" /></h2>
+      <h2 id="budget"><L t="Pull budget" p="Observed pull and the pull from detected matter" /></h2>
       <div class="seg" role="group" aria-label="Units" style="margin-bottom:10px">
         <button class="btn" data-unit="acc" aria-pressed="true"><L t="Acceleration" p="Pull" /></button>
         <button class="btn" data-unit="speed" aria-pressed="false"><L t="Circular speed" p="Orbital speed" /></button>
@@ -178,7 +209,7 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
       </figure>
       <p class="hint"><L t="Hover for values at each radius. The ranges show the full published range of each assumption that applies here, whatever the sliders are set to." p="Point at the chart to read the values at each distance." /></p>
 
-      {d.terms && <><h3 id="uncertainties"><L t="Uncertainties shared by this galaxy's points" p="Uncertainties that move this whole galaxy" /></h3><p class="small"><L t="Error bars show one-point terms only. The terms below move every point of this system together (system scale) or every system of the dataset (dataset scale). Distance and inclination can be moved with the sliders on this page; the published ranges above show the dataset-wide terms." p="These uncertainties shift all of this galaxy's points at once, so they are not drawn as error bars. Distance and tilt can be changed with the sliders on this page." /></p><UncertaintyTerms d={d} sys={sys} compact={true} /></>}
+      {d.terms && <><h3 id="uncertainties"><L t={`Uncertainties of this ${lab.unit}`} p={`How sure are this ${lab.unit}’s numbers?`} /></h3><p class="small"><L t={`The pull budget draws each point's error columns as released (g_obs_err_lo/hi as bars, g_bar_err_lo/hi as a band); the table says what they carry. It lists every term that applies to this ${lab.unit}: one-point terms, terms that move every point of this ${lab.unit} together (system scale) and terms shared by every system of the dataset (dataset scale). ${pageSliders.length ? `Sliders on this page: ${pageSliders.join('; ')}. ` : 'This page has no sliders. '}The published ranges in the figure show the assumptions that have them.`} p={`Every uncertainty in this ${lab.unit}’s numbers, one by one. Some affect a single point; others shift all its points at once.${pageSliders.length ? ' Some of them can be changed with the sliders on this page.' : ''}`} /></p><UncertaintyTerms d={d} sys={sys} compact={true} /></>}
 
       <h2 id="measured"><L t="As measured" p="What was actually measured" /></h2>
       {d.name === 'aeg-d-sparc' && <Layer as="p"><Fragment slot="t">The source’s own quantities, before the Atlas converts them (D-029). SPARC gives the observed circular velocity V_obs with its random error (which excludes the inclination uncertainty) and the velocities that each baryonic component alone would produce: gas (atomic, × 1.33 for helium) and stars at a mass-to-light ratio of 1 at 3.6 μm. The Atlas then computes g_obs = V_obs² / R and g_bar = (|V_gas| V_gas + Υ_disk |V_disk| V_disk + Υ_bul |V_bul| V_bul) / R.</Fragment><Fragment slot="p">Before any conversion, the source gives speeds: how fast the galaxy turns at each distance, and how fast it would turn from its gas alone or its stars alone. The Atlas turns these speeds into pulls.</Fragment></Layer>}
@@ -194,8 +225,9 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
       </figure>
 
       <h3><L t="Detected matter counted in g_bar" p="What the detected matter includes" /></h3>
-      <ul class="small">{inventory.map(([k, v]) => <li><b>{k}</b>: {v}</li>)}</ul>
-      <p class="small"><L t="From the status columns of the package. Components known to exist but not measured are recorded per dataset under data standard 2.0 (D-029) and shown here with the next version." p="Matter that exists but was not measured will be listed here with the next version of the data." /></p>
+      <ul class="small">{inventory.map(([k, v, extra]) => <li><b><L t={k[0]} p={k[1]} /></b>: <L t={v[0] + extra} p={v[1] + extra} /></li>)}</ul>
+      <p class="small"><L t="From the status columns of this system’s rows (D-034); where a row records a component as absent, the reason comes from the package’s baryon inventory (x_baryon_inventory)." p="Matter marked “not counted” adds nothing to the pull from detected matter. The list below says why." /></p>
+      {inv.length > 0 && <details class="small"><summary><L t="Baryon inventory of the dataset" p="Every kind of matter the dataset considers" /></summary><ul>{inv.map((e) => <li><b>{e.component}</b>: {INV_STATUS[e.status] || e.status}{(e.citation || e.note) ? <span class="muted"> · {e.citation || e.note}</span> : ''}</li>)}</ul></details>}
       </div>
       <div class="post">
       <h2 id="facts"><L t="Facts" p="About this system" /></h2>
@@ -250,7 +282,7 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
       </div>}
       <div>
         <p class="cap">On this page</p>
-        <nav class="toc"><a href="#budget"><L t="Pull budget" p="Where the pull comes from" /></a><a href="#measured"><L t="As measured" p="What was measured" /></a><a href="#facts">Facts</a><a href="#measurements">Measurements</a><a href="#issues">Known issues</a><a href="#cite">Cite</a></nav>
+        <nav class="toc"><a href="#budget"><L t="Pull budget" p="Pull compared" /></a>{d.terms && <a href="#uncertainties"><L t="Uncertainties" p="Uncertainties" /></a>}<a href="#measured"><L t="As measured" p="What was measured" /></a><a href="#facts">Facts</a><a href="#measurements">Measurements</a><a href="#issues">Known issues</a><a href="#cite">Cite</a></nav>
       </div>
     </aside>
   </div>
