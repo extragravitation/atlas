@@ -2386,3 +2386,47 @@ The frozen KiDS v2 test (item 11) makes any such finding a fail of that item. Th
 - **Overriding the text on the Coverage page only:** the page would no longer show the frozen file it claims to render.
 
 **Data seen.** The audit result (#186). No new data.
+
+## D-109 — Audit should-fix rulings: pull budget, "extra pull", equilibrium test, TeX in quotes
+
+**Ruling (2026-11-05, JvH).** All four by choosing the recommended option. **Proposed by** Claude (2026-11-05), from the audit v2 neutrality findings (`docs/audit/neutrality.md`). **Adopted unchanged.**
+
+**Rules.**
+1. **Pull budget.**
+   - The system-page chart stacks only detected components (stars, disc, bulge, cold gas, hot gas) and shows g_obs as points above them.
+   - The stacked "extra pull" band (g_obs − g_bar) is removed. Nothing that was not detected is drawn as a component.
+   - The lower panel's ratio is kept.
+2. **"Extra pull" means the ratio everywhere.**
+   - "Extra pull" (plain) and "acceleration discrepancy" (expert) mean g_obs / g_bar, as Methods and the vocabulary table already say.
+   - The difference is always named "g_obs − g_bar".
+   - The "Excess" lens is renamed "Ratio".
+   - "How many times stronger" becomes "observed pull ÷ pull from detected matter (1 = equal; below 1 = less)", because some systems lie below 1.
+3. **One equilibrium test for every equilibrium-based method.**
+   - The D-097/D-099/D-100 written test (finding, possibility, neither; the closed list of states; statements about the system itself) is extended to hydrostatic X-ray masses and rotation curves. It is frozen before any further reading.
+   - Two independent readers apply it to the X-COP sources after v0.2, then to the SPARC sources.
+   - Until then, A2319 stays plotted, flagged with its source's statement quoted ("clear evidence of a breakdown of hydrostatic equilibrium", Ghirardini et al. 2018).
+4. **TeX in quoted source text.**
+   - Stored quotes stay exactly as read.
+   - On display, common TeX is converted to readable text: Greek letters, sub- and superscripts, ±, ∼, and citation commands to "(citation)".
+   - A "show as read" control shows the raw quote.
+   - Frozen and page checks keep comparing the stored text.
+
+**Context.**
+- Both page readers found the stacked band and the mixed use of "extra pull".
+- Reader 2 found the A2319 asymmetry.
+- Raw TeX appears in quotes taken from arXiv sources.
+- Separately, the lens z < 0.30 cut is already ruled (D-033 item 5, D-066). The finding there was that the page gives no reason, so the reason is now stated on the page.
+
+**Reason.**
+- Rules 1 and 2 keep labels and visuals from carrying a result or implying a component that was not detected.
+- Rule 3 replaces a rule that covered only some methods with one written test, frozen before it is applied.
+- Rule 4 makes quotes readable without changing what was read.
+
+**Alternatives rejected.**
+- For each item: keeping it as is.
+- For the chart: restyling the band as a gap.
+- For "extra pull": defining it as the difference.
+- For A2319: excluding it alone now.
+- For TeX: a maths-rendering library.
+
+**Data seen.** The audit findings. No new data.
