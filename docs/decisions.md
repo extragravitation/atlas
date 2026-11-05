@@ -2200,6 +2200,7 @@ The resolved dwarf reading records each class with its quotation and location. T
 **Reason.** Rule 1 applies D-096 rule 1 as written: a stated best fit is the source's own choice. In rule 2 the source states no preference, so the existing selection rule stands.
 
 **Data seen.** The two readings and the quoted lines. No v2 value has been computed.
+
 ## D-102 — Tollerud 2012 velocity windows; Tucana V
 
 **Ruling (2026-11-04 21:00 MDT, JvH).** "Tollerud (b)+(c), Tucana V as recommended". **Proposed by** Claude (2026-11-04), from the resolution of the dwarf v2 second readings (`data/packages/aeg-d-dwarfs/v2/reading/resolutions.md`). **Adopted unchanged.**
