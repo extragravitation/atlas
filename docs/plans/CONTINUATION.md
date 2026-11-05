@@ -1,6 +1,6 @@
 # Continuation guide
 
-**State at 2026-11-03.** Read this first in the next session, then `docs/decisions.md` (D-001 to D-090) and `docs/plans/VALIDATION_COMPLETION_PLAN.md`. Superseded by the next session's update; the git history keeps every version.
+**State at 2026-11-05 (morning).** Read this first in the next session, then `docs/decisions.md` (D-001 to D-105) and `docs/plans/VALIDATION_COMPLETION_PLAN.md`. Superseded by the next session's update; the git history keeps every version.
 
 ## Standing rule for every session
 
@@ -16,6 +16,54 @@
   Expected in v0.2, about 4–6 sessions from 2026-11-03. v0.2 does not wait for it.
 - **X-COP v2 audit (D-090, plan step G2).** Frozen after v2 ships, before its seed exists.
 - **Questions for the X-COP authors, batched with the "v2 is up" note:** GOBS error confidence level; satellite deprojection; the A9 stellar-normalisation tension; which "2022 papers"; licence.
+
+## Open on 2026-11-05
+
+- **Step D (frozen tests): done for all six datasets.**
+  - KiDS: #146, re-issued as `REPRODUCTION_REV3.md` under D-103 (#164).
+  - Dwarfs: #149, with its freeze record in #151.
+  - Globular clusters: #150, with its freeze record in #151.
+  - Lenses: #165, with its freeze record in #166.
+  - X-COP part B: #173.
+- **Second readings, frozen by hash:**
+  - dwarfs: two readers, resolved (#157);
+  - globular clusters: #157, with Rees 1996 read from a PDF JvH supplied;
+  - KiDS: #164;
+  - lenses: #171;
+  - X-COP: #175, with the parsed rows off the repository.
+- **Conversions (step E), each run once against its frozen test:**
+
+  | Dataset | PR | Result |
+  |---|---|---|
+  | Dwarfs | #161 | PASS: Phoenix II and Fornax changed; 8 D-097 findings excluded |
+  | Globular clusters | #162 | PASS: M54 cut; NGC 2298 and Pal 5 excluded |
+  | KiDS | #170 | PASS: KiDS-bright rows 1–8 not plotted (D-103); the first test's item 11 reported as failed |
+  | Lenses | #176 | PASS: θ_E error moved to g_bar on class A rows; no value changed |
+
+  Build-only fixes after scoring are disclosed in each result. JvH accepted this treatment ("item 12 pass", "reading accepted").
+- **X-COP v2 conversion:** in progress. Its tables stay gitignored and unpublished until Eckert and Ettori consent (D-090 rule 5; D-105). JvH confirmed that the archives are the authors' public release.
+- **Rulings D-098 to D-105**, among them:
+  - D-100: the D-097 wording classes;
+  - D-101: Fornax Sérsic;
+  - D-102: Tollerud windows (known issue #156) and Tucana V;
+  - D-103: KiDS isolation limit;
+  - D-104: lens H0, black holes and profiles;
+  - D-105: X-COP part B open items.
+- **Site:**
+  - the exclusion register is shown on system pages (#152);
+  - excluded dwarfs keep their values on their pages (#167).
+- **Correspondence:**
+  - Lelli replied; the check of the four points is on #8.
+  - van der Marel replied (no records; D-046 stands).
+  - The Tollerud velocity-window query is drafted (`10_Tollerud_velocity_windows_v1`) for JvH to send.
+  - **`03c` to Eckert and Ettori is due Friday 6 November** if they haven't replied.
+- **Next:**
+  1. the X-COP conversion result;
+  2. site work (step F): uncertainty sections, the reproduction ledger, and a "Status and what's next" panel, which needs a ruling;
+  3. the audit (step G);
+  4. release checks and the v0.2 tag (JvH tags).
+- **Display follow-ups after v0.2:** quotes stored with LaTeX (`\citet`, `~`) show raw on the pages for excluded systems. Cleaning them up must keep the frozen page checks working.
+- **Outside the Atlas:** the "material resistance" side quest stays out of this project (JvH, 2026-11-04).
 
 ## Open on 2026-11-04 (work plan day)
 
