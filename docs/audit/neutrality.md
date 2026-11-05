@@ -75,4 +75,15 @@ Merged, the must-fix findings are:
 
 ## Resolution
 
-**Pending.** Under §3.4, each finding is resolved by a pull request, or by no change with a reason, and is logged here. The part B pass condition is zero unresolved findings, and the counts are reported either way.
+Resolved by the "site fixes 1" pull request after #187. Each fix was re-checked with `term_scan.py` on the rebuilt site.
+
+| Finding | Resolution |
+|---|---|
+| N1 / T2 (MOND) | Changed. "This plane is the one used in published studies of the radial acceleration relation." No account is named. |
+| N2 / T3 (dark-matter halos) | Changed. The account clause was removed: "Enclosed-mass profiles and dynamical-to-baryonic mass ratios are standard in mass modelling." |
+| N3 (Coverage "control … expected to suffice") | **Open.** The Coverage page renders `docs/plans/TAXONOMY.md`, which is frozen (`data/taxonomy.json`; D-028). Changing its wording needs a new taxonomy version and a ruling. The same phrase on the Methods page is changed to "the high-acceleration end (the Solar System as a limit; globular clusters)". |
+| N4 (lens pages: ratio "does not depend on [cosmology] to first order") | Changed. It now says the ratio depends on distance at first order, g_obs/g_bar ∝ 1/D (D-094, which corrects D-064 item 4), in both the expert and plain text. |
+| T1 ("explains" ×3, plus the same verb in the system-page chart caption and aria label) | Changed to "matches", with "Newton's gravity from the detected matter" as the subject. |
+| T4 ("halo" ×4, KiDS v2 page) | **Partly changed.** "Assumed hot-gas component" is now used in the site text and the assumption registry (2 of 4). The other 2 come from the KiDS v2 package's own `datapackage.json` and frozen result text. Packages are not edited (D-006), so these change when the package is re-issued (D-107 rule 4). |
+
+The should-fix findings are resolved in later batches and logged here.

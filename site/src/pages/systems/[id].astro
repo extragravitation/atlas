@@ -92,7 +92,7 @@ const cfg = {
   vobs: ['V_obs = √(g_obs r)', 'Observed orbital speed'],
   rem: ['g_obs − g_bar, the difference', 'Extra pull: observed minus detected'],
   ebText: d.terms ? 'g_bar uncertainty as the source gives it (one sigma). It is shared by the whole system, not independent from point to point: see Uncertainties below' : 'g_bar uncertainty (one sigma, as the source gives it or as the Atlas propagates it; see Methods)',
-  ariaAcc: [`Pull budget of ${sys.name}: baryonic components stacked against radius, with the observed acceleration as points`, `How much of the pull in ${sys.name} the detected matter explains, at each distance from the centre`],
+  ariaAcc: [`Pull budget of ${sys.name}: baryonic components stacked against radius, with the observed acceleration as points`, `How much of the pull in ${sys.name} is matched by Newton’s gravity from the detected matter, at each distance from the centre`],
   ariaSpeed: [`Speeds of ${sys.name}: circular speed from each baryonic component and from g_obs, against radius`, `Orbital speeds in ${sys.name}: observed, and what the detected matter would give`],
   ariaShare: [`Share g_bar / g_obs against radius for ${sys.name}`, `Share of the observed pull explained by detected matter in ${sys.name}`],
   capAcc: ['Baryonic components (Newtonian, from the source) stacked; their sum is g_bar. Points: g_obs. The light band between them is the difference g_obs − g_bar.', 'Coloured layers: the pull from each kind of detected matter, added up. Points: the observed pull. The pale band is the extra pull.'],
