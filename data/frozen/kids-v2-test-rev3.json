@@ -1,9 +1,10 @@
 {
-  "description": "aeg-d-kids1000-rar/v2 reproduction test, re-issue under D-103 (revision 3). Supersedes REPRODUCTION.md for the v2 conversion; that file stays frozen and unedited. Frozen before any v2 value was computed.",
+  "description": "aeg-d-kids1000-rar/v2 reproduction test, re-issue under D-103 (revision 3). Supersedes REPRODUCTION.md for the v2 conversion; that file stays frozen and unedited. Frozen before any v2 value was computed. Also protects the original REPRODUCTION.md, which D-103 rule 2 keeps unedited.",
   "frozen_on": "2026-11-05",
   "decision": "D-103",
   "spec": "data/packages/aeg-d-kids1000-rar/v2/REPRODUCTION_REV3.md",
   "files": {
-    "data/packages/aeg-d-kids1000-rar/v2/REPRODUCTION_REV3.md": "4959879fb5c8598bc3aa3ed32f9dea40c21d43b758221bccb54cffee454b68e8"
+    "data/packages/aeg-d-kids1000-rar/v2/REPRODUCTION_REV3.md": "57ae39aeefa4ace2b2c279fe2ec1591e49210af407b12a363a862b668ef3ae7e",
+    "data/packages/aeg-d-kids1000-rar/v2/REPRODUCTION.md": "b44f5a58fd545d7eb4927ffae341a06cfa4aa3c3e9598affa1dad0a84631190b"
   }
 }

@@ -1,14 +1,21 @@
 # aeg-d-kids1000-rar/v2: reproduction test, re-issue under D-103 (frozen on merge, before conversion)
 
 **Status: draft, revision 3, for JvH's approval.**
-- This file re-issues the frozen v2 test (`REPRODUCTION.md`, SHA-256 in `v2/sources.json` once v2 is built) as D-103 rule 2 requires. That file stays as it is, unedited. **This file supersedes it** for the v2 conversion.
-- The only changes are those D-103 requires:
+- This file re-issues the frozen v2 test (`REPRODUCTION.md`, SHA-256 `b44f5a58fd545d7eb4927ffae341a06cfa4aa3c3e9598affa1dad0a84631190b`, protected in `data/frozen/kids-v2-test-rev3.json`) as D-103 rule 2 requires. That file stays as it is, unedited. **This file supersedes it** for the v2 conversion.
+- **Changes D-103 requires:**
   - KiDS-bright rows 1–8 are recorded, not plotted (item 9);
-  - item 11 accepts that finding and takes the second reading from frozen files;
-  - the g_bar description is corrected by the second reading (items 5 and 8);
-  - one known issue is added (item 6);
+  - item 11 accepts that finding;
   - the original test's item 11 is reported as failed (item 15);
-  - the standard is 2.5.1.
+  - one known issue is added (item 6; D-103 rule 3).
+- **Other changes,** listed so the record is complete. None needs a separate ruling:
+  - the g_bar description is corrected by the second reading: the released value is the bin midpoint (items 5 and 8);
+  - the standard is 2.5.1 (D-099);
+  - item 2 allows `notes` to change on every row (tests 5 and 9 set them);
+  - item 10 states why no `x_value_change_ruling` is set;
+  - item 11 takes the second reading from frozen files, names how each packaged number is compared, and adds a covariance check. Its pass rule is now "any mismatch is a fail", because the reading is frozen before conversion;
+  - item 12 checks all seven tarball members, not only the README;
+  - item 15 states the D-096 rule 4 counts;
+  - an "Order of work" section is added.
 
   Everything else is the original test, unchanged in substance.
 - **Freezing.** Written 2026-11-05, before `convert.py` for v2 exists. No v2 value has been computed. On merge, this file's SHA-256 goes into `data/frozen/kids-v2-test-rev3.json`, and the file is not edited after merge.
@@ -33,7 +40,7 @@ It changes **no value**. Every g_obs and g_bar is bit-for-bit equal to v1 (D-083
 Brouwer et al. 2021, A&A 650, A113 (arXiv 2106.11677, `RAR_paper_Brouwer_4.tex`), and the release README:
 - **g_obs.** g_obs = 4 G ΔΣ / bias. The released `error` is "The 1-sigma error value on ESD_t" (README). The paper adds 0.1 dex to every RAR error bar for the ΔΣ-to-g_obs conversion (§4.4, l. 438). The release omits it, and the combination is not stated (K1, K2).
 - **g_bar.** It is the binning coordinate: "15 logarithmic bins between 1×10⁻¹⁵ < g_bar < 5×10⁻¹² m s⁻²" (§2.1, l. 174). It has no point error by construction. **The released value is the arithmetic midpoint of its bin,** (lower edge + upper edge)/2, at the printed precision, and it is identical in all three files. It is a fixed coordinate, not a mean over the lenses. The second reading found this (`v2/reading/kids-bins.md`). It corrects step A's inference ("bin means", `uncertainty-readings.md` §1.1) and changes no value. Per-lens stellar-mass scatter acts through bin assignment (K8). The ±0.2 dex systematic is shown by the authors as a re-run band, not a shift (K9; D-021).
-- **Points beyond the isolation limit (D-103).** The source leaves the KiDS-bright points beyond its isolation limit out of every model comparison:
+- **Points beyond the isolation limit (D-103).** The source leaves the KiDS-bright points beyond its isolation limit out of its tests of the analytical models (MOND, EG, N17; l. 748). Its comparison with the MICE simulation keeps all points, with the redshift offset mimicked in the simulation (l. 748):
   - "by only using the seven data points within the isolation criterion limit" (l. 508);
   - "we can only use the ESD profile of isolated KiDS-bright lenses within R < 0.3 h70⁻¹ Mpc … g_gal > 7.56×10⁻¹⁴ m s⁻²" (l. 748);
   - "Here we have removed all data points beyond the KiDS isolation limit" (l. 821).
@@ -48,7 +55,7 @@ Applied to the v2 tables, with v1 at commit `5dc4091` as the reference.
 ### A. Values unchanged (D-083 item 3)
 
 1. v2 has exactly 45 measurement rows. Row k of v2 has the same `x_kids1000_rar_sample` and `source_ref` as row k of v1.
-2. `g_obs`, `g_obs_err_lo`, `g_obs_err_hi` and `g_bar` are **bit-for-bit equal** (identical float64) to v1's. So are the four `x_kids1000_rar_*` columns. **Every other v1 column is unchanged**, except `flags` (test 6), `assumptions` (test 7), `notes` on the rows named in test 9, and the role, status and plotting columns set in test 9.
+2. `g_obs`, `g_obs_err_lo`, `g_obs_err_hi` and `g_bar` are **bit-for-bit equal** (identical float64) to v1's. So are the four `x_kids1000_rar_*` columns. **Every other v1 column is unchanged**, except `flags` (test 6), `assumptions` (test 7), `notes` on all rows (their content is set by tests 5 and 9), and the role, status and plotting columns set in test 9.
 3. `tables/covariance.ecsv` is identical to v1's, apart from the `measurement_id` prefix (`v1` → `v2`).
 
 ### B. Uncertainties (standard 2.4.0 and 2.5.0; §2a, §3, §7a)
@@ -62,7 +69,7 @@ Applied to the v2 tables, with v1 at commit `5dc4091` as the reference.
    - `g_bar_bin_lo` and `g_bar_bin_hi` hold the edges of the source's bin k: 10^(−15 + (k−1)·Δ) and 10^(−15 + k·Δ) m s⁻², with Δ = log₁₀(5×10⁻¹²/10⁻¹⁵)/15 ≈ 0.2466, for row k (1 to 15) of each file, to a relative tolerance of 1e-12. The source states these bins in general (§2.1, l. 174). That the hot-gas file uses the same edges is the Atlas's inference, stated in its rows' `notes`.
    - **Check:** every released g_bar lies inside its row's bin. A row outside its bin is a fail. This check is not blind: the step A reading already found that the released values fall inside these bins (`uncertainty-readings.md` §1.1).
 6. **The `no_uncertainty` flag is removed.** In v1 it referred to g_bar only (#64). Under §3, `g_bar_basis = bin_coordinate` now states the reason exactly (no point error by construction), so #64 is resolved in v2. `source_quality_low` stays on the same 16 rows as v1. For the hot-gas rows this carries v1's use of the KiDS-bright g_bar limit, which may under-flag them, because the source's limit is a radius (R > 0.3 h70⁻¹ Mpc, App. A l. 748). This is disclosed in the K13 term's note and opened as a known issue; the flags are not changed in a no-change re-issue.
-   - **A second known issue (D-103 rule 3)** is opened and linked from `known_issues.json`. The source writes the isolation limit as "R < 3 h70⁻¹ Mpc" (l. 508, 821) and as "R < 0.3 h70⁻¹ Mpc" (l. 483, 489, 748). The acceleration threshold (l. 748) and "seven data points" (l. 508) fix the rows either way.
+   - **A second known issue (D-103 rule 3)** is opened and linked from `known_issues.json`. The source gives the limit as 3 h70⁻¹ Mpc (l. 508 "R < 3"; l. 821 "R>3") and as 0.3 h70⁻¹ Mpc (l. 483 and 489 "R > 0.3"; l. 748 "R < 0.3"). D-103 rule 3 quotes l. 821 and l. 483 and 489 with the inequality reversed; the known issue records the correct wording. The acceleration threshold (l. 748) and "seven data points" (l. 508) fix the rows either way.
 7. **Uncertainty terms.** `tables/uncertainty_terms.ecsv` contains exactly these rows.
    - Each cites Brouwer et al. 2021 at the location in `uncertainty-readings.md` §1, and `covariance` is `not_published` on every row. (K1's covariance is in `tables/covariance.ecsv`; K1 is in the error columns, so it has no row, §7a.)
    - Every row's `note` names the sample(s) it applies to: KiDS-bright, GAMA, the hot-gas variant, or all.
@@ -98,7 +105,7 @@ Applied to the v2 tables, with v1 at commit `5dc4091` as the reference.
    - **KiDS-bright rows 1–8 (D-103; D-096 rule 2):**
      - `role` = `default`, because there is no other value for these bins;
      - `plotted` = false, `not_plotted_reason` = `other`;
-     - `notes` hold the three quotations above (l. 508, 748, 821) with their locations, the reason as the source states it (l. 748), and "D-096 rule 2 (D-103): excluded by the source from its own analysis; recorded, not plotted".
+     - `notes` hold the three quotations above (l. 508, 748, 821) with their locations, the reason as the source states it (l. 748), and "D-096 rule 2 (D-103): excluded by the source from its tests of analytical models (l. 748); recorded, not plotted".
      - The rows stay in the tables and downloads, and the dataset page states the exclusion and why.
      - These are bins of a population, not systems, so they have no rows in `data/registry/excluded.csv` (a register of systems; standard §5).
    - **Hot-gas variant rows:** `role` = `alternative`, `alternative_of` = the KiDS-bright row with the same bin index, `plotted` = false, `not_plotted_reason` = `alternative_value`.
@@ -107,7 +114,7 @@ Applied to the v2 tables, with v1 at commit `5dc4091` as the reference.
      - Ruled under D-096 rule 3: the source calls stars plus cold gas its "fiducial estimate" and the variant "only a rough order of magnitude estimate". This changes what the site shows (v1 drew all 45 rows); the dataset page states it.
 10. **Descriptor** (`datapackage.json`):
     - `standard_version` `2.5.1`;
-    - **no `x_value_change_ruling`.** Under standard 2.5.1 §9 it is for "a new version's values" that differ from the previous version's. Here no value differs (tests 1–3), only plotting does, so §10 item 13 applies unchanged;
+    - **no `x_value_change_ruling`.** D-103 rule 1 states "No value changes", and that rule replaces the original item 11's route to a value-changing version under D-096 rule 5. Under standard 2.5.1 §9 the key is for "a new version's values" that differ from the previous version's. Here no value differs (tests 1–3), only plotting does, so §10 item 13 applies unchanged;
     - `x_selection`, per sample, with the bin definitions (§9):
       - KiDS-bright: z_ANN < 0.5 and m_r < 20.0, isolated (§3.3);
       - GAMA: nQ ≥ 3 and m_r,Petro < 19.8, isolated (§3.2);
@@ -133,32 +140,36 @@ Applied to the v2 tables, with v1 at commit `5dc4091` as the reference.
       - `v2/reading/kids-bins.md`: the 15 bin edges derived from §2.1;
       - `v2/reading/kids-d096.md`: the D-096 fields per file, with quotes and locations;
       - `v2/reading/scripts/read.py`: the parser.
-    - **The covariance reading is not committed.** `kids-covariance.csv` transcribes the released covariance files in full, and the release is not redistributable (`v1/sources.json`). The freeze record holds its SHA-256 instead. The conversion regenerates it with `read.py` from the fetched release and checks that hash; **a mismatch is a fail**.
+    - **The covariance reading is not committed.** `kids-covariance.csv` transcribes the released covariance files in full, and the release is not redistributable (`v1/sources.json`). The freeze record holds its SHA-256 instead, under `off_repo`. The conversion regenerates it with `read.py` from the fetched release into the gitignored path `data/packages/aeg-d-kids1000-rar/v2/source/reading/kids-covariance.csv` (`python reading/scripts/read.py <release folder> source/reading`), and checks that hash; **a mismatch is a fail**. It is never written into the tracked `v2/reading/` folder.
     - **D-096 fields.** The reading's findings are exactly:
       - the hot-gas variant as a non-fiducial alternative (already in test 9);
       - KiDS-bright rows 1–8 excluded by the source (D-103; test 9).
 
       These two are applied and no others. The reading found no preferred value, and no exclusion in GAMA or the README.
     - **Pass:**
-      - every packaged number equals the frozen reading, at the printed precision;
-      - the packaged covariance equals the regenerated covariance reading, divided by the bias column as the README states and converted to g_obs units as v1 does;
+      - every packaged number equals the frozen reading, at the printed precision, by these pairs (row by row, matched on file and row index):
+        - observables `delta_sigma` value, `err_lo` and `err_hi` against the reading's `ESD_t` and `error`;
+        - observables `acceleration_released` value and measurements `g_bar` against the reading's `g_bar`;
+        - measurements `g_bar_bin_lo` and `g_bar_bin_hi` against the reading's bin edges, at item 5's relative tolerance of 1e-12;
+        - the `x_kids1000_rar_esd_t`, `_esd_x`, `_esd_err` and `_bias` columns against `ESD_t`, `ESD_x`, `error` and `bias`;
+      - the packaged covariance equals the regenerated covariance reading's `covariance`, divided by its column 7 (`bias_product`) as the README states, and converted to g_obs units as v1 does;
       - each row's plotting status matches the D-096 fields above.
 
       Any mismatch is a fail.
-12. **The README's provenance.** The README was read from a public mirror (`uncertainty-readings.md` §1; again by the second reading, item 11), whose SHA-256 is `b3680580696c5dbf5671c700d5e8f90fbfd1dc614fa7e3e07b2f66d1624e8645`. The canonical tarball (hash in `v1/sources.json`) is not reachable from the workspace, so this is checked by CI as the first step of the conversion: the tarball's README member must have exactly this hash. **A mismatch is a fail**, because tests 4 and 8 rest on the README's wording.
+12. **The release's provenance.** The README and the six data and covariance files were read from a public mirror (`uncertainty-readings.md` §1; again by the second reading, item 11). The README's SHA-256 is `b3680580696c5dbf5671c700d5e8f90fbfd1dc614fa7e3e07b2f66d1624e8645`, and all seven hashes are listed in `v2/reading/kids-d096.md`. The canonical tarball (hash in `v1/sources.json`) is not reachable from the workspace, so this is checked by CI as the first step of the conversion: each of the seven tarball members must have exactly the hash listed in `kids-d096.md`. **A mismatch is a fail**, because tests 4, 8 and 11 rest on these files. **If CI cannot reach the tarball either,** the test is blocked, not scored, and no v2 is published until it can be.
 13. **Standard and site.**
     - `PYTHONPATH=pipeline python -m aeg.validate data/packages/aeg-d-kids1000-rar/v2` passes under 2.5.1;
     - the site builds;
     - `aeg.site_check` reports 0 errors;
     - the reproduction ledger's hash check passes.
 14. **v1 untouched.** Every file in `aeg-d-kids1000-rar/v1/` has the checksum it had at commit `5dc4091`.
-15. **The original test's item 11 is reported as failed** (D-103 rule 2). `REPRODUCTION_RESULT.md` states, before the item-by-item result, that the frozen `REPRODUCTION.md` item 11 failed: its second reading found an exclusion beyond the hot-gas variant. It also states that this re-issue was written by ruling (D-103) before any v2 value existed. The other items of the original test are scored as they are restated here.
+15. **The original test's item 11 is reported as failed** (D-103 rule 2). `REPRODUCTION_RESULT.md` states, before the item-by-item result, that the frozen `REPRODUCTION.md` item 11 failed: its second reading found an exclusion beyond the hot-gas variant. It also states that this re-issue was written by ruling (D-103) before any v2 value existed. The other items of the original test are scored as they are restated here. **D-096 rule 4 counts:** the result states that 8 rows change plotting status under D-096 rule 2 (D-103: KiDS-bright rows 1–8) and 15 under D-096 rule 3 (the hot-gas variant), and that no value changes.
 
 ## Order of work (against steering)
 
 1. **Second reading:** done and frozen with this test (item 11).
 2. **Conversion:**
-   - `convert.py` takes the D-096 findings and plotting status only from `v2/reading/kids-d096.md` and this test. It contains no other row-specific rule.
+   - `convert.py` encodes exactly the plotting statuses of item 9 ("KiDS-bright rows 1–8: `plotted` = false", citing item 9; the hot-gas rows as alternatives), and no other row-specific rule. `kids-d096.md` is prose, so test 11 checks the encoded statuses against it.
    - CI checks the tarball's README hash (item 12) and the regenerated covariance reading's hash (item 11) before the tables are written.
 3. **Scoring.** The first complete conversion is the scored run. A fault found after scoring is published as a fail, with its reason; it is not fixed and re-scored.
 
