@@ -1,6 +1,7 @@
 # aeg-d-strong-lensing/v2: reproduction test (draft; frozen on merge, before conversion)
 
-**Status: draft, revision 1, for review and then JvH's approval.**
+**Status: draft, revision 2, for JvH's approval.**
+- Revision 2 answers review 1 (`docs/sources/readings/step-d-2026-11-05/lenses-review-1.md`): all eleven errors and the weaknesses.
 - Written 2026-11-05, before `convert.py` for v2 exists. No v2 value has been computed, and no g value of v1 was opened to write it.
 - On merge, this file's SHA-256 goes into `data/frozen/lenses-v2-test.json`, and the file is not edited after merge.
 - If the test fails, v2 does not ship and the failure is published. The test is not changed to pass (operating rule 5; D-005).
@@ -10,9 +11,8 @@
 - D-064 item 4 as replaced by D-094 (distance enters at first order, g_obs/g_bar ∝ 1/D);
 - D-087 (`model_dependence`);
 - D-096 and D-098 rule 1 (defer to the source's stated choices; exclusions only for the same data points);
-- the frozen precedence rule `docs/methods/A6S_PRECEDENCE.md` (D-065) and the rulings D-066, D-075 and D-076, which v1 applied.
-
-**Open items for JvH, to be ruled before this test is frozen:** O1 (the central black hole) and O2 (the θ_E term's profile where the source prints none). See the end of this file. The test is written with the recommended answer to each; a different ruling changes only the rows named there.
+- the frozen precedence rule `docs/methods/A6S_PRECEDENCE.md` (D-065) and the rulings D-066, D-075 and D-076, which v1 applied;
+- **D-104 (pending).** Three points are written with the recommended answer and marked "subject to D-104 (pending)": the distance sizes (rule 6), the central black hole (item 9) and the θ_E term where no light profile is printed (rule 5). A different ruling changes only the text so marked, before freezing.
 
 ## Purpose
 
@@ -29,7 +29,7 @@ v2 re-issues `aeg-d-strong-lensing/v1` (standard 2.1.0) under standard 2.5.1 (D-
 
 1. **D-096 rule 1 (preferred values) and rule 3 (fiducial baselines).**
    - The defaults of v1 were fixed by D-065, D-075 and D-076 before any value was read.
-   - The second reading records, for every source used (R5, R13, R10, R9, R20, R21, R25, R26, R28, R29, R30, R32, R61), whether it marks a preferred value or names a fiducial baseline among the values it prints, with quote and location.
+   - The second reading records, for every source used (R5, R13, R10, R9, R20, R21, R25, R26, R27, R28, R29, R30, R32, R61), whether it marks a preferred value or names a fiducial baseline among the values it prints, with quote and location. R27 (Collier et al. 2020) supplies J0403−0239's alternative θ_E and redshift observables and is newer than R29, so a preference stated there could change a default.
    - **Known candidate:** NGC 6505. R30 prints a spectroscopic lens redshift, z = 0.04243 (ms.tex l. 639), and a cosmological redshift, z = 0.041 ± 0.001, after a bulk-flow and peculiar-velocity correction (l. 790). v1 uses 0.04243 as the default and 0.041 as an alternative row. The reading records whether R30 states which one it uses for distances.
    - **Any such preference that differs from a v1 default, or conflicts with D-065, D-075 or D-076, goes to JvH before the first conversion run.** It is never decided after conversion. A value change then sets `x_value_change_ruling = D-096` (standard 2.4.0 §9).
    - Expected: no change.
@@ -42,32 +42,39 @@ v2 re-issues `aeg-d-strong-lensing/v1` (standard 2.1.0) under standard 2.5.1 (D-
    The reading confirms that the three rows are exactly those whose observed side is a half-image-separation estimate.
 5. **§2a rule 7: the Einstein-radius error.**
    - **Where the source's M_E is the mass inside the Einstein radius, with mean convergence 1** (M_E = π Σ_cr R_E²), g_obs = G M_E / R_E² = π G Σ_cr. That depends on the redshifts and the cosmology only, not on θ_E. So a θ_E error does not move g_obs. It moves R_E, and with it g_bar = G M*(<R_E) / R_E², through the radius and through the aperture of M*.
-   - **Expected rows of this kind ("class A"):**
-     - SLACS (48 rows; M_E computed from R5's θ_E);
-     - SL2S (2 rows; computed from R20's θ_E);
-     - MaNGA J1436+4943 and J1701+3722 (R32 prints M_E and θ_E; the M_E error is the θ_E error, "the error reflecting the variation between models" (main.tex l. 176) and "we impose a 10 per cent error on θ_Ein" (l. 261));
-     - NGC 6505 (R30; θ_E error stated as a lower bound, l. 798, l. 813; M_E printed without error).
-   - **Rows where the printed M_E error is not a θ_E error alone ("class B")** keep it on g_obs, as in v1, and get no separate θ_E term, so nothing is counted twice:
-     - SNL-0: the 4 % reflects "the difference between SIS- and MFL-model masses" (R28 lensz_arXiv.tex l. 317–325), and θ_E (2.85″) has no printed error;
-     - J0403−0239: the 2 % "dominated by the measurement of R_Ein" plus about 3 % for ellipticity, revised "to ∼4 per cent" (R29 newlens.tex l. 210). The parts are not separable.
-   - **Rows where θ_E has no printed error:** S4TM (37 rows; R10 prints neither a θ_E nor an M_E error). R9's 0.5 % was derived for R9's own models (ms_v2.tex l. 138), so under the sizing rule it is not a size for R10's models; it goes in the note.
+   - **The class applies to every row of a system, alternatives included.** Expected rows of this kind ("class A"), 107 in all:
+     - SLACS: 96 rows (48 defaults, 48 alternatives); M_E computed from R5's θ_E;
+     - SL2S: 6 rows (2 defaults, 4 alternatives); computed from R20's θ_E;
+     - MaNGA J1436+4943 and J1701+3722: 2 rows. R32 prints M_E and θ_E, and the error is the θ_E error: "the error reflecting the variation between models" (main.tex l. 176) and "we impose a 10 per cent error on θ_Ein" (l. 261);
+     - NGC 6505: 2 rows (R30; θ_E error stated as a lower bound, l. 798, l. 813; M_E printed without error);
+     - J0403−0239: 1 row. R29 adopts "R_Ein as half of the image separation, 1.47 ± 0.03 arcsec" (newlens.tex l. 196) and computes M_Ein "using the symmetric lens equation" (l. 210), which is the mass at mean convergence 1. Its "2 per cent uncertainty dominated by the measurement of R_Ein" (l. 210) is that θ_E error. The further 3 % that "a small ellipticity … increases the mass by" (l. 210) changes M_E at a fixed radius, so it stays on g_obs as its own term (`ellipticity_j0403`, item 7). Nothing is subtracted in quadrature.
+   - **Rows where the printed M_E error is not a θ_E error ("class B")** keep it on g_obs, as in v1, and get no separate θ_E term, so nothing is counted twice:
+     - SNL-0: the 4 % reflects "the difference between SIS- and MFL-model masses" (R28 lensz_arXiv.tex l. 317–325), and θ_E (2.85″) has no printed error.
+   - **Rows where θ_E has no printed error:** S4TM (37 rows; R10 prints neither a θ_E nor an M_E error). R9's 0.5 % was derived for R9's own fits of the SLACS grade-A lenses as a scatter against R5 (ms_v2.tex l. 138), not for R10's models, so under the sizing rule it goes in the note.
    - **SNL-1 and SNL-2** use a mass inside the aperture R_ap (R61 Table 2), which has no printed error. Rule 7 does not apply (its "no error of its own" clause). Their printed mass errors stay on g_obs.
+   - **The θ_E effect needs the light profile of M*(<R_E)** (item 6). Where the source prints no profile, see "Where no profile is printed" below.
    - **The reading decides each row's class at source:** whether the source defines M_E as the mass inside the radius of mean convergence 1, and whether its stated error is a θ_E error alone. Where the reading differs from the expectation above, the reading governs, and the result says so.
-6. **Distance (D-094).** Distance moves g_obs at first order. The stellar g_bar is distance-free at fixed Ω_m: M* ∝ D_L², R_E² ∝ D_A², and both scale as H0⁻².
-   - **H0** enters exactly as g_obs ∝ H0 (all distances ∝ 1/H0 at fixed Ω_m), with R_E ∝ 1/H0. The formula is the corrected registry entry `a6s_source_cosmology` (item 7).
-   - **Peculiar velocity and the redshift frame** enter through the lens distance only. Their size is taken as each source states it, as a fractional change in the lensing mass-to-light ratio, and applied to g_obs (`a6s_lens_distance`, item 7).
+   - **Where no profile is printed (subject to D-104, pending).** Where `profiles.csv` records "none printed" for a class A row, `x_strong_lensing_dlngbar_dlntheta` is empty and the θ_E effect on g_bar is not computed in v2. `x_strong_lensing_theta_e_err_frac_lo/hi` stay filled with the stated error. The dataset page and the row's view say "θ_E error stated; effect on g_bar not computed". This adds no assumption.
+     - Expected scope: the two MaNGA rows (R32 prints θ_Eff but no profile form), NGC 6505 (R30 describes a "complex and varying isophotal structure" fitted with several Sérsic components) and J0403−0239 (the reading decides).
+     - A registered de Vaucouleurs profile is rejected: it would contradict R30 and is not stated by R32.
+     - **A later option, needing a ruling:** since d ln M*(<R)/d ln R = 2 Σ(R)/Σ̄(<R), the exponent lies in [−2, 0] with no profile at all, provided the surface density does not rise outward at R_E. It is not used in v2.
+6. **Distance (D-094). Sizes subject to D-104 (pending).** Distance moves g_obs at first order. The stellar g_bar is distance-free at fixed Ω_m: M* ∝ D_L², R_E² ∝ D_A², and both scale as H0⁻².
+   - **H0** enters exactly: g_obs ∝ H0 (all distances ∝ 1/H0 at fixed Ω_m), with R_E ∝ 1/H0 and g_bar unchanged. The formula is the corrected registry entry `a6s_source_cosmology` (item 7). **H0 terms are sized in the parameter's own unit (km s⁻¹ Mpc⁻¹)**, as the pair of H0 values the source names: its adopted H0 and the alternative it tests. Values stated only through a named paper are read from that paper, as D-075 item 4 requires. The exact formula then gives the effect. The source's percentage is a shift in α, the ratio (M_Ein − M_DM)/(Υ_ref L_Ein) (R29 l. 206; R32 l. 288; R25 l. 613), which includes a modelled dark-matter subtraction. It is recorded in the term's note, labelled as α, and is not applied to g_obs.
+   - **Peculiar velocity and the redshift frame** enter through the lens distance D_l. The formula `a6s_lens_distance` (item 7) uses p, the fractional change in D_l: g_obs ∝ 1/D_l and r ∝ D_l, with g_bar unchanged. g_obs = π G Σ_cr ∝ D_s / (D_l D_ls) is close to 1/D_l only when D_s ≫ D_l; that holds for the systems sized here (SNELLS, NGC 6505), and the note says so. **The only size used as a g_obs size is R26's**: "The lensing M/L is proportional to distance … we include an uncertainty corresponding to a 500 km s⁻¹ peculiar velocity (3-4%)" (snells.tex l. 139), stated for the SNELLS lenses. Because R26 states the M/L as proportional to distance, its 3–4 % is the fractional distance change. R25's "shifts of up to 5 per cent in α" (snellsI_arxiv.tex l. 864) is an α shift and goes in the note only.
+   - This clarifies the sizes listed in D-094 rule 2; it does not reverse D-094.
 
 ## Order of work (against steering)
 
 1. **The second reading** (item 11) is completed before the first v2 conversion run, by a reader with no access to v1's g values, `convert.py` or any v2 table. It writes to `v2/reading/`:
    - `d096.csv`: D-096 fields per source, with quote and location;
    - `theta_class.csv`: per measurement row, the rule 5 class (A, B, no θ_E error, aperture), the fractional θ_E error as printed (lower and upper), and its quote and location;
-   - `profiles.csv`: per class A row, the light profile the source prints for the stellar mass inside R_E (form, R_e, n, and which paper and table), or "none printed";
-   - `err_levels.csv`: per source, the confidence level of each error used, as stated;
-   - `distance.csv`: per source, any statement of an H0, peculiar-velocity or redshift-frame effect, with its size as stated.
+   - `profiles.csv`: per system with any row whose M*(<R_E) uses a light profile (class A, S4TM, SL2S), the profile the source prints (form, R_e, n, and which paper and table), or "none printed";
+   - `err_levels.csv`: per source and side, the confidence level of each error used, as stated, with quote and location;
+   - `distance.csv`: per source, the adopted H0 and any alternative H0 it tests (with the value read from a named paper where needed), and any statement of a peculiar-velocity or redshift-frame effect with its size and the quantity it is stated in (lensing M/L, α, or other);
+   - `baryon_inventory.csv`: per source, what it states about a central black hole, gas and dust inside R_E, with quote and location (item 9).
 2. **Disagreements** with step A, or with this test's expectations, are resolved at source by a session with no access to any g value, and recorded in `v2/reading/resolutions.md`. A conflict under rule 1 goes to JvH.
 3. **Freezing the reading.** The SHA-256 of every reading file goes into `data/frozen/lenses-v2-reading.json`, by a pull request merged before the first conversion run.
-4. **Conversion.** `convert.py` takes D-096 changes, θ_E classes and sizes, profiles, confidence levels and distance sizes **only** from the frozen reading files. It contains no system-specific rule of its own. It reuses v1's frozen code (`aeg.lensing`, frozen with v1) for every computed quantity.
+4. **Conversion.** `convert.py` takes D-096 changes, θ_E classes and sizes, profiles, confidence levels, distance sizes and inventory statements **only** from the frozen reading files. It contains no system-specific rule of its own. It reuses v1's frozen code (`aeg.lensing`, frozen with v1) for every computed quantity.
 
 ## The test
 
@@ -80,119 +87,138 @@ Applied to the v2 tables, with v1 at commit `5dc4091` as the reference.
    - **Measurements.**
      - **Bit-for-bit equal to v1 on every row:** `g_obs`, `g_bar`, `g_bar_stars`, `g_bar_gas_cold`, `g_bar_gas_hot`, `r_kpc`, `g_bar_err_lo`, `g_bar_err_hi`, and every v1 `x_strong_lensing_*` column. The only exception is a row changed under rule 1 by ruling.
      - **`g_obs_err_lo` and `g_obs_err_hi`:**
-       - on class A rows, empty (rule 5). The θ_E error is in the term `theta_e` (item 7);
+       - on class A rows, empty (rule 5). The θ_E error is in the term `theta_e` or `theta_e_ngc6505` (item 7). This is an exception to standard §2's "empty cell plus the flag `no_uncertainty`": the cell is empty because §2a rule 7 moves the error to g_bar, not because the source gives none. The column description says so, and these rows get no `no_uncertainty` flag;
        - on every other row, bit-for-bit equal to v1.
      - **Every other v1 column is unchanged,** except:
        - IDs: the `measurement_id` prefix, and the observable IDs in `observed_from`, `baryonic_from` and `alternative_of`;
-       - `notes` on class A rows ("θ_E error carried by g_bar, standard §2a rule 7; term theta_e") and on rows given a reading note;
+       - `baryonic_from`, which gains the IDs of the profile observables appended under "Observables" below;
+       - `notes` on class A rows ("θ_E error carried by g_bar, standard §2a rule 7; term theta_e"), on rows given a reading note, and on rows where the θ_E effect is not computed (rule 5);
        - `assumptions`, which gains the new registry IDs of item 7 on every row.
      - **New columns,** and only these:
        - `g_obs_err_point_lo/hi` and `g_bar_err_point_lo/hi` (item 5);
        - `err_level`, `err_level_status`, `g_bar_err_level` and `g_bar_err_level_status` (item 5);
        - the extension columns of item 6.
    - **Systems.** Every v1 column is unchanged, except `properties` where a reading note is added. No new column.
-   - **Observables.** Every v1 row keeps every v1 value. `err_level` and `err_level_status` are added (item 5). No row is added or removed.
+   - **Observables.** Every v1 row keeps every v1 value, and `err_level` and `err_level_status` are added (item 5). **New rows** are appended after v1's last ID (`o000630`), and only for light-profile inputs that `profiles.csv` records for class A rows and v1 did not already hold as observables (for example R5's de Vaucouleurs R_e for SLACS). Each has `side = baryonic`, the quantity, value, unit and source as read, and is named in the row's `baryonic_from` (D-029). No v1 row is removed.
 3. **Changed values.** Expected: none. If the frozen reading lists a D-096 change and JvH has ruled it, each changed row is listed in `REPRODUCTION_RESULT.md` with the rule, the quotation and location, and the old and new values. A change not traceable to the frozen reading and a ruling is a fail. So is a listed change that is missing.
 4. **Arithmetic.**
    - M_E (where computed), R_E, f(<R_E), M*(<R_E), g_obs and g_bar are recomputed from the stored inputs by `aeg.lensing` (frozen with v1). They agree with the stored values to a relative 10⁻⁹.
-   - The new column `x_strong_lensing_dlngbar_dlntheta` (item 6) is recomputed the same way and agrees to a relative 10⁻⁶.
+   - The new column `x_strong_lensing_dlngbar_dlntheta` (item 6) is recomputed from the stored profile inputs (v1's `x_strong_lensing_r_eff_arcsec` and `_sersic_n`, or the new `x_strong_lensing_theta_profile_*` columns) and agrees to a relative 10⁻⁶.
+   - The new column `x_strong_lensing_g_bar_stars_ref` (item 6) equals `g_obs × x_strong_lensing_mstar_re_msun / x_strong_lensing_m_e_msun` to a relative 10⁻¹².
 
 ### B. Uncertainties (standard 2.5.1 §2a, §3, §7a)
 
 5. **Error columns and confidence levels.** One value per lens, so point and system scale coincide (§2a; readers A and B).
-   - **`g_obs_err_point_*`** equal `g_obs_err_*` on every row.
-   - **`g_bar_err_point_*`** equal `g_bar_err_*` on every row except the two MaNGA lenses. There, they hold the L_Ein error alone (R32 Table 2: 6.72 ± 0.10 and 5.56 ± 0.35), propagated as v1 does. This is because v1's `g_bar_err_*` there also contain the shared Υ_ref (±0.26), which is a dataset-scale term (F4; §2a rule 1). Their header says so (§2a rule 6).
-   - **Confidence levels**, per source, from `v2/reading/err_levels.csv`. Expected, from step A:
+   - **`g_obs_err_point_*`** equal `g_obs_err_*` on every row (empty on class A rows).
+   - **`g_bar_err_point_*`** equal `g_bar_err_*` on every row except the two MaNGA lenses. There, they hold the L_Ein error alone (R32 Table 2), propagated as v1 does, because v1's `g_bar_err_*` there also contain the shared Υ_ref, which is a dataset-scale term (F4; §2a rule 1). Their header says so (§2a rule 6).
+   - **Confidence levels, one rule per row.**
+     - `err_level` and `err_level_status` describe `g_obs_err_*`; `g_bar_err_level` and `g_bar_err_level_status` describe `g_bar_err_*`.
+     - Where the error column is empty (class A g_obs; S4TM), the level and its status are empty. S4TM keeps v1's flag `no_uncertainty`, as v1.
+     - Where the column is filled, the level and status come from `v2/reading/err_levels.csv` for that source and side: `stated` with the level, or `not_given_by_source`. A level is never read as 0.683 by default (D-093 rule 1).
+     - The confidence level of a term's size (for example R5's θ_E RMS) goes in that term's note, not in these columns.
+   - **Expected, from step A (the reading governs):**
 
-     | Source | Side | Expected | Basis |
+     | Source | Column | Expected | Basis |
      |---|---|---|---|
-     | R5 (SLACS θ_E) | g_bar via term `theta_e` | `not_given_by_source` | "a 2% RMS fractional error" (ms_arxiv.tex l. 972–975): an RMS, no level stated |
      | R13 (SLACS M*) | g_bar | `stated`, 0.683 | "The mass estimates (with 1 σ error bars)" (plain.txt l. 2975, figure caption) |
-     | R20 (SL2S) | both | `stated`, 0.68 | "68% credible intervals (1-σ uncertainties)" (sl2s-rm-pdflatex.tex l. 462) |
-     | R10 (S4TM) | both | no error printed | `no_uncertainty`, as v1 |
+     | R20 (SL2S) | g_obs | empty (class A) | |
+     | R20 (SL2S) | g_bar | from the reading | l. 462's "68% credible intervals" is for the lens parameters, not M*; the reading reads R20's M* level at source, or records `not_given_by_source` |
      | R26, R28 (SNL-0) | both | `not_given_by_source` | |
      | R61 (SNL-1, SNL-2) | both | `not_given_by_source` | |
-     | R29 (J0403) | both | `not_given_by_source` | |
+     | R29 (J0403) | g_bar | `not_given_by_source` | |
      | R32 (MaNGA) | g_bar | `not_given_by_source` | the "2σ interval" (main.tex l. 276–277) is for Υ_ref, a dataset term, not for the point error |
-     | R30 (NGC 6505) | both | `not_given_by_source` | lower bounds (l. 798) |
+     | R30 (NGC 6505) | g_bar | `not_given_by_source` | |
 
      Where the frozen reading records a level that step A did not find, the reading governs, and the result says so.
-6. **New per-row extension columns** (standard 2.5.1 §12). Each header names the term or formula that uses it:
-   - `x_strong_lensing_theta_e_err_frac_lo`, `_hi`: the fractional θ_E error on class A rows, from `theta_class.csv`. SLACS: 0.02 both sides, R5's adopted RMS. Empty elsewhere.
-   - `x_strong_lensing_dlngbar_dlntheta`: on class A rows, d ln g_bar / d ln θ_E at fixed redshifts and cosmology. It equals −2 + d ln f(<R_E)/d ln R_E, from the profile in `profiles.csv`, by central difference (step 10⁻⁴ in ln R_E) of the frozen `aeg.lensing.sersic_projected_fraction`. Where M*(<R_E) is L(<R_E) × Υ, the same profile is used for L. Where no profile is printed, see O2.
-   - `x_strong_lensing_lens_distance_frac`: the fractional change in the lensing mass-to-light ratio a source states for peculiar velocity or the redshift frame (`distance.csv`). Empty where none is stated.
-   - **Empty values:** a row whose source gives no size gets an empty value, and the column name goes in `notes`. The flag `no_uncertainty` is used only as in v1.
+6. **New per-row extension columns** (standard 2.5.1 §12). Each header names the term or formula that uses it, and says what an empty value means.
+   - `x_strong_lensing_theta_e_err_frac_lo`, `_hi`: the fractional θ_E error on class A rows, from `theta_class.csv`. SLACS: 0.02 both sides, R5's adopted RMS. **Empty on NGC 6505** (its lower bound is the separate term `theta_e_ngc6505`, so nothing is counted twice) and on every row outside class A. `_hi` is named by the term `theta_e`; `_lo` is its companion, as in the globular-cluster `stellar_ml` row (D-099 rule 1 covers the column the term names).
+   - `x_strong_lensing_theta_profile_form`, `_r_e_arcsec`, `_n`: the light profile from `profiles.csv`, on rows whose v1 profile columns are empty. Expected for SLACS: R5's printed effective radius and profile form, which the reading confirms at source. Empty where none is printed.
+   - `x_strong_lensing_dlngbar_dlntheta`: d ln g_bar / d ln θ_E at fixed redshifts and cosmology, **on every row with a printed profile** (class A, S4TM and SL2S). It equals −2 + d ln f(<R_E)/d ln R_E, from the profile (v1's columns or the new ones), by central difference (step 10⁻⁴ in ln R_E) of the frozen `aeg.lensing.sersic_projected_fraction`. Where M*(<R_E) is L(<R_E) × Υ, the same profile is used for L. Empty where no profile is printed (rule 5).
+   - `x_strong_lensing_g_bar_stars_ref`: G M*(<R_E)/R_E² at the source's population, computed as in item 4. It is what the v2 gas formula scales (item 7), so that the gas term no longer reads g_obs.
+   - **Empty values** mean the source gives no size or no profile. The column header says so; `notes` are not changed for this reason.
 7. **Uncertainty terms.** `tables/uncertainty_terms.ecsv` contains exactly the rows below.
-   - Each cites its source at the location given (the adjudication, or readers A and B).
+   - Each cites its source at the location given, verified against the e-prints read in step A.
    - `covariance` is `not_published` on every row.
-   - **One sizing rule for every row.** A size is `given` only where the source states it for these systems, or for a class that contains them. Otherwise the row is `not_given_by_source`, and any figure the source gives elsewhere goes in the note.
-   - **Not uncertainty terms (§2a rule 4):** general-relativistic lensing (`a6s_gr_lensing`), the projected cylinder (`a6s_projected_cylinder`) and spectroscopic redshifts (`a6s_redshifts_spectroscopic`) are registry assumptions, as in v1.
-   - **Subset lists.** Where `applies_to` names a survey ("SLACS", "S4TM", "SL2S", "SNELLS", "MaNGA"), it is the semicolon list of the `system_id`s of that survey's default rows (`x_strong_lensing_scope`), in systems-table order.
+   - **One sizing rule for every row.** A size is `given` only where the source states it for these systems, or for a class that contains them. Otherwise the row is `not_given_by_source`, and any figure the source gives elsewhere goes in the note. R9's 2 % external-shear figure is `given` for S4TM because R10, the S4TM source, defers to it: "a minor effect as quantified in Shu15" (ms_arxiv_v2.tex l. 308–309). R9's 0.5 % (rule 5) has no such link to R10's models.
+   - **`size_unit`** is given on every `given` row: "fraction" for fractional sizes, "dex", "arcsec", "km s-1 Mpc-1", or the unit stated.
+   - **`in_error_columns`** is empty on `theta_e` and `theta_e_ngc6505` (§2a rule 7 rows).
+   - **Not uncertainty terms (§2a rule 4):** general-relativistic lensing (`a6s_gr_lensing`), the projected cylinder (`a6s_projected_cylinder`) and spectroscopic redshifts (`a6s_redshifts_spectroscopic`) are registry assumptions, as in v1. The central black hole is in the baryon inventory (item 9), not in this table.
+   - **`applies_to`.** A survey name below stands for the semicolon list of the `system_id`s of the systems whose rows carry the matching `x_strong_lensing_scope` value: "SLACS" = `SLACS V-modelled lenses`; "S4TM" = `S4TM lenses`; "SL2S" = `SL2S III sample`; "SNELLS" = `SNL-0 (ESO 325-G004)`, `SNL-1 (ESO 286-G022)`, `SNL-2`; "MaNGA" = `MaNGA J1436+4943`, `MaNGA J1701+3722`; NGC 6505 = `Euclid NGC 6505` (`aeg-s-000509`); J0403 = `MNELLS J0403-0239` (`aeg-s-000506`). Lists are in systems-table order. A listed subset always has `scale = dataset` (§7a, 2.4.0). A single system has the scale stated.
 
 | term_id | scale | applies_to | moves | status | size | assumption_id | Note |
 |---|---|---|---|---|---|---|---|
-| `theta_e` | point | * | g_bar | given | `size_column` `x_strong_lensing_theta_e_err_frac_hi` (lower in `_lo`), `as_released` | `a6s_theta_e` | §2a rule 7, class A rows only (rule 5). Moves g_bar and the coordinate R_E; g_obs = π G Σ_cr is unchanged. SLACS: R5's adopted "2% RMS" (l. 972–975); R13 used "a conservative 5%" (plain.txt l. 1669–1671); SL2S adopts 3 % (F3). SL2S: R20's 68 % intervals, including its 3 % systematic. MaNGA: R32 l. 176 and l. 261. Kinds differ by source: see `err_levels.csv` |
-| `theta_e_ngc6505` | point | `aeg-s-000509` (NGC 6505) | g_bar | given | 0.0004 (0.001″ of 2.500″), `lower_bound` | `a6s_theta_e` | "should therefore be considered lower-bounds which only account for measurement uncertainty" (R30 ms.tex l. 798; θ_E l. 813) |
-| `lens_model_systematic_ngc6505` | system | `aeg-s-000509` | g_obs | not_given_by_source | — | — | R30 §4.3: the systematic dominates but is not sized; M_E printed without error (l. 778) |
-| `lens_model_profile` | system | * | g_obs | not_given_by_source | — | — | "the Einstein radius parameter … becomes somewhat dependent on the assumed mass model" for asymmetric images (R5 l. 843–848); slope effects (R9 l. 398–400) |
-| `sie_axis_convention` | dataset | S4TM | g_obs | given | 0.01, `upper_bound` | — | "accurate to < 1% on average" (R9 ms_v2.tex l. 117) |
-| `external_shear` | dataset | S4TM | g_obs | given | 0.02, `as_released` | — | R10 models omit shear; R9: "The overall fractional discrepancy is on the level of 2%", "about 4%" in mocks (l. 388) |
-| `external_convergence` | system | * | g_obs | not_given_by_source | — | — | "no more than a few percent" (R9 l. 386) |
-| `line_of_sight_snl0` | system | `aeg-s-000503` (SNL-0) | g_obs | given_by_other_source | 0.02, `as_released` | — | "∼2 per cent for a z = 2 source (Taruya et al. 2002)" (R28 l. 320–322) |
-| `lens_light_subtraction` | dataset | S4TM | g_obs | not_given_by_source | — | — | R10 l. 291–292 |
-| `aperture_radius_snl12` | dataset | `aeg-s-000504;aeg-s-000505` (SNL-1, SNL-2) | both | not_given_by_source | — | — | R_ap against the HST half-separation: 2 % and 4 % larger (R61 Table 1 l. 151, 156); a difference, not an error |
-| `companion_snl2` | system | `aeg-s-000505` (SNL-2) | g_obs | not_given_by_source | — | — | "tension between the measured and predicted flux ratios" (R61 l. 317); SLC15's 8–16 % superseded |
-| `redshift_measurement` | system | * | both | not_given_by_source | — | — | No redshift errors printed except R30 (row below) |
-| `redshift_ngc6505` | system | `aeg-s-000509` | g_obs | given | z_l ± 0.00003 (`size_lo`) and z_s ± 0.003 (`size_hi`), `as_released` | — | R30 l. 639, 698; effect not computed in v2 |
-| `cosmology_h0` | dataset | * | g_obs | not_given_by_source | — | `a6s_source_cosmology` | Exact formula (item 7). Sources stating no H0 effect: SLACS, S4TM, SL2S, NGC 6505 |
-| `cosmology_h0_snells` | dataset | SNELLS | g_obs | given | 0.05, `as_released` | `a6s_source_cosmology` | "Adopting H0 = 67 … rather than H0 = 70 … would yield smaller α by ∼5 per cent" (R25 l. 862–863) |
-| `cosmology_h0_j0403` | system | `aeg-s-000506` (J0403−0239) | g_obs | given | 0.04, `as_released` | `a6s_source_cosmology` | "α would be 4 per cent lower, due to the variation in H0" (R29 l. 241) |
-| `cosmology_h0_manga` | dataset | MaNGA | g_obs | given | 0.035, `as_released` | `a6s_source_cosmology` | "would increase α by 3.5 per cent" (R32 l. 293) |
+| `theta_e` | point | * | g_bar | given | `size_column` `x_strong_lensing_theta_e_err_frac_hi` (lower in `_lo`), `as_released`, fraction | `a6s_theta_e` | §2a rule 7, class A rows only (rule 5); the column is empty elsewhere, including NGC 6505. Moves g_bar and the coordinate R_E; g_obs = π G Σ_cr is unchanged. SLACS: R5's adopted "2% RMS fractional error" (ms_arxiv.tex l. 972–975), no level stated; R13 used "a conservative 5%" (plain.txt l. 1669–1671); R9 0.5 % (ms_v2.tex l. 138) and SL2S's 3 % in the note (F3). SL2S: R20's 68 % intervals including its 3 % systematic (sl2s-rm-pdflatex.tex l. 462, 477–478). MaNGA: R32 l. 176 and l. 261. J0403: ±0.03″ of 1.47″ (R29 l. 196) |
+| `theta_e_ngc6505` | point | `aeg-s-000509` | g_bar | given | 0.0004 (0.001″ of 2.500″), `lower_bound`, fraction | `a6s_theta_e` | "should therefore be considered lower-bounds which only account for measurement uncertainty" (R30 ms.tex l. 798; θ_E l. 813). The θ_E effect is not computed where no profile is printed (rule 5) |
+| `ellipticity_j0403` | point | `aeg-s-000506` | g_obs | given | 0.03, `as_released`, fraction | — | "Including a small ellipticity (e ≈ 0.1 as measured from galfit) increases the mass by 3 per cent" (R29 newlens.tex l. 210); a change in M_E at fixed radius. R29's revised "∼4 per cent" total is not used, to avoid counting the 2 % θ_E part twice |
+| `lens_model_systematic_ngc6505` | point | `aeg-s-000509` | g_obs | not_given_by_source | — | — | R30 §4.3: the systematic dominates but is not sized; M_E printed without error (l. 778) |
+| `lens_model_profile` | dataset | * | g_bar | not_given_by_source | — | `a6s_theta_e` | Changes the fitted θ_E, so it moves g_bar and R_E (F1): "the Einstein radius parameter … becomes somewhat dependent on the assumed mass model" for asymmetric images (R5 l. 843–848); slope effects (R9 l. 398–400) |
+| `sie_axis_convention` | dataset | SLACS; S4TM | g_bar | not_given_by_source | — | `a6s_theta_e` | Both use the b_SIE intermediate-axis convention (R9 ms_v2.tex l. 117). R9's "accurate to < 1%" is the accuracy of Huterer's conversion relation, not the size of the convention difference |
+| `external_shear` | dataset | S4TM | g_bar | given | 0.02, `as_released`, fraction | `a6s_theta_e` | R9 compares "the resulted Einstein radii" with and without shear: "The overall fractional discrepancy is on the level of 2%" (R9 l. 388); "about 4%" in mocks. R10 omits shear "as quantified in Shu15" (R10 l. 308–309) |
+| `external_convergence` | system | * | g_obs | not_given_by_source | — | — | Changes M_E at a fixed radius: "no more than a few percent" (R9 l. 386) |
+| `line_of_sight_snl0` | point | `aeg-s-000503` | g_obs | given_by_other_source | 0.02, `as_released`, fraction | — | "∼2 per cent for a z = 2 source (Taruya et al. 2002)" (R28 l. 320–322) |
+| `lens_light_subtraction` | dataset | S4TM | g_bar | not_given_by_source | — | `a6s_theta_e` | The B-spline foreground subtraction "could introduce some systematic uncertainties in the lens and source parameters" (R10 l. 290–292) |
+| `aperture_radius_snl12` | dataset | `aeg-s-000504;aeg-s-000505` (SNL-1, SNL-2) | both | not_given_by_source | — | — | R_ap against the HST half-separation: 2.38″ and 2.21″ (R61 Table 2 l. 151) against 2.43 ± 0.03″ and 2.30 ± 0.03″ (l. 155); a difference, not an error |
+| `companion_snl2` | point | `aeg-s-000505` | g_obs | not_given_by_source | — | — | "tension between the measured and predicted flux ratios" (R61 l. 317); SLC15's 8–16 % superseded |
+| `redshift_measurement` | dataset | every lens system except NGC 6505 | both | not_given_by_source | — | — | No redshift errors printed except R30 (rows below) |
+| `redshift_lens_ngc6505` | point | `aeg-s-000509` | g_obs | given | 0.00003, `as_released`, redshift | — | z_l (R30 l. 639); effect not computed in v2 |
+| `redshift_source_ngc6505` | point | `aeg-s-000509` | g_obs | given | 0.003, `as_released`, redshift | — | z_s (R30 l. 698); effect not computed in v2 |
+| `cosmology_h0` | dataset | SLACS; S4TM; SL2S; NGC 6505 | g_obs | not_given_by_source | — | `a6s_source_cosmology` | Exact formula (item 7). These sources test no alternative H0 |
+| `cosmology_h0_snells` | dataset | SNELLS | g_obs | given | 67–70, `range`, km s-1 Mpc-1 (subject to D-104) | `a6s_source_cosmology` | "Adopting H0 = 67 … from the Planck cosmology … rather than H0 = 70 … from WMAP7" (R25 snellsI_arxiv.tex l. 862–863). In α: "would yield smaller α by ∼5 per cent" (l. 863). The reading confirms which H0 R26 and R28 adopt |
+| `cosmology_h0_j0403` | dataset | `aeg-s-000506` | g_obs | given | 70.4 to the H0 of Planck 2016, read from that paper, `range`, km s-1 Mpc-1 (subject to D-104) | `a6s_source_cosmology` | Adopted 70.4 (R29 l. 210); "If we had prescribed the Planck2016 cosmology" (l. 241). In α: "4 per cent lower, due to the variation in H0" (l. 241) |
+| `cosmology_h0_manga` | dataset | MaNGA | g_obs | given | the H0 of Planck 2018 (adopted, R32 l. 100–101) to that of Bennett et al. 2014 (l. 293), both read from those papers, `range`, km s-1 Mpc-1 (subject to D-104) | `a6s_source_cosmology` | In α: "would increase α by 3.5 per cent" (R32 l. 293) |
 | `cosmology_omega_m` | dataset | * | g_obs | not_given_by_source | — | — | Ω_m as stated per source (`x_strong_lensing_om`); flags `cosmology_named_only`, `flatness_not_stated` as v1 |
-| `lens_distance` | system | * | g_obs | given | `size_column` `x_strong_lensing_lens_distance_frac`, `as_released` | `a6s_lens_distance` | Peculiar velocity and redshift frame. Expected sizes: SNL-0 0.03–0.04 ("3–4%", R26 snells.tex l. 139); SNELLS up to 0.05 ("up to 5 per cent in α", R25 l. 864–865). NGC 6505: z = 0.041 ± 0.001 against 0.04243 (R30 l. 790), carried as v1's alternative row. Empty elsewhere |
+| `lens_distance_snl0` | point | `aeg-s-000503` | g_obs | given | 0.03–0.04 (`size_lo`, `size_hi`), `as_released`, fraction of D_l (subject to D-104) | `a6s_lens_distance` | "an uncertainty corresponding to a 500 km s⁻¹ peculiar velocity (3-4%)" (R26 snells.tex l. 139). In α: "up to 5 per cent" (R25 l. 864) |
+| `lens_distance_snl1` | point | `aeg-s-000504` | g_obs | given | 0.03–0.04, `as_released`, fraction of D_l (subject to D-104) | `a6s_lens_distance` | As SNL-0 (R26 l. 139 covers the three SNELLS lenses of its Table 1) |
+| `lens_distance_snl2` | point | `aeg-s-000505` | g_obs | given | 0.03–0.04, `as_released`, fraction of D_l (subject to D-104) | `a6s_lens_distance` | As SNL-0 |
+| `lens_distance_ngc6505` | point | `aeg-s-000509` | g_obs | not_given_by_source | — | `a6s_lens_distance` | z = 0.041 ± 0.001 against 0.04243 (R30 l. 790) is carried by v1's alternative row, not as a size here |
+| `lens_distance_other` | dataset | every lens system except SNELLS and NGC 6505 | g_obs | not_given_by_source | — | `a6s_lens_distance` | No peculiar-velocity or frame effect stated |
 | `aperture_factor_slacs` | dataset | SLACS | g_bar | not_given_by_source | — | — | "⟨f_ap⟩ = 0.36 ± 0.01" is a sample mean (R13 l. 1701–1705); "the stellar mass is traced by the light distribution" |
-| `r_eff_profile` | point | * | g_bar | not_given_by_source | — | — | R_e errors: SLACS 3.5 % adopted (R5 l. 1072–1076); SL2S CFHT 30 %, HST 10 % (R20 l. 354–359); S4TM none (R10 l. 386); effect through f(<R_E) not computed in v2 |
+| `r_eff_slacs` | dataset | SLACS | g_bar | given | 0.035, `as_released`, fraction | — | R_e error adopted by R5 (l. 1072–1076); its effect through f(<R_E) is not computed in v2 |
+| `r_eff_sl2s` | dataset | SL2S | g_bar | given | 0.10–0.30 (HST 10 %, CFHT 30 %), `range`, fraction | — | R20 l. 354–359; the reading records which imaging each lens uses; effect not computed in v2 |
+| `r_eff_s4tm` | dataset | S4TM | g_bar | not_given_by_source | — | — | No R_e error printed (R10 l. 386) |
 | `sps_templates_slacs` | dataset | SLACS | g_bar | not_given_by_source | — | — | solar-metallicity, dust-free templates (R13 l. 914–916, 1060–1064); Maraston pair kept as alternatives |
-| `sps_systematic_s4tm` | dataset | S4TM | g_bar | given | 0.5 dex, `as_released` | — | "around 0.5 dex" between lower- and upper-bound models (R9 l. 424–425) |
-| `sps_template_sl2s` | dataset | SL2S | g_bar | given | 0.06 dex, `as_released` | — | R20 l. 740; bias 0.01 dex |
-| `luminosity_corrections_manga` | dataset | MaNGA (`aeg-s-000507;aeg-s-000508`) | g_bar | not_given_by_source | — | — | extinction, band-shift and PSF corrections carry no stated error (R32 l. 270–272; F5) |
-| `upsilon_ref_manga` | dataset | MaNGA | g_bar | given | 2.41–3.46, `range` | — | "The full range in Υ_ref spanned by these models is 2.41–3.46; our calculations adopt this as the 2σ interval" (R32 l. 276–277). One value for both lenses (F4); left out of `g_bar_err_point_*` |
-| `pop_model_family_j0403` | system | `aeg-s-000506` | g_bar | given | 0.10, `as_released` | — | Maraston models: "α would increase by 10 per cent" (R29 l. 241) |
-| `pop_age_j0403` | system | `aeg-s-000506` | g_bar | given | 0.14, `as_released` | — | 8.5 Gyr: "α would have increased by 14 per cent" (R29 l. 208) |
-| `pop_model_family_manga` | dataset | MaNGA | g_bar | given | 0.12, `as_released` | — | "using Maraston models for Υ_ref would increase α by ∼12 per cent" (R32 l. 282) |
+| `sps_systematic_s4tm` | dataset | S4TM | g_bar | given | 0.5 dex, `range`, dex | — | "around 0.5 dex" between the lower- and upper-bound models (R9 l. 424–425) |
+| `sps_template_sl2s` | dataset | SL2S | g_bar | given | 0.06, `as_released`, dex | — | R20 l. 740; bias 0.01 dex |
+| `luminosity_corrections_manga` | dataset | MaNGA | g_bar | not_given_by_source | — | — | extinction, band-shift and PSF corrections carry no stated error (R32 l. 270–272; F5) |
+| `upsilon_ref_manga` | dataset | MaNGA | g_bar | given | 2.41–3.46, `range`, solar units | — | "The full range in Υ_ref spanned by these models is 2.41–3.46; our calculations adopt this as the 2σ interval" (R32 l. 276–277). One value for both lenses (F4); left out of `g_bar_err_point_*` |
+| `pop_model_family_j0403` | point | `aeg-s-000506` | g_bar | given | 0.10, `as_released`, fraction of α | — | Maraston models: "α would increase by 10 per cent" (R29 l. 241). At fixed M_DM, α ∝ 1/Υ_ref, so +10 % in α is −9.1 % in g_bar_stars; the note says so |
+| `pop_age_j0403` | point | `aeg-s-000506` | g_bar | given | 0.14, `as_released`, fraction of α | — | 8.5 Gyr: "α would have increased by 14 per cent" (R29 l. 241) |
+| `pop_model_family_manga` | dataset | MaNGA | g_bar | given | 0.12, `as_released`, fraction of α | — | "using Maraston models for Υ_ref would increase α by ∼12 per cent" (R32 l. 293) |
 | `alpha_fe` | dataset | * | g_bar | not_given_by_source | — | — | SLC15 "∼4 per cent" in J-band Υ; SL13 2–3 % in I-band; not for the bands v1 uses |
-| `stellar_imf` | dataset | * | g_bar | given | `size_column` `x_strong_lensing_mstar_top_msun` (upper end), `range` | `a6s_stellar_imf` | v1's slider, unchanged. Lower end: the printed Chabrier/Kroupa value |
-| `gas_in_re` | dataset | * | g_bar | given_by_other_source | `size_column` `x_strong_lensing_gas_hot_frac_max` (hot; cold in `_cold_frac_max`), `range` | `a6s_gas_in_RE` | v1's registered term (D-076 item 1); the sources call gas negligible (R28 l. 496; R25 l. 769; R32 l. 274) |
-| `neighbour_light_snl2` | system | `aeg-s-000505` | g_bar | given | 0.015, `as_released` | — | "only 1.5%, a minor effect that we neglect" (R26 l. 141) |
-| `internal_dust_snl1` | system | `aeg-s-000504` | g_bar | not_given_by_source | — | — | R61 l. 313 |
+| `stellar_imf` | dataset | * | g_bar | given | `size_column` `x_strong_lensing_mstar_top_msun` (upper end), `range`, M☉ | `a6s_stellar_imf` | v1's slider, unchanged. Lower end: the printed Chabrier/Kroupa value |
+| `gas_in_re` | dataset | * | g_bar | given_by_other_source | `size_column` `x_strong_lensing_gas_hot_frac_max` (hot; cold in `_cold_frac_max`), `range`, fraction of M*(<R_E) | `a6s_gas_in_RE` | v1's registered term (D-076 item 1); the sources call gas negligible (R28 l. 496; R25 l. 769; R32 l. 274) |
+| `neighbour_light_snl2` | point | `aeg-s-000505` | g_bar | given | 0.015, `as_released`, fraction | — | "only 1.5%, a minor effect that we neglect" (R26 l. 141) |
+| `internal_dust_snl1` | point | `aeg-s-000504` | g_bar | not_given_by_source | — | — | R61 l. 313 |
 | `lensed_source_light` | dataset | * | g_bar | not_given_by_source | — | — | "not affected in any significant way" (R13) |
 | `solar_magnitude` | dataset | * | g_bar | not_given_by_source | — | — | 4.066 (F814W), 4.64 (r, AB), 4.534 and 4.53 (i), as each source states |
 | `aperture_shape` | dataset | * | both | not_given_by_source | — | — | circular disk for M* against the SIE's elliptical critical curve, "expressed as in an 'effective' axisymmetric model" (R13 l. 1646–1651) |
-| `central_black_hole` | system | * | g_bar | not_given_by_source | — | — | **O1.** Inside M_E; not detected matter. SNL-0 "2 per cent of M_Ein" expected (R28 §4); NGC 6505 "(0.57 +0.68/−0.31)%" (R30 l. 778); "∼1.4 × 10⁹ M⊙" (R25 l. 772–773) |
 
-   - **Registry update for v2** (`data/assumptions.json`). Every `a6s_*` entry gains an `aeg-d-strong-lensing/v2` dataset entry; v1's entries stay as published. Every formula leaves every value unchanged at the default.
-     - **`a6s_source_cosmology`** (corrected, D-094 rule 4).
-       - p = H0 / H0_source; default 1.
+   - **Registry update for v2** (`data/assumptions.json`). Every `a6s_*` entry gains an `aeg-d-strong-lensing/v2` dataset entry; v1's entries stay as published.
+     - **`a6s_source_cosmology`** (corrected, D-094 rule 4). p = H0 / `x_strong_lensing_h0` (the row's source H0); default 1. A term's H0 pair in km s⁻¹ Mpc⁻¹ (item 7) is turned into p by dividing by the row's source H0.
        - `g_obs`, `g_obs_err_*` and `g_obs_err_point_*` × p / p0.
        - `r_kpc` × p0 / p.
-       - g_bar is unchanged.
+       - g_bar and its components are unchanged.
        - Its v2 note replaces v1's "does not depend on it to first order" with D-094's text.
-     - **`a6s_theta_e` (new).**
-       - p = θ_E / θ_E,printed; default 1.
-       - `g_bar`, `g_bar_stars`, `g_bar_gas_cold`, `g_bar_gas_hot`, `g_bar_err_*` and `g_bar_err_point_*` × (p / p0)^`x_strong_lensing_dlngbar_dlntheta`.
+     - **`a6s_theta_e` (new).** p = θ_E / θ_E,printed; default 1.
+       - `g_bar`, `g_bar_stars`, `g_bar_gas_cold`, `g_bar_gas_hot`, `x_strong_lensing_g_bar_stars_ref`, `g_bar_err_*` and `g_bar_err_point_*` × (p / p0)^`x_strong_lensing_dlngbar_dlntheta`.
        - `r_kpc` × p / p0.
        - g_obs is unchanged.
-     - **`a6s_lens_distance` (new).**
-       - p = the fractional change in the lensing mass-to-light ratio; default 0.
-       - `g_obs`, `g_obs_err_*` and `g_obs_err_point_*` × (1 + p) / (1 + p0).
-     - **`a6s_stellar_imf` and `a6s_gas_in_RE`:** carried over unchanged, with v2 entries. They are the only sliders, as in v1. Making any other entry a slider needs a ruling.
+       - It is a log-linear (first-order) approximation in ln θ_E. That is adequate at 2 %; at J1701's 10 % the second-order term is not computed, and the note says so.
+     - **`a6s_lens_distance` (new).** p = the fractional change in D_l; default 0.
+       - `g_obs`, `g_obs_err_*` and `g_obs_err_point_*` × (1 + p0) / (1 + p).
+       - `r_kpc` × (1 + p) / (1 + p0).
+       - g_bar is unchanged.
+       - It assumes D_s ≫ D_l (rule 6); the note says so.
+     - **`a6s_gas_in_RE`** (v2 formula). v1's formula uses `g_obs × x_strong_lensing_mstar_re_msun / x_strong_lensing_m_e_msun` for G M*(<R_E)/R_E². The v2 formula uses `x_strong_lensing_g_bar_stars_ref` instead, which has the same value at every default (item 4), so the gas term does not move with H0 or the lens distance and follows θ_E. The fractions and range are v1's.
+     - **`a6s_stellar_imf`:** carried over unchanged, with a v2 entry. It and `a6s_gas_in_RE` are the only sliders, as in v1. Making any other entry a slider needs a ruling.
      - **Unchanged except for the v2 entry:** `a6s_gr_lensing`, `a6s_projected_cylinder`, `a6s_redshifts_spectroscopic`, `a6s_mstar_population` and `a6s_mstar_profile`.
-   - **Check (part of this item).** For every `a6s_*` v2 entry with effects:
-     - every formula parses;
-     - it names only `p`, `p0`, existing row columns or `system.<column>`;
-     - evaluated at p = p0 on every v2 row where every column it names is filled, it leaves every affected column unchanged to a relative 10⁻¹².
-     - **Rows where a named column is empty** are those with no θ_E term (`x_strong_lensing_dlngbar_dlntheta` empty: rows outside class A, and O2). The formula is not applied to them. None of them lists `a6s_theta_e` in `adjustable`, and their count is published with the result.
-   - **Second reading of term sizes.** Step A's two concordant readings (A and B) serve as the D-031 second reading for the sizes in this table.
+   - **Check (part of this item).** A script committed with the conversion, `v2/reproduction/check_formulas.py`, runs the checks of `pipeline/aeg/formula_check.py` on **every** `a6s_*` v2 entry with effects, not only those listed in `adjustable`:
+     - every formula parses and names only `p`, `p0`, existing row columns or `system.<column>`;
+     - Python (`pipeline/aeg/formula.py`) and JavaScript (`site/src/formula.mjs`) agree to a relative 10⁻¹² on every value it evaluates;
+     - evaluated at p = p0 on every v2 row where every column it names is filled, it leaves every affected column unchanged to a relative 10⁻¹²;
+     - **combined:** applying all v2 entries in registry order at their defaults leaves every column unchanged; with only `a6s_source_cosmology` or only `a6s_lens_distance` moved to the end of a stated size, `g_bar`, `g_bar_stars`, `g_bar_gas_cold` and `g_bar_gas_hot` are unchanged;
+     - **rows where a named column is empty** (no θ_E term: rows outside class A, and rows without a printed profile) are not evaluated for that entry. None of them lists `a6s_theta_e` in `adjustable`, and their count is published with the result.
+   - **Second reading of term sizes.** Step A's two concordant readings (A and B), with the corrections of review 1 checked at source, serve as the D-031 second reading for the sizes in this table.
 
 ### C. Structure and flags
 
@@ -201,17 +227,21 @@ Applied to the v2 tables, with v1 at commit `5dc4091` as the reference.
    - **The F1 correction** is stated on the dataset page and in a known issue: v1 carried the θ_E error on g_obs "at fixed R_E" (`convert.py` l. 48–49).
    - **The F2 correction** (D-094) is stated the same way, in the same known issue or its own.
    - **NGC 6505's lower bounds** (F5) are stated in the row's `notes`.
-   - **Sources.** `v2/sources.json` lists every v1 source still used, with v1's hashes.
+   - **The central black hole (subject to D-104, pending).** It is not added to g_bar. Every size the sources quote comes from an M_BH–σ scaling of the lens's own velocity dispersion (R28 l. 691–693; R30 l. 778; R25 l. 772–773), so adding it would take an input from the system's own kinematics (D-036 #6), whatever "detected baryon" is taken to mean. It is recorded in the descriptor's `x_baryon_inventory` as one component, "central black hole":
+     - status `stated_negligible` with the quotes where the source says so: R25 ("Other possible non-stellar mass contributions within the Einstein radius, e.g. gas and central black holes, are neglected", l. 769), R28 ("We neglected the extra mass that would be contributed by a central super-massive black hole", l. 691), R30 ("Since this corresponds to only (0.57 +0.68/−0.31)% of the mass within the Einstein radius, we do not include it", l. 778), R32 ("in principle from a central black hole, gas, etc but these are expected to be negligible", l. 274);
+     - `not_addressed` for the other sources, as `baryon_inventory.csv` records.
+   - **Sources.** `v2/sources.json` lists every v1 source still used, with v1's hashes, and every named paper read for an H0 value (rule 6), with its hash and licence.
 10. **Descriptor.**
     - `standard_version` is `2.5.1`.
     - `x_value_change_ruling` is set only if item 3 lists a row.
     - `x_second_reading` points to `SECOND_READING.md` and the frozen reading files.
+    - `x_baryon_inventory` gains the black-hole component (item 9).
     - Other fields are as v1, updated.
-11. **Second reading (D-031 item 3).** One independent reader, as in the order of work, writes the five files listed there.
+11. **Second reading (D-031 item 3).** One independent reader, as in the order of work, writes the six files listed there.
     - **Pass:** the package equals the frozen reading files on every field they hold. Any mismatch is a fail.
 12. **Standard and site.**
-    - `python -m aeg.validate data/packages/aeg-d-strong-lensing/v2` passes under 2.5.1;
-    - the formula check passes;
+    - `PYTHONPATH=pipeline python -m aeg.validate data/packages/aeg-d-strong-lensing/v2` passes under 2.5.1 (the full `validate()`, not only the 2.2.0 and 2.4.0 checks);
+    - `v2/reproduction/check_formulas.py` (item 7) and `PYTHONPATH=pipeline python -m aeg.formula_check` pass;
     - `PYTHONPATH=pipeline python -m pytest -q pipeline/tests/test_lensing.py` passes;
     - the site builds;
     - `aeg.site_check` reports 0 errors;
@@ -224,22 +254,13 @@ Applied to the v2 tables, with v1 at commit `5dc4091` as the reference.
 
 - Whether the source's error sizes are right.
 - v1's tests 1–4 (PASS). They stand for v1 and are not re-run.
-- The θ_E term's effect where no profile is printed (O2), and the R_e error's effect through f(<R_E) (`r_eff_profile`). Both are listed, not computed.
+- The θ_E term's effect where no profile is printed (rule 5), the redshift-error effects for NGC 6505, and the R_e error's effect through f(<R_E). All are listed, not computed.
 - The epoch-gap systems (z_l ≥ 0.30), which carry no measurement rows.
 
-## Checked before freezing (draft, 2026-11-05)
+## Checked before freezing (revision 2, 2026-11-05)
 
-A mock package was built from v1's tables plus every column this test adds, and from the 38 terms above with their survey lists (SLACS 48, S4TM 37, SL2S 2, SNELLS 3, MaNGA 2 systems). The new registry entries were added in memory only.
-- `validate_v22` and `validate_v24` at 2.5.1 report 0 problems.
-- The three new formulas parse, name only existing columns, and leave every value unchanged at the default on every row where their inputs are filled.
+A mock package was built from v1's tables plus every column this test adds, and from the 45 terms above with their system lists (SLACS 48, S4TM 37, SL2S 2, SNELLS 3, MaNGA 2 systems). The new registry entries, and the v2 gas formula on `x_strong_lensing_g_bar_stars_ref`, were added in memory only.
+- `validate_v22` and `validate_v24` at 2.5.1 report 0 problems. The full `validate()` was not run on the mock, because the mock has no descriptor, sources or checksums; item 12 runs it on the real package.
+- The four v2 formulas (`a6s_source_cosmology`, `a6s_gas_in_RE`, `a6s_theta_e`, `a6s_lens_distance`) parse, name only existing columns, and leave every value unchanged at the default on every row where their inputs are filled: 0 problems.
+- The combined check of item 7 (all four in registry order at their defaults; H0 or lens distance moved alone, with g_bar and its components unchanged): 0 problems.
 - No g value was printed or looked at. The mock and its script are not committed.
-
-## Open items for JvH (before freezing)
-
-- **O1. The central black hole.** It sits inside M_E, so it is part of g_obs. No source measures it as detected matter: the sizes quoted are expectations from scaling relations (SNL-0, SLC15) or an estimate (NGC 6505). Whether it counts as a detected baryon is a definitional question, not a source statement (adjudication F5).
-  - **Recommend:** it is not detected matter. It stays out of g_bar, and the term `central_black_hole` lists its possible size as `not_given_by_source` on g_bar. This matches the baseline: "Newtonian gravity acting on detected baryonic matter".
-  - **Alternative:** add it to g_bar where a source gives a size (SNL-0, NGC 6505). That would change two g_bar values and need D-096-style handling.
-- **O2. The θ_E term where the source prints no light profile.** §2a rule 7 says such a profile "comes from the source or from a registered assumption".
-  - **Recommend:** where `profiles.csv` records "none printed", `x_strong_lensing_dlngbar_dlntheta` is empty and the row's `notes` say the effect is not computed in v2. This adds no assumption.
-  - **Alternative:** register a de Vaucouleurs profile with the source's printed R_e as an assumption for those rows. That needs a ruling and a published range.
-  - **Expected scope:** possibly the MaNGA and NGC 6505 rows; the SLACS and SL2S rows have printed R_e (R5; R20).
