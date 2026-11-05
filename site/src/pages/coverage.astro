@@ -7,7 +7,7 @@ import Base from '../layouts/Base.astro';
 import L from '../components/L.astro';
 import Layer from '../components/Layer.astro';
 import { ROOT, loadAtlas } from '../lib/atlas.mjs';
-import { datasetLabel, datasetCount } from '../lib/labels.mjs';
+import { datasetLabel, datasetCount, datasetNames, plottedSystemCount, joinAnd } from '../lib/labels.mjs';
 import { md, REPO } from '../lib/md.mjs';
 import { surveyName } from '../lib/lensing.mjs';
 
@@ -40,6 +40,19 @@ const gapRows = atlas.datasets.flatMap((d) => {
   return [...by.entries()].sort((a, b) => b[1].length - a[1].length).map(([survey, zs]) => ({ d, survey, n: zs.length, z: Math.min(...zs) === Math.max(...zs) ? String(zs[0]) : `${Math.min(...zs)}–${Math.max(...zs)}` }));
 });
 const gapTotal = gapRows.reduce((n, g) => n + g.n, 0);
+// What is in hand now, from the packages. The frozen matrix (§5) is rendered as written; its ● marks
+// record 2026-10-28. Each package's matrix column is the tracer of g_obs (§4), a fixed property of the
+// method; the kinds are counted from the plotted systems' own taxonomy_kind.
+const COLUMN = { 'aeg-d-sparc': 'Rotation', 'aeg-d-gc-baumgardt': 'Random motions', 'aeg-d-dwarfs': 'Random motions', 'aeg-d-strong-lensing': 'Strong lensing', 'aeg-d-xcop': 'Hot-gas pressure', 'aeg-d-kids1000-rar': 'Weak lensing' };
+const COLUMN_P = { Rotation: 'how fast discs spin', 'Random motions': 'how fast stars swarm', 'Strong lensing': 'rings and arcs of bent light', 'Hot-gas pressure': 'hot gas in balance', 'Weak lensing': 'light-bending averaged over many galaxies' };
+const kindName = Object.fromEntries([...matrix.matchAll(/^\| (A\d+) ([^|]+?) \|/gm)].map((m) => [m[1], m[2].trim()]));
+const inHand = atlas.datasets.map((d) => {
+  const plotted = new Set(d.measurements.rows.filter((r) => r.plotted !== 'false').map((r) => r.system_id));
+  const by = {};
+  if (d.systems) for (const x of d.systems.rows) if (plotted.has(x.system_id) && x.taxonomy_kind) by[x.taxonomy_kind] = (by[x.taxonomy_kind] || 0) + 1;
+  const kinds = Object.entries(by).sort((a, b) => b[1] - a[1]).map(([k, n]) => `${k} ${kindName[k] || ''} (${n})`.replace(/\s+\(/, ' ('));
+  return { d, col: COLUMN[d.name] || d.measurements.rows[0].method_class, kinds: d.systems ? joinAnd(kinds) : 'A4 and A6, stacked (an environment selection, §3)', plotted: d.systems ? plottedSystemCount(d) : null };
+});
 ---
 <Base title="Coverage" active="coverage">
   <div class="doc">
@@ -47,10 +60,17 @@ const gapTotal = gapRows.reduce((n, g) => n + g.n, 0);
       <p class="kicker"><L t="Coverage · kinds of system" p="Coverage" /></p>
       <h1><L t="Every kind of system, and what the Atlas covers" p="Where we can compare the pull, and how far we have got" /></h1>
       <Layer as="p" class="lede"><Fragment slot="t">The first public release (v1.0) covers every kind of system in which observed and baryonic acceleration can be compared: each cell below either holds a data package or is shown as a documented gap (D-028). Kinds are defined by what a system is, never by its measured discrepancy, and they organise coverage only, never the findings.</Fragment><Fragment slot="p">The Atlas aims to cover every kind of object where the pull can be compared with the matter we detect: from the Solar System and pairs of stars to colliding clusters of galaxies. This page shows what is already in, what is coming, and what is missing.</Fragment></Layer>
-      <p class="boxed"><L t={`Status: this preview holds ${nDs} (● below). The other cells list candidates from a source survey of 2026-10-28; none has been selected yet. Selection follows a protocol fixed before any new data are converted (§ Selection).`} p={`Right now ${nDs} are in. Everything marked ○ or ◐ is a candidate still to be checked and chosen by fixed rules.`} /> <a href={`${base}for-data-providers/`}><L t="For data providers" p="Have data that fits?" /></a></p>
+      <p class="boxed"><L t={`Status: ${nDs} are in hand (${datasetNames(atlas.datasets)}); the table below lists them, from the packages. The coverage matrix further down is the frozen taxonomy as written: its ● marks and its counts record 2026-10-28, when three packages were in hand. Its other cells list candidates from the source survey of that date. Selection follows a protocol fixed before any new data are converted (§ Selection).`} p={`Right now ${nDs} are in; the table below shows which. The big grid further down is the plan as it was fixed on 28 October 2026, when only three were in. Everything marked ○ or ◐ there is a candidate still to be checked and chosen by fixed rules.`} /> <a href={`${base}for-data-providers/`}><L t="For data providers" p="Have data that fits?" /></a></p>
+      <h2 id="in-hand"><L t="In hand now" p="What is in so far" /></h2>
+      <div class="tablebox" tabindex="0" style="max-height:none"><table><thead><tr><th class="l">Dataset</th><th class="l"><L t="Matrix column (tracer of g_obs)" p="How the pull is measured" /></th><th class="l"><L t="Kinds of the plotted systems (count)" p="Kinds of object on the map" /></th></tr></thead><tbody>
+        {inHand.map((x) => <tr><td class="l"><a href={`${base}datasets/${x.d.name}/${x.d.version}/`}>{datasetLabel(x.d.name).t}</a> {x.d.version}</td><td class="l"><L t={x.col} p={COLUMN_P[x.col] || x.col} /></td><td class="l">{x.kinds}</td></tr>)}
+      </tbody></table></div>
+      <p class="small" style="margin-top:6px"><L t="Computed from each package's systems table (taxonomy_kind of the systems with a plotted measurement). The matrix column is the tracer of g_obs (§4) for the dataset's method." p="Counted from the data, not typed in." /></p>
+
       <h2 id="kinds"><L t="Kinds of system" p="The kinds of object" /></h2>
-      <div class="prose wide" set:html={md(kinds, 'docs/plans')} />
-      <h2 id="matrix"><L t="Coverage matrix" p="What we have and what we need" /></h2>
+      <Layer><Fragment slot="t"><div class="prose wide" set:html={md(kinds, 'docs/plans')} /></Fragment><Fragment slot="p"><p>From smallest to largest: the Solar System, pairs of stars far apart, young star clusters, old star clusters, spinning disc galaxies, small faint round galaxies, round and lens-shaped galaxies, galaxies in unusual shapes or settings, groups of galaxies, clusters of galaxies, and colliding clusters. Each kind is defined by what the object is and how it is seen, never by how much extra pull it shows, and the kinds are used to find your way around, never to sort the results. Each kind also says why it is included. Switch to the technical view for the full table.</p></Fragment></Layer>
+      <h2 id="matrix"><L t="Coverage matrix (frozen, as of 2026-10-28)" p="The plan: what we have and what we need" /></h2>
+      <Layer as="p"><Fragment slot="t">Rendered from the frozen taxonomy as written. The ● marks and the counts in the text below it (“three packages in hand”, “against three so far”, “one strong-lensing sample”) describe 2026-10-28; the packages in hand now are listed above.</Fragment><Fragment slot="p">Each row is a kind of object and each column a way of measuring the pull. ● means the data were in when the plan was fixed, ○ that public data were found, ◐ that a question must be settled first, and ✕ that a search found none. The marks date from 28 October 2026; what is in now is listed above. Below the grid, the plan lists the cross-checks that matter most: the same objects measured two ways, and different kinds compared at the same pull.</Fragment></Layer>
       <div class="prose wide" set:html={md(matrix, 'docs/plans')} />
       <h2 id="continuous"><L t="Coverage on continuous axes (this preview)" p="How far the current data reach" /></h2>
       <p><L t="Computed from the packaged measurements. Every dataset so far is in the nearby universe: the Atlas does not yet describe how the comparison looks at earlier cosmic times. That is a documented gap for v1.0 (D-033)." p="Everything measured so far is relatively close to us. How things looked earlier in the history of the universe is not yet covered, and we say so." /></p>
@@ -69,11 +89,11 @@ const gapTotal = gapRows.reduce((n, g) => n + g.n, 0);
       ) : <p class="small"><L t="No system is recorded at z ≥ 0.30 yet." p="None yet." /></p>}
 
       <h2 id="selection"><L t="Selection protocol (draft)" p="How data are chosen" /></h2>
-      <div class="prose" set:html={md(protocol, 'docs/plans')} />
+      <Layer><Fragment slot="t"><div class="prose" set:html={md(protocol, 'docs/plans')} /></Fragment><Fragment slot="p"><p>Which data go in is decided by rules written down in advance, for each cell of the grid: the data must measure the right thing for that kind of object, be public and readable by computer, not rest on a shortcut formula for the observed pull, be allowed to be shared or checked by fingerprint, and add something new. The search for data is logged. Every dataset that meets the rules is included; nobody picks by taste, and nobody plots a candidate before deciding whether it qualifies. A cell counts as a gap only if the search found nothing usable, or a request went unanswered for eight weeks. Any departure from the rules is logged with the reason.</p></Fragment></Layer>
       <h2 id="gate"><L t="Release gate" p="When v1.0 is published" /></h2>
-      <div class="prose" set:html={md(gate, 'docs/plans')} />
+      <Layer><Fragment slot="t"><div class="prose" set:html={md(gate, 'docs/plans')} /></Fragment><Fragment slot="p"><p>The full first release comes out when every cell of the grid either holds data or is shown as a gap, and the Atlas covers: the strong-pull end of the range (the Solar System and old star clusters); the objects with the weakest pull from detected matter (small faint galaxies); at least one kind of galaxy besides spinning discs; both ways of measuring (motions and light-bending); at least two views of the data; the cross-checks and how far the data reach; and a plain statement that earlier cosmic times are not yet covered.</p></Fragment></Layer>
       <p class="small"><L t="Source of this page:" p="Full document:" /> <a href={`${REPO}/blob/main/docs/plans/TAXONOMY_v2.md`}>docs/plans/TAXONOMY_v2.md</a> (version 2, D-108; <a href={`${REPO}/blob/main/docs/plans/TAXONOMY.md`}>version 1</a>) · <a href={`${REPO}/blob/main/docs/sources/survey-2026-10-28.md`}>source survey</a></p>
     </main>
-    <aside class="toc"><p class="cap">On this page</p><a href="#kinds">Kinds</a><a href="#matrix">Coverage matrix</a><a href="#continuous">Continuous axes</a><a href="#epoch-gap">Epoch gap</a><a href="#selection">Selection protocol</a><a href="#gate">Release gate</a></aside>
+    <aside class="toc"><p class="cap">On this page</p><a href="#in-hand">In hand now</a><a href="#kinds">Kinds</a><a href="#matrix">Coverage matrix</a><a href="#continuous">Continuous axes</a><a href="#epoch-gap">Epoch gap</a><a href="#selection">Selection protocol</a><a href="#gate">Release gate</a></aside>
   </div>
 </Base>

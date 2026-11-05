@@ -2,13 +2,20 @@
 import Base from '../layouts/Base.astro';
 import L from '../components/L.astro';
 import Layer from '../components/Layer.astro';
-import { loadAtlas } from '../lib/atlas.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+import { loadAtlas, ROOT } from '../lib/atlas.mjs';
 import { datasetCount, datasetNames } from '../lib/labels.mjs';
 import { md } from '../lib/md.mjs';
 const atlas = loadAtlas();
 const nDs = datasetCount(atlas.datasets), dsNames = datasetNames(atlas.datasets), dsNamesP = datasetNames(atlas.datasets, 'p');
 const base = import.meta.env.BASE_URL;
 const REPO = 'https://github.com/extragravitation/atlas';
+// The last tagged release, read from CITATION.cff (D-010, D-077).
+const cff = fs.readFileSync(path.join(ROOT, 'CITATION.cff'), 'utf8');
+const relVersion = (cff.match(/^version:\s*"?([^"\n]+)"?/m) || [])[1] || '';
+const relDate = (cff.match(/^date-released:\s*"?([^"\n]+)"?/m) || [])[1] || '';
+const nRepro = atlas.all.filter((d) => d.md.reproduction).length;
 const toc = [['status', 'What this is'], ['charter', 'Charter'], ['authorship', 'Authorship and AI assistance'], ['interests', 'Competing interests'], ['review', 'Review status'], ['privacy', 'Privacy and analytics'], ['cite', 'How to cite'], ['report', 'Report an error'], ['corrections', 'Corrections'], ['licences', 'Licences']];
 ---
 <Base title="About" active="about">
@@ -16,17 +23,17 @@ const toc = [['status', 'What this is'], ['charter', 'Charter'], ['authorship', 
     <main class="prose">
       <p class="kicker">About</p>
       <h1><L t="About the Atlas" p="About this Atlas" /></h1>
-      <Layer as="p" class="lede"><Fragment slot="t">An open atlas of the acceleration discrepancy: where and how the observed gravitational acceleration exceeds what Newtonian gravity predicts from detected baryonic matter, across every kind of system where the two can be compared. It is cause-agnostic and reference-explicit: it takes no side on the cause, and states its reference calculation openly. It describes the observations as carefully as possible, so that they can serve as the test any account of them must pass.</Fragment><Fragment slot="p">Across the universe, things are pulled harder than the matter we can see should pull them. This Atlas maps where, and by how much, as carefully as we can. It does not take sides on why.</Fragment></Layer>
+      <Layer as="p" class="lede"><Fragment slot="t">An open atlas of the acceleration discrepancy: where and how the observed gravitational acceleration exceeds what Newtonian gravity predicts from detected baryonic matter, across every kind of system where the two can be compared. It is cause-agnostic and reference-explicit: it takes no side on the cause, and states its reference calculation openly. It describes the observations as carefully as possible, so that they can serve as the test any account of them must pass.</Fragment><Fragment slot="p">This Atlas maps where, and by how much, things are pulled harder than Newton’s gravity from the detected matter would pull them, in every kind of object where the two can be compared. It says openly what it compares with, and it takes no side on why they differ.</Fragment></Layer>
 
-      <h2 id="status"><L t="What this is: a pre-release preview" p="An early preview" /></h2>
-      <p><L t={`This preview holds ${nDs} (${dsNames}) and shows how the Atlas presents data. The first public release, v1.0, will cover every kind of system in the taxonomy (D-028). Until then the site is not indexed by search engines, has not been reviewed outside the project, and may change without notice; released data will never be overwritten.`} p={`This early version has ${nDs} (${dsNamesP}) and shows how the Atlas works. The full first release will cover every kind of object. Until then it has not been checked by outside reviewers and may change.`} /> <a href={`${base}coverage/`}>Coverage</a> · <a href={`${base}for-data-providers/`}><L t="For data providers" p="For data providers" /></a></p>
+      <h2 id="status"><L t="What this is: a preliminary pre-release" p="An early version" /></h2>
+      <p><L t={`The site shows the Atlas as it now stands: ${nDs} (${dsNames}), each in its latest version, with earlier versions kept unchanged on their dataset pages. The last tagged release is ${relVersion} (${relDate}), preliminary and not peer reviewed (D-077); work since then is listed below as unreleased. The first public release, v1.0, will cover every kind of system in the taxonomy (D-028). Until then the site is not indexed by search engines, has not been reviewed outside the project, and may change without notice; released data will never be overwritten.`} p={`The site shows the Atlas as it is now: ${nDs} (${dsNamesP}). The last numbered version came out on ${relDate}; later changes are listed below. The full first release will cover every kind of object. Until then nobody outside the project has checked it, and it may change. Data we have released are never changed afterwards.`} /> <a href={`${base}coverage/`}>Coverage</a> · <a href={`${base}for-data-providers/`}><L t="For data providers" p="For data providers" /></a></p>
 
       <h2 id="charter">Charter</h2>
       <ul>
         <li><L t="Describe observations; never assume a cause. State the reference calculation openly, and keep the observations so any account can be checked against them." p="We describe what is measured, say what we compare it with, and do not say what causes the difference." /></li>
         <li><L t="Baseline: Newtonian gravity acting on detected baryonic matter. Dynamics and lensing are separate channels, never merged by default." p="We compare with Newton’s gravity from the matter we detect, and keep motions and light-bending apart." /></li>
         <li><L t="Every number traces to a published source, with citation, licence, method, assumptions, units and file hash." p="Every number comes from a published study, and you can check it." /></li>
-        <li><L t="Labels never carry the result; continuous properties stay continuous." p="We never sort systems into groups that hide the answer." /></li>
+        <li><L t="Labels never carry the result; continuous properties stay continuous." p="No name or group we use contains the answer, and smooth properties stay as numbers instead of being split into groups." /></li>
         <li><L t="Assumptions are shown with their published ranges; their effects are computed from the data." p="We show our assumptions and let you change them within published limits." /></li>
         <li><L t="Uncertainties and gaps are shown openly; corrections are logged publicly." p="We show what we are unsure of and what is missing, and we log our corrections." /></li>
         <li><L t="Tests and predictions are frozen by hash before data are seen; results are posted whether they pass or fail." p="Tests are locked before we look, and we publish every result." /></li>
@@ -34,13 +41,14 @@ const toc = [['status', 'What this is'], ['charter', 'Charter'], ['authorship', 
       <p class="small"><L t="Decisions that change what the Atlas says or how it measures are recorded, with reasons, in the" p="Every decision is written down, with the reason, in the" /> <a href={`${REPO}/blob/main/docs/decisions.md`}>decision log</a>.</p>
 
       <h2 id="authorship"><L t="Authorship and AI assistance" p="Who made it" /></h2>
-      <p>The Atlas’s framework, structure and purpose are John van Hemert’s, who rules on every decision. Coding, research and data compilation use AI assistance (Claude, by Anthropic), under his direction and rulings. Every change is a reviewed pull request in the public repository.</p>
+      <Layer as="p"><Fragment slot="t">The Atlas’s framework, structure and purpose are John van Hemert’s, who rules on every decision. Coding, research and data compilation use AI assistance (Claude, by Anthropic), under his direction and rulings. Every change is a reviewed pull request in the public repository.</Fragment><Fragment slot="p">John van Hemert designed the Atlas and decides every question about it. The coding, the research and the data work are done with an AI assistant (Claude, made by Anthropic), under his direction. Every change is public and checked before it goes in.</Fragment></Layer>
 
       <h2 id="interests"><L t="Competing interests" p="Interests" /></h2>
-      <p><L t="The maintainer also works independently on theoretical physics, including questions related to the acceleration discrepancy. None of that work is used in the Atlas, by rule, and the Atlas takes no side between the accounts of the discrepancy (D-078). The maintainer has no financial interests in this work." p="The person who runs the Atlas also does his own theoretical physics, including on why galaxies pull harder than their visible matter suggests. None of it is used here, by rule, and the Atlas takes no side (D-078). There are no financial interests." /></p>
+      <p><L t="The maintainer also works independently on theoretical physics, including questions related to the acceleration discrepancy. None of that work is used in the Atlas, by rule, and the Atlas takes no side between the accounts of the discrepancy (D-078). The maintainer has no financial interests in this work." p="The person who runs the Atlas also does his own theoretical physics, including on the extra pull itself. None of it is used here, by rule, and the Atlas takes no side (D-078). He has no money riding on this work." /></p>
 
       <h2 id="review"><L t="Review status" p="Has anyone checked it?" /></h2>
-      <p><L t="Not yet externally reviewed. An outside reader will review the complete v1.0 for neutrality before it is published (D-011, D-032), and advisers from different interpretive positions will be approached. Their names and findings will be posted here. Internal reviews made with AI assistance are labelled as such and are not presented as outside review." p="Not yet. Outside astronomers will check the full first release before it is published, and what they find will be posted here." /></p>
+      <p><L t="Not yet externally reviewed. An outside reader will review the complete v1.0 for neutrality before it is published (D-011, D-032), and advisers from different interpretive positions will be approached. Their names and findings will be posted here. Internal reviews made with AI assistance are labelled as such and are not presented as outside review." p="Not yet by anyone outside the project. Before the full first release is published, one outside reader will check it for neutrality, and advisers with different views on the cause will be asked to help. Their names and what they find will be posted here. Our own checks, made with AI help, are labelled as such." /></p>
+      <p class="small"><L t={`Each of the ${nRepro} published dataset versions has a reproduction test, frozen by hash before the data were converted, with its result on the Reproduction page, pass or fail.`} p="Each dataset was tested against the original study’s own numbers, with the test locked in advance." /> <a href={`${base}reproduction/`}><L t="Reproduction" p="See the checks" /></a></p>
       <p class="small"><L t="The frozen independent audit (D-082) ran on 2026-11-05, with AI readers. It found no wrong value among 254 sampled measurements, and it does not pass because of gaps in the written methods, the provenance records and some wording. See the" p="An audit with AI readers found no wrong numbers in a random sample, but found gaps in how we wrote things down. See the" /> <a href={`${base}reproduction/#audit`}>audit result</a>.</p>
 
       <h2 id="privacy"><L t="Privacy and analytics" p="Your privacy" /></h2>
@@ -55,11 +63,12 @@ const toc = [['status', 'What this is'], ['charter', 'Charter'], ['authorship', 
       <p><L t="Open an issue in the public repository, with the measurement or system identifier if you can. Problems with the data are tracked on the Known issues page." p="Tell us by opening an issue on GitHub. Problems with the data are listed on the Known issues page." /> <a href={`${REPO}/issues/new`}>Open an issue</a> · <a href={`${base}known-issues/`}>Known issues</a></p>
 
       <h2 id="corrections"><L t="Corrections" p="Corrections" /></h2>
-      <p><L t="Version 0.1 (2026-11-01) is the first release. No corrections to released data have been made yet. Corrections will be listed here with the release that made them; released data are never overwritten." p="Version 0.1 is the first release. Nothing in it has been corrected yet." /></p>
-      <details><summary>Changelog (unreleased work)</summary><div set:html={md(atlas.changelog)} /></details>
+      <p><L t={`Version ${relVersion.replace(/^v/, '')} (${relDate}) is the only release so far. Errors found since in its data are stated on the affected dataset pages and on Known issues (for example X-COP v1's stellar profiles, D-088), and are corrected by new dataset versions. Each correction will be listed here with the release that ships it; released data are never overwritten.`} p="Only one version has been released so far. Mistakes found in it since are explained on the dataset pages and on the Known issues page, and are fixed in new versions of the data, never by changing what was released." /></p>
+      <Layer as="p" class="small"><Fragment slot="t">The changelog below is the repository’s CHANGELOG.md, rendered as written: every change since the last release, with its decision number.</Fragment><Fragment slot="p">The list below records, date by date, everything that has changed since the last release. It is written in technical terms; the decision log gives the reason for each change.</Fragment></Layer>
+      <details><summary><L t="Changelog (unreleased work)" p="List of changes (technical)" /></summary><div set:html={md(atlas.changelog)} /></details>
 
       <h2 id="licences"><L t="Licences" p="Reuse" /></h2>
-      <p>Code: MIT. Text, figures and Atlas-produced data tables: CC BY 4.0, except where a source’s terms govern a table; each dataset page states which. See <a href={`${REPO}/blob/main/LICENSE`}>LICENSE</a> and <a href={`${REPO}/blob/main/LICENSE-CONTENT.md`}>LICENSE-CONTENT.md</a>. Fonts: Source Serif 4, Source Sans 3 and Source Code Pro (SIL Open Font License).</p>
+      <p><L t="Code: MIT. Text, figures and Atlas-produced data tables: CC BY 4.0, except where a source’s terms govern a table; each dataset page states which. Fonts: Source Serif 4, Source Sans 3 and Source Code Pro (SIL Open Font License)." p="You may reuse the code freely, and the text, figures and our tables with credit, unless a source’s own terms apply to a table; each dataset page says which. The fonts are free to use too." /> <a href={`${REPO}/blob/main/LICENSE`}>LICENSE</a> · <a href={`${REPO}/blob/main/LICENSE-CONTENT.md`}>LICENSE-CONTENT.md</a></p>
     </main>
     <aside class="toc"><p class="cap">On this page</p>{toc.map(([id, t]) => <a href={'#' + id}>{t}</a>)}</aside>
   </div>

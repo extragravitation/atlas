@@ -6,7 +6,12 @@ import L from '../../../components/L.astro';
 import Layer from '../../../components/Layer.astro';
 import { loadAtlas } from '../../../lib/atlas.mjs';
 import { loadIssues } from '../../../lib/issues.mjs';
-import { datasetLabel, assumptionLabel, fmtParam, systemsText } from '../../../lib/labels.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+import { datasetLabel, assumptionLabel, fmtParam, rangeLabel, systemsText, plottedSystemCount } from '../../../lib/labels.mjs';
+import { linkRefs } from '../../../lib/refs.mjs';
+import { ROOT } from '../../../lib/atlas.mjs';
+import SourceConversion from '../../../components/SourceConversion.astro';
 import { md, resultLine, REPO } from '../../../lib/md.mjs';
 import LensDataset from '../../../components/LensDataset.astro';
 import SparcSelection from '../../../components/SparcSelection.astro';
@@ -29,8 +34,20 @@ const dl = (f) => `${base}downloads/${d.name}/${d.version}/${f}`;
 const issues = await loadIssues();
 const listed = new Set(d.knownIssues.map((k) => k.issue));
 const named = issues.items.filter((i) => !listed.has(i.number) && (i.mentions || []).includes(`${d.name}/${d.version}`));
-const counts = {};
-for (const r of d.measurements.rows) for (const f of (r.flags || '').split(';').filter(Boolean)) counts[f] = (counts[f] || 0) + 1;
+const counts = {}, altCounts = {};
+// Alternative rows (appended values the source does not prefer, D-096 rule 1) are counted apart, so a
+// flag count can be read against a result file that counts the primary rows.
+const isAlt = (r) => !!(r.alternative_of && String(r.alternative_of).trim()) || r.role === 'alternative_value';
+for (const r of d.measurements.rows) for (const f of (r.flags || '').split(';').filter(Boolean)) { counts[f] = (counts[f] || 0) + 1; if (isAlt(r)) altCounts[f] = (altCounts[f] || 0) + 1; }
+const flagText = (f, n) => { const a = altCounts[f] || 0; return a ? `${f} (${n}: ${n - a} primary row${n - a === 1 ? '' : 's'} and ${a} alternative row${a === 1 ? '' : 's'})` : `${f} (${n})`; };
+const anyAlt = Object.keys(altCounts).length > 0;
+// Plain-language summary, from the dataset's labels and its counts.
+const nRows = d.measurements.rows.length, nPlotted = d.measurements.rows.filter((r) => r.plotted !== 'false').length;
+const nSys = d.systems ? d.systems.rows.length : 0, nSysPlotted = d.systems ? plottedSystemCount(d) : 0;
+const summaryP = `${lab.kind_p}. How it was measured: ${lab.method_p.charAt(0).toLowerCase() + lab.method_p.slice(1)}. ${nRows.toLocaleString('en')} measurements${d.systems ? ` from ${nSys.toLocaleString('en')} ${lab.units}` : ''}; ${nSysPlotted && nSysPlotted < nSys ? `${nSysPlotted} of the ${lab.units} are on the map, and the rest are kept in the record with the reason.` : nPlotted < nRows ? `${nPlotted.toLocaleString('en')} of the measurements are on the map, and the rest are kept in the record with the reason.` : 'all of them are on the map.'}`;
+// Plain account of the reproduction check (data/reproduction.json, the Reproduction page's ledger).
+const ledger = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/reproduction.json'), 'utf8')).datasets.find((x) => x.package === d.key);
+const reproP = ledger ? [ledger.matched_plain && `${ledger.matched_plain}.`, ledger.scope_plain, ledger.status_plain].filter(Boolean).join(' ') : 'The check of this dataset against its source is described on the Reproduction page.';
 const channels = [...new Set(d.measurements.rows.map((r) => r.channel))];
 const lens = isLensing(d);
 const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(lens ? [['tests', 'Tests'], ['funnel', 'From read to plotted'], ['check-formula', 'Check: Einstein mass'], ['check-profile', 'Check: profile step']] : []), ...(d.name === 'aeg-d-sparc' ? [['selection', 'The authors’ selection']] : []), ...(d.name === 'aeg-d-kids1000-rar' ? [['measured', 'As measured']] : []), ...(d.terms ? [['uncertainties', 'Uncertainties']] : []), ['assumptions', 'Assumptions'], ['issues', 'Known issues and flags'], ['files', 'Files and checksums'], ['columns', 'Columns'], ['source', 'Source and conversion']];
@@ -45,8 +62,8 @@ const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(lens ? [[
       {(d.pending || []).map((p) => <p class="boxed" style="margin:8px 0" id="pending">{p.notice}</p>)}
       {d.dp.x_publication && d.dp.x_publication !== 'published' && <p class="boxed" style="margin:8px 0"><L t="Not published: this version awaits the authors' confirmation (D-090 rule 5). This page exists only in a local build; its tables are not in the repository." p="Not public yet: we are waiting for the authors to confirm. This page is a private preview." /></p>}
 
-      <h2 id="summary">Summary</h2>
-      <p>{d.dp.description}</p>
+      <h2 id="summary"><L t="Summary" p="In short" /></h2>
+      <Layer as="p"><Fragment slot="t">{d.dp.description}</Fragment><Fragment slot="p">{summaryP}</Fragment></Layer>
       <dl class="facts">
         <div><dt><L t="Method" p="How it was measured" /></dt><dd><L t={lab.method_t} p={lab.method_p} /></dd></div>
         <div><dt>Channel</dt><dd>{channels.join(', ')}</dd></div>
@@ -57,20 +74,22 @@ const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(lens ? [[
       </dl>
       {d.name === 'aeg-d-xcop' && d.version === 'v2' && <>
         <Layer as="p"><Fragment slot="t">{'X-COP v2 takes g_obs and g_bar as released by Eckert et al. 2022, so its values differ from v1\'s by ruling (D-090).'}</Fragment><Fragment slot="p">{'Version 2 uses the values the authors released in 2022, so its numbers differ from version 1.'}</Fragment></Layer>
-        <Layer as="p"><Fragment slot="t">{'The source states that its hydrostatic masses are "mildly biased (<10%) out to R500" and that "The HSE assumption is likely to be a poorer approximation beyond this point" (Eckert et al. 2022, l. 502). At R200 it gives "a mild contribution of nonthermal pressure (10-20%)" (l. 539).'}</Fragment><Fragment slot="p">{'The source says its method is within 10% out to a standard cluster radius, R500, and less reliable beyond it.'}</Fragment></Layer>
+        <Layer as="p"><Fragment slot="t">{'The source states that its hydrostatic masses are "mildly biased (<10%) out to R500" and that "The HSE assumption is likely to be a poorer approximation beyond this point" (Eckert et al. 2022, l. 502). At R200 it gives "a mild contribution of nonthermal pressure (10-20%)" (l. 539).'}</Fragment><Fragment slot="p">{'The source says its method gives masses that are slightly too low, by less than 10 %, out to a standard cluster radius, R500, and that it is less reliable beyond that. Farther out, at R200, it says pressure that does not come from the heat of the gas makes a mild contribution, 10–20 %.'}</Fragment></Layer>
       </>}
-      <h3>Cite</h3>
+      <h3><L t="Cite" p="How to give credit" /></h3>
+      <Layer as="p" class="small"><Fragment slot="t">Cite the original sources and this package version as follows.</Fragment><Fragment slot="p">Please name the original study, and this version of the data, when you use these numbers. The exact wording to use is:</Fragment></Layer>
       <p class="boxed">{d.citation}</p>
-      <h3>Licence</h3>
-      <p>{d.licence}</p>
+      <h3><L t="Licence" p="Reuse" /></h3>
+      <Layer as="p"><Fragment slot="t">{d.licence}</Fragment><Fragment slot="p">Our own tables may be reused with credit, unless the original study’s terms say otherwise. Where a study does not allow copies, we link to its files instead of copying them. The technical view gives the terms for each source.</Fragment></Layer>
 
       <h2 id="validation">Validation</h2>
       {d.dp.x_publication && d.dp.x_publication !== 'published' ? <p class="small"><a href={`${REPO}/blob/main/${repoDir}/REPRODUCTION_RESULT_PART_B.md`}><L t="Part B result (outcomes and counts only)" p="How this version was checked" /></a> · <a href={`${REPO}/blob/main/${repoDir}/REPRODUCTION_RESULT_PART_A.md`}><L t="Part A result" p="Earlier checks" /></a></p> : <p class="small"><a href={`${base}reproduction/#${d.key.replace('/', '-')}`}><L t="This dataset on the Reproduction page" p="How this dataset was checked" /></a> · <a href={`${base}reproduction/`}><L t="All datasets' checks" p="All checks" /></a>{d.md.reproductionResultA && <> · <a href={`${REPO}/blob/main/${repoDir}/REPRODUCTION_RESULT_PART_A.md`}><L t="Part A result" p="Earlier checks" /></a> · <a href={`${REPO}/blob/main/${repoDir}/REPRODUCTION_RESULT_PART_B.md`}><L t="Part B result" p="How this version was checked" /></a></>}</p>}
-      {rr && <p><span class={'badge ' + (rr.pass ? 'ok' : 'fail')}>Reproduction: {rr.pass ? rr.text : /^FAILED$/i.test(rr.text) ? 'not fully reproduced, on record' : rr.text}</span></p>}
+      {rr && <p><span class={'badge ' + (rr.pass ? 'ok' : 'fail')}><L t={`Reproduction: ${rr.pass ? 'passed' : 'not fully reproduced, on record'}`} p={rr.pass ? 'Matches the source' : 'Does not fully match the source; shown, with the mismatches marked'} /></span></p>}
       {rr && !rr.pass && <p class="small">{counts.reproduction_mismatch || 0} measurements that do not reproduce are flagged <code>reproduction_mismatch</code> and ringed on every figure; the package ships under decision D-019 because conversion integrity passes.</p>}
       {mt && <p><span class={'badge ' + (mt.pass ? 'ok' : 'fail')}>Modelled-star test: {mt.text}</span></p>}
       <p class="small"><L t="Each test was written and frozen by hash before it was run; the result is published whether it passed or failed." p="We wrote each test down and locked it before looking at the result, and we show the result either way." /> <a href={`${REPO}/blob/main/${repoDir}/REPRODUCTION.md`}>Frozen test</a>{d.md.modelTest && <> · <a href={`${REPO}/blob/main/${repoDir}/MODEL_TEST.md`}>Frozen modelled-star test</a></>}</p>
-      {d.md.reproductionResult && <details><summary>Reproduction result in full</summary><div class="prose" set:html={md(d.md.reproductionResult, repoDir)} /></details>}
+      <Layer as="p" class="small"><Fragment slot="t">{ledger && ledger.status}</Fragment><Fragment slot="p">{reproP}</Fragment></Layer>
+      {d.md.reproductionResult && <details><summary><L t="Reproduction result in full" p="The full technical report of the check" /></summary><div class="prose" set:html={md(d.md.reproductionResult, repoDir)} /></details>}
       {lens && <LensDataset d={d} />}
       {d.name === 'aeg-d-sparc' && <SparcSelection d={d} />}
       {d.md.modelTestResult && <details><summary>Modelled-star test result in full</summary><div class="prose" set:html={md(d.md.modelTestResult, repoDir)} /></details>}
@@ -100,8 +119,8 @@ const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(lens ? [[
               <td class="l">{a.adjustable ? (a.status === 'confirmed' ? 'adjustable' : a.status) : 'fixed'}</td>
               <td class="l">{a.scope === 'system' ? 'per system' : a.scope === 'dataset' ? 'whole dataset' : '–'}</td>
               <td>{typeof e.default === 'number' ? fmtParam(k, e.default) : e.default}</td>
-              <td>{e.min !== undefined && e.min !== null ? `${fmtParam(k, e.min)} to ${fmtParam(k, e.max)}` : '–'}</td>
-              <td class="l" style="white-space:normal;min-width:260px;font-size:12px">{e.default_ref && <>Default: {e.default_ref}<br></>}{e.range_ref && <>Range: {e.range_ref}</>}{e.note && <><br>{e.note}</>}</td>
+              <td>{rangeLabel(a.id, e)}</td>
+              <td class="l" style="white-space:normal;min-width:260px;font-size:12px">{e.default_ref && <>Default: <Fragment set:html={linkRefs(e.default_ref, repoDir)} /><br></>}{e.range_ref && <>Range: <Fragment set:html={linkRefs(e.range_ref, repoDir)} /></>}{e.note && <><br><Fragment set:html={linkRefs(e.note, repoDir)} /></>}</td>
             </tr>; })}
           </tbody>
         </table>
@@ -113,10 +132,10 @@ const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(lens ? [[
       <h2 id="issues">Known issues and flags</h2>
       {d.knownIssues.length === 0 && named.length === 0 && <p>No known issues.</p>}
       {named.length > 0 && <ul>{named.map((i) => <li><a href={i.url}>#{i.number}</a>: {i.title} <span class="small">({i.state === 'closed' ? `resolved ${i.closed || ''}` : 'open'}; recorded on GitHub, not in the package file)</span></li>)}</ul>}
-      {d.knownIssues.length > 0 && <ul>{d.knownIssues.map((k) => <li><a href={k.url}>#{k.issue}</a>: {k.title} ({(k.measurements || []).length} measurements, flag <code>{k.flag}</code>)</li>)}</ul>}
-      {Object.keys(counts).length > 0 && <p class="small">Flags in this package: {Object.entries(counts).map(([f, n]) => `${f} (${n})`).join(', ')}.</p>}
-      {d.name === 'aeg-d-xcop' && d.version === 'v1' && <Layer as="p" class="small"><Fragment slot="t"><b>Correction (2026-11-02).</b> For the seven clusters with measured stars, this version treats the released stellar-mass profiles as masses enclosed in a sphere. The source paper says they are projected (Ghizzardi et al. 2021, §5.1). A projected mass is never smaller than the spherical one, so the stellar part of g_bar here is an upper bound, and g_bar is too high wherever stars contribute: by a factor of 1/0.75 in the stellar term at R500, the source's own conversion, and by an amount the source does not determine in the cluster centres, where stars dominate. This is the Atlas's error. This version stays published unchanged; the next version will mark these values as upper bounds (D-088, <a href="https://github.com/extragravitation/atlas/issues/124">#124</a>).</Fragment><Fragment slot="p"><b>Correction (2 November 2026).</b> We made a mistake. For seven clusters, the star masses in the released files are measured through a column of sky, not inside a ball, and we treated them as if they were inside a ball. That makes the pull from visible matter look too large, most of all near the cluster centres. This version stays as it was, so the record is clear; the next version will show these values as upper limits (<a href="https://github.com/extragravitation/atlas/issues/124">#124</a>).</Fragment></Layer>}
-      {d.name === 'aeg-d-kids1000-rar' && <Layer as="p" class="small"><Fragment slot="t"><b>Error bars.</b> The g_obs errors are the released ESD errors, bias-corrected, as the release README's recipe gives them. The paper also adds 0.1 dex to every RAR error bar for the conversion from ΔΣ to g_obs (Brouwer et al. 2021, §4.4). The release does not include that term, so this version's error bars are smaller than the paper's. The paper does not say how the two were combined; the question is with the authors, and the next version will show the conversion term separately. The <code>no_uncertainty</code> flag on every row refers to <b>g_bar</b> only: the release gives no per-bin g_bar uncertainty. The paper's ±0.2 dex systematic in stellar mass (Fig. 4) is stated in words, not drawn (<a href="https://github.com/extragravitation/atlas/issues/64">#64</a>).</Fragment><Fragment slot="p"><b>Error bars.</b> The error bars here come from the released data. The paper adds a further allowance for the step that turns the lensing signal into a pull, which the released data leave out, so these bars are smaller than in the paper. We have asked the authors how to add it, and the next version will show it. The visible-matter side has no error bar in the released data; the paper's uncertainty in the star masses is described in words (<a href="https://github.com/extragravitation/atlas/issues/64">#64</a>).</Fragment></Layer>}
+      {d.knownIssues.length > 0 && <ul>{d.knownIssues.map((k) => <li><a href={k.url}>#{k.issue}</a>: {k.title} ({(k.measurements || []).length} measurements{k.flag && <>, flag <code>{k.flag}</code></>})</li>)}</ul>}
+      {Object.keys(counts).length > 0 && <Layer as="p" class="small"><Fragment slot="t">Flags in this package, counted from its measurements table: {Object.entries(counts).map(([f, n]) => flagText(f, n)).join(', ')}.{anyAlt && ' Alternative rows are appended values that the source does not prefer (D-096 rule 1); a result file that counts the primary rows gives the smaller number.'}</Fragment><Fragment slot="p">{Object.keys(counts).length === 1 ? 'One kind of note is attached to rows of this table.' : `${Object.keys(counts).length} kinds of note are attached to rows of this table.`}{anyAlt && ' Some of those rows are second versions of a value that the source does not prefer, and the counts include them.'} The technical view names each note and gives its count.</Fragment></Layer>}
+      {d.name === 'aeg-d-xcop' && d.version === 'v1' && <Layer as="p" class="small"><Fragment slot="t"><b>Correction (2026-11-02).</b> For the seven clusters with measured stars, this version treats the released stellar-mass profiles as masses enclosed in a sphere. The source paper says they are projected (Ghizzardi et al. 2021, §5.1). A projected mass is never smaller than the spherical one, so the stellar part of g_bar here is an upper bound, and g_bar is too high wherever stars contribute: by a factor of 1/0.75 in the stellar term at R500, the source's own conversion, and by an amount the source does not determine in the cluster centres, where stars dominate. This is the Atlas's error. This version stays published unchanged; the next version will mark these values as upper bounds (D-088, <a href="https://github.com/extragravitation/atlas/issues/124">#124</a>).</Fragment><Fragment slot="p"><b>Correction (2 November 2026).</b> We made a mistake. For seven clusters, the star masses in the released files are measured through a column of sky, not inside a ball, and we treated them as if they were inside a ball. That makes the pull from detected matter look too large, most of all near the cluster centres. This version stays as it was, so the record is clear; the next version will show these values as upper limits (<a href="https://github.com/extragravitation/atlas/issues/124">#124</a>).</Fragment></Layer>}
+      {d.name === 'aeg-d-kids1000-rar' && <Layer as="p" class="small"><Fragment slot="t"><b>Error bars.</b> The g_obs errors are the released ESD errors, bias-corrected, as the release README's recipe gives them. The paper also adds 0.1 dex to every RAR error bar for the conversion from ΔΣ to g_obs (Brouwer et al. 2021, §4.4). The release does not include that term, so this version's error bars are smaller than the paper's. The paper does not say how the two were combined; the question is with the authors, and the next version will show the conversion term separately. The <code>no_uncertainty</code> flag on every row refers to <b>g_bar</b> only: the release gives no per-bin g_bar uncertainty. The paper's ±0.2 dex systematic in stellar mass (Fig. 4) is stated in words, not drawn (<a href="https://github.com/extragravitation/atlas/issues/64">#64</a>).</Fragment><Fragment slot="p"><b>Error bars.</b> The error bars here come from the released data. The paper adds a further allowance for the step that turns the lensing signal into a pull, which the released data leave out, so these bars are smaller than in the paper. We have asked the authors how to add it, and the next version will show it. The detected-matter side has no error bar in the released data; the paper's uncertainty in the star masses is described in words (<a href="https://github.com/extragravitation/atlas/issues/64">#64</a>).</Fragment></Layer>}
       <p class="small"><a href={`${base}known-issues/`}>All known issues</a></p>
 
       <h2 id="files">Files and checksums</h2>
@@ -132,8 +151,8 @@ const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(lens ? [[
         {d.measurements.columns.map((c) => <tr><td class="l"><code>{c.name}</code></td><td class="l">{c.datatype}</td><td class="l">{c.unit || ''}</td><td class="l" style="white-space:normal;min-width:300px">{c.description}</td></tr>)}
       </tbody></table></div>
 
-      <h2 id="source">Source and conversion</h2>
-      <div class="prose" set:html={md(d.md.source, repoDir)} />
+      <h2 id="source"><L t="Source and conversion" p="Where the data come from and how they were converted" /></h2>
+      <SourceConversion d={d} repoDir={repoDir} />
     </main>
     <aside class="toc"><p class="cap">On this page</p>{toc.map(([id, t]) => <a href={'#' + id}>{t}</a>)}</aside>
   </div>

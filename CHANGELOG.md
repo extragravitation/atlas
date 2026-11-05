@@ -4,6 +4,42 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
 
 ## Unreleased
 
+- D-108: taxonomy version 2 (`docs/plans/TAXONOMY_v2.md`, frozen in `data/frozen/taxonomy-v2.json`). One release-gate item is reworded so that it no longer describes a kind by an expected result (audit finding N3): it now reads "the high-acceleration end of the range: the Solar System (as a limit) and globular clusters". The gate is unchanged in effect. The Coverage page renders version 2 and links version 1, which stays frozen (deviation #22) (#189).
+- Site: audit fixes, first batch (D-107 rule 2; #188). Site text only; no package or value changes.
+  - N1, N2: Methods no longer uses the names or terms of particular accounts outside the accounts section.
+  - N4: lens system pages state D-094's correction (g_obs/g_bar ∝ 1/D) in both layers.
+  - Home, Methods and the system-page chart now say that Newton's gravity from the detected matter "matches" the observed pull, a statement about the baseline only (audit finding T1).
+  - T4, in part: the KiDS hot-gas variant is described as an "assumed hot-gas component" in site text and in the registry's display text; the remaining wording is package text and changes at re-issue.
+  - Methods gains "Conversion steps and constants" (audit findings M1–M7): the constants and their sources, and the KiDS, globular-cluster, dwarf and lens conversion steps.
+  - The audit result is linked from the Reproduction and About pages.
+- D-107: the audit v2 result ships with v0.2, as observed and not re-scored. Before the v0.2 tag the site text is fixed (N1–N4, M1–M8, and the should-fix findings in batches). The v2 packages ship unchanged; the provenance failures P1–P4 are recorded as known issues (#190–#193). After v0.2, data standard 3.0.0 makes `citation` and `licence` required on every `sources.json` entry, and the affected packages are re-issued under it, each with its own frozen test (#187).
+- Audit v2 (plan D-082) run on 2026-11-05 and published as observed (`docs/audit/AUDIT_RESULT.md`; #185, #186). It does not pass:
+  - values: zero material discrepancies in 254 sampled rows (95 % upper bound on the rate 1.4 %);
+  - provenance: failures in 250 of 254 rows, mostly a missing citation or licence field in `sources.json`;
+  - methods text: incomplete for 210 rows (M1–M8);
+  - neutrality: 4 must-fix and about 120 should-fix findings.
+- X-COP v2 audit plan frozen on merge (`docs/audit/AUDIT_PLAN_XCOP_v2.md`; D-090 rule 3, D-106 rule 4; #183).
+- D-106: X-COP v2 is published now, and the authors are invited the same day to review it; their wishes are followed, and a correction becomes a new version. This replaces D-090 rule 5's wait for consent. Corrects D-105's statement that the shared archives are the authors' public release (#181, #182).
+- `aeg-d-xcop/v2` (data standard 2.5.1): g_obs and g_bar as released by Eckert et al. 2022 for the five clusters with stellar data (A644, A1795, A2029, A2142, A2319), 109 rows; v1 is kept and marked superseded. Part B of the frozen test passes (13 of 13 items); part A's failed checks stand as run (D-091). A644 carries D-092's note (#136); A3158's negative masses (#178) and the part A row-count erratum (#179) are known issues (#180, #182).
+- D-105: X-COP v2 part B. The seven clusters without stellar data get systems rows and exclusion-register entries, no measurement rows; the `mass_model_choice` term is sized from all three of part A's mass pairs; the hydrostatic-bias slider is kept with v2 references and the intracluster-light slider is dropped; the stated radial range is an exclusion only with explicit exclusion wording (#172).
+- `aeg-d-strong-lensing/v2` (data standard 2.5.1): no value changes. The θ_E error moves from g_obs to g_bar on the 107 class A rows; distance and H0 enter g_obs as uncertainty terms (D-094, D-104). Frozen test passes, 13 of 13 items (#165, #166, #171, #176).
+- `aeg-d-kids1000-rar/v2` (data standard 2.5.1): no value changes; all 45 bins kept. KiDS-bright bins 1–8 (beyond the source's isolation limit) and the hot-gas variant are recorded, not plotted, following the source (D-103; D-096 rules 2 and 3). Passes the re-issued frozen test (`REPRODUCTION_REV3.md`); the first test's item 11 failed and is reported. Known issues #168 and #169 (#164, #170).
+- `aeg-d-gc-baumgardt/v2` (data standard 2.5.1): passes all 13 items of its frozen test. M54 drops the three bins beyond 200″ that Baumgardt 2017 excluded (D-096). NGC 2298 and Pal 5 are recorded, not plotted (D-097 to D-099). Adds 27 uncertainty terms and notes on the nine Harris calibration clusters (#160). Known issue #159 (#150, #151, #157, #162).
+- `aeg-d-dwarfs/v2` (data standard 2.5.1): passes all 13 items of its frozen test. v1's values on 62 rows; Phoenix II takes the source's preferred certain-members σ and Fornax its stated best-fit Sérsic radius, with the previous values kept as alternative rows (D-098 rule 5, D-101). Eight systems whose sources state they are out of equilibrium or tidally disrupted are recorded, not plotted (D-097, D-100). Adds 34 uncertainty terms. Known issue #156 (#149, #151, #157, #161).
+- D-104: strong lenses v2. H0 terms are sized as H0 values, not as the sources' α shifts; central black holes are not added to g_bar (their sizes rest on the lens's own dispersion) and are recorded in the baryon inventory; for lenses with no printed light profile, the θ_E error's effect on g_bar is not computed, and the page says so (#163).
+- D-103: KiDS-bright points beyond the source's isolation limit are recorded, not plotted, with the source's quotations; the KiDS v2 test is re-issued as a new frozen file. The source gives the limit both as 0.3 and as 3 h70⁻¹ Mpc (#169) (#163, #164).
+- D-102: Tollerud 2012's velocity windows are not applied, because they are drawn in figures and never printed as numbers (#156); Tucana V stays a possibility (#157).
+- D-101: Fornax takes the source's stated best-fit Sérsic radius; Hercules is unchanged (#155).
+- D-100: D-097's classes refined: a closed list of states, more hedge words, and only statements about the system itself count (#154).
+- D-099: data standard 2.5.1 (extension columns a registry formula reads); which distance source counts for D-097; Harris's dynamical-parallax calibrators do not trigger D-036 #6; D-097's classes made mechanical (#148).
+- D-098: D-096 rule 2 applies only to the same data points; D-097 uses three classes (finding, possibility, neither); NGC 2298 and Pal 5 are findings; Phoenix II follows the source's preferred value. Corrects two statements in D-096 and D-097 (#147).
+- Exclusion register (`data/registry/excluded.csv`, data standard §5), checked by `aeg.check`. System pages of systems recorded but not plotted say so in both layers, with the source's quotation (#152). Pages of excluded dwarfs give their g_obs and g_bar, which stay in the tables and downloads (#167).
+- Site fixes: dataset pages list every known issue that names them (#143); PASS badges in the right colour, not-plotted reasons restored, and X-COP v2 result links (#184).
+- D-092: X-COP v2 A644's 19 points are shown, with a neutral note in both layers, while its g_bar construction is with the authors (#136, #137).
+- D-091: X-COP v2 test part A. The frozen result stands; a factual error in the test is recorded as a dated erratum, not re-scored (#179); what the Atlas shows next comes from a new test built from the authors' answers (#132).
+- D-090: X-COP v2 is the one exception to D-083 item 3 ("v2 equals v1"); the frozen audit runs as frozen, on v1; X-COP v2 gets its own audit; the seven clusters without stellar data are recorded, not plotted (#129) (#130).
+- D-087: one rule for `model_dependence`: `observable_form` only where a fitted form stands in for missing data; applied through the v2 re-issues (#110).
+- D-086: before a release flags a source's data, its authors are sent a notice; a reply is not a release gate. Notices for SPARC (#8), X-COP (#19) and the Baumgardt database (Pal 1).
 - D-095: data standard 2.5.0 adds `acceleration_released`, for accelerations released by a source (KiDS-1000, X-COP 2022).
 - D-096: where a source states a choice (a preferred value, data it excluded, a fiducial baseline), the Atlas follows it, for every row of every v2 package.
 - D-097: a written test for when D-025 excludes a system as out of equilibrium: a firm statement in the system's own source excludes it; a stated possibility keeps it plotted, with the quotation.

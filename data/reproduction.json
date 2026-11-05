@@ -81,7 +81,7 @@
         },
         {
           "name": "g_bar error unchanged",
-          "plain": "Same error on the visible-matter side",
+          "plain": "Same error on the detected-matter side",
           "outcome": "pass",
           "detail": "10% gas and 25% stellar, both system scale; no point-scale g_bar error given by the source"
         },
@@ -204,7 +204,7 @@
         },
         {
           "name": "g_bar equals the released column",
-          "plain": "Pull from visible matter matches",
+          "plain": "Pull from detected matter matches",
           "outcome": "pass",
           "detail": "exact"
         },
@@ -624,7 +624,7 @@
         },
         {
           "name": "Einstein-radius error on the right side",
-          "plain": "Ring-size uncertainty moved to the visible-matter side",
+          "plain": "Ring-size uncertainty moved to the detected-matter side",
           "outcome": "pass",
           "detail": "107 class A rows: θ_E error carried by g_bar (standard §2a rule 7); its effect on g_bar is not computed on the 5 of them with no printed light profile (D-104 rule 3)"
         },
@@ -659,7 +659,7 @@
       ],
       "flagged": 0,
       "status": "Current version. Same values as v1. The Einstein-radius error now moves g_bar, not g_obs, and H0 and distance terms are carried (D-094, D-104; #139). Lens values stay projected (cylinder) accelerations (D-064).",
-      "status_plain": "The current lens version: the same numbers as before, with the uncertainty in the ring size now applied to the visible-matter side, where it belongs, and the effect of distance shown.",
+      "status_plain": "The current lens version: the same numbers as before, with the uncertainty in the ring size now applied to the detected-matter side, where it belongs, and the effect of distance shown.",
       "since": "",
       "scope": "Establishes that v2 carries v1's numbers unchanged, moves each uncertainty to the side it affects, and agrees with an independent second reading. It does not re-fit the lens models or judge the sources' error sizes.",
       "scope_plain": "Same numbers as v1, with each uncertainty on the right side, checked against a second reading. We do not redo the lens models.",

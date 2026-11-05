@@ -17,12 +17,19 @@ export const ASSUMPTION = {
   inclination: { short: 'inclination', t: 'Inclination', p: 'How tilted the disc is as we see it', kind: 'sigma' },
   xray_hse_bias: { short: 'hydrostatic bias b', t: 'X-ray hydrostatic bias, b', p: 'Support of the hot gas not counted by assuming pressure balance from heat alone', kind: 'value' },
   gc_stellar_ml: { short: 'Υ_V (clusters)', t: 'Cluster stellar mass-to-light, Υ_V', p: 'How much mass each unit of cluster starlight stands for', kind: 'span' },
-  dw_stellar_ml: { short: 'Υ_V (dwarfs)', t: 'Dwarf stellar mass-to-light, Υ_V', p: 'How much mass each unit of dwarf-galaxy starlight stands for', kind: 'span' },
+  dw_stellar_ml: { short: 'Υ_V (dwarfs)', t: 'Dwarf stellar mass-to-light, Υ_V', p: 'How much mass each unit of dwarf-galaxy starlight stands for', kind: 'range', range: 'D-060 lower bound to upper bound, per galaxy' }, // D-060 envelope: −1 = lower bound, +1 = upper bound
   a6s_stellar_imf: { short: 'IMF (lenses)', t: 'Lens stellar IMF, Chabrier/Kroupa to Salpeter', p: 'Lenses: how many faint stars there are for each bright one', kind: 'imf' },
   a6s_gas_in_RE: { short: 'gas in R_E', t: 'Lens gas inside R_E, as a fraction of the stars', p: 'Lenses: how much gas sits inside the ring, compared with the stars', kind: 'range' },
   icl_fraction: { short: 'intracluster light', t: 'Intracluster light', p: 'Starlight between the galaxies that the star counts leave out', kind: 'percent' },
 };
 
+// A slider's range in words, for tables: the registry entry's own range (D-039 for clusters, D-060 for dwarfs).
+export function rangeLabel(id, e) {
+  const al = assumptionLabel(id);
+  if (al.range) return al.range;
+  if (e.min === undefined || e.min === null) return '–';
+  return al.kind === 'sigma' ? 'published ±1σ' : `${fmtParam(al.kind, e.min)} to ${fmtParam(al.kind, e.max)}`;
+}
 export function assumptionLabel(id) { return ASSUMPTION[id] || { short: id, t: id, p: id, kind: 'value' }; }
 export function datasetLabel(name) { return DATASET[name] || { t: name, p: name, kind_t: name, kind_p: name, unit: 'system', units: 'systems', method_t: name, method_p: name }; }
 
