@@ -2223,3 +2223,52 @@ The resolved dwarf reading records each class with its quotation and location. T
 - **Rule 2:** counting a reported and disputed view as a finding.
 
 **Data seen.** The readings and the quoted lines. No v2 value has been computed.
+
+## D-103 — KiDS-bright points beyond the isolation limit
+
+**Ruling (2026-11-05 07:05 MDT, JvH).** "D-103 (A)". **Proposed by** Claude (2026-11-05), from the KiDS v2 second reading (item 11 of the frozen test). The quotes were checked at source (`RAR_paper_Brouwer_4.tex`, SHA-256 `45aa25ab…4b19`). **Adopted unchanged.**
+
+**Context.** Brouwer et al. 2021 leave the KiDS-bright points beyond their isolation limit out of every model comparison they draw conclusions from:
+- "by only using the seven data points within the isolation criterion limit" (l. 508);
+- "Here we have removed all data points beyond the KiDS isolation limit" (l. 821);
+- "we can only use the ESD profile of isolated KiDS-bright lenses within R < 0.3 h70⁻¹ Mpc … g_gal > 7.56×10⁻¹⁴ m s⁻²" (l. 748).
+
+The reason they give: photometric-redshift errors admit non-isolated lenses, which raise the measured profile by about 30 % beyond 0.3 h70⁻¹ Mpc (l. 748). The excluded points are the same released bins the Atlas uses, KiDS-bright rows 1–8, so D-098 rule 1 is met. The paper still draws them, in a shaded region (Fig. 5 caption, l. 525). GAMA is "still reliable" there (l. 489).
+
+The frozen KiDS v2 test (item 11) makes any such finding a fail of that item. The test is then revised by ruling.
+
+**Rules.**
+1. **D-096 rule 2 applies.** KiDS-bright rows 1–8 stay in the tables and downloads, recorded and not plotted, with the source's quotes and reason in `notes`. No value changes. GAMA rows and KiDS-bright rows 9–15 are unaffected.
+2. **The KiDS v2 test is re-issued as a new frozen file** (`REPRODUCTION_REV3.md`) that requires this. It gets one independent review and is frozen before the first conversion. The first frozen test stays as it is, and the v2 result reports its item 11 as failed for this reason.
+3. **Known issue:** the paper gives the limit as both "R < 3 h70⁻¹ Mpc" (l. 508, 821) and "R < 0.3 h70⁻¹ Mpc" (l. 483, 748). The acceleration threshold and "seven data points" are unambiguous.
+
+**Reason.** D-096 follows the authors' own judgement about their data. They excluded these points from every conclusion, for a stated measurement reason that affects g_obs directly. Shading them on a plot is a warning, not an endorsement.
+
+**Alternatives rejected.** Keeping the points plotted with a flag, because the source still draws them.
+
+**Data seen.** The KiDS second reading and the quoted lines. No KiDS v2 value has been computed.
+
+## D-104 — Strong lenses v2: H0 sizes, central black holes, missing light profiles
+
+**Ruling (2026-11-05 07:05 MDT, JvH).** "D-104 as recommended". **Proposed by** Claude (2026-11-05), from the independent review of the draft lens v2 test (`docs/sources/readings/step-d-2026-11-05/lenses-review-1.md`). **Adopted unchanged.**
+
+**Rules.**
+1. **The H0 sizes (clarifies D-094 rule 2).**
+   - The 3.5–5 % figures D-094 cites are shifts in α = (M_Ein − M_DM)/(Υ_ref L_Ein) (R29 l. 206, R32 l. 288, R25 l. 613). That quantity subtracts a modelled mass, so it is not the g_obs change.
+   - The H0 terms are therefore sized as H0 values (each source's value against the alternative it names, read at source or in the paper it cites), and the exact registry formula computes the effect.
+   - The α percentages are kept in the term notes, labelled as α.
+   - R26's "3–4 %", stated for the lensing mass-to-light ratio, is used directly.
+2. **Central black holes.**
+   - They are not added to g_bar. Every published size comes from a scaling with the lens's own velocity dispersion (R30 l. 778; R28 l. 693; R25), which D-036 #6 forbids as an input.
+   - They are recorded in `x_baryon_inventory` as `stated_negligible` where the source says so (R25, R28, R30, R32), with the quotes, and as `not_addressed` elsewhere.
+3. **Lenses with no printed light profile** (in practice the two MaNGA lenses).
+   - The θ_E error is kept, but its effect on g_bar is not computed in v2, and the page says so.
+   - Assuming a profile is rejected: R30 describes a "complex and varying isophotal structure".
+   - A profile-free bracket of the exponent, [−2, 0], is recorded as a later option needing a ruling.
+
+**Reason.**
+- Rule 1 keeps an account-dependent subtraction out of the data.
+- Rule 2 applies D-036 #6.
+- Rule 3 adds no assumption.
+
+**Data seen.** The review and the quoted lines. No lens v2 value has been computed.
