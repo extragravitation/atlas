@@ -2140,3 +2140,46 @@ Fixing only the cases found would itself be a selection.
 - **Rule 4:** a lexical test on "could, may, might" alone, which leaves common wording unclassed.
 
 **Data seen.** The two second reviews, Harris (2010) l. 68–72 and 123–128, and the texts cited in D-098. No v2 value has been computed.
+
+## D-100 — D-097 classes: closed list of states, more hedges, statements about the system itself
+
+**Ruling (2026-11-04 18:08 MDT, JvH).** "D-100 as recommended". **Proposed by** Claude (2026-11-04), from the two independent dwarf v2 second readings (`data/packages/aeg-d-dwarfs/v2/reading/reader-A.csv`, `reader-B.csv`). **Adopted unchanged.**
+
+**Context.**
+- Read literally, D-099 rule 4 classes 16 dwarfs as findings (reader A) or 12 (reader B), against the 2 named when it was ruled. The readers agree on 12.
+- Most of the extra cases come from two gaps in the rule, not from strong statements:
+  - **Unlisted hedges.** Rule 4 names five possibility words. "Hints of", "tentative signs of" and "potentially disrupting" therefore fall through to "finding", which is the opposite of what they mean.
+  - **Unnamed states.** "Tidal interaction", "altered by tides" and "elongated owing to tides" describe tidal effects on the outskirts, like the tails and stripping that D-099 already classes as "neither". They do not say the system is out of equilibrium.
+- A third gap: one source makes a statement about a class of galaxies ("most of these galaxies are in process of disruption"), not about the system itself.
+
+**Rules (refining D-099 rule 4).**
+1. **The states form a closed list:** out of equilibrium (or in disequilibrium), unbound, being tidally disrupted, tidally disturbed. These are "neither" when mentioned on their own: tidal interaction; being affected, influenced or altered by tides; distortion; elongation; S-shapes; stripping; tails; mass loss.
+2. **Possibility hedges** are "may", "might", "could", "possibly", "perhaps", "potentially", "tentative", "hints" and "possible". "Likely", "probably", "suggest", "support", "favour", "appears" and "evidence for" remain finding wording, as D-099 intended.
+3. **A statement counts only if it is about the system itself,** not about a class the system belongs to.
+
+**Result for the dwarfs, each statement re-read at source:**
+- **Findings (8):**
+  - And XXVII and Antlia II (by ruling);
+  - Boötes III: "Tidally Disrupting… Galaxy" (Li 2026, title);
+  - Boötes I: "suggest that … is experiencing tidal disruption" (Sandford 2026);
+  - Hercules: "likely … currently undergoing tidal disruption" (Ou 2024, abstract);
+  - Ursa Major II: "probably … undergoing severe tidal disruption", citing Muñoz 2010 (Muñoz 2018);
+  - Willman 1: "unlikely … currently in dynamical equilibrium" (Willman 2006), and "the evidence for tidal disruption outweighs the evidence against it" (Chiu 2026);
+  - And XXI: "it appears that this system is not in equilibrium" (Collins 2021, figure caption).
+- **Possibilities added (2):**
+  - Draco II: "potentially disrupting" (Longeard 2018);
+  - Eridanus IV: "tentative signs of tidal disruption" (Casey 2025).
+- **"Neither":** And XV, And XVIII, And XIX, And XXV, Coma Berenices and Ursa Major I. Their statements are about tidal interaction, alteration or elongation only.
+
+The resolved dwarf reading records each class with its quotation and location. The globular-cluster reading is rechecked under these rules before it is frozen.
+
+**Reason.**
+- D-099's own examples show its intent: confident conclusions are findings, and tentative ones are possibilities.
+- Excluding a system because a paper saw "tentative signs" or "hints" would invert that.
+- Every case is decided by its words, written out above.
+
+**Alternatives rejected.**
+- **Applying D-099 rule 4 literally (16 findings):** it rests on a drafting gap.
+- **Ruling system by system:** that would invite choice by outcome.
+
+**Data seen.** The two readings and the quotations above. No v2 value has been computed. Not fully blind: v1's values are public on the site. Neither JvH nor Claude looked at where any of these systems sit before the ruling.
