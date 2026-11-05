@@ -2432,3 +2432,38 @@ The frozen KiDS v2 test (item 11) makes any such finding a fail of that item. Th
 **Data seen.** The audit findings. No new data.
 
 **Erratum (2026-11-05, Claude, recorded with the implementation).** Rule 3 attributes the A2319 quote to Ghirardini et al. 2018. The Atlas read that sentence in Eckert et al. 2022b (Paper II, A&A 666, A41; arXiv 2205.01123v1, `einasto.tex` l. 80), which cites Ghirardini et al. 2018 for it (`aeg-d-xcop/v2/reading/hse_statements.csv`, row 27). Ghirardini et al. 2018 itself has not been read. The site cites the place where the quote was read. The ruling is unchanged.
+
+## D-110 — v1.0 narrowed; lighter process; early informal expert feedback
+
+**Ruling (2026-11-05 17:48 MDT, JvH).** "YEs - I agree", on Claude's points 3 and 4 (narrow v1.0; lighten the process) and the plan around them. **Proposed by** Claude (2026-11-05), in answer to JvH's question "are we overdoing our readiness for v1.0". **Adopted unchanged.**
+
+**Context.**
+- The audit (#186) showed that the data rigour is necessary. Missing constants, unrecorded sources and partisan wording are what an expert would catch first.
+- The process around that rigour had grown beyond what the project needs:
+  - 109 decisions in nine days, many of them on wording or display;
+  - frozen display text, which needed a new taxonomy version (D-108) to reword one sentence;
+  - two readers for checks a script can do.
+- The v1.0 gate (D-028) also put outside review last, after every taxonomy cell is packaged or documented as a gap. External feedback is most useful early, while the framing can still change cheaply.
+
+**Rules.**
+1. **v1.0 is narrowed.** It is the datasets in hand, plus:
+   - the data freeze;
+   - the re-issue under standard 3.0.0 that closes the audit's provenance findings (D-107 rule 4);
+   - the formal outside review (D-011, D-032);
+   - the methods paper.
+
+   Filling the remaining taxonomy cells moves to v1.x releases. Unfilled cells are shown as documented gaps, as now. This amends D-028's release gate (TAXONOMY §7, versions 1 and 2), recorded as deviation #23. The frozen files are not edited.
+2. **Early informal expert feedback.** After v0.2 is tagged, one or two experts are invited to look at it. They are told it is an early preview, with the audit result and known issues public. This is not the formal review of D-032 and is not presented as one. Who, and how, is proposed separately for JvH's ruling.
+3. **The decision log** records only choices that change what the Atlas says or how it measures: datasets, methods, definitions, assumptions, corrections, standards and releases, as the project rules say. Wording, display and layout fixes are recorded in the pull request and the changelog.
+4. **Freezing** applies to tests, predictions, selection rules, method specifications and data standards. It is not applied to display text. Where a page renders a frozen document, a wording fix to the display is logged as a deviation and the page links to the frozen original. No new document version is needed for a wording fix.
+5. **Readers.**
+   - Two independent readers are kept for values and for anything a pass/fail test reads.
+   - Where a script can verify the work, one reader plus the script is enough: hashes, links, counts, and transcription against a machine-readable table.
+
+**Reason.** Keep the rigour where it protects the data. Remove it where it only slows the work. Bring outside eyes in early, while they can still change the framing.
+
+**Alternatives rejected.**
+- Keeping D-028's gate and process as they were.
+- Formal review of v0.2. It is a preview, and D-032's review is for v1.0.
+
+**Data seen.** The audit result and the project's decision record. No new data.
