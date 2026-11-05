@@ -46,6 +46,15 @@ Every line the frozen test cites in B17, BH18, K18, D21, F13, MvdM, BSH20, Wolf 
 - Every other cluster is `no`.
 - The anchors carry a note only (D-099 rule 3). No value and no plotting decision changes.
 
+## Rechecked under D-100 (2026-11-04)
+
+D-100 (ruled 2026-11-04) closes the list of states, adds hedges, and counts only statements about the system itself. Every `d097` row was rechecked against it.
+- **NGC 2298 and Pal 5 stay findings.** "The ongoing tidal disruption of these clusters" states the disruption as fact. "Could" hedges only its link to the profile.
+- **NGC 1851 changes from possibility to "neither".** BH18 l. 465–466 names "tidal effects", which is not a listed state (D-100 rule 1). Its class is now "neither", so it carries no quotation note. Item 1 below is superseded.
+- **The two general statements in B17 change from possibility to "neither"** (l. 228–229 and l. 348–350). They concern clusters in general (D-100 rule 3), and "influenced by the tidal field" and "mass loss" are not listed states (rule 1).
+- **NGC 6362 stays "neither"** (mass loss and interaction, D-100 rule 1). Item 2 below is now settled by D-100's wording, not by interpretation.
+- **Class counts:** 2 findings, 0 possibilities, 69 "neither".
+
 ## Items for JvH (classifications and observations, not dissent)
 
 1. **A new possibility: NGC 1851.** BH18 l. 465–466 says "tidal effects ... or non-members could be responsible for the higher than predicted velocity dispersion profiles seen in the outer parts of some clusters like NGC~1851".
