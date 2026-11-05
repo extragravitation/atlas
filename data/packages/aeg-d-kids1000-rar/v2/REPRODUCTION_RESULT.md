@@ -1,6 +1,6 @@
 # aeg-d-kids1000-rar/v2: reproduction result
 
-**Result: PASS.** All fifteen items of the frozen test `REPRODUCTION_REV3.md` (SHA-256 `57ae39ae…ae7e`, `data/frozen/kids-v2-test-rev3.json`) hold. Item 12 was checked against a copy of the release built from the public mirror; against the canonical tarball it is decided by CI, which runs the same check in `convert.py` on every build (see item 12).
+**Result: PASS.** All fifteen items of the frozen test `REPRODUCTION_REV3.md` (SHA-256 `57ae39ae…ae7e`, `data/frozen/kids-v2-test-rev3.json`) hold. Item 12 passed against the canonical tarball in CI (see item 12).
 
 ## The first frozen test's item 11 failed (item 15; D-103 rule 2)
 
@@ -40,7 +40,8 @@ The scored run was the first complete run of `convert.py`, on 2026-11-05, with t
 12. **Release provenance: pass here; decided in CI against the canonical tarball.**
     - `convert.py` checks, before writing any table, that each of the seven release members used has the SHA-256 listed in the frozen `reading/kids-d096.md`, and stops otherwise.
     - The canonical tarball (`kids.strw.leidenuniv.nl`) is refused by this workspace's proxy. So the scored run used a tar assembled from the same mirror the second reading used (`rstpier/EFF_G_GALAXIES` at `7606a21d…`), in the gitignored `source/` folder. All seven members matched, as they must, since the reading was made from those files.
-    - In CI, `aeg.fetch` downloads the canonical tarball (hash `73adc2d4…8733`, as v1) and `convert.py` runs the same check on its members. CI also requires the rebuilt tables to equal the committed ones. **If either fails, item 12 fails. If CI cannot reach the tarball, the test is blocked, not scored, and v2 is not published.** The pull request's `packages` check records the outcome.
+    - In CI, `aeg.fetch` downloads the canonical tarball (hash `73adc2d4…8733`, as v1) and `convert.py` runs the same check on its members. CI also requires the rebuilt tables to equal the committed ones. **If either fails, item 12 fails. If CI cannot reach the tarball, the test is blocked, not scored, and v2 is not published.**
+    - **CI outcome (commit `49d1b98`, `packages` check, 2026-11-05):** the canonical tarball was fetched and verified against its hash. `convert.py` printed "item 12: 7 release members match reading/kids-d096.md" and "item 11: regenerated covariance reading and second-reading CSV match their frozen hashes". The rebuilt tables equalled the committed ones. **Item 12: pass against the canonical release.**
 13. **Standard and site: pass.** `python -m aeg.validate data/packages/aeg-d-kids1000-rar/v2` passes under 2.5.1; `python -m aeg.formula_check` passes; the site builds (642 pages); `aeg.site_check` reports 0 errors; the reproduction ledger (`data/reproduction.json`) records the test's SHA-256, which the build verifies against the file and `sources.json`. `aeg.check` passes; pytest: 216 passed.
 14. **v1 untouched: pass.** `git diff 5dc4091 -- data/packages/aeg-d-kids1000-rar/v1` is empty.
 15. **Reporting: pass.** This file states the first test's item 11 failure, the ruling, and the D-096 rule 4 counts above.
@@ -49,6 +50,6 @@ The scored run was the first complete run of `convert.py`, on 2026-11-05, with t
 
 - **Verified:** every item above by script or command; the two hash checks that `convert.py` performs (seven release members; the regenerated readings).
 - **Not verified here:**
-  - the canonical tarball itself, which this workspace cannot reach (item 12, decided in CI);
+  - the canonical tarball in this workspace, which cannot reach it; CI verified it (item 12);
   - the rendered dataset page by eye: it was checked by text search of the built HTML.
 - **Disclosed:** the first run of `score.py` stopped on a bug in the scorer itself (it passed a text buffer where astropy expects a string). The scorer was fixed and run once. The conversion was not re-run or changed.
