@@ -19,6 +19,15 @@ for (const d of atlas.datasets) {
   const projected = d.measurements.rows.some((r) => r.plotted !== 'false' && r.r_kind === 'projected');
   ds[d.key] = projected ? ['Strong lensing: projected, at R_E', 'Light-bending, measured in projection inside the ring'] : [`${lab.kind_t} (${lab.t})`, `${lab.kind_p} (${lab.p})`];
 }
+// KiDS-1000 error bars (D-083; standard §7a): the error columns carry only what the release gives;
+// the terms the package records with in_error_columns = no are named here, from the package.
+const kids = atlas.datasets.find((d) => d.name === 'aeg-d-kids1000-rar');
+const kidsOut = (kids?.terms || []).filter((t) => t.in_error_columns === 'no');
+const kidsSize = (t) => (t.size_value != null ? ` (${t.size_value} ${t.size_unit || ''})`.replace(' )', ')') : '');
+const kidsErr = kids ? [
+  `KiDS-1000 (diamonds): the bars carry only what the release’s error columns hold (g_obs_err_lo/hi; g_bar is the bin coordinate, with no error)${kidsOut.length ? `. Not in the bars, by the package’s in_error_columns = no: ${kidsOut.map((t) => `${t.term_id}${kidsSize(t)}`).join('; ')}` : ''}. See the dataset page.`,
+  `For the light-bending averages (diamonds), the bars show only the uncertainty released with the data${kidsOut.length ? '; an extra uncertainty the authors add for turning the light-bending signal into a pull is not included' : ''}.`,
+] : ['', ''];
 const nonPos = atlas.datasets.flatMap((d) => d.measurements.rows.filter((r) => !(r.g_bar > 0)).map((r) => r.measurement_id));
 const labels = {
   x: ['log g_bar, baryonic acceleration (m s⁻²)', 'Pull from detected matter (log, m s⁻²)'],
@@ -57,6 +66,7 @@ const labels = {
     speed: ['<b>Ring-and-dot marks:</b> for strong lensing, √(g R_E) uses a projected acceleration; it is not a circular speed.', '<b>Ring-and-dot marks:</b> for light-bending, this speed comes from a pull measured in projection; no orbit was measured.'],
   },
   projTip: ['Projected: G M / R_E² on both sides, inside the same cylinder (D-064)', 'Measured in projection inside the ring of images'],
+  kidsErr,
   ds, weight, flagged: [`Thin ring around a mark: flagged. ${flagged} measurements with a reproduction mismatch or the source’s own quality caveat (see Known issues)`, `Thin ring around a mark: a measurement with a known issue (${flagged}; see Known issues)`], bin: 'Stacked lensing bin',
 };
 const sliders = atlas.datasets.flatMap((d) => d.assumptions.filter((a) => a.adjustable && a.status === 'confirmed' && a.scope === 'dataset').map((a) => ({ a, dataset: d.key })));
@@ -98,12 +108,12 @@ const nWords = ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'ei
           <button class="btn" data-marks="tracks" aria-pressed="false">Tracks</button>
           <button class="btn" data-marks="both" aria-pressed="false">Both</button>
         </div>
-        <label class="check" style="margin-top:8px"><input type="checkbox" id="err" /><span><L t="Error bars on g_obs" p="Uncertainty bars" /></span></label>
+        <label class="check" style="margin-top:8px"><input type="checkbox" id="err" /><span><L t="Error bars (g_obs and g_bar)" p="Uncertainty bars" /></span></label>
         <div class="seg" role="group" aria-label="Which uncertainty" style="margin-top:6px">
           <button class="btn" data-errk="point" aria-pressed="true"><L t="Per point" p="Point by point" /></button>
           <button class="btn" data-errk="full" aria-pressed="false"><L t="Full (incl. distance, tilt)" p="Including distance and tilt" /></button>
         </div>
-        <p class="small" style="margin-top:6px"><L t="Per point: what varies from one measurement to the next (for SPARC, the rotation-speed error). Distance and inclination shift a whole galaxy together; set them on each galaxy’s page, or choose Full to include them in every bar." p="Point by point shows how much each measurement could vary on its own. Distance and tilt move a whole galaxy at once; you can change them on each galaxy’s page." /></p>
+        <p class="small" style="margin-top:6px"><L t="Vertical bars: g_obs; horizontal bars: g_bar, from each row’s own error columns, lower and upper sides separately. Per point: what varies from one measurement to the next (for SPARC, the rotation-speed error). Distance, inclination and other terms shared by a whole system move all its points together; set distance and inclination on each galaxy’s page, or choose Full to include the released errors in every bar." p="Up-and-down bars show how sure the observed pull is; side-to-side bars show how sure the pull from detected matter is. Point by point shows how much each measurement could vary on its own. Distance and tilt move a whole galaxy at once; you can change them on each galaxy’s page." /></p>
       </div>
       <div data-tab="colours">
         <p class="cap">Colour by</p>

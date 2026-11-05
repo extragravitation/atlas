@@ -1,0 +1,42 @@
+---
+// Uncertainty section of a one-value system page (dispersion systems and strong lenses): the error
+// columns of the system's plotted row, as released, with each column's own description, then the
+// package's uncertainty terms that apply to this system (UncertaintyTerms). Nothing is combined or
+// filled in here; values are only rescaled to 10⁻¹⁰ m s⁻² for display.
+import L from './L.astro';
+import UncertaintyTerms from './UncertaintyTerms.astro';
+
+const { d, sys, lab, row } = Astro.props;
+// Column descriptions from the package's datapackage.json (the ECSV header wraps long descriptions).
+const fields = ((d.dp.resources || []).find((r) => /measurements/.test(r.name || r.path || ''))?.schema?.fields) || [];
+const desc = (c) => (fields.find((x) => x.name === c) || {}).description || '';
+const has = (c) => d.measurements.columns.some((x) => x.name === c);
+const e10 = (v) => (v === null || v === undefined ? null : Number((v / 1e-10).toPrecision(3)));
+const pair = (lo, hi) => {
+  const a = e10(row?.[lo]), b = e10(row?.[hi]);
+  if (a === null && b === null) return null;
+  return a === b ? `± ${a}` : `−${a ?? '–'} / +${b ?? '–'}`;
+};
+const lines = [
+  ['g_obs_err_lo', 'g_obs_err_hi', ['g_obs, error columns', 'Observed pull']],
+  ['g_obs_err_point_lo', 'g_obs_err_point_hi', ['g_obs, point-scale part', 'Observed pull, this point alone']],
+  ['g_bar_err_lo', 'g_bar_err_hi', ['g_bar, error columns', 'Pull from detected matter']],
+  ['g_bar_err_point_lo', 'g_bar_err_point_hi', ['g_bar, point-scale part', 'Pull from detected matter, this point alone']],
+].filter(([lo]) => has(lo));
+const limit = row?.limit === 'upper';
+---
+<h2 id="uncertainties"><L t="Uncertainties" p="How sure are these numbers?" /></h2>
+{row ? (
+  <>
+    <p class="small"><L t={`Error columns of the plotted row ${row.measurement_id}, as released, in 10⁻¹⁰ m s⁻²; each confidence level is in the row’s err_level columns (downloads). Each column’s own description says which terms it carries.${limit ? ' g_obs is an upper limit; its error columns are not drawn on the map.' : ''}`} p={`How far each number could be off, in the same units as above. “This point alone” leaves out uncertainties shared with other measurements.`} /></p>
+    <dl class="facts">
+      {lines.map(([lo, hi, name]) => { const v = pair(lo, hi); return <div><dt><L t={name[0]} p={name[1]} /></dt><dd>{v ?? <L t="empty" p="not given" />}<span class="small" style="display:block"><L t={desc(lo) || lo} p={v ? 'Uncertainty as given.' : 'No uncertainty is recorded here.'} /></span></dd></div>; })}
+    </dl>
+  </>
+) : <p class="small"><L t="No plotted row, so no error columns are shown; the terms below are those the package records for this system." p="This system is not on the map. The list below shows the uncertainties recorded for it." /></p>}
+{d.terms ? (
+  <>
+    <h3><L t={`Uncertainty terms for this ${lab.unit}`} p="Each uncertainty, one by one" /></h3>
+    <UncertaintyTerms d={d} sys={sys} compact={true} />
+  </>
+) : <p class="small"><L t="This version of the package has no uncertainty_terms table." p="No list of uncertainties is packaged with this version." /></p>}

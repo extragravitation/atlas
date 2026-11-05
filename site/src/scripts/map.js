@@ -102,12 +102,39 @@ function computePick() {
 // the rotation-speed error, 2 e_V / V in relative terms (the package's own convention, Lelli et al.
 // 2017); distance and inclination errors move a whole galaxy together and are adjusted per galaxy on its
 // page. 'full' is the package's full uncertainty. Other datasets have no such split: their errors as given.
+// Both sides are kept apart: the lower and upper errors are the row's own _lo and _hi columns.
+// A column moved by an assumption's formula is used as moved; otherwise the released error is
+// rescaled with the value it belongs to (the same relative size at the changed value).
+function scaled(r, q, v, c) {
+  if (r[c] === null || r[c] === undefined) return 0;
+  if (q[c] !== r[c]) return q[c] ?? 0;
+  return r[v] > 0 && q[v] > 0 ? q[v] * (r[c] / r[v]) : r[c];
+}
 function errOf(r, q) {
   // Standard 2.2.0: a package that gives point-scale columns is used directly (D-083); the velocity
   // computation below is the same quantity for SPARC v1.
-  if (state.errk !== 'full' && r.g_obs_err_point_hi != null && q.g_obs > 0 && r.g_obs > 0) { const rel = r.g_obs_err_point_hi / r.g_obs; return [q.g_obs * rel, q.g_obs * rel]; }
+  if (state.errk !== 'full' && r.g_obs_err_point_hi != null && q.g_obs > 0 && r.g_obs > 0) return [scaled(r, q, 'g_obs', 'g_obs_err_point_lo'), scaled(r, q, 'g_obs', 'g_obs_err_point_hi')];
   if (state.errk !== 'full' && r.x_sparc_e_v_obs != null && r.x_sparc_v_obs > 0) { const rel = 2 * r.x_sparc_e_v_obs / r.x_sparc_v_obs; return [q.g_obs * rel, q.g_obs * rel]; }
   return [q.g_obs_err_lo ?? 0, q.g_obs_err_hi ?? 0];
+}
+// Error on g_bar for a row, from the row's own g_bar error columns. 'point': the point-scale columns
+// where the package has them; a package that has them but leaves a row empty gives no point-scale
+// g_bar error for it (the source gives none: term g_bar_point), so no bar is drawn. A package without
+// point-scale columns: its errors as given. 'full': g_bar_err_lo and g_bar_err_hi.
+function errBarOf(d, r, q) {
+  if (state.errk !== 'full' && 'g_bar_err_point_lo' in d.columns) return [scaled(r, q, 'g_bar', 'g_bar_err_point_lo'), scaled(r, q, 'g_bar', 'g_bar_err_point_hi')];
+  return [scaled(r, q, 'g_bar', 'g_bar_err_lo'), scaled(r, q, 'g_bar', 'g_bar_err_hi')];
+}
+// A horizontal g_bar bar from g_bar − lo to g_bar + hi on the log axis; a lower end at or below zero
+// runs to the left edge of the plot. Returns true if the bar reaches zero.
+function hbar(g, X, x, y, q, lo, hi, gap, L) {
+  if (!(lo > 0) && !(hi > 0)) return false;
+  const a = q.g_bar - lo, open = !(a > 0), xl = open ? L : X(lg(a)), xr = X(lg(q.g_bar + hi));
+  g.beginPath();
+  if (xl < x - gap) { g.moveTo(xl, y); g.lineTo(x - gap, y); }
+  if (xr > x + gap) { g.moveTo(x + gap, y); g.lineTo(xr, y); }
+  g.stroke();
+  return open;
 }
 
 let cacheKey = null;
@@ -197,7 +224,7 @@ function draw() {
   else if (v === 'obs') { const lx = narrow ? -12.4 : -12.7; g.save(); g.translate(X(lx), Y(lx) + 14); g.rotate(Math.atan2(Y(-10) - Y(-11), X(-10) - X(-11))); g.textAlign = 'center'; g.fillText(narrow ? LBL.zero[+P] : LBL.line[+P], 0, 0); g.restore(); }
   else if (v === 'mass') { const lx = 7.2; g.save(); g.translate(X(lx), Y(lx) + 14); g.rotate(Math.atan2(Y(9) - Y(8), X(9) - X(8))); g.textAlign = 'center'; g.fillText(LBL.zerom[+P], 0, 0); g.restore(); }
   else if (v !== 'speed') { g.textAlign = 'left'; g.fillText(LBL.zero[+P], L + 8, Y(0) + 16); }
-  hits = []; let nNeg = 0, nOpen = 0;
+  hits = []; let nNeg = 0, nOpen = 0, nOpenX = 0;
   const pos = (q) => { const p = dataXY(v, q); return p ? [X(p[0]), Y(p[1])] : null; };
   let nOut = 0;
   const posDef = (r) => pos(r);
@@ -237,14 +264,18 @@ function draw() {
         const rad = state.pick === 'all' ? 4.6 : 5.2, dim = PROPS[state.col] && (propValue(d, r) === null || propValue(d, r) === undefined);
         if (state.err && state.view === 'obs') {
           const [elo, ehi] = errOf(r, q);
+          g.strokeStyle = c; g.globalAlpha = dim ? 0.2 : 0.75; g.lineWidth = 0.9;
           if (elo || ehi) {
             const lo = q.g_obs - elo, open = !(lo > 0), yb = open ? T + ph : Y(lg(lo)), yt = Y(lg(q.g_obs + ehi));
-            g.strokeStyle = c; g.globalAlpha = dim ? 0.2 : 0.75; g.lineWidth = 0.9; g.beginPath();
+            g.beginPath();
             if (yb > y + rad) { g.moveTo(x, yb); g.lineTo(x, y + rad); }
             if (yt < y - rad) { g.moveTo(x, y - rad); g.lineTo(x, yt); }
-            g.stroke(); g.globalAlpha = 1;
+            g.stroke();
             if (open) nOpen++;
           }
+          const [blo, bhi] = errBarOf(d, r, q);
+          if (hbar(g, X, x, y, q, blo, bhi, rad, L)) nOpenX++;
+          g.globalAlpha = 1;
         }
         g.strokeStyle = c; g.fillStyle = c; g.lineWidth = 1.9; g.globalAlpha = dim ? 0.25 : 0.95; g.beginPath(); g.arc(x, y, rad, 0, 6.2832); g.stroke();
         g.beginPath(); g.arc(x, y, 2, 0, 6.2832); g.fill(); g.globalAlpha = 1;
@@ -255,7 +286,9 @@ function draw() {
         return;
       }
       if (r.limit === 'upper') {
-        // Upper limit on g_obs (the source's dispersion is a limit): an open marker with a downward arrow, no error bar.
+        // Upper limit on g_obs (the source's dispersion is a limit): an open marker with a downward arrow, no g_obs
+        // error bar. The g_bar error is still drawn: g_bar is a value, not a limit.
+        if (state.err && state.view === 'obs') { const [blo, bhi] = errBarOf(d, r, q); g.strokeStyle = c; g.globalAlpha = 0.45; g.lineWidth = 0.6; if (hbar(g, X, x, y, q, blo, bhi, 3.6, L)) nOpenX++; g.globalAlpha = 1; }
         g.strokeStyle = c; g.lineWidth = 1.4; g.globalAlpha = 0.9; g.beginPath(); g.moveTo(x, y); g.lineTo(x, y + 12); g.moveTo(x - 3.5, y + 8); g.lineTo(x, y + 12); g.lineTo(x + 3.5, y + 8); g.stroke();
         g.fillStyle = css('--bg'); g.beginPath(); g.arc(x, y, 3.6, 0, 6.2832); g.fill(); g.stroke(); g.globalAlpha = 1;
         if (x >= L && x <= L + pw && y >= T && y <= T + ph) hits.push({ x, y, d, r, q });
@@ -265,6 +298,8 @@ function draw() {
         const [elo, ehi] = errOf(r, q), lo = q.g_obs - elo, hi = q.g_obs + ehi, open = !(lo > 0);
         const yb = open ? T + ph : Y(lg(lo)), yt = Y(lg(hi));
         g.strokeStyle = c; g.globalAlpha = pop ? 0.9 : 0.45; g.lineWidth = pop ? 0.9 : 0.6; g.beginPath(); g.moveTo(x, yb); g.lineTo(x, yt); g.stroke();
+        const [blo, bhi] = errBarOf(d, r, q);
+        if (hbar(g, X, x, y, q, blo, bhi, 0, L)) nOpenX++;
         if (open) { g.globalAlpha = 0.8; g.beginPath(); g.moveTo(x - 3, T + ph - 5); g.lineTo(x, T + ph); g.lineTo(x + 3, T + ph - 5); g.stroke(); nOpen++; } // reaches zero: no lower end on a log axis
         g.globalAlpha = 1;
       }
@@ -302,7 +337,10 @@ function draw() {
   $('zoom-reset').disabled = !zoomed; $('zoom-out').disabled = !zoomed;
   $('zoom-state').textContent = zoomed ? (P ? 'Zoomed in.' : 'Zoomed: ' + rg.x.map((a) => a.toFixed(2)).join(' to ') + ' by ' + rg.y.map((a) => a.toFixed(2)).join(' to ') + '.') : '';
   const outNote = nOut ? (P ? (zoomed ? ` ${nOut.toLocaleString('en')} points are outside this zoomed view.` : ` ${nOut} points are outside this window, marked on its edge.`) : (zoomed ? ` ${nOut.toLocaleString('en')} measurements lie outside this zoomed window.` : ` ${nOut} measurements lie outside this window; they are marked as small diamonds on its edge.`)) : '';
-  const openNote = state.err && state.view === 'obs' ? (P ? ' Bars show the uncertainty of the observed pull only; an arrow at the bottom means the uncertainty reaches zero.' : ` Error bars: g_obs only, ${state.errk === 'full' ? 'full uncertainty including distance and inclination (these shift a whole galaxy together)' : 'per-point uncertainty where the source separates it (SPARC: rotation-speed error); uncertainties shared by a whole galaxy or dataset are listed on the dataset and galaxy pages, and distance and inclination can be moved per galaxy there'}. ${nOpen ? nOpen + ' bars reach zero (arrow at the bottom: no lower end on a log axis).' : ''}`) : '';
+  const kidsShown = D.datasets.some((d) => d.name === 'aeg-d-kids1000-rar' && !state.hide.includes(d.key));
+  const openNote = state.err && state.view === 'obs' ? (P
+    ? ` Up-and-down bars: uncertainty of the observed pull. Side-to-side bars: uncertainty of the pull from detected matter, where it is given. Each side is drawn as given, so bars can be lopsided. An arrow at the bottom means the uncertainty reaches zero.${kidsShown ? ' ' + LBL.kidsErr[1] : ''}`
+    : ` Error bars, each side as given (_lo and _hi separately): vertical, g_obs; horizontal, g_bar from the row's own g_bar error columns. ${state.errk === 'full' ? 'Full: g_obs_err and g_bar_err as released, including terms that shift a whole system together (distance, inclination, mass-to-light scatter).' : 'Per point: the point-scale columns where the package has them (g_obs_err_point, g_bar_err_point; SPARC v1: rotation-speed error); where a package has point-scale g_bar columns but leaves a row empty (the source gives no point-scale g_bar error), no horizontal bar is drawn. Uncertainties shared by a whole system or dataset are listed on the dataset and system pages.'} ${nOpen ? nOpen + ' vertical bars reach zero (arrow at the bottom: no lower end on a log axis).' : ''}${nOpenX ? ' ' + nOpenX + ' horizontal bars reach zero and run to the left edge.' : ''}${kidsShown ? ' ' + LBL.kidsErr[0] : ''}`) : '';
   $('zoom-state').textContent += outNote + openNote;
   $('neg-note').textContent = nNeg ? `${nNeg} measurements have g_bar ≤ 0 at these settings (a component pulls outward) and cannot be placed on log axes; they are listed in the downloads.` : '';
   $('fig').setAttribute('aria-label', LBL['aria_' + v][+P]);
