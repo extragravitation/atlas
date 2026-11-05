@@ -63,7 +63,7 @@ export function loadAtlas() {
         title: dp.title, citation: dp.x_citation || '', licence: dp.x_licence_status || '',
         measurements: meas, systems, hasCovariance: !!covText, terms: termsText ? parseECSV(termsText).rows : null, observables: obsText ? parseECSV(obsText) : null, checks,
         knownIssues: JSON.parse(readIf(path.join(dir, 'known_issues.json')) || '{"issues": []}').issues,
-        md: { source: readIf(path.join(dir, 'SOURCE.md')), reproduction: readIf(path.join(dir, 'REPRODUCTION.md')), reproductionResult: readIf(path.join(dir, 'REPRODUCTION_RESULT.md')), modelTest: readIf(path.join(dir, 'MODEL_TEST.md')), modelTestResult: readIf(path.join(dir, 'MODEL_TEST_RESULT.md')) },
+        md: { source: readIf(path.join(dir, 'SOURCE.md')), reproduction: readIf(path.join(dir, 'REPRODUCTION.md')), reproductionResult: readIf(path.join(dir, 'REPRODUCTION_RESULT.md')) || readIf(path.join(dir, 'REPRODUCTION_RESULT_PART_B.md')), reproductionResultA: readIf(path.join(dir, 'REPRODUCTION_RESULT_PART_A.md')), modelTest: readIf(path.join(dir, 'MODEL_TEST.md')), modelTestResult: readIf(path.join(dir, 'MODEL_TEST_RESULT.md')) },
         checksums: readIf(path.join(dir, 'checksums.sha256')) || '',
         sources: JSON.parse(read(path.join(dir, 'sources.json'))),
         assumptions,

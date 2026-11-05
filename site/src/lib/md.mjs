@@ -17,8 +17,8 @@ export function md(text, repoDir = '') {
 // First "**Result: …**" line of a frozen-test result file.
 export function resultLine(text) {
   if (!text) return null;
-  const m = text.match(/\*\*Result:\s*([^*]+)\*\*/);
+  const m = text.match(/\*\*Result:\s*([^*]+)\*\*/) || text.match(/^\*\*((?:PASS|FAIL)[^*]*)\*\*/m);
   if (!m) return null;
   const v = m[1].trim();
-  return { text: v, pass: /^PASSED|^validated/i.test(v) };
+  return { text: v, pass: /^PASS(ED)?\b|^validated/i.test(v) };
 }
