@@ -331,6 +331,11 @@
           "default": "sis",
           "default_ref": "Brouwer et al. 2021 (arXiv:2106.11677) §2.2, eq. 7; validated by the authors against a piece-wise power-law method assuming only spherical symmetry (App. B, §4.4)",
           "effects": []
+        },
+        "aeg-d-kids1000-rar/v2": {
+          "default": "sis",
+          "default_ref": "Brouwer et al. 2021 (arXiv:2106.11677) §2.2, eq. 7; validated by the authors against a piece-wise power-law method assuming only spherical symmetry (App. B, §4.4)",
+          "effects": []
         }
       }
     },
@@ -345,6 +350,11 @@
       },
       "datasets": {
         "aeg-d-kids1000-rar/v1": {
+          "default": "authors_estimate",
+          "default_ref": "Brouwer et al. 2021 (arXiv:2106.11677) Fig. 4 caption and §5.2: 'only a rough order of magnitude estimate'; applies to the kids_bright_hotgas sample only",
+          "effects": []
+        },
+        "aeg-d-kids1000-rar/v2": {
           "default": "authors_estimate",
           "default_ref": "Brouwer et al. 2021 (arXiv:2106.11677) Fig. 4 caption and §5.2: 'only a rough order of magnitude estimate'; applies to the kids_bright_hotgas sample only",
           "effects": []
@@ -1488,6 +1498,23 @@
             }
           ],
           "note": "Used by the terms ml_population and pop_synthesis_code. Not a slider; the published range is the gc_stellar_ml slider."
+        }
+      }
+    },
+    {
+      "id": "baryons_point_mass",
+      "name_technical": "Baryons as a point mass at the lens centre: g_bar = G M_gal / r², with M_gal the stellar plus cold-gas mass (plus the assumed hot-gas halo in the variant)",
+      "name_plain": "The visible matter of each galaxy treated as if it sat at one point",
+      "adjustable": false,
+      "status": "confirmed",
+      "parameter": {
+        "unit": "method"
+      },
+      "datasets": {
+        "aeg-d-kids1000-rar/v2": {
+          "default": "point_mass",
+          "default_ref": "Brouwer et al. 2021 (arXiv:2106.11677) §4.3, l. 405–411: 'we can approximate M_bar(<r) as a point mass M_gal' at R > 30 h70⁻¹ kpc (step A reading K14; REPRODUCTION_REV3.md item 7, §2a rule 4)",
+          "effects": []
         }
       }
     }

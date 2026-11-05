@@ -1,0 +1,86 @@
+# %ECSV 1.0
+# ---
+# datatype:
+# - name: term_id
+#   datatype: string
+#   description: Term identifier
+#   meta: !!omap
+#   - {ucd: meta.id;meta.main}
+# - name: scale
+#   datatype: string
+#   description: "point, system or dataset (\xA72a)"
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: applies_to
+#   datatype: string
+#   description: '* (all rows); the note names the samples'
+#   meta: !!omap
+#   - {ucd: meta.id}
+# - name: moves
+#   datatype: string
+#   description: Which side the term moves
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: status
+#   datatype: string
+#   description: given or not_given_by_source
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: size_value
+#   datatype: float64
+#   description: Size as stated
+#   meta: !!omap
+#   - {ucd: stat.error}
+# - name: size_unit
+#   datatype: string
+#   description: Unit of size_value
+#   meta: !!omap
+#   - {ucd: meta.unit}
+# - name: size_kind
+#   datatype: string
+#   description: one_sigma or as_released
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: covariance
+#   datatype: string
+#   description: not_published (K1's covariance is in tables/covariance.ecsv)
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: citation
+#   datatype: string
+#   description: Source
+#   meta: !!omap
+#   - {ucd: meta.bib}
+# - name: locator
+#   datatype: string
+#   description: Location in the source and in the step A reading
+#   meta: !!omap
+#   - {ucd: meta.ref}
+# - name: note
+#   datatype: string
+#   description: Note, including the samples the term applies to
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: in_error_columns
+#   datatype: string
+#   description: "no: the term is not in g_obs_err_* (\xA77a)"
+#   meta: !!omap
+#   - {ucd: meta.code}
+# delimiter: ','
+# meta: !!omap
+# - {dataset: aeg-d-kids1000-rar}
+# - {version: v2}
+# - {standard_version: 2.5.1}
+# schema: astropy-2.0
+term_id,scale,applies_to,moves,status,size_value,size_unit,size_kind,covariance,citation,locator,note,in_error_columns
+esd_to_gobs_conversion,point,*,g_obs,given,0.1,dex,as_released,not_published,"Brouwer et al. 2021, A&A 650, A113 (arXiv 2106.11677)","§4.4, l. 438; step A reading K2, docs/sources/uncertainty-readings.md §1","Added by the paper to every RAR error bar for the ΔΣ-to-g_obs conversion: 'we added 0.1 dex to the error bars of our RAR measurements throughout this work'. The release omits it, and how it combines with the released error (K1) is not stated. All samples.",no
+shear_calibration,dataset,*,g_obs,not_given_by_source,,,,not_published,"Brouwer et al. 2021, A&A 650, A113 (arXiv 2106.11677)","§3.1, l. 333–337; step A reading K4, docs/sources/uncertainty-readings.md §1",The correction μ ≈ 0.014 is applied (the bias column); its uncertainty is not stated. All samples.,
+source_redshift_calibration,dataset,*,g_obs,not_given_by_source,,,,not_published,"Brouwer et al. 2021, A&A 650, A113 (arXiv 2106.11677)","§3.1, l. 313; step A reading K5, docs/sources/uncertainty-readings.md §1","'percent-level biases in the mean source redshifts do not significantly impact our analysis', as stated; no size. All samples.",
+random_subtraction,dataset,*,g_obs,not_given_by_source,,,,not_published,"Brouwer et al. 2021, A&A 650, A113 (arXiv 2106.11677)","§3.1, l. 339; step A reading K7, docs/sources/uncertainty-readings.md §1","The subtracted random-point profile is described as 'only 1.85 ± 0.75 %' of the signal; a correction applied, not an error on the result. KiDS-bright.",
+stellar_mass_per_lens_kids,dataset,*,both,given,0.12,dex,one_sigma,not_published,"Brouwer et al. 2021, A&A 650, A113 (arXiv 2106.11677)","§3.3, l. 368; step A reading K8, docs/sources/uncertainty-readings.md §1","KiDS-bright only (and its hot-gas variant). Per-lens stellar-mass scatter: acts through bin assignment, not as an error on a bin's g_bar, so it also moves g_obs. The source also tested 0.29 dex and states its conclusions do not change.",
+stellar_mass_per_lens_gama,dataset,*,both,not_given_by_source,,,,not_published,"Brouwer et al. 2021, A&A 650, A113 (arXiv 2106.11677)",§3.2; docs/sources/uncertainty-readings.md §1,GAMA only. GAMA stellar masses are Taylor et al. 2011; this paper states no per-lens scatter for them.,
+stellar_mass_systematic,dataset,*,both,given,0.2,dex,as_released,not_published,"Brouwer et al. 2021, A&A 650, A113 (arXiv 2106.11677)","§3.3, l. 370; §5.2, l. 491; step A reading K9, docs/sources/uncertainty-readings.md §1","All samples. The authors re-ran the analysis with log10(M★) ± 0.2 dex, moving lenses between bins, so the effect is not a shift of g_bar (D-021); shown by them as a band.",
+gama_normalisation,dataset,*,g_bar,not_given_by_source,,,,not_published,"Brouwer et al. 2021, A&A 650, A113 (arXiv 2106.11677)","§3.3, l. 370; step A reading K10, docs/sources/uncertainty-readings.md §1",KiDS-bright masses were shifted by +0.056 dex to the GAMA mean; the uncertainty of that shift is not stated. KiDS-bright and its hot-gas variant.,
+cold_gas_relation,dataset,*,g_bar,not_given_by_source,,,,not_published,"Brouwer et al. 2021, A&A 650, A113 (arXiv 2106.11677)","§4.3, l. 409; step A reading K11, docs/sources/uncertainty-readings.md §1",Boselli et al. 2014 relation; its scatter is not stated in this paper. All samples.,
+isolation_satellites,dataset,*,g_obs,given,0.3,fraction of ΔΣ,as_released,not_published,"Brouwer et al. 2021, A&A 650, A113 (arXiv 2106.11677)","§5.2, l. 489; App. A, l. 748; step A reading K13, docs/sources/uncertainty-readings.md §1","One-sided upward: satellites give 'a ∼30% increase in ΔΣ' beyond 0.3 h70⁻¹ Mpc, from the source's MICE test. KiDS-bright rows below about 1e-13 m s⁻² are flagged source_quality_low (as v1); rows 1–8 are recorded, not plotted (D-103). The hot-gas rows' flags follow v1 and may under-flag them (known issue #168).",
+cosmology_h70,dataset,*,both,not_given_by_source,,,,not_published,"Brouwer et al. 2021, A&A 650, A113 (arXiv 2106.11677)","App. A, l. 746; step A reading K15, docs/sources/uncertainty-readings.md §1","Distances 'using a flat ΛCDM cosmology, ignoring peculiar velocities'; units carry h70, and the Atlas uses h = 0.7 as the source. All samples.",
