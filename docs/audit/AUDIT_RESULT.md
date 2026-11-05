@@ -58,7 +58,7 @@ The sample total matches plan §2.2 (254 rows). No replacements were needed.
 
 ## Part A: re-derivation (§2.5–2.8)
 
-**Run.** 2026-11-05 between 18:50 and 20:15 UTC.
+**Run.** 2026-11-05, 18:51 to 19:05 UTC.
 
 **Readers.** Two fresh agents per stratum, 12 in all, working in separate folders.
 - **What each was given:**
