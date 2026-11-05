@@ -1,0 +1,106 @@
+{
+  "name": "aeg-d-gc-baumgardt",
+  "version": "v2",
+  "title": "Milky Way globular clusters: light-weighted line-of-sight dispersions from the Baumgardt database, with King-model light and population mass-to-light ratios",
+  "description": "Atlas re-issue of aeg-d-gc-baumgardt/v1 under data standard 2.5.1 (D-083, D-084, D-099): the same light-weighted dispersions, Harris distances and luminosities and McLaughlin & van der Marel structure and population M/L as v1, with the uncertainty terms read at source in step A, confidence levels, the source's own stated choices applied (D-096; one change, M54), and systems the sources describe as being tidally disrupted recorded, not plotted (D-097 to D-099). See REPRODUCTION.md and REPRODUCTION_RESULT.md.",
+  "standard_version": "2.5.1",
+  "x_standard_version": "2.5.1",
+  "x_licence_status": "No licence stated by the database ('If you use these profiles for your research, please give reference to the papers'); Harris catalogue free with citation; McLaughlin & van der Marel via VizieR (CDS terms). Atlas tables intended CC BY 4.0 under D-004, citing the sources. Source files not redistributed.",
+  "licenses": [],
+  "sources": [
+    {
+      "title": "Baumgardt et al., Galactic Globular Cluster Database v4",
+      "path": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/"
+    },
+    {
+      "title": "Harris 1996 (2010 edition)",
+      "path": "https://physics.mcmaster.ca/~harris/mwgc.dat"
+    },
+    {
+      "title": "McLaughlin & van der Marel 2005, ApJS 161, 304 (VizieR J/ApJS/161/304, IDIA mirror; deviation #19)",
+      "path": "https://vizier.idia.ac.za/viz-bin/VizieR?-source=J/ApJS/161/304"
+    },
+    {
+      "title": "Baumgardt, Sollima & Hilker 2020, PASA 37, e046 (arXiv 2009.09611v1), Table tab:comp",
+      "path": "https://arxiv.org/abs/2009.09611v1"
+    }
+  ],
+  "x_citation": "Profiles: Baumgardt (2017, MNRAS 464, 2174); Baumgardt & Hilker (2018, MNRAS 478, 1520) and the papers listed on veldis.html for each dataset code (F13, L13, L15, K18, D21, C22, G22; proper motions W15, C21, H21, VB21, LI22, T22, P22). Distances and luminosities: Harris 1996, AJ 112, 1487 (2010 edition). Structure and population M/L: McLaughlin & van der Marel 2005, ApJS 161, 304. Magnitude scatter about Harris (2010): Baumgardt, Sollima & Hilker 2020, PASA 37, e046. Exclusion quotations: Baumgardt & Hilker 2018 (arXiv 1804.08359v2) l. 226–227; M54 cut: Baumgardt 2017 (arXiv 1609.08794v1) l. 586–589.",
+  "x_selection": [
+    {
+      "quantity": "kind",
+      "condition": "==",
+      "value": "old globular cluster (A3); disputed objects to A7 (D-037, D-038 4A)",
+      "citation": "D-037, D-038"
+    },
+    {
+      "quantity": "line-of-sight dispersion profile",
+      "condition": "light coverage >=",
+      "value": 0.8,
+      "citation": "D-036 (ii)"
+    },
+    {
+      "quantity": "bins per dataset",
+      "condition": ">=",
+      "value": 2,
+      "citation": "D-036 (ii): edges inferred from mean radii"
+    },
+    {
+      "quantity": "structural model",
+      "condition": "==",
+      "value": "McLaughlin & van der Marel (2005) King (1966) fit; Harris-only clusters recorded (D-047)",
+      "citation": "D-045, D-047"
+    },
+    {
+      "quantity": "distance",
+      "condition": "==",
+      "value": "Harris (2010) horizontal branch; never kinematic",
+      "citation": "D-042, D-036 #6"
+    }
+  ],
+  "x_baryon_inventory": [
+    {
+      "component": "stars",
+      "status": "measured",
+      "citation": "Harris (2010) integrated V; McLaughlin & van der Marel (2005) population M/L_V (D-034, D-039)"
+    },
+    {
+      "component": "atomic gas",
+      "status": "absent_literature_limit",
+      "citation": "Chantereau et al. 2020 (arXiv:2002.02401), read at source: search-log-A3.md §1.7"
+    },
+    {
+      "component": "molecular gas",
+      "status": "absent_literature_limit",
+      "citation": "Chantereau et al. 2020 (arXiv:2002.02401), read at source: search-log-A3.md §1.7"
+    },
+    {
+      "component": "ionised gas",
+      "status": "absent_literature_limit",
+      "citation": "Chantereau et al. 2020 (arXiv:2002.02401), read at source: search-log-A3.md §1.7"
+    },
+    {
+      "component": "stellar remnants",
+      "status": "modelled",
+      "citation": "Included in the population-synthesis M/L_V (Bruzual & Charlot 2003, Chabrier IMF; McLaughlin & van der Marel 2005)"
+    }
+  ],
+  "x_search_log": "docs/sources/search-log-A3.md (A3-1, R46, R49)",
+  "x_second_reading": {
+    "file": "SECOND_READING.md",
+    "reading": [
+      "reading/d096_d097.csv",
+      "reading/err_levels.csv",
+      "reading/binary_screening.csv",
+      "reading/resolutions.md"
+    ],
+    "frozen": "data/frozen/gc-v2-reading.json",
+    "brief": "reading/BRIEF.md",
+    "v1_reading": "v1 second reading (3 535 of 3 535 numbers) carries over for the unchanged values; see ../v1/SECOND_READING.md"
+  },
+  "x_previous_version": "aeg-d-gc-baumgardt/v1 (standard 2.0.0); values identical except M54 (D-096); see REPRODUCTION_RESULT.md",
+  "x_reproduction": {
+    "test": "REPRODUCTION.md (frozen, data/frozen/gc-v2-test.json)",
+    "v1_test_2": "FAIL (MW-PAL1), D-046, carries over"
+  }
+}

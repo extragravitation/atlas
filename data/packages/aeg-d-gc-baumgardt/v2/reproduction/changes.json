@@ -1,0 +1,33 @@
+[
+ {
+  "measurement_id": "aeg-d-gc-baumgardt/v2/m000067",
+  "system_id": "aeg-s-000295",
+  "dropped": [
+   "aeg-d-gc-baumgardt/v1/o002481",
+   "aeg-d-gc-baumgardt/v1/o002482",
+   "aeg-d-gc-baumgardt/v1/o002483"
+  ],
+  "old": {
+   "x_gc_baumgardt_sigma": 12.316444942846912,
+   "x_gc_baumgardt_sigma_err_lo": 0.2719545055568826,
+   "x_gc_baumgardt_sigma_err_hi": 0.32088839659552093,
+   "x_gc_baumgardt_coverage": 1.0,
+   "x_gc_baumgardt_n_bins": 16,
+   "g_obs": 1.7486046645930856e-09,
+   "g_obs_err_lo": 7.636794619736269e-11,
+   "g_obs_err_hi": 9.230202268624788e-11,
+   "plotted": "true"
+  },
+  "new": {
+   "x_gc_baumgardt_sigma": 12.737294562667348,
+   "x_gc_baumgardt_sigma_err_lo": 0.2891885728421091,
+   "x_gc_baumgardt_sigma_err_hi": 0.3409950082283597,
+   "x_gc_baumgardt_coverage": 0.9070862429507938,
+   "x_gc_baumgardt_n_bins": 13,
+   "g_obs": 1.8701449885890404e-09,
+   "g_obs_err_lo": 8.395583460864254e-11,
+   "g_obs_err_hi": 1.0147308657473072e-10,
+   "plotted": "true"
+  }
+ }
+]

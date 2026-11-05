@@ -1,0 +1,127 @@
+# %ECSV 1.0
+# ---
+# datatype:
+# - name: term_id
+#   datatype: string
+#   description: Term identifier
+#   meta: !!omap
+#   - {ucd: meta.id}
+# - name: scale
+#   datatype: string
+#   description: "point, system or dataset (standard 2.2.0 \xA72a)"
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: applies_to
+#   datatype: string
+#   description: System, or * for all
+#   meta: !!omap
+#   - {ucd: meta.id}
+# - name: moves
+#   datatype: string
+#   description: Axes the term moves
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: status
+#   datatype: string
+#   description: given, given_by_other_source or not_given_by_source
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: size_value
+#   datatype: float64
+#   description: Size as the source states it
+#   meta: !!omap
+#   - {ucd: stat.error}
+# - name: size_lo
+#   datatype: float64
+#   description: Lower end of a published range
+#   meta: !!omap
+#   - {ucd: stat.min}
+# - name: size_hi
+#   datatype: float64
+#   description: Upper end of a published range
+#   meta: !!omap
+#   - {ucd: stat.max}
+# - name: size_unit
+#   datatype: string
+#   description: Unit of the size
+#   meta: !!omap
+#   - {ucd: meta.unit}
+# - name: size_column
+#   datatype: string
+#   description: "Systems or measurements column holding a per-system or per-row size (standard 2.5.1 \xA712)"
+#   meta: !!omap
+#   - {ucd: meta.ref}
+# - name: size_kind
+#   datatype: string
+#   description: one_sigma, range, as_released, upper_bound or lower_bound
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: assumption_id
+#   datatype: string
+#   description: Registry assumption whose formula moves the values
+#   meta: !!omap
+#   - {ucd: meta.id}
+# - name: correlated_with
+#   datatype: string
+#   description: Correlated terms
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: covariance
+#   datatype: string
+#   description: published, not_published or not_applicable
+#   meta: !!omap
+#   - {ucd: meta.code}
+# - name: citation
+#   datatype: string
+#   description: Where the size was read
+#   meta: !!omap
+#   - {ucd: meta.bib}
+# - name: locator
+#   datatype: string
+#   description: Section, table, line or quote
+#   meta: !!omap
+#   - {ucd: meta.ref}
+# - name: note
+#   datatype: string
+#   description: What the term is
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: in_error_columns
+#   datatype: string
+#   description: 'yes or no: whether the term is inside the error columns'
+#   meta: !!omap
+#   - {ucd: meta.code}
+# delimiter: ','
+# meta: !!omap
+# - {dataset: aeg-d-gc-baumgardt}
+# - {version: v2}
+# - {standard_version: 2.5.1}
+# schema: astropy-2.0
+term_id,scale,applies_to,moves,status,size_value,size_lo,size_hi,size_unit,size_column,size_kind,assumption_id,correlated_with,covariance,citation,locator,note,in_error_columns
+half_light_radius,point,*,both,given,,,,dex,x_gc_baumgardt_log_rh_err_hi,one_sigma,gc_rh_measured,king_w0;king_r0,not_published,"McLaughlin & van der Marel 2005, ApJS 161, 304 (arXiv astro-ph/0605132v1; VizieR J/ApJS/161/304)","Table 11 (tab:struc); errors ""chi^2 within 1 of the global minimum"" (l. 2187–2190)","Lower side in x_gc_baumgardt_log_rh_err_lo. §2a rule 7: g_obs ∝ 1/R_h, g_bar ∝ 1/R_h²; left out of both point columns. Correlated with king_w0 and king_r0 (one fit; covariance not published)",no
+king_w0,system,*,g_obs,given,,,,,x_gc_baumgardt_w0_err_hi,one_sigma,,,not_published,"McLaughlin & van der Marel 2005, ApJS 161, 304 (arXiv astro-ph/0605132v1; VizieR J/ApJS/161/304)","Table 10; ""Upper/Lower 1{sigma} error in WO"" (models VOT)",Lower side in x_gc_baumgardt_w0_err_lo. Moves the light weights; effect not computed in v2,
+king_r0,system,*,g_obs,given,,,,arcsec,x_gc_baumgardt_r0_err_hi,one_sigma,,,not_published,"McLaughlin & van der Marel 2005, ApJS 161, 304 (arXiv astro-ph/0605132v1; VizieR J/ApJS/161/304)",Table 10 (models VOT),Lower side in x_gc_baumgardt_r0_err_lo. As king_w0,
+king_wilson_family,system,*,both,not_given_by_source,,,,,,,,,not_published,"McLaughlin & van der Marel 2005, ApJS 161, 304 (arXiv astro-ph/0605132v1; VizieR J/ApJS/161/304)",l. 2703–2705,"Wilson models are ""associated with slightly larger projected half-intensity radii $R_c$ and smaller half-light radii $R_h$""; no size stated for Galactic clusters",
+centre_position,system,*,g_obs,not_given_by_source,,,,,,,,,not_published,"Harris 1996, AJ 112, 1487, 2010 edition (arXiv 1012.3224v1)",l. 94,"Centres ""uncertain to typically 1-2 arcseconds""; effect on σ not stated",
+distance_hb_zero_point,dataset,*,g_obs,given,0.049,,,mag,,as_released,gc_distance_hb,distance_hb_slope,not_published,"Harris 1996, AJ 112, 1487, 2010 edition (arXiv 1012.3224v1)",l. 148,"Harris does not say what its ± means. R_Sun and L_V move together, so g_bar is unchanged (F1). Correlated with distance_hb_slope (one fit; correlation not published). The calibration includes dynamical parallaxes (l. 125–127); D-036 #6 is not triggered (D-099 rule 3)",
+distance_hb_slope,dataset,*,g_obs,given,0.033,,,mag per dex of [Fe/H],,as_released,gc_distance_hb_slope,distance_hb_zero_point,not_published,"Harris 1996, AJ 112, 1487, 2010 edition (arXiv 1012.3224v1)",l. 148,The shift in M_V(HB) is the slope change × metallicity_feh,
+distance_hb_scatter,system,*,g_obs,given,0.11,,,mag,,as_released,gc_distance_hb,,not_published,"Harris 1996, AJ 112, 1487, 2010 edition (arXiv 1012.3224v1)",l. 152,The rms about the calibration,
+reddening,system,*,both,given_by_other_source,0.1,,,fraction of E(B-V),,as_released,gc_reddening,,not_published,"Lützgendorf et al. 2013, A&A 552, A49 (arXiv 1212.3475v1)",l. 489,"""the average errors on … the reddening (10 %)"": L13's description of Harris (1996), not read at source, applied here to the 2010 edition; the kind of error is not stated. Moves R_Sun only, so g_obs ∝ 1/D and g_bar ∝ 1/D² (F1). Uses each cluster's x_gc_baumgardt_ebv_mag",
+extinction_law_rv,dataset,*,both,not_given_by_source,,,,,,,gc_extinction_rv,,not_published,"McLaughlin & van der Marel 2005, ApJS 161, 304 (arXiv astro-ph/0605132v1; VizieR J/ApJS/161/304)","l. 1212: ""$A_V=3.1\,E(B-V)$""",R_V = 3.1 fixed; no range stated by Harris or MvdM; acts as reddening,
+integrated_magnitude,system,*,g_bar,given_by_other_source,,,,mag,x_gc_baumgardt_vt_scatter_mag,upper_bound,gc_luminosity_vt,,not_published,"Baumgardt, Sollima & Hilker 2020, PASA 37, e046 (arXiv 2009.09611v1)","paper.tex Table tab:comp, l. 266; l. 254","The ""standard deviation around the mean"" of the differences from Harris (2010). It bounds the Harris error from above only because BSH20 calls the estimates ""more or less independent of each other"" (l. 254). It excludes the mean offsets (+0.03, +0.01 and −0.25 mag); the −0.25 mag offset for V > 11 is a systematic shift this row does not carry. Moves g_bar only (F1)",
+solar_magnitude,dataset,*,g_bar,not_given_by_source,,,,,,,,,not_published,"McLaughlin & van der Marel 2005, ApJS 161, 304 (arXiv astro-ph/0605132v1; VizieR J/ApJS/161/304)",§4.2,"M_V,sun = 4.85 (MvdM)",
+g_bar_point,point,*,g_bar,not_given_by_source,,,,,,,,,not_published,,,REPRODUCTION.md item 5: the source gives no point-scale part of the g_bar error,
+ml_population,system,*,g_bar,given,,,,solMass / solLum,x_gc_baumgardt_ml_v_err,one_sigma,gc_ml_scale,,not_published,"McLaughlin & van der Marel 2005, ApJS 161, 304 (arXiv astro-ph/0605132v1; VizieR J/ApJS/161/304)","clusters VOT, e_(M/L)1: ""The 1{sigma} error in BC/ChD""","It mixes a dataset-scale age term (13 ± 2 Gyr for every cluster) with a system-scale [Fe/H] term (± 0.2 dex), not split by MvdM (F6). Labelling it system is a simplification. Already inside g_bar_err_lo/hi, so not added again. As a fraction for gc_ml_scale: x_gc_baumgardt_ml_v_err / x_gc_baumgardt_ml_v",yes
+pop_synthesis_code,dataset,*,g_bar,given,0.1,,,fraction of Υ_V,,as_released,gc_ml_scale,,not_published,"McLaughlin & van der Marel 2005, ApJS 161, 304 (arXiv astro-ph/0605132v1; VizieR J/ApJS/161/304)",l. 1357–1359,"""although there are some exceptions, these differences are generally slight: at the level of … $\la 10\%$ in $\Upsilon_V$"". The hedge means this is not an upper bound",
+stellar_ml,dataset,*,g_bar,given,,,,solMass / solLum,x_gc_baumgardt_ml_v_salpeter,range,gc_stellar_ml,,not_published,"McLaughlin & van der Marel 2005, ApJS 161, 304 (arXiv astro-ph/0605132v1; VizieR J/ApJS/161/304); Kruijssen & Mieske 2009 (arXiv 0903.4683)",registry gc_stellar_ml; D-039,"The registry range. Upper end: each cluster's Salpeter value, in the column. Lower end: 0.53 × x_gc_baumgardt_ml_v, from the registry's range_basis.min (Kruijssen & Mieske 2009; D-039), not from a column. MvdM's models build in about 30 % mass loss (MvdM Fig. 4); MvdM used Harris (1996) [Fe/H] (F8)",
+estimator_normalisation,dataset,*,g_obs,not_given_by_source,,,,,,,,,not_published,"Wolf et al. 2010, MNRAS 406, 1220 (arXiv 0908.2995)",l. 927,"Wolf et al. 2010 shows ""±10% variation about the predicted relation"" as guide lines in a figure for classical dwarf spheroidals, not as a stated accuracy; none is stated for clusters",
+anisotropy_profile,dataset,*,g_obs,not_given_by_source,,,,,,,,,not_published,"Wolf et al. 2010, MNRAS 406, 1220 (arXiv 0908.2995)",l. 966–976,"Wolf gives 0.05 dex ""in cases where extended kinematics are not available"", from the dEs and Es, ""to allow for a range of $\beta$ profiles"". These rows have ≥ 80 % light coverage, so the condition does not describe them",
+deprojection_4_3,dataset,*,both,given,0.02,,,fraction,,upper_bound,gc_rhalf_wolf,,not_published,"Wolf et al. 2010, MNRAS 406, 1220 (arXiv 0908.2995)",l. 1829; l. 1814–1818,"""$\rhalf/\Rhalf \simeq 4/3$ is accurate to better than 2\% for most surface brightness profiles used to describe observed stellar systems""; for King (1962) profiles. v1 uses King (1966) (F8). An assumption with a stated accuracy (§2a rule 4)",
+light_weighting,dataset,*,g_obs,not_given_by_source,,,,,,,,,not_published,,,"Bins covering ≥ 80 % of the light, against Wolf's whole-system average (F8)",
+binaries,system,*,g_obs,not_given_by_source,,,,,,,,,not_published,"Baumgardt & Hilker 2018, MNRAS 478, 1520 (arXiv 1804.08359v2)",l. 228–233; K18 l. 330,"BH18 names Pal 13, Arp 2 and Ter 3 as possibly inflated. K18 gives +0.3 and +0.6 km/s for binary fractions of 5 % and 10 % in its own NGC 6121 data, not for these profiles",
+membership_contamination,system,*,g_obs,not_given_by_source,,,,,,,,,not_published,"Baumgardt & Hilker 2018, MNRAS 478, 1520 (arXiv 1804.08359v2)",l. 206,"Non-members ""removed iteratively""",
+rotation,system,*,g_obs,not_given_by_source,,,,,,,,,not_published,,,,
+tracer_mass,system,*,g_obs,not_given_by_source,,,,,,,,,not_published,"Kamann et al. 2018, MNRAS 473, 5591 (arXiv 1710.07257v1)",l. 344; BH18 l. 185,"K18 states ""≲5%"" in σ between its main-sequence samples and literature giant profiles, for NGC 3201 and NGC 6121 only. The RV code is mostly giants (BH18 l. 185)",
+rv_zero_points,system,*,g_obs,not_given_by_source,,,,,,,,,not_published,"Baumgardt & Hilker 2018, MNRAS 478, 1520 (arXiv 1804.08359v2)",l. 199,"Shifts ""usually less than 1 km/sec""; effect on σ not stated",
+ellipticity,system,*,both,not_given_by_source,,,,,,,,,not_published,,,,
+heterogeneity,dataset,*,both,not_given_by_source,,,,,,,,,not_published,,,"The ""plus updates"" values are not documented; they differ slightly from BH18's printed table (F8)",

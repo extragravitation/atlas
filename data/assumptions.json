@@ -463,6 +463,11 @@
           "default": "wolf2010",
           "default_ref": "D-025; Wolf et al. 2010 (arXiv:0908.2995)",
           "effects": []
+        },
+        "aeg-d-gc-baumgardt/v2": {
+          "default": "wolf2010",
+          "default_ref": "D-025; Wolf et al. 2010 (arXiv:0908.2995)",
+          "effects": []
         }
       }
     },
@@ -480,6 +485,41 @@
           "default": "4/3",
           "default_ref": "D-025; Wolf et al. 2010 (arXiv:0908.2995)",
           "effects": []
+        },
+        "aeg-d-gc-baumgardt/v2": {
+          "default": 1.3333333333333333,
+          "default_ref": "D-025; Wolf et al. 2010 (arXiv:0908.2995) l. 1829",
+          "effects": [
+            {
+              "column": "g_obs",
+              "formula": "g_obs * p0 / p"
+            },
+            {
+              "column": "g_obs_err_lo",
+              "formula": "g_obs_err_lo * p0 / p"
+            },
+            {
+              "column": "g_obs_err_hi",
+              "formula": "g_obs_err_hi * p0 / p"
+            },
+            {
+              "column": "g_bar",
+              "formula": "g_bar * (p0 / p)^2"
+            },
+            {
+              "column": "g_bar_stars",
+              "formula": "g_bar_stars * (p0 / p)^2"
+            },
+            {
+              "column": "g_bar_err_lo",
+              "formula": "g_bar_err_lo * (p0 / p)^2"
+            },
+            {
+              "column": "g_bar_err_hi",
+              "formula": "g_bar_err_hi * (p0 / p)^2"
+            }
+          ],
+          "note": "v2: the 4/3 of v1 made numeric. Used by the uncertainty term deprojection_4_3. Not a slider."
         }
       }
     },
@@ -497,6 +537,12 @@
           "default": "mvdm2005_king",
           "default_ref": "D-036 (ii), D-045, D-047; McLaughlin & van der Marel 2005 (ApJS 161, 304) Table 10 (VizieR models)",
           "effects": []
+        },
+        "aeg-d-gc-baumgardt/v2": {
+          "default": "mvdm2005_king",
+          "default_ref": "D-036 (ii), D-045, D-047; McLaughlin & van der Marel 2005 (ApJS 161, 304) Table 10 (W0 and r0; VizieR models) and Table 11 (tab:struc, R_h)",
+          "effects": [],
+          "note": "v2: location corrected (step A F7): W0 and r0 are in MvdM Table 10, R_h in Table 11 (tab:struc)."
         }
       }
     },
@@ -515,6 +561,25 @@
           "default_ref": "D-042; Harris 1996, AJ 112, 1487 (2010 edition)",
           "effects": [],
           "note": "No slider yet: Harris gives no per-cluster distance error."
+        },
+        "aeg-d-gc-baumgardt/v2": {
+          "default": 0,
+          "default_ref": "D-042; Harris 1996 (2010 edition), arXiv 1012.3224v1: M_V(HB) = (0.160 ± 0.033)[Fe/H] + (0.844 ± 0.049) (l. 148), rms 0.11 mag about it (l. 152); calibrated partly with dynamical parallaxes (l. 125–127; D-099 rule 3)",
+          "effects": [
+            {
+              "column": "g_obs",
+              "formula": "g_obs * 10^(0.2 * (p - p0))"
+            },
+            {
+              "column": "g_obs_err_lo",
+              "formula": "g_obs_err_lo * 10^(0.2 * (p - p0))"
+            },
+            {
+              "column": "g_obs_err_hi",
+              "formula": "g_obs_err_hi * 10^(0.2 * (p - p0))"
+            }
+          ],
+          "note": "v2: numeric parameter p = shift in M_V(HB) in mag (default 0). g_obs ∝ 1/D; R_Sun and L_V move together, so g_bar is unchanged (step A F1). Used by uncertainty terms distance_hb_zero_point and distance_hb_scatter. Not a slider (REPRODUCTION.md item 7)."
         }
       }
     },
@@ -557,6 +622,37 @@
               "formula": "g_bar_err_hi * (1 + ((x_gc_baumgardt_ml_v_salpeter / x_gc_baumgardt_ml_v - 1 + 0.47) / 2) * p + ((x_gc_baumgardt_ml_v_salpeter / x_gc_baumgardt_ml_v - 1 - 0.47) / 2) * abs(p))"
             }
           ]
+        },
+        "aeg-d-gc-baumgardt/v2": {
+          "default": 0,
+          "min": -1,
+          "max": 1,
+          "default_ref": "D-039; McLaughlin & van der Marel 2005 §3 and Table 8 (VizieR clusters, (M/L)1); M_V,sun = 4.85 (their §4.2)",
+          "range_ref": "D-039 item 3. Lower end: 0.53 × the population value, the smallest dissolution factor Q in Kruijssen & Mieske 2009 (arXiv:0903.4683v1), table tab:pred (Q = 0.53–1.00), a range bound only, never a per-cluster default. Upper end: each cluster's BC03 + Salpeter value, McLaughlin & van der Marel 2005 (M/L)2 (Salpeter 60–75% above Chabrier, their §3). Asymmetric by construction; read at source: docs/sources/stellar-ml-2026-10-29.md.",
+          "range_basis": {
+            "min": "Kruijssen & Mieske 2009, smallest Q = 0.53 (loss of low-mass stars by dissolution)",
+            "max": "McLaughlin & van der Marel 2005, (M/L)_V with a Salpeter IMF, per cluster"
+          },
+          "evidence": "Direct low-mass IMF evidence read at source (D-039 item 2, docs/sources/stellar-ml-2026-10-29.md): consistent with the Chabrier/Kroupa default; neither source supports a Salpeter-like low-mass IMF in these systems.",
+          "effects": [
+            {
+              "column": "g_bar",
+              "formula": "g_bar * (1 + ((x_gc_baumgardt_ml_v_salpeter / x_gc_baumgardt_ml_v - 1 + 0.47) / 2) * p + ((x_gc_baumgardt_ml_v_salpeter / x_gc_baumgardt_ml_v - 1 - 0.47) / 2) * abs(p))"
+            },
+            {
+              "column": "g_bar_stars",
+              "formula": "g_bar_stars * (1 + ((x_gc_baumgardt_ml_v_salpeter / x_gc_baumgardt_ml_v - 1 + 0.47) / 2) * p + ((x_gc_baumgardt_ml_v_salpeter / x_gc_baumgardt_ml_v - 1 - 0.47) / 2) * abs(p))"
+            },
+            {
+              "column": "g_bar_err_lo",
+              "formula": "g_bar_err_lo * (1 + ((x_gc_baumgardt_ml_v_salpeter / x_gc_baumgardt_ml_v - 1 + 0.47) / 2) * p + ((x_gc_baumgardt_ml_v_salpeter / x_gc_baumgardt_ml_v - 1 - 0.47) / 2) * abs(p))"
+            },
+            {
+              "column": "g_bar_err_hi",
+              "formula": "g_bar_err_hi * (1 + ((x_gc_baumgardt_ml_v_salpeter / x_gc_baumgardt_ml_v - 1 + 0.47) / 2) * p + ((x_gc_baumgardt_ml_v_salpeter / x_gc_baumgardt_ml_v - 1 - 0.47) / 2) * abs(p))"
+            }
+          ],
+          "note": "v2: location corrected (step A F7): KM09's Q values are in table tab:pred of arXiv v1, not Table 1."
         }
       },
       "scope": "dataset",
@@ -573,6 +669,11 @@
       },
       "datasets": {
         "aeg-d-gc-baumgardt/v1": {
+          "default": "absent",
+          "default_ref": "D-036 #4; Chantereau et al. 2020 (arXiv:2002.02401), search-log-A3.md §1.7",
+          "effects": []
+        },
+        "aeg-d-gc-baumgardt/v2": {
           "default": "absent",
           "default_ref": "D-036 #4; Chantereau et al. 2020 (arXiv:2002.02401), search-log-A3.md §1.7",
           "effects": []
@@ -1147,6 +1248,248 @@
       "scope": "dataset",
       "role": "baryonic_inference",
       "not_adjustable_reason": "assumed by the method; not tested by the Atlas"
+    },
+    {
+      "id": "gc_distance_hb_slope",
+      "name_technical": "Slope of the Harris (2010) M_V(HB)–[Fe/H] calibration",
+      "name_plain": "How the brightness of the reference stars changes with the cluster's chemistry",
+      "adjustable": false,
+      "status": "draft",
+      "parameter": {
+        "unit": "change in slope, mag per dex"
+      },
+      "datasets": {
+        "aeg-d-gc-baumgardt/v2": {
+          "default": 0,
+          "default_ref": "Harris 1996 (2010 edition), arXiv 1012.3224v1 l. 148 (slope 0.160 ± 0.033)",
+          "effects": [
+            {
+              "column": "g_obs",
+              "formula": "g_obs * 10^(0.2 * (p - p0) * system.metallicity_feh)"
+            },
+            {
+              "column": "g_obs_err_lo",
+              "formula": "g_obs_err_lo * 10^(0.2 * (p - p0) * system.metallicity_feh)"
+            },
+            {
+              "column": "g_obs_err_hi",
+              "formula": "g_obs_err_hi * 10^(0.2 * (p - p0) * system.metallicity_feh)"
+            }
+          ],
+          "note": "Shift in M_V(HB) = slope change × [Fe/H]; g_obs ∝ 1/D, g_bar unchanged (F1). Used by the term distance_hb_slope. Not a slider."
+        }
+      }
+    },
+    {
+      "id": "gc_reddening",
+      "name_technical": "Reddening E(B−V) behind the Harris (2010) distance",
+      "name_plain": "How much dust dims and reddens the cluster's light",
+      "adjustable": false,
+      "status": "draft",
+      "parameter": {
+        "unit": "fractional change in E(B−V)"
+      },
+      "datasets": {
+        "aeg-d-gc-baumgardt/v2": {
+          "default": 0,
+          "default_ref": "Harris (2010) E(B−V) (x_gc_baumgardt_ebv_mag); A_V = 3.1 E(B−V) (MvdM l. 1212)",
+          "effects": [
+            {
+              "column": "g_obs",
+              "formula": "g_obs * 10^(0.62 * (p - p0) * system.x_gc_baumgardt_ebv_mag)"
+            },
+            {
+              "column": "g_obs_err_lo",
+              "formula": "g_obs_err_lo * 10^(0.62 * (p - p0) * system.x_gc_baumgardt_ebv_mag)"
+            },
+            {
+              "column": "g_obs_err_hi",
+              "formula": "g_obs_err_hi * 10^(0.62 * (p - p0) * system.x_gc_baumgardt_ebv_mag)"
+            },
+            {
+              "column": "g_bar",
+              "formula": "g_bar * 10^(1.24 * (p - p0) * system.x_gc_baumgardt_ebv_mag)"
+            },
+            {
+              "column": "g_bar_stars",
+              "formula": "g_bar_stars * 10^(1.24 * (p - p0) * system.x_gc_baumgardt_ebv_mag)"
+            },
+            {
+              "column": "g_bar_err_lo",
+              "formula": "g_bar_err_lo * 10^(1.24 * (p - p0) * system.x_gc_baumgardt_ebv_mag)"
+            },
+            {
+              "column": "g_bar_err_hi",
+              "formula": "g_bar_err_hi * 10^(1.24 * (p - p0) * system.x_gc_baumgardt_ebv_mag)"
+            }
+          ],
+          "note": "Moves R_Sun only: Δμ0 = −3.1 (p − p0) E, so g_obs ∝ 1/D and g_bar ∝ 1/D² (F1). Used by the term reddening. Not a slider."
+        }
+      }
+    },
+    {
+      "id": "gc_extinction_rv",
+      "name_technical": "Ratio of total to selective extinction R_V",
+      "name_plain": "How dust dimming relates to dust reddening",
+      "adjustable": false,
+      "status": "draft",
+      "parameter": {
+        "unit": "R_V"
+      },
+      "datasets": {
+        "aeg-d-gc-baumgardt/v2": {
+          "default": 3.1,
+          "default_ref": "MvdM l. 1212: A_V = 3.1 E(B−V)",
+          "effects": [
+            {
+              "column": "g_obs",
+              "formula": "g_obs * 10^(0.2 * (p - p0) * system.x_gc_baumgardt_ebv_mag)"
+            },
+            {
+              "column": "g_obs_err_lo",
+              "formula": "g_obs_err_lo * 10^(0.2 * (p - p0) * system.x_gc_baumgardt_ebv_mag)"
+            },
+            {
+              "column": "g_obs_err_hi",
+              "formula": "g_obs_err_hi * 10^(0.2 * (p - p0) * system.x_gc_baumgardt_ebv_mag)"
+            },
+            {
+              "column": "g_bar",
+              "formula": "g_bar * 10^(0.4 * (p - p0) * system.x_gc_baumgardt_ebv_mag)"
+            },
+            {
+              "column": "g_bar_stars",
+              "formula": "g_bar_stars * 10^(0.4 * (p - p0) * system.x_gc_baumgardt_ebv_mag)"
+            },
+            {
+              "column": "g_bar_err_lo",
+              "formula": "g_bar_err_lo * 10^(0.4 * (p - p0) * system.x_gc_baumgardt_ebv_mag)"
+            },
+            {
+              "column": "g_bar_err_hi",
+              "formula": "g_bar_err_hi * 10^(0.4 * (p - p0) * system.x_gc_baumgardt_ebv_mag)"
+            }
+          ],
+          "note": "Δμ0 = −(p − p0) E; acts as gc_reddening. Used by the term extinction_law_rv. Not a slider."
+        }
+      }
+    },
+    {
+      "id": "gc_rh_measured",
+      "name_technical": "Measured projected half-light radius R_h (MvdM King fit)",
+      "name_plain": "The measured size of the cluster on the sky",
+      "adjustable": false,
+      "status": "draft",
+      "parameter": {
+        "unit": "shift in log10 R_h, dex"
+      },
+      "datasets": {
+        "aeg-d-gc-baumgardt/v2": {
+          "default": 0,
+          "default_ref": "MvdM Table 11 (tab:struc)",
+          "effects": [
+            {
+              "column": "g_obs",
+              "formula": "g_obs * 10^(-(p - p0))"
+            },
+            {
+              "column": "g_obs_err_lo",
+              "formula": "g_obs_err_lo * 10^(-(p - p0))"
+            },
+            {
+              "column": "g_obs_err_hi",
+              "formula": "g_obs_err_hi * 10^(-(p - p0))"
+            },
+            {
+              "column": "g_bar",
+              "formula": "g_bar * 10^(-2 * (p - p0))"
+            },
+            {
+              "column": "g_bar_stars",
+              "formula": "g_bar_stars * 10^(-2 * (p - p0))"
+            },
+            {
+              "column": "g_bar_err_lo",
+              "formula": "g_bar_err_lo * 10^(-2 * (p - p0))"
+            },
+            {
+              "column": "g_bar_err_hi",
+              "formula": "g_bar_err_hi * 10^(-2 * (p - p0))"
+            }
+          ],
+          "note": "§2a rule 7: g_obs ∝ 1/R_h, g_bar ∝ 1/R_h². Used by the term half_light_radius. Not a slider."
+        }
+      }
+    },
+    {
+      "id": "gc_luminosity_vt",
+      "name_technical": "V-band luminosity from the Harris (2010) integrated magnitude V_t",
+      "name_plain": "How bright the whole cluster is",
+      "adjustable": false,
+      "status": "draft",
+      "parameter": {
+        "unit": "shift in V_t, mag"
+      },
+      "datasets": {
+        "aeg-d-gc-baumgardt/v2": {
+          "default": 0,
+          "default_ref": "Harris (2010) mwgc.dat Part II; role baryonic_inference",
+          "effects": [
+            {
+              "column": "g_bar",
+              "formula": "g_bar * 10^(-0.4 * (p - p0))"
+            },
+            {
+              "column": "g_bar_stars",
+              "formula": "g_bar_stars * 10^(-0.4 * (p - p0))"
+            },
+            {
+              "column": "g_bar_err_lo",
+              "formula": "g_bar_err_lo * 10^(-0.4 * (p - p0))"
+            },
+            {
+              "column": "g_bar_err_hi",
+              "formula": "g_bar_err_hi * 10^(-0.4 * (p - p0))"
+            }
+          ],
+          "note": "L_V ∝ 10^(−0.4 V_t). Used by the term integrated_magnitude. Not a slider."
+        }
+      }
+    },
+    {
+      "id": "gc_ml_scale",
+      "name_technical": "Fractional change in the population mass-to-light ratio Υ_V",
+      "name_plain": "A small change in how much mass each unit of starlight stands for",
+      "adjustable": false,
+      "status": "draft",
+      "parameter": {
+        "unit": "fractional change in Υ_V"
+      },
+      "datasets": {
+        "aeg-d-gc-baumgardt/v2": {
+          "default": 0,
+          "default_ref": "MvdM e_(M/L)1 and §3 (l. 1357–1359)",
+          "effects": [
+            {
+              "column": "g_bar",
+              "formula": "g_bar * (1 + p) / (1 + p0)"
+            },
+            {
+              "column": "g_bar_stars",
+              "formula": "g_bar_stars * (1 + p) / (1 + p0)"
+            },
+            {
+              "column": "g_bar_err_lo",
+              "formula": "g_bar_err_lo * (1 + p) / (1 + p0)"
+            },
+            {
+              "column": "g_bar_err_hi",
+              "formula": "g_bar_err_hi * (1 + p) / (1 + p0)"
+            }
+          ],
+          "note": "Used by the terms ml_population and pop_synthesis_code. Not a slider; the published range is the gc_stellar_ml slider."
+        }
+      }
     }
   ]
 }
