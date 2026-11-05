@@ -1,0 +1,19 @@
+{
+  "description": "Second reading for the X-COP v2 package (part B), resolved and frozen before the first v2 conversion run (part B item 11; order of work step 3). The parsed archive rows are off the repository (archives not redistributed); only their hash is recorded under off_repo.",
+  "frozen_on": "2026-11-05",
+  "decision": "D-090, D-096, D-105",
+  "files": {
+    "data/packages/aeg-d-xcop/v2/reading/bcg_extra_mass_systems.md": "1a852d8f459e8cfd963b89529465048f1f4388fbf9f301fc79aeefcd8607e47b",
+    "data/packages/aeg-d-xcop/v2/reading/d096.csv": "7d1007b872cb653f09081e1e37cd792de41d645bd8547a3eb1412f4b2c9a0c6d",
+    "data/packages/aeg-d-xcop/v2/reading/err_levels.csv": "4e2546c94ddfc074fcfc55bfa2f025c8bb6a53b5ead3cb7033482f8e97cf66a4",
+    "data/packages/aeg-d-xcop/v2/reading/error_form.md": "1ad797cae509ce6d4515304c5fd4bd848eced6cf1e04d6c4a0ed8144465e0c5e",
+    "data/packages/aeg-d-xcop/v2/reading/hse_statements.csv": "de1115f3b9217ffff53e762b292a811b9f78a67802f0fbf179c74dbbcd7f2d10",
+    "data/packages/aeg-d-xcop/v2/reading/model_form.md": "e98dcdd0a642b5e63fde8979321c443d3e19d9e2984c5e26bbe728d88f90cf9f",
+    "data/packages/aeg-d-xcop/v2/reading/properties.csv": "788ac73b31bafb8a52f02e26ab10250698c7baa7b02abe8ddc3c2b8206115524",
+    "data/packages/aeg-d-xcop/v2/reading/resolutions.md": "2a4f2395eb2b63962b7722843a7cb93b3dc0a3533cb101e3c8395aa1d91f551f",
+    "data/packages/aeg-d-xcop/v2/reading/values.json": "db16b876ea41651ea9f87799808613ce862adf02635ec7b4b9c149bf983e4a6c"
+  },
+  "off_repo": {
+    "data/packages/aeg-d-xcop/v2/source/reading/values.csv": "c320382cfe9e1bb798f1f458c301bfa07bec44586ba7ae0c0b704dfe340b42dc"
+  }
+}
