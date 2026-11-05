@@ -1,0 +1,121 @@
+{
+ "changes": [
+  {
+   "system_id": "aeg-s-000394",
+   "name": "Phoenix II",
+   "rule": "D-096 rule 1 (D-098 rule 5)",
+   "reading": "reading/resolved.csv: d096_preferred, role=sigma, resolution=ruled",
+   "quote": "We indicate in bold which determination we prefer (Fritz 2019, l. 436); bold row 11.0 (+9.4/-5.3) km/s (l. 452)",
+   "old": {
+    "sigma": "9.5",
+    "err": [
+     "4.4",
+     "6.8"
+    ],
+    "r_kpc": 0.038066853492174604,
+    "g_obs": 2.3050000515473055e-10,
+    "g_bar": 8.868885509469919e-14
+   },
+   "new": {
+    "sigma": "11.0",
+    "err": [
+     "5.3",
+     "9.4"
+    ],
+    "r_kpc": 0.038066853492174604,
+    "g_obs": 3.090360179913839e-10,
+    "g_bar": 8.868885509469919e-14
+   },
+   "plotting": "D-038 1A: v1 coding phoenix_2/v2 has coverage = beyond_rh (Fritz Table 2), so it passes; plotted"
+  },
+  {
+   "system_id": "aeg-s-000381",
+   "name": "Fornax",
+   "rule": "D-096 rule 1 (D-101)",
+   "reading": "reading/resolved.csv: d096_preferred and d096_conflict, role=structure, resolution=ruled",
+   "quote": "found that Sersic model gives the best fit to the data while other models seem to fail to capture the complex light profile shape of Fornax (Wang 2019, Fornax_main.tex l. 333)",
+   "old": {
+    "rh_printed": "19.8",
+    "R_h_arcmin": "16.4471",
+    "r_kpc": 0.909399937201553,
+    "g_obs": 1.4987154844864755e-11,
+    "g_bar": 3.4911898949305317e-12
+   },
+   "new": {
+    "rh_printed": "20.1",
+    "R_h_arcmin": "16.6963",
+    "r_kpc": 0.9231788079052413,
+    "g_obs": 1.4763464626831993e-11,
+    "g_bar": 3.3877523774120285e-12
+   },
+   "plotting": "D-038 1A with D-051 (Hendricks 2014 member table, v1's frozen rule, a_h = 20.1′): {'n_members': 340, 'n_beyond': 327, 'fraction_beyond': 0.961764705882353, 'max_r_over_rh': 2.360073566030228, 'passes': True}",
+   "coverage": {
+    "n_members": 340,
+    "n_beyond": 327,
+    "fraction_beyond": 0.961764705882353,
+    "max_r_over_rh": 2.360073566030228,
+    "passes": true
+   }
+  }
+ ],
+ "excluded": [
+  {
+   "system": "aeg-s-000361",
+   "dataset": "aeg-d-dwarfs/v2",
+   "reason": "D-097 finding: From the velocity profile, it appears that this system is not in equilibrium, as variations around the systemic are often significant",
+   "citation": "Collins2021 (arXiv 2102.11890v2), And21.tex:437-439 (Fig. caption, radial profile)"
+  },
+  {
+   "system": "aeg-s-000365",
+   "dataset": "aeg-d-dwarfs/v2",
+   "reason": "D-097 finding: Andromeda XXVII (And XXVII) is a somewhat unusual object as it is currently undergoing tidal disruption, spreading its constituent stars into a large stellar stream ... As such, it is unlikely to be in virial equilibrium, if it remains bound at all.",
+   "citation": "Collins2013 (arXiv 1302.6590v1), M31dsphsv3.tex:1423-1427"
+  },
+  {
+   "system": "aeg-s-000367",
+   "dataset": "aeg-d-dwarfs/v2",
+   "reason": "D-097 finding: Overall, the new kinematic measurements support a tidal disruption scenario for the origin of these large and extended dwarf spheroidal galaxies.",
+   "citation": "Ji2021 (arXiv 2106.12656v2), main-arxiv.tex:104"
+  },
+  {
+   "system": "aeg-s-000370",
+   "dataset": "aeg-d-dwarfs/v2",
+   "reason": "D-097 finding: elongated morphology, extended stellar population, and internal dynamics suggest that \\BooI\\ is experiencing tidal disruption (e.g., \\citealt{roderick:2016, munoz:2018, longeard:2022, pace:2022}",
+   "citation": "Sandford2026 (arXiv 2509.02546v1), SandfordS5BooI.tex:203"
+  },
+  {
+   "system": "aeg-s-000372",
+   "dataset": "aeg-d-dwarfs/v2",
+   "reason": "D-097 finding: Bo\\\"otes III is a Tidally Disrupting Ultra-Faint Dwarf Galaxy on an Eccentric Polar Orbit",
+   "citation": "Li2026 (arXiv 2607.07803v1), main.tex:49 (title)"
+  },
+  {
+   "system": "aeg-s-000382",
+   "dataset": "aeg-d-dwarfs/v2",
+   "reason": "D-097 finding: we argue that it is likely that Hercules is indeed currently undergoing tidal disruption in its extended stellar halo",
+   "citation": "Ou2024 (arXiv 2403.00921v1), ms.tex:90 (abstract)"
+  },
+  {
+   "system": "aeg-s-000405",
+   "dataset": "aeg-d-dwarfs/v2",
+   "reason": "D-097 finding: \\citet{munoz10a} carried out a morphological analysis and argued that UMa~II is probably a system that is undergoing severe tidal disruption. This view is supported by the observed number density profile and isodensity contour map",
+   "citation": "Munoz2018 (arXiv 1806.06891v1), ms.tex:1022-1025"
+  },
+  {
+   "system": "aeg-s-000407",
+   "dataset": "aeg-d-dwarfs/v2",
+   "reason": "D-097 finding: previous studies of W1 found evidence for dynamical disequilibrium, including stellar multidirectional tails and a tentative excess of stars at large half-light radii",
+   "citation": "Chiu2026 (arXiv 2602.20272v2), main.tex:104"
+  }
+ ],
+ "d097_system_classes": {
+  "finding": 8,
+  "possibility": 14,
+  "none": 42
+ },
+ "d097_statements": {
+  "finding": 29,
+  "possibility": 49,
+  "neither": 126
+ }
+}

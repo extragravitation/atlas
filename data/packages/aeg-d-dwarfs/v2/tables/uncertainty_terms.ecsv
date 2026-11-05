@@ -1,0 +1,129 @@
+# %ECSV 1.0
+# ---
+# datatype:
+# - name: term_id
+#   datatype: string
+#   description: term_id
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: scale
+#   datatype: string
+#   description: scale
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: applies_to
+#   datatype: string
+#   description: applies_to
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: moves
+#   datatype: string
+#   description: moves
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: status
+#   datatype: string
+#   description: status
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: size_value
+#   datatype: float64
+#   description: size_value
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: size_lo
+#   datatype: float64
+#   description: size_lo
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: size_hi
+#   datatype: float64
+#   description: size_hi
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: size_unit
+#   datatype: string
+#   description: size_unit
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: size_column
+#   datatype: string
+#   description: size_column
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: size_kind
+#   datatype: string
+#   description: size_kind
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: assumption_id
+#   datatype: string
+#   description: assumption_id
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: correlated_with
+#   datatype: string
+#   description: correlated_with
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: covariance
+#   datatype: string
+#   description: covariance
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: citation
+#   datatype: string
+#   description: citation
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: locator
+#   datatype: string
+#   description: locator
+#   meta: !!omap
+#   - {ucd: meta.note}
+# - name: note
+#   datatype: string
+#   description: note
+#   meta: !!omap
+#   - {ucd: meta.note}
+# delimiter: ','
+# meta: !!omap
+# - {dataset: aeg-d-dwarfs}
+# - {version: v2}
+# - {standard_version: 2.5.1}
+# schema: astropy-2.0
+term_id,scale,applies_to,moves,status,size_value,size_lo,size_hi,size_unit,size_column,size_kind,assumption_id,correlated_with,covariance,citation,locator,note
+half_light_radius,point,*,both,given,,,,,x_dwarfs_rh_err_hi_arcmin,as_released,dw_rhalf_wolf,,not_published,each system's structural original (observables half_light_radius source_ref),docs/sources/readings/step-a-2026-11-04/dwarfs-adjudication.md (R_h measurement error),"§2a rule 7: g_obs ∝ 1/R_h, g_bar ∝ 1/R_h² (stars and gas); left out of both point columns. Two-sided: x_dwarfs_rh_err_lo_arcmin holds the other side (rule 6)"
+half_light_radius_aeg-s-000347,point,aeg-s-000347,both,not_given_by_source,,,,,,,dw_rhalf_wolf,,not_published,structural original,reading/resolved.csv rh_err,the structural original prints no R_h error (frozen second reading)
+half_light_radius_aeg-s-000348,point,aeg-s-000348,both,not_given_by_source,,,,,,,dw_rhalf_wolf,,not_published,structural original,reading/resolved.csv rh_err,the structural original prints no R_h error (frozen second reading)
+half_light_radius_aeg-s-000381,point,aeg-s-000381,both,not_given_by_source,,,,,,,dw_rhalf_wolf,,not_published,structural original,reading/resolved.csv rh_err,the structural original prints no R_h error (frozen second reading)
+ellipticity,point,*,both,given,,,,,x_dwarfs_ellipticity_err_hi,as_released,dw_ellipticity,,not_published,each system's structural original,adjudication (ellipticity error),enters only where x_dwarfs_eps_used = 1. Two-sided: x_dwarfs_ellipticity_err_lo holds the other side (rule 6)
+ellipticity_radial_variation,system,*,both,not_given_by_source,,,,,,,dw_ellipticity,,not_published,Pace 2025 OJAp 8 142,"§5, l. 699","""Some galaxies show changes in the position angle and/or ellipticity with radius and the current LVDB format does not account for this"" (Pace 2025 §5, l. 699); Sculptor 0.23–0.49 by subsample (Muñoz 2018)"
+rh_convention_profile,system,*,both,not_given_by_source,,,,,,,dw_rh_circularised,,not_published,D-052,item 2,"profile family, and semi-major or circularised convention (flag rh_semimajor_assumed); effect by the dw_rh_circularised formula (D-052 item 2)"
+deprojection_4_3,dataset,*,both,given,,1.305,1.352,r½/R_h,,range,dw_rhalf_wolf,,not_published,"Wolf et al. 2010, arXiv 0908.2995",l. 1793–1800; l. 150–152,"a parameter term (§2a rule 4). Wolf et al. 2010 Appendix table (l. 1793–1800): Plummer 1.305 to Sérsic n = 8 1.352; ""accurate to better than 2%"" (l. 150–152). 4/3 is the default"
+distance,system,*,both,given,,,,,x_dwarfs_distance_err_hi_kpc,as_released,dw_distance,,not_published,each system's distance source (observables distance source_ref),adjudication F1,"g_obs ∝ 1/D; g_bar_stars ∝ D^e with e from x_dwarfs_gbar_stars_distance_exponent (0, or −2 for Boötes III, D-061 item 2); gas ∝ D⁰ (adjudication F1). Two-sided: x_dwarfs_distance_err_lo_kpc holds the other side (rule 6)"
+distance_aeg-s-000367,system,aeg-s-000367,both,not_given_by_source,,,,,,,dw_distance,,not_published,distance source,conversion inputs: distance errors empty,the distance source prints no error; Vivas et al. 2022 give a 5.4 kpc dispersion and a ~13 kpc gradient (l. 264–266)
+distance_aeg-s-000400,system,aeg-s-000400,both,not_given_by_source,,,,,,,dw_distance,,not_published,distance source,conversion inputs: distance errors empty,the distance source prints no error
+distance_calibration_savino,dataset,aeg-s-000343;aeg-s-000344;aeg-s-000345;aeg-s-000346;aeg-s-000347;aeg-s-000348;aeg-s-000349;aeg-s-000350;aeg-s-000351;aeg-s-000352;aeg-s-000354;aeg-s-000355;aeg-s-000357;aeg-s-000359;aeg-s-000360;aeg-s-000361;aeg-s-000362;aeg-s-000363;aeg-s-000364;aeg-s-000366;aeg-s-000375,both,given,0.035,,,fraction of D,,as_released,dw_distance,,not_published,"Savino et al. 2022, ApJ 938, 101",§7 l. 1244; §5 l. 952,"Savino §7 (Conclusions), l. 1244: ""Through extensive tests we quantified our typical systematic uncertainties to be ∼3.5%"". Possible overlap: Savino §5 (l. 952) says the quoted intervals ""have been computed to account for our uncertain knowledge of the RR Lyrae metallicity, pulsation parameters, and of the adopted PWZ calibration""; it does not say whether the 3.5 % overlaps them. Views show the term beside the error bars, never added in"
+distance_calibration_other,dataset,*,both,not_given_by_source,,,,,,,dw_distance,,not_published,Carlin 2017; Higgs 2021; Medina 2018,l. 114; l. 361; l. 266,"Carlin et al. 2017's anchor modulus has no error (l. 114); Higgs et al. 2021's TRGB calibration states none (l. 361); Medina et al. 2018 (1802.01581v1, ms.tex, e-print SHA-256 3108c7bf…, l. 266) gives 1.8 % and ~3.6 % for assumed metallicity offsets of ±0.5 and ±1.0 dex, a conditional test, not an error"
+velocity_error_model,dataset,*,g_obs,not_given_by_source,,,,,,,,,not_published,Geha 2026; Tollerud 2012; Heiger 2024; Kvasova 2024; Collins 2013,as in the note,"per-star floors inside each source's σ error; effect on σ not stated: Geha 2026 k_v 1.4, floor 1.1 km/s (l. 420); Tollerud 2012 2.2 km/s (l. 268); Heiger 2024 1 km/s (l. 109); Kvasova 2024 1.49 km/s (l. 260); Collins 2013 mask offsets (l. 571–573)"
+binaries,system,*,g_obs,not_given_by_source,,,,,,,,,not_published,Wolf et al. 2010,l. 1212–1214,"Wolf l. 1212–1214: ""up to ∼20%"" in σ, only ""in the smallest dSphs"" (citing Minor 2010); rule 5. Screening per row in x_dwarfs_binary_screening (item 9)"
+membership,system,*,g_obs,not_given_by_source,,,,,,,,,not_published,Tollerud et al. 2012,,"Tollerud's ""few-percent level"" applies to its own systems only (rule 5)"
+rotation,system,*,g_obs,not_given_by_source,,,,,,,,,not_published,Pace 2025,§5,Pace 2025 §5
+light_weighting,dataset,*,g_obs,not_given_by_source,,,,,,,dw_member_sample_sigma,,not_published,D-038,1A,member-sample σ taken as the light-weighted σ (D-038 1A)
+estimator_normalisation,dataset,*,g_obs,not_given_by_source,,,,,,,dw_equilibrium,,not_published,Wolf et al. 2010,l. 922–927,"Wolf's ""±10%"" is a band drawn for the classical dSphs (l. 922–927), not a stated error for these systems (rule 5)"
+anisotropy_profile,dataset,*,g_obs,not_given_by_source,,,,,,,dw_equilibrium,,not_published,Wolf et al. 2010,l. 990–992,"Wolf l. 990–992: ""the errors on M_half increased by roughly 0.05 dex when the (rather extreme) second β(r) form was used"". This is the error of Wolf's own Jeans analysis, so rule 5 gives no size. The estimator-normalisation and anisotropy terms both describe the estimator; no source states their correlation"
+g_bar_point_leo_t,point,aeg-s-000390,g_bar,not_given_by_source,,,,,,,,,not_published,de Jong et al. 2008,,de Jong 2008 M_V printed without an error (item 5)
+luminosity_function_martin,dataset,aeg-s-000343;aeg-s-000344;aeg-s-000345;aeg-s-000346;aeg-s-000349;aeg-s-000350;aeg-s-000351;aeg-s-000352;aeg-s-000354;aeg-s-000355;aeg-s-000356;aeg-s-000357;aeg-s-000358;aeg-s-000359;aeg-s-000360;aeg-s-000361;aeg-s-000362;aeg-s-000363;aeg-s-000364;aeg-s-000375,g_bar,not_given_by_source,,,,,,,,,not_published,Martin et al. 2016,l. 385,"Martin l. 385: ""A test performed by assuming that And I is instead…"", with ∼0.2 mag brighter for an 8-Gyr population. A one-galaxy test, so rule 5 gives no size. The ""0.29 ± 0.11 magnitudes fainter"" comparison with the literature is quoted too"
+luminosity_function_other,dataset,*,g_bar,not_given_by_source,,,,,,,,,not_published,Muñoz et al. 2018,l. 416,"IMF and population assumed in other sources' luminosity functions: Muñoz 2018 ""assuming a Salpeter initial mass function"" (l. 416)"
+band_transformation,dataset,*,g_bar,not_given_by_source,,,,,,,,,not_published,Muñoz 2018; Martin 2016; Richstein,l. 468; l. 379,Muñoz l. 468 (Jordi 2006); Martin l. 379 (Ibata 2007); Richstein; Leo T (D-055 item 7)
+extinction,system,*,g_bar,not_given_by_source,,,,,,,,,not_published,Martin 2016; Higgs 2021; Pace 2025,l. 377; l. 221–222; l. 800,Martin l. 377; Higgs l. 221–222; Pace App. A l. 800
+solar_magnitude,dataset,*,g_bar,not_given_by_source,,,,,,,,,not_published,McLaughlin & van der Marel 2005,,4.85 (McLaughlin & van der Marel 2005); Carlin and Richstein use 4.83
+stellar_ml,dataset,*,g_bar,given,,,,,x_dwarfs_upsilon_v_high,range,dw_stellar_ml,,not_published,D-060,,the D-060 envelope. Two-sided: x_dwarfs_upsilon_v_low holds the other side (rule 6)
+helium_factor,dataset,*,g_bar,not_given_by_source,,,,,,,,,not_published,Lelli et al. 2016,,1.33 (Lelli et al. 2016)
+gas_inside_rhalf_aeg-s-000390,system,aeg-s-000390,g_bar,not_given_by_source,,,,,,,dw_gas_half_total,,not_published,D-058,,Leo T: half the total HI mass (flag gas_half_total)
+gas_inside_rhalf_aeg-s-000393,system,aeg-s-000393,g_bar,not_given_by_source,,,,,,,dw_gas_half_total,,not_published,D-058,,Phoenix: as above
+hi_flux,system,*,g_bar,not_given_by_source,,,,,,,,,not_published,Putman et al. 2021,MRT Notes 4 and 22,"Putman 2021's HI mass errors ""are from the distance errors shown"" (MRT Note 4), so they are part of distance and cancel in g_bar. No flux error is stated. Phoenix's ""confusion with Galactic emission"" (Note 22) is quoted"
+hi_limit_assumptions,dataset,*,g_bar,not_given_by_source,,,,,,,,,not_published,Putman et al. 2021,l. 176; l. 166,5σ limits with a fixed 10 km/s width (Putman l. 176) and an assumed central concentration (l. 166); limits enter g_bar as zero
+molecular_ionised_gas,dataset,*,g_bar,not_given_by_source,,,,,,,,,not_published,descriptor x_baryon_inventory,,not_addressed in v1's x_baryon_inventory
+heterogeneity,dataset,*,both,not_given_by_source,,,,,,,,,not_published,Pace 2025,§5,"""there will be systematics in the LVDB"" (Pace §5)"
