@@ -98,3 +98,9 @@
 - **Verified mechanically:** every item above, by `reproduction/score.py`, which re-reads v1, the frozen reading and the v2 tables independently of `convert.py`; by the validator, the formula check, `aeg.check` (pass) and pytest (216 passed); and by the site build and site check.
 - **Not re-verified here:** the term sizes and quotations, which step A's two readers read at source and two reviews checked; and v1's own values, whose second reading (3 535 of 3 535) carries over.
 - **Not looked at:** no plot of the v2 values was made or inspected before scoring.
+
+## Build fix after scoring (2026-11-05; disclosed, no value changed)
+
+- **What failed:** CI's source fetch. The `sources.json` entry for Baumgardt, Sollima & Hilker 2020 had no `bytes` field and no fetchable file name.
+- **The fix:** the entry now names the arXiv e-print as a fetched file (`bsh20/2009.09611v1.eprint`, 2 103 132 bytes, SHA-256 unchanged).
+- **What changes:** only `sources.json` and `checksums.sha256`. Scoring is unchanged, as with the site-component fix JvH accepted for item 12 ("item 12 pass", 2026-11-05).

@@ -1725,14 +1725,15 @@
   {
    "role": "Baumgardt, Sollima & Hilker 2020: scatter of Harris (2010) V_t about independent photometry, by magnitude range (Table tab:comp), for the integrated_magnitude term",
    "url": "https://arxiv.org/e-print/2009.09611v1",
-   "file": "e-print 2009.09611v1 (paper.tex)",
+   "file": "bsh20/2009.09611v1.eprint",
    "sha256": "0e1a2b34d587ba8dacfc0ddd243e534ac15e22c3ea4b72d0606b0340dcf636b2",
    "retrieved": "2026-11-04",
    "read_by": "step A, Reader B (docs/sources/readings/step-a-2026-11-04/gc-reader-B.md)",
    "licence": "arXiv non-exclusive distribution licence 1.0 (http://arxiv.org/licenses/nonexclusive-distrib/1.0/), as shown on the arXiv listing https://arxiv.org/abs/2009.09611v1, read 2026-11-05",
    "redistributable": false,
    "evidence_tier": 1,
-   "note": "Only three numbers (0.22, 0.45, 0.70 mag) are used, with citation; the file is not redistributed."
+   "note": "Only three numbers (0.22, 0.45, 0.70 mag) are used, with citation; the file is not redistributed. The e-print is fetched by the build (not committed) and checked by size and SHA-256; paper.tex inside it is the file read.",
+   "bytes": 2103132
   }
  ],
  "second_reading_files": {
