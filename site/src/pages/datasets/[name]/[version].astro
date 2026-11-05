@@ -42,6 +42,8 @@ const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(lens ? [[
       <h1>{d.title}</h1>
       {!d.current && <p class="boxed" style="margin:8px 0"><L t={`Superseded by ${d.supersededBy}. This version stays published unchanged; the map and system pages use the latest version.`} p={`There is a newer version (${d.supersededBy.split('/')[1]}). This one is kept unchanged.`} /> <a href={`${base}datasets/${d.supersededBy}/`}>Latest version</a></p>}
       {d.current && d.versions.length > 1 && <p class="small" style="margin:8px 0"><L t="Earlier versions, still published unchanged:" p="Older versions, kept unchanged:" /> {d.versions.filter((k) => k !== d.key).map((k, i) => <>{i > 0 && ', '}<a href={`${base}datasets/${k}/`}>{k.split('/')[1]}</a></>)}</p>}
+      {(d.pending || []).map((p) => <p class="boxed" style="margin:8px 0" id="pending">{p.notice}</p>)}
+      {d.dp.x_publication && d.dp.x_publication !== 'published' && <p class="boxed" style="margin:8px 0"><L t="Not published: this version awaits the authors' confirmation (D-090 rule 5). This page exists only in a local build; its tables are not in the repository." p="Not public yet: we are waiting for the authors to confirm. This page is a private preview." /></p>}
 
       <h2 id="summary">Summary</h2>
       <p>{d.dp.description}</p>
@@ -53,13 +55,17 @@ const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(lens ? [[
         <div><dt>Data standard</dt><dd>{d.dp.x_standard_version}</dd></div>
         {d.hasCovariance && <div><dt>Covariance</dt><dd>included</dd></div>}
       </dl>
+      {d.name === 'aeg-d-xcop' && d.version === 'v2' && <>
+        <Layer as="p"><Fragment slot="t">{'X-COP v2 takes g_obs and g_bar as released by Eckert et al. 2022, so its values differ from v1\'s by ruling (D-090).'}</Fragment><Fragment slot="p">{'Version 2 uses the values the authors released in 2022, so its numbers differ from version 1.'}</Fragment></Layer>
+        <Layer as="p"><Fragment slot="t">{'The source states that its hydrostatic masses are "mildly biased (<10%) out to R500" and that "The HSE assumption is likely to be a poorer approximation beyond this point" (Eckert et al. 2022, l. 502). At R200 it gives "a mild contribution of nonthermal pressure (10-20%)" (l. 539).'}</Fragment><Fragment slot="p">{'The source says its method is within 10% out to a standard cluster radius, R500, and less reliable beyond it.'}</Fragment></Layer>
+      </>}
       <h3>Cite</h3>
       <p class="boxed">{d.citation}</p>
       <h3>Licence</h3>
       <p>{d.licence}</p>
 
       <h2 id="validation">Validation</h2>
-      <p class="small"><a href={`${base}reproduction/#${d.key.replace('/', '-')}`}><L t="This dataset on the Reproduction page" p="How this dataset was checked" /></a> · <a href={`${base}reproduction/`}><L t="All datasets' checks" p="All checks" /></a></p>
+      {d.dp.x_publication && d.dp.x_publication !== 'published' ? <p class="small"><a href={`${REPO}/blob/main/${repoDir}/REPRODUCTION_RESULT_PART_B.md`}><L t="Part B result (outcomes and counts only)" p="How this version was checked" /></a> · <a href={`${REPO}/blob/main/${repoDir}/REPRODUCTION_RESULT_PART_A.md`}><L t="Part A result" p="Earlier checks" /></a></p> : <p class="small"><a href={`${base}reproduction/#${d.key.replace('/', '-')}`}><L t="This dataset on the Reproduction page" p="How this dataset was checked" /></a> · <a href={`${base}reproduction/`}><L t="All datasets' checks" p="All checks" /></a></p>}
       {rr && <p><span class={'badge ' + (rr.pass ? 'ok' : 'fail')}>Reproduction: {rr.pass ? rr.text : /^FAILED$/i.test(rr.text) ? 'not fully reproduced, on record' : rr.text}</span></p>}
       {rr && !rr.pass && <p class="small">{counts.reproduction_mismatch || 0} measurements that do not reproduce are flagged <code>reproduction_mismatch</code> and ringed on every figure; the package ships under decision D-019 because conversion integrity passes.</p>}
       {mt && <p><span class={'badge ' + (mt.pass ? 'ok' : 'fail')}>Modelled-star test: {mt.text}</span></p>}

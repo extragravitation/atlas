@@ -36,7 +36,15 @@ const fixed = d.assumptions.filter((a) => !a.adjustable || a.status !== 'confirm
 const issues = d.knownIssues.filter((k) => (k.measurements || []).some((m) => rows.some((r) => r.measurement_id === m)) || (k.clusters || []).includes(sys.name));
 const nRinged = rows.filter((r) => ringed(r.flags)).length;
 const otherFlags = [...new Set(rows.flatMap((r) => (r.flags || '').split(';').filter(Boolean)))];
+const noRows = rows.length === 0; // listed and recorded, not plotted (e.g. X-COP v2's seven clusters, D-090 rule 4)
 const rMin = Math.min(...rows.map((r) => r.r_kpc)), rMax = Math.max(...rows.map((r) => r.r_kpc));
+// Row notes shared by every row of this system (X-COP v2, part B item 9), in order of first appearance.
+const noteSegs = [...new Set(rows.flatMap((r) => String(r.notes || '').split(' | ').filter(Boolean)))];
+const HSE = 'Source statement on hydrostatic validity (part A §5; not an exclusion, part B rule 4): ';
+const hseNotes = noteSegs.filter((s) => s.startsWith(HSE)).map((s) => s.slice(HSE.length));
+const d092 = d.key === 'aeg-d-xcop/v2' && rows.some((r) => String(r.known_issues || '').split(';').includes('#136'));
+const d092Note = d092 ? noteSegs.find((s) => s.startsWith("The source's g_bar for this cluster")) : null;
+const otherNotes = noteSegs.filter((s) => !s.startsWith(HSE) && s !== d092Note);
 const fmtR = (r) => (r < 10 ? r.toFixed(2) : r < 100 ? r.toFixed(1) : Math.round(r).toString());
 
 // Facts, as the source gives them (names and units from the systems table).
@@ -53,11 +61,16 @@ if (d.name === 'aeg-d-sparc') {
 } else if (d.name === 'aeg-d-xcop') {
   facts.push(['Type', R.class_in_source]);
   if (P.redshift !== undefined) facts.push(['Redshift', String(P.redshift)]);
+  if (R.redshift !== undefined && R.redshift !== null && P.redshift === undefined) facts.push(['Redshift', String(R.redshift)]);
+  if (P.r500_tot_kpc !== undefined) facts.push(['R500', `${P.r500_tot_kpc} (−${P.r500_tot_err_lo_kpc}/+${P.r500_tot_err_hi_kpc}) kpc`, P.ref]);
+  if (P.m500_tot_1e14_solMass !== undefined) facts.push(['M500 (source, hydrostatic, NFW)', `${P.m500_tot_1e14_solMass} (−${P.m500_tot_err_lo_1e14_solMass}/+${P.m500_tot_err_hi_1e14_solMass}) × 10¹⁴ M☉`, P.ref]);
+  if (P.m200_tot_1e14_solMass !== undefined) facts.push(['M200 (source, hydrostatic, NFW)', `${P.m200_tot_1e14_solMass} (−${P.m200_tot_err_lo_1e14_solMass}/+${P.m200_tot_err_hi_1e14_solMass}) × 10¹⁴ M☉`, P.ref]);
+  if (R.x_xcop_centroid_w !== undefined && R.x_xcop_centroid_w !== null) facts.push(['Centroid shift w', `${R.x_xcop_centroid_w} ± ${R.x_xcop_centroid_w_err} (10⁻³, as printed)`, 'Eckert et al. 2022b (Paper II) Table 2; continuous, never a label']);
   if (P.r500_kpc !== undefined) facts.push(['R500', `${P.r500_kpc} kpc`, P.r500_mass_ref]);
   if (P.m500_1e14_solMass !== undefined) facts.push(['M500 (source, hydrostatic)', `${P.m500_1e14_solMass} × 10¹⁴ M☉`, P.r500_mass_ref]);
   if (P.stars) facts.push(['Stars', P.stars]);
 }
-facts.push(['Radii measured', `${rows.length}, from ${fmtR(rMin)} to ${fmtR(rMax)} kpc`]);
+facts.push(['Radii measured', noRows ? 'none in this version' : `${rows.length}, from ${fmtR(rMin)} to ${fmtR(rMax)} kpc`]);
 facts.push(['Method', lab.method_t]);
 
 const statusOf = (col) => { const v = [...new Set(rows.map((r) => r[col]).filter(Boolean))]; return v.length ? v.join(', ') : null; };
@@ -89,7 +102,21 @@ const desc = `${sys.name}: ${lab.kind_t.toLowerCase()} in ${lab.t}. Observed acc
 const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.name}), dataset ${d.name} ${d.version}. https://extragravitation.org/systems/${sys.id}/. Source: ${d.citation}`;
 ---
 <Base title={sys.name} description={isLens ? `${sys.name}: ${lab.kind_t.toLowerCase()} in ${lab.t}. Projected mass inside the Einstein radius against detected stars and gas in the same cylinder.` : isDisp ? `${sys.name}: ${lab.kind_t.toLowerCase()} in ${lab.t}. Observed acceleration against Newtonian gravity on detected matter at the half-light radius.` : desc} active="systems" figures={true}>
-  {isDisp ? (
+  {noRows ? (
+  <div class="doc"><main>
+    <p class="kicker"><a href={`${base}systems/`} style="color:inherit">Systems</a> · {lab.t} · {sys.id}</p>
+    <h1>{sys.name}</h1>
+    <Excluded sys={sys} />
+    <h2 id="facts"><L t="Facts" p="About this system" /></h2>
+    <dl class="facts">
+      {facts.map(([k, v, note]) => <div><dt>{k}</dt><dd>{v}{note && <span class="small" style="display:block">{note}</span>}</dd></div>)}
+    </dl>
+    {issues.length > 0 && <><h2 id="issues"><L t="Known issues" p="Known problems" /></h2><ul>{issues.map((k) => <li><a href={k.url}>#{k.issue}</a>: {k.title}</li>)}</ul></>}
+    <h2 id="cite"><L t="Cite" p="How to cite" /></h2>
+    <p class="boxed" style="font-family:var(--mono);font-size:13px">{`Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.name}), dataset ${d.name} ${d.version}. https://extragravitation.org/systems/${sys.id}/. Source: ${d.citation}`}</p>
+    <p class="small"><a href={`${base}datasets/${d.name}/${d.version}/`}>{d.title}</a></p>
+  </main></div>
+  ) : isDisp ? (
   <div class="olayout"><main class="split"><div class="pre">
     <p class="kicker"><a href={`${base}systems/`} style="color:inherit">Systems</a> · {lab.t} · {sys.id}</p>
     <h1>{sys.name}</h1>
@@ -122,6 +149,16 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
       <h1>{sys.name}</h1>
       <Excluded sys={sys} />
       <p class="lede"><L t={`${R.class_in_source}. ${lab.method_t}. ${rows.length} radii, ${fmtR(rMin)}–${fmtR(rMax)} kpc.`} p={`${lab.one_p || lab.kind_p}. Measured at ${rows.length} distances from the centre, ${fmtR(rMin)} to ${fmtR(rMax)} kpc.`} /></p>
+      {d.key === 'aeg-d-xcop/v2' && noteSegs.length > 0 && <section class="boxed" id="notes" style="margin:12px 0 18px">
+        <h2 style="margin-top:0"><L t="Notes on these values" p="Notes on these numbers" /></h2>
+        {d092Note && <Layer as="p"><Fragment slot="t">{d092Note}</Fragment><Fragment slot="p">{"The published pull from visible matter for this cluster doesn't match the separate files we were given. We show the published values and have asked the authors."}</Fragment></Layer>}
+        {hseNotes.length > 0 && <>
+          <p class="small"><L t="The source's own statements on whether this cluster's gas is in hydrostatic equilibrium, in file order (on every row of this cluster):" p="What the source says about whether this cluster's hot gas is settled, in its own words:" /></p>
+          <ul class="small">{hseNotes.map((s) => <li>{s}</li>)}</ul>
+          <Layer as="p"><Fragment slot="t">{"The Atlas rule that removes systems a source calls out of equilibrium (D-025; D-097 to D-100) applies to velocity-dispersion measurements only. This cluster's hydrostatic values are therefore plotted, with the source's own statements shown above (part A §5)."}</Fragment><Fragment slot="p">{"For star clusters and dwarf galaxies, a statement like this from the source takes the system off the map. That rule is for a different kind of measurement, so this cluster stays on the map, with the source's own words shown."}</Fragment></Layer>
+        </>}
+        {otherNotes.length > 0 && <ul class="small">{otherNotes.map((s) => <li>{s}</li>)}</ul>}
+      </section>}
 
       <h2 id="budget"><L t="Pull budget" p="Where the pull comes from" /></h2>
       <div class="seg" role="group" aria-label="Units" style="margin-bottom:10px">
@@ -145,7 +182,8 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
 
       <h2 id="measured"><L t="As measured" p="What was actually measured" /></h2>
       {d.name === 'aeg-d-sparc' && <Layer as="p"><Fragment slot="t">The source’s own quantities, before the Atlas converts them (D-029). SPARC gives the observed circular velocity V_obs with its random error (which excludes the inclination uncertainty) and the velocities that each baryonic component alone would produce: gas (atomic, × 1.33 for helium) and stars at a mass-to-light ratio of 1 at 3.6 μm. The Atlas then computes g_obs = V_obs² / R and g_bar = (|V_gas| V_gas + Υ_disk |V_disk| V_disk + Υ_bul |V_bul| V_bul) / R.</Fragment><Fragment slot="p">Before any conversion, the source gives speeds: how fast the galaxy turns at each distance, and how fast it would turn from its gas alone or its stars alone. The Atlas turns these speeds into pulls.</Fragment></Layer>}
-      {d.name === 'aeg-d-xcop' && <Layer as="p"><Fragment slot="t">The source’s own quantities, before the Atlas converts them (D-029). X-COP releases masses within each radius: the forward-method hydrostatic mass (already an inference from the X-ray and SZ temperature and pressure profiles, to which the source fits functional forms), the hot-gas mass and the stellar mass. The Atlas computes g = G M(&lt;r) / r². The temperature and density profiles behind the hydrostatic mass are in the same public archive and are added with the next version of this dataset.</Fragment><Fragment slot="p">The source gives masses: the total mass it works out from the hot gas, and the masses of hot gas and of stars. The Atlas turns these into pulls. The gas measurements behind them come with the next version.</Fragment></Layer>}
+      {d.key === 'aeg-d-xcop/v2' && <Layer as="p"><Fragment slot="t">The source’s own quantities (D-029). For this version the source released the accelerations themselves, at the radii of its data: g_obs from its non-parametric hydrostatic reconstruction and g_bar from its gas, central-galaxy and satellite masses, as one total (Eckert et al. 2022, l. 263, 453, 456). The Atlas does not recompute them (D-090 rule 1).</Fragment><Fragment slot="p">For this version the source gave the pulls directly, so the Atlas shows them as released.</Fragment></Layer>}
+      {d.key === 'aeg-d-xcop/v1' && <Layer as="p"><Fragment slot="t">The source’s own quantities, before the Atlas converts them (D-029). X-COP releases masses within each radius: the forward-method hydrostatic mass (already an inference from the X-ray and SZ temperature and pressure profiles, to which the source fits functional forms), the hot-gas mass and the stellar mass. The Atlas computes g = G M(&lt;r) / r². The temperature and density profiles behind the hydrostatic mass are in the same public archive and are added with the next version of this dataset.</Fragment><Fragment slot="p">The source gives masses: the total mass it works out from the hot gas, and the masses of hot gas and of stars. The Atlas turns these into pulls. The gas measurements behind them come with the next version.</Fragment></Layer>}
       <figure>
         <div class="figbox" id="measbox">
           <canvas id="meas" class="cv" role="img" aria-label=""></canvas>
@@ -217,7 +255,7 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
     </aside>
   </div>
   )}
-  {!isDisp && <script type="application/json" id="budget-config" set:html={JSON.stringify(cfg)}></script>}
+  {!isDisp && !noRows && <script type="application/json" id="budget-config" set:html={JSON.stringify(cfg)}></script>}
   <script>
     if (document.getElementById('budget-config')) import('../../scripts/budget.js').then((m) => m.start());
   </script>

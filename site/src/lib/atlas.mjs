@@ -32,11 +32,19 @@ export function loadAtlas() {
   if (cache) return cache;
   const registry = JSON.parse(read(path.join(ROOT, 'data/assumptions.json')));
   let datasets = [];
+  // Versions built but not yet published (D-090 rule 5): no tables in the repository, so no pages,
+  // map points or downloads; their descriptor's notice is shown on the dataset's current version.
+  const pending = [];
   for (const name of fs.readdirSync(PKG).sort()) {
     for (const version of fs.readdirSync(path.join(PKG, name)).sort()) {
       const dir = path.join(PKG, name, version);
       const mfile = path.join(dir, 'tables/measurements.ecsv');
-      if (!fs.existsSync(mfile)) continue;
+      if (!fs.existsSync(mfile)) {
+        const dtext = readIf(path.join(dir, 'datapackage.json')) || readIf(path.join(dir, 'descriptor.json'));
+        const dd = dtext ? JSON.parse(dtext) : null;
+        if (dd && dd.x_publication === 'awaiting_authors_consent' && dd.x_publication_notice) pending.push({ name, version, key: `${name}/${version}`, notice: dd.x_publication_notice });
+        continue;
+      }
       const key = `${name}/${version}`;
       const dp = JSON.parse(read(path.join(dir, 'datapackage.json')));
       const meas = parseECSV(read(mfile));
@@ -74,6 +82,7 @@ export function loadAtlas() {
     d.current = latest[d.name] === d;
     d.supersededBy = d.current ? null : latest[d.name].key;
     d.versions = datasets.filter((x) => x.name === d.name).map((x) => x.key);
+    d.pending = d.current ? pending.filter((p) => p.name === d.name && vnum(p.version) > vnum(d.version)) : [];
   }
   const all = datasets.slice();
   datasets = all.filter((d) => d.current);

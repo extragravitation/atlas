@@ -51,6 +51,19 @@ def close(a, b) -> bool:
     return abs(a - b) <= REL_TOL * max(abs(a), abs(b), 1e-300)
 
 
+def unpublished(pkg: Path) -> bool:
+    """True if the package version's descriptor sets x_publication to anything but `published`
+    (X-COP v2 until the authors confirm, D-090 rule 5). Row values are then withheld from every
+    message, because CI logs are public (aeg-d-xcop/v2/REPRODUCTION_PART_B.md rule 5)."""
+    for name in ("datapackage.json", "descriptor.json"):
+        f = pkg / name
+        if f.is_file():
+            pub = json.loads(f.read_text(encoding="utf-8")).get("x_publication")
+            if pub is not None:
+                return pub != "published"
+    return False
+
+
 def load_package(pkg: Path):
     from astropy.table import Table
     meas = Table.read(pkg / "tables/measurements.ecsv", format="ascii.ecsv")
@@ -73,6 +86,8 @@ def main() -> int:
             continue
         dataset = f"{pkg.parent.name}/{pkg.name}"
         rows, systems, mcols, scols = load_package(pkg)
+        hide = unpublished(pkg)
+        val = (lambda v: "<value withheld: unpublished>") if hide else (lambda v: v)
         allowed = {"p", "p0"} | mcols | {f"system.{c}" for c in scols}
         defs = {a["id"]: a for a in registry["assumptions"]}
         for a in registry["assumptions"]:
@@ -98,17 +113,17 @@ def main() -> int:
                     out = apply_assumption(row, system, spec["effects"], p, spec["default"])
                     jobs.append({"row": row, "system": system, "effects": spec["effects"], "p": p,
                                  "p0": spec["default"], "python": {e["column"]: out[e["column"]] for e in spec["effects"]},
-                                 "tag": f"{row['measurement_id']} {aid} p={p}"})
+                                 "tag": f"{row['measurement_id']} {aid} p={p}", "hide": hide})
                     for e in spec["effects"]:
                         v = out[e["column"]]
                         if p == spec["default"] and not close(v, row.get(e["column"])):
-                            problems.append(f"{row['measurement_id']} {aid}: {e['column']} changes at the default ({row.get(e['column'])} -> {v})")
+                            problems.append(f"{row['measurement_id']} {aid}: {e['column']} changes at the default ({val(row.get(e['column']))} -> {val(v)})")
                     if "g_obs" in out and not (isinstance(out["g_obs"], float) and math.isfinite(out["g_obs"]) and out["g_obs"] > 0):
-                        problems.append(f"{row['measurement_id']} {aid} p={p}: g_obs = {out['g_obs']}")
+                        problems.append(f"{row['measurement_id']} {aid} p={p}: g_obs = {val(out['g_obs'])}")
                     if "g_bar" in out:
                         gb = out["g_bar"]
                         if not (isinstance(gb, float) and math.isfinite(gb)):
-                            problems.append(f"{row['measurement_id']} {aid} p={p}: g_bar = {gb}")
+                            problems.append(f"{row['measurement_id']} {aid} p={p}: g_bar = {val(gb)}")
                         elif gb <= 0:
                             # Physical only if some component is negative (signed contributions, e.g. a
                             # central gas depression: arXiv:1606.09251 §III.3). Reported, not an error.
@@ -116,7 +131,7 @@ def main() -> int:
                             if any(isinstance(c, float) and c < 0 for c in comps):
                                 nonpositive.append(f"{row['measurement_id']} {aid} p={p}")
                             else:
-                                problems.append(f"{row['measurement_id']} {aid} p={p}: g_bar = {gb} with no negative component")
+                                problems.append(f"{row['measurement_id']} {aid} p={p}: g_bar = {val(gb)} with no negative component")
 
     with tempfile.TemporaryDirectory() as tmp:
         jin, jout = Path(tmp) / "in.json", Path(tmp) / "out.json"
@@ -135,7 +150,10 @@ def main() -> int:
         for col, pv in j["python"].items():
             pv = None if (isinstance(pv, float) and math.isnan(pv)) else pv
             if not close(pv, jr[col]):
-                problems.append(f"{j['tag']}: {col} Python {pv} vs JavaScript {jr[col]}")
+                if j["hide"]:
+                    problems.append(f"{j['tag']}: {col} Python and JavaScript differ (values withheld: unpublished)")
+                else:
+                    problems.append(f"{j['tag']}: {col} Python {pv} vs JavaScript {jr[col]}")
 
     print(f"formula check: {len(jobs)} evaluations")
     if nonpositive:

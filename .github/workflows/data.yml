@@ -103,6 +103,10 @@ jobs:
           fi
           echo "::notice title=formula check::$(head -c 1500 formula.log | tr '\n' '|')"
           cat formula.log
+      # aeg-d-xcop/v2 is built here but not published (D-090 rule 5): its tables are gitignored and
+      # never committed, so this step compares its committed checksums.sha256 (table hashes, no rows)
+      # with the regenerated one. Its converter, the formula check and every log here print no row
+      # value of an unpublished version (REPRODUCTION_PART_B.md rule 5).
       - name: Committed tables equal regenerated tables
         if: always()
         run: |

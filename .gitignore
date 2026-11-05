@@ -9,6 +9,9 @@ __pycache__/
 # (sources that may not be redistributed must never enter the repository; see LICENSE-CONTENT.md)
 data/packages/*/*/source/
 data/cache/
+# X-COP v2 tables: built locally and in CI, never committed or pushed until the authors confirm
+# (D-090 rule 5; REPRODUCTION_PART_B.md rule 5). checksums.sha256 is committed instead.
+data/packages/aeg-d-xcop/v2/tables/
 
 # Site build output
 site/dist/
