@@ -6,6 +6,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import L from './L.astro';
 import Layer from './Layer.astro';
+import EpochCut from './EpochCut.astro';
 import { lensPackage } from '../lib/lensing.mjs';
 import { md, REPO } from '../lib/md.mjs';
 
@@ -59,6 +60,7 @@ const TH_LABEL = { R5: 'R5 (SLACS V)' };
 <ul class="small">{F.recordedGroups.map((g) => <li><b>{g.items.length}</b> · {g.reason}: {g.items.map((it, i) => <>{i ? ', ' : ''}<a href={`${base}systems/${it.id}/`}>{it.name}</a> <span class="muted">(<L t={it.words.t} p={it.words.p} />)</span></>)}</li>)}</ul>
 <h3 id="epoch-gap"><L t="Recorded at z ≥ 0.30 (epoch gap)" p="Lenses farther back in time" /></h3>
 <Layer as="p" class="small"><Fragment slot="t">{F.gap} lenses with a printed, measured z_l of 0.30 or more (D-066 item 2). They are recorded straight from the two independent readings, not adjudicated: identifiers, z_l and z_s with their methods, and the kind as read. Where the readers differ ({F.gapDiffer} lenses, flag readers_differ), both readings are kept on the lens page and listed in SECOND_READING.md. No g_obs or g_bar is computed for them.</Fragment><Fragment slot="p">These {F.gap} lenses are farther away, so we see them as they were longer ago. This version of the Atlas keeps them in the record without putting them on the map.</Fragment></Layer>
+<EpochCut />
 <details class="more small"><summary><L t={`All ${F.gap} lenses, by lens redshift`} p={`Show all ${F.gap}`} /></summary>
 <ul class="small gaplist">{[...F.gapItems].sort((a, b) => a.z - b.z).map((it) => <li><a href={`${base}systems/${it.id}/`}>{it.name}</a> <span class="muted">z_l {it.z}{it.differ ? ' · readers differ' : ''}</span></li>)}</ul>
 </details>

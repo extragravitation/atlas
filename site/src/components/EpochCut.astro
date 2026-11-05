@@ -1,0 +1,9 @@
+---
+// Why lenses and clusters at z ≥ 0.30 are not plotted in v1.0 (D-033 item 5; the line itself, D-066).
+// Shown wherever the cut is shown (D-109, context). The cut is not changed here.
+import Layer from './Layer.astro';
+import { decisionUrl } from '../lib/refs.mjs';
+const { as = 'p' } = Astro.props;
+const d033 = decisionUrl('D-033'), d066 = decisionUrl('D-066');
+---
+<Layer as={as} class="small"><Fragment slot="t"><b>Why the cut.</b> Cosmic epoch is a documented gap for v1.0 (<a href={d033}>D-033</a> item 5): the Atlas describes the nearby universe, and baryon inventories at high redshift often rely on scaling relations. <a href={d066}>D-066</a> fixes the line at a printed redshift of 0.30, set before any value was seen. Systems at z ≥ 0.30 are recorded in full and flagged epoch_gap_v1.</Fragment><Fragment slot="p"><b>Why.</b> This version covers the nearby universe. For more distant objects the amount of ordinary matter is often estimated from general rules rather than measured, so they are kept in the record, not yet drawn (<a href={d033}>D-033</a>, <a href={d066}>D-066</a>).</Fragment></Layer>

@@ -83,7 +83,7 @@ function select(key) {
 // ones named with their values). Shown above the chart and in the Explore top bar.
 export function describe() {
   const P = plain(), idx = sliderIndex();
-  const lens = { obs: P ? 'pull view' : 'Acceleration lens', ex: P ? 'extra-pull view' : 'Excess lens', mass: P ? 'mass view' : 'Mass lens', rad: P ? 'distance view' : 'Scale lens', speed: P ? 'speed view' : 'Speed lens' }[state.view] || state.view;
+  const lens = { obs: P ? 'pull view' : 'Acceleration lens', ratio: P ? 'ratio view' : 'Ratio lens', mass: P ? 'mass view' : 'Mass lens', rad: P ? 'distance view' : 'Scale lens', speed: P ? 'speed view' : 'Speed lens' }[state.view] || state.view;
   const pick = { all: P ? 'every point' : 'every measurement', outer: P ? 'one per galaxy, farthest point' : 'one per system, outermost radius', light: P ? 'one per galaxy, same relative size' : 'one per system, 2 × half-light radius' }[state.pick];
   const total = document.querySelectorAll('.rail [id^="ds-"], .mpanel [id^="ds-"]').length || 3, on = total - state.hide.length;
   const data = on === total ? (P ? 'all datasets' : `${total} of ${total} datasets`) : `${on} of ${total} datasets`;

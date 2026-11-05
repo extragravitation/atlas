@@ -1,0 +1,14 @@
+---
+// Quoted source text, shown readably (D-109 rule 4). Common TeX is converted for display only; the
+// stored text is unchanged and shown exactly as read under "show as read". Text without TeX is shown
+// as it is. With `pkgDir` (or `links`), decision numbers and repository paths become links (refs.mjs).
+import { hasTex, texHtml } from '../lib/tex.mjs';
+import { linkRefs } from '../lib/refs.mjs';
+const { text, pkgDir, links = false } = Astro.props;
+const raw = text === null || text === undefined ? '' : String(text);
+const linked = links || pkgDir !== undefined;
+const link = linked ? (s) => linkRefs(s, pkgDir || '') : undefined;
+const tex = hasTex(raw);
+const html = tex ? texHtml(raw, link) : linked ? linkRefs(raw, pkgDir || '') : null;
+---
+{html === null ? raw : <Fragment set:html={html} />}{tex && <>{' '}<details class="asread"><summary>show as read</summary><code>{raw}</code></details></>}

@@ -1,5 +1,5 @@
-// System page (object level): the pull budget. The source's baryonic components stacked against
-// the observed acceleration, with the g_bar uncertainty, the full published ranges of the
+// System page (object level): the pull budget. The source's detected baryonic components stacked,
+// with the observed acceleration as points (nothing undetected is drawn as a component, D-109 rule 1), with the g_bar uncertainty, the full published ranges of the
 // assumptions, each point's range within its own errors, and the share g_bar / g_obs. Optional
 // orbital-speed view. Everything is computed from the package rows and the registry formulas.
 import { loadData, adjusted, systemChanged, speed, ringed } from './model.js';
@@ -57,7 +57,6 @@ function draw() {
   if (!sp) {
     let base = q.map(() => 0);
     for (const c of lay) { const top = q.map((x, i) => base[i] + (x[c] || 0) * 1e10); band(q.map((x, i) => [X(x.r_kpc), Y(top[i])]), q.map((x, i) => [X(x.r_kpc), Y(base[i])]), css(COMP[c][0]), 0.85); base = top; }
-    band(q.map((x) => [X(x.r_kpc), Y(x.g_obs * 1e10)]), q.map((x, i) => [X(x.r_kpc), Y(base[i])]), css('--rem'), parseFloat(css('--remAlpha')) || 0.12);
   } else {
     for (const c of lay) line(q.map((x) => [X(x.r_kpc), Y(speed(x[c] || 0, x.r_kpc))]), css(COMP[c][0]), 1.6, c.includes('gas') ? [5, 3] : null);
   }
@@ -99,7 +98,6 @@ function draw() {
   for (const c of lay) items.push(`<li><span class="item"><span class="sw" style="${sp ? 'height:3px;' : ''}background:var(${COMP[c][0]})" aria-hidden="true"></span><span>${COMP[c][1 + P]}${c === 'g_bar_stars' && rows.some((r) => r.stars_status === 'modelled') ? (P ? ' (estimated from a model, decision D-023)' : ' (modelled, D-023)') : ''}</span></span></li>`);
   items.push(`<li><span class="item"><span class="sw" style="height:3px;background:var(--bar)" aria-hidden="true"></span><span>${sp ? CFG.vbar[+P] : CFG.gbar[+P]}</span></span></li>`);
   if (state.eb) items.push(`<li><span class="item"><span class="sw" style="background:var(--bar);opacity:0.35" aria-hidden="true"></span><span>${CFG.ebText}</span></span></li>`);
-  if (!sp) items.push(`<li><span class="item"><span class="sw" style="background:var(--rem);opacity:0.35" aria-hidden="true"></span><span>${CFG.rem[+P]}</span></span></li>`);
   items.push(`<li><span class="item"><span class="sw" style="border-radius:50%;background:var(--sel)" aria-hidden="true"></span><span>${sp ? CFG.vobs[+P] : CFG.gobs[+P]}, one-sigma bars</span></span></li>`);
   if (state.rng && movesBar.length) items.push(`<li><span class="item"><span class="sw" style="height:0;border-top:2px dashed var(--range)" aria-hidden="true"></span><span>${P ? 'Detected matter at the two ends of the published range of' : 'g_bar at both ends of the full published range of'} ${movesBar.map((a) => CFG.names[a.id] || a.id).join(' and ')}</span></span></li>`);
   if (state.rng && movesObs.length) items.push(`<li><span class="item"><span class="sw" style="width:4px;border-radius:2px;background:var(--range);opacity:0.6" aria-hidden="true"></span><span>${P ? 'Where each point could move within' : 'Each point across the full range of'} ${movesObs.map((a) => CFG.names[a.id] || a.id).join(' and ')}${movesObs.some((a) => a.id === 'distance') ? (P ? ' (slanted: the distance from the centre changes too)' : ' (slanted where the radius moves too)') : ''}</span></span></li>`);
@@ -108,7 +106,7 @@ function draw() {
   const pick = (target) => { let b = 0; q.forEach((x, i) => { if (Math.abs(x.r_kpc - target) < Math.abs(q[b].r_kpc - target)) b = i; }); return b; };
   const pc = (i) => `${Math.round(share[i] * 100)}% at ${q[i].r_kpc < 10 ? q[i].r_kpc.toFixed(1) : Math.round(q[i].r_kpc)} kpc`;
   const iMid = pick(q[q.length - 1].r_kpc / 2), nClip = share.filter((v) => v > smax).length;
-  $('bcaption').innerHTML = `<b>Figure.</b> ${sp ? CFG.capSpeed[+P] : CFG.capAcc[+P]} ${P ? 'Lower panel: the share of the observed pull matched by Newton’s gravity from the detected matter' : 'Lower panel: g_bar / g_obs, the share of the observed acceleration accounted for by detected matter'}: ${pc(0)}, ${pc(iMid)}, ${pc(q.length - 1)}.${nClip ? (P ? ` ${nClip} value${nClip > 1 ? 's' : ''} above ${Math.round(smax * 100)}% marked with a triangle at the top.` : ` ${nClip} value${nClip > 1 ? 's' : ''} above ${smax.toFixed(1)} shown as triangles at the top edge (see the table).`) : ''}${ymin < 0 ? (P ? ' A layer below zero means that part of the matter pulls outward at those distances, as the source gives it.' : ' A component below zero is a net outward pull from that component at those radii, as the source gives it.') : ''} ${systemChanged(d, sys.system_id) ? (P ? 'Some assumptions are changed (listed at the top).' : 'Assumptions differ from the source’s defaults (listed at the top).') : (P ? 'Assumptions as the source gives them.' : 'Assumptions at the source’s defaults.')}`;
+  $('bcaption').innerHTML = `<b>Figure.</b> ${sp ? CFG.capSpeed[+P] : CFG.capAcc[+P]} ${P ? 'Lower panel: the share of the observed pull matched by Newton’s gravity from detected matter' : 'Lower panel: g_bar / g_obs, Newtonian acceleration from detected matter divided by the observed acceleration'}: ${pc(0)}, ${pc(iMid)}, ${pc(q.length - 1)}.${nClip ? (P ? ` ${nClip} value${nClip > 1 ? 's' : ''} above ${Math.round(smax * 100)}% marked with a triangle at the top.` : ` ${nClip} value${nClip > 1 ? 's' : ''} above ${smax.toFixed(1)} shown as triangles at the top edge (see the table).`) : ''}${ymin < 0 ? (P ? ' A layer below zero means that part of the matter pulls outward at those distances, as the source gives it.' : ' A component below zero is a net outward pull from that component at those radii, as the source gives it.') : ''} ${systemChanged(d, sys.system_id) ? (P ? 'Some assumptions are changed (listed at the top).' : 'Assumptions differ from the source’s defaults (listed at the top).') : (P ? 'Assumptions as the source gives them.' : 'Assumptions at the source’s defaults.')}`;
   table(q);
 }
 

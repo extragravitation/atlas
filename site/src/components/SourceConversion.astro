@@ -7,9 +7,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import Layer from './Layer.astro';
 import L from './L.astro';
+import Quote from './Quote.astro';
 import { md, REPO } from '../lib/md.mjs';
 import { ROOT } from '../lib/atlas.mjs';
-import { linkRefs } from '../lib/refs.mjs';
 const { d, repoDir } = Astro.props;
 const blob = (f) => `${REPO}/blob/main/${repoDir}/${f}`;
 const has = (f) => fs.existsSync(path.join(ROOT, repoDir, f));
@@ -52,7 +52,7 @@ const invText = (x) => { const t = x.citation || x.note || ''; return T4.test(t)
       <details open={sources.length <= 12}><summary class="small"><L t="Role, address, date retrieved and SHA-256 of each file, from sources.json" p="Show the list" /></summary>
         <div class="tablebox" tabindex="0"><table><thead><tr><th class="l">Role</th><th class="l">Retrieved</th><th class="l">SHA-256</th><th class="l">Copy in the repository</th></tr></thead><tbody>
           {sources.map((s) => <tr>
-            <td class="l" style="white-space:normal;min-width:260px">{s.url ? <a href={s.url}>{s.role || s.file}</a> : (s.role || s.file)}{s.note && <><br><span class="small" set:html={linkRefs(s.note, repoDir)} /></>}</td>
+            <td class="l" style="white-space:normal;min-width:260px">{s.url ? <a href={s.url}>{s.role || s.file}</a> : (s.role || s.file)}{s.note && <><br><span class="small"><Quote text={s.note} pkgDir={repoDir} /></span></>}</td>
             <td class="l">{s.retrieved || '–'}</td>
             <td class="l"><code style="font-size:11px" title={s.sha256 || ''}>{shortHash(s.sha256)}</code></td>
             <td class="l">{s.redistributable ? 'yes' : 'no: fetched by address and checked by hash'}</td>
@@ -63,20 +63,20 @@ const invText = (x) => { const t = x.citation || x.note || ''; return T4.test(t)
 
     {sel.length > 0 && <>
       <h3><L t="Selection" p="Which systems and values are used" /></h3>
-      <ul class="small">{sel.map((x) => <li>{x.sample && <>{status(x.sample)}: </>}<b>{x.quantity}</b> {x.condition === '==' ? '' : `${x.condition} `}<span set:html={linkRefs(String(x.value ?? ''), repoDir)} />{x.citation && <> (<span set:html={linkRefs(x.citation, repoDir)} />)</>}</li>)}</ul>
+      <ul class="small">{sel.map((x) => <li>{x.sample && <>{status(x.sample)}: </>}<b>{x.quantity}</b> {x.condition === '==' ? '' : `${x.condition} `}<span><Quote text={String(x.value ?? '')} pkgDir={repoDir} /></span>{x.citation && <> (<span><Quote text={x.citation} pkgDir={repoDir} /></span>)</>}</li>)}</ul>
     </>}
 
     {inv.length > 0 && <>
       <h3><L t="Detected matter counted in g_bar" p="Which matter goes into the pull from detected matter" /></h3>
-      <ul class="small">{inv.map((x) => <li><b>{x.component}</b>: {status(x.status)}{invText(x) ? <>. <span set:html={linkRefs(invText(x), repoDir)} /></> : (x.citation || x.note) && <>. The package’s note for this component is in <a href={blob('datapackage.json')}>datapackage.json</a>; its wording is corrected at re-issue (audit finding T4).</>}</li>)}</ul>
-      {d.dp.x_baryon_inventory_note && <p class="small" set:html={linkRefs(d.dp.x_baryon_inventory_note, repoDir)} />}
+      <ul class="small">{inv.map((x) => <li><b>{x.component}</b>: {status(x.status)}{invText(x) ? <>. <span><Quote text={invText(x)} pkgDir={repoDir} /></span></> : (x.citation || x.note) && <>. The package’s note for this component is in <a href={blob('datapackage.json')}>datapackage.json</a>; its wording is corrected at re-issue (audit finding T4).</>}</li>)}</ul>
+      {d.dp.x_baryon_inventory_note && <div class="small para"><Quote text={d.dp.x_baryon_inventory_note} pkgDir={repoDir} /></div>}
     </>}
 
     {second && <>
       <h3><L t="Second reading" p="Checked by a second reader" /></h3>
-      {typeof second === 'string' ? <p class="small"><a href={blob(second)}>{second}</a></p> : <p class="small">
-        {second.by && <>By {second.by}. </>}{second.date && <>{second.date}. </>}{second.result && <span set:html={linkRefs(second.result, repoDir)} />}{second.file && <> <a href={blob(second.file)}>{second.file}</a></>}
-      </p>}
+      {typeof second === 'string' ? <p class="small"><a href={blob(second)}>{second}</a></p> : <div class="small para">
+        {second.by && <>By {second.by}. </>}{second.date && <>{second.date}. </>}{second.result && <span><Quote text={second.result} pkgDir={repoDir} /></span>}{second.file && <> <a href={blob(second.file)}>{second.file}</a></>}
+      </div>}
     </>}
   </>
 )}

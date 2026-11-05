@@ -11,6 +11,7 @@ const BASE = document.documentElement.dataset.base || '/';
 const $ = (id) => document.getElementById(id);
 const COLOR = { 'aeg-d-sparc': '--sparc', 'aeg-d-gc-baumgardt': '--gc', 'aeg-d-dwarfs': '--dw', 'aeg-d-strong-lensing': '--sl', 'aeg-d-xcop': '--xcop', 'aeg-d-kids1000-rar': '--kids' };
 const LBL = JSON.parse($('map-labels').textContent);
+const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 let D = null, hits = [], hover = null, cache = null, geom = null, brush = null;
 
 const lg = (v) => (v > 0 ? Math.log10(v) : null);
@@ -176,12 +177,12 @@ function ranges() {
 }
 function baseRanges() {
   if (state.view === 'obs') return { x: [-15, -7.5], y: [-13.5, -7.5], equal: true };
-  if (state.view === 'ex') return { x: [-15, -7.5], y: [-0.5, 2.0] };
+  if (state.view === 'ratio') return { x: [-15, -7.5], y: [-0.5, 2.0] };
   if (state.view === 'mass') return { x: [5, 15.5], y: [5, 15.5], equal: true };
   if (state.view === 'speed') return { x: [-1.2, 3.5], y: [0.5, 3.5] };
   return { x: [-1.2, 3.5], y: [-0.5, 2.0] };
 }
-const VIEWS = ['obs', 'ex', 'mass', 'rad', 'speed'];
+const VIEWS = ['obs', 'ratio', 'mass', 'rad', 'speed'];
 
 // Zoom (reader's choice, kept in the address as z=x0,x1,y0,y1): the plotted window only; it never
 // changes which measurements exist or their values.
@@ -351,7 +352,7 @@ function draw() {
     pn.innerHTML = t.replace('{n}', pickStats.shown).replace('{N}', pickStats.systems) + left; pn.hidden = false;
   } else pn.hidden = true;
   const projShown = D.datasets.some((d) => !state.hide.includes(d.key) && d.rows.some((r) => r.r_kind === 'projected'));
-  $('lens-note').innerHTML = LBL.lens[v][+P] + (RADIAL.includes(v) && D.datasets.some((d) => !d.systems && !state.hide.includes(d.key)) ? ' ' + LBL.noRadius[+P] : '') + (projShown ? ' ' + LBL.projected[v][+P] : '');
+  $('lens-note').innerHTML = LBL.lens[v][+P] + (RADIAL.includes(v) && D.datasets.some((d) => !d.systems && !state.hide.includes(d.key)) ? ' ' + LBL.noRadius[+P] : '') + (projShown ? ' ' + LBL.projected[v][+P] + ' ' + LBL.lensCut[+P] : '');
 }
 
 function legend() {
@@ -388,7 +389,11 @@ function card() {
   $('card-name').textContent = s.name_in_source;
   $('card-meta').textContent = `${d.kind_words && d.kind_words[s.system_id] ? d.kind_words[s.system_id][plain() ? 'p' : 't'] : s.class_in_source} · ${d.title.split(':')[0]} · ${s.rows.length && s.rows.every((i) => d.rows[i].r_kind === 'projected') ? (plain() ? 'one value, measured in projection inside the ring' : 'one value, projected, inside the Einstein radius R_E') : s.rows.length && s.rows.every((i) => d.rows[i].kind === 'system_value') ? 'one value, at the 3D half-light radius' : rows.length + ' radii'}` + (state.pick !== 'all' ? ' · the map shows one of them (' + (state.pick === 'outer' ? 'the outermost' : 'the first at ≥ ' + LIGHT_K + ' × half-light radius') + ')' : '');
   $('card-link').href = BASE + 'systems/' + s.system_id + '/';
-  $('card-flags').textContent = s.rows.some((i) => ringed(d.rows[i].flags)) ? 'Some measurements are flagged; see Known issues.' : 'No flags on this system.';
+  // Equilibrium flag (D-109 rule 3): the source's statement, quoted, with the decision.
+  const eq = LBL.eqFlags[s.system_id], eqEl = $('card-eq');
+  eqEl.hidden = !(eq && eq.dataset === d.key);
+  $('card-flags').textContent = s.rows.some((i) => ringed(d.rows[i].flags)) ? 'Some measurements are flagged; see Known issues.' : eqEl.hidden ? 'No flags on this system.' : 'No measurement is ringed.';
+  if (!eqEl.hidden) eqEl.innerHTML = (plain() ? `<b>Note:</b> the source says this cluster’s gas is not settled: “${esc(eq.quote)}”. The observed pull here assumes settled gas; the cluster stays on the map with this note.` : `<b>Flag:</b> the source states “${esc(eq.quote)}” (${esc(eq.where)}${eq.cites ? ', citing ' + esc(eq.cites) : ''}). g_obs here is hydrostatic; plotted and flagged until the equilibrium test is applied.`) + ` <a href="${esc(eq.url)}">${esc(eq.decision)}</a>`;
   const prof = $('card-prof'), W = Math.max(220, prof.parentElement.clientWidth - 34), H = Math.round(W * 0.62), g = setup(prof, W, H);
   const isLog = d.name === 'aeg-d-xcop';
   let lo = Infinity, hi = -Infinity; rows.forEach((q) => { lo = Math.min(lo, lg(q.g_bar), lg(q.g_obs)); hi = Math.max(hi, lg(q.g_bar), lg(q.g_obs)); });

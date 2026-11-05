@@ -9,13 +9,15 @@ import { loadIssues } from '../../../lib/issues.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { datasetLabel, assumptionLabel, fmtParam, rangeLabel, systemsText, plottedSystemCount } from '../../../lib/labels.mjs';
-import { linkRefs } from '../../../lib/refs.mjs';
+import { linkRefs, decisionUrl } from '../../../lib/refs.mjs';
 import { ROOT } from '../../../lib/atlas.mjs';
 import SourceConversion from '../../../components/SourceConversion.astro';
 import { md, resultLine, REPO } from '../../../lib/md.mjs';
 import LensDataset from '../../../components/LensDataset.astro';
 import SparcSelection from '../../../components/SparcSelection.astro';
 import UncertaintyTerms from '../../../components/UncertaintyTerms.astro';
+import Quote from '../../../components/Quote.astro';
+import EpochCut from '../../../components/EpochCut.astro';
 import { isLensing } from '../../../lib/lensing.mjs';
 
 export function getStaticPaths() {
@@ -63,7 +65,8 @@ const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(lens ? [[
       {d.dp.x_publication && d.dp.x_publication !== 'published' && <p class="boxed" style="margin:8px 0"><L t="Not published: this version awaits the authors' confirmation (D-090 rule 5). This page exists only in a local build; its tables are not in the repository." p="Not public yet: we are waiting for the authors to confirm. This page is a private preview." /></p>}
 
       <h2 id="summary"><L t="Summary" p="In short" /></h2>
-      <Layer as="p"><Fragment slot="t">{d.dp.description}</Fragment><Fragment slot="p">{summaryP}</Fragment></Layer>
+      <Layer as="div" class="para"><Fragment slot="t"><Quote text={d.dp.description} /></Fragment><Fragment slot="p">{summaryP}</Fragment></Layer>
+      {/D-097/.test(d.dp.description || '') && <Layer as="p" class="small"><Fragment slot="t">The equilibrium rule above (D-097 to D-100) is so far written for velocity-dispersion data. <a href={decisionUrl('D-109')}>D-109</a> rule 3 extends one written equilibrium test, frozen before it is applied, to hydrostatic X-ray masses and rotation curves; two independent readers apply it to the X-COP sources after v0.2, then to SPARC. Until then X-COP's A2319 stays plotted, flagged with its source's statement (<a href={`${base}systems/aeg-s-000183/#flag`}>A2319</a>).</Fragment><Fragment slot="p">The rule that keeps unsettled systems off the map is so far written for this kind of measurement only. One test for every method is to be applied after version 0.2. Until then a galaxy cluster whose source says its gas is not settled (<a href={`${base}systems/aeg-s-000183/#flag`}>A2319</a>) stays on the map, with a note.</Fragment></Layer>}
       <dl class="facts">
         <div><dt><L t="Method" p="How it was measured" /></dt><dd><L t={lab.method_t} p={lab.method_p} /></dd></div>
         <div><dt>Channel</dt><dd>{channels.join(', ')}</dd></div>
@@ -120,7 +123,7 @@ const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(lens ? [[
               <td class="l">{a.scope === 'system' ? 'per system' : a.scope === 'dataset' ? 'whole dataset' : '–'}</td>
               <td>{typeof e.default === 'number' ? fmtParam(k, e.default) : e.default}</td>
               <td>{rangeLabel(a.id, e)}</td>
-              <td class="l" style="white-space:normal;min-width:260px;font-size:12px">{e.default_ref && <>Default: <Fragment set:html={linkRefs(e.default_ref, repoDir)} /><br></>}{e.range_ref && <>Range: <Fragment set:html={linkRefs(e.range_ref, repoDir)} /></>}{e.note && <><br><Fragment set:html={linkRefs(e.note, repoDir)} /></>}</td>
+              <td class="l" style="white-space:normal;min-width:260px;font-size:12px">{e.default_ref && <>Default: <Quote text={e.default_ref} pkgDir={repoDir} /><br></>}{e.range_ref && <>Range: <Quote text={e.range_ref} pkgDir={repoDir} /></>}{e.note && <><br><Quote text={e.note} pkgDir={repoDir} /></>}</td>
             </tr>; })}
           </tbody>
         </table>
@@ -148,7 +151,7 @@ const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(lens ? [[
 
       <h2 id="columns">Columns</h2>
       <div tabindex="0" class="tablebox"><table><thead><tr><th class="l">Column</th><th class="l">Type</th><th class="l">Unit</th><th class="l">Description</th></tr></thead><tbody>
-        {d.measurements.columns.map((c) => <tr><td class="l"><code>{c.name}</code></td><td class="l">{c.datatype}</td><td class="l">{c.unit || ''}</td><td class="l" style="white-space:normal;min-width:300px">{c.description}</td></tr>)}
+        {d.measurements.columns.map((c) => <tr><td class="l"><code>{c.name}</code></td><td class="l">{c.datatype}</td><td class="l">{c.unit || ''}</td><td class="l" style="white-space:normal;min-width:300px"><Quote text={c.description} /></td></tr>)}
       </tbody></table></div>
 
       <h2 id="source"><L t="Source and conversion" p="Where the data come from and how they were converted" /></h2>

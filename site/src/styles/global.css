@@ -8,7 +8,7 @@
   --bg: #07090D; --panel: #0B1017; --ink: #E6EAF0; --muted: #9AA6B2; --line: #1F2A36; --grid: #121A24;
   --sparc: #5CC8FF; --gc: #9BE564; --dw: #F5D90A; --sl: #2DD4BF; --xcop: #FFB454; --kids: #C3B4FF; --flag: #FF6B8A; --sel: #FFFFFF; --bar: #FFB454; --on: #123247; --onText: #E6EAF0;
   --kicker: #FFB454; --ptAlpha: 0.5; --range: #FFB454; --link: #7FD4FF;
-  --disc: #3E7CB1; --bulge: #8E6CC0; --gas: #3FA37C; --stars: #3E7CB1; --rem: #E6EAF0; --remAlpha: 0.14;
+  --disc: #3E7CB1; --bulge: #8E6CC0; --gas: #3FA37C; --stars: #3E7CB1;
   --c0: #3B5A9A; --c1: #6E7FA0; --c2: #9A9A8C; --c3: #C9B76A; --c4: #FFE945;
   --ok: #5FD38D; --fail: #FF8A8A;
   --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
@@ -20,7 +20,7 @@
   --bg: #FFFFFF; --panel: #F6F7F9; --ink: #16181D; --muted: #4A4F59; --line: #D5D8DE; --grid: #ECEEF1;
   --sparc: #1F4E8C; --gc: #3F7D1E; --dw: #8A6A00; --sl: #7C3AED; --xcop: #C2410C; --kids: #16181D; --flag: #9D174D; --sel: #0F766E; --bar: #C2410C; --on: #16181D; --onText: #FFFFFF;
   --kicker: #8A3B12; --ptAlpha: 0.38; --range: #B45309; --link: #1F4E8C;
-  --disc: #2F6497; --bulge: #6E4FA3; --gas: #2E8A63; --stars: #2F6497; --rem: #16181D; --remAlpha: 0.10;
+  --disc: #2F6497; --bulge: #6E4FA3; --gas: #2E8A63; --stars: #2F6497;
   --c0: #1F3A73; --c1: #4F5E7E; --c2: #7C7A72; --c3: #AE9A4E; --c4: #D9B800;
   --ok: #17703F; --fail: #B42318;
   color-scheme: light;
@@ -84,7 +84,8 @@ p, li { max-width: 75ch; }
 .slider label { display: flex; justify-content: space-between; gap: 8px; font-size: 14px; }
 .slider output { font-family: var(--mono); color: var(--kicker); font-variant-numeric: tabular-nums; }
 .slider input { width: 100%; accent-color: var(--kicker); }
-.slider p { margin: 0; font-size: 12px; color: var(--muted); }
+.slider p, .slider .src { margin: 0; font-size: 12px; color: var(--muted); }
+.para { margin: 1em 0; }
 .figbox { position: relative; }
 canvas { display: block; width: 100%; }
 canvas.cv { cursor: crosshair; touch-action: manipulation; }
@@ -169,6 +170,15 @@ details.more > summary::-webkit-details-marker { display: none; }
 details.more > summary::after { content: " ▸"; color: var(--accent, var(--sel)); }
 details.more[open] > summary::after { content: " ▾"; }
 @media (min-width: 761px) { details[data-more] > summary { display: none; } }
+/* Quoted source text with TeX (D-109 rule 4): readable text, and the quote exactly as read on request. */
+details.asread { display: inline; font-size: 12px; }
+details.asread > summary { display: inline; cursor: pointer; color: var(--muted); text-decoration: underline dotted; text-underline-offset: 3px; white-space: nowrap; }
+details.asread > summary::-webkit-details-marker { display: none; }
+details.asread[open] > code { display: block; margin: 4px 0 6px; padding: 6px 8px; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 12px; }
+/* Equilibrium flag on a system (D-109 rule 3) */
+.eqflag { border-left: 3px solid var(--flag); padding: 8px 12px; margin: 12px 0 18px; background: var(--panel); border-radius: 0 8px 8px 0; }
+.eqflag p { margin: 0 0 6px; }
+.eqflag p:last-child { margin-bottom: 0; }
 body.touch .mouse-only, body:not(.touch) .touch-only { display: none; }
 
 /* Phone map: Explore, a full-screen view that does not scroll: chart on top, controls below. */

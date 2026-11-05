@@ -7,7 +7,8 @@ export const state = { view: 'obs', pick: 'all', errk: 'point', marks: 'points',
 const listeners = [];
 
 function decode(q) {
-  if (q.has('view')) state.view = q.get('view');
+  // The lens once called Excess is Ratio (D-109 rule 2); old view links (view=ex) still open it.
+  if (q.has('view')) state.view = q.get('view') === 'ex' ? 'ratio' : q.get('view');
   if (q.has('pick')) state.pick = ['all', 'outer', 'light'].includes(q.get('pick')) ? q.get('pick') : 'all';
   if (q.has('errk')) state.errk = q.get('errk') === 'full' ? 'full' : 'point';
   if (q.has('marks')) state.marks = q.get('marks');
