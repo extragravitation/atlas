@@ -588,7 +588,10 @@
           "detail": "11 uncertainty terms as frozen; g_bar as the source's bin coordinate with its edges; standard 2.5.1 validation"
         }
       ],
-      "issues": 2,
+      "issues": [
+        168,
+        169
+      ],
       "flagged": 16,
       "status": "Current version. Same values as v1. KiDS-bright bins 1–8 are recorded, not plotted (D-103); the hot-gas variant is an unplotted alternative (D-096 rule 3).",
       "status_plain": "The current weak-lensing version: the same numbers, with only the bins the survey team rely on drawn on the map.",

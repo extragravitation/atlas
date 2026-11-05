@@ -102,7 +102,7 @@ const desc = `${sys.name}: ${lab.kind_t.toLowerCase()} in ${lab.t}. Observed acc
 const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.name}), dataset ${d.name} ${d.version}. https://extragravitation.org/systems/${sys.id}/. Source: ${d.citation}`;
 ---
 <Base title={sys.name} description={isLens ? `${sys.name}: ${lab.kind_t.toLowerCase()} in ${lab.t}. Projected mass inside the Einstein radius against detected stars and gas in the same cylinder.` : isDisp ? `${sys.name}: ${lab.kind_t.toLowerCase()} in ${lab.t}. Observed acceleration against Newtonian gravity on detected matter at the half-light radius.` : desc} active="systems" figures={true}>
-  {noRows ? (
+  {noRows && !isDisp ? (
   <div class="doc"><main>
     <p class="kicker"><a href={`${base}systems/`} style="color:inherit">Systems</a> · {lab.t} · {sys.id}</p>
     <h1>{sys.name}</h1>
