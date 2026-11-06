@@ -1,0 +1,5 @@
+page,reviewed,notes
+datasets/aeg-d-xcop/v2/index.html,yes,"Read full visible text (both layers), uncertainty and assumption tables, embedded part B report, columns, sources; chart data not present on this page. No cause-assuming or account-favouring wording found outside quotations ('a DM mass component' is quoted from E22 l. 109; NFW/Einasto are the source's fitting functions)."
+systems/aeg-s-000177/index.html,yes,"Read visible text, both layers, uncertainty table, facts, measurements, known issues, slider panel, and budget-config labels plus budget.js legend strings. No items 1-4 findings."
+systems/aeg-s-000179/index.html,yes,As A644 (same template); diffed against A644 and read differing text. No items 1-4 findings.
+systems/aeg-s-000183/index.html,yes,"As A644; read the D-109 flag, the seven source quotations on equilibrium, and the A2319-specific hydrostatic term. Quotations attributing excess to hydrostatic bias are the source's own and quoted. No items 1-4 findings."
