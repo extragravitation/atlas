@@ -8,9 +8,9 @@ authors:
     given-names: "John"
     affiliation: "Independent researcher, Calgary"
     orcid: "https://orcid.org/0009-0003-1893-7096"
-version: "v0.1"
-date-released: "2026-11-01"
-doi: "10.5281/zenodo.23864356"
+version: "v0.2"
+date-released: "2026-11-06"
+doi: "10.5281/zenodo.23864355"
 identifiers:
   - type: doi
     value: "10.5281/zenodo.23864356"
