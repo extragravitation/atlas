@@ -16,7 +16,38 @@ const cff = fs.readFileSync(path.join(ROOT, 'CITATION.cff'), 'utf8');
 const relVersion = (cff.match(/^version:\s*"?([^"\n]+)"?/m) || [])[1] || '';
 const relDate = (cff.match(/^date-released:\s*"?([^"\n]+)"?/m) || [])[1] || '';
 const nRepro = atlas.all.filter((d) => d.md.reproduction).length;
-const toc = [['status', 'What this is'], ['charter', 'Charter'], ['authorship', 'Authorship and AI assistance'], ['interests', 'Competing interests'], ['review', 'Review status'], ['privacy', 'Privacy and analytics'], ['cite', 'How to cite'], ['report', 'Report an error'], ['corrections', 'Corrections'], ['licences', 'Licences']];
+// Related compilations (read at source 2026-11-06 UTC; record: docs/sources/related-compilations.md).
+const ax = (id) => `https://arxiv.org/abs/${id}`;
+const related = [
+  ['Several kinds of system on one plot', [
+    ['Lelli, McGaugh, Schombert & Pawlowski 2017, ApJ 836, 152', '1610.08981', 'disc galaxies, early-type galaxies and 62 dwarf spheroidals on one radial acceleration relation (240 galaxies).'],
+    ['Lelli et al. 2024, invited review, IAU General Assembly', '2411.02499', 'galaxies from gas kinematics to weak lensing, plus the Solar System, about 16 orders of magnitude in g_bar.'],
+    ['Tian et al. 2024, A&A 684, A180', '2402.12016', 'the brightest cluster galaxies (dynamics) and their clusters (lensing) on one acceleration plot.'],
+    ['McGaugh et al. 2026, ApJ (accepted)', '2603.06479', 'baryonic against dynamical mass from galaxies to clusters, from dynamics and lensing; a mass plot, not a radial acceleration plot.'],
+  ]],
+  ['The relation taken to one new kind of system', [
+    ['McGaugh, Lelli & Schombert 2016, PRL 117, 201101', '1609.05917', 'disc galaxies (SPARC): 2 693 points in 153 galaxies.'],
+    ['Brouwer et al. 2021, A&A 650, A113', '2106.11677', 'weak lensing around isolated galaxies (KiDS-1000), two decades lower in acceleration.'],
+    ['Mistele et al. 2024, JCAP 04, 020', '2310.15248', 'weak lensing joined to kinematics, to large radii.'],
+    ['Chae et al. 2020, ApJL 903, L31', '2010.10779', 'elliptical galaxies, from velocity-dispersion profiles.'],
+    ['Tian et al. 2020, ApJ 896, 70', '2001.08340', 'galaxy clusters from lensing and X-rays (20 CLASH clusters).'],
+    ['Eckert et al. 2022, A&A 662, A123', '2205.01110', 'galaxy clusters from X-ray and SZ hydrostatics (X-COP), with gas, central galaxy and member galaxies separated.'],
+    ['Li et al. 2023, A&A 677, A24', '2303.10175', 'galaxy clusters from the motions of their member galaxies.'],
+    ['Mistele et al. 2025, Open Journal of Astrophysics', '2506.13716', 'galaxy clusters from non-parametric weak lensing; the result depends strongly on how the gas mass is extrapolated.'],
+    ['Scarpa et al. 2007, ESO Messenger 128, 41', '0707.2459', 'globular clusters: dispersion profiles at low acceleration (not plotted as g_obs against g_bar).'],
+  ]],
+  ['Open databases', [
+    ['Lelli, McGaugh & Schombert 2016, AJ 152, 157 (SPARC)', '1606.09251', '175 disc galaxies, mass models; a source of this Atlas.'],
+    ['Baumgardt & Hilker 2018, MNRAS 478, 1520; Hilker et al. 2019', '1804.08359', 'Milky Way globular clusters, maintained online; a source of this Atlas.'],
+    ['Pace 2025, Open Journal of Astrophysics (Local Volume Database)', '2411.07424', 'dwarf galaxies and star clusters, versioned; the index of this Atlas’s dwarfs.'],
+    ['Ettori et al. 2019, A&A 621, A39 (X-COP)', '1805.00035', 'hydrostatic mass profiles of X-COP clusters, with public data products; a source of this Atlas.'],
+  ]],
+  ['Reviews', [
+    ['Famaey & McGaugh 2012, Living Reviews in Relativity 15, 10', '1112.3960', 'observations at all scales, organised around one account of the discrepancy.'],
+    ['Desmond 2025, Moriond proceedings', '2505.21638', 'successes and failures of one account across scales.'],
+  ]],
+];
+const toc = [['status', 'What this is'], ['charter', 'Charter'], ['related', 'Related compilations'], ['authorship', 'Authorship and AI assistance'], ['interests', 'Competing interests'], ['review', 'Review status'], ['privacy', 'Privacy and analytics'], ['cite', 'How to cite'], ['report', 'Report an error'], ['corrections', 'Corrections'], ['licences', 'Licences']];
 ---
 <Base title="About" active="about">
   <div class="doc">
@@ -39,6 +70,14 @@ const toc = [['status', 'What this is'], ['charter', 'Charter'], ['authorship', 
         <li><L t="Tests and predictions are frozen by hash before data are seen; results are posted whether they pass or fail." p="Tests are locked before we look, and we publish every result." /></li>
       </ul>
       <p class="small"><L t="Decisions that change what the Atlas says or how it measures are recorded, with reasons, in the" p="Every decision is written down, with the reason, in the" /> <a href={`${REPO}/blob/main/docs/decisions.md`}>decision log</a>.</p>
+
+      <h2 id="related"><L t="Related compilations" p="Who else has done this" /></h2>
+      <Layer as="p"><Fragment slot="t">Earlier work has put several kinds of system on the same g_obs–g_bar plot, or extended it to a new kind of system, and the field relies on several open databases. Most of these are figures in papers rather than released tables, and several are organised around testing one account. The Atlas builds on them. What it adds is one open, versioned table across these scales, with dynamics and lensing kept separate, each value traced to its source, the assumptions shown, and a public audit. In a search on 2026-11-06 (UTC) we found no earlier work that puts globular clusters, dwarf galaxies, disc galaxies, galaxy lensing and galaxy clusters on one g_obs–g_bar plot. We would welcome being pointed to one.</Fragment><Fragment slot="p">Others have compared these two pulls before, for one kind of system at a time, or for a few kinds together in a paper. Some built the open data collections the Atlas draws on. What the Atlas adds is one open table that covers everything from star clusters to clusters of galaxies, with every number traced back to its paper and nothing assumed about the cause. If we have missed earlier work like this, please tell us.</Fragment></Layer>
+      {related.map(([head, items]) => <>
+        <h3 style="font-size:17px">{head}</h3>
+        <ul class="small">{items.map(([cite, id, what]) => <li><a href={ax(id)}>{cite}</a>: {what}</li>)}</ul>
+      </>)}
+      <p class="small"><L t="Each item was read at source on 2026-11-06 UTC (arXiv abstract pages); the record, with quotes, is" p="Where these come from:" /> <a href={`${REPO}/blob/main/docs/sources/related-compilations.md`}>docs/sources/related-compilations.md</a>.</p>
 
       <h2 id="authorship"><L t="Authorship and AI assistance" p="Who made it" /></h2>
       <Layer as="p"><Fragment slot="t">The Atlas’s framework, structure and purpose are John van Hemert’s, who rules on every decision. Coding, research and data compilation use AI assistance (Claude, by Anthropic), under his direction and rulings. Every change is a reviewed pull request in the public repository.</Fragment><Fragment slot="p">John van Hemert designed the Atlas and decides every question about it. The coding, the research and the data work are done with an AI assistant (Claude, made by Anthropic), under his direction. Every change is public and checked before it goes in.</Fragment></Layer>
