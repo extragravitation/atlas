@@ -5,7 +5,12 @@ import L from './L.astro';
 import Quote from './Quote.astro';
 import { assumptionLabel, fmtParam } from '../lib/labels.mjs';
 import { linkRefs } from '../lib/refs.mjs';
-const { a, dataset, idPrefix = '', system = null } = Astro.props; // a: registry assumption, dataset: dataset key, system: id for per-system sliders
+import { loadAtlas } from '../lib/atlas.mjs';
+import { sliderNotes } from '../lib/terms.mjs';
+// a: registry assumption, dataset: dataset key, system: id for per-system sliders,
+// page: the system whose page shows this slider (notes only; never changes the slider's scope).
+const { a, dataset, idPrefix = '', system = null, page = null } = Astro.props;
+const dd = loadAtlas().all.find((x) => x.key === dataset);
 const e = a.datasets[dataset];
 const al = assumptionLabel(a.id);
 const key = `${dataset}:${a.id}`;
@@ -21,10 +26,14 @@ const SPAN_TEXT = {
   a6s_stellar_imf: 'From each source’s Chabrier/Kroupa value (default) to its Salpeter value · lenses with no Salpeter value read do not move',
 };
 const rangeWords = SPAN_TEXT[a.id] || (al.kind === 'sigma' ? 'Within the published one-sigma error' : `${fmtParam(al.kind, e.min)} to ${fmtParam(al.kind, e.max)}${al.kind === 'value' && unit && unit !== 'dimensionless' ? ' ' + unit.replace('solMass / solLum', 'M☉/L☉') : ''} · default ${fmtParam(al.kind, e.default)}`);
+const notes = dd ? sliderNotes(dd, a, page) : { range: null, fixed: null };
+const rangeNote = notes.range, fixedNote = notes.fixed;
 ---
 <div class="slider" data-key={key} data-id={a.id} data-dataset={dataset} data-scope={a.scope} data-def={e.default} data-kind={al.kind} data-system={system}>
   <label for={id}><span><L t={al.t} p={al.p} /></span><output id={id + '-o'}>{fmtParam(al.kind, e.default)}</output></label>
   <input type="range" id={id} min={e.min} max={e.max} step={step} value={e.default}>
   <p>{rangeWords}</p>
+  {rangeNote && <p class="small slnote" style="margin-top:6px"><L t={rangeNote[0]} p={rangeNote[1]} /></p>}
+  {fixedNote && <p class="small slnote" style="margin-top:6px"><L t={fixedNote[0]} p={fixedNote[1]} /></p>}
   <details class="small"><summary>Sources</summary><div class="src">Default: <Quote text={e.default_ref} pkgDir={pkgDir} /></div><div class="src">Range: <Quote text={e.range_ref} pkgDir={pkgDir} /></div></details>
 </div>

@@ -19,6 +19,7 @@ import UncertaintyTerms from '../../../components/UncertaintyTerms.astro';
 import Quote from '../../../components/Quote.astro';
 import EpochCut from '../../../components/EpochCut.astro';
 import { isLensing } from '../../../lib/lensing.mjs';
+import { sliderNotes } from '../../../lib/terms.mjs';
 
 export function getStaticPaths() {
   return loadAtlas().all.map((d) => ({ params: { name: d.name, version: d.version } }));
@@ -46,7 +47,12 @@ const anyAlt = Object.keys(altCounts).length > 0;
 // Plain-language summary, from the dataset's labels and its counts.
 const nRows = d.measurements.rows.length, nPlotted = d.measurements.rows.filter((r) => r.plotted !== 'false').length;
 const nSys = d.systems ? d.systems.rows.length : 0, nSysPlotted = d.systems ? plottedSystemCount(d) : 0;
-const summaryP = `${lab.kind_p}. How it was measured: ${lab.method_p.charAt(0).toLowerCase() + lab.method_p.slice(1)}. ${nRows.toLocaleString('en')} measurements${d.systems ? ` from ${nSys.toLocaleString('en')} ${lab.units}` : ''}; ${nSysPlotted && nSysPlotted < nSys ? `${nSysPlotted} of the ${lab.units} are on the map, and the rest are kept in the record with the reason.` : nPlotted < nRows ? `${nPlotted.toLocaleString('en')} of the measurements are on the map, and the rest are kept in the record with the reason.` : 'all of them are on the map.'}`;
+// Systems counted from the measurement rows themselves; systems listed without rows are said apart (X-COP v2 audit X5).
+const nSysRows = d.systems ? new Set(d.measurements.rows.map((r) => r.system_id)).size : 0, nSysNoRows = nSys - nSysRows;
+const summaryP = `${lab.kind_p}. How it was measured: ${lab.method_p.charAt(0).toLowerCase() + lab.method_p.slice(1)}. ${nRows.toLocaleString('en')} measurements${d.systems ? ` from ${nSysRows.toLocaleString('en')} ${nSysRows === 1 ? lab.unit : lab.units}` : ''}; ${nSysPlotted && nSysPlotted < nSysRows ? `${nSysPlotted} of these ${lab.units} are on the map, and the rest are kept in the record with the reason.` : nPlotted < nRows ? `${nPlotted.toLocaleString('en')} of the measurements are on the map, and the rest are kept in the record with the reason.` : 'all of them are on the map.'}${nSysNoRows > 0 ? ` ${nSysNoRows} more ${nSysNoRows === 1 ? lab.unit + ' is' : lab.units + ' are'} listed in the record with no measurements, and the reason.` : ''}`;
+// The reproduction badge says the same in both layers; where the test has two parts, it names the part it reports.
+const twoPart = !!d.md.reproductionResultA;
+const badge = rr ? (rr.pass ? [`Reproduction${twoPart ? ', part B' : ''}: passed`, `Our reproduction check${twoPart ? ', part B' : ''}: passed`] : [`Reproduction${twoPart ? ', part B' : ''}: not fully reproduced, on record`, 'Does not fully match the source; shown, with the mismatches marked']) : null;
 // Plain account of the reproduction check (data/reproduction.json, the Reproduction page's ledger).
 const ledger = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/reproduction.json'), 'utf8')).datasets.find((x) => x.package === d.key);
 const reproP = ledger ? [ledger.matched_plain && `${ledger.matched_plain}.`, ledger.scope_plain, ledger.status_plain].filter(Boolean).join(' ') : 'The check of this dataset against its source is described on the Reproduction page.';
@@ -77,7 +83,7 @@ const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(lens ? [[
       </dl>
       {d.name === 'aeg-d-xcop' && d.version === 'v2' && <>
         <Layer as="p"><Fragment slot="t">{'X-COP v2 takes g_obs and g_bar as released by Eckert et al. 2022, so its values differ from v1\'s by ruling (D-090).'}</Fragment><Fragment slot="p">{'Version 2 uses the values the authors released in 2022, so its numbers differ from version 1.'}</Fragment></Layer>
-        <Layer as="p"><Fragment slot="t">{'The source states that its hydrostatic masses are "mildly biased (<10%) out to R500" and that "The HSE assumption is likely to be a poorer approximation beyond this point" (Eckert et al. 2022, l. 502). At R200 it gives "a mild contribution of nonthermal pressure (10-20%)" (l. 539).'}</Fragment><Fragment slot="p">{'The source says its method gives masses that are slightly too low, by less than 10 %, out to a standard cluster radius, R500, and that it is less reliable beyond that. Farther out, at R200, it says pressure that does not come from the heat of the gas makes a mild contribution, 10–20 %.'}</Fragment></Layer>
+        <Layer as="p"><Fragment slot="t">{'The source states that its hydrostatic masses are "mildly biased (<10%) out to R500" and that "The HSE assumption is likely to be a poorer approximation beyond this point" (Eckert et al. 2022, l. 502). At R200 it gives "a mild contribution of nonthermal pressure (10-20%)" (l. 539).'}</Fragment><Fragment slot="p">{'The source says its masses are “mildly biased”, by less than 10 %, out to a standard cluster radius, R500, and that its assumption that the gas is in balance is likely to hold less well beyond that. Farther out, at R200, it says pressure that does not come from the heat of the gas makes a mild contribution, 10–20 %.'}</Fragment></Layer>
       </>}
       <h3><L t="Cite" p="How to give credit" /></h3>
       <Layer as="p" class="small"><Fragment slot="t">Cite the original sources and this package version as follows.</Fragment><Fragment slot="p">Please name the original study, and this version of the data, when you use these numbers. The exact wording to use is:</Fragment></Layer>
@@ -87,7 +93,7 @@ const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(lens ? [[
 
       <h2 id="validation">Validation</h2>
       {d.dp.x_publication && d.dp.x_publication !== 'published' ? <p class="small"><a href={`${REPO}/blob/main/${repoDir}/REPRODUCTION_RESULT_PART_B.md`}><L t="Part B result (outcomes and counts only)" p="How this version was checked" /></a> · <a href={`${REPO}/blob/main/${repoDir}/REPRODUCTION_RESULT_PART_A.md`}><L t="Part A result" p="Earlier checks" /></a></p> : <p class="small"><a href={`${base}reproduction/#${d.key.replace('/', '-')}`}><L t="This dataset on the Reproduction page" p="How this dataset was checked" /></a> · <a href={`${base}reproduction/`}><L t="All datasets' checks" p="All checks" /></a>{d.md.reproductionResultA && <> · <a href={`${REPO}/blob/main/${repoDir}/REPRODUCTION_RESULT_PART_A.md`}><L t="Part A result" p="Earlier checks" /></a> · <a href={`${REPO}/blob/main/${repoDir}/REPRODUCTION_RESULT_PART_B.md`}><L t="Part B result" p="How this version was checked" /></a></>}</p>}
-      {rr && <p><span class={'badge ' + (rr.pass ? 'ok' : 'fail')}><L t={`Reproduction: ${rr.pass ? 'passed' : 'not fully reproduced, on record'}`} p={rr.pass ? 'Matches the source' : 'Does not fully match the source; shown, with the mismatches marked'} /></span></p>}
+      {rr && <p><span class={'badge ' + (rr.pass ? 'ok' : 'fail')}><L t={badge[0]} p={badge[1]} /></span>{twoPart && <span class="small"> <L t="Part A's result stands beside it, unchanged; see below." p="Our earlier checks of the source files are described below." /></span>}</p>}
       {rr && !rr.pass && <p class="small">{counts.reproduction_mismatch || 0} measurements that do not reproduce are flagged <code>reproduction_mismatch</code> and ringed on every figure; the package ships under decision D-019 because conversion integrity passes.</p>}
       {mt && <p><span class={'badge ' + (mt.pass ? 'ok' : 'fail')}>Modelled-star test: {mt.text}</span></p>}
       <p class="small"><L t="Each test was written and frozen by hash before it was run; the result is published whether it passed or failed." p="We wrote each test down and locked it before looking at the result, and we show the result either way." /> <a href={`${REPO}/blob/main/${repoDir}/REPRODUCTION.md`}>Frozen test</a>{d.md.modelTest && <> · <a href={`${REPO}/blob/main/${repoDir}/MODEL_TEST.md`}>Frozen modelled-star test</a></>}</p>
@@ -128,6 +134,7 @@ const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(lens ? [[
           </tbody>
         </table>
       </div>
+      {d.assumptions.filter((a) => a.adjustable && a.status === 'confirmed').map((a) => { const n = sliderNotes(d, a); return [n.range, n.fixed].filter(Boolean).map((x) => <p class="small" style="margin-top:6px"><b><L t={`${a.id}:`} p={`${assumptionLabel(a.id).p}:`} /></b> <L t={x[0]} p={x[1]} /></p>); })}
       <details style="margin-top:10px"><summary>Effect formulas</summary>
         {d.assumptions.filter((a) => (a.datasets[d.key].effects || []).length).map((a) => <div style="margin-top:8px"><p class="small"><b>{a.id}</b> (p = parameter, p0 = default)</p><pre class="code formula">{a.datasets[d.key].effects.map((e) => `${e.column} ← ${e.formula}`).join('\n')}</pre></div>)}
       </details>

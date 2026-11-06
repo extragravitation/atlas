@@ -15,6 +15,8 @@ import EqFlag from '../../components/EqFlag.astro';
 import { isLensing } from '../../lib/lensing.mjs';
 import { loadAtlas, ringed } from '../../lib/atlas.mjs';
 import { datasetLabel, assumptionLabel, sigFig } from '../../lib/labels.mjs';
+import { flagFor } from '../../lib/flags.mjs';
+import { unsizedSystems } from '../../lib/terms.mjs';
 
 export function getStaticPaths() {
   return loadAtlas().systems.map((s) => ({ params: { id: s.id } }));
@@ -49,6 +51,10 @@ const hseNotes = noteSegs.filter((s) => s.startsWith(HSE)).map((s) => s.slice(HS
 const d092 = d.key === 'aeg-d-xcop/v2' && rows.some((r) => String(r.known_issues || '').split(';').includes('#136'));
 const d092Note = d092 ? noteSegs.find((s) => s.startsWith("The source's g_bar for this cluster")) : null;
 const otherNotes = noteSegs.filter((s) => !s.startsWith(HSE) && s !== d092Note);
+const eqf = flagFor(d.key, sys.id);
+// Plain version of the Atlas's own row notes (part A checks), read from the note text itself.
+const STELLAR = /^stellar projection: undetermined \(part A, A6\); stellar normalisation against Ghizzardi et al\. 2021: ([0-9.]+) \(part A, A9\)$/;
+const notePlain = (s) => { const m = s.match(STELLAR); return m ? `Whether the star masses in the shared files were counted inside a ball or through a whole column of sky could not be worked out (Atlas check A6). Inside R500 they are ${m[1]} times the star mass that Ghizzardi et al. 2021 give for this cluster (Atlas check A9).` : 'A note from the Atlas’s checks of the source files; the technical view gives it in full.'; };
 const fmtR = (r) => (r < 10 ? r.toFixed(2) : r < 100 ? r.toFixed(1) : Math.round(r).toString());
 
 // Facts, as the source gives them (names and units from the systems table).
@@ -75,7 +81,20 @@ if (d.name === 'aeg-d-sparc') {
   if (P.stars) facts.push(['Stars', P.stars]);
 }
 facts.push(['Radii measured', noRows ? 'none in this version' : `${rows.length}, from ${fmtR(rMin)} to ${fmtR(rMax)} kpc`]);
-facts.push(['Method', lab.method_t]);
+facts.push(['Method', [lab.method_t, lab.method_p]]);
+// Plain names of the facts (D-008); the technical name is the key.
+const FACT_P = {
+  Type: 'Kind of system', Distance: 'Distance', Inclination: 'Tilt of the disc', 'Luminosity at 3.6 μm': 'Brightness in near-infrared light',
+  'Atomic hydrogen mass': 'Mass of hydrogen gas', 'Flat rotation speed (source)': 'Speed of the outer disc (from the source)',
+  'Source quality flag Q': 'Quality grade given by the source', 'Rotation-curve reference code': 'Code for the original measurements',
+  Redshift: 'Redshift (how much its light is stretched on the way to us)', R500: 'Standard cluster size, R500',
+  'M500 (source, hydrostatic, NFW)': 'Mass inside R500, worked out by the source from its hot gas, assuming the gas is in balance',
+  'M200 (source, hydrostatic, NFW)': 'Mass inside a larger standard size, R200, worked out the same way',
+  'M500 (source, hydrostatic)': 'Mass inside R500, worked out by the source from its hot gas, assuming the gas is in balance',
+  'Centroid shift w': 'How lopsided its X-ray glow looks (centroid shift w)', Stars: 'Stars',
+  'Radii measured': 'Distances from the centre measured', Method: 'How it was measured',
+};
+const FACT_NOTE_P = { 'Centroid shift w': 'From the source’s table. It is kept as a number and never turned into a label.', 'Rotation-curve reference code': 'As given in the source’s table.' };
 
 // What g_bar counts, from the rows' status columns (D-034), in words. Where a row says `absent`, the
 // package's own inventory (descriptor x_baryon_inventory, standard §9) says why: not addressed by the
@@ -112,21 +131,42 @@ const INV_STATUS = { measured: 'measured', modelled: 'modelled', known_unmeasure
 // Sliders actually on this page, named (the sentence above the uncertainty table must match them).
 const pageSliders = adj.map((a) => assumptionLabel(a.id).t);
 const names = Object.fromEntries(adj.map((a) => [a.id, assumptionLabel(a.id).short]));
+// What the chart can truthfully say, from this system's rows and the package's columns.
+const COMPS = ['g_bar_stars', 'g_bar_stars_disk', 'g_bar_stars_bulge', 'g_bar_gas_cold', 'g_bar_gas_hot'];
+const hasComp = rows.some((r) => COMPS.some((c) => r[c] !== null && r[c] !== undefined && r[c] !== 0));
+const lv = (col, st) => { if (!rows.length || !(st in rows[0])) return null; const s = [...new Set(rows.map((r) => r[st]))], v = [...new Set(rows.map((r) => r[col]))]; return s.length === 1 && s[0] === 'stated' && v.length === 1 ? { stated: String(v[0]) } : s.every((x) => x === 'not_given_by_source') ? { stated: null } : { mixed: true }; };
+const obsLv = lv('err_level', 'err_level_status'), barLv = lv('g_bar_err_level', 'g_bar_err_level_status');
+const pointEmpty = rows.length > 0 && 'g_bar_err_point_lo' in rows[0] && rows.every((r) => r.g_bar_err_point_lo === null || r.g_bar_err_point_lo === undefined);
+const lvT = (x) => (x.stated ? `level ${x.stated}, as the source states it` : x.mixed ? 'levels as recorded per row' : 'confidence level not given by the source');
+const gobsBars = obsLv
+  ? [`error bars as released (${lvT(obsLv)})`, obsLv.stated ? `bars: uncertainty as the source gives it (${obsLv.stated})` : 'bars: uncertainty as the source gives it (how sure it is, the source does not say)']
+  : ['one-sigma bars', 'one-sigma bars'];
+const ebText = barLv
+  ? [`g_bar error columns as released (${lvT(barLv)}).${pointEmpty ? ' They mix point-scale parts with parts shared by the whole system, so they are not independent from point to point.' : ''} See Uncertainties below`,
+     `Uncertainty of the pull from detected matter, as the source gives it${barLv.stated ? '' : ' (the source does not say how sure it is)'}.${pointEmpty ? ` Part of it is shared by every point of this ${lab.unit}.` : ''} See below`]
+  : d.terms
+  ? ['g_bar uncertainty as the source gives it (one sigma). It is shared by the whole system, not independent from point to point: see Uncertainties below', 'Uncertainty of the pull from detected matter, as the source gives it, shared by the whole system: see below']
+  : ['g_bar uncertainty (one sigma, as the source gives it or as the Atlas propagates it; see Methods)', 'Uncertainty of the pull from detected matter (see Methods)'];
+// Assumptions whose package terms give no size for this system: their range here is the dataset-wide one.
+const unsizedHere = adj.filter((a) => unsizedSystems(d, a.id).includes(sys.id)).map((a) => a.id);
 const cfg = {
   dataset: d.key, system: sys.id, names,
   acc: ['Acceleration (10⁻¹⁰ m s⁻²)', 'Pull (10⁻¹⁰ m s⁻²)'],
   spd: ['Circular speed √(g r) (km s⁻¹)', 'Equivalent orbital speed (km s⁻¹)'],
-  share: ['g_bar / g_obs', 'Share matched'],
-  gbar: ['g_bar, Newtonian gravity on detected matter (total)', 'Pull from all detected matter'],
+  share: ['g_bar / g_obs', 'Detected share'],
+  gbar: ['g_bar, Newtonian gravity on detected matter (total)', 'Pull from the detected matter counted (listed below the chart)'],
   vbar: ['V_bar = √(g_bar r)', 'Orbital speed the detected matter would give'],
   gobs: ['g_obs, observed', 'Observed pull'],
   vobs: ['V_obs = √(g_obs r)', 'Observed orbital speed'],
-  ebText: d.terms ? 'g_bar uncertainty as the source gives it (one sigma). It is shared by the whole system, not independent from point to point: see Uncertainties below' : 'g_bar uncertainty (one sigma, as the source gives it or as the Atlas propagates it; see Methods)',
-  ariaAcc: [`Pull budget of ${sys.name}: detected baryonic components stacked against radius, their sum g_bar, with g_obs as points`, `The observed pull in ${sys.name}, and the pull from each kind of detected matter added up, at each distance from the centre`],
+  ebText, gobsBars, unsized: unsizedHere,
+  ariaAcc: hasComp ? [`Pull budget of ${sys.name}: detected baryonic components stacked against radius, their sum g_bar, with g_obs as points`, `The observed pull in ${sys.name}, and the pull from each kind of detected matter added up, at each distance from the centre`]
+    : [`Pull budget of ${sys.name}: g_bar as released (one total) against radius, with g_obs as points`, `The observed pull in ${sys.name}, and the pull from the detected matter as one total, at each distance from the centre`],
   ariaSpeed: [`Speeds of ${sys.name}: circular speed from each baryonic component and from g_obs, against radius`, `Orbital speeds in ${sys.name}: observed, and what the detected matter would give`],
-  ariaShare: [`g_bar / g_obs against radius for ${sys.name}`, `Share of the observed pull matched by Newton’s gravity from detected matter in ${sys.name}, at each distance from the centre`],
-  capAcc: ['Detected baryonic components (Newtonian, from the source) stacked; their sum is g_bar (line). Points: g_obs. Only detected components are drawn (D-109).', 'Coloured layers: the pull from each kind of detected matter, added up (line). Points: the observed pull. Only matter that was detected is drawn.'],
-  capSpeed: ['Equivalent circular speed √(g r) for g_obs and for each baryonic component; components add in quadrature, not linearly, so they are drawn as lines.', 'The same accelerations written as orbital speeds. Speeds from the separate kinds of matter do not simply add, so each is drawn as its own line.'],
+  ariaShare: [`g_bar / g_obs against radius for ${sys.name}`, `The pull from detected matter as a share of the observed pull in ${sys.name}, at each distance from the centre`],
+  capAcc: hasComp ? ['Detected baryonic components (Newtonian, from the source) stacked; their sum is g_bar (line). Points: g_obs. Only detected components are drawn (D-109).', 'Coloured layers: the pull from each kind of detected matter, added up (line). Points: the observed pull. Only matter that was detected is drawn.']
+    : ['g_bar (Newtonian, from detected matter) as the source releases it, one total (line); the source does not release its components separately, so none are drawn. Points: g_obs.', 'Line: the pull from detected matter, as one total; the source does not give each kind separately. Points: the observed pull.'],
+  capSpeed: hasComp ? ['Equivalent circular speed √(g r) for g_obs and for each baryonic component; components add in quadrature, not linearly, so they are drawn as lines.', 'The same accelerations written as orbital speeds. Speeds from the separate kinds of matter do not simply add, so each is drawn as its own line.']
+    : ['Equivalent circular speed √(g r) for g_obs and for g_bar as released (one total).', 'The same pulls written as orbital speeds: observed, and from the detected matter as one total.'],
 };
 const desc = `${sys.name}: ${lab.kind_t.toLowerCase()} in ${lab.t}. Observed acceleration against Newtonian gravity on detected matter at ${rows.length} radii.`;
 const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.name}), dataset ${d.name} ${d.version}. https://extragravitation.org/systems/${sys.id}/. Source: ${d.citation}`;
@@ -139,7 +179,7 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
     <Excluded sys={sys} />
     <h2 id="facts"><L t="Facts" p="About this system" /></h2>
     <dl class="facts">
-      {facts.map(([k, v, note]) => <div><dt>{k}</dt><dd>{v}{note && <span class="small" style="display:block">{note}</span>}</dd></div>)}
+      {facts.map(([k, v, note]) => <div><dt><L t={k} p={FACT_P[k] || k} /></dt><dd>{Array.isArray(v) ? <L t={v[0]} p={v[1]} /> : v}{note && <span class="small" style="display:block"><L t={note} p={FACT_NOTE_P[k] || 'As the source gives it.'} /></span>}</dd></div>)}
     </dl>
     {issues.length > 0 && <><h2 id="issues"><L t="Known issues" p="Known problems" /></h2><ul>{issues.map((k) => <li><a href={k.url}>#{k.issue}</a>: {k.title}</li>)}</ul></>}
     <h2 id="cite"><L t="Cite" p="How to cite" /></h2>
@@ -182,16 +222,16 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
       <h1>{sys.name}</h1>
       <Excluded sys={sys} />
       <EqFlag dataset={d.key} system={sys.id} />
-      <p class="lede"><L t={`${R.class_in_source}. ${lab.method_t}. ${rows.length} radii, ${fmtR(rMin)}–${fmtR(rMax)} kpc.`} p={`${lab.one_p || lab.kind_p}. Measured at ${rows.length} distances from the centre, ${fmtR(rMin)} to ${fmtR(rMax)} kpc.`} /></p>
+      <p class="lede"><L t={`${R.class_in_source}. ${lab.method_t}${eqf ? '; equilibrium flagged by the source (above)' : ''}. ${rows.length} radii, ${fmtR(rMin)}–${fmtR(rMax)} kpc.`} p={`${lab.one_p || lab.kind_p}.${eqf ? ' The source says this assumption breaks down for this cluster (see the note above).' : ''} Measured at ${rows.length} distances from the centre, ${fmtR(rMin)} to ${fmtR(rMax)} kpc.`} /></p>
       {d.key === 'aeg-d-xcop/v2' && noteSegs.length > 0 && <section class="boxed" id="notes" style="margin:12px 0 18px">
         <h2 style="margin-top:0"><L t="Notes on these values" p="Notes on these numbers" /></h2>
         {d092Note && <Layer as="p"><Fragment slot="t">{d092Note}</Fragment><Fragment slot="p">{"The published pull from detected matter for this cluster doesn't match the separate files we were given. We show the published values and have asked the authors."}</Fragment></Layer>}
         {hseNotes.length > 0 && <>
           <p class="small"><L t="The source's own statements on whether this cluster's gas is in hydrostatic equilibrium, in file order (on every row of this cluster):" p="What the source says about whether this cluster's hot gas is settled, in its own words:" /></p>
           <ul class="small">{hseNotes.map((s) => <li><Quote text={s} /></li>)}</ul>
-          <Layer as="p"><Fragment slot="t">{"The Atlas rule that removes systems a source calls out of equilibrium (D-025; D-097 to D-100) is so far written for velocity-dispersion measurements. D-109 rule 3 extends one written equilibrium test to hydrostatic masses and rotation curves, to be applied after v0.2. Until then this cluster's hydrostatic values stay plotted, with the source's own statements shown above (part A §5)."}</Fragment><Fragment slot="p">{"For star clusters and dwarf galaxies, a statement like this from the source takes the system off the map. That rule was written for a different kind of measurement. One test for every method is to be applied after version 0.2; until then this cluster stays on the map, with the source's own words shown."}</Fragment></Layer>
+          <Layer as="p"><Fragment slot="t">{"The Atlas rule that removes systems a source calls out of equilibrium (D-025; D-097 to D-100) is so far written for velocity-dispersion measurements. D-109 rule 3 extends one written equilibrium test to hydrostatic masses and rotation curves, to be applied after v0.2. Until then this cluster's hydrostatic values stay plotted, with the source's own statements shown above (part A §5)."}</Fragment><Fragment slot="p">{"The Atlas rule that takes a system off the map when its source says it is not settled is so far written only for measurements of how fast stars move. One test for every method, including this one, is to be applied after version 0.2; until then this cluster stays on the map, with the source's own words shown."}</Fragment></Layer>
         </>}
-        {otherNotes.length > 0 && <ul class="small">{otherNotes.map((s) => <li><Quote text={s} /></li>)}</ul>}
+        {otherNotes.length > 0 && <ul class="small">{otherNotes.map((s) => <li><Layer as="span"><Fragment slot="t"><Quote text={s} /></Fragment><Fragment slot="p">{notePlain(s)}</Fragment></Layer></li>)}</ul>}
       </section>}
 
       <h2 id="budget"><L t="Pull budget" p="Observed pull and the pull from detected matter" /></h2>
@@ -210,7 +250,7 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
         <ul class="legend" id="blegend"></ul>
         <figcaption id="bcaption"></figcaption>
       </figure>
-      <p class="hint"><L t="Hover for values at each radius. The ranges show the full published range of each assumption that applies here, whatever the sliders are set to." p="Point at the chart to read the values at each distance." /></p>
+      <p class="hint"><L t={`Hover for values at each radius. The ranges show the full published range of each assumption that applies here, whatever the sliders are set to.${unsizedHere.length ? ` For ${unsizedHere.map((id) => assumptionLabel(id).t).join(', ')}, no size is stated for this ${lab.unit}: its range is the dataset-wide one.` : ''}`} p={`Point at the chart to read the values at each distance.${unsizedHere.length ? ` For this ${lab.unit} the source gives no size of ${unsizedHere.map((id) => `“${assumptionLabel(id).p.charAt(0).toLowerCase() + assumptionLabel(id).p.slice(1)}”`).join(', ')}; the range shown is the one for the whole dataset.` : ''}`} /></p>
 
       {d.terms && <><h3 id="uncertainties"><L t={`Uncertainties of this ${lab.unit}`} p={`How sure are this ${lab.unit}’s numbers?`} /></h3><p class="small"><L t={`The pull budget draws each point's error columns as released (g_obs_err_lo/hi as bars, g_bar_err_lo/hi as a band); the table says what they carry. It lists every term that applies to this ${lab.unit}: one-point terms, terms that move every point of this ${lab.unit} together (system scale) and terms shared by every system of the dataset (dataset scale). ${pageSliders.length ? `Sliders on this page: ${pageSliders.join('; ')}. ` : 'This page has no sliders. '}The published ranges in the figure show the assumptions that have them.`} p={`Every uncertainty in this ${lab.unit}’s numbers, one by one. Some affect a single point; others shift all its points at once.${pageSliders.length ? ' Some of them can be changed with the sliders on this page.' : ''}`} /></p><UncertaintyTerms d={d} sys={sys} compact={true} /></>}
 
@@ -235,14 +275,14 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
       <div class="post">
       <h2 id="facts"><L t="Facts" p="About this system" /></h2>
       <dl class="facts">
-        {facts.map(([k, v, note]) => <div><dt>{k}</dt><dd>{v}{note && <span class="small" style="display:block">{note}</span>}</dd></div>)}
+        {facts.map(([k, v, note]) => <div><dt><L t={k} p={FACT_P[k] || k} /></dt><dd>{Array.isArray(v) ? <L t={v[0]} p={v[1]} /> : v}{note && <span class="small" style="display:block"><L t={note} p={FACT_NOTE_P[k] || 'As the source gives it.'} /></span>}</dd></div>)}
       </dl>
 
       <h2 id="measurements"><L t="Measurements" p="The numbers" /></h2>
       <p class="small" id="tnote"></p>
       <div tabindex="0" class="tablebox" style="margin-top:8px">
         <table>
-          <thead><tr><th class="l">id</th><th>r (kpc)</th><th>g_obs (m s⁻²)</th><th>−/+ σ</th><th>g_bar (m s⁻²)</th><th>−/+ σ</th><th>g_obs / g_bar</th><th>g_bar / g_obs</th><th class="l">flags</th></tr></thead>
+          <thead><tr><th class="l">id</th><th>r (kpc)</th><th>g_obs (m s⁻²)</th><th>{obsLv && !obsLv.stated ? '−/+ error' : '−/+ σ'}</th><th>g_bar (m s⁻²)</th><th>{barLv && !barLv.stated ? '−/+ error' : '−/+ σ'}</th><th>g_obs / g_bar</th><th>g_bar / g_obs</th><th class="l">flags</th></tr></thead>
           <tbody id="tbody">
             {rows.map((r) => <tr><td class="l">{r.measurement_id.split('/').pop()}</td><td>{r.r_kpc}</td><td>{r.g_obs}</td><td>{r.g_obs_err_lo} / {r.g_obs_err_hi}</td><td>{r.g_bar}</td><td>{r.g_bar_err_lo ?? '–'} / {r.g_bar_err_hi ?? '–'}</td><td>{(r.g_obs / r.g_bar).toFixed(2)}</td><td>{Math.round((r.g_bar / r.g_obs) * 100)}%</td><td class="l">{(r.flags || '').replace(/;/g, ', ')}</td></tr>)}
           </tbody>
@@ -266,14 +306,14 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
         <p class="cap"><L t={`Assumptions · this ${lab.unit} only`} p={`Change for this ${lab.unit} only`} /></p>
         <p class="small"><L t="Moves within the source’s own one-sigma error for this system. Changes nothing elsewhere." p="Each moves within the measured uncertainty for this one system." /></p>
         <div style="display:flex;flex-direction:column;gap:12px;margin-top:10px">
-          {perSys.map((a) => <Slider a={a} dataset={d.key} system={sys.id} idPrefix="sys-" />)}
+          {perSys.map((a) => <Slider a={a} dataset={d.key} system={sys.id} idPrefix="sys-" page={sys.id} />)}
         </div>
       </div>}
       {wide.length > 0 && <div class="scope">
         <p class="cap"><L t={`Assumptions · all ${lab.t} ${lab.units}`} p={`Change for every ${lab.unit} in ${lab.t}`} /></p>
         <p class="small"><L t="One value for the whole dataset: moving it here moves it on the map and on every other page." p="These change every system in the dataset, here and on the map." /></p>
         <div style="display:flex;flex-direction:column;gap:12px;margin-top:10px">
-          {wide.map((a) => <Slider a={a} dataset={d.key} idPrefix="ds-" />)}
+          {wide.map((a) => <Slider a={a} dataset={d.key} idPrefix="ds-" page={sys.id} />)}
         </div>
       </div>}
       {fixed.length > 0 && <div>
