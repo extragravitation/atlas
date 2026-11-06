@@ -2467,3 +2467,17 @@ The frozen KiDS v2 test (item 11) makes any such finding a fail of that item. Th
 - Formal review of v0.2. It is a preview, and D-032's review is for v1.0.
 
 **Data seen.** The audit result and the project's decision record. No new data.
+
+## Release record — v0.2 (2026-11-06)
+
+Recorded here because the decision log covers releases (D-110 rule 3). This entry is not a new ruling.
+
+- **Tag and release:** JvH published the GitHub release `v0.2`, "v0.2 - Preliminary (not peer reviewed)", marked pre-release, on commit `07a3434`, at 2026-11-06T17:47:08Z (D-077 rule 2, D-107).
+- **Zenodo:**
+  - version DOI **10.5281/zenodo.24017479**;
+  - concept DOI (all versions) 10.5281/zenodo.23864355;
+  - file `extragravitation/atlas-v0.2.zip`, 7.5 MB, md5 `bf21d34415a9c051e0df3b23ff57e0f6`.
+
+  The record shows the preliminary note and the "isDocumentedBy" link to the protocol (D-078 rule 3).
+- **Contents:** the six v2 datasets, with the audit v2 result (did not pass; zero value errors) and the X-COP v2 audit result (values and provenance pass; neutrality findings resolved in #204).
+
