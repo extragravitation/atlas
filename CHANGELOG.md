@@ -4,6 +4,29 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
 
 ## Unreleased
 
+## v0.2 — 2026-11-06 (preliminary pre-release, not peer reviewed)
+
+- X-COP v2 audit (plan frozen in #183; seed NIST pulse 2/2016139) run on 2026-11-06 and published as observed (`docs/audit/AUDIT_RESULT_XCOP_v2.md`; #203):
+  - values: 10 of 10 sampled rows agree with the source files within 1e-12;
+  - provenance: no failures;
+  - neutrality: 5 must-fix findings on layer consistency and routes to sources, resolved in #204 (`docs/audit/neutrality_xcop_v2.md`).
+- Site: X-COP v2 audit fixes (#204):
+  - error legends follow the package's level columns (no "one sigma" where the source states no level);
+  - Atlas-computed terms are labelled as such, and scope labels come from `applies_to`;
+  - the plain subtitles state the hydrostatic assumption as an assumption;
+  - A2319's slider range is labelled as the dataset-wide range;
+  - cluster counts are computed from the rows;
+  - a note by the hydrostatic-bias slider lists the g_bar terms that cannot be adjusted while only total g_bar is released.
+- About: "Related compilations", 19 published works read at source, with what the Atlas adds (`docs/sources/related-compilations.md`; #202).
+- Site: ECSV column descriptions decode YAML escapes; TeX in quotes inside rendered package documents is shown readably (#201). Known issues are listed on dwarf, globular-cluster and lens system pages (#199).
+- D-110: v1.0 is narrowed to the datasets in hand plus the data freeze, the standard 3.0.0 re-issue, the formal outside review and the methods paper; filling the remaining taxonomy cells moves to v1.x (deviation #23). Lighter process: the decision log only for what the Atlas says or measures; no frozen display text; two readers only for values and test inputs (#200).
+- D-109: the pull-budget chart stacks only detected components; "extra pull" means g_obs/g_bar everywhere, and the "Excess" lens is renamed "Ratio"; one written equilibrium test for every equilibrium-based method, applied after v0.2 (A2319 flagged until then); TeX in quotes shown readably with a "show as read" control; the reason for the lens z < 0.30 cut is stated on the pages (#194–#197).
+- Site: audit fixes, batches A to C (#195, #196, #197):
+  - system-page uncertainty sections, asymmetric map error bars and g_bar bars, and an uncertainty table with status, scope and plain text;
+  - text pages, the known-issues page and plain layers;
+  - the D-109 changes.
+- Known issues for the audit's provenance findings P1–P4 (#190–#193).
+
 - D-108: taxonomy version 2 (`docs/plans/TAXONOMY_v2.md`, frozen in `data/frozen/taxonomy-v2.json`). One release-gate item is reworded so that it no longer describes a kind by an expected result (audit finding N3): it now reads "the high-acceleration end of the range: the Solar System (as a limit) and globular clusters". The gate is unchanged in effect. The Coverage page renders version 2 and links version 1, which stays frozen (deviation #22) (#189).
 - Site: audit fixes, first batch (D-107 rule 2; #188). Site text only; no package or value changes.
   - N1, N2: Methods no longer uses the names or terms of particular accounts outside the accounts section.
@@ -76,6 +99,8 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
     - An independent second reading agrees on 32 269 values and found the SPARC table's header layout error.
     - The site uses the latest version of each dataset for the map and system pages. Earlier versions stay published and are marked superseded.
   - Strong lensing `RESULT_SUMMARY.md`: two stale status lines corrected (shipped; projected-point mark added in #95).
+
+## v0.1 — 2026-11-01 (preliminary pre-release; DOI 10.5281/zenodo.23864356)
 
 - A9 galaxy clusters:
   - search and screening (#90);
