@@ -1,0 +1,10 @@
+stratum: aeg-d-xcop/v2
+tolerance_relative: 1e-12
+rows_compared: 10
+count[agree]: 10
+count[reader disagreement]: 0
+count[Atlas discrepancy]: 0
+count[method incomplete]: 0
+count[unreadable]: 0
+count[absent from package]: 0
+all_agree: True
