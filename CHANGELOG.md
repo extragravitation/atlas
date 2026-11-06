@@ -4,7 +4,7 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
 
 ## Unreleased
 
-## v0.2 — 2026-11-06 (preliminary pre-release, not peer reviewed)
+## v0.2 — 2026-11-06 (preliminary pre-release, not peer reviewed; DOI 10.5281/zenodo.24017479)
 
 - X-COP v2 audit (plan frozen in #183; seed NIST pulse 2/2016139) run on 2026-11-06 and published as observed (`docs/audit/AUDIT_RESULT_XCOP_v2.md`; #203):
   - values: 10 of 10 sampled rows agree with the source files within 1e-12;
