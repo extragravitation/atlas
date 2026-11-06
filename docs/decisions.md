@@ -2481,3 +2481,17 @@ Recorded here because the decision log covers releases (D-110 rule 3). This entr
   The record shows the preliminary note and the "isDocumentedBy" link to the protocol (D-078 rule 3).
 - **Contents:** the six v2 datasets, with the audit v2 result (did not pass; zero value errors) and the X-COP v2 audit result (values and provenance pass; neutrality findings resolved in #204).
 
+## Implementation record — D-009 visitor analytics (2026-11-06)
+
+This entry records how D-009 was implemented. It is not a new ruling.
+
+- **Tool:** Cloudflare Web Analytics, automatic setup on extragravitation.org.
+- **Mode:** "Enable", chosen by JvH on 2026-11-06 at 13:05 MDT, so visitors from all countries are counted.
+- **What it collects,** per Cloudflare's documentation:
+  - the page, country, referrer and device type, in aggregate;
+  - no cookies or browser storage;
+  - IP addresses discarded at the edge, with no fingerprinting.
+
+  This matches D-009.
+- **Correction.** Before JvH chose the mode, the counter was already active in Cloudflare's default mode for free accounts ("Enable, excluding visitor data in the EU"). It is not known since when. Meanwhile the About page said the counter was "not active yet". That statement was inaccurate. It is corrected on the page, with a dated note.
+
