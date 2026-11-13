@@ -21,6 +21,10 @@ on:
 permissions:
   contents: read
 
+env:
+  # Diagnostic: turn off numpy's AVX-512 code paths
+  NPY_DISABLE_CPU_FEATURES: "X86_V4 AVX512_ICL AVX512_SPR"
+
 jobs:
   packages:
     runs-on: ubuntu-latest
