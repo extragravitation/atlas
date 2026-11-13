@@ -107,6 +107,14 @@ jobs:
       # never committed, so this step compares its committed checksums.sha256 (table hashes, no rows)
       # with the regenerated one. Its converter, the formula check and every log here print no row
       # value of an unpublished version (REPRODUCTION_PART_B.md rule 5).
+      - name: Diagnostic (temporary branch, not for merge)
+        if: always()
+        run: |
+          lscpu | grep -E 'Model name|Flags' | cut -c1-300 || true
+          python -c "import numpy; numpy.show_config()" 2>&1 | grep -A3 -i simd || true
+          git add -A data/packages/aeg-d-gc-baumgardt/v1/tables
+          git diff --cached -U0 data/packages/aeg-d-gc-baumgardt/v1/tables/measurements.ecsv | head -80
+          git reset -q
       - name: Committed tables equal regenerated tables
         if: always()
         run: |
