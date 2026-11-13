@@ -4,6 +4,7 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
 
 ## Unreleased
 
+- CI: the workflows run on the ubuntu-24.04 image instead of ubuntu-latest. After GitHub moved ubuntu-latest to Ubuntu 26.04, rebuilding the globular-cluster package (v1 and v2) from the same hash-verified sources and package versions gave 14 g_obs rows whose values and uncertainties differ in their last digits (largest relative difference 1.2e-14), which failed the byte-for-byte table check. No published value changes. Bit-for-bit reproduction is stated for a fixed OS image.
 - D-009 implemented: Cloudflare Web Analytics, which counts visits by page, country, referrer and device in aggregate, with no cookies and no stored IP addresses, covering visitors from all countries. **Correction:** the About page had said the counter was not active, but Cloudflare had enabled it by default (excluding EU visitors). The page now says so, with a dated note.
 
 ## v0.2 — 2026-11-06 (preliminary pre-release, not peer reviewed; DOI 10.5281/zenodo.24017479)
