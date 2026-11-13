@@ -6,8 +6,8 @@ name: data
 #
 # The committed tables must equal what the pipeline produces; a difference
 # fails the check. The workflow never commits: every change in the repository
-# is authored by the maintainer (converters are bit-deterministic, so tables
-# regenerated locally match CI).
+# is authored by the maintainer (converters are bit-deterministic for a given OS image, so tables
+# regenerated locally on that image match CI; see runs-on below).
 
 on:
   # Every pull request: "packages" is a required check, and a path filter would leave
@@ -23,7 +23,11 @@ permissions:
 
 jobs:
   packages:
-    runs-on: ubuntu-latest
+    # Pinned (2026-11-13): the committed tables are compared byte for byte, and on the ubuntu-26.04
+    # image (ubuntu-latest from about 2026-11-11) 14 g_obs rows in aeg-d-gc-baumgardt v1 and v2
+    # come out different in their last digits (largest relative difference 1.2e-14), with identical
+    # sources, Python and package versions. Bit-for-bit reproduction holds for a fixed OS image.
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
         with:
