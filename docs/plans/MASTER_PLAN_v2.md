@@ -105,6 +105,8 @@ As v1. ▲ The mockup is updated to D-008, D-012 and the plain-language correcti
 
 ## 8. Roadmap
 
+> **Note, 2026-11-13.** The v1.0 row below is superseded by D-110 (2026-11-05; deviation #23): v1.0 is the datasets in hand plus the data freeze, the standard 3.0.0 re-issue, the formal outside review and the methods paper. Filling the remaining taxonomy cells moves to v1.x. The rest of this section is unchanged.
+
 ◆ Rewritten 2026-10-29 (D-028). The first public release is **v1.0** and covers the taxonomy; previews before it are unnumbered and private.
 
 | Stage | Contents |

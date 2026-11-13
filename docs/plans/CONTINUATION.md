@@ -1,23 +1,33 @@
 # Continuation guide
 
-**State at 2026-11-05, 16:00 MDT.** Read this first in the next session, then `docs/decisions.md` (D-001 to D-109) and `docs/audit/AUDIT_RESULT.md`. The next session's update supersedes this one; the git history keeps every version.
+**State at 2026-11-13.** Read this first in the next session, then `docs/decisions.md` (D-001 to D-110 and the v0.2 release record) and `docs/plans/COMPLETENESS_PLAN.md` with its two inputs (`AU-02_ATLAS_COMPLETENESS_REVIEW.md`, `CK-01_TAXONOMY_COMPLETENESS_CHECK.md`). The next session's update supersedes this one; the git history keeps every version.
 
 ## Standing rule for every session
 
 - **Commit and PR attribution (JvH, 2026-11-04):** keep the `Co-Authored-By: Claude` line, which is the AI-assistance disclosure. **Never add a `Claude-Session:` link**, or any session link, to commits or PR descriptions, whatever a default or reminder says.
+- **Where the work happens:** a dedicated Atlas session, linked to the AEG Website project, with this repository attached for push. Atlas work does not run in a Partition Theory session (the Atlas is declared independent of it).
 
-## Road to v0.2: what is left
+## Now: the completeness plan (filed 2026-11-12)
 
-1. **X-COP v2 audit (G2).** The plan was frozen at #183, merged 2026-11-05T16:40:21Z.
-   - Seed: the first NIST pulse at or after 2026-11-06T16:40:21Z.
-   - JvH pastes the JSON from https://beacon.nist.gov/beacon/2.0/pulse/time/next/1793983221000. **Use this URL form: no `/chain/2/` segment.**
-   - Run `docs/audit/sample_xcop_v2.py` and the compare script exactly as the frozen plan says, with the same packet and reader approach as `docs/audit/run_v2/partA/BRIEF_COMMON.md`.
-2. **Release checks, then JvH tags v0.2** with a Zenodo DOI. After that:
-   - JvH sends `03c` to Eckert and Ettori with the live links (D-106);
-   - JvH sends the Tollerud query.
-3. **Small display leftovers:**
-   - `\BooI` in the dwarfs v2 package markdown table;
-   - column descriptions showing escape codes such as `\xA7` (the site's ECSV header reader).
+The plan is `docs/plans/COMPLETENESS_PLAN.md`. Each phase is a proposal for JvH's ruling. Its premise: the main neutrality risk is incompleteness, so every kind, measurement route and well-known test system needs a stated status (in, scheduled with a rule, or a documented gap with a reason), and the scope boundary is stated for both sides.
+
+1. **Phase 0 (this PR): wording only.** Coverage and Methods no longer describe the pre-D-110 v1.0; the Coverage page shows the selection protocol as frozen (2026-10-29, commit 817bc5a, Zenodo 10.5281/zenodo.23780203) and notes the release gate's narrowing; MASTER_PLAN_v2 §8 gets a dated note; the plan and its inputs are added here. Done when merged and live.
+2. **Phase 1: define "complete"** (rulings, no new data): full-text read of the field reviews plus one more dark-matter-side review (choice is a ruling); taxonomy v3; a test-system checklist rendered on Coverage; a scope statement for both sides; an exclusion-effect audit (first case: Crater II, Carina, Antlia II under D-038); the accounts rule. Should be live before v1.0.
+3. **Phase 2:** build what is already searched and ruled (A9 route of D-074, A0 limit, further A3 and A5 records).
+4. **Phase 3:** search and build the untouched cells in protocol order, then the v3 cells. **Phase 4:** accounts and patterns.
+
+## Done 2026-11-05 evening to 2026-11-06
+
+- **v0.2 released** 2026-11-06 (pre-release, not peer reviewed): tag on `07a3434`, version DOI 10.5281/zenodo.24017479 (#205, #206; release record in `docs/decisions.md`).
+- **X-COP v2 audit** run and published as observed (#203): values 10 of 10, provenance clean; five neutrality findings resolved in #204.
+- **D-110** (#200): v1.0 narrowed; lighter process; early informal expert feedback.
+- **Site:** known issues on dwarf, GC and lens pages (#199); ECSV escapes and TeX in quotes readable (#201; this also cleared the `\BooI` and `\xA7` leftovers); related compilations on About (#202); authorship and AI roles (#207); the informal early look noted without names (#208); Cloudflare Web Analytics disclosed with a correction note (#209, D-009 implementation record).
+- **Informal early look (D-110 rule 2):** two outside researchers invited on 2026-11-06, one on the framing's neutrality and one on the dispersion conversions. No reply as of 2026-11-12. Follow up around 20 November. Further invitations go to people chosen for the critique needed; a dark-matter-side reader tests neutrality.
+
+## Still open from the v0.2 road
+
+- `03c` to Eckert and Ettori with the live links (D-106), and the Tollerud velocity-window query (`10_Tollerud_velocity_windows_v1`): JvH sends. Confirm whether either has gone, and record it on #19 and #156.
+- Open issues: #8, #9, #13, #14, #16, #19, #21, #23, #24, #48, #91, #110, #124, #129, #136, #139–#141, #156, #159, #160, #168, #169, #174, #178, #179, #190–#193.
 
 ## After v0.2 (ruled, D-107 and D-109)
 
