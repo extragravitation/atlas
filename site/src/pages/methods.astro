@@ -219,7 +219,7 @@ const toc = [['stance', 'Stance'], ['quantities', 'What is measured'], ['baselin
       <h2 id="gaps"><L t="Limitations and gaps" p="What is missing" /></h2>
       <Layer><Fragment slot="t">
         <ul>
-          <li>{nDs.replace(/^./, (c) => c.toUpperCase())} so far. The first public release (v1.0) covers every kind of system in the taxonomy, each packaged or shown as a documented gap, including the high-acceleration end (the Solar System as a limit; globular clusters) and the lowest-acceleration individual systems (D-028; see <a href={`${base}coverage/`}>Coverage</a>).</li>
+          <li>{nDs.replace(/^./, (c) => c.toUpperCase())} so far. The first public release (v1.0) is the data in hand, after the data freeze, the re-issue under data standard 3.0.0, the formal outside review and the methods paper; the remaining kinds of system in the taxonomy arrive in v1.x releases; until then each unfilled cell is shown with its state, as a candidate or a documented gap (D-110, which narrows D-028; see <a href={`${base}coverage/`}>Coverage</a>).</li>
           <li>Disc galaxies dominate the current measurements ({nSparc.toLocaleString('en')} of {nAll.toLocaleString('en')}).</li>
           <li>{lensText}</li>
           <li>KiDS-bright: the authors state their isolation criterion becomes unreliable for g_bar ≲ 10⁻¹³ m s⁻².</li>
@@ -227,7 +227,7 @@ const toc = [['stance', 'Stance'], ['quantities', 'What is measured'], ['baselin
         </ul>
       </Fragment><Fragment slot="p">
         <ul>
-          <li>{nDs.replace(/^./, (c) => c.toUpperCase())} so far. The full first release will cover every kind of object, each either measured or listed as a gap. Groups of galaxies, for example, are not in yet.</li>
+          <li>{nDs.replace(/^./, (c) => c.toUpperCase())} so far. The first full release (v1.0) will carry the data already in, checked and reviewed; other kinds of object follow in later updates, and until then the Coverage page shows each missing kind as still to come or as a gap. Groups of galaxies, for example, are not in yet.</li>
           <li>Most measurements so far come from spinning disc galaxies ({nSparc.toLocaleString('en')} of {nAll.toLocaleString('en')}).</li>
           <li>{lensTextP}</li>
           <li>For the brighter KiDS-1000 sample, the survey team say their way of picking lone galaxies stops being reliable where the pull from detected matter is weakest.</li>
