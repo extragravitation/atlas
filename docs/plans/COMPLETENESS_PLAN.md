@@ -1,5 +1,7 @@
 # Atlas of Extra Gravitation: completeness plan
 
+> **Amended 2026-11-18 by D-112.** Step 1.1 is done (`docs/sources/checklist-reviews.md`, PR #212). For v0.3, only 1.3 (lean: the systems used by two or more reviews, plus the starting list), 1.4 and 1.5 for D-038 are carried out (`docs/plans/V0.3_PLAN.md`). Steps 1.2, the rest of 1.5, and 1.6 move to after v0.3. The text below is otherwise unchanged.
+
 2026-11-12, clock 17:58 (TZ=America/Edmonton). **FILED (JvH, 17:57). Each phase is a proposal for JvH's ruling.**
 - **Requested by JvH, 17:57:** "make a detailed phased plan and file under a new folder that makes sense. Then we will do the phase 0 to start."
 - **Inputs (filed alongside):**

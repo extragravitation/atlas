@@ -7,7 +7,11 @@
 - **Commit and PR attribution (JvH, 2026-11-04):** keep the `Co-Authored-By: Claude` line, which is the AI-assistance disclosure. **Never add a `Claude-Session:` link**, or any session link, to commits or PR descriptions, whatever a default or reminder says.
 - **Where the work happens:** a dedicated Atlas session, linked to the AEG Website project, with this repository attached for push. Atlas work does not run in a Partition Theory session (the Atlas is declared independent of it).
 
-## Now: the completeness plan (filed 2026-11-12)
+## Now: v0.3 (D-112, 2026-11-18)
+
+The next release is **v0.3**, built so that working astronomers take it seriously. It is still preliminary, and it is not labelled as a request for feedback. The plan is `docs/plans/V0.3_PLAN.md`. Order of work: (1) minimal standard 3.0.0 (citation, licence, locator) and v3 re-issues with unchanged values; (2) front page leads with the cross-scale view; (3) the well-known test systems and the scope statement on Coverage; (4) the D-038 effect stated; (5) accessibility, known issues, release checks. **Outreach now:** the follow-up on the 6 November invitations goes with v0.2 (JvH sends). v1.0 (D-110) comes after v0.3.
+
+## The completeness plan (filed 2026-11-12; cut by D-112)
 
 The plan is `docs/plans/COMPLETENESS_PLAN.md`. Each phase is a proposal for JvH's ruling. Its premise: the main neutrality risk is incompleteness, so every kind, measurement route and well-known test system needs a stated status (in, scheduled with a rule, or a documented gap with a reason), and the scope boundary is stated for both sides.
 
