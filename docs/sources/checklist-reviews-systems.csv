@@ -1,0 +1,185 @@
+canonical,used_as_test_by,mentioned_only_by,n_reviews_test,mond_side_test,dm_side_test,scales,channels
+Abell 2218,FM(1),,1,1,0,cluster,lensing
+Abell 2390,FM(1);BZ(1),,2,2,0,cluster,lensing
+Abell 520,FM(1);BZ(1),,2,2,0,cluster,both;lensing
+AGC 114905,BZ(2),,1,1,0,dwarf galaxy,dynamics
+ALESS 073.1,BZ(1),,1,1,0,galaxy,dynamics
+Alpha Centauri system,BZ(2),,1,1,0,wide binary,dynamics
+Antennae and Seashell,,BZ,0,0,0,galaxy pair or group,
+Antlia II,,CSZ,0,0,0,dwarf galaxy,
+Aquarius II,,CSZ,0,0,0,dwarf galaxy,
+Boötes I,,CSZ,0,0,0,dwarf galaxy,
+Boötes IV,,CSZ,0,0,0,dwarf galaxy,
+Boötes V,,CSZ,0,0,0,dwarf galaxy,
+Bullet Cluster (1E 0657-56),FM(3);BZ(4);CSZ(2),,3,2,1,cluster,both;dynamics;lensing
+Canes Venatici I,,CSZ,0,0,0,dwarf galaxy,
+Canes Venatici II,,CSZ,0,0,0,dwarf galaxy,
+Carina,FM(1);BZ(1);BBK(1);SAL(1),CSZ,4,2,2,dwarf galaxy,dynamics;neither
+Centaurus A (NGC 5128),BZ(1),BBK,1,1,0,galaxy,dynamics
+Centaurus A group,BZ(2);BBK(1),,2,1,1,galaxy pair or group,dynamics;neither
+Centaurus I,,CSZ,0,0,0,dwarf galaxy,
+Cetus,BZ(1),CSZ,1,1,0,dwarf galaxy,dynamics
+Cl 0024+17,FM(1),,1,1,0,cluster,lensing
+Columba I,,CSZ,0,0,0,dwarf galaxy,
+Coma Berenices,,CSZ,0,0,0,dwarf galaxy,
+Coma cluster,BZ(3);CSZ(1),,2,1,1,cluster,dynamics
+Crater II,BZ(2),CSZ,1,1,0,dwarf galaxy,dynamics
+DDO 101,SAL(1),,1,0,1,dwarf galaxy,dynamics
+DDO 126,BBK(1),,1,0,1,dwarf galaxy,dynamics
+DDO 154,FM(1);SAL(2),,2,1,1,dwarf galaxy,dynamics
+DDO 161,CSZ(1),,1,0,1,dwarf galaxy,dynamics
+DDO 210,FM(1);SAL(1),,2,1,1,dwarf galaxy,dynamics
+DDO 43,BBK(1),,1,0,1,dwarf galaxy,dynamics
+DDO 53,SAL(1),,1,0,1,dwarf galaxy,dynamics
+DG1,SAL(1),,1,0,1,dwarf galaxy,unclear
+DG2,SAL(1),,1,0,1,dwarf galaxy,unclear
+Draco,FM(1);BBK(1);SAL(1);CSZ(1),,4,1,3,dwarf galaxy,dynamics;neither
+Dragonfly 44,BZ(2),,1,1,0,dwarf galaxy,dynamics
+El Gordo (ACT-CL J0102-4915),BZ(1),,1,1,0,cluster,lensing
+Eridanus II,,BBK;CSZ,0,0,0,dwarf galaxy,
+Eridanus IV,,CSZ,0,0,0,dwarf galaxy,
+ESO 509-98,FM(1),,1,1,0,galaxy,dynamics
+F563-1,FM(1),,1,1,0,galaxy,dynamics
+F563-V2,FM(1),,1,1,0,galaxy,dynamics
+F568-3,FM(1),,1,1,0,galaxy,dynamics
+F583-1,FM(1),,1,1,0,galaxy,dynamics
+F583-4,FM(1),,1,1,0,galaxy,dynamics
+FAST J0139+4328,CSZ(1),,1,0,1,dwarf galaxy,dynamics
+Fornax (dwarf spheroidal),FM(2);BZ(1);BBK(1);SAL(3);CSZ(2),,5,2,3,dwarf galaxy,dynamics;neither
+Fornax cluster,BZ(2),,1,1,0,cluster,dynamics
+Gaia mission,,FM,0,0,0,Solar System,
+Galactic Center,,BBK,0,0,0,galaxy,
+Grus I,,CSZ,0,0,0,dwarf galaxy,
+Grus II,,CSZ,0,0,0,dwarf galaxy,
+Haro 36,SAL(1),,1,0,1,dwarf galaxy,dynamics
+Hercules,,CSZ,0,0,0,dwarf galaxy,
+HIZSS 3 and KKH 98,BZ(1),,1,1,0,dwarf galaxy,dynamics
+Holmberg I,SAL(1),,1,0,1,dwarf galaxy,dynamics
+Holmberg II,BZ(1);SAL(1),,2,1,1,dwarf galaxy,dynamics
+Horologium I,,CSZ,0,0,0,dwarf galaxy,
+IC 1024,SAL(1),,1,0,1,galaxy,dynamics
+IC 2574,FM(1);SAL(1),,2,1,1,dwarf galaxy,dynamics
+Indus II,,CSZ,0,0,0,dwarf galaxy,
+"Jupiter, Venus and the Earth",,CSZ,0,0,0,Solar System,
+KBC void,,BZ,0,0,0,cosmological,
+Leo I,FM(1);BBK(1);SAL(1),CSZ,3,1,2,dwarf galaxy,dynamics;neither
+Leo II,FM(1);BBK(1);SAL(1),CSZ,3,1,2,dwarf galaxy,dynamics;neither
+Leo Minor I,,CSZ,0,0,0,dwarf galaxy,
+Leo P,,BZ,0,0,0,dwarf galaxy,
+Leo T,,CSZ,0,0,0,dwarf galaxy,
+Leo V,,CSZ,0,0,0,dwarf galaxy,
+LMC,FM(1);BZ(2);BBK(2);CSZ(1),,4,2,2,dwarf galaxy;galaxy;galaxy pair or group,dynamics;neither
+Local Group,BZ(1),CSZ,1,1,0,galaxy pair or group,dynamics
+Local Void,FM(1),,1,1,0,cosmological,neither
+Local Volume,FM(1),,1,1,0,cosmological,neither
+M31,FM(1);BZ(4);CSZ(1),,3,2,1,galaxy;galaxy pair or group,dynamics
+M31 satellite system,FM(1);BBK(1),,2,1,1,dwarf galaxy;galaxy;galaxy pair or group,dynamics;neither
+M33,FM(1);BZ(5);SAL(1),,3,2,1,galaxy,dynamics
+M51,,BZ,0,0,0,galaxy,
+M81 group,BZ(1);SAL(1),,2,1,1,dwarf galaxy;galaxy pair or group,dynamics
+Mercury,,CSZ,0,0,0,Solar System,
+Mercury perihelion precession,,BZ,0,0,0,Solar System,
+Milky Way,FM(2);BZ(4);SAL(5);CSZ(6),BBK,4,2,2,galaxy,dynamics
+Milky Way satellite system,BZ(1),,1,1,0,dwarf galaxy,dynamics
+NGC 1052,BZ(1),CSZ,1,1,0,galaxy,dynamics
+NGC 1052-DF2,BZ(2);CSZ(1),,2,1,1,dwarf galaxy,dynamics
+NGC 1052-DF4,BZ(1);CSZ(1),,2,1,1,dwarf galaxy,dynamics
+NGC 1521,BZ(1),,1,1,0,galaxy,dynamics
+NGC 1543,FM(1),,1,1,0,galaxy,dynamics
+NGC 1560,FM(2);BZ(1);SAL(1),,3,2,1,dwarf galaxy;galaxy,dynamics
+NGC 1851,FM(1),,1,1,0,star cluster,dynamics
+NGC 1904,FM(1),,1,1,0,star cluster,dynamics
+NGC 2366,SAL(1),,1,0,1,dwarf galaxy,dynamics
+NGC 2403,BZ(1);SAL(1),,2,1,1,galaxy,dynamics
+NGC 2419,FM(1);BZ(1);CSZ(1),,3,2,1,star cluster,dynamics
+NGC 2481,SAL(1),,1,0,1,galaxy,dynamics
+NGC 2824,SAL(1),,1,0,1,galaxy,dynamics
+NGC 2841,FM(1);SAL(1),,2,1,1,galaxy,dynamics
+NGC 2903,FM(1);SAL(1),,2,1,1,galaxy,dynamics
+NGC 2998,SAL(1),,1,0,1,galaxy,dynamics
+NGC 300,,SAL,0,0,0,galaxy,
+NGC 3109,BZ(2);SAL(1),BBK,2,1,1,dwarf galaxy;galaxy pair or group,dynamics
+NGC 3198,FM(1);SAL(2),,2,1,1,galaxy,dynamics
+NGC 3521,FM(1),,1,1,0,galaxy,dynamics
+NGC 3621,FM(1),,1,1,0,galaxy,dynamics
+NGC 3626,SAL(1),,1,0,1,galaxy,dynamics
+NGC 3923,BZ(1),,1,1,0,galaxy,dynamics
+NGC 3953,BZ(1),,1,1,0,galaxy,dynamics
+NGC 3992,SAL(1),,1,0,1,galaxy,dynamics
+NGC 4111,SAL(1),,1,0,1,galaxy,dynamics
+NGC 4452,SAL(1),,1,0,1,galaxy,dynamics
+NGC 4494,SAL(1),,1,0,1,galaxy,dynamics
+NGC 474,BZ(2),,1,1,0,galaxy,dynamics
+NGC 5005,SAL(1),,1,0,1,galaxy,dynamics
+NGC 5055,FM(1),,1,1,0,galaxy,dynamics
+NGC 5291 system,FM(4);BZ(1),,2,2,0,dwarf galaxy;galaxy pair or group,dynamics
+NGC 5422,SAL(1),,1,0,1,galaxy,dynamics
+NGC 5475,SAL(1),,1,0,1,galaxy,dynamics
+NGC 5557,BZ(1);SAL(1),,2,1,1,dwarf galaxy;galaxy,dynamics
+NGC 5585,SAL(1),,1,0,1,galaxy,dynamics
+NGC 5839,SAL(1),,1,0,1,galaxy,dynamics
+NGC 5869,SAL(1),,1,0,1,galaxy,dynamics
+NGC 6503,SAL(1),,1,0,1,galaxy,dynamics
+NGC 6946,FM(2);BZ(2),,2,2,0,galaxy,dynamics
+NGC 7113,SAL(1),,1,0,1,galaxy,dynamics
+NGC 720,BZ(1),,1,1,0,galaxy,dynamics
+NGC 7331,FM(1);SAL(1),,2,1,1,galaxy,dynamics
+NGC 7454,SAL(1),,1,0,1,galaxy,dynamics
+NGC 7507,FM(1),,1,1,0,galaxy,dynamics
+NGC 7693,SAL(1),,1,0,1,galaxy,dynamics
+OGC 0139,BZ(1),,1,1,0,galaxy,dynamics
+Omega Centauri,,BZ,0,0,0,star cluster,
+Palomar 14,FM(1);CSZ(1),,2,1,1,star cluster,dynamics
+Palomar 3,FM(1),,1,1,0,star cluster,dynamics
+Palomar 5,BZ(2),,1,1,0,star cluster,dynamics
+Pegasus,,BBK,0,0,0,dwarf galaxy,
+Pegasus IV,,CSZ,0,0,0,dwarf galaxy,
+Perseus I,BZ(1),,1,1,0,dwarf galaxy,dynamics
+Perseus-Pisces superfilament,BZ(1),,1,1,0,other (filament),dynamics
+PGC 170172,SAL(1),,1,0,1,galaxy,dynamics
+PGC 67207,SAL(1),,1,0,1,galaxy,dynamics
+Phoenix,,BBK,0,0,0,dwarf galaxy,
+Phoenix II,,CSZ,0,0,0,dwarf galaxy,
+Pictor I,,CSZ,0,0,0,dwarf galaxy,
+Pictoris I,,BBK,0,0,0,dwarf galaxy,
+Pleiades,BZ(1),,1,1,0,star cluster,dynamics
+Pluto's orbit,,CSZ,0,0,0,Solar System,
+Praesepe,BZ(1),,1,1,0,star cluster,dynamics
+Q2237+030,FM(1),,1,1,0,galaxy,lensing
+Reticulum II,,CSZ,0,0,0,dwarf galaxy,
+Reticulum III,,CSZ,0,0,0,dwarf galaxy,
+Sagittarius (dwarf spheroidal),BZ(2);BBK(1),CSZ,2,1,1,dwarf galaxy;galaxy,dynamics;neither
+Sagittarius stream,FM(1);BZ(2);CSZ(1),,3,2,1,dwarf galaxy;galaxy,dynamics
+Sculptor,FM(1);BBK(1);SAL(2);CSZ(1),,4,1,3,dwarf galaxy,dynamics;neither
+Segue 1,CSZ(1),,1,0,1,dwarf galaxy,dynamics
+Segue 2,CSZ(1),,1,0,1,dwarf galaxy,dynamics
+Sextans,FM(1);BBK(1);SAL(1),CSZ,3,1,2,dwarf galaxy,dynamics;neither
+Shapley supercluster,FM(1),,1,1,0,cosmological,neither
+Sloan Great Wall,FM(1),,1,1,0,cosmological,neither
+SMC,FM(1);BBK(1);CSZ(1),,3,1,2,dwarf galaxy;galaxy,dynamics;neither
+Solar System,FM(4);BZ(2);CSZ(3),BBK,3,2,1,Solar System,dynamics
+Sun,,FM;BZ;CSZ,0,0,0,Solar System,
+Sun and Earth,,CSZ,0,0,0,Solar System,
+The Antennae,FM(1),,1,1,0,galaxy pair or group,dynamics
+Triangulum II,,CSZ,0,0,0,dwarf galaxy,
+Tucana,BZ(1),CSZ,1,1,0,dwarf galaxy,dynamics
+UGC 11583,FM(1),,1,1,0,dwarf galaxy,dynamics
+UGC 11919,BZ(1),,1,1,0,galaxy,dynamics
+UGC 1230,FM(1),,1,1,0,galaxy,dynamics
+UGC 128,BZ(1),,1,1,0,galaxy,dynamics
+UGC 2487,FM(1),,1,1,0,galaxy,dynamics
+UGC 2885,FM(1),,1,1,0,galaxy,dynamics
+UGC 2953,FM(1),,1,1,0,galaxy,dynamics
+UGC 3205,CSZ(1),,1,0,1,galaxy,dynamics
+UGC 3960,SAL(1),,1,0,1,galaxy,dynamics
+Uranus and Neptune,,BZ;CSZ,0,0,0,Solar System,
+Ursa Major I,,CSZ,0,0,0,dwarf galaxy,
+Ursa Major II,,CSZ,0,0,0,dwarf galaxy,
+Ursa Major III,,CSZ,0,0,0,dwarf galaxy,
+Ursa Minor,FM(1);BBK(1);SAL(1),CSZ,3,1,2,dwarf galaxy,dynamics;neither
+Virgo I,,CSZ,0,0,0,dwarf galaxy,
+Virgo II,,CSZ,0,0,0,dwarf galaxy,
+Virgo stream,,FM,0,0,0,galaxy,
+Willman 1,,CSZ,0,0,0,dwarf galaxy,
+WLM,,BBK,0,0,0,dwarf galaxy,
+XMMU J2235.3-2557,FM(1),,1,1,0,cluster,neither
