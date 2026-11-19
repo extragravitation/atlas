@@ -2468,6 +2468,27 @@ The frozen KiDS v2 test (item 11) makes any such finding a fail of that item. Th
 
 **Data seen.** The audit result and the project's decision record. No new data.
 
+## D-111 — Completeness plan 1.1: the extra dark-matter-side review is Cirelli, Strumia & Zupan, evidence chapters only
+
+**Ruling (2026-11-18 20:25, UTC−06:00, JvH).** "Proceed as reccomended". **Proposed by** Claude (2026-11-18), who weighed four candidates and recommended this one. **Adopted unchanged.**
+
+**Context.**
+- COMPLETENESS_PLAN step 1.1 reads the field's reviews in full and records every system, type and measurement route each one *uses as a test*. The result defines "complete" for the test-system checklist (1.3), taxonomy v3 (1.2) and the scope statement (1.4).
+- Two MOND-side reviews are already listed (Famaey & McGaugh 2012; Banik & Zhao 2022), and two from the dark-matter side (Bullock & Boylan-Kolchin 2017; Salucci 2019). The plan left a fifth, dark-matter-side, review open for a ruling.
+- Both dark-matter-side reviews deal with galaxies only. Clusters, the Bullet Cluster, lensing and the Milky Way reached the list only through the MOND-side reviews.
+
+**Rules.**
+1. The fifth review is **Cirelli, Strumia & Zupan, "Dark matter"**, SciPost Phys. Rev. 1 (2026), doi:10.21468/SciPostPhysRev.1, read from arXiv:2406.01705v3.
+2. **Only its observational and astrophysical chapters are read:** ch. 1 (evidence, pp. 15–39), ch. 2 (distribution, pp. 40–68), §8.4–8.5 (cosmological and astrophysical anomalies, pp. 300–310) and ch. 11 (alternatives, pp. 394–406). The rest of the review is particle physics and detection, which fall outside the Atlas. This limit is stated wherever the checklist cites the review.
+3. **The other four reviews are read in full,** all of their sections up to the references.
+
+**Alternatives weighed.**
+- Courteau et al. 2014, "Galaxy masses" (Rev. Mod. Phys. 86, 47): the best survey of measurement routes, but it covers galaxies only, dates from 2014, and is a mainstream methods review rather than one written from the dark-matter side. It is not read now; it can be added later as a neutral methods source if JvH rules so.
+- Sales, Wetzel & Fattahi 2022 (Nature Astronomy 6, 897): dwarf galaxies only, largely overlapping Bullock & Boylan-Kolchin.
+- Wechsler & Tinker 2018 (ARA&A 56): population statistics of the galaxy–halo connection, with few named test systems.
+
+**Data seen.** Each candidate's bibliographic record and abstract or contents, plus the table of contents of arXiv:2406.01705v3, used to set the page ranges. No review body text had been read for this step when the ruling was made.
+
 ## Release record — v0.2 (2026-11-06)
 
 Recorded here because the decision log covers releases (D-110 rule 3). This entry is not a new ruling.
