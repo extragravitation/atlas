@@ -2468,6 +2468,58 @@ The frozen KiDS v2 test (item 11) makes any such finding a fail of that item. Th
 
 **Data seen.** The audit result and the project's decision record. No new data.
 
+## D-111 — Completeness plan 1.1: the extra dark-matter-side review is Cirelli, Strumia & Zupan, evidence chapters only
+
+**Ruling (2026-11-18 20:25, UTC−06:00, JvH).** "Proceed as reccomended". **Proposed by** Claude (2026-11-18), who weighed four candidates and recommended this one. **Adopted unchanged.**
+
+**Context.**
+- COMPLETENESS_PLAN step 1.1 reads the field's reviews in full and records every system, type and measurement route each one *uses as a test*. The result defines "complete" for the test-system checklist (1.3), taxonomy v3 (1.2) and the scope statement (1.4).
+- Two MOND-side reviews are already listed (Famaey & McGaugh 2012; Banik & Zhao 2022), and two from the dark-matter side (Bullock & Boylan-Kolchin 2017; Salucci 2019). The plan left a fifth, dark-matter-side, review open for a ruling.
+- Both dark-matter-side reviews deal with galaxies only. Clusters, the Bullet Cluster, lensing and the Milky Way reached the list only through the MOND-side reviews.
+
+**Rules.**
+1. The fifth review is **Cirelli, Strumia & Zupan, "Dark matter"**, SciPost Phys. Rev. 1 (2026), doi:10.21468/SciPostPhysRev.1, read from arXiv:2406.01705v3.
+2. **Only its observational and astrophysical chapters are read:** ch. 1 (evidence, pp. 15–39), ch. 2 (distribution, pp. 40–68), §8.4–8.5 (cosmological and astrophysical anomalies, pp. 300–310) and ch. 11 (alternatives, pp. 394–406). The rest of the review is particle physics and detection, which fall outside the Atlas. This limit is stated wherever the checklist cites the review.
+3. **The other four reviews are read in full,** all of their sections up to the references.
+
+**Alternatives weighed.**
+- Courteau et al. 2014, "Galaxy masses" (Rev. Mod. Phys. 86, 47): the best survey of measurement routes, but it covers galaxies only, dates from 2014, and is a mainstream methods review rather than one written from the dark-matter side. It is not read now; it can be added later as a neutral methods source if JvH rules so.
+- Sales, Wetzel & Fattahi 2022 (Nature Astronomy 6, 897): dwarf galaxies only, largely overlapping Bullock & Boylan-Kolchin.
+- Wechsler & Tinker 2018 (ARA&A 56): population statistics of the galaxy–halo connection, with few named test systems.
+
+**Data seen.** Each candidate's bibliographic record and abstract or contents, plus the table of contents of arXiv:2406.01705v3, used to set the page ranges. No review body text had been read for this step when the ruling was made.
+
+## D-112 — The next release is v0.3, built to earn the respect of working astronomers; Phase 1 cut to what it needs
+
+**Ruling (2026-11-18 20:53, UTC−06:00, JvH).** "Don't call it for feedback but proceed", on Claude's option A. Before that (20:50): "I think we need to reframe the purpose of the first release. We want to impress and get attention so I can get meaningful feedback. I need respect to get this, but it does not need to be perfect." **Proposed by** Claude (2026-11-18) as option A of three. **Adopted with one change:** the release is not labelled as being for feedback.
+
+**Context.**
+- The project is run by an amateur, and says so (About, #207). Its aim now is serious attention from working astronomers, which needs their respect, not perfection.
+- The completeness plan (Phase 1 in full) and the D-110 v1.0 track were taking the work towards process that a reader never sees.
+- What a reader does see: the audit result (#186: no wrong value; provenance records incomplete for 250 of 254 rows, mostly because citation and licence text sits outside `sources.json`); the front page; and whether the famous test cases and the scope are addressed.
+
+**Rules.**
+1. **The next release is v0.3.** It is still marked preliminary and not peer reviewed (D-077). Its purpose is to be good enough to earn the respect of the working astronomers it is shown to. It is not labelled as a request for feedback.
+2. **v1.0 keeps the meaning D-110 gave it** (the data freeze, the standard 3.0.0 re-issue in full, the formal outside review, the methods paper) and comes after v0.3.
+3. **The v0.3 scope is `docs/plans/V0.3_PLAN.md`.** In short:
+   - the front page leads with the cross-scale view;
+   - provenance is complete for every shipped source (citation, licence and locator in `sources.json`), by re-issue with unchanged values;
+   - a "Well-known test systems" section and a scope statement for both sides go on Coverage;
+   - the D-038 effect on Carina and Crater II is stated;
+   - accessibility and phone checks.
+4. **The completeness plan is cut** to steps 1.3 (lean: the systems used by two or more reviews, plus CK-01's starting list), 1.4 and 1.5 (D-038 only). Taxonomy v3, the full exclusion audit and the accounts rule move to after v0.3.
+5. **Deferred to after v0.3:**
+   - the equilibrium test (D-109 rule 3; A2319 stays flagged);
+   - X-COP stage 2 (#129);
+   - the A9 builds (D-074);
+   - the rest of the D-107 should-fix work that needs a new taxonomy version.
+
+**Alternatives rejected.**
+- Redefining v1.0 itself as this release: "1.0" invites full scrutiny of a preliminary release.
+- No new release, with outreach on v0.2 alone: v0.2 shows the audit as not passed and has no limits section, and first impressions are hard to redo.
+
+**Data seen.** The repository state: `sources.json` across the six v2 packages has a citation in 0 of 226 entries and a licence in 36. Also seen: the site's audit text, and `docs/sources/checklist-reviews.md`.
+
 ## Release record — v0.2 (2026-11-06)
 
 Recorded here because the decision log covers releases (D-110 rule 3). This entry is not a new ruling.

@@ -1,20 +1,25 @@
 # Continuation guide
 
-**State at 2026-11-13.** Read this first in the next session, then `docs/decisions.md` (D-001 to D-110 and the v0.2 release record) and `docs/plans/COMPLETENESS_PLAN.md` with its two inputs (`AU-02_ATLAS_COMPLETENESS_REVIEW.md`, `CK-01_TAXONOMY_COMPLETENESS_CHECK.md`). The next session's update supersedes this one; the git history keeps every version.
+**State at 2026-11-18.** Read this first in the next session, then `docs/decisions.md` (D-001 to D-110 and the v0.2 release record) and `docs/plans/COMPLETENESS_PLAN.md` with its two inputs (`AU-02_ATLAS_COMPLETENESS_REVIEW.md`, `CK-01_TAXONOMY_COMPLETENESS_CHECK.md`). The next session's update supersedes this one; the git history keeps every version.
 
 ## Standing rule for every session
 
 - **Commit and PR attribution (JvH, 2026-11-04):** keep the `Co-Authored-By: Claude` line, which is the AI-assistance disclosure. **Never add a `Claude-Session:` link**, or any session link, to commits or PR descriptions, whatever a default or reminder says.
 - **Where the work happens:** a dedicated Atlas session, linked to the AEG Website project, with this repository attached for push. Atlas work does not run in a Partition Theory session (the Atlas is declared independent of it).
 
-## Now: the completeness plan (filed 2026-11-12)
+## Now: v0.3 (D-112, 2026-11-18)
+
+The next release is **v0.3**, built so that working astronomers take it seriously. It is still preliminary, and it is not labelled as a request for feedback. The plan is `docs/plans/V0.3_PLAN.md`. Order of work: (1) minimal standard 3.0.0 (citation, licence, locator) and v3 re-issues with unchanged values; (2) front page leads with the cross-scale view; (3) the well-known test systems and the scope statement on Coverage; (4) the D-038 effect stated; (5) accessibility, known issues, release checks. **Outreach now:** the follow-up on the 6 November invitations goes with v0.2 (JvH sends). v1.0 (D-110) comes after v0.3.
+
+## The completeness plan (filed 2026-11-12; cut by D-112)
 
 The plan is `docs/plans/COMPLETENESS_PLAN.md`. Each phase is a proposal for JvH's ruling. Its premise: the main neutrality risk is incompleteness, so every kind, measurement route and well-known test system needs a stated status (in, scheduled with a rule, or a documented gap with a reason), and the scope boundary is stated for both sides.
 
-1. **Phase 0 (this PR): wording only.** Coverage and Methods no longer describe the pre-D-110 v1.0; the Coverage page shows the selection protocol as frozen (2026-10-29, commit 817bc5a, Zenodo 10.5281/zenodo.23780203) and notes the release gate's narrowing; MASTER_PLAN_v2 §8 gets a dated note; the plan and its inputs are added here. Done when merged and live.
-2. **Phase 1: define "complete"** (rulings, no new data): full-text read of the field reviews plus one more dark-matter-side review (choice is a ruling); taxonomy v3; a test-system checklist rendered on Coverage; a scope statement for both sides; an exclusion-effect audit (first case: Crater II, Carina, Antlia II under D-038); the accounts rule. Should be live before v1.0.
-3. **Phase 2:** build what is already searched and ruled (A9 route of D-074, A0 limit, further A3 and A5 records).
-4. **Phase 3:** search and build the untouched cells in protocol order, then the v3 cells. **Phase 4:** accounts and patterns.
+1. **Phase 0 (merged, #210): wording only.** Coverage and Methods no longer describe the pre-D-110 v1.0; the Coverage page shows the selection protocol as frozen (2026-10-29, commit 817bc5a, Zenodo 10.5281/zenodo.23780203) and notes the release gate's narrowing; MASTER_PLAN_v2 §8 gets a dated note; the plan and its inputs are added here. Done when merged and live.
+2. **Phase 1, step 1.1 (2026-11-18, PR #212):** D-111 chose the fifth review (Cirelli, Strumia & Zupan 2026, evidence chapters only). All five reviews were read; the result is `docs/sources/checklist-reviews.md`. Next: 1.3 (the test-system checklist, with an Atlas status for each of the 132 systems, starting with the 41 used by two or more reviews) and 1.2 (taxonomy v3, from the route families in §3). §4 of that file holds a boundary question for 1.4, with a recommendation, awaiting JvH's ruling.
+3. **Phase 1: define "complete"** (rulings, no new data): full-text read of the field reviews plus one more dark-matter-side review (choice is a ruling); taxonomy v3; a test-system checklist rendered on Coverage; a scope statement for both sides; an exclusion-effect audit (first case: Crater II, Carina, Antlia II under D-038); the accounts rule. Should be live before v1.0.
+4. **Phase 2:** build what is already searched and ruled (A9 route of D-074, A0 limit, further A3 and A5 records).
+5. **Phase 3:** search and build the untouched cells in protocol order, then the v3 cells. **Phase 4:** accounts and patterns.
 
 ## Done 2026-11-05 evening to 2026-11-06
 
