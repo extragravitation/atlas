@@ -119,8 +119,9 @@ def og_svg():
             f'<rect width="1200" height="630" fill="{t["bg"]}"/>'
             f'<g transform="translate(72 64) scale(1.75)"><rect width="64" height="64" rx="14" fill="#0E141C"/>{mark_body(t)}</g>'
             f'<text x="200" y="140" font-family="Inter Tight, sans-serif" font-weight="700" font-size="44" letter-spacing="-0.8" fill="{t["ink"]}">Atlas of Extra Gravitation</text>'
-            f'<text x="72" y="430" font-family="Inter Tight, sans-serif" font-weight="700" font-size="56" letter-spacing="-1.2" fill="{t["ink"]}">Where the observed pull exceeds</text>'
-            f'<text x="72" y="500" font-family="Inter Tight, sans-serif" font-weight="700" font-size="56" letter-spacing="-1.2" fill="{t["ink"]}">what detected matter predicts</text>'
+            f'<text x="72" y="372" font-family="Inter Tight, sans-serif" font-weight="700" font-size="52" letter-spacing="-1.1" fill="{t["ink"]}">Observed acceleration, compared with</text>'
+            f'<text x="72" y="436" font-family="Inter Tight, sans-serif" font-weight="700" font-size="52" letter-spacing="-1.1" fill="{t["ink"]}">Newtonian gravity on detected baryons</text>'
+            f'<text x="72" y="494" font-family="Inter Tight, sans-serif" font-size="26" fill="{t["sub"]}">From star clusters to galaxy clusters. Takes no side on the cause.</text>'
             f'<text x="72" y="566" font-family="Source Code Pro, monospace" font-size="26" letter-spacing="1.5" fill="{t["accent"]}">extragravitation.org</text>'
             '</svg>\n')
 
