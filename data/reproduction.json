@@ -657,7 +657,7 @@
           "name": "T7: addresses reachable",
           "plain": "Links work",
           "outcome": "pass",
-          "detail": "TO BE FILLED FROM THE REACHABILITY RUN"
+          "detail": "run 2026-11-24T17:08Z in GitHub Actions: 4 of 6 addresses returned 200; the DOI 10.1051/0004-6361/202040108 returned 403 from the publisher to the automated request (both entries are hashed, so this is recorded, not failed)"
         }
       ],
       "issues": [

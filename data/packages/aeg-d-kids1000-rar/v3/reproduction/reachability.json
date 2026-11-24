@@ -1,0 +1,75 @@
+{
+ "test": "T7, docs/standard-3.0.0-reissue-test.md",
+ "package": "aeg-d-kids1000-rar/v3",
+ "checked_on": "2026-11-24T17:08:36Z",
+ "result": "pass",
+ "n_addresses": 6,
+ "not_200": [
+  {
+   "id": "S1",
+   "field": "doi",
+   "address": "https://doi.org/10.1051/0004-6361/202040108",
+   "status": 403,
+   "final_url": "https://doi.org/10.1051/0004-6361/202040108",
+   "sha256_present": true
+  },
+  {
+   "id": "S2",
+   "field": "doi",
+   "address": "https://doi.org/10.1051/0004-6361/202040108",
+   "status": 403,
+   "final_url": "https://doi.org/10.1051/0004-6361/202040108",
+   "sha256_present": true
+  }
+ ],
+ "results": [
+  {
+   "id": "S1",
+   "field": "url",
+   "address": "https://kids.strw.leidenuniv.nl/sci_data/brouwer2021_rar.tar",
+   "status": 200,
+   "final_url": "https://kids.strw.leidenuniv.nl/sci_data/brouwer2021_rar.tar",
+   "sha256_present": true
+  },
+  {
+   "id": "S1",
+   "field": "landing_url",
+   "address": "https://kids.strw.leidenuniv.nl/sciencedata.php",
+   "status": 200,
+   "final_url": "https://kids.strw.leidenuniv.nl/sciencedata.php",
+   "sha256_present": true
+  },
+  {
+   "id": "S1",
+   "field": "doi",
+   "address": "https://doi.org/10.1051/0004-6361/202040108",
+   "status": 403,
+   "final_url": "https://doi.org/10.1051/0004-6361/202040108",
+   "sha256_present": true
+  },
+  {
+   "id": "S2",
+   "field": "url",
+   "address": "https://arxiv.org/e-print/2106.11677v1",
+   "status": 200,
+   "final_url": "https://arxiv.org/src/2106.11677v1",
+   "sha256_present": true
+  },
+  {
+   "id": "S2",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2106.11677v1",
+   "status": 200,
+   "final_url": "https://arxiv.org/abs/2106.11677v1",
+   "sha256_present": true
+  },
+  {
+   "id": "S2",
+   "field": "doi",
+   "address": "https://doi.org/10.1051/0004-6361/202040108",
+   "status": 403,
+   "final_url": "https://doi.org/10.1051/0004-6361/202040108",
+   "sha256_present": true
+  }
+ ]
+}

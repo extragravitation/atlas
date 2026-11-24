@@ -24,4 +24,6 @@
 
 ## Test result
 
-Reported in the pull request. T1 is checked twice: by `python -m aeg.reissue_check aeg-d-kids1000-rar`, and in CI, where the package is rebuilt from the canonical tarball and must equal the committed tables. T7 runs in the reachability workflow, and its dated result is committed to `reproduction/reachability.json`.
+T1 to T6 pass (`reproduction/reissue_check.txt`). CI rebuilt the package from the canonical tarball and it equals the committed tables. In the same run, CI fetched the arXiv e-print and verified its size and hash. T7 passes (`reproduction/reachability.json`, 2026-11-24): 4 of 6 addresses returned 200. The two that did not are the paper's DOI, listed once for each entry. The publisher answered the automated request with HTTP 403. The DOI is the one printed on the A&A article page and in ADS, and both entries are hashed, so under T7 this is recorded, not failed.
+
+Also reported in the pull request. T1 is checked twice: by `python -m aeg.reissue_check aeg-d-kids1000-rar`, and in CI, where the package is rebuilt from the canonical tarball and must equal the committed tables. T7 runs in the reachability workflow, and its dated result is committed to `reproduction/reachability.json`.
