@@ -1,4 +1,6 @@
-# Proposal: audit plan version 3 (D-116, for ruling)
+# Proposal: audit plan version 3 (D-116)
+
+**Ruled 2026-11-24 15:37 (UTC−06:00), JvH: "rule as reccomended"**, on Q1 to Q6 and Part B as amended below.
 
 **Proposed by** Claude, 2026-11-24. **Implements** D-113 item 3. **Draft plan:** `docs/audit/AUDIT_PLAN_v3.md`, with sampler `docs/audit/sample_v3.py`. On a ruling, both are hashed into `data/frozen/audit-plan-v3.json` and merged before anything else in the audit happens.
 

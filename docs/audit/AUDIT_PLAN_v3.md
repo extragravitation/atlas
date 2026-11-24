@@ -1,6 +1,6 @@
 # Independent audit: plan, version 3
 
-**Status: proposed (D-116), not yet frozen.** On JvH's ruling this file and `docs/audit/sample_v3.py` are hashed into `data/frozen/audit-plan-v3.json` and merged. From then on the file is never edited in place; any change is a new version with the reason logged.
+**Frozen:** 2026-11-24, under D-116 (JvH: "rule as reccomended", 15:37 UTC−06:00). The hashes of this file and of `docs/audit/sample_v3.py` are in `data/frozen/audit-plan-v3.json`. This file is never edited in place; any change is a new version, with the reason logged.
 
 **Frozen before:** the seed exists, the methods text of D-113 item 2 is finished, and any audit reading. No v3 row has been re-derived for this audit.
 
