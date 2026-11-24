@@ -868,7 +868,7 @@
           "name": "T7: addresses reachable",
           "plain": "Links work",
           "outcome": "pass",
-          "detail": "TO BE FILLED FROM THE REACHABILITY RUN"
+          "detail": "run 2026-11-24T18:38Z in GitHub Actions: all 29 file addresses and all 21 landing pages returned 200; of 29 DOI links, 9 returned 200, 11 got 403 from the publishers and 9 got 429 (too many requests) from doi.org; every entry is hashed, so these are recorded, not failed"
         }
       ],
       "issues": [

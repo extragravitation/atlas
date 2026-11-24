@@ -38,4 +38,5 @@ Four lens-redshift observables cite "R21 Table 2 z_d (IOP ascii t2)". No IOP tab
 
 ## Test result
 
-T1 to T6: see `reproduction/reissue_check.txt`. T7: see `reproduction/reachability.json`.
+- **T1 to T6:** pass (`reproduction/reissue_check.txt`). CI rebuilt the package and it equals the committed tables.
+- **T7:** pass (`reproduction/reachability.json`, 2026-11-24). All 29 file addresses and all 21 landing pages returned 200. Of the 29 DOI links, 9 returned 200, 11 got HTTP 403 from the publishers, and 9 got HTTP 429 (too many requests) from doi.org. Every entry is hashed, so under T7 these are recorded, not failed.
