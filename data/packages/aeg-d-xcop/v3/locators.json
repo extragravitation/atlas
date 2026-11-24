@@ -1,0 +1,50 @@
+{
+ "standard": "3.0.0 §13 R4",
+ "rules": [
+  {
+   "table": "observables",
+   "match": "^data_E22\\.tar\\.gz:(?P<member>[A-Za-z0-9]+/gbar_gobs_[A-Za-z0-9]+\\.fits):row (?P<row>\\d+), (?P<column>GOBS); the source computed g: non-parametric hydrostatic reconstruction evaluated at the radii of the data \\(E22 §3\\.4, l\\. 263\\); g_obs = G M_HSE\\(<r\\)/r² \\(l\\. 453\\)$",
+   "sources": [
+    "S1",
+    "S3"
+   ],
+   "where": {
+    "member": "{member}",
+    "hdu": "1",
+    "row": "{row}",
+    "column": "{column}",
+    "section": "§3.4",
+    "line": "263; 453"
+   },
+   "note": "Value from S1 (member, HDU 1, row, column). §3.4 (the nonparametric reconstruction), l. 263 (evaluated at the radii of the observed data) and l. 453 (g_obs = G M_HSE(<r)/r²) are in S3, hydromass.tex; checked 2026-11-24."
+  },
+  {
+   "table": "observables",
+   "match": "^data_E22\\.tar\\.gz:(?P<member>[A-Za-z0-9]+/gbar_gobs_[A-Za-z0-9]+\\.fits):row (?P<row>\\d+), (?P<column>GBAR); the source computed g, including the central galaxy's dynamical mass-to-light ratio: G \\(M_gas \\+ M★,BCG \\+ M★,sat\\)\\(<r\\)/r² \\(E22 l\\. 456\\); ICL excluded \\(l\\. 410\\)$",
+   "sources": [
+    "S1",
+    "S3"
+   ],
+   "where": {
+    "member": "{member}",
+    "hdu": "1",
+    "row": "{row}",
+    "column": "{column}",
+    "line": "456; 410"
+   },
+   "note": "Value from S1. l. 456 (the g_bar equation) and l. 410 ('Intracluster light, which is not included in our analysis') are in S3, hydromass.tex; checked 2026-11-24."
+  },
+  {
+   "table": "measurements",
+   "match": "^data_E22\\.tar\\.gz:(?P<member>[A-Za-z0-9]+/gbar_gobs_[A-Za-z0-9]+\\.fits):row (?P<row>\\d+)$",
+   "sources": [
+    "S1"
+   ],
+   "where": {
+    "member": "{member}",
+    "hdu": "1",
+    "row": "{row}"
+   }
+  }
+ ]
+}

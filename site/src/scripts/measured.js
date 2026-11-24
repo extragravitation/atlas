@@ -18,8 +18,8 @@ export function drawMeasured(d, rows) {
       { k: 'x_sparc_v_bul', col: '--bulge', lab: ['V_bul at M/L = 1 (3.6 μm)', 'Speed the bulge stars alone would give, before choosing their mass-to-light ratio'] },
     ].filter((s) => rows.some((r) => r[s.k]));
     xlab = P ? 'distance from the centre (kpc)' : 'R (kpc)'; ylab = P ? 'speed (km s⁻¹)' : 'velocity (km s⁻¹)';
-  } else if (d.key === 'aeg-d-xcop/v2') {
-    // v2: the source released the accelerations themselves (acceleration_released, D-095).
+  } else if (d.name === 'aeg-d-xcop' && d.key !== 'aeg-d-xcop/v1') {
+    // v2 and its re-issue v3 (D-114): the source released the accelerations themselves (acceleration_released, D-095).
     series = [
       { k: 'g_obs', err: 'g_obs_err_hi', unit: ' m s⁻²', col: '--sel', pts: true, lab: ['GOBS ± GOBS_ERR_HI, observed acceleration as released (source)', 'Observed pull, as the source released it'] },
       { k: 'g_bar', unit: ' m s⁻²', col: '--gas', lab: ['GBAR, baryonic acceleration as released (gas, central galaxy and satellites; source)', 'Pull from detected matter, as the source released it'] },

@@ -48,10 +48,10 @@ const rMin = Math.min(...rows.map((r) => r.r_kpc)), rMax = Math.max(...rows.map(
 const noteSegs = [...new Set(rows.flatMap((r) => String(r.notes || '').split(' | ').filter(Boolean)))];
 const HSE = 'Source statement on hydrostatic validity (part A §5; not an exclusion, part B rule 4): ';
 const hseNotes = noteSegs.filter((s) => s.startsWith(HSE)).map((s) => s.slice(HSE.length));
-const d092 = d.key === 'aeg-d-xcop/v2' && rows.some((r) => String(r.known_issues || '').split(';').includes('#136'));
+const d092 = d.contentKey === 'aeg-d-xcop/v2' && rows.some((r) => String(r.known_issues || '').split(';').includes('#136'));
 const d092Note = d092 ? noteSegs.find((s) => s.startsWith("The source's g_bar for this cluster")) : null;
 const otherNotes = noteSegs.filter((s) => !s.startsWith(HSE) && s !== d092Note);
-const eqf = flagFor(d.key, sys.id);
+const eqf = flagFor(d.contentKey, sys.id);
 // Plain version of the Atlas's own row notes (part A checks), read from the note text itself.
 const STELLAR = /^stellar projection: undetermined \(part A, A6\); stellar normalisation against Ghizzardi et al\. 2021: ([0-9.]+) \(part A, A9\)$/;
 const notePlain = (s) => { const m = s.match(STELLAR); return m ? `Whether the star masses in the shared files were counted inside a ball or through a whole column of sky could not be worked out (Atlas check A6). Inside R500 they are ${m[1]} times the star mass that Ghizzardi et al. 2021 give for this cluster (Atlas check A9).` : 'A note from the Atlas’s checks of the source files; the technical view gives it in full.'; };
@@ -221,9 +221,9 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
       <p class="kicker"><a href={`${base}systems/`} style="color:inherit">Systems</a> · {lab.t} · {sys.id}</p>
       <h1>{sys.name}</h1>
       <Excluded sys={sys} />
-      <EqFlag dataset={d.key} system={sys.id} />
+      <EqFlag dataset={d.contentKey} system={sys.id} />
       <p class="lede"><L t={`${R.class_in_source}. ${lab.method_t}${eqf ? '; equilibrium flagged by the source (above)' : ''}. ${rows.length} radii, ${fmtR(rMin)}–${fmtR(rMax)} kpc.`} p={`${lab.one_p || lab.kind_p}.${eqf ? ' The source says this assumption breaks down for this cluster (see the note above).' : ''} Measured at ${rows.length} distances from the centre, ${fmtR(rMin)} to ${fmtR(rMax)} kpc.`} /></p>
-      {d.key === 'aeg-d-xcop/v2' && noteSegs.length > 0 && <section class="boxed" id="notes" style="margin:12px 0 18px">
+      {d.contentKey === 'aeg-d-xcop/v2' && noteSegs.length > 0 && <section class="boxed" id="notes" style="margin:12px 0 18px">
         <h2 style="margin-top:0"><L t="Notes on these values" p="Notes on these numbers" /></h2>
         {d092Note && <Layer as="p"><Fragment slot="t">{d092Note}</Fragment><Fragment slot="p">{"The published pull from detected matter for this cluster doesn't match the separate files we were given. We show the published values and have asked the authors."}</Fragment></Layer>}
         {hseNotes.length > 0 && <>
@@ -256,7 +256,7 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
 
       <h2 id="measured"><L t="As measured" p="What was actually measured" /></h2>
       {d.name === 'aeg-d-sparc' && <Layer as="p"><Fragment slot="t">The source’s own quantities, before the Atlas converts them (D-029). SPARC gives the observed circular velocity V_obs with its random error (which excludes the inclination uncertainty) and the velocities that each baryonic component alone would produce: gas (atomic, × 1.33 for helium) and stars at a mass-to-light ratio of 1 at 3.6 μm. The Atlas then computes g_obs = V_obs² / R and g_bar = (|V_gas| V_gas + Υ_disk |V_disk| V_disk + Υ_bul |V_bul| V_bul) / R.</Fragment><Fragment slot="p">Before any conversion, the source gives speeds: how fast the galaxy turns at each distance, and how fast it would turn from its gas alone or its stars alone. The Atlas turns these speeds into pulls.</Fragment></Layer>}
-      {d.key === 'aeg-d-xcop/v2' && <Layer as="p"><Fragment slot="t">The source’s own quantities (D-029). For this version the source released the accelerations themselves, at the radii of its data: g_obs from its non-parametric hydrostatic reconstruction and g_bar from its gas, central-galaxy and satellite masses, as one total (Eckert et al. 2022, l. 263, 453, 456). The Atlas does not recompute them (D-090 rule 1).</Fragment><Fragment slot="p">For this version the source gave the pulls directly, so the Atlas shows them as released.</Fragment></Layer>}
+      {d.contentKey === 'aeg-d-xcop/v2' && <Layer as="p"><Fragment slot="t">The source’s own quantities (D-029). For this version the source released the accelerations themselves, at the radii of its data: g_obs from its non-parametric hydrostatic reconstruction and g_bar from its gas, central-galaxy and satellite masses, as one total (Eckert et al. 2022, l. 263, 453, 456). The Atlas does not recompute them (D-090 rule 1).</Fragment><Fragment slot="p">For this version the source gave the pulls directly, so the Atlas shows them as released.</Fragment></Layer>}
       {d.key === 'aeg-d-xcop/v1' && <Layer as="p"><Fragment slot="t">The source’s own quantities, before the Atlas converts them (D-029). X-COP releases masses within each radius: the forward-method hydrostatic mass (already an inference from the X-ray and SZ temperature and pressure profiles, to which the source fits functional forms), the hot-gas mass and the stellar mass. The Atlas computes g = G M(&lt;r) / r². The temperature and density profiles behind the hydrostatic mass are in the same public archive and are added with the next version of this dataset.</Fragment><Fragment slot="p">The source gives masses: the total mass it works out from the hot gas, and the masses of hot gas and of stars. The Atlas turns these into pulls. The gas measurements behind them come with the next version.</Fragment></Layer>}
       <figure>
         <div class="figbox" id="measbox">

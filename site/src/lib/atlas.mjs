@@ -79,6 +79,9 @@ export function loadAtlas() {
   const latest = {};
   for (const d of datasets) if (!latest[d.name] || vnum(d.version) > vnum(latest[d.name].version)) latest[d.name] = d;
   for (const d of datasets) {
+    // A re-issue under D-114 has the same tables as the version it re-issues; content-keyed site logic
+    // (package-note edits, flags, version-specific text) follows that version's key.
+    d.contentKey = d.dp.x_reissue && d.dp.x_previous_version ? d.dp.x_previous_version : d.key;
     d.current = latest[d.name] === d;
     d.supersededBy = d.current ? null : latest[d.name].key;
     d.versions = datasets.filter((x) => x.name === d.name).map((x) => x.key);
@@ -97,6 +100,12 @@ export function loadAtlas() {
   const exText = readIf(path.join(ROOT, 'data/registry/excluded.csv'));
   const excluded = exText ? parseCSV(exText) : [];
   for (const s of systems) s.excluded = excluded.filter((e) => e.system === s.id && e.dataset === s.dataset);
+  // A re-issue (D-114) must carry the same exclusion rows as the version it re-issues; otherwise its
+  // systems would silently lose their "Recorded, not plotted" notice.
+  for (const d of all) if (d.contentKey !== d.key) {
+    const sig = (k) => excluded.filter((e) => e.dataset === k).map((e) => `${e.system}|${e.reason}|${e.citation}`).sort().join('\n');
+    if (sig(d.key) !== sig(d.contentKey)) throw new Error(`exclusion register: ${d.key} must repeat the rows of ${d.contentKey}`);
+  }
   cache = { registry, datasets, all, systems, excluded, standard: read(path.join(ROOT, 'docs/data-standard.md')), changelog: readIf(path.join(ROOT, 'CHANGELOG.md')) || '' };
   return cache;
 }

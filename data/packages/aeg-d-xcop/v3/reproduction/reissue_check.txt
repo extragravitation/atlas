@@ -1,0 +1,12 @@
+== aeg-d-xcop: PASS (T1 to T6)
+  T1 pass: measurements.ecsv identical after N (sha256 18b8b71d9c19…)
+  T1 pass: observables.ecsv identical after N (sha256 5ff03dff0585…)
+  T1 pass: systems.ecsv identical after N (sha256 48ee1dc98833…)
+  T1 pass: uncertainty_terms.ecsv identical after N (sha256 fff2dbf7187f…)
+  T2 pass: convert.py differs only on line 47: DATASET, VERSION, STANDARD = "aeg-d-xcop", "v3", "3.0.0"
+  T3 pass
+  T4 pass
+  T5 pass
+  T6 pass
+  T3 count: 7 entries (7 from v2, 0 new); sha256 null: none
+  T4 count: 3 rules, 0 corrections
