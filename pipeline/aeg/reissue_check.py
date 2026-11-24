@@ -21,6 +21,10 @@ from aeg.validate import validate_v30
 ROOT = Path(__file__).resolve().parents[2]
 PACKAGES = ROOT / "data/packages"
 VERSION_LINE = re.compile(r'^DATASET, VERSION, STANDARD = "[^"]+", "v\d+", "[\d.]+"$')
+# Ruled deviations from T2: (dataset, the v3 line exactly) -> decision. Each permits one more changed line.
+T2_DEVIATIONS = {
+    ("aeg-d-dwarfs", '    rel = f"data/packages/{DATASET}/v2/reading/resolved.csv"  # D-115: the v2 freeze record; v3 holds a byte copy'): "D-115",
+}
 
 
 def _sha(b: bytes) -> str:
@@ -87,6 +91,11 @@ def t2_code(v2: Path, v3: Path) -> tuple[bool, list[str]]:
     if len(a) != len(b):
         return False, [f"T2 FAIL: convert.py has {len(a)} lines in v2 and {len(b)} in v3"]
     changed = [(i + 1, x, y) for i, (x, y) in enumerate(zip(a, b)) if x != y]
+    ruled = [(n, y, T2_DEVIATIONS[(v3.parent.name, y)]) for n, x, y in changed if (v3.parent.name, y) in T2_DEVIATIONS]
+    changed = [c for c in changed if (v3.parent.name, c[2]) not in T2_DEVIATIONS]
+    if ruled and len(changed) == 1 and VERSION_LINE.match(changed[0][2]):
+        return True, [f"T2 pass with a ruled deviation: convert.py differs on line {changed[0][0]} (version) and on line "
+                      f"{', '.join(str(n) for n, _, _ in ruled)} ({', '.join(d for _, _, d in ruled)}): {ruled[0][1].strip()}"]
     if (len(changed) == 1 and VERSION_LINE.match(changed[0][1]) and VERSION_LINE.match(changed[0][2])
             and '"v3", "3.0.0"' in changed[0][2]):
         return True, [f"T2 pass: convert.py differs only on line {changed[0][0]}: {changed[0][2].strip()}"]

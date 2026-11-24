@@ -128,7 +128,7 @@ def squash(s: str) -> str:
 def main() -> int:
     reading = list(csv.DictReader(open(HERE / "reading/resolved.csv", encoding="utf-8")))
     frozen = json.loads((ROOT / "data/frozen/dwarfs-v2-reading.json").read_text(encoding="utf-8"))
-    rel = f"data/packages/{DATASET}/{VERSION}/reading/resolved.csv"
+    rel = f"data/packages/{DATASET}/v2/reading/resolved.csv"  # D-115: the v2 freeze record; v3 holds a byte copy
     if frozen["files"][rel] != sha(HERE / "reading/resolved.csv"):
         raise SystemExit("reading/resolved.csv does not match its freeze record")
     if any(r["resolution"] == "awaiting_ruling" for r in reading):

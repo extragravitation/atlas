@@ -565,7 +565,7 @@
           "name": "T2: conversion code unchanged",
           "plain": "Same method",
           "outcome": "pass",
-          "detail": "convert.py differs from v2 only in its version line"
+          "detail": "convert.py differs from v2 on its version line and, by ruling D-115, on line 131 (the freeze-record key names v2's reading file; the check itself is unchanged)"
         },
         {
           "name": "T3: source records",

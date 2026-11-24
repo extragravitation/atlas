@@ -2563,6 +2563,20 @@ The frozen KiDS v2 test (item 11) makes any such finding a fail of that item. Th
 
 **Data seen.** The six v2 `sources.json` files and `source_ref` columns (counts only), and `docs/audit/AUDIT_RESULT.md`. No v3 package exists.
 
+## D-115 — Dwarfs v3: one ruled deviation from re-issue test T2
+
+**Ruling (2026-11-24, UTC−06:00, JvH).** "Change line 131 (Recommended)", in answer to the question put in the session. **Proposed by** Claude. **Deviation from** `docs/standard-3.0.0-reissue-test.md` T2 (frozen with D-114).
+
+**Context.** T2 lets a v3 `convert.py` differ from v2's only on the version line. The dwarf converter builds the key it looks up in its frozen-reading record from its own version: line 131, `f"data/packages/{DATASET}/{VERSION}/reading/resolved.csv"`. Under v3 that key does not exist in `data/frozen/dwarfs-v2-reading.json` (frozen 2026-11-04), so the conversion stopped in CI. The other converters check their frozen files at the recorded paths and are not affected.
+
+**Rules.**
+1. In `aeg-d-dwarfs/v3/convert.py`, line 131 names the v2 path, `data/packages/{DATASET}/v2/reading/resolved.csv`. Line 132 still checks v3's own copy of `resolved.csv` against that frozen hash, so the check is unchanged. v3's reading files are byte copies of v2's.
+2. T2 passes for this package with this one deviation named. `aeg.reissue_check` permits exactly this line for this dataset and reports it. T1 is unaffected: CI rebuilds v3 and requires the result to equal the committed tables, which equal v2's once the version labels are mapped back.
+
+**Alternatives rejected.** Adding the v3 path to the 2026-11-04 freeze record: it would edit a historical record after the fact. Holding the dwarfs at v2 for v0.3: their provenance failures would stay unfixed.
+
+**Data seen.** The CI log of the failed build (KeyError at line 131). No value was looked at.
+
 ## Release record — v0.2 (2026-11-06)
 
 Recorded here because the decision log covers releases (D-110 rule 3). This entry is not a new ruling.

@@ -34,7 +34,7 @@
 ## What did not change
 
 - **Values and text:** every table equals v2's once the version labels are mapped back (T1).
-- **The converter:** `convert.py` differs from v2's only in its version line (T2). It still builds from v1's tables and readings, and it rewrites `reading/conversion_changes.json`, whose `aeg-d-dwarfs/v2` labels now read v3.
+- **The converter:** `convert.py` differs from v2's in its version line and, by ruling D-115, in line 131 (T2). Line 131 is the key of the frozen-reading check, which now names v2's reading file. Line 132 still compares v3's byte copy against that frozen hash, so the check is unchanged. It still builds from v1's tables and readings, and it rewrites `reading/conversion_changes.json`, whose `aeg-d-dwarfs/v2` labels now read v3.
 - **Carried over from v2 and still valid:** `REPRODUCTION.md`, its result, `SECOND_READING.md` and `reading/`.
 
 ## Test result

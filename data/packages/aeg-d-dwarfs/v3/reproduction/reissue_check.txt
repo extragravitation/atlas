@@ -3,7 +3,7 @@
   T1 pass: observables.ecsv identical after N (sha256 a9bbb91993cc…)
   T1 pass: systems.ecsv identical after N (sha256 f3085a26bfc4…)
   T1 pass: uncertainty_terms.ecsv identical after N (sha256 c4075ee8544f…)
-  T2 pass: convert.py differs only on line 44: DATASET, VERSION, STANDARD = "aeg-d-dwarfs", "v3", "3.0.0"
+  T2 pass with a ruled deviation: convert.py differs on line 44 (version) and on line 131 (D-115): rel = f"data/packages/{DATASET}/v2/reading/resolved.csv"  # D-115: the v2 freeze record; v3 holds a byte copy
   T3 pass
   T4 pass
   T5 pass
