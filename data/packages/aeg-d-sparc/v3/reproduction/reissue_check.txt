@@ -1,0 +1,12 @@
+== aeg-d-sparc: PASS (T1 to T6)
+  T1 pass: measurements.ecsv identical after N (sha256 7c390f761013…)
+  T1 pass: observables.ecsv identical after N (sha256 2df825dc4453…)
+  T1 pass: systems.ecsv identical after N (sha256 ef5995e02e2b…)
+  T1 pass: uncertainty_terms.ecsv identical after N (sha256 54572176269c…)
+  T2 pass: convert.py differs only on line 32: DATASET, VERSION, STANDARD = "aeg-d-sparc", "v3", "3.0.0"
+  T3 pass
+  T4 pass
+  T5 pass
+  T6 pass
+  T3 count: 3 entries (2 from v2, 1 new); sha256 null: none
+  T4 count: 6 rules, 1 corrections

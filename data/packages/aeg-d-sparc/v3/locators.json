@@ -1,0 +1,80 @@
+{
+ "standard": "3.0.0 §13 R4",
+ "rules": [
+  {
+   "table": "observables",
+   "match": "^MassModels_Lelli2016c\\.mrt:data row (?P<row>\\d+), columns Vobs and e_Vobs$",
+   "sources": [
+    "S1"
+   ],
+   "where": {
+    "row": "{row}",
+    "column": "Vobs and e_Vobs"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^MassModels_Lelli2016c\\.mrt:data row (?P<row>\\d+), column (?P<column>Vdisk|SBdisk|Vbul|SBbul): ",
+   "sources": [
+    "S1"
+   ],
+   "where": {
+    "row": "{row}",
+    "column": "{column}"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^MassModels_Lelli2016c\\.mrt:data row (?P<row>\\d+), column (?P<column>Vgas): atomic gas with helium \\(factor 1\\.33\\)$",
+   "sources": [
+    "S1"
+   ],
+   "where": {
+    "row": "{row}",
+    "column": "{column}"
+   },
+   "note": "The factor 1.33 (helium) is stated in S3 §3.3, l. 199."
+  },
+  {
+   "table": "observables",
+   "match": "^MassModels_Lelli2016c\\.mrt:data row (?P<row>\\d+), column (?P<column>Vgas): atomic gas with helium \\(factor 1\\.33\\); gas profile assumed exponential \\(arXiv:1606\\.09251 §3\\.4\\)$",
+   "sources": [
+    "S1",
+    "S3"
+   ],
+   "where": {
+    "row": "{row}",
+    "column": "{column}",
+    "section": "§3.3",
+    "line": "199"
+   },
+   "correction": "arXiv:1606.09251 §3.4",
+   "note": "The value is read from S1 (row, column). The gas-profile assumption is stated in S3 §3.3 (Mass Models), SPARC.tex l. 199, not §3.4 as the source_ref says; the paper has no §3.4 (known issue #222)."
+  },
+  {
+   "table": "observables",
+   "match": "^SPARC_Lelli2016c\\.mrt:data row (?P<row>\\d+), columns D and e_D; method f_D=(?P<fd>[1-5]) \\(.+; arXiv:1606\\.09251 §2\\.2\\)$",
+   "sources": [
+    "S2",
+    "S3"
+   ],
+   "where": {
+    "row": "{row}",
+    "column": "D, e_D and f_D",
+    "section": "§2.2",
+    "line": "113–121"
+   },
+   "note": "Values from S2; the distance methods are described in S3 §2.2 (Galaxy Distances), SPARC.tex l. 113–121."
+  },
+  {
+   "table": "measurements",
+   "match": "^MassModels_Lelli2016c\\.mrt:data row (?P<row>\\d+)$",
+   "sources": [
+    "S1"
+   ],
+   "where": {
+    "row": "{row}"
+   }
+  }
+ ]
+}
