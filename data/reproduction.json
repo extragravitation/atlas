@@ -180,7 +180,7 @@
           "name": "T7: addresses reachable",
           "plain": "Links work",
           "outcome": "pass",
-          "detail": "TO BE FILLED FROM THE REACHABILITY RUN"
+          "detail": "run 2026-11-24T17:58Z in GitHub Actions: all 9 addresses returned 200"
         }
       ],
       "issues": [
