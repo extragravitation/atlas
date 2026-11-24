@@ -1,0 +1,328 @@
+{
+ "standard": "3.0.0 §13 R4",
+ "rules": [
+  {
+   "table": "observables",
+   "match": "^R10: Table 1 (?P<column>.+) \\(https://content\\.cld\\.iop\\.org/journals/0004-637X/851/1/48/revision1/apjaa9794t1_ascii\\.txt\\)$",
+   "sources": [
+    "S4"
+   ],
+   "where": {
+    "table": "1",
+    "column": "{column}"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^R10: Table 2 (?P<column>.+) \\(https://content\\.cld\\.iop\\.org/journals/0004-637X/851/1/48/revision1/apjaa9794t2_ascii\\.txt\\)$",
+   "sources": [
+    "S5"
+   ],
+   "where": {
+    "table": "2",
+    "column": "{column}"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^R13: VizieR J/A\\+A/501/461/lens (?P<column>\\S+) \\(e_, E_\\) \\(https://vizier\\.cfa\\.harvard\\.edu/viz-bin/asu-tsv\\?-source=J/A\\+A/501/461/lens\\)$",
+   "sources": [
+    "S3"
+   ],
+   "where": {
+    "table": "lens",
+    "column": "{column}, e_{column}, E_{column}"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^R20: R20 Table (?P<table>[45]) \\((?:CFHT|HST)\\) Reff \\(https://arxiv\\.org/abs/1307\\.4764\\)$",
+   "sources": [
+    "S14"
+   ],
+   "where": {
+    "table": "{table}",
+    "column": "Reff"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^R20: R20 Table 6 R_Ein .+apj485108t6_mrt\\.txt\\)$",
+   "sources": [
+    "S6"
+   ],
+   "where": {
+    "table": "6",
+    "column": "R_Ein (MRT label 'Reff')"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^R20: R20 Table 7, .+apj485108t7_mrt\\.txt\\)$",
+   "sources": [
+    "S7",
+    "S14"
+   ],
+   "where": {
+    "table": "7",
+    "column": "Chab, Chab(NIR), Salp, Salp(NIR), in the arXiv v1 header order"
+   },
+   "note": "Values from S7 (the IOP MRT); the column identity from the arXiv v1 table header in S14 (adjudication.md §3c)."
+  },
+  {
+   "table": "observables",
+   "match": "^R21: R21 Table 2 z_d \\(IOP ascii t2\\) \\(https://arxiv\\.org/abs/1307\\.4759\\)$",
+   "sources": [
+    "S15"
+   ],
+   "where": {
+    "table": "2",
+    "column": "z_d"
+   },
+   "correction": "(IOP ascii t2)",
+   "note": "The values are in Table 2 of the arXiv paper (checked 2026-11-24 in e-print 1307.4759v1, spectable.tex and spectable2.tex). No IOP table for R21 is recorded; known issue #225."
+  },
+  {
+   "table": "observables",
+   "match": "^R21: R21 Table 2 z_s \\(https://arxiv\\.org/abs/1307\\.4759\\)$",
+   "sources": [
+    "S15"
+   ],
+   "where": {
+    "table": "2",
+    "column": "z_s"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^R25: R25 Table (?P<table>[0-9]+(?:\\([a-z]\\))?) (?P<column>.+?) \\(https://arxiv\\.org/abs/1503\\.02661\\)$",
+   "sources": [
+    "S17"
+   ],
+   "where": {
+    "table": "{table}",
+    "column": "{column}"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^R26: R26 Table 1 (?P<column>.+?) \\(https://arxiv\\.org/abs/1612\\.00065\\)$",
+   "sources": [
+    "S18"
+   ],
+   "where": {
+    "table": "1",
+    "column": "{column}"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^R27: R27 §4\\.1.* \\(https://arxiv\\.org/abs/2002\\.07191\\)$",
+   "sources": [
+    "S22"
+   ],
+   "where": {
+    "section": "§4.1"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^R28: R28 Table 3 (?P<column>.+?) \\(https://arxiv\\.org/abs/1306\\.4983\\)$",
+   "sources": [
+    "S16"
+   ],
+   "where": {
+    "table": "3",
+    "column": "{column}"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^R29: R29 (?P<section>§\\d+).* \\(https://arxiv\\.org/abs/1803\\.07082\\)$",
+   "sources": [
+    "S21"
+   ],
+   "where": {
+    "section": "{section}"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^R30: R30 (?P<section>§[\\d.]+).* \\(https://arxiv\\.org/abs/2502\\.06505\\)$",
+   "sources": [
+    "S24"
+   ],
+   "where": {
+    "section": "{section}"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^R32: R32 Table 1 (?P<column>.+?) \\(https://arxiv\\.org/abs/1911\\.06338\\)$",
+   "sources": [
+    "S23"
+   ],
+   "where": {
+    "table": "1",
+    "column": "{column}"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^R32: R32 §5 .* \\(https://arxiv\\.org/abs/1911\\.06338\\)$",
+   "sources": [
+    "S23"
+   ],
+   "where": {
+    "section": "§5"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^R5: Table 4 \\(obstable\\), column R_e \\(e-print 0805\\.1931v1, ms_arxiv\\.tex l\\. (?P<line>\\d+); frozen second reading profiles\\.csv\\)$",
+   "sources": [
+    "S29"
+   ],
+   "where": {
+    "table": "4",
+    "column": "R_e",
+    "line": "{line}"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^R5: VizieR J/ApJ/682/964 table4 (?P<column>z[BF]G) \\(https://vizier\\.cfa\\.harvard\\.edu/viz-bin/asu-tsv\\?-source=J/ApJ/682/964/table4 \\(and table5\\)\\)$",
+   "sources": [
+    "S1"
+   ],
+   "where": {
+    "table": "table4",
+    "column": "{column}"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^R5: VizieR J/ApJ/682/964 table5 (?P<column>bSIE) \\(https://vizier\\.cfa\\.harvard\\.edu/viz-bin/asu-tsv\\?-source=J/ApJ/682/964/table4 \\(and table5\\)\\)$",
+   "sources": [
+    "S2"
+   ],
+   "where": {
+    "table": "table5",
+    "column": "{column}"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^R61: R61 Table (?P<table>[12]) (?P<column>.+?) \\(https://arxiv\\.org/abs/1709\\.01931\\)$",
+   "sources": [
+    "S19"
+   ],
+   "where": {
+    "table": "{table}",
+    "column": "{column}"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^R61: R61 §5.* \\(https://arxiv\\.org/abs/1709\\.01931\\)$",
+   "sources": [
+    "S19"
+   ],
+   "where": {
+    "section": "§5"
+   }
+  },
+  {
+   "table": "measurements",
+   "match": "^observed R10; stellar R10$",
+   "sources": [
+    "S4",
+    "S5"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row names its records; the values it is computed from are the observables it lists, each located by the rules above (observed side R10, stellar side R10)."
+  },
+  {
+   "table": "measurements",
+   "match": "^observed R20; stellar R20$",
+   "sources": [
+    "S6",
+    "S7"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row names its records; the values it is computed from are the observables it lists, each located by the rules above (observed side R20, stellar side R20)."
+  },
+  {
+   "table": "measurements",
+   "match": "^observed R28; stellar R26$",
+   "sources": [
+    "S16",
+    "S18"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row names its records; the values it is computed from are the observables it lists, each located by the rules above (observed side R28, stellar side R26)."
+  },
+  {
+   "table": "measurements",
+   "match": "^observed R29; stellar R29$",
+   "sources": [
+    "S21"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row names its records; the values it is computed from are the observables it lists, each located by the rules above (observed side R29, stellar side R29)."
+  },
+  {
+   "table": "measurements",
+   "match": "^observed R30; stellar R30$",
+   "sources": [
+    "S24"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row names its records; the values it is computed from are the observables it lists, each located by the rules above (observed side R30, stellar side R30)."
+  },
+  {
+   "table": "measurements",
+   "match": "^observed R32; stellar R32$",
+   "sources": [
+    "S23"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row names its records; the values it is computed from are the observables it lists, each located by the rules above (observed side R32, stellar side R32)."
+  },
+  {
+   "table": "measurements",
+   "match": "^observed R5; stellar R13$",
+   "sources": [
+    "S2",
+    "S3"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row names its records; the values it is computed from are the observables it lists, each located by the rules above (observed side R5, stellar side R13)."
+  },
+  {
+   "table": "measurements",
+   "match": "^observed R61; stellar R61$",
+   "sources": [
+    "S19"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row names its records; the values it is computed from are the observables it lists, each located by the rules above (observed side R61, stellar side R61)."
+  }
+ ]
+}
