@@ -938,7 +938,7 @@
           "name": "T7: addresses reachable",
           "plain": "Links work",
           "outcome": "pass",
-          "detail": "TO BE FILLED FROM THE REACHABILITY RUN"
+          "detail": "run 2026-11-24T18:18Z in GitHub Actions: 12 of 19 addresses returned 200, including both archive links; the 7 DOI links returned 403 from the publishers (A&A, Oxford University Press) to the automated request; every entry is hashed, so this is recorded, not failed"
         }
       ],
       "issues": [

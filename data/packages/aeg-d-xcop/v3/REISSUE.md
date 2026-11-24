@@ -36,4 +36,7 @@ v2 recorded "arXiv non-exclusive distribution licence 1.0" for all five e-prints
 
 ## Test result
 
-T1 to T6: see `reproduction/reissue_check.txt`. T7: see `reproduction/reachability.json`.
+- **T1 to T6:** pass (`reproduction/reissue_check.txt`). CI rebuilt the package from the archive and it equals the committed tables.
+- **T7:** pass (`reproduction/reachability.json`, 2026-11-24). 12 of 19 addresses returned 200, including both archive links. The 7 DOI links returned HTTP 403 from the publishers (A&A and Oxford University Press) to the automated request. Every entry is hashed, so under T7 this is recorded, not failed.
+
+**Exclusion register:** the seven clusters without stellar data are recorded, not plotted (part B rule 2). They are listed again under `aeg-d-xcop/v3` in `data/registry/excluded.csv`, with v2's reason and citation unchanged. The converter requires those rows, and the site shows them.
