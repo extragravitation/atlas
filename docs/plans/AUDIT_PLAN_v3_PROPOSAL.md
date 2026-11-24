@@ -4,7 +4,7 @@
 
 **Data seen:** the row counts per package (from the `role` column), and the version 2 plan and result. No v3 value was looked at.
 
-The plan keeps version 2's method: two blind readers, a beacon seed, a 5 % sample with at least 10 rows per stratum, 0.005 dex tolerances, and the neutrality term scan and checklist. Six choices change it. Each is set out below with its options and a recommendation.
+The plan keeps version 2's method: two blind readers, a beacon seed, a 5 % sample with at least 10 rows per stratum, 0.005 dex tolerances, and the neutrality term scan and checklist. Six choices change it, and Part B's pass rule is narrowed. Each is set out below with its options and a recommendation.
 
 ## Q1. Which rows
 
@@ -26,11 +26,25 @@ The plan keeps version 2's method: two blind readers, a beacon seed, a 5 % sampl
 
 ## Q3. What passes
 
-Version 2 passed on zero material discrepancies and zero provenance failures. Method-incomplete rows were reported but did not fail the audit.
+Version 2 passed only with zero material discrepancies and zero provenance failures. Method-incomplete rows were reported but did not count.
 
-**Recommendation:** Part A passes only if four counts are all zero: material discrepancies, method-incomplete rows, provenance failures, and rows not verified.
-- **Method incomplete is added** because D-113 item 2 promises methods text for every row shown. An audit that ignored it would not test that promise.
-- **"Not verified" is added** because a row whose source file the readers could not get has not been audited. It should not count as passed.
+**Recommendation (amended 2026-11-24, after JvH asked whether the rule could be less strict and still defensible):**
+- **Material discrepancies, provenance failures and blocking method gaps** each pass if the 95 % Clopper–Pearson upper bound on their rate, over all 220 rows, is at most 2.5 %. That allows at most one row per count.
+- **A blocking method gap** is one where a reader could not compute the value, or got a value outside tolerance, because a step was missing. It is classed by `compare_v3.py`, not by judgement.
+- **Non-blocking gaps** are reported and fixed in the text, but don't decide the verdict. In a non-blocking gap both readers still reproduced the value.
+- **A sampled row whose file can't be supplied** makes the verdict "incomplete", not "fail". The row is not replaced from the reserve.
+- **The strict verdict is published as well:** zero of everything, as in version 2 and extended to method gaps.
+- **Every error found is still corrected by a new version,** inside the threshold or not.
+
+**Why this is defensible:**
+- Acceptance sampling normally works this way. It states a maximum error rate and tests against it; a zero-defect rule on a sample is unusual.
+- The rule is fixed before any v3 row is read.
+- Publishing the strict verdict next to the primary one lets a critic apply the harder standard.
+
+**What must be disclosed:**
+- The rule was set knowing why version 2 failed: most of its 210 method-incomplete rows came from unstated constants (M1). The plan says so in §2.10.
+
+**Corrected number:** in the chat I first said one error in 220 gives a 2.5 % bound and two errors give 3.2 %. The computed values are 2.14 % and 2.83 %, so the threshold is 2.5 % rather than 3 %. That keeps the rule I described: at most one row per count.
 
 ## Q4. A source hashed after it was read
 
@@ -66,9 +80,15 @@ The UQ, McMaster, SPARC and VizieR hosts refuse connections from the workspace. 
 
 ## Part B
 
-The term list, checklist and pass rule are unchanged. The page list adds the new front page, Map, Reproduction and Tests.
+The term list and checklist are unchanged. The page list adds the new front page, Map, Reproduction and Tests.
 
-One risk to name: D-113 rule 2 deferred some version 2 neutrality items that need new readings. If a reader finds one of them again, it stays an open finding, and Part B fails until it is resolved. The plan says so in advance, rather than leaving it to a judgement after the result.
+**Recommendation (amended 2026-11-24):**
+- **Only two kinds of finding decide Part B:** term-scan findings, and findings under checklist questions 1 to 3 (the text assumes a cause, favours an account, or a label carries the result).
+- **Questions 4 to 6 are reported and resolved, but don't decide.** They cover binning, the two vocabularies, and the route to a source.
+- **Disputed questions:** if readers disagree on which question a finding falls under, the lower-numbered one counts.
+- **Strict verdict:** the result also states the version 2 verdict, which is zero findings of any kind left open.
+
+The deferred v2 neutrality items (D-113 rule 2) can still fail Part B if one is re-found under questions 1 to 3. Pointing to the deferral does not resolve it.
 
 ## Ruling requested
 

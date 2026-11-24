@@ -11,7 +11,7 @@
 **What changed from version 2.**
 - **Frame:** the six v3 packages.
 - **Seed timing:** the seed is drawn after the methods text is finished (§1, §2.3).
-- **Pass rule:** methods-incomplete rows are added to it (§2.10).
+- **Pass rule:** an acceptance threshold on the error rate replaces zero defects. Blocking method gaps are added. A missing source file makes the result incomplete, not failed (§2.10).
 - **Provenance check:** made mechanical against data standard 3.0.0 §13, plus one human check per row (§2.9).
 - **Source files:** readers get every file by its recorded hash, or the row is not verified (§2.5).
 - **Reader disagreements:** settled by a third fresh reader, not by Claude (§2.8).
@@ -96,6 +96,9 @@ If a count at the audited commit differs from this table, the sampler uses the a
 - **Atlas discrepancies and unreadable rows:** Claude reads the source again and quotes the reading in `docs/audit/adjudication_v3.md`.
 - **Material discrepancy:** the Atlas is wrong on an input, or by more than 0.005 dex on g_obs or g_bar, for a reason other than reader error.
 - **Method incomplete** stays a finding against the methods text even when the Atlas value is right. It is never adjudicated away. If Claude judges that the missing step is stated in the packet, the row stays method incomplete and the judgement is recorded beside it.
+- **Blocking or not.** Each method-incomplete row is classed mechanically by `compare_v3.py`, not by judgement:
+  - **blocking:** at least one reader recorded the gap and either gave no value or a value outside tolerance of the Atlas;
+  - **non-blocking:** the gap was recorded, but every reader who recorded it still computed g_obs and g_bar within tolerance of the Atlas.
 - **Labelling:** every adjudication says who made it. Claude's are disclosed as not blind.
 
 ### 2.9 Provenance check (same rows)
@@ -118,15 +121,22 @@ If a count at the audited commit differs from this table, the sampler uses the a
 
 - **Reported, per stratum and overall:**
   - the counts per code, and per provenance check;
-  - the number of material discrepancies, method-incomplete rows, provenance failures and rows not verified;
-  - the 95 % Clopper–Pearson upper bound on the material-discrepancy rate.
-- **Part A passes only if all four of these are zero:** material discrepancies, method-incomplete rows, provenance failures and rows not verified.
-- **If anything else is found:**
+  - the number of material discrepancies, provenance failures, blocking and non-blocking method gaps, and rows not verified;
+  - for each of the three decision counts below, the 95 % Clopper–Pearson upper bound on its rate over the whole sample.
+- **Decision counts:** material discrepancies, provenance failures and blocking method gaps. Each is counted in rows; a row is counted once per count.
+- **Verdict for Part A:**
+  - **pass:** every decision count has a 95 % upper bound of at most 2.5 %, and every sampled row is verified. With 220 rows that allows at most one row per count (0 rows gives 1.35 %, 1 row 2.14 %, 2 rows 2.83 %);
+  - **fail:** any decision count's upper bound is above 2.5 %;
+  - **incomplete:** no count fails, but some rows are not verified (§2.5). The verdict stays incomplete until their files are supplied and read. Unverified rows are never replaced from the reserve.
+- **The strict verdict is reported too:** the result also states whether Part A would pass under version 2's rule, extended to method gaps: zero rows in each count, blocking or not, and no row unverified.
+- **Whatever the verdict:**
   - the result stays as observed and is not re-scored;
-  - the cause is classified;
-  - the whole package is checked for that cause, labelled exploratory;
-  - each confirmed error is corrected by a new version and entered in the public corrections log;
-  - a method gap is fixed in the methods text, and reported.
+  - every error found is corrected by a new version and entered in the public corrections log, whether or not it is within the threshold;
+  - the cause of each finding is classified, and the whole package is checked for that cause, labelled exploratory;
+  - every method gap, blocking or not, is fixed in the methods text and reported.
+- **Why a threshold, and what was known when it was set:**
+  - A zero-defect rule on a sample is stricter than acceptance sampling usually is. The threshold states the error rate the Atlas claims to stay below.
+  - The rule was set after version 2's result was known. Most of version 2's 210 method-incomplete rows came from unstated constants (finding M1). Splitting method gaps into blocking and non-blocking was proposed knowing that. No v3 row had been read.
 
 ## 3. Part B: neutrality
 
@@ -156,10 +166,17 @@ All text a visitor can read on the built site at the audited commit:
 
 ### 3.4 Outcome
 
-- **Log:** every finding goes in `docs/audit/neutrality_v3.md`, with the page, the text and the reader.
+- **Log:** every finding goes in `docs/audit/neutrality_v3.md`, with the page, the text, the reader and the checklist question it falls under (or "term scan").
 - **Resolution:** each finding is resolved by a change or by no change, with the reason.
+- **Deciding findings:** term-scan findings, and reader findings under checklist questions 1 to 3:
+  1. the text assumes a cause;
+  2. it favours an account;
+  3. a label carries the result.
+
+  Findings under questions 4 to 6 (binning, the two layers, the route to a source) are reported and resolved, but do not decide the verdict. Where readers disagree on the question a finding falls under, it is counted under the lower-numbered question.
 - **Deferred findings:** a finding that D-113 rule 2 deferred, if re-found, stays an open finding. It is not resolved by pointing to the deferral.
-- **Pass:** zero findings left unresolved. The counts are reported either way.
+- **Pass:** zero deciding findings left unresolved. All counts are reported either way.
+- **Strict verdict:** the result also states whether Part B would pass under version 2's rule, which is zero findings of any kind left unresolved.
 
 ## 4. Reporting
 
