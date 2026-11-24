@@ -11,7 +11,7 @@ import L from '../components/L.astro';
 import { loadAtlas } from '../lib/atlas.mjs';
 import { assumptionLabel, datasetLabel } from '../lib/labels.mjs';
 
-const { title, description = 'The acceleration discrepancy, from star clusters to galaxy clusters: where the observed acceleration exceeds Newtonian gravity on detected matter.', active = '' } = Astro.props;
+const { title, description = 'Observed accelerations compared with the Newtonian prediction from detected baryons, from star clusters to galaxy clusters. Takes no side on the cause.', active = '' } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const atlas = loadAtlas();
 
