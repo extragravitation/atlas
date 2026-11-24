@@ -545,12 +545,12 @@
       "test_file": "../../../../docs/standard-3.0.0-reissue-test.md",
       "sha256": "2fd4a43cf00b3588f89fbc91bd000499df137e9e583549db1f0ee0473b7c8f7e",
       "frozen_before": "conversion",
-      "result": "pass",
+      "result": "fail",
       "first_run": "2026-11-24",
       "result_files": [
         "REISSUE.md",
         "reproduction/reissue_check.txt",
-        "reproduction/reachability.json"
+        "reproduction/reachability_run1_fail.json"
       ],
       "against": "v2 (every table byte for byte once the version labels are mapped back, T1), v2's conversion code (T2), and data standard 3.0.0 §13 (source records, locators, archive members, descriptor; T3 to T6); every address reachable (T7). v2's frozen test (REPRODUCTION.md) is carried over unchanged.",
       "against_plain": "The previous version, number for number, and the new rule that every number must point to a cited, licensed and hash-checked source.",
@@ -594,8 +594,8 @@
         {
           "name": "T7: addresses reachable",
           "plain": "Links work",
-          "outcome": "pass",
-          "detail": "TO BE FILLED FROM THE REACHABILITY RUN"
+          "outcome": "fail",
+          "detail": "run 1, 2026-11-24 in GitHub Actions: 302 of 305 addresses are covered (200, or a hashed entry); van de Rydt et al. 1991 has no hash and its ADS and DOI addresses returned 202, so T7 fails. Ruled remedy: hash ADS's PDF of the same scans and re-run (pending)."
         }
       ],
       "issues": [
@@ -603,14 +603,14 @@
         227
       ],
       "flagged": 0,
-      "status": "Current version. Same tables as v2, with every file and original paper cited, licensed and hashed (one scan excepted, #227), and every value located (D-114).",
+      "status": "Not yet current: T7 failed on van de Rydt et al. 1991 (no hash); the ruled remedy is pending. v2 stays the shown version until v3 passes.",
       "status_plain": "The current dwarf-galaxy version: the same numbers, now each tied to a cited, checked source.",
       "since": "",
       "since_plain": "",
       "scope": "Establishes that v3 changes no value or code from v2 and that its source records meet data standard 3.0.0. It makes no new reading; v2's test and readings stand.",
       "scope_plain": "Nothing changed in the numbers; what is new is the record of where each one comes from.",
-      "matched": "T1 to T7 passed; one document unhashed (counted as a provenance failure for the audit)",
-      "matched_plain": "All checks passed"
+      "matched": "T1 to T6 passed; T7 failed on the one unhashed source (remedy pending)",
+      "matched_plain": "One check failed; a fix is under way"
     },
     {
       "package": "aeg-d-gc-baumgardt/v2",
