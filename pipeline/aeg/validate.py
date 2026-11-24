@@ -17,7 +17,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-KNOWN_STANDARD_VERSIONS = {"1.0.0", "1.1.0", "1.2.0", "1.2.1", "1.3.0", "2.0.0", "2.1.0", "2.2.0", "2.3.0", "2.4.0", "2.5.0", "2.5.1"}
+KNOWN_STANDARD_VERSIONS = {"1.0.0", "1.1.0", "1.2.0", "1.2.1", "1.3.0", "2.0.0", "2.1.0", "2.2.0", "2.3.0", "2.4.0", "2.5.0", "2.5.1", "3.0.0"}
 
 FLAGS = {"no_uncertainty", "beyond_source_range", "inner_resolution_limited", "source_quality_low", "reproduction_mismatch"}
 CLOSED = {
@@ -478,6 +478,206 @@ def validate_v2(pkg: Path, meas) -> list[str]:
     return problems
 
 
+
+# Data standard 3.0.0 §13 (D-114): source records and locators; §10 items 19 to 24.
+SOURCE_KINDS = {"data_file", "archive", "document", "web_page"}
+IDENTIFIER_KEYS = {"doi", "ads_bibcode", "arxiv", "vizier", "landing_url"}
+LICENCE_STATUS = {"stated", "none_stated", "asked"}
+WHERE_KEYS = {"table", "page", "column", "row", "line", "section", "figure", "hdu", "member"}
+LOCATOR_TABLES = ("observables", "measurements")
+HEX64 = re.compile(r"^[0-9a-f]{64}$")
+GROUP_REF = re.compile(r"^\{(\w+)\}$")
+
+
+def _issue_refs(known: list[dict], key: str) -> set[str]:
+    """Values listed under `key` across known_issues.json entries.
+
+    How a known issue names what it is about (the "matching entry" of §13 R2 and R4): an entry lists
+    the source ids it concerns under `sources`, and the locator rules it corrects, by their exact
+    `match` text, under `locators`."""
+    return {str(v) for k in known for v in (k.get(key) or [])}
+
+
+def validate_v30(pkg: Path) -> list[str]:
+    """Rules added in standard 3.0.0 (docs/data-standard.md §10 items 19 to 24; D-114)."""
+    from astropy.table import Table
+    where = f"{pkg.parent.name}/{pkg.name}"
+    problems: list[str] = []
+
+    def load(name):
+        f = pkg / name
+        if not f.is_file():
+            problems.append(f"{where}: {name} missing (3.0.0)")
+            return None
+        try:
+            return json.loads(f.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as e:
+            problems.append(f"{where}: {name} is not valid JSON ({e})")
+            return None
+
+    src = load("sources.json")
+    loc = load("locators.json")
+    ki_path = pkg / "known_issues.json"
+    known = json.loads(ki_path.read_text(encoding="utf-8")).get("issues", []) if ki_path.is_file() else []
+    issue_sources, issue_locators = _issue_refs(known, "sources"), _issue_refs(known, "locators")
+    entries = (src.get("sources", []) if isinstance(src, dict) else src or []) if src is not None else []
+
+    # Items 19 to 22: source records.
+    ids: dict[str, dict] = {}
+    for n, e in enumerate(entries, start=1):
+        sid = e.get("id")
+        label = f"{where} sources.json entry {n}" + (f" ({sid})" if sid else "")
+        if not sid or not isinstance(sid, str):
+            problems.append(f"{label}: id missing")
+        elif sid in ids:
+            problems.append(f"{label}: id {sid} is not unique")
+        else:
+            ids[sid] = e
+        if e.get("kind") not in SOURCE_KINDS:
+            problems.append(f"{label}: kind {e.get('kind')!r} not in {sorted(SOURCE_KINDS)}")
+        if not str(e.get("citation") or "").strip():
+            problems.append(f"{label}: citation missing")
+        ident = e.get("identifier")
+        if not isinstance(ident, dict) or not any(str(ident.get(k) or "").strip() for k in IDENTIFIER_KEYS):
+            problems.append(f"{label}: identifier needs at least one of {sorted(IDENTIFIER_KEYS)}")
+        elif set(ident) - IDENTIFIER_KEYS:
+            problems.append(f"{label}: identifier has unknown keys {sorted(set(ident) - IDENTIFIER_KEYS)}")
+        lic = e.get("licence")
+        if not isinstance(lic, dict):
+            problems.append(f"{label}: licence must be an object (3.0.0)")
+            lic = {}
+        else:
+            st = lic.get("status")
+            if st not in LICENCE_STATUS:
+                problems.append(f"{label}: licence.status {st!r} not in {sorted(LICENCE_STATUS)}")
+            for k in ("checked_where", "checked_on"):
+                if not str(lic.get(k) or "").strip():
+                    problems.append(f"{label}: licence.{k} missing")
+            if st == "stated" and not (lic.get("spdx") or lic.get("text")):
+                problems.append(f"{label}: a stated licence needs spdx or text")
+            if st == "asked" and not lic.get("asked"):
+                problems.append(f"{label}: licence.asked (the request) missing")
+        # Item 20: redistributable only under a stated licence.
+        if _truthy(e.get("redistributable")) and lic.get("status") != "stated":
+            problems.append(f"{label}: redistributable is true but the licence is not stated")
+        # Item 21: hash, or null with a reason and a known issue.
+        h = e.get("sha256")
+        if h is None:
+            if not str(e.get("unhashed_reason") or "").strip():
+                problems.append(f"{label}: sha256 is null without unhashed_reason")
+            if sid and sid not in issue_sources:
+                problems.append(f"{label}: sha256 is null but no known_issues.json entry lists source {sid}")
+        elif not isinstance(h, str) or not HEX64.match(h):
+            problems.append(f"{label}: sha256 is not a 64-character lower-case hex digest")
+
+    # Item 23: locator rules.
+    rules = (loc.get("rules") if isinstance(loc, dict) else None) if loc is not None else None
+    if loc is not None and not isinstance(rules, list):
+        problems.append(f"{where}: locators.json must hold {{\"rules\": [...]}}")
+        rules = []
+    compiled = []
+    members_named: dict[str, set[str]] = {}
+    for n, r in enumerate(rules or [], start=1):
+        label = f"{where} locators.json rule {n}"
+        ok = True
+        if r.get("table") not in LOCATOR_TABLES:
+            problems.append(f"{label}: table {r.get('table')!r} not in {list(LOCATOR_TABLES)}")
+            ok = False
+        m = r.get("match")
+        rx = None
+        if not isinstance(m, str) or not m.startswith("^"):
+            problems.append(f"{label}: match must be a regular expression anchored with ^")
+            ok = False
+        else:
+            try:
+                rx = re.compile(m)
+            except re.error as err:
+                problems.append(f"{label}: match does not compile ({err})")
+                ok = False
+        srcs = r.get("sources")
+        if not isinstance(srcs, list) or not srcs:
+            problems.append(f"{label}: sources must list at least one source id")
+        else:
+            for sid in srcs:
+                if sid not in ids:
+                    problems.append(f"{label}: source {sid!r} not in sources.json")
+        wh = r.get("where")
+        if not isinstance(wh, dict) or not wh:
+            problems.append(f"{label}: where needs at least one of {sorted(WHERE_KEYS)}")
+            wh = {}
+        for k, v in wh.items():
+            if k not in WHERE_KEYS:
+                problems.append(f"{label}: where key {k!r} not in {sorted(WHERE_KEYS)}")
+            g = GROUP_REF.match(str(v))
+            if g and rx is not None and g.group(1) not in rx.groupindex:
+                problems.append(f"{label}: where.{k} names group {g.group(1)!r}, which match does not define")
+        if "correction" in r and isinstance(m, str) and m not in issue_locators:
+            problems.append(f"{label}: has a correction but no known_issues.json entry lists this rule under locators")
+        if ok:
+            compiled.append((n, r["table"], rx, r))
+
+    # Every source_ref matches exactly one rule of its table; collect the archive members named.
+    if rules is not None:
+        for tname in LOCATOR_TABLES:
+            tf = pkg / f"tables/{tname}.ecsv"
+            if not tf.is_file():
+                continue
+            t = Table.read(tf, format="ascii.ecsv")
+            if "source_ref" not in t.colnames:
+                continue
+            mine = [(n, rx, r) for n, tb, rx, r in compiled if tb == tname]
+            unmatched, multiple = [], []
+            for ref in sorted({str(v) for v in _vals(t["source_ref"]) if v not in (None, "")}):
+                hits = [(n, rx.match(ref), r) for n, rx, r in mine if rx.match(ref)]
+                if not hits:
+                    unmatched.append(ref)
+                elif len(hits) > 1:
+                    multiple.append((ref, [n for n, _, _ in hits]))
+                else:
+                    _, mo, r = hits[0]
+                    mv = r.get("where", {}).get("member")
+                    if mv is not None:
+                        g = GROUP_REF.match(str(mv))
+                        member = mo.group(g.group(1)) if g and g.group(1) in mo.groupdict() else str(mv)
+                        for sid in r.get("sources", []):
+                            members_named.setdefault(sid, set()).add(member)
+            if unmatched:
+                problems.append(f"{where} {tname}: {len(unmatched)} source_ref values match no locator rule, e.g. {unmatched[0][:160]!r}")
+            if multiple:
+                ref, ns = multiple[0]
+                problems.append(f"{where} {tname}: {len(multiple)} source_ref values match more than one rule, e.g. {ref[:120]!r} (rules {ns})")
+
+    # Item 22: archives hash the members they read.
+    for sid, e in ids.items():
+        if e.get("kind") != "archive":
+            continue
+        ms = e.get("members_sha256")
+        if not isinstance(ms, dict) or not ms:
+            problems.append(f"{where} source {sid}: an archive needs members_sha256")
+            continue
+        for mem in sorted(members_named.get(sid, set()) - set(ms)):
+            problems.append(f"{where} source {sid}: member {mem!r} is named by a locator but has no hash in members_sha256")
+        for mem, h in ms.items():
+            if not isinstance(h, str) or not HEX64.match(h):
+                problems.append(f"{where} source {sid}: members_sha256[{mem!r}] is not a hex digest")
+    for sid in members_named:
+        if sid in ids and ids[sid].get("kind") != "archive":
+            problems.append(f"{where} source {sid}: a locator names an archive member, but the source's kind is not archive")
+
+    # Item 24: the descriptor agrees with sources.json.
+    dp = pkg / "datapackage.json"
+    if dp.is_file():
+        desc = json.loads(dp.read_text(encoding="utf-8"))
+        for n, l in enumerate(desc.get("licenses") or [], start=1):
+            sid = l.get("x_source") if isinstance(l, dict) else None
+            if sid is not None and sid not in ids:
+                problems.append(f"{where} datapackage.json licenses[{n}]: source {sid!r} not in sources.json")
+            elif sid is not None and ids[sid].get("licence", {}).get("status") in ("none_stated", "asked"):
+                problems.append(f"{where} datapackage.json licenses[{n}]: gives a licence to source {sid}, whose licence is {ids[sid]['licence']['status']}")
+        if "licenses" in desc and any(isinstance(l, dict) and "x_source" not in l for l in desc["licenses"]):
+            problems.append(f"{where} datapackage.json: from 3.0.0 every licenses entry names its source id in x_source")
+    return problems
+
 def validate(pkg: Path) -> list[str]:
     from astropy.table import Table
     dataset, version = pkg.parent.name, pkg.name
@@ -489,7 +689,7 @@ def validate(pkg: Path) -> list[str]:
     sv = meas.meta.get("standard_version")
     if sv not in KNOWN_STANDARD_VERSIONS:
         problems.append(f"{where}: unknown standard_version {sv!r}")
-    v2 = str(sv).startswith("2.")
+    v2 = _key(sv) >= (2, 0, 0)  # the 2.x rules apply to every later version too
     for c in (REQUIRED_MEAS_V2 if v2 else REQUIRED_MEAS):
         if c not in meas.colnames:
             problems.append(f"{where}: missing required column {c}")
@@ -546,6 +746,8 @@ def validate(pkg: Path) -> list[str]:
         problems += validate_v22(pkg, meas)
     if v2:
         problems += validate_v24(pkg, meas, sv)
+    if _key(sv) >= (3, 0, 0):
+        problems += validate_v30(pkg)
 
     # checksums.sha256 covers every committed file in the package
     sums = pkg / "checksums.sha256"
