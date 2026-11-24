@@ -336,6 +336,11 @@
           "default": "sis",
           "default_ref": "Brouwer et al. 2021 (arXiv:2106.11677) §2.2, eq. 7; validated by the authors against a piece-wise power-law method assuming only spherical symmetry (App. B, §4.4)",
           "effects": []
+        },
+        "aeg-d-kids1000-rar/v3": {
+          "default": "sis",
+          "default_ref": "Brouwer et al. 2021 (arXiv:2106.11677) §2.2, eq. 7; validated by the authors against a piece-wise power-law method assuming only spherical symmetry (App. B, §4.4)",
+          "effects": []
         }
       }
     },
@@ -355,6 +360,11 @@
           "effects": []
         },
         "aeg-d-kids1000-rar/v2": {
+          "default": "authors_estimate",
+          "default_ref": "Brouwer et al. 2021 (arXiv:2106.11677) Fig. 4 caption and §5.2: 'only a rough order of magnitude estimate'; applies to the kids_bright_hotgas sample only",
+          "effects": []
+        },
+        "aeg-d-kids1000-rar/v3": {
           "default": "authors_estimate",
           "default_ref": "Brouwer et al. 2021 (arXiv:2106.11677) Fig. 4 caption and §5.2: 'only a rough order of magnitude estimate'; applies to the kids_bright_hotgas sample only",
           "effects": []
@@ -1660,6 +1670,11 @@
       },
       "datasets": {
         "aeg-d-kids1000-rar/v2": {
+          "default": "point_mass",
+          "default_ref": "Brouwer et al. 2021 (arXiv:2106.11677) §4.3, l. 405–411: 'we can approximate M_bar(<r) as a point mass M_gal' at R > 30 h70⁻¹ kpc (step A reading K14; REPRODUCTION_REV3.md item 7, §2a rule 4)",
+          "effects": []
+        },
+        "aeg-d-kids1000-rar/v3": {
           "default": "point_mass",
           "default_ref": "Brouwer et al. 2021 (arXiv:2106.11677) §4.3, l. 405–411: 'we can approximate M_bar(<r) as a point mass M_gal' at R > 30 h70⁻¹ kpc (step A reading K14; REPRODUCTION_REV3.md item 7, §2a rule 4)",
           "effects": []

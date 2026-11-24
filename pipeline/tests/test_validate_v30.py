@@ -124,7 +124,11 @@ def test_item22_archive_members(tmp_path):
     probs = _probs(tmp_path / "b", obs_refs=OBS_REFS + ["a.tar.gz:C/x.fits:row 1"])
     assert any("member 'C/x.fits'" in p for p in probs)
     probs = _probs(tmp_path / "c", sources=_src({(1, "kind"): "data_file"}))
-    assert any("kind is not archive" in p for p in probs)
+    assert any("none of its sources is an archive" in p for p in probs)
+    # A rule may cite a document beside the archive; the member is checked against the archive only.
+    r = copy.deepcopy(GOOD_RULES)
+    r["rules"][1]["sources"] = ["S2", "S3"]
+    assert _probs(tmp_path / "d", rules=r) == []
 
 
 def test_item23_rules(tmp_path):

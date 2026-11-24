@@ -21,6 +21,8 @@ const files = [
   ['datapackage.json', 'Package descriptor: selection, detected matter counted, columns'],
   ['sources.json', 'Files read, with addresses, dates and SHA-256 hashes'],
   ['SECOND_READING.md', 'Independent second reading'],
+  ['REISSUE.md', 'Re-issue under data standard 3.0.0: what changed, and the test it passed (D-114)'],
+  ['locators.json', 'Locator rules: where in its source each value is read (standard 3.0.0 §13)'],
 ].filter(([f]) => has(f));
 const hasReading = fs.existsSync(path.join(ROOT, repoDir, 'reading'));
 const sources = (d.sources && d.sources.sources) || [];
@@ -29,6 +31,19 @@ const inv = Array.isArray(d.dp.x_baryon_inventory) ? d.dp.x_baryon_inventory : [
 const second = d.dp.x_second_reading;
 const status = (s) => String(s || '').replace(/_/g, ' ');
 const shortHash = (h) => (h ? `${h.slice(0, 12)}…` : '–');
+// Standard 3.0.0 §13: citation, identifier and licence on each source record.
+const v3 = sources.some((s) => s.citation);
+const idLinks = (i) => [
+  i && i.doi && ['DOI ' + i.doi, `https://doi.org/${i.doi}`],
+  i && i.ads_bibcode && ['ADS ' + i.ads_bibcode, `https://ui.adsabs.harvard.edu/abs/${encodeURIComponent(i.ads_bibcode)}/abstract`],
+  i && i.arxiv && ['arXiv ' + i.arxiv, `https://arxiv.org/abs/${i.arxiv}`],
+  i && i.vizier && ['VizieR ' + i.vizier, `https://vizier.cds.unistra.fr/viz-bin/VizieR?-source=${encodeURIComponent(i.vizier)}`],
+  i && i.landing_url && ['landing page', i.landing_url],
+].filter(Boolean);
+const licText = (l) => !l || typeof l !== 'object' ? null
+  : l.status === 'stated' ? (l.spdx || l.text || 'stated')
+  : l.status === 'asked' ? 'none stated; asked'
+  : 'none stated';
 // Package wording that uses a term the Atlas does not use as description (audit finding T4) is not
 // repeated here; it stays in the package file and changes at re-issue.
 const T4 = /\b(halo(e?s)?|dark\s+matter)\b/i;
@@ -50,9 +65,10 @@ const invText = (x) => { const t = x.citation || x.note || ''; return T4.test(t)
     {sources.length > 0 && <>
       <h3><L t={`Files read (${sources.length})`} p={`Files the numbers come from (${sources.length})`} /></h3>
       <details open={sources.length <= 12}><summary class="small"><L t="Role, address, date retrieved and SHA-256 of each file, from sources.json" p="Show the list" /></summary>
-        <div class="tablebox" tabindex="0"><table><thead><tr><th class="l">Role</th><th class="l">Retrieved</th><th class="l">SHA-256</th><th class="l">Copy in the repository</th></tr></thead><tbody>
+        <div class="tablebox" tabindex="0"><table><thead><tr><th class="l">Role</th>{v3 && <th class="l">Licence</th>}<th class="l">Retrieved</th><th class="l">SHA-256</th><th class="l">Copy in the repository</th></tr></thead><tbody>
           {sources.map((s) => <tr>
-            <td class="l" style="white-space:normal;min-width:260px">{s.url ? <a href={s.url}>{s.role || s.file}</a> : (s.role || s.file)}{s.note && <><br><span class="small"><Quote text={s.note} pkgDir={repoDir} /></span></>}</td>
+            <td class="l" style="white-space:normal;min-width:260px">{s.id && <b>{s.id} · </b>}{s.url ? <a href={s.url}>{s.role || s.file}</a> : (s.role || s.file)}{s.citation && <><br><span class="small"><L t="Cite:" p="Cite as:" />{" "}{s.citation}{idLinks(s.identifier).map(([t, u]) => <> · <a href={u}>{t}</a></>)}</span></>}{s.note && <><br><span class="small"><Quote text={s.note} pkgDir={repoDir} /></span></>}</td>
+            {v3 && <td class="l" style="white-space:normal;min-width:140px">{licText(s.licence) && <>{s.licence.uri ? <a href={s.licence.uri}>{licText(s.licence)}</a> : licText(s.licence)}{s.licence.asked && <> (<a href={s.licence.asked}>request</a>)</>}<br><span class="small"><L t={`Checked ${s.licence.checked_on}`} p={`Checked ${s.licence.checked_on}`} /></span></>}</td>}
             <td class="l">{s.retrieved || '–'}</td>
             <td class="l"><code style="font-size:11px" title={s.sha256 || ''}>{shortHash(s.sha256)}</code></td>
             <td class="l">{s.redistributable ? 'yes' : 'no: fetched by address and checked by hash'}</td>

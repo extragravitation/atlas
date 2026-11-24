@@ -1,0 +1,89 @@
+{
+ "standard_version": "3.0.0",
+ "dataset": "aeg-d-kids1000-rar",
+ "version": "v3",
+ "reproduction_file": {
+  "path": "../../../../docs/standard-3.0.0-reissue-test.md",
+  "sha256": "2fd4a43cf00b3588f89fbc91bd000499df137e9e583549db1f0ee0473b7c8f7e",
+  "frozen": "2026-11-24",
+  "decision": "D-114",
+  "freeze_record": "data/frozen/data-standard-3.0.0.json",
+  "carries": {
+   "path": "REPRODUCTION_REV3.md",
+   "sha256": "57ae39aeefa4ace2b2c279fe2ec1591e49210af407b12a363a862b668ef3ae7e",
+   "note": "v2's frozen test, carried over unchanged: v3's tables equal v2's (T1), so its result stands for v3. It was re-issued under D-103."
+  }
+ },
+ "status": "v3: re-issue of v2 under data standard 3.0.0 (D-114). The tables are v2's with the version mapped forward; convert.py differs from v2's only in its version line. Adds the source records and locators of §13. No value changes.",
+ "sources": [
+  {
+   "role": "ESD profiles and covariance behind the figures of Brouwer et al. 2021 (KiDS science-data release)",
+   "url": "https://kids.strw.leidenuniv.nl/sci_data/brouwer2021_rar.tar",
+   "file": "brouwer2021_rar.tar",
+   "bytes": 2430464,
+   "sha256": "73adc2d4e848fa0a6a43187f7b5447e749b92eaec4a795b9902b0beaf8a78733",
+   "retrieved": "2026-10-28",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "As v1. Each of the seven members used must also have the SHA-256 listed in reading/kids-d096.md (REPRODUCTION_REV3.md item 12); convert.py checks this before writing any table. members_sha256 (3.0.0): the seven member hashes of the frozen reading reading/kids-d096.md, read from the GitHub mirror rstpier/EFF_G_GALAXIES at commit 7606a21d; convert.py checks each against the tarball before writing any table (REPRODUCTION_REV3.md item 12), so every successful build verifies them against the canonical release.",
+   "id": "S1",
+   "kind": "archive",
+   "citation": "KiDS science-data release accompanying Brouwer, M. M., Oman, K. A., Valentijn, E. A., et al. 2021, A&A 650, A113, \"The weak lensing radial acceleration relation: Constraining modified gravity and cold dark matter theories with KiDS-1000\". Acknowledgement: as given in the Acknowledgements section of the paper (KiDS science-data products page).",
+   "identifier": {
+    "doi": "10.1051/0004-6361/202040108",
+    "landing_url": "https://kids.strw.leidenuniv.nl/sciencedata.php"
+   },
+   "licence": {
+    "status": "none_stated",
+    "checked_where": "KiDS science-data products page (https://kids.strw.leidenuniv.nl/sciencedata.php), Brouwer et al. 2021 entry: no licence; the page requires users of KiDS data to include proper acknowledgements (https://kids.strw.leidenuniv.nl/acknowledgements.php). The release README.txt (member below, SHA-256 b3680580…8645): no licence, terms or citation statement.",
+    "checked_on": "2026-11-24"
+   },
+   "members_sha256": {
+    "Fig-4-5-C1_RAR-KiDS-isolated_Nobins.txt": "5343d81c06643e2cc5126490d9f03918ac2708b0cdc4586b1534157c225578a9",
+    "Fig-4-5-C1_RAR-KiDS-isolated_covmatrix.txt": "c5fa734affa2e56228f9e78848419a38405775a0cf4c42471ae1c37cdea575ae",
+    "Fig-4-C1_RAR-GAMA-isolated_Nobins.txt": "b613425287e1600c3ee866d058ca6ead0649095903debc89f09b100070270d74",
+    "Fig-4-C1_RAR-GAMA-isolated_covmatrix.txt": "963a81504c467feeff8c33043e331ce092f5dab55f0835decd3e8ff419583afc",
+    "Fig-4_RAR-KiDS-isolated_hotgas_Nobins.txt": "5f81078112e1b5cfff24189d1b755db7c48f52d50b179224ed9ab7d8771928fe",
+    "Fig-4_RAR-KiDS-isolated_hotgas_covmatrix.txt": "0ae8b6ea736ff4037afaed02552cc389f0f131062c34774bea2542dfab59e6e8",
+    "README.txt": "b3680580696c5dbf5671c700d5e8f90fbfd1dc614fa7e3e07b2f66d1624e8645"
+   }
+  },
+  {
+   "role": "The paper's LaTeX source, read for the g_bar bin definition (§2.1, l. 174) and for every statement of the source quoted in the tables and in reading/ (line numbers refer to RAR_paper_Brouwer_4.tex)",
+   "id": "S2",
+   "kind": "document",
+   "url": "https://arxiv.org/e-print/2106.11677v1",
+   "file": "arxiv/2106.11677v1.tar.gz",
+   "bytes": 4691988,
+   "sha256": "43bab5e0b439d459bcd95b8cb48e31e82f50b4b7c5b99bc4e0715843821874be",
+   "retrieved": "2026-11-24",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Brouwer, M. M., Oman, K. A., Valentijn, E. A., et al. 2021, A&A 650, A113, \"The weak lensing radial acceleration relation: Constraining modified gravity and cold dark matter theories with KiDS-1000\"",
+   "identifier": {
+    "doi": "10.1051/0004-6361/202040108",
+    "ads_bibcode": "2021A&A...650A.113B",
+    "arxiv": "2106.11677v1",
+    "landing_url": "https://arxiv.org/abs/2106.11677v1"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2106.11677 (licence link; only version v1 listed). The journal version is open access under CC BY 4.0 (A&A article page), but the file hashed here is the arXiv e-print.",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Gzipped tar of the LaTeX source. Its file RAR_paper_Brouwer_4.tex has SHA-256 45aa25abaa516893a77d365e4f708521cc3879113a34e8b11289220948ff4b19, the hash recorded by the frozen readings (reading/kids-bins.md, reading/kids-d096.md) and D-103. The same e-print hash is in reading/kids-bins.md. The versioned and unversioned e-print addresses gave identical bytes on 2026-11-24. Not redistributed: the arXiv licence grants distribution rights to arXiv only."
+  }
+ ],
+ "second_reading_files": {
+  "freeze_record": "data/frozen/kids-v2-reading.json",
+  "files": [
+   "reading/kids-second-reading.csv",
+   "reading/kids-bins.md",
+   "reading/kids-d096.md",
+   "reading/scripts/read.py"
+  ],
+  "off_repo": "source/reading/kids-covariance.csv, regenerated by reading/scripts/read.py and checked against its frozen hash"
+ }
+}

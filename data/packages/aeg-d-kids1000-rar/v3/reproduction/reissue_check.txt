@@ -1,0 +1,12 @@
+== aeg-d-kids1000-rar: PASS (T1 to T6)
+  T1 pass: covariance.ecsv identical after N (sha256 ec57bcdc6276…)
+  T1 pass: measurements.ecsv identical after N (sha256 337449a8d689…)
+  T1 pass: observables.ecsv identical after N (sha256 0339f5f27fe7…)
+  T1 pass: uncertainty_terms.ecsv identical after N (sha256 f7dee2c874c5…)
+  T2 pass: convert.py differs only on line 38: DATASET, VERSION, STANDARD = "aeg-d-kids1000-rar", "v3", "3.0.0"
+  T3 pass
+  T4 pass
+  T5 pass
+  T6 pass
+  T3 count: 2 entries (1 from v2, 1 new); sha256 null: none
+  T4 count: 3 rules, 0 corrections
