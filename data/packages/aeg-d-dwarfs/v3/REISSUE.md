@@ -10,7 +10,7 @@
     - For 72 of them, a hash was recorded in `v1/reading/originals.csv` or `mcconnachie2012_originals.csv`. Every one was downloaded again on 2026-11-24 and is identical.
     - The other 18 were hashed for the first time on 2026-11-24, from the version the reading records. These include Gregory 2019, Koch 2007, Simon 2011, Kirby 2013, Ou 2024 and Woo et al. 2008, several of the documents the audit found without a hashed record (P3).
   - **S110:** Monelli et al. 2025, read by JvH in the journal PDF. The SHA-256 is as the reading recorded it. The article is open access under CC BY 4.0.
-  - **S111:** van de Rydt et al. 1991, read in ADS page scans. It has no arXiv version and no file, so `sha256` is null with a reason. It counts as a provenance failure in the re-run audit (D-114 Q2).
+  - **S111:** van de Rydt et al. 1991, read in ADS page scans. It has no arXiv version. At first it had no file, and T7 run 1 failed on it. Under the ruling after that run, JvH downloaded ADS's PDF of the same scans on 2026-11-24 and it was hashed. Before hashing, the recorded values were found on it: M_V = −9.9 ± 0.4 on p. 136 and (m − M)0 = 23.1 ± 0.1 on p. 134 and in the abstract. The hash was recorded after the reading, not when the reading was made.
   - **S112 and S113:** the LaTeX e-prints of Fritz et al. 2019 and Wang et al. 2019, which the locators cite by line. Their hashes equal those in the reading.
 - **Documents are verified once, not by CI** (`fetch_in_ci: false`). They were hashed against today's downloads. arXiv and the journals ask automated tools not to bulk-download them, and the conversion never reads them. The reachability job (T7) still checks every address with a small request. The data files S1 to S19 are fetched and hash-checked in CI as before.
 - **Citations** are built from the arXiv record of each paper: exact title and authors (the first three, then "et al."). Year and journal come from the ADS bibcode.
@@ -39,4 +39,4 @@
 
 ## Test result
 
-T1 to T6: see `reproduction/reissue_check.txt`. T7: see `reproduction/reachability.json`.
+T1 to T6: see `reproduction/reissue_check.txt`. T7: run 1 failed (`reproduction/reachability_run1_fail.json`); run 2 passed after the ruled remedy (`reproduction/reachability.json`).
