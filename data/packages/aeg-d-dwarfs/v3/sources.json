@@ -3195,10 +3195,9 @@
    "kind": "document",
    "role": "van de Rydt et al. 1991 (Phoenix), read in ADS page scans for M_V (reading/d050_version_of_record.csv, reading/residual_sheet.csv)",
    "url": "https://ui.adsabs.harvard.edu/abs/1991AJ....102..130V/abstract",
-   "file": "scan/1991AJ....102..130V",
-   "sha256": null,
-   "unhashed_reason": "Read from ADS scanned journal pages (page images, served one page at a time); the paper has no arXiv version (title search by v1/reproduction/originals_index.py) and no single file was saved, so there is no hash. Counts as a provenance failure in the re-run audit (D-114 Q2; issue #227).",
-   "retrieved": "not recorded (read by JvH in ADS scans)",
+   "file": "scan/1991AJ....102..130V.pdf",
+   "sha256": "77fe063cd85596688ade6d3369a3885cc9e879488d68d375885ba12a3be7a1e4",
+   "retrieved": "2026-11-24",
    "fetch_in_ci": false,
    "redistributable": false,
    "evidence_tier": 1,
@@ -3211,7 +3210,10 @@
     "status": "none_stated",
     "checked_where": "Not established: neither the ADS record nor the journal page could be read from the build workspace on 2026-11-24; the scans were read in JvH's browser. Not redistributed.",
     "checked_on": "2026-11-24"
-   }
+   },
+   "bytes": 848052,
+   "verified": "2026-11-24",
+   "note": "The ADS scanned-article PDF of the same journal pages (pp. 130 to 136) that the reading read in the browser, page by page. JvH downloaded it on 2026-11-24 (ADS serves scans from a host the build workspace cannot reach) and it was hashed then, under the ruling taken after T7 run 1 failed for this entry while it had no hash. Checked against the reading on its text layer: p. 136, 'We then adopt Mv = −9.9 ± 0.4'; p. 134, '(m − M)0 = 23.1 ± 0.1'; abstract p. 130, the same modulus. Not redistributed: no licence was established."
   },
   {
    "kind": "document",

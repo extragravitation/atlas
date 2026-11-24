@@ -34,9 +34,7 @@
       "url": "https://github.com/extragravitation/atlas/issues/227",
       "title": "Dwarfs: locator corrections and gaps resolved in v3 (Munoz 2018 M_V table, σ and [Fe/H] places, unnamed papers, unhashed documents)",
       "measurements": [],
-      "sources": [
-        "S111"
-      ],
+      "sources": [],
       "locators": [
         "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 132\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
         "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 147\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
@@ -57,7 +55,7 @@
         "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 86\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
         "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 97\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$"
       ],
-      "note": "No value changes. The Munoz 2018 M_V rules carry a correction (Table 6, not Table 1); van de Rydt et al. 1991 has no file hash (ADS scans)."
+      "note": "No value changes. The Munoz 2018 M_V rules carry a correction (Table 6, not Table 1). Van de Rydt et al. 1991 had no file hash (ADS scans) and failed T7 run 1 for that reason; under the ruling after that run, ADS's PDF of the same scans was hashed on 2026-11-24 (S111)."
     }
   ]
 }
