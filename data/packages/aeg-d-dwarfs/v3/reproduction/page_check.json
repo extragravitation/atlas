@@ -1,0 +1,46 @@
+{
+ "pass": true,
+ "checked": 8,
+ "results": [
+  {
+   "system": "aeg-s-000361",
+   "page": "site/dist/systems/aeg-s-000361/index.html",
+   "found": true
+  },
+  {
+   "system": "aeg-s-000365",
+   "page": "site/dist/systems/aeg-s-000365/index.html",
+   "found": true
+  },
+  {
+   "system": "aeg-s-000367",
+   "page": "site/dist/systems/aeg-s-000367/index.html",
+   "found": true
+  },
+  {
+   "system": "aeg-s-000370",
+   "page": "site/dist/systems/aeg-s-000370/index.html",
+   "found": true
+  },
+  {
+   "system": "aeg-s-000372",
+   "page": "site/dist/systems/aeg-s-000372/index.html",
+   "found": true
+  },
+  {
+   "system": "aeg-s-000382",
+   "page": "site/dist/systems/aeg-s-000382/index.html",
+   "found": true
+  },
+  {
+   "system": "aeg-s-000405",
+   "page": "site/dist/systems/aeg-s-000405/index.html",
+   "found": true
+  },
+  {
+   "system": "aeg-s-000407",
+   "page": "site/dist/systems/aeg-s-000407/index.html",
+   "found": true
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+  "issues": [
+    {
+      "issue": 156,
+      "url": "https://github.com/extragravitation/atlas/issues/156",
+      "title": "Dwarfs v2: Tollerud 2012 velocity windows cannot be applied to the coverage check (not published as numbers)",
+      "systems": [
+        "aeg-s-000343",
+        "aeg-s-000345",
+        "aeg-s-000346",
+        "aeg-s-000348",
+        "aeg-s-000349",
+        "aeg-s-000350",
+        "aeg-s-000353",
+        "aeg-s-000354",
+        "aeg-s-000355",
+        "aeg-s-000356"
+      ],
+      "measurements": [
+        "aeg-d-dwarfs/v3/m000001",
+        "aeg-d-dwarfs/v3/m000003",
+        "aeg-d-dwarfs/v3/m000004",
+        "aeg-d-dwarfs/v3/m000006",
+        "aeg-d-dwarfs/v3/m000007",
+        "aeg-d-dwarfs/v3/m000008",
+        "aeg-d-dwarfs/v3/m000011",
+        "aeg-d-dwarfs/v3/m000012",
+        "aeg-d-dwarfs/v3/m000013"
+      ],
+      "decision": "D-102"
+    },
+    {
+      "issue": 227,
+      "url": "https://github.com/extragravitation/atlas/issues/227",
+      "title": "Dwarfs: locator corrections and gaps resolved in v3 (Munoz 2018 M_V table, σ and [Fe/H] places, unnamed papers, unhashed documents)",
+      "measurements": [],
+      "sources": [
+        "S111"
+      ],
+      "locators": [
+        "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 132\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+        "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 147\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+        "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 154\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+        "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 160\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+        "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 178\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+        "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 218\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+        "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 23\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+        "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 233\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+        "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 254\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+        "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 32\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+        "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 35\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+        "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 38\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+        "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 42\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+        "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 44\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+        "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 66\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+        "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 76\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+        "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 86\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+        "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 97\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$"
+      ],
+      "note": "No value changes. The Munoz 2018 M_V rules carry a correction (Table 6, not Table 1); van de Rydt et al. 1991 has no file hash (ADS scans)."
+    }
+  ]
+}

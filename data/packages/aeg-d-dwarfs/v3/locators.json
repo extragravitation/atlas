@@ -1,0 +1,3826 @@
+{
+ "standard": "3.0.0 §13 R4",
+ "rules": [
+  {
+   "table": "observables",
+   "match": "^Battaglia\\ 2011\\ MNRAS\\ 411\\ 1013\\ \\(reading/sigma_selection_v3\\.csv\\)$",
+   "sources": [
+    "S20"
+   ],
+   "where": {
+    "page": "5; 15",
+    "table": "1",
+    "section": "3.4"
+   },
+   "note": "Places from the reading record of the selected σ value: v1/reading/sigma_selection_v3.csv (default_paper, default_value_id) and v1/reading/sigma_reading_1.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Battaglia2012MNRAS\\.424\\.1113B\\ p\\.3,\\ Table\\ 1$",
+   "sources": [
+    "S21"
+   ],
+   "where": {
+    "page": "3",
+    "table": "1"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Battaglia2012MNRAS\\.424\\.1113B\\ p\\.3,\\ Table\\ 1,\\ row\\ \\(m\\-M\\)0$",
+   "sources": [
+    "S21"
+   ],
+   "where": {
+    "page": "3",
+    "table": "1",
+    "row": "(m-M"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Belokurov2007ApJ\\.\\.\\.654\\.\\.897B\\ PDF\\ p\\.6,\\ Table\\ 1\\ \\(Properties\\ of\\ the\\ New\\ Milky\\ Way\\ Satellites\\),\\ column\\ Segue\\ 1,\\ row\\ \\(m−M\\)0$",
+   "sources": [
+    "S22"
+   ],
+   "where": {
+    "page": "6",
+    "table": "1",
+    "row": "(m−M",
+    "column": "Segue 1"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Bernard\\ 2009,\\ RR\\ Lyrae,\\ reddening\\-corrected\\ \\(D\\-053\\)$",
+   "sources": [
+    "S23"
+   ],
+   "where": {
+    "page": "19",
+    "section": "6.3"
+   },
+   "note": "Place of the headline RR Lyrae modulus, from v1/reading/mcc_readings (Bernard et al. 2009 rows)."
+  },
+  {
+   "table": "observables",
+   "match": "^Bhardwaj2024AJ\\.\\.\\.\\.167\\.\\.247B\\ p\\.10,\\ Table\\ 5\\ \\(Distance\\ modulus\\ estimates\\ to\\ Draco\\ dSph\\ galaxy\\),\\ final\\ rows$",
+   "sources": [
+    "S24"
+   ],
+   "where": {
+    "page": "10",
+    "table": "5"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Bissonette2026arXiv260512810B$",
+   "sources": [
+    "S25"
+   ],
+   "where": {
+    "page": "2; 1; 5; 7; 6",
+    "table": "1; 4",
+    "row": "(14",
+    "section": "4; 5"
+   },
+   "note": "Places from the reading record of the selected [Fe/H] value: v1/reading/feh_values.csv and v1/reading/feh_reading_1.csv, _d059.csv or _followup.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Boettcher\\ 2013,\\ BHB\\ stars\\ \\(D\\-055\\ item\\ 8\\)$",
+   "sources": [
+    "S26"
+   ],
+   "where": {
+    "page": "6",
+    "section": "3.2"
+   },
+   "note": "Place of the BHB distance, from v1/reading/structure_reading_1.csv and _2.csv."
+  },
+  {
+   "table": "observables",
+   "match": "^Bruce2023ApJ\\.\\.\\.950\\.\\.167B$",
+   "sources": [
+    "S27"
+   ],
+   "where": {
+    "page": "5; 1; 12",
+    "table": "2",
+    "row": "[Fe/H]",
+    "section": "4.1"
+   },
+   "note": "Places from the reading record of the selected [Fe/H] value: v1/reading/feh_values.csv and v1/reading/feh_reading_1.csv, _d059.csv or _followup.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Carlin2017AJ\\.\\.\\.\\.154\\.\\.267C\\ p\\.5,\\ Table\\ 1,\\ col\\ Col\\ I,\\ row\\ m\\ −\\ M$",
+   "sources": [
+    "S28"
+   ],
+   "where": {
+    "page": "5",
+    "table": "1",
+    "row": "m − M",
+    "column": "Col I"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Carlin2017AJ\\.\\.\\.\\.154\\.\\.267C\\ p\\.5,\\ Table\\ 1,\\ col\\ Col\\ I,\\ row\\ rh,exp\\ \\(arcmin\\)$",
+   "sources": [
+    "S28"
+   ],
+   "where": {
+    "page": "5",
+    "table": "1",
+    "row": "rh",
+    "column": "Col I"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Carlin2017AJ\\.\\.\\.\\.154\\.\\.267C\\ p\\.5,\\ Table\\ 1,\\ col\\ Tri\\ II,\\ row\\ m\\ −\\ M$",
+   "sources": [
+    "S28"
+   ],
+   "where": {
+    "page": "5",
+    "table": "1",
+    "row": "m − M",
+    "column": "Tri II"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Carlin2017AJ\\.\\.\\.\\.154\\.\\.267C\\ p\\.5,\\ Table\\ 1,\\ col\\ Tri\\ II,\\ row\\ rh,exp\\ \\(arcmin\\)$",
+   "sources": [
+    "S28"
+   ],
+   "where": {
+    "page": "5",
+    "table": "1",
+    "row": "rh",
+    "column": "Tri II"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Casey2025ApJ\\.\\.\\.984\\.\\.148C\\ p\\.\\ 5,\\ Table\\ 4,\\ column\\ Eri\\ IV$",
+   "sources": [
+    "S29"
+   ],
+   "where": {
+    "page": "5",
+    "table": "4",
+    "column": "Eri IV"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Cerny\\ 2026\\ arXiv\\ 2602\\.17652\\ \\(reading/sigma_selection_v3\\.csv\\)$",
+   "sources": [
+    "S30"
+   ],
+   "where": {
+    "page": "38; 33; 34; 48–49",
+    "table": "3",
+    "row": "Draco II (σv",
+    "section": "5.2; 7.3.5"
+   },
+   "note": "Places from the reading record of the selected σ value: v1/reading/sigma_selection_v3.csv (default_paper, default_value_id) and v1/reading/sigma_reading_1.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Cerny2021ApJ\\.\\.\\.920L\\.\\.44C\\ PDF\\ p\\.5,\\ Table\\ 1\\ \\(Morphological,\\ isochrone,\\ and\\ proper\\ motion\\ parameters\\ for\\ Eri\\ IV\\),\\ row\\ m\\ −\\ M$",
+   "sources": [
+    "S31"
+   ],
+   "where": {
+    "page": "5",
+    "table": "1",
+    "row": "m − M"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Cerny2023ApJ\\.\\.\\.942\\.\\.111C\\ p\\.7,\\ Table\\ 1$",
+   "sources": [
+    "S32"
+   ],
+   "where": {
+    "page": "7",
+    "table": "1"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Cerny2023ApJ\\.\\.\\.942\\.\\.111C\\ p\\.7,\\ Table\\ 1\\ \\(azimuthally\\ averaged\\ r_h;\\ D\\-062\\ item\\ 2\\)$",
+   "sources": [
+    "S32"
+   ],
+   "where": {
+    "page": "7",
+    "table": "1"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Cerny2023ApJ\\.\\.\\.942\\.\\.111C\\ p\\.7,\\ Table\\ 1\\ \\(azimuthally\\ averaged\\ r_h;\\ D\\-062\\ item\\ 2\\);\\ no_uncertainty:\\ no\\ error\\ printed$",
+   "sources": [
+    "S32"
+   ],
+   "where": {
+    "page": "7",
+    "table": "1"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Cerny2025ApJ\\.\\.\\.979\\.\\.164C\\ p\\.7,\\ Table\\ 1,\\ row\\ \\(m\\ −\\ M\\)0$",
+   "sources": [
+    "S33"
+   ],
+   "where": {
+    "page": "7",
+    "table": "1",
+    "row": "(m − M"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Cerny2025ApJ\\.\\.\\.979\\.\\.164C\\ p\\.7,\\ Table\\ 1,\\ row\\ ah$",
+   "sources": [
+    "S33"
+   ],
+   "where": {
+    "page": "7",
+    "table": "1",
+    "row": "ah"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Cerny2026arXiv260217652C$",
+   "sources": [
+    "S30"
+   ],
+   "where": {
+    "page": "40; 48",
+    "table": "4",
+    "row": "Draco II",
+    "column": "[Fe/H]model",
+    "section": "6.2; 7.3.5"
+   },
+   "note": "Places from the reading record of the selected [Fe/H] value: v1/reading/feh_values.csv and v1/reading/feh_reading_1.csv, _d059.csv or _followup.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Charles2023MNRAS\\.521\\.3527C$",
+   "sources": [
+    "S34"
+   ],
+   "where": {
+    "page": "4; 1; 6",
+    "table": "2",
+    "section": "5; 8"
+   },
+   "note": "Places from the reading record of the selected [Fe/H] value: v1/reading/feh_values.csv and v1/reading/feh_reading_1.csv, _d059.csv or _followup.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Chiu\\ 2026\\ ApJ\\ 1002\\ 55\\ \\(reading/sigma_selection_v3\\.csv\\)$",
+   "sources": [
+    "S35"
+   ],
+   "where": {
+    "page": "8; 7; 1",
+    "table": "2",
+    "section": "4.1"
+   },
+   "note": "Places from the reading record of the selected σ value: v1/reading/sigma_selection_v3.csv (default_paper, default_value_id) and v1/reading/sigma_reading_1.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Chiu2026ApJ\\.\\.1002\\.\\.\\.55C$",
+   "sources": [
+    "S35"
+   ],
+   "where": {
+    "page": "7; 1; 9; 16",
+    "table": "2",
+    "section": "4.2; 8"
+   },
+   "note": "Places from the reading record of the selected [Fe/H] value: v1/reading/feh_values.csv and v1/reading/feh_reading_1.csv, _d059.csv or _followup.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Cicuendez2018A\\&A\\.\\.\\.609A\\.\\.53C\\ p\\.9,\\ Table\\ 3,\\ row\\ 2D\\ Half\\-light\\ rh,\\ col\\ King$",
+   "sources": [
+    "S36"
+   ],
+   "where": {
+    "page": "9",
+    "table": "3",
+    "row": "2D Half-light rh",
+    "column": "King"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Collins\\ 2013\\ ApJ\\ 768\\ 172\\ \\(reading/sigma_selection_v3\\.csv\\)$",
+   "sources": [
+    "S37"
+   ],
+   "where": {
+    "page": "27; 33; 37; 39; 40; 10; 11; 14; 15; 38; 16; 19; 20",
+    "table": "4; 5"
+   },
+   "note": "Places from the reading record of the selected σ value: v1/reading/sigma_selection_v3.csv (default_paper, default_value_id) and v1/reading/sigma_reading_1.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Collins\\ 2021\\ MNRAS\\ 505\\ 5686\\ \\(reading/sigma_selection_v3\\.csv\\)$",
+   "sources": [
+    "S38"
+   ],
+   "where": {
+    "page": "5; 4",
+    "table": "2",
+    "section": "3.1; 6"
+   },
+   "note": "Places from the reading record of the selected σ value: v1/reading/sigma_selection_v3.csv (default_paper, default_value_id) and v1/reading/sigma_reading_1.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Collins2013ApJ\\.\\.\\.768\\.\\.172C$",
+   "sources": [
+    "S37"
+   ],
+   "where": {
+    "page": "27; 33; 30",
+    "table": "4; 5",
+    "row": "And VI; And XI; And XII; And XVII; And XX; And XXII; And XXIII; And XXVII; And XXX (Cass II"
+   },
+   "note": "Places from the reading record of the selected [Fe/H] value: v1/reading/feh_values.csv and v1/reading/feh_reading_1.csv, _d059.csv or _followup.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Collins2021MNRAS\\.505\\.5686C$",
+   "sources": [
+    "S38"
+   ],
+   "where": {
+    "page": "4; 1; 7; 10",
+    "table": "2",
+    "section": "3.4; 6"
+   },
+   "note": "Places from the reading record of the selected [Fe/H] value: v1/reading/feh_values.csv and v1/reading/feh_reading_1.csv, _d059.csv or _followup.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Correnti\\ 2009\\ M_V,\\ distance\\-independent\\ \\(D\\-061\\ item\\ 2\\)$",
+   "sources": [
+    "S39"
+   ],
+   "where": {
+    "page": "5",
+    "section": "4 (iii)"
+   },
+   "note": "Place of the headline M_V, from v1/reading/structure_reading_1.csv and _2.csv (second_reading_a.csv gives Sec. 3 (iii) for the same sentence)."
+  },
+  {
+   "table": "observables",
+   "match": "^Cullinane2024ApJ\\.\\.\\.972\\.\\.133C$",
+   "sources": [
+    "S40"
+   ],
+   "where": {
+    "page": "12-13",
+    "section": "4.2"
+   },
+   "note": "Places from the reading record of the selected [Fe/H] value: v1/reading/feh_values.csv and v1/reading/feh_reading_1.csv, _d059.csv or _followup.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^DallOra2006ApJ\\.\\.\\.653L\\.109D\\ p\\.6,\\ Sect\\.\\ 5$",
+   "sources": [
+    "S41"
+   ],
+   "where": {
+    "page": "6",
+    "section": "5"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^DallOra2012ApJ\\.\\.\\.752\\.\\.\\.42D\\ p\\.7,\\ Sect\\.\\ 3$",
+   "sources": [
+    "S42"
+   ],
+   "where": {
+    "page": "7",
+    "section": "3"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^DrlicaWagner2015ApJ\\.\\.\\.813\\.\\.109D\\ p\\.\\ 17,\\ Table\\ 1\\ \\(Detection\\ of\\ ultra\\-faint\\ galaxy\\ candidates\\),\\ row\\ DES\\ J0345−6026\\ \\(Ret\\ III\\)$",
+   "sources": [
+    "S44"
+   ],
+   "where": {
+    "page": "17",
+    "table": "1",
+    "row": "DES J0345−6026 (Ret III"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^DrlicaWagner2015ApJ\\.\\.\\.813\\.\\.109D\\ p\\.\\ 17,\\ Table\\ 1\\ \\(Detection\\ of\\ ultra\\-faint\\ galaxy\\ candidates\\),\\ row\\ DES\\ J0345−6026\\ \\(Ret\\ III\\);\\ no_uncertainty:\\ no\\ error\\ printed$",
+   "sources": [
+    "S44"
+   ],
+   "where": {
+    "page": "17",
+    "table": "1",
+    "row": "DES J0345−6026 (Ret III"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Fritz\\ 2019\\ A\\&A\\ 623\\ A129\\ \\(reading/sigma_selection_v3\\.csv\\)$",
+   "sources": [
+    "S45"
+   ],
+   "where": {
+    "page": "12; 1",
+    "table": "3"
+   },
+   "note": "Places from the reading record of the selected σ value: v1/reading/sigma_selection_v3.csv (default_paper, default_value_id) and v1/reading/sigma_reading_1.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Fritz\\ 2019\\ A\\&A\\ 623\\ A129,\\ Table\\ 4,\\ certain\\ members\\ \\(arXiv\\ 1805\\.07350v4\\ spec_v1_ref1_arx\\.tex\\ l\\.\\ 452;\\ bold\\ =\\ preferred,\\ caption\\ l\\.\\ 436\\);\\ D\\-096\\ rule\\ 1\\ \\(D\\-098\\ rule\\ 5\\);\\ reading/resolved\\.csv$",
+   "sources": [
+    "S45",
+    "S112"
+   ],
+   "where": {
+    "table": "4",
+    "line": "452; 436"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Fritz2019A\\&A\\.\\.\\.623A\\.129F$",
+   "sources": [
+    "S45"
+   ],
+   "where": {
+    "page": "12",
+    "table": "3",
+    "row": "Columba I; Phoenix II; Reticulum III",
+    "section": "5"
+   },
+   "note": "Places from the reading record of the selected [Fe/H] value: v1/reading/feh_values.csv and v1/reading/feh_reading_1.csv, _d059.csv or _followup.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Fu2024ApJ\\.\\.\\.975\\.\\.\\.\\.2F$",
+   "sources": [
+    "S46"
+   ],
+   "where": {
+    "page": "9; 1; 7",
+    "table": "2",
+    "section": "4.1"
+   },
+   "note": "Places from the reading record of the selected [Fe/H] value: v1/reading/feh_values.csv and v1/reading/feh_reading_1.csv, _d059.csv or _followup.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Garofalo2013ApJ\\.\\.\\.767\\.\\.\\.62G\\ p\\.7–8,\\ §4;\\ also\\ abstract\\ p\\.1\\ and\\ §6\\ p\\.9$",
+   "sources": [
+    "S47"
+   ],
+   "where": {
+    "page": "7–8; 1; 9",
+    "section": "4; 6"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Garofalo2025A\\&A\\.\\.\\.695A\\.\\.88G\\ PDF\\ p\\.6,\\ Section\\ 3\\.1$",
+   "sources": [
+    "S48"
+   ],
+   "where": {
+    "page": "6",
+    "section": "3.1"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Geha\\ 2026\\ ApJ\\ 999\\ 140\\ \\(reading/sigma_selection_v3\\.csv\\)$",
+   "sources": [
+    "S49"
+   ],
+   "where": {
+    "page": "32; 33; 34",
+    "row": "Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi"
+   },
+   "note": "Places from the reading record of the selected σ value: v1/reading/sigma_selection_v3.csv (default_paper, default_value_id) and v1/reading/sigma_reading_1.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Geha2026arXiv260210202G$",
+   "sources": [
+    "S50"
+   ],
+   "where": {
+    "page": "17; 18; 19",
+    "row": "Aquarius III Aqr3; Bootes II Boo2; CVn I CVn1; CVn II CVn2; ComaBer CB; Draco Dra; Herc Herc; Hydra 2 Hyd2; Leo I Leo1; Leo II Leo2; Leo IV Leo4; Pegasus 3 Peg3; Pegasus 4 Peg4; Segue 2 Seg2; UMa 1 UMa1; UMa 2 UMa2; Ursa Minor UMi"
+   },
+   "note": "Places from the reading record of the selected [Fe/H] value: v1/reading/feh_values.csv and v1/reading/feh_reading_1.csv, _d059.csv or _followup.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Greco2008ApJ\\.\\.\\.675L\\.\\.73G\\ §5,\\ p\\.\\ 7$",
+   "sources": [
+    "S51"
+   ],
+   "where": {
+    "page": "7",
+    "section": "5"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Gregory\\ 2019\\ MNRAS\\ 485\\ 2010\\ \\(reading/sigma_selection_v3\\.csv\\)$",
+   "sources": [
+    "S52"
+   ],
+   "where": {
+    "page": "7"
+   },
+   "note": "Places from the reading record of the selected σ value: v1/reading/sigma_selection_v3.csv (default_paper, default_value_id) and v1/reading/sigma_reading_1.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Hansen\\ 2024\\ ApJ\\ 968\\ 21\\ \\(reading/sigma_selection_v3\\.csv\\)$",
+   "sources": [
+    "S53"
+   ],
+   "where": {
+    "page": "8",
+    "section": "5.1"
+   },
+   "note": "Places from the reading record of the selected σ value: v1/reading/sigma_selection_v3.csv (default_paper, default_value_id) and v1/reading/sigma_reading_1.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Hansen2024ApJ\\.\\.\\.968\\.\\.\\.21H$",
+   "sources": [
+    "S53"
+   ],
+   "where": {
+    "page": "8; 7",
+    "section": "5.1"
+   },
+   "note": "Places from the reading record of the selected [Fe/H] value: v1/reading/feh_values.csv and v1/reading/feh_reading_1.csv, _d059.csv or _followup.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Heiger\\ 2024\\ ApJ\\ 961\\ 234\\ \\(reading/sigma_selection_v3\\.csv\\)$",
+   "sources": [
+    "S54"
+   ],
+   "where": {
+    "page": "3; 12; 15",
+    "table": "1; 5",
+    "row": "σv; 'Full vsys (fiducial",
+    "section": "5.1; 7"
+   },
+   "note": "Places from the reading record of the selected σ value: v1/reading/sigma_selection_v3.csv (default_paper, default_value_id) and v1/reading/sigma_reading_1.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Heiger2024ApJ\\.\\.\\.961\\.\\.234H$",
+   "sources": [
+    "S54"
+   ],
+   "where": {
+    "page": "3; 1; 13; 15; 21",
+    "table": "1; 5",
+    "row": "[Fe/H]",
+    "section": "5.2; 7"
+   },
+   "note": "Places from the reading record of the selected [Fe/H] value: v1/reading/feh_values.csv and v1/reading/feh_reading_1.csv, _d059.csv or _followup.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Hendricks\\ 2014\\ A\\&A\\ 572\\ A82\\ \\(reading/sigma_selection_v3\\.csv\\)$",
+   "sources": [
+    "S55"
+   ],
+   "where": {
+    "page": "5",
+    "section": "2.1"
+   },
+   "note": "Places from the reading record of the selected σ value: v1/reading/sigma_selection_v3.csv (default_paper, default_value_id) and v1/reading/sigma_reading_1.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Higgs2021MNRAS\\.503\\.\\.176H\\ PDF\\ p\\.16,\\ Table\\ 2\\ \\(Derived\\ positional\\ and\\ shape\\ information\\),\\ row\\ And\\ XVIII$",
+   "sources": [
+    "S56"
+   ],
+   "where": {
+    "page": "16",
+    "table": "2",
+    "row": "And XVIII"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Higgs2021MNRAS\\.503\\.\\.176H\\ PDF\\ p\\.16,\\ Table\\ 2\\ \\(Derived\\ positional\\ and\\ shape\\ information\\),\\ row\\ Leo\\ T$",
+   "sources": [
+    "S56"
+   ],
+   "where": {
+    "page": "16",
+    "table": "2",
+    "row": "Leo T"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Higgs2021MNRAS\\.503\\.\\.176H\\ PDF\\ p\\.16,\\ Table\\ 3\\ \\(Best\\-fit\\ Sérsic\\ parameters\\),\\ row\\ And\\ XVIII$",
+   "sources": [
+    "S56"
+   ],
+   "where": {
+    "page": "16",
+    "table": "3",
+    "row": "And XVIII"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Higgs2021MNRAS\\.503\\.\\.176H\\ PDF\\ p\\.16,\\ Table\\ 3\\ \\(Best\\-fit\\ Sérsic\\ parameters\\),\\ row\\ And\\ XXVIII$",
+   "sources": [
+    "S56"
+   ],
+   "where": {
+    "page": "16",
+    "table": "3",
+    "row": "And XXVIII"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Higgs2021MNRAS\\.503\\.\\.176H\\ PDF\\ p\\.16,\\ Table\\ 3\\ \\(Best\\-fit\\ Sérsic\\ parameters\\),\\ row\\ Leo\\ T$",
+   "sources": [
+    "S56"
+   ],
+   "where": {
+    "page": "16",
+    "table": "3",
+    "row": "Leo T"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Ho\\ 2012\\ ApJ\\ 758\\ 124\\ \\(reading/sigma_selection_v3\\.csv\\)$",
+   "sources": [
+    "S57"
+   ],
+   "where": {
+    "page": "1; 7",
+    "section": "5.2.1"
+   },
+   "note": "Places from the reading record of the selected σ value: v1/reading/sigma_selection_v3.csv (default_paper, default_value_id) and v1/reading/sigma_reading_1.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^J/ApJS/161/304/clusters\\ \\(M/L\\)1,\\ interpolated\\ \\(reading/upsilon_v\\.csv\\)$",
+   "sources": [
+    "S19"
+   ],
+   "where": {
+    "table": "clusters",
+    "column": "(M/L)1"
+   },
+   "note": "The population M/L_V of the clusters table, interpolated as reading/upsilon_v.csv records."
+  },
+  {
+   "table": "observables",
+   "match": "^Jenkins2021ApJ\\.\\.\\.920\\.\\.\\.92J$",
+   "sources": [
+    "S58"
+   ],
+   "where": {
+    "page": "17; 21",
+    "table": "5",
+    "row": "[Fe/H] M1",
+    "section": "5.6; 6"
+   },
+   "note": "Places from the reading record of the selected [Fe/H] value: v1/reading/feh_values.csv and v1/reading/feh_reading_1.csv, _d059.csv or _followup.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Ji\\ 2021\\ ApJ\\ 921\\ 32\\ \\(reading/sigma_selection_v3\\.csv\\)$",
+   "sources": [
+    "S59"
+   ],
+   "where": {
+    "page": "7",
+    "table": "1"
+   },
+   "note": "Places from the reading record of the selected σ value: v1/reading/sigma_selection_v3.csv (default_paper, default_value_id) and v1/reading/sigma_reading_1.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Ji2021ApJ\\.\\.\\.921\\.\\.\\.32J$",
+   "sources": [
+    "S59"
+   ],
+   "where": {
+    "page": "7; 12; 15",
+    "table": "1; 2",
+    "row": "⟨[Fe/H]⟩ (dex; Antlia2",
+    "section": "4; 5; 7.1.2"
+   },
+   "note": "Places from the reading record of the selected [Fe/H] value: v1/reading/feh_values.csv and v1/reading/feh_reading_1.csv, _d059.csv or _followup.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Ji2021ApJ\\.\\.\\.921\\.\\.\\.32J\\ p\\.\\ 7,\\ Table\\ 1\\ \\(Galaxy\\ Properties\\),\\ Antlia\\ 2\\ column,\\ row\\ rh\\ \\(arcmin\\);\\ also\\ p\\.\\ 6,\\ §3\\ \\(rh\\ =\\ 66\\.3\\ arcmin,\\ no\\ error\\)$",
+   "sources": [
+    "S59"
+   ],
+   "where": {
+    "page": "7; 6",
+    "table": "1",
+    "row": "rh (arcmin",
+    "section": "3"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Kacharov\\ 2017\\ MNRAS\\ 466\\ 2006\\ \\(reading/sigma_selection_v3\\.csv\\)$",
+   "sources": [
+    "S60"
+   ],
+   "where": {
+    "page": "10",
+    "section": "5"
+   },
+   "note": "Places from the reading record of the selected σ value: v1/reading/sigma_selection_v3.csv (default_paper, default_value_id) and v1/reading/sigma_reading_1.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Kacharov2017MNRAS\\.466\\.2006K$",
+   "sources": [
+    "S60"
+   ],
+   "where": {
+    "page": "12; 1; 17",
+    "section": "6; 6.3"
+   },
+   "note": "Places from the reading record of the selected [Fe/H] value: v1/reading/feh_values.csv and v1/reading/feh_reading_1.csv, _d059.csv or _followup.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Kim2016ApJ\\.\\.\\.833\\.\\.\\.16K\\ p\\.\\ 5,\\ Table\\ 1$",
+   "sources": [
+    "S61"
+   ],
+   "where": {
+    "page": "5",
+    "table": "1"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Kirby\\ 2013\\ ApJ\\ 770\\ 16\\ \\(reading/sigma_selection_v3\\.csv\\)$",
+   "sources": [
+    "S62"
+   ],
+   "where": {
+    "page": "8; 9; 1; 15",
+    "table": "5",
+    "section": "5; 8"
+   },
+   "note": "Places from the reading record of the selected σ value: v1/reading/sigma_selection_v3.csv (default_paper, default_value_id) and v1/reading/sigma_reading_1.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Kirby\\ 2017\\ ApJ\\ 838\\ 83\\ \\(reading/sigma_selection_v3\\.csv\\)$",
+   "sources": [
+    "S63"
+   ],
+   "where": {
+    "page": "6",
+    "table": "3",
+    "section": "3.4"
+   },
+   "note": "Places from the reading record of the selected σ value: v1/reading/sigma_selection_v3.csv (default_paper, default_value_id) and v1/reading/sigma_reading_1.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Kirby2013ApJ\\.\\.\\.779\\.\\.102K$",
+   "sources": [
+    "S64"
+   ],
+   "where": {
+    "page": "12",
+    "table": "4",
+    "row": "Fornax; Leo T; Sculptor; Sextans"
+   },
+   "note": "Places from the reading record of the selected [Fe/H] value: v1/reading/feh_values.csv and v1/reading/feh_reading_1.csv, _d059.csv or _followup.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Kirby2015ApJ\\.\\.\\.810\\.\\.\\.56K$",
+   "sources": [
+    "S65"
+   ],
+   "where": {
+    "page": "10; 1",
+    "table": "3",
+    "row": "⟨[Fe/H]⟩"
+   },
+   "note": "Places from the reading record of the selected [Fe/H] value: v1/reading/feh_values.csv and v1/reading/feh_reading_1.csv, _d059.csv or _followup.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Kirby2017ApJ\\.\\.\\.838\\.\\.\\.83K$",
+   "sources": [
+    "S63"
+   ],
+   "where": {
+    "page": "6; 8",
+    "table": "3",
+    "section": "4"
+   },
+   "note": "Places from the reading record of the selected [Fe/H] value: v1/reading/feh_values.csv and v1/reading/feh_reading_1.csv, _d059.csv or _followup.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Kirby2020AJ\\.\\.\\.\\.159\\.\\.\\.46K$",
+   "sources": [
+    "S66"
+   ],
+   "where": {
+    "page": "13",
+    "table": "4",
+    "row": "And I; And III; And V; And VII; And X",
+    "section": "4.1"
+   },
+   "note": "Places from the reading record of the selected [Fe/H] value: v1/reading/feh_values.csv and v1/reading/feh_reading_1.csv, _d059.csv or _followup.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Koch\\ 2007\\ ApJ\\ 657\\ 241\\ \\(reading/sigma_selection_v3\\.csv\\)$",
+   "sources": [
+    "S67"
+   ],
+   "where": {
+    "page": "18",
+    "table": "3",
+    "row": "'GMOS + DEIMOS'"
+   },
+   "note": "Places from the reading record of the selected σ value: v1/reading/sigma_selection_v3.csv (default_paper, default_value_id) and v1/reading/sigma_reading_1.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Koposov\\ 2018\\ MNRAS\\ 479\\ 5343\\ \\(reading/sigma_selection_v3\\.csv\\)$",
+   "sources": [
+    "S68"
+   ],
+   "where": {
+    "page": "9; 6",
+    "table": "1",
+    "section": "4.3"
+   },
+   "note": "Places from the reading record of the selected σ value: v1/reading/sigma_selection_v3.csv (default_paper, default_value_id) and v1/reading/sigma_reading_1.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Koposov2018MNRAS\\.479\\.5343K$",
+   "sources": [
+    "S68"
+   ],
+   "where": {
+    "page": "6; 9",
+    "table": "1",
+    "section": "4.3"
+   },
+   "note": "Places from the reading record of the selected [Fe/H] value: v1/reading/feh_values.csv and v1/reading/feh_reading_1.csv, _d059.csv or _followup.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Koposov2018MNRAS\\.479\\.5343K\\ p\\.\\ 6,\\ Table\\ 1\\ \\(Key\\ photometric\\ and\\ kinematic\\ properties\\ of\\ the\\ Hydrus\\ 1\\ dwarf\\ galaxy\\),\\ m\\-M\\ row$",
+   "sources": [
+    "S68"
+   ],
+   "where": {
+    "page": "6",
+    "table": "1"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Koposov2018MNRAS\\.479\\.5343K\\ p\\.\\ 6,\\ Table\\ 1\\ \\(Key\\ photometric\\ and\\ kinematic\\ properties\\ of\\ the\\ Hydrus\\ 1\\ dwarf\\ galaxy\\),\\ rhalf,maj\\ row$",
+   "sources": [
+    "S68"
+   ],
+   "where": {
+    "page": "6",
+    "table": "1"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Kuehn2008ApJ\\.\\.\\.674L\\.\\.81K\\ PDF\\ p\\.6,\\ Section\\ 5\\ \\(An\\ Improved\\ Distance\\ Estimate\\ for\\ CVn\\ I\\)$",
+   "sources": [
+    "S69"
+   ],
+   "where": {
+    "page": "6",
+    "section": "5"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Kvasova\\ 2024\\ ApJ\\ 972\\ 180\\ \\(reading/sigma_selection_v3\\.csv\\)$",
+   "sources": [
+    "S70"
+   ],
+   "where": {
+    "page": "7; 11",
+    "table": "2; 4",
+    "column": "'38 stars"
+   },
+   "note": "Places from the reading record of the selected σ value: v1/reading/sigma_selection_v3.csv (default_paper, default_value_id) and v1/reading/sigma_reading_1.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Kvasova2024ApJ\\.\\.\\.972\\.\\.180K$",
+   "sources": [
+    "S70"
+   ],
+   "where": {
+    "page": "10-11; 11",
+    "section": "4.3",
+    "table": "4",
+    "row": "'This work'"
+   },
+   "note": "Places from the reading record of the selected [Fe/H] value: v1/reading/feh_values.csv and v1/reading/feh_reading_1.csv, _d059.csv or _followup.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Lee2009ApJ\\.\\.\\.703\\.\\.692L\\ p\\.4,\\ Sect\\.\\ 3;\\ p\\.19,\\ Table\\ 3;\\ no_uncertainty:\\ no\\ error\\ printed$",
+   "sources": [
+    "S71"
+   ],
+   "where": {
+    "page": "4; 19",
+    "table": "3",
+    "section": "3"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Li\\ 2026\\ arXiv\\ 2607\\.07803\\ \\(reading/sigma_selection_v3\\.csv\\)$",
+   "sources": [
+    "S72"
+   ],
+   "where": {
+    "page": "5",
+    "table": "1",
+    "row": "(7",
+    "section": "3.2"
+   },
+   "note": "Places from the reading record of the selected σ value: v1/reading/sigma_selection_v3.csv (default_paper, default_value_id) and v1/reading/sigma_reading_1.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Li2026arXiv260707803L$",
+   "sources": [
+    "S72"
+   ],
+   "where": {
+    "page": "5; 1; 6; 23",
+    "table": "1",
+    "row": "(8",
+    "section": "3.3; 7"
+   },
+   "note": "Places from the reading record of the selected [Fe/H] value: v1/reading/feh_values.csv and v1/reading/feh_reading_1.csv, _d059.csv or _followup.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Li2026arXiv260707803L\\ p\\.10,\\ §4$",
+   "sources": [
+    "S72"
+   ],
+   "where": {
+    "page": "10",
+    "section": "4"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Longeard2018MNRAS\\.480\\.2609L\\ p\\.8,\\ Table\\ 1,\\ row\\ Distance\\ modulus$",
+   "sources": [
+    "S73"
+   ],
+   "where": {
+    "page": "8",
+    "table": "1",
+    "row": "Distance modulus"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Longeard2018MNRAS\\.480\\.2609L\\ p\\.8,\\ Table\\ 1,\\ row\\ rh\\ \\(arcmin\\)$",
+   "sources": [
+    "S73"
+   ],
+   "where": {
+    "page": "8",
+    "table": "1",
+    "row": "rh (arcmin"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^M_V\\ \\+\\ \\(m\\-M\\)\\ used\\ by\\ the\\ paper\\ \\(cited\\)$",
+   "sources": [
+    "S104"
+   ],
+   "where": {
+    "row": "the system's row in the paper that gives its distance modulus"
+   },
+   "note": "The source_ref names no paper. The paper is the one that gives the system's distance modulus, named by that system's distance observable; the place is that paper's table or text for the system."
+  },
+  {
+   "table": "observables",
+   "match": "^M_V\\ \\+\\ \\(m\\-M\\)\\ used\\ by\\ the\\ paper\\ \\(own\\)$",
+   "sources": [
+    "S87",
+    "S93",
+    "S102",
+    "S33",
+    "S28",
+    "S73",
+    "S31",
+    "S68",
+    "S100",
+    "S32",
+    "S44"
+   ],
+   "where": {
+    "row": "the system's row in the paper that gives its distance modulus"
+   },
+   "note": "The source_ref names no paper. The paper is the one that gives the system's distance modulus, named by that system's distance observable; the place is that paper's table or text for the system."
+  },
+  {
+   "table": "observables",
+   "match": "^Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ I$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "1",
+    "row": "And I"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ II$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "1",
+    "row": "And II"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ III$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "1",
+    "row": "And III"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ IX$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "1",
+    "row": "And IX"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ V$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "1",
+    "row": "And V"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ X$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "1",
+    "row": "And X"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XI$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "1",
+    "row": "And XI"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XII$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "1",
+    "row": "And XII"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XIV$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "1",
+    "row": "And XIV"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XIX$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "1",
+    "row": "And XIX"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XV$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "1",
+    "row": "And XV"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XVI$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "1",
+    "row": "And XVI"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XVII$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "1",
+    "row": "And XVII"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XX$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "1",
+    "row": "And XX"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XXI$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "1",
+    "row": "And XXI"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XXII/Tri\\ I$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "1",
+    "row": "And XXII/Tri I"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XXIII$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "1",
+    "row": "And XXIII"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XXV$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "1",
+    "row": "And XXV"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ Cas\\ II/And\\ XXX$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "1",
+    "row": "Cas II/And XXX"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^MartinezVazquez2015MNRAS\\.454\\.1509M\\ p\\.7,\\ Table\\ 3,\\ row\\ <µ>ADOPTED,\\ CLEAN;\\ also\\ p\\.\\ 3,\\ §3\\ \\(\"µ\\ =\\ 19\\.62\\ mag\",\\ HB\\ model\\ comparison\\)$",
+   "sources": [
+    "S75"
+   ],
+   "where": {
+    "page": "7; 3",
+    "table": "3",
+    "row": "<µ>ADOPTED",
+    "section": "3"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^MartinezVazquez2017ApJ\\.\\.\\.850\\.\\.137M\\ p\\.\\ 18,\\ Table\\ 8\\ \\(Summary\\ of\\ the\\ different\\ true\\ distance\\ moduli\\ \\(µ0\\)\\ obtained\\ using\\ several\\ methods\\),\\ row\\ And\\ XVI$",
+   "sources": [
+    "S76"
+   ],
+   "where": {
+    "page": "18",
+    "table": "8",
+    "row": "And XVI"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^McConnachie\\ 2006\\ M_V\\ \\+\\ McConnachie\\ 2005\\ modulus$",
+   "sources": [
+    "S78",
+    "S77"
+   ],
+   "where": {
+    "page": "10 (McConnachie 2006); 23 and 9 (McConnachie 2005)",
+    "table": "4 (McConnachie 2006, M_V); 2 (McConnachie 2005, modulus)",
+    "section": "3.10 (McConnachie 2005)"
+   },
+   "note": "Places from v1/reading/structure_reading_1.csv and residual_reading_1.csv."
+  },
+  {
+   "table": "observables",
+   "match": "^McConnachie2006MNRAS\\.365\\.1263M\\ p\\.\\ 10,\\ Table\\ 4\\ \\(Integrated\\ photometry\\),\\ row\\ Andromeda\\ VI,\\ col\\ r1/2\\ \\(′\\)$",
+   "sources": [
+    "S78"
+   ],
+   "where": {
+    "page": "10",
+    "table": "4",
+    "row": "Andromeda VI",
+    "column": "r1/2 (′"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^McConnachie2006MNRAS\\.365\\.1263M\\ p\\.\\ 10,\\ Table\\ 4\\ \\(Integrated\\ photometry\\),\\ row\\ Andromeda\\ VI,\\ col\\ r1/2\\ \\(′\\);\\ no_uncertainty:\\ no\\ error\\ printed$",
+   "sources": [
+    "S78"
+   ],
+   "where": {
+    "page": "10",
+    "table": "4",
+    "row": "Andromeda VI",
+    "column": "r1/2 (′"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^McConnachie2006MNRAS\\.365\\.1263M\\ p\\.\\ 10,\\ Table\\ 4\\ \\(Integrated\\ photometry\\),\\ row\\ Andromeda\\ VII,\\ col\\ r1/2\\ \\(′\\)$",
+   "sources": [
+    "S78"
+   ],
+   "where": {
+    "page": "10",
+    "table": "4",
+    "row": "Andromeda VII",
+    "column": "r1/2 (′"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^McConnachie2006MNRAS\\.365\\.1263M\\ p\\.\\ 10,\\ Table\\ 4\\ \\(Integrated\\ photometry\\),\\ row\\ Andromeda\\ VII,\\ col\\ r1/2\\ \\(′\\);\\ no_uncertainty:\\ no\\ error\\ printed$",
+   "sources": [
+    "S78"
+   ],
+   "where": {
+    "page": "10",
+    "table": "4",
+    "row": "Andromeda VII",
+    "column": "r1/2 (′"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Medina\\ 2018,\\ RR\\ Lyrae\\ mean$",
+   "sources": [
+    "S79"
+   ],
+   "where": {
+    "page": "10",
+    "section": "5.1"
+   },
+   "note": "Place of the headline mean RR Lyrae distance, from v1/reading/structure_reading_1.csv and residual_reading_1.csv."
+  },
+  {
+   "table": "observables",
+   "match": "^Monelli2025A\\&A\\.\\.\\.700A\\.201M\\ \\(headline;\\ version\\ of\\ record\\)$",
+   "sources": [
+    "S110"
+   ],
+   "where": {
+    "page": "7",
+    "section": "4"
+   },
+   "note": "Place of the headline true modulus, from v1/reading/residual_reading_1_leo2.csv (also abstract p. 1 and Sect. 6 p. 12)."
+  },
+  {
+   "table": "observables",
+   "match": "^Moskowitz2020ApJ\\.\\.\\.892\\.\\.\\.27M\\ p\\.\\ 12,\\ Table\\ 3,\\ row\\ BooIII_DCLS\\ \\(1\\-Plummer,\\ D\\-061\\ item\\ 1\\)$",
+   "sources": [
+    "S80"
+   ],
+   "where": {
+    "page": "12",
+    "table": "3",
+    "row": "BooIII_DCLS (1-Plummer"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 132\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "table": "6 (M_V); 1 (R, the distance)"
+   },
+   "correction": "(Table 1; D-061 item 3)",
+   "note": "Muñoz et al. 2018: M_V is in Table 6; Table 1 gives the distance R. The source_ref gives Table 1 only (issue #227)."
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 147\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "table": "6 (M_V); 1 (R, the distance)"
+   },
+   "correction": "(Table 1; D-061 item 3)",
+   "note": "Muñoz et al. 2018: M_V is in Table 6; Table 1 gives the distance R. The source_ref gives Table 1 only (issue #227)."
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 154\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "table": "6 (M_V); 1 (R, the distance)"
+   },
+   "correction": "(Table 1; D-061 item 3)",
+   "note": "Muñoz et al. 2018: M_V is in Table 6; Table 1 gives the distance R. The source_ref gives Table 1 only (issue #227)."
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 160\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "table": "6 (M_V); 1 (R, the distance)"
+   },
+   "correction": "(Table 1; D-061 item 3)",
+   "note": "Muñoz et al. 2018: M_V is in Table 6; Table 1 gives the distance R. The source_ref gives Table 1 only (issue #227)."
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 178\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "table": "6 (M_V); 1 (R, the distance)"
+   },
+   "correction": "(Table 1; D-061 item 3)",
+   "note": "Muñoz et al. 2018: M_V is in Table 6; Table 1 gives the distance R. The source_ref gives Table 1 only (issue #227)."
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 218\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "table": "6 (M_V); 1 (R, the distance)"
+   },
+   "correction": "(Table 1; D-061 item 3)",
+   "note": "Muñoz et al. 2018: M_V is in Table 6; Table 1 gives the distance R. The source_ref gives Table 1 only (issue #227)."
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 23\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "table": "6 (M_V); 1 (R, the distance)"
+   },
+   "correction": "(Table 1; D-061 item 3)",
+   "note": "Muñoz et al. 2018: M_V is in Table 6; Table 1 gives the distance R. The source_ref gives Table 1 only (issue #227)."
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 233\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "table": "6 (M_V); 1 (R, the distance)"
+   },
+   "correction": "(Table 1; D-061 item 3)",
+   "note": "Muñoz et al. 2018: M_V is in Table 6; Table 1 gives the distance R. The source_ref gives Table 1 only (issue #227)."
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 254\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "table": "6 (M_V); 1 (R, the distance)"
+   },
+   "correction": "(Table 1; D-061 item 3)",
+   "note": "Muñoz et al. 2018: M_V is in Table 6; Table 1 gives the distance R. The source_ref gives Table 1 only (issue #227)."
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 32\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "table": "6 (M_V); 1 (R, the distance)"
+   },
+   "correction": "(Table 1; D-061 item 3)",
+   "note": "Muñoz et al. 2018: M_V is in Table 6; Table 1 gives the distance R. The source_ref gives Table 1 only (issue #227)."
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 35\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "table": "6 (M_V); 1 (R, the distance)"
+   },
+   "correction": "(Table 1; D-061 item 3)",
+   "note": "Muñoz et al. 2018: M_V is in Table 6; Table 1 gives the distance R. The source_ref gives Table 1 only (issue #227)."
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 38\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "table": "6 (M_V); 1 (R, the distance)"
+   },
+   "correction": "(Table 1; D-061 item 3)",
+   "note": "Muñoz et al. 2018: M_V is in Table 6; Table 1 gives the distance R. The source_ref gives Table 1 only (issue #227)."
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 42\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "table": "6 (M_V); 1 (R, the distance)"
+   },
+   "correction": "(Table 1; D-061 item 3)",
+   "note": "Muñoz et al. 2018: M_V is in Table 6; Table 1 gives the distance R. The source_ref gives Table 1 only (issue #227)."
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 44\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "table": "6 (M_V); 1 (R, the distance)"
+   },
+   "correction": "(Table 1; D-061 item 3)",
+   "note": "Muñoz et al. 2018: M_V is in Table 6; Table 1 gives the distance R. The source_ref gives Table 1 only (issue #227)."
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 66\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "table": "6 (M_V); 1 (R, the distance)"
+   },
+   "correction": "(Table 1; D-061 item 3)",
+   "note": "Muñoz et al. 2018: M_V is in Table 6; Table 1 gives the distance R. The source_ref gives Table 1 only (issue #227)."
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 76\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "table": "6 (M_V); 1 (R, the distance)"
+   },
+   "correction": "(Table 1; D-061 item 3)",
+   "note": "Muñoz et al. 2018: M_V is in Table 6; Table 1 gives the distance R. The source_ref gives Table 1 only (issue #227)."
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 86\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "table": "6 (M_V); 1 (R, the distance)"
+   },
+   "correction": "(Table 1; D-061 item 3)",
+   "note": "Muñoz et al. 2018: M_V is in Table 6; Table 1 gives the distance R. The source_ref gives Table 1 only (issue #227)."
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 97\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "table": "6 (M_V); 1 (R, the distance)"
+   },
+   "correction": "(Table 1; D-061 item 3)",
+   "note": "Muñoz et al. 2018: M_V is in Table 6; Table 1 gives the distance R. The source_ref gives Table 1 only (issue #227)."
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5\\ \\(Sérsic\\ Models\\),\\ row\\ Segue\\ 1$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "page": "27",
+    "table": "5",
+    "row": "Segue 1"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ Bootes\\ I,\\ col\\ re,s\\ \\(arcmin\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "page": "27",
+    "table": "5",
+    "row": "Bootes I",
+    "column": "re"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ Bootes\\ II,\\ col\\ re,s\\ \\(arcmin\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "page": "27",
+    "table": "5",
+    "row": "Bootes II",
+    "column": "re"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ CVn\\ I,\\ col\\ re,s\\ \\(arcmin\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "page": "27",
+    "table": "5",
+    "row": "CVn I",
+    "column": "re"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ CVn\\ II,\\ col\\ re,s\\ \\(arcmin\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "page": "27",
+    "table": "5",
+    "row": "CVn II",
+    "column": "re"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ ComBer,\\ col\\ re,s\\ \\(arcmin\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "page": "27",
+    "table": "5",
+    "row": "ComBer",
+    "column": "re"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ Draco,\\ col\\ re,s\\ \\(arcmin\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "page": "27",
+    "table": "5",
+    "row": "Draco",
+    "column": "re"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ Hercules,\\ col\\ re,s\\ \\(arcmin\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "page": "27",
+    "table": "5",
+    "row": "Hercules",
+    "column": "re"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ Leo\\ I,\\ col\\ re,s\\ \\(arcmin\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "page": "27",
+    "table": "5",
+    "row": "Leo I",
+    "column": "re"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ Leo\\ II,\\ col\\ re,s\\ \\(arcmin\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "page": "27",
+    "table": "5",
+    "row": "Leo II",
+    "column": "re"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ Leo\\ IV,\\ col\\ re,s\\ \\(arcmin\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "page": "27",
+    "table": "5",
+    "row": "Leo IV",
+    "column": "re"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ Leo\\ V,\\ col\\ re,s\\ \\(arcmin\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "page": "27",
+    "table": "5",
+    "row": "Leo V",
+    "column": "re"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ Sculptor,\\ col\\ re,s\\ \\(arcmin\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "page": "27",
+    "table": "5",
+    "row": "Sculptor",
+    "column": "re"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ Segue\\ 2,\\ col\\ re,s\\ \\(arcmin\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "page": "27",
+    "table": "5",
+    "row": "Segue 2",
+    "column": "re"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ UMa\\ I,\\ col\\ re,s\\ \\(arcmin\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "page": "27",
+    "table": "5",
+    "row": "UMa I",
+    "column": "re"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ UMa\\ II,\\ col\\ re,s\\ \\(arcmin\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "page": "27",
+    "table": "5",
+    "row": "UMa II",
+    "column": "re"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ UMi,\\ col\\ re,s\\ \\(arcmin\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "page": "27",
+    "table": "5",
+    "row": "UMi",
+    "column": "re"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ Willman\\ 1,\\ col\\ re,s\\ \\(arcmin\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "page": "27",
+    "table": "5",
+    "row": "Willman 1",
+    "column": "re"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Secondary\\ Sample,\\ row\\ Hydra\\ II,\\ col\\ re,s\\ \\(arcmin\\)$",
+   "sources": [
+    "S81"
+   ],
+   "where": {
+    "page": "27",
+    "table": "5",
+    "row": "Hydra II",
+    "column": "re"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Musella2009ApJ\\.\\.\\.695L\\.\\.83M\\ PDF\\ p\\.7,\\ Section\\ 4$",
+   "sources": [
+    "S82"
+   ],
+   "where": {
+    "page": "7",
+    "section": "4"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^MutluPakdil2018ApJ\\.\\.\\.863\\.\\.\\.25M\\ p\\.8,\\ Table\\ 6\\ \\(Structural\\ Properties\\),\\ row\\ m\\ −\\ M;\\ also\\ p\\.\\ 12,\\ §4\\.3\\ \\(\"m\\ −\\ M\\ =\\ 19\\.6\",\\ no\\ error\\)$",
+   "sources": [
+    "S83"
+   ],
+   "where": {
+    "page": "8; 12",
+    "table": "6",
+    "row": "m − M",
+    "section": "4.3"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^MutluPakdil2020ApJ\\.\\.\\.902\\.\\.106M\\ PDF\\ p\\.6,\\ Table\\ 9\\ \\(Structural\\ Properties\\ of\\ Hercules\\),\\ row\\ m\\ −\\ M$",
+   "sources": [
+    "S84"
+   ],
+   "where": {
+    "page": "6",
+    "table": "9",
+    "row": "m − M"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Oakes2022ApJ\\.\\.\\.929\\.\\.116O\\ p\\.13,\\ §7;\\ also\\ p\\.1\\ abstract\\ and\\ p\\.13\\ §6\\.4$",
+   "sources": [
+    "S85"
+   ],
+   "where": {
+    "page": "13; 1",
+    "section": "7; 6.4"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Ou\\ 2024\\ ApJ\\ 966\\ 33\\ \\(reading/sigma_selection_v3\\.csv\\)$",
+   "sources": [
+    "S86"
+   ],
+   "where": {
+    "page": "15",
+    "table": "2"
+   },
+   "note": "Places from the reading record of the selected σ value: v1/reading/sigma_selection_v3.csv (default_paper, default_value_id) and v1/reading/sigma_reading_1.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Putman\\ et\\ al\\.\\ 2021\\ Table\\ 1,\\ None$",
+   "sources": [
+    "S18"
+   ],
+   "where": {
+    "table": "1"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Richardson2011ApJ\\.\\.\\.732\\.\\.\\.76R\\ p\\.11,\\ Table\\ 1,\\ col\\ And\\ XXVII,\\ row\\ \\(m\\ −\\ M\\)0$",
+   "sources": [
+    "S87"
+   ],
+   "where": {
+    "page": "11",
+    "table": "1",
+    "row": "(m − M",
+    "column": "And XXVII"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Richardson2011ApJ\\.\\.\\.732\\.\\.\\.76R\\ p\\.11,\\ Table\\ 1,\\ col\\ And\\ XXVII,\\ row\\ rh\\ \\(arcmin\\)$",
+   "sources": [
+    "S87"
+   ],
+   "where": {
+    "page": "11",
+    "table": "1",
+    "row": "rh (arcmin",
+    "column": "And XXVII"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Richstein2022ApJ\\.\\.\\.933\\.\\.217R\\ p\\.\\ 7,\\ Table\\ 1\\ \\(Pegasus\\ III\\),\\ Exponential\\ block,\\ column\\ This\\ Work,\\ row\\ ah\\ \\(arcmin\\)$",
+   "sources": [
+    "S88"
+   ],
+   "where": {
+    "page": "7",
+    "table": "1",
+    "row": "ah (arcmin",
+    "column": "This Work"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Richstein2022ApJ\\.\\.\\.933\\.\\.217R\\ p\\.\\ 7,\\ Table\\ 2\\ \\(Pisces\\ II\\),\\ Exponential\\ block,\\ column\\ This\\ Work,\\ row\\ ah\\ \\(arcmin\\)$",
+   "sources": [
+    "S88"
+   ],
+   "where": {
+    "page": "7",
+    "table": "2",
+    "row": "ah (arcmin",
+    "column": "This Work"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Richstein2024ApJ\\.\\.\\.967\\.\\.\\.72R\\ p\\.\\ 9,\\ Table\\ 2,\\ row\\ Phe\\ II$",
+   "sources": [
+    "S89"
+   ],
+   "where": {
+    "page": "9",
+    "table": "2",
+    "row": "Phe II"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Sand2012ApJ\\.\\.\\.756\\.\\.\\.79S\\ p\\.16,\\ Table\\ 5,\\ row\\ Pisces\\ II$",
+   "sources": [
+    "S90"
+   ],
+   "where": {
+    "page": "16",
+    "table": "5",
+    "row": "Pisces II"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Sandford\\ 2026\\ ApJ\\ 998\\ 47\\ \\(reading/sigma_selection_v3\\.csv\\)$",
+   "sources": [
+    "S91"
+   ],
+   "where": {
+    "page": "8; 15–16; 13; 20; 26",
+    "table": "3; 5",
+    "row": "σv",
+    "column": "Combined",
+    "section": "4.4; 5.2; 9"
+   },
+   "note": "Places from the reading record of the selected σ value: v1/reading/sigma_selection_v3.csv (default_paper, default_value_id) and v1/reading/sigma_reading_1.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Sandford2026ApJ\\.\\.\\.998\\.\\.\\.47S$",
+   "sources": [
+    "S91"
+   ],
+   "where": {
+    "page": "8; 16; 13; 26",
+    "table": "3; 5",
+    "column": "p.13",
+    "section": "4.4; 8"
+   },
+   "note": "Places from the reading record of the selected [Fe/H] value: v1/reading/feh_values.csv and v1/reading/feh_reading_1.csv, _d059.csv or _followup.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Saviane\\ 1996\\ M_V\\ \\+\\ its\\ own\\ TRGB\\ modulus\\ \\(D\\-053\\)$",
+   "sources": [
+    "S92"
+   ],
+   "where": {
+    "page": "9",
+    "table": "5",
+    "row": "MV"
+   },
+   "note": "Place of M_V, from v1/reading/mcc_readings/s1.csv. The place of the TRGB modulus within Saviane et al. 1996 was not recorded by the reading."
+  },
+  {
+   "table": "observables",
+   "match": "^Saviane\\ 1996\\ Re\\ =\\ 205\\ \\+\\-\\ 32\\ pc\\ at\\ \\(m\\-M\\)0\\ =\\ 24\\.69,\\ as\\ an\\ angle\\ \\(D\\-053;\\ D\\-058\\ rescaling\\)$",
+   "sources": [
+    "S92"
+   ],
+   "where": {
+    "page": "9",
+    "table": "5",
+    "row": "Re (pc)"
+   },
+   "note": "Place of Re, from v1/reading/mcc_readings/s1.csv."
+  },
+  {
+   "table": "observables",
+   "match": "^Saviane\\ 1996\\ Re\\ =\\ 205\\ \\+\\-\\ 32\\ pc\\ at\\ \\(m\\-M\\)0\\ =\\ 24\\.69,\\ as\\ an\\ angle\\ \\(D\\-053;\\ D\\-058\\ rescaling\\);\\ error\\ printed\\ in\\ pc\\ \\(32\\ pc\\),\\ converted\\ as\\ the\\ value$",
+   "sources": [
+    "S92"
+   ],
+   "where": {
+    "page": "9",
+    "table": "5",
+    "row": "Re (pc)"
+   },
+   "note": "Place of Re, from v1/reading/mcc_readings/s1.csv."
+  },
+  {
+   "table": "observables",
+   "match": "^Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ I'$",
+   "sources": [
+    "S93"
+   ],
+   "where": {
+    "page": "15",
+    "table": "5",
+    "row": "'And I'"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ II'$",
+   "sources": [
+    "S93"
+   ],
+   "where": {
+    "page": "15",
+    "table": "5",
+    "row": "'And II'"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ III'$",
+   "sources": [
+    "S93"
+   ],
+   "where": {
+    "page": "15",
+    "table": "5",
+    "row": "'And III'"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ IX'$",
+   "sources": [
+    "S93"
+   ],
+   "where": {
+    "page": "15",
+    "table": "5",
+    "row": "'And IX'"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ V'$",
+   "sources": [
+    "S93"
+   ],
+   "where": {
+    "page": "15",
+    "table": "5",
+    "row": "'And V'"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ VI'$",
+   "sources": [
+    "S93"
+   ],
+   "where": {
+    "page": "15",
+    "table": "5",
+    "row": "'And VI'"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ VII'$",
+   "sources": [
+    "S93"
+   ],
+   "where": {
+    "page": "15",
+    "table": "5",
+    "row": "'And VII'"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ X'$",
+   "sources": [
+    "S93"
+   ],
+   "where": {
+    "page": "15",
+    "table": "5",
+    "row": "'And X'"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ XI'$",
+   "sources": [
+    "S93"
+   ],
+   "where": {
+    "page": "15",
+    "table": "5",
+    "row": "'And XI'"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ XII'$",
+   "sources": [
+    "S93"
+   ],
+   "where": {
+    "page": "15",
+    "table": "5",
+    "row": "'And XII'"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ XIV'$",
+   "sources": [
+    "S93"
+   ],
+   "where": {
+    "page": "15",
+    "table": "5",
+    "row": "'And XIV'"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ XIX'$",
+   "sources": [
+    "S93"
+   ],
+   "where": {
+    "page": "15",
+    "table": "5",
+    "row": "'And XIX'"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ XV'$",
+   "sources": [
+    "S93"
+   ],
+   "where": {
+    "page": "15",
+    "table": "5",
+    "row": "'And XV'"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ XVII'$",
+   "sources": [
+    "S93"
+   ],
+   "where": {
+    "page": "15",
+    "table": "5",
+    "row": "'And XVII'"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ XX'$",
+   "sources": [
+    "S93"
+   ],
+   "where": {
+    "page": "15",
+    "table": "5",
+    "row": "'And XX'"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ XXI'$",
+   "sources": [
+    "S93"
+   ],
+   "where": {
+    "page": "15",
+    "table": "5",
+    "row": "'And XXI'"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ XXII'$",
+   "sources": [
+    "S93"
+   ],
+   "where": {
+    "page": "15",
+    "table": "5",
+    "row": "'And XXII'"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ XXIII'$",
+   "sources": [
+    "S93"
+   ],
+   "where": {
+    "page": "15",
+    "table": "5",
+    "row": "'And XXIII'"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ XXV'$",
+   "sources": [
+    "S93"
+   ],
+   "where": {
+    "page": "15",
+    "table": "5",
+    "row": "'And XXV'"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ XXVIII'$",
+   "sources": [
+    "S93"
+   ],
+   "where": {
+    "page": "15",
+    "table": "5",
+    "row": "'And XXVIII'"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ XXX'$",
+   "sources": [
+    "S93"
+   ],
+   "where": {
+    "page": "15",
+    "table": "5",
+    "row": "'And XXX'"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Simon\\ 2011\\ ApJ\\ 733\\ 46\\ \\(reading/sigma_selection_v3\\.csv\\)$",
+   "sources": [
+    "S94"
+   ],
+   "where": {
+    "page": "11; 3",
+    "table": "1",
+    "row": "(11",
+    "section": "5.2"
+   },
+   "note": "Places from the reading record of the selected σ value: v1/reading/sigma_selection_v3.csv (default_paper, default_value_id) and v1/reading/sigma_reading_1.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Simon\\ 2020\\ M_V\\ \\+\\ Table\\ 6\\ distance\\ 55\\ kpc\\ \\(D\\-061\\ item\\ 7\\)$",
+   "sources": [
+    "S95"
+   ],
+   "where": {
+    "table": "6"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Simon2020ApJ\\.\\.\\.892\\.\\.137S\\ p\\.9,\\ Table\\ 6,\\ row\\ \\(3\\)$",
+   "sources": [
+    "S95"
+   ],
+   "where": {
+    "page": "9",
+    "table": "6",
+    "row": "(3"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Simon2020ApJ\\.\\.\\.892\\.\\.137S\\ p\\.9,\\ Table\\ 6,\\ row\\ \\(4\\);\\ also\\ p\\.\\ 7,\\ §4\\.1\\ \\(\"2\\.1′\",\\ no\\ error\\)$",
+   "sources": [
+    "S95"
+   ],
+   "where": {
+    "page": "9; 7",
+    "table": "6",
+    "row": "(4",
+    "section": "4.1"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Slater2015ApJ\\.\\.\\.806\\.\\.230S$",
+   "sources": [
+    "S96"
+   ],
+   "where": {
+    "page": "3; 4",
+    "table": "1",
+    "section": "4"
+   },
+   "note": "Places from the reading record of the selected [Fe/H] value: v1/reading/feh_values.csv and v1/reading/feh_reading_1.csv, _d059.csv or _followup.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Spencer\\ 2017\\ ApJ\\ 836\\ 202\\ \\(reading/sigma_selection_v3\\.csv\\)$",
+   "sources": [
+    "S97"
+   ],
+   "where": {
+    "page": "7; 1; 11",
+    "section": "3.2; 4"
+   },
+   "note": "Places from the reading record of the selected σ value: v1/reading/sigma_selection_v3.csv (default_paper, default_value_id) and v1/reading/sigma_reading_1.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Stetson\\ 2014,\\ midpoint\\ of\\ 22\\.06\\ \\+\\-\\ 0\\.08\\ to\\ 22\\.25\\ \\+\\-\\ 0\\.07$",
+   "sources": [
+    "S98"
+   ],
+   "where": {
+    "page": "11",
+    "section": "4.1"
+   },
+   "note": "Place of the two ends of the modulus range, from v1/reading/residual_reading_2.csv and structure_values_all.csv."
+  },
+  {
+   "table": "observables",
+   "match": "^Taibi2020A\\&A\\.\\.\\.635A\\.152T$",
+   "sources": [
+    "S99"
+   ],
+   "where": {
+    "page": "11; 3",
+    "table": "1",
+    "section": "6.1; 8"
+   },
+   "note": "Places from the reading record of the selected [Fe/H] value: v1/reading/feh_values.csv and v1/reading/feh_reading_1.csv, _d059.csv or _followup.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Tan2025ApJ\\.\\.\\.979\\.\\.176T$",
+   "sources": [
+    "S100"
+   ],
+   "where": {
+    "page": "8; 11",
+    "table": "1",
+    "row": "[Fe/H]spec",
+    "section": "5"
+   },
+   "note": "Places from the reading record of the selected [Fe/H] value: v1/reading/feh_values.csv and v1/reading/feh_reading_1.csv, _d059.csv or _followup.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Tan2025ApJ\\.\\.\\.979\\.\\.176T\\ p\\.8,\\ Table\\ 1,\\ row\\ \\(m\\ −\\ M\\)0$",
+   "sources": [
+    "S100"
+   ],
+   "where": {
+    "page": "8",
+    "table": "1",
+    "row": "(m − M"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Tan2025ApJ\\.\\.\\.979\\.\\.176T\\ p\\.8,\\ Table\\ 1,\\ row\\ ah$",
+   "sources": [
+    "S100"
+   ],
+   "where": {
+    "page": "8",
+    "table": "1",
+    "row": "ah"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Tollerud\\ 2012\\ ApJ\\ 752\\ 45\\ \\(reading/sigma_selection_v3\\.csv\\)$",
+   "sources": [
+    "S101"
+   ],
+   "where": {
+    "page": "9",
+    "table": "3",
+    "row": "And I; And III; And V; And VII; And IX; And X; And XIV; And XV; And XVI",
+    "column": "σLOS"
+   },
+   "note": "Places from the reading record of the selected σ value: v1/reading/sigma_selection_v3.csv (default_paper, default_value_id) and v1/reading/sigma_reading_1.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Torrealba2016MNRAS\\.463\\.\\.712T\\ p\\.\\ 2,\\ Table\\ 1\\ \\(Properties\\ of\\ Aqu\\ 2\\),\\ \\(m\\ −\\ M\\)\\ row;\\ also\\ p\\.\\ 4\\ Fig\\.\\ 2\\ caption\\ \\(\"m−M∼\\ 20\\.16\"\\)$",
+   "sources": [
+    "S102"
+   ],
+   "where": {
+    "page": "2; 4",
+    "table": "1"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Torrealba2016MNRAS\\.463\\.\\.712T\\ p\\.\\ 2,\\ Table\\ 1\\ \\(Properties\\ of\\ Aqu\\ 2\\),\\ rh\\ row$",
+   "sources": [
+    "S102"
+   ],
+   "where": {
+    "page": "2",
+    "table": "1"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Vivas2016AJ\\.\\.\\.\\.151\\.\\.118V\\ p\\.\\ 17,\\ Sect\\.\\ 4$",
+   "sources": [
+    "S103"
+   ],
+   "where": {
+    "page": "17",
+    "section": "4"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Vivas2022ApJ\\.\\.\\.926\\.\\.\\.78V\\ p\\.9,\\ §3\\.3;\\ no_uncertainty:\\ no\\ error\\ printed$",
+   "sources": [
+    "S104"
+   ],
+   "where": {
+    "page": "9",
+    "section": "3.3"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Walsh2008ApJ\\.\\.\\.688\\.\\.245W\\ p\\.\\ 11,\\ Table\\ 1\\ \\(Boötes\\ II\\ Properties\\),\\ row\\ \\(m\\ −\\ M\\)$",
+   "sources": [
+    "S105"
+   ],
+   "where": {
+    "page": "11",
+    "table": "1",
+    "row": "(m − M"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Wang2019ApJ\\.\\.\\.881\\.\\.118W\\ Table\\ 1,\\ Sérsic\\ column\\ \\(arXiv\\ 1809\\.07801v1\\ Fornax_main\\.tex\\ l\\.\\ 106\\);\\ the\\ source's\\ stated\\ best\\ fit,\\ l\\.\\ 333\\ \\(D\\-101;\\ D\\-096\\ rule\\ 1\\);\\ no_uncertainty:\\ no\\ error\\ printed$",
+   "sources": [
+    "S106",
+    "S113"
+   ],
+   "where": {
+    "table": "1",
+    "column": "(arXiv 1809.07801v1 Fornax_main.tex l. 106",
+    "line": "106; 333"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Wang2019ApJ\\.\\.\\.881\\.\\.118W\\ p\\.\\ 4,\\ Table\\ 1\\ \\(Fornax\\ structural\\ parameters\\ derived\\ with\\ the\\ MCMC\\ method\\ for\\ different\\ profile\\ models\\)$",
+   "sources": [
+    "S106"
+   ],
+   "where": {
+    "page": "4",
+    "table": "1"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Wang2019ApJ\\.\\.\\.881\\.\\.118W\\ p\\.\\ 4,\\ Table\\ 1\\ \\(Fornax\\ structural\\ parameters\\ derived\\ with\\ the\\ MCMC\\ method\\ for\\ different\\ profile\\ models\\);\\ no_uncertainty:\\ no\\ error\\ printed$",
+   "sources": [
+    "S106"
+   ],
+   "where": {
+    "page": "4",
+    "table": "1"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Willman2006astro\\.ph\\.\\.3486W\\ §3\\.1,\\ p\\.\\ 3$",
+   "sources": [
+    "S107"
+   ],
+   "where": {
+    "page": "3",
+    "section": "3.1"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^Wojno2020ApJ\\.\\.\\.895\\.\\.\\.78W$",
+   "sources": [
+    "S108"
+   ],
+   "where": {
+    "page": "23",
+    "table": "6",
+    "row": "And II; And IX; And XIV; And XV",
+    "section": "7.3"
+   },
+   "note": "Places from the reading record of the selected [Fe/H] value: v1/reading/feh_values.csv and v1/reading/feh_reading_1.csv, _d059.csv or _followup.csv (location), per system."
+  },
+  {
+   "table": "observables",
+   "match": "^Woo\\ et\\ al\\.\\ 2008\\ Table\\ 1,\\ data\\ set\\ b$",
+   "sources": [
+    "S109"
+   ],
+   "where": {
+    "table": "1"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^de\\ Jong\\ 2008\\ M_V\\ \\+\\ red\\-clump\\ modulus\\ \\(D\\-061\\ item\\ 6\\)$",
+   "sources": [
+    "S43"
+   ],
+   "where": {
+    "page": "5 (M_V); 7 (red-clump modulus)",
+    "table": "1",
+    "section": "4 (M_V); 6 (modulus)"
+   },
+   "note": "Places from v1/reading/residual_reading_2.csv."
+  },
+  {
+   "table": "observables",
+   "match": "^printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ I\\)$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "2",
+    "row": "And I"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ II\\)$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "2",
+    "row": "And II"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ III\\)$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "2",
+    "row": "And III"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ IX\\)$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "2",
+    "row": "And IX"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ V\\)$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "2",
+    "row": "And V"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ X\\)$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "2",
+    "row": "And X"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XI\\)$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "2",
+    "row": "And XI"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XII\\)$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "2",
+    "row": "And XII"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XIV\\)$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "2",
+    "row": "And XIV"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XIX\\)$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "2",
+    "row": "And XIX"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XV\\)$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "2",
+    "row": "And XV"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XVI\\)$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "2",
+    "row": "And XVI"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XVII\\)$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "2",
+    "row": "And XVII"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XVIII\\)$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "2",
+    "row": "And XVIII"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XX\\)$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "2",
+    "row": "And XX"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XXI\\)$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "2",
+    "row": "And XXI"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XXII/Tri\\ I\\)$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "2",
+    "row": "And XXII/Tri I"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XXIII\\)$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "2",
+    "row": "And XXIII"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XXV\\)$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "2",
+    "row": "And XXV"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ Cas\\ II/And\\ XXX\\)$",
+   "sources": [
+    "S74"
+   ],
+   "where": {
+    "page": "9",
+    "table": "2",
+    "row": "Cas II/And XXX"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^printed\\ m_V,0\\ \\(Richstein2022ApJ\\.\\.\\.933\\.\\.217R\\ PDF\\ p\\.12,\\ Table\\ 3,\\ Pegasus\\ III\\)$",
+   "sources": [
+    "S88"
+   ],
+   "where": {
+    "page": "12",
+    "table": "3"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^printed\\ m_V,0\\ \\(Richstein2022ApJ\\.\\.\\.933\\.\\.217R\\ PDF\\ p\\.12,\\ Table\\ 3,\\ Pisces\\ II\\)$",
+   "sources": [
+    "S88"
+   ],
+   "where": {
+    "page": "12",
+    "table": "3"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^printed\\ m_V,0\\ \\(Richstein2024ApJ\\.\\.\\.967\\.\\.\\.72R\\ p\\.\\ 9,\\ Table\\ 2,\\ row\\ Hya\\ II\\)$",
+   "sources": [
+    "S89"
+   ],
+   "where": {
+    "page": "9",
+    "table": "2",
+    "row": "Hya II"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^printed\\ m_V,0\\ \\(Richstein2024ApJ\\.\\.\\.967\\.\\.\\.72R\\ p\\.\\ 9,\\ Table\\ 2,\\ row\\ Phe\\ II\\)$",
+   "sources": [
+    "S89"
+   ],
+   "where": {
+    "page": "9",
+    "table": "2",
+    "row": "Phe II"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^printed\\ m_V,0\\ \\(Richstein2024ApJ\\.\\.\\.967\\.\\.\\.72R\\ p\\.\\ 9,\\ Table\\ 2,\\ row\\ Tri\\ II\\)$",
+   "sources": [
+    "S89"
+   ],
+   "where": {
+    "page": "9",
+    "table": "2",
+    "row": "Tri II"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^van\\ de\\ Rydt\\ 1991\\ M_V\\ \\+\\ adopted\\ modulus\\ \\(D\\-061\\ item\\ 5\\)$",
+   "sources": [
+    "S111"
+   ],
+   "where": {
+    "page": "136 (M_V); 134 (modulus)",
+    "section": "8 (M_V); 4 (modulus)"
+   },
+   "note": "Journal pages of the ADS scans, from v1/reading/residual_reading_2.csv."
+  },
+  {
+   "table": "measurements",
+   "match": "^Battaglia\\ 2011\\ MNRAS\\ 411\\ 1013;\\ Cicuendez2018A\\&A\\.\\.\\.609A\\.\\.53C\\ p\\.9,\\ Table\\ 3,\\ row\\ 2D\\ Half\\-light\\ rh,\\ col\\ King;\\ Lee2009ApJ\\.\\.\\.703\\.\\.692L\\ p\\.4,\\ Sect\\.\\ 3;\\ p\\.19,\\ Table\\ 3;\\ Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 86\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S36",
+    "S71",
+    "S20",
+    "S81"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Cerny\\ 2026\\ arXiv\\ 2602\\.17652;\\ Longeard2018MNRAS\\.480\\.2609L\\ p\\.8,\\ Table\\ 1,\\ row\\ rh\\ \\(arcmin\\);\\ Longeard2018MNRAS\\.480\\.2609L\\ p\\.8,\\ Table\\ 1,\\ row\\ Distance\\ modulus;\\ M_V\\ \\+\\ \\(m\\-M\\)\\ used\\ by\\ the\\ paper\\ \\(own\\)$",
+   "sources": [
+    "S73",
+    "S30"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Chiu\\ 2026\\ ApJ\\ 1002\\ 55;\\ Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ Willman\\ 1,\\ col\\ re,s\\ \\(arcmin\\);\\ Willman2006astro\\.ph\\.\\.3486W\\ §3\\.1,\\ p\\.\\ 3;\\ Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 38\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81",
+    "S107",
+    "S35"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Collins\\ 2013\\ ApJ\\ 768\\ 172;\\ Higgs2021MNRAS\\.503\\.\\.176H\\ PDF\\ p\\.16,\\ Table\\ 3\\ \\(Best\\-fit\\ Sérsic\\ parameters\\),\\ row\\ And\\ XXVIII;\\ Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ XXVIII';\\ M_V\\ \\+\\ \\(m\\-M\\)\\ used\\ by\\ the\\ paper\\ \\(own\\)$",
+   "sources": [
+    "S56",
+    "S93",
+    "S37"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Collins\\ 2013\\ ApJ\\ 768\\ 172;\\ Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XI;\\ Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ XI';\\ printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XI\\)$",
+   "sources": [
+    "S74",
+    "S93",
+    "S37"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Collins\\ 2013\\ ApJ\\ 768\\ 172;\\ Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XII;\\ Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ XII';\\ printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XII\\)$",
+   "sources": [
+    "S74",
+    "S93",
+    "S37"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Collins\\ 2013\\ ApJ\\ 768\\ 172;\\ Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XIX;\\ Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ XIX';\\ printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XIX\\)$",
+   "sources": [
+    "S74",
+    "S93",
+    "S37"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Collins\\ 2013\\ ApJ\\ 768\\ 172;\\ Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XVII;\\ Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ XVII';\\ printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XVII\\)$",
+   "sources": [
+    "S74",
+    "S93",
+    "S37"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Collins\\ 2013\\ ApJ\\ 768\\ 172;\\ Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XX;\\ Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ XX';\\ printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XX\\)$",
+   "sources": [
+    "S74",
+    "S93",
+    "S37"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Collins\\ 2013\\ ApJ\\ 768\\ 172;\\ Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XXII/Tri\\ I;\\ Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ XXII';\\ printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XXII/Tri\\ I\\)$",
+   "sources": [
+    "S74",
+    "S93",
+    "S37"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Collins\\ 2013\\ ApJ\\ 768\\ 172;\\ Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XXIII;\\ Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ XXIII';\\ printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XXIII\\)$",
+   "sources": [
+    "S74",
+    "S93",
+    "S37"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Collins\\ 2013\\ ApJ\\ 768\\ 172;\\ Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XXV;\\ Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ XXV';\\ printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XXV\\)$",
+   "sources": [
+    "S74",
+    "S93",
+    "S37"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Collins\\ 2013\\ ApJ\\ 768\\ 172;\\ Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ Cas\\ II/And\\ XXX;\\ Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ XXX';\\ printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ Cas\\ II/And\\ XXX\\)$",
+   "sources": [
+    "S74",
+    "S93",
+    "S37"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Collins\\ 2013\\ ApJ\\ 768\\ 172;\\ McConnachie2006MNRAS\\.365\\.1263M\\ p\\.\\ 10,\\ Table\\ 4\\ \\(Integrated\\ photometry\\),\\ row\\ Andromeda\\ VI,\\ col\\ r1/2\\ \\(′\\);\\ Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ VI';\\ McConnachie\\ 2006\\ M_V\\ \\+\\ McConnachie\\ 2005\\ modulus$",
+   "sources": [
+    "S78",
+    "S93",
+    "S37",
+    "S77"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Collins\\ 2013\\ ApJ\\ 768\\ 172;\\ Richardson2011ApJ\\.\\.\\.732\\.\\.\\.76R\\ p\\.11,\\ Table\\ 1,\\ col\\ And\\ XXVII,\\ row\\ rh\\ \\(arcmin\\);\\ Richardson2011ApJ\\.\\.\\.732\\.\\.\\.76R\\ p\\.11,\\ Table\\ 1,\\ col\\ And\\ XXVII,\\ row\\ \\(m\\ −\\ M\\)0;\\ M_V\\ \\+\\ \\(m\\-M\\)\\ used\\ by\\ the\\ paper\\ \\(own\\)$",
+   "sources": [
+    "S87",
+    "S37"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Collins\\ 2021\\ MNRAS\\ 505\\ 5686;\\ Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XXI;\\ Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ XXI';\\ printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XXI\\)$",
+   "sources": [
+    "S74",
+    "S93",
+    "S38"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Fritz\\ 2019\\ A\\&A\\ 623\\ A129\\ \\(certain\\ members,\\ Table\\ 4\\ l\\.\\ 452\\);\\ Richstein2024ApJ\\.\\.\\.967\\.\\.\\.72R\\ p\\.\\ 9,\\ Table\\ 2,\\ row\\ Phe\\ II;\\ MutluPakdil2018ApJ\\.\\.\\.863\\.\\.\\.25M\\ p\\.8,\\ Table\\ 6\\ \\(Structural\\ Properties\\),\\ row\\ m\\ −\\ M;\\ also\\ p\\.\\ 12,\\ §4\\.3\\ \\(\"m\\ −\\ M\\ =\\ 19\\.6\",\\ no\\ error\\);\\ printed\\ m_V,0\\ \\(Richstein2024ApJ\\.\\.\\.967\\.\\.\\.72R\\ p\\.\\ 9,\\ Table\\ 2,\\ row\\ Phe\\ II\\)$",
+   "sources": [
+    "S89",
+    "S83",
+    "S45"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Fritz\\ 2019\\ A\\&A\\ 623\\ A129;\\ DrlicaWagner2015ApJ\\.\\.\\.813\\.\\.109D\\ p\\.\\ 17,\\ Table\\ 1\\ \\(Detection\\ of\\ ultra\\-faint\\ galaxy\\ candidates\\),\\ row\\ DES\\ J0345−6026\\ \\(Ret\\ III\\);\\ DrlicaWagner2015ApJ\\.\\.\\.813\\.\\.109D\\ p\\.\\ 17,\\ Table\\ 1\\ \\(Detection\\ of\\ ultra\\-faint\\ galaxy\\ candidates\\),\\ row\\ DES\\ J0345−6026\\ \\(Ret\\ III\\);\\ M_V\\ \\+\\ \\(m\\-M\\)\\ used\\ by\\ the\\ paper\\ \\(own\\)$",
+   "sources": [
+    "S44",
+    "S45"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Fritz\\ 2019\\ A\\&A\\ 623\\ A129;\\ Richstein2024ApJ\\.\\.\\.967\\.\\.\\.72R\\ p\\.\\ 9,\\ Table\\ 2,\\ row\\ Phe\\ II;\\ MutluPakdil2018ApJ\\.\\.\\.863\\.\\.\\.25M\\ p\\.8,\\ Table\\ 6\\ \\(Structural\\ Properties\\),\\ row\\ m\\ −\\ M;\\ also\\ p\\.\\ 12,\\ §4\\.3\\ \\(\"m\\ −\\ M\\ =\\ 19\\.6\",\\ no\\ error\\);\\ printed\\ m_V,0\\ \\(Richstein2024ApJ\\.\\.\\.967\\.\\.\\.72R\\ p\\.\\ 9,\\ Table\\ 2,\\ row\\ Phe\\ II\\)$",
+   "sources": [
+    "S89",
+    "S83",
+    "S45"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Geha\\ 2026\\ ApJ\\ 999\\ 140;\\ Carlin2017AJ\\.\\.\\.\\.154\\.\\.267C\\ p\\.5,\\ Table\\ 1,\\ col\\ Col\\ I,\\ row\\ rh,exp\\ \\(arcmin\\);\\ Carlin2017AJ\\.\\.\\.\\.154\\.\\.267C\\ p\\.5,\\ Table\\ 1,\\ col\\ Col\\ I,\\ row\\ m\\ −\\ M;\\ M_V\\ \\+\\ \\(m\\-M\\)\\ used\\ by\\ the\\ paper\\ \\(own\\)$",
+   "sources": [
+    "S28",
+    "S49"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Geha\\ 2026\\ ApJ\\ 999\\ 140;\\ Cerny2023ApJ\\.\\.\\.942\\.\\.111C\\ p\\.7,\\ Table\\ 1\\ \\(azimuthally\\ averaged\\ r_h;\\ D\\-062\\ item\\ 2\\);\\ Cerny2023ApJ\\.\\.\\.942\\.\\.111C\\ p\\.7,\\ Table\\ 1;\\ M_V\\ \\+\\ \\(m\\-M\\)\\ used\\ by\\ the\\ paper\\ \\(own\\)$",
+   "sources": [
+    "S32",
+    "S49"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Geha\\ 2026\\ ApJ\\ 999\\ 140;\\ Cerny2025ApJ\\.\\.\\.979\\.\\.164C\\ p\\.7,\\ Table\\ 1,\\ row\\ ah;\\ Cerny2025ApJ\\.\\.\\.979\\.\\.164C\\ p\\.7,\\ Table\\ 1,\\ row\\ \\(m\\ −\\ M\\)0;\\ M_V\\ \\+\\ \\(m\\-M\\)\\ used\\ by\\ the\\ paper\\ \\(own\\)$",
+   "sources": [
+    "S33",
+    "S49"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Geha\\ 2026\\ ApJ\\ 999\\ 140;\\ Higgs2021MNRAS\\.503\\.\\.176H\\ PDF\\ p\\.16,\\ Table\\ 3\\ \\(Best\\-fit\\ Sérsic\\ parameters\\),\\ row\\ Leo\\ T;\\ Higgs2021MNRAS\\.503\\.\\.176H\\ PDF\\ p\\.16,\\ Table\\ 2\\ \\(Derived\\ positional\\ and\\ shape\\ information\\),\\ row\\ Leo\\ T;\\ de\\ Jong\\ 2008\\ M_V\\ \\+\\ red\\-clump\\ modulus\\ \\(D\\-061\\ item\\ 6\\)$",
+   "sources": [
+    "S56",
+    "S49",
+    "S43"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Geha\\ 2026\\ ApJ\\ 999\\ 140;\\ Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ Bootes\\ II,\\ col\\ re,s\\ \\(arcmin\\);\\ Walsh2008ApJ\\.\\.\\.688\\.\\.245W\\ p\\.\\ 11,\\ Table\\ 1\\ \\(Boötes\\ II\\ Properties\\),\\ row\\ \\(m\\ −\\ M\\);\\ Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 42\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81",
+    "S105",
+    "S49"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Geha\\ 2026\\ ApJ\\ 999\\ 140;\\ Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ CVn\\ I,\\ col\\ re,s\\ \\(arcmin\\);\\ Kuehn2008ApJ\\.\\.\\.674L\\.\\.81K\\ PDF\\ p\\.6,\\ Section\\ 5\\ \\(An\\ Improved\\ Distance\\ Estimate\\ for\\ CVn\\ I\\);\\ Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 218\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81",
+    "S69",
+    "S49"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Geha\\ 2026\\ ApJ\\ 999\\ 140;\\ Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ CVn\\ II,\\ col\\ re,s\\ \\(arcmin\\);\\ Greco2008ApJ\\.\\.\\.675L\\.\\.73G\\ §5,\\ p\\.\\ 7;\\ Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 160\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81",
+    "S51",
+    "S49"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Geha\\ 2026\\ ApJ\\ 999\\ 140;\\ Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ ComBer,\\ col\\ re,s\\ \\(arcmin\\);\\ Musella2009ApJ\\.\\.\\.695L\\.\\.83M\\ PDF\\ p\\.7,\\ Section\\ 4;\\ Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 44\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81",
+    "S82",
+    "S49"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Geha\\ 2026\\ ApJ\\ 999\\ 140;\\ Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ Draco,\\ col\\ re,s\\ \\(arcmin\\);\\ Bhardwaj2024AJ\\.\\.\\.\\.167\\.\\.247B\\ p\\.10,\\ Table\\ 5\\ \\(Distance\\ modulus\\ estimates\\ to\\ Draco\\ dSph\\ galaxy\\),\\ final\\ rows;\\ Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 76\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81",
+    "S24",
+    "S49"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Geha\\ 2026\\ ApJ\\ 999\\ 140;\\ Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ Leo\\ IV,\\ col\\ re,s\\ \\(arcmin\\);\\ Medina\\ 2018,\\ RR\\ Lyrae\\ mean;\\ Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 154\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81",
+    "S49",
+    "S79"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Geha\\ 2026\\ ApJ\\ 999\\ 140;\\ Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ Leo\\ V,\\ col\\ re,s\\ \\(arcmin\\);\\ Medina\\ 2018,\\ RR\\ Lyrae\\ mean;\\ Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 178\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81",
+    "S49",
+    "S79"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Geha\\ 2026\\ ApJ\\ 999\\ 140;\\ Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ Sculptor,\\ col\\ re,s\\ \\(arcmin\\);\\ MartinezVazquez2015MNRAS\\.454\\.1509M\\ p\\.7,\\ Table\\ 3,\\ row\\ <µ>ADOPTED,\\ CLEAN;\\ also\\ p\\.\\ 3,\\ §3\\ \\(\"µ\\ =\\ 19\\.62\\ mag\",\\ HB\\ model\\ comparison\\);\\ Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 86\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81",
+    "S75",
+    "S49"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Geha\\ 2026\\ ApJ\\ 999\\ 140;\\ Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ UMa\\ I,\\ col\\ re,s\\ \\(arcmin\\);\\ Garofalo2013ApJ\\.\\.\\.767\\.\\.\\.62G\\ p\\.7–8,\\ §4;\\ also\\ abstract\\ p\\.1\\ and\\ §6\\ p\\.9;\\ Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 97\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81",
+    "S47",
+    "S49"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Geha\\ 2026\\ ApJ\\ 999\\ 140;\\ Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ UMa\\ II,\\ col\\ re,s\\ \\(arcmin\\);\\ DallOra2012ApJ\\.\\.\\.752\\.\\.\\.42D\\ p\\.7,\\ Sect\\.\\ 3;\\ Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 32\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81",
+    "S42",
+    "S49"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Geha\\ 2026\\ ApJ\\ 999\\ 140;\\ Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ UMi,\\ col\\ re,s\\ \\(arcmin\\);\\ Garofalo2025A\\&A\\.\\.\\.695A\\.\\.88G\\ PDF\\ p\\.6,\\ Section\\ 3\\.1;\\ Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 76\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81",
+    "S48",
+    "S49"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Geha\\ 2026\\ ApJ\\ 999\\ 140;\\ Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Secondary\\ Sample,\\ row\\ Hydra\\ II,\\ col\\ re,s\\ \\(arcmin\\);\\ Vivas2016AJ\\.\\.\\.\\.151\\.\\.118V\\ p\\.\\ 17,\\ Sect\\.\\ 4;\\ printed\\ m_V,0\\ \\(Richstein2024ApJ\\.\\.\\.967\\.\\.\\.72R\\ p\\.\\ 9,\\ Table\\ 2,\\ row\\ Hya\\ II\\)$",
+   "sources": [
+    "S81",
+    "S103",
+    "S89",
+    "S49"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Geha\\ 2026\\ ApJ\\ 999\\ 140;\\ Richstein2022ApJ\\.\\.\\.933\\.\\.217R\\ p\\.\\ 7,\\ Table\\ 1\\ \\(Pegasus\\ III\\),\\ Exponential\\ block,\\ column\\ This\\ Work,\\ row\\ ah\\ \\(arcmin\\);\\ Kim2016ApJ\\.\\.\\.833\\.\\.\\.16K\\ p\\.\\ 5,\\ Table\\ 1;\\ printed\\ m_V,0\\ \\(Richstein2022ApJ\\.\\.\\.933\\.\\.217R\\ PDF\\ p\\.12,\\ Table\\ 3,\\ Pegasus\\ III\\)$",
+   "sources": [
+    "S88",
+    "S61",
+    "S49"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Geha\\ 2026\\ ApJ\\ 999\\ 140;\\ Richstein2022ApJ\\.\\.\\.933\\.\\.217R\\ p\\.\\ 7,\\ Table\\ 2\\ \\(Pisces\\ II\\),\\ Exponential\\ block,\\ column\\ This\\ Work,\\ row\\ ah\\ \\(arcmin\\);\\ Sand2012ApJ\\.\\.\\.756\\.\\.\\.79S\\ p\\.16,\\ Table\\ 5,\\ row\\ Pisces\\ II;\\ printed\\ m_V,0\\ \\(Richstein2022ApJ\\.\\.\\.933\\.\\.217R\\ PDF\\ p\\.12,\\ Table\\ 3,\\ Pisces\\ II\\)$",
+   "sources": [
+    "S88",
+    "S90",
+    "S49"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Geha\\ 2026\\ ApJ\\ 999\\ 140;\\ Tan2025ApJ\\.\\.\\.979\\.\\.176T\\ p\\.8,\\ Table\\ 1,\\ row\\ ah;\\ Tan2025ApJ\\.\\.\\.979\\.\\.176T\\ p\\.8,\\ Table\\ 1,\\ row\\ \\(m\\ −\\ M\\)0;\\ M_V\\ \\+\\ \\(m\\-M\\)\\ used\\ by\\ the\\ paper\\ \\(own\\)$",
+   "sources": [
+    "S100",
+    "S49"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Geha\\ 2026\\ ApJ\\ 999\\ 140;\\ Torrealba2016MNRAS\\.463\\.\\.712T\\ p\\.\\ 2,\\ Table\\ 1\\ \\(Properties\\ of\\ Aqu\\ 2\\),\\ rh\\ row;\\ Torrealba2016MNRAS\\.463\\.\\.712T\\ p\\.\\ 2,\\ Table\\ 1\\ \\(Properties\\ of\\ Aqu\\ 2\\),\\ \\(m\\ −\\ M\\)\\ row;\\ also\\ p\\.\\ 4\\ Fig\\.\\ 2\\ caption\\ \\(\"m−M∼\\ 20\\.16\"\\);\\ M_V\\ \\+\\ \\(m\\-M\\)\\ used\\ by\\ the\\ paper\\ \\(own\\)$",
+   "sources": [
+    "S102",
+    "S49"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Gregory\\ 2019\\ MNRAS\\ 485\\ 2010;\\ Saviane\\ 1996\\ Re\\ =\\ 205\\ \\+\\-\\ 32\\ pc\\ at\\ \\(m\\-M\\)0\\ =\\ 24\\.69,\\ as\\ an\\ angle\\ \\(D\\-053;\\ D\\-058\\ rescaling\\);\\ Bernard\\ 2009,\\ RR\\ Lyrae,\\ reddening\\-corrected\\ \\(D\\-053\\);\\ Saviane\\ 1996\\ M_V\\ \\+\\ its\\ own\\ TRGB\\ modulus\\ \\(D\\-053\\)$",
+   "sources": [
+    "S52",
+    "S92",
+    "S23"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Hansen\\ 2024\\ ApJ\\ 968\\ 21;\\ Simon2020ApJ\\.\\.\\.892\\.\\.137S\\ p\\.9,\\ Table\\ 6,\\ row\\ \\(4\\);\\ also\\ p\\.\\ 7,\\ §4\\.1\\ \\(\"2\\.1′\",\\ no\\ error\\);\\ Simon2020ApJ\\.\\.\\.892\\.\\.137S\\ p\\.9,\\ Table\\ 6,\\ row\\ \\(3\\);\\ Simon\\ 2020\\ M_V\\ \\+\\ Table\\ 6\\ distance\\ 55\\ kpc\\ \\(D\\-061\\ item\\ 7\\)$",
+   "sources": [
+    "S95",
+    "S53"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Heiger\\ 2024\\ ApJ\\ 961\\ 234;\\ Casey2025ApJ\\.\\.\\.984\\.\\.148C\\ p\\.\\ 5,\\ Table\\ 4,\\ column\\ Eri\\ IV;\\ Cerny2021ApJ\\.\\.\\.920L\\.\\.44C\\ PDF\\ p\\.5,\\ Table\\ 1\\ \\(Morphological,\\ isochrone,\\ and\\ proper\\ motion\\ parameters\\ for\\ Eri\\ IV\\),\\ row\\ m\\ −\\ M;\\ M_V\\ \\+\\ \\(m\\-M\\)\\ used\\ by\\ the\\ paper\\ \\(own\\)$",
+   "sources": [
+    "S29",
+    "S31",
+    "S54"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Hendricks\\ 2014\\ A\\&A\\ 572\\ A82;\\ Wang2019ApJ\\.\\.\\.881\\.\\.118W\\ p\\.\\ 4,\\ Table\\ 1\\ \\(Fornax\\ structural\\ parameters\\ derived\\ with\\ the\\ MCMC\\ method\\ for\\ different\\ profile\\ models\\);\\ Oakes2022ApJ\\.\\.\\.929\\.\\.116O\\ p\\.13,\\ §7;\\ also\\ p\\.1\\ abstract\\ and\\ p\\.13\\ §6\\.4;\\ Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 147\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S106",
+    "S85",
+    "S55",
+    "S81"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Hendricks\\ 2014\\ A\\&A\\ 572\\ A82;\\ Wang2019ApJ\\.\\.\\.881\\.\\.118W\\ p\\.\\ 4,\\ Table\\ 1\\ \\(Fornax\\ structural\\ parameters\\ derived\\ with\\ the\\ MCMC\\ method\\ for\\ different\\ profile\\ models;\\ Sérsic\\ column,\\ D\\-101\\);\\ Oakes2022ApJ\\.\\.\\.929\\.\\.116O\\ p\\.13,\\ §7;\\ also\\ p\\.1\\ abstract\\ and\\ p\\.13\\ §6\\.4;\\ Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 147\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S106",
+    "S85",
+    "S55",
+    "S81"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Ho\\ 2012\\ ApJ\\ 758\\ 124;\\ Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ II;\\ Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ II';\\ printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ II\\)$",
+   "sources": [
+    "S74",
+    "S93",
+    "S57"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Ji\\ 2021\\ ApJ\\ 921\\ 32;\\ Ji2021ApJ\\.\\.\\.921\\.\\.\\.32J\\ p\\.\\ 7,\\ Table\\ 1\\ \\(Galaxy\\ Properties\\),\\ Antlia\\ 2\\ column,\\ row\\ rh\\ \\(arcmin\\);\\ also\\ p\\.\\ 6,\\ §3\\ \\(rh\\ =\\ 66\\.3\\ arcmin,\\ no\\ error\\);\\ Vivas2022ApJ\\.\\.\\.926\\.\\.\\.78V\\ p\\.9,\\ §3\\.3;\\ M_V\\ \\+\\ \\(m\\-M\\)\\ used\\ by\\ the\\ paper\\ \\(cited\\)$",
+   "sources": [
+    "S59",
+    "S104"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Kacharov\\ 2017\\ MNRAS\\ 466\\ 2006;\\ Battaglia2012MNRAS\\.424\\.1113B\\ p\\.3,\\ Table\\ 1;\\ Battaglia2012MNRAS\\.424\\.1113B\\ p\\.3,\\ Table\\ 1,\\ row\\ \\(m\\-M\\)0;\\ van\\ de\\ Rydt\\ 1991\\ M_V\\ \\+\\ adopted\\ modulus\\ \\(D\\-061\\ item\\ 5\\)$",
+   "sources": [
+    "S21",
+    "S60",
+    "S111"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Kirby\\ 2013\\ ApJ\\ 770\\ 16;\\ Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ Segue\\ 2,\\ col\\ re,s\\ \\(arcmin\\);\\ Boettcher\\ 2013,\\ BHB\\ stars\\ \\(D\\-055\\ item\\ 8\\);\\ Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 35\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81",
+    "S62",
+    "S26"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Kirby\\ 2017\\ ApJ\\ 838\\ 83;\\ Carlin2017AJ\\.\\.\\.\\.154\\.\\.267C\\ p\\.5,\\ Table\\ 1,\\ col\\ Tri\\ II,\\ row\\ rh,exp\\ \\(arcmin\\);\\ Carlin2017AJ\\.\\.\\.\\.154\\.\\.267C\\ p\\.5,\\ Table\\ 1,\\ col\\ Tri\\ II,\\ row\\ m\\ −\\ M;\\ printed\\ m_V,0\\ \\(Richstein2024ApJ\\.\\.\\.967\\.\\.\\.72R\\ p\\.\\ 9,\\ Table\\ 2,\\ row\\ Tri\\ II\\)$",
+   "sources": [
+    "S28",
+    "S89",
+    "S63"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Koch\\ 2007\\ ApJ\\ 657\\ 241;\\ Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ Leo\\ I,\\ col\\ re,s\\ \\(arcmin\\);\\ Stetson\\ 2014,\\ midpoint\\ of\\ 22\\.06\\ \\+\\-\\ 0\\.08\\ to\\ 22\\.25\\ \\+\\-\\ 0\\.07;\\ Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 254\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81",
+    "S67",
+    "S98"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Koposov\\ 2018\\ MNRAS\\ 479\\ 5343;\\ Koposov2018MNRAS\\.479\\.5343K\\ p\\.\\ 6,\\ Table\\ 1\\ \\(Key\\ photometric\\ and\\ kinematic\\ properties\\ of\\ the\\ Hydrus\\ 1\\ dwarf\\ galaxy\\),\\ rhalf,maj\\ row;\\ Koposov2018MNRAS\\.479\\.5343K\\ p\\.\\ 6,\\ Table\\ 1\\ \\(Key\\ photometric\\ and\\ kinematic\\ properties\\ of\\ the\\ Hydrus\\ 1\\ dwarf\\ galaxy\\),\\ m\\-M\\ row;\\ M_V\\ \\+\\ \\(m\\-M\\)\\ used\\ by\\ the\\ paper\\ \\(own\\)$",
+   "sources": [
+    "S68"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Kvasova\\ 2024\\ ApJ\\ 972\\ 180;\\ Higgs2021MNRAS\\.503\\.\\.176H\\ PDF\\ p\\.16,\\ Table\\ 3\\ \\(Best\\-fit\\ Sérsic\\ parameters\\),\\ row\\ And\\ XVIII;\\ Higgs2021MNRAS\\.503\\.\\.176H\\ PDF\\ p\\.16,\\ Table\\ 2\\ \\(Derived\\ positional\\ and\\ shape\\ information\\),\\ row\\ And\\ XVIII;\\ printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XVIII\\)$",
+   "sources": [
+    "S56",
+    "S74",
+    "S70"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Li\\ 2026\\ arXiv\\ 2607\\.07803;\\ Moskowitz2020ApJ\\.\\.\\.892\\.\\.\\.27M\\ p\\.\\ 12,\\ Table\\ 3,\\ row\\ BooIII_DCLS\\ \\(1\\-Plummer,\\ D\\-061\\ item\\ 1\\);\\ Li2026arXiv260707803L\\ p\\.10,\\ §4;\\ Correnti\\ 2009\\ M_V,\\ distance\\-independent\\ \\(D\\-061\\ item\\ 2\\)$",
+   "sources": [
+    "S80",
+    "S72",
+    "S39"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Ou\\ 2024\\ ApJ\\ 966\\ 33;\\ Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ Hercules,\\ col\\ re,s\\ \\(arcmin\\);\\ MutluPakdil2020ApJ\\.\\.\\.902\\.\\.106M\\ PDF\\ p\\.6,\\ Table\\ 9\\ \\(Structural\\ Properties\\ of\\ Hercules\\),\\ row\\ m\\ −\\ M;\\ Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 132\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81",
+    "S84",
+    "S86"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Sandford\\ 2026\\ ApJ\\ 998\\ 47;\\ Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ Bootes\\ I,\\ col\\ re,s\\ \\(arcmin\\);\\ DallOra2006ApJ\\.\\.\\.653L\\.109D\\ p\\.6,\\ Sect\\.\\ 5;\\ Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 66\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81",
+    "S41",
+    "S91"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Simon\\ 2011\\ ApJ\\ 733\\ 46;\\ Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5\\ \\(Sérsic\\ Models\\),\\ row\\ Segue\\ 1;\\ Belokurov2007ApJ\\.\\.\\.654\\.\\.897B\\ PDF\\ p\\.6,\\ Table\\ 1\\ \\(Properties\\ of\\ the\\ New\\ Milky\\ Way\\ Satellites\\),\\ column\\ Segue\\ 1,\\ row\\ \\(m−M\\)0;\\ Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 23\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81",
+    "S22",
+    "S94"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Spencer\\ 2017\\ ApJ\\ 836\\ 202;\\ Munoz2018ApJ\\.\\.\\.860\\.\\.\\.66M\\ p\\.27,\\ Table\\ 5,\\ Primary\\ Sample,\\ row\\ Leo\\ II,\\ col\\ re,s\\ \\(arcmin\\);\\ Monelli2025A\\&A\\.\\.\\.700A\\.201M\\ \\(headline;\\ version\\ of\\ record\\);\\ Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 233\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$",
+   "sources": [
+    "S81",
+    "S110",
+    "S97"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Tollerud\\ 2012\\ ApJ\\ 752\\ 45;\\ Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ I;\\ Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ I';\\ printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ I\\)$",
+   "sources": [
+    "S74",
+    "S93",
+    "S101"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Tollerud\\ 2012\\ ApJ\\ 752\\ 45;\\ Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ III;\\ Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ III';\\ printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ III\\)$",
+   "sources": [
+    "S74",
+    "S93",
+    "S101"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Tollerud\\ 2012\\ ApJ\\ 752\\ 45;\\ Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ IX;\\ Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ IX';\\ printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ IX\\)$",
+   "sources": [
+    "S74",
+    "S93",
+    "S101"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Tollerud\\ 2012\\ ApJ\\ 752\\ 45;\\ Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ V;\\ Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ V';\\ printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ V\\)$",
+   "sources": [
+    "S74",
+    "S93",
+    "S101"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Tollerud\\ 2012\\ ApJ\\ 752\\ 45;\\ Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ X;\\ Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ X';\\ printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ X\\)$",
+   "sources": [
+    "S74",
+    "S93",
+    "S101"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Tollerud\\ 2012\\ ApJ\\ 752\\ 45;\\ Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XIV;\\ Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ XIV';\\ printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XIV\\)$",
+   "sources": [
+    "S74",
+    "S93",
+    "S101"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Tollerud\\ 2012\\ ApJ\\ 752\\ 45;\\ Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XV;\\ Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ XV';\\ printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XV\\)$",
+   "sources": [
+    "S74",
+    "S93",
+    "S101"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Tollerud\\ 2012\\ ApJ\\ 752\\ 45;\\ Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 1\\ \\(Derived\\ structural\\ parameters\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XVI;\\ MartinezVazquez2017ApJ\\.\\.\\.850\\.\\.137M\\ p\\.\\ 18,\\ Table\\ 8\\ \\(Summary\\ of\\ the\\ different\\ true\\ distance\\ moduli\\ \\(µ0\\)\\ obtained\\ using\\ several\\ methods\\),\\ row\\ And\\ XVI;\\ printed\\ m_V,0\\ \\(Martin2016ApJ\\.\\.\\.833\\.\\.167M\\ p\\.\\ 9,\\ Table\\ 2\\ \\(Derived\\ luminosity\\-related\\ properties\\ of\\ the\\ dwarf\\ galaxies\\),\\ row\\ And\\ XVI\\)$",
+   "sources": [
+    "S74",
+    "S76",
+    "S101"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  },
+  {
+   "table": "measurements",
+   "match": "^Tollerud\\ 2012\\ ApJ\\ 752\\ 45;\\ McConnachie2006MNRAS\\.365\\.1263M\\ p\\.\\ 10,\\ Table\\ 4\\ \\(Integrated\\ photometry\\),\\ row\\ Andromeda\\ VII,\\ col\\ r1/2\\ \\(′\\);\\ Savino2022ApJ\\.\\.\\.938\\.\\.101S\\ p\\.15,\\ Table\\ 5,\\ row\\ 'And\\ VII';\\ McConnachie\\ 2006\\ M_V\\ \\+\\ McConnachie\\ 2005\\ modulus$",
+   "sources": [
+    "S78",
+    "S93",
+    "S101",
+    "S77"
+   ],
+   "where": {
+    "table": "the observables rows named in observed_from and baryonic_from"
+   },
+   "note": "A measurement row lists the sources of the observables it is computed from; each observable is located by its own rule."
+  }
+ ]
+}

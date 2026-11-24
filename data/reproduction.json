@@ -531,13 +531,85 @@
         156
       ],
       "flagged": 0,
-      "status": "Current version. Two values change under D-096; eight systems are recorded, not plotted, as D-097 findings.",
-      "status_plain": "The current dwarf-galaxy version: two values follow the authors' stated choices, and eight galaxies their own papers call disturbed are kept but not drawn.",
+      "status": "Superseded by v3, which has the same tables and adds source records (D-114). Two values change under D-096; eight systems are recorded, not plotted, as D-097 findings.",
+      "status_plain": "Replaced by v3, which has the same numbers and records where each one comes from.",
       "since": "",
       "since_plain": "",
       "scope": "Establishes that v2 changes v1 only where the authors' stated choices require it, and that every class, level and error it adds is the one the frozen second reading found at source. It does not re-measure velocity dispersions.",
       "scope_plain": "Only the authors' own choices change any number, and a second reading confirms everything added. We do not re-measure the star motions.",
       "matched": "every check passed",
+      "matched_plain": "All checks passed"
+    },
+    {
+      "package": "aeg-d-dwarfs/v3",
+      "test_file": "../../../../docs/standard-3.0.0-reissue-test.md",
+      "sha256": "2fd4a43cf00b3588f89fbc91bd000499df137e9e583549db1f0ee0473b7c8f7e",
+      "frozen_before": "conversion",
+      "result": "pass",
+      "first_run": "2026-11-24",
+      "result_files": [
+        "REISSUE.md",
+        "reproduction/reissue_check.txt",
+        "reproduction/reachability.json"
+      ],
+      "against": "v2 (every table byte for byte once the version labels are mapped back, T1), v2's conversion code (T2), and data standard 3.0.0 §13 (source records, locators, archive members, descriptor; T3 to T6); every address reachable (T7). v2's frozen test (REPRODUCTION.md) is carried over unchanged.",
+      "against_plain": "The previous version, number for number, and the new rule that every number must point to a cited, licensed and hash-checked source.",
+      "checks": [
+        {
+          "name": "T1: tables unchanged",
+          "plain": "Same numbers",
+          "outcome": "pass",
+          "detail": "all four tables identical to v2 after N; also rebuilt in CI"
+        },
+        {
+          "name": "T2: conversion code unchanged",
+          "plain": "Same method",
+          "outcome": "pass",
+          "detail": "convert.py differs from v2 only in its version line"
+        },
+        {
+          "name": "T3: source records",
+          "plain": "Every source cited and licensed",
+          "outcome": "pass",
+          "detail": "113 entries: v2's 19 files and 94 documents (90 original papers in the version read, one version of record, one scan, two e-prints). 112 hashed, of which 72 hashes recorded earlier were re-downloaded and identical; van de Rydt et al. 1991 (ADS scans) has no hash and is listed under #227"
+        },
+        {
+          "name": "T4: every value located",
+          "plain": "Every number points to its place",
+          "outcome": "pass",
+          "detail": "307 rules resolve all 307 source_ref values; places taken from the reading records where the text gives none; 18 corrections (Munoz 2018 M_V is in Table 6, not Table 1; #227)"
+        },
+        {
+          "name": "T5: archive members hashed",
+          "plain": "Files inside archives checked",
+          "outcome": "pass",
+          "detail": "the Zenodo member-catalogue archive: 17 members hashed"
+        },
+        {
+          "name": "T6: descriptor consistent",
+          "plain": "Package description agrees",
+          "outcome": "pass",
+          "detail": "no licence claimed for an unlicensed source"
+        },
+        {
+          "name": "T7: addresses reachable",
+          "plain": "Links work",
+          "outcome": "pass",
+          "detail": "TO BE FILLED FROM THE REACHABILITY RUN"
+        }
+      ],
+      "issues": [
+        156,
+        227
+      ],
+      "flagged": 0,
+      "status": "Current version. Same tables as v2, with every file and original paper cited, licensed and hashed (one scan excepted, #227), and every value located (D-114).",
+      "status_plain": "The current dwarf-galaxy version: the same numbers, now each tied to a cited, checked source.",
+      "since": "",
+      "since_plain": "",
+      "scope": "Establishes that v3 changes no value or code from v2 and that its source records meet data standard 3.0.0. It makes no new reading; v2's test and readings stand.",
+      "scope_plain": "Nothing changed in the numbers; what is new is the record of where each one comes from.",
+      "matched": "T1 to T7 passed; one document unhashed (counted as a provenance failure for the audit)",
       "matched_plain": "All checks passed"
     },
     {

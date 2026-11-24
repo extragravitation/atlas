@@ -57,3 +57,14 @@ def test_local_copy_used_only_if_hash_matches(tmp_path, monkeypatch):
     monkeypatch.setattr(F, "download", lambda url: (_ for _ in ()).throw(F.Retryable("down")))
     monkeypatch.setattr(F, "PAUSE_S", 0.0)
     assert F.fetch_package(pkg)  # wrong local copy is refused, and the download fails
+
+
+def test_document_verified_once_is_not_downloaded(tmp_path, monkeypatch):
+    """fetch_in_ci: false (standard 3.0.0, D-114): skipped without a download attempt or a problem."""
+    monkeypatch.setattr(fetch, "download", lambda url: (_ for _ in ()).throw(AssertionError("downloaded")))
+    pkg = write_pkg(tmp_path, b"paper", ["https://example.invalid/paper.pdf"])
+    spec = json.loads((pkg / "sources.json").read_text())
+    spec["sources"][0]["fetch_in_ci"] = False
+    (pkg / "sources.json").write_text(json.dumps(spec))
+    assert fetch.fetch_package(pkg) == []
+    assert not (pkg / "source/f.txt").exists()

@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import datetime as dt
 import json
+import time
 import sys
 import urllib.error
 import urllib.request
@@ -44,6 +45,7 @@ def run(pkg: Path) -> dict:
             addrs.append(("doi", "https://doi.org/" + ident["doi"]))
         for kind, a in addrs:
             if a:
+                time.sleep(0.5)  # gentle on the hosts (arXiv, doi.org)
                 code, final = status(a)
                 results.append({"id": e.get("id"), "field": kind, "address": a, "status": code, "final_url": final,
                                 "sha256_present": e.get("sha256") is not None})
