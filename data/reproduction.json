@@ -675,7 +675,7 @@
         160
       ],
       "flagged": 0,
-      "status": "Current version. Same values as v1 except M54 (D-096). NGC 2298 and Pal 5 are recorded, not plotted (D-097). MW-PAL1 stays recorded (D-046).",
+      "status": "Superseded by v3, which has the same tables and adds source records (D-114). Same values as v1 except M54 (D-096). NGC 2298 and Pal 5 are recorded, not plotted (D-097). MW-PAL1 stays recorded (D-046).",
       "status_plain": "The current globular-cluster version: the same numbers, one cluster updated to follow the authors' own data cut, and two clusters kept on record but off the charts because their sources say they are being pulled apart.",
       "since": "",
       "since_plain": "",
@@ -689,11 +689,12 @@
       "test_file": "../../../../docs/standard-3.0.0-reissue-test.md",
       "sha256": "2fd4a43cf00b3588f89fbc91bd000499df137e9e583549db1f0ee0473b7c8f7e",
       "frozen_before": "conversion",
-      "result": "pending",
+      "result": "pass",
       "first_run": "2026-11-24",
       "result_files": [
         "REISSUE.md",
-        "reproduction/reissue_check.txt"
+        "reproduction/reissue_check.txt",
+        "reproduction/reachability.json"
       ],
       "against": "v2 (every table byte for byte once the version labels are mapped back, T1), v2's conversion code (T2), and data standard 3.0.0 §13 (source records, locators, archive members, descriptor; T3 to T6); every address reachable (T7). v2's frozen test (REPRODUCTION.md) is carried over unchanged.",
       "against_plain": "The previous version, number for number, and the new rule that every number must point to a cited, licensed and hash-checked source.",
@@ -737,8 +738,8 @@
         {
           "name": "T7: addresses reachable",
           "plain": "Links work",
-          "outcome": "pending",
-          "detail": "not yet run"
+          "outcome": "pass",
+          "detail": "run 2026-11-24T20:51Z in GitHub Actions: 337 addresses; 333 returned 200, and the four McLaughlin & van der Marel DOI addresses returned 429 (rate limit) on hashed entries"
         }
       ],
       "issues": [
@@ -746,14 +747,14 @@
         160
       ],
       "flagged": 0,
-      "status": "Not yet current: T7 has not run. v2 stays the shown version until v3 passes.",
+      "status": "Current version. Same tables as v2, with every source cited, licensed and hashed, and every value located (D-114). M54 (#159) and the Harris distance calibration (#160) stay as in v2.",
       "status_plain": "The current globular-cluster version: the same numbers, now each tied to a cited, checked source.",
       "since": "",
       "since_plain": "",
       "scope": "Establishes that v3 changes no value or code from v2 and that its source records meet data standard 3.0.0. It makes no new reading; v2's test and second reading stand.",
       "scope_plain": "Nothing changed in the numbers; what is new is the record of where each one comes from.",
-      "matched": "T1 to T6 passed; T7 not yet run",
-      "matched_plain": "Checks under way"
+      "matched": "T1 to T7 passed",
+      "matched_plain": "All checks passed"
     },
     {
       "package": "aeg-d-kids1000-rar/v2",

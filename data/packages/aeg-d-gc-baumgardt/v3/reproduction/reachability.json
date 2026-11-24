@@ -1,0 +1,2399 @@
+{
+ "test": "T7, docs/standard-3.0.0-reissue-test.md",
+ "package": "aeg-d-gc-baumgardt/v3",
+ "checked_on": "2026-11-24T20:51:25Z",
+ "result": "pass",
+ "n_addresses": 337,
+ "not_200": [
+  {
+   "id": "S5",
+   "field": "doi",
+   "address": "https://doi.org/10.1086/497429",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S6",
+   "field": "doi",
+   "address": "https://doi.org/10.1086/497429",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S7",
+   "field": "doi",
+   "address": "https://doi.org/10.1086/497429",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S8",
+   "field": "doi",
+   "address": "https://doi.org/10.1086/497429",
+   "status": 429,
+   "sha256_present": true
+  }
+ ],
+ "results": [
+  {
+   "id": "S1",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/veldis.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S1",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/veldis.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S2",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/parameter.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S2",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/parameter.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S3",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S3",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S4",
+   "field": "url",
+   "address": "https://physics.mcmaster.ca/~harris/mwgc.dat",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S4",
+   "field": "landing_url",
+   "address": "https://physics.mcmaster.ca/~harris/mwgc.dat",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S5",
+   "field": "url",
+   "address": "https://vizier.idia.ac.za/viz-bin/votable?-source=J/ApJS/161/304/clusters&-out.all&-out.max=unlimited",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S5",
+   "field": "doi",
+   "address": "https://doi.org/10.1086/497429",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S6",
+   "field": "url",
+   "address": "https://vizier.idia.ac.za/viz-bin/votable?-source=J/ApJS/161/304/table5&-out.all&-out.max=unlimited",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S6",
+   "field": "doi",
+   "address": "https://doi.org/10.1086/497429",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S7",
+   "field": "url",
+   "address": "https://vizier.idia.ac.za/viz-bin/votable?-source=J/ApJS/161/304/models&-out.all&-out.max=unlimited",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S7",
+   "field": "doi",
+   "address": "https://doi.org/10.1086/497429",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S8",
+   "field": "url",
+   "address": "https://vizier.idia.ac.za/viz-bin/votable?-source=J/ApJS/161/304/table13&-out.all&-out.max=unlimited",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S8",
+   "field": "doi",
+   "address": "https://doi.org/10.1086/497429",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S9",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/2ms1.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S9",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S10",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/2ms2.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S10",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S11",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/am1.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S11",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S12",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/am4.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S12",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S13",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/arp2.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S13",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S14",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/bh140.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S14",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S15",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/bh261.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S15",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S16",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/combined_table.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S16",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S17",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/crater.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S17",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S18",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/djo1.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S18",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S19",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/djo2.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S19",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S20",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/e3.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S20",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S21",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/eridanus.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S21",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S22",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/eso280.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S22",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S23",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/eso452.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S23",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S24",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/fsr1716.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S24",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S25",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/fsr1735.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S25",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S26",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/fsr1758.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S26",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S27",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/hp1.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S27",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S28",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ic1257.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S28",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S29",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ic1276.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S29",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S30",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ic4499.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S30",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S31",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/lae3.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S31",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S32",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/lil1.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S32",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S33",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/lyn7.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S33",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S34",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc104.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S34",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S35",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc1261.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S35",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S36",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc1851.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S36",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S37",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc1904.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S37",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S38",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc2298.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S38",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S39",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc2419.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S39",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S40",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc2808.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S40",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S41",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc288.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S41",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S42",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc3201.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S42",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S43",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc362.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S43",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S44",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc4147.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S44",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S45",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc4372.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S45",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S46",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc4590.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S46",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S47",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc4833.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S47",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S48",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc5024.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S48",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S49",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc5053.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S49",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S50",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc5139.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S50",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S51",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc5272.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S51",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S52",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc5286.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S52",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S53",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc5466.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S53",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S54",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc5634.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S54",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S55",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc5694.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S55",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S56",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc5824.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S56",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S57",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc5897.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S57",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S58",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc5904.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S58",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S59",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc5927.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S59",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S60",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc5946.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S60",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S61",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc5986.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S61",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S62",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6093.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S62",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S63",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6101.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S63",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S64",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6121.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S64",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S65",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6139.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S65",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S66",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6144.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S66",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S67",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6171.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S67",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S68",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6205.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S68",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S69",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6218.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S69",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S70",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6229.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S70",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S71",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6235.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S71",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S72",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6254.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S72",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S73",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6256.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S73",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S74",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6266.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S74",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S75",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6273.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S75",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S76",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6284.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S76",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S77",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6287.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S77",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S78",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6293.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S78",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S79",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6304.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S79",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S80",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6316.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S80",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S81",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6325.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S81",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S82",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6333.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S82",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S83",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6341.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S83",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S84",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6342.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S84",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S85",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6352.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S85",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S86",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6355.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S86",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S87",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6356.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S87",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S88",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6362.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S88",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S89",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6366.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S89",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S90",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6380.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S90",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S91",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6388.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S91",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S92",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6397.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S92",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S93",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6401.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S93",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S94",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6402.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S94",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S95",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6426.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S95",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S96",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6440.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S96",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S97",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6441.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S97",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S98",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6453.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S98",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S99",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6496.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S99",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S100",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6517.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S100",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S101",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6522.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S101",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S102",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6528.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S102",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S103",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6535.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S103",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S104",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6539.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S104",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S105",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6540.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S105",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S106",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6541.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S106",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S107",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6544.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S107",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S108",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6553.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S108",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S109",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6558.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S109",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S110",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6569.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S110",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S111",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6584.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S111",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S112",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6624.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S112",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S113",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6626.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S113",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S114",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6637.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S114",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S115",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6638.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S115",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S116",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6642.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S116",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S117",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6652.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S117",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S118",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6656.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S118",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S119",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6681.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S119",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S120",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6712.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S120",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S121",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6715.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S121",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S122",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6717.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S122",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S123",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6723.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S123",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S124",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6749.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S124",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S125",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6752.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S125",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S126",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6760.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S126",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S127",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6779.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S127",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S128",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6809.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S128",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S129",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6838.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S129",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S130",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6864.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S130",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S131",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6934.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S131",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S132",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc6981.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S132",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S133",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc7006.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S133",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S134",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc7078.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S134",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S135",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc7089.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S135",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S136",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc7099.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S136",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S137",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ngc7492.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S137",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S138",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pal1.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S138",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S139",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pal10.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S139",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S140",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pal11.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S140",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S141",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pal12.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S141",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S142",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pal13.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S142",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S143",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pal14.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S143",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S144",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pal15.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S144",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S145",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pal2.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S145",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S146",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pal3.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S146",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S147",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pal4.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S147",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S148",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pal5.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S148",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S149",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pal6.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S149",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S150",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pal8.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S150",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S151",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pat126.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S151",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S152",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/pyxis.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S152",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S153",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/rup106.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S153",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S154",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ter1.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S154",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S155",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ter10.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S155",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S156",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ter12.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S156",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S157",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ter2.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S157",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S158",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ter3.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S158",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S159",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ter4.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S159",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S160",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ter5.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S160",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S161",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ter6.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S161",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S162",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ter7.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S162",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S163",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ter8.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S163",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S164",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ter9.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S164",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S165",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/ton2.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S165",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S166",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/uks1.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S166",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S167",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/vvv1.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S167",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S168",
+   "field": "url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/vvv160.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S168",
+   "field": "landing_url",
+   "address": "https://people.smp.uq.edu.au/HolgerBaumgardt/globular/appendix/appendix.html",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S169",
+   "field": "url",
+   "address": "https://arxiv.org/e-print/2009.09611v1",
+   "status": 200,
+   "sha256_present": true
+  }
+ ],
+ "note": "Expanded from the compact CI annotation; final URLs after redirects are in the run's artifact only."
+}
