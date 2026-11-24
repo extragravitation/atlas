@@ -1,0 +1,52 @@
+---
+// One page per dataset: the complete method for every row it shows (D-113 item 2).
+// The text is docs/methods/datasets/<dataset>.md, rendered at build; the plain layer summarises it.
+import fs from 'node:fs';
+import path from 'node:path';
+import Base from '../../layouts/Base.astro';
+import L from '../../components/L.astro';
+import Layer from '../../components/Layer.astro';
+import { loadAtlas } from '../../lib/atlas.mjs';
+import { datasetLabel } from '../../lib/labels.mjs';
+import { md, REPO } from '../../lib/md.mjs';
+
+const PLAIN = {
+  'aeg-d-sparc': 'For each point on a spinning disc galaxy, the observed pull comes from how fast stars and gas go round at that distance from the centre. The pull from detected matter comes from the starlight, the hydrogen gas and the helium mixed with it, using fixed, published brightness-to-mass factors. Every number comes straight from one row of the published table.',
+  'aeg-d-xcop': 'For the five big galaxy clusters with star data, the scientists released both pulls themselves, at each distance from the centre. The Atlas shows them exactly as released and converts nothing.',
+  'aeg-d-kids1000-rar': 'These are averages over many lone galaxies. The observed pull comes from how much they bend the light of galaxies behind them, using the recipe the scientists published with their data. The pull from detected matter is the value the scientists used to group the galaxies. Eight points that the scientists themselves left out of their tests are kept on record but not drawn.',
+  'aeg-d-gc-baumgardt': 'For each old, dense ball of stars in our galaxy, the observed pull comes from how fast its stars swarm, averaged over the cluster with more weight where there is more light. The pull from detected matter comes from the total starlight and a standard brightness-to-mass factor. Both are taken at the radius that holds half the light.',
+  'aeg-d-dwarfs': 'For each small galaxy near our own, the observed pull comes from how fast its stars swarm. The pull from detected matter comes from the starlight, a brightness-to-mass factor that depends on how rich in metals the stars are, and hydrogen gas where it was found. Both are taken at the radius that holds half the light. The table at the end says which paper each number is read from.',
+  'aeg-d-strong-lensing': 'For each galaxy that bends the light of a galaxy behind it into a ring or arcs, both pulls are measured inside the ring, seen in projection. The observed pull comes from the size of the ring; the pull from detected matter comes from the stars inside the ring, plus a small allowance for gas.',
+};
+
+export function getStaticPaths() {
+  const seen = new Set();
+  return loadAtlas().datasets.filter((d) => !seen.has(d.name) && seen.add(d.name)).map((d) => ({ params: { dataset: d.name } }));
+}
+const { dataset } = Astro.params;
+const atlas = loadAtlas();
+const d = atlas.datasets.find((x) => x.name === dataset);
+const lab = datasetLabel(dataset);
+const base = import.meta.env.BASE_URL;
+const rel = `docs/methods/datasets/${dataset}.md`;
+const file = path.resolve(process.cwd(), '..', rel);
+if (!fs.existsSync(file)) throw new Error(`methods page: ${rel} is missing`);
+if (!PLAIN[dataset]) throw new Error(`methods page: no plain summary for ${dataset}`);
+const text = fs.readFileSync(file, 'utf-8').replace(/^# .*\n/, '');
+---
+<Base title={`Methods: ${lab.t}`} active="methods">
+  <div class="doc">
+    <main class="prose">
+      <p class="kicker"><a href={`${base}methods/`}><L t="Methods" p="How it works" /></a></p>
+      <h1><L t={`${lab.t}: how each value is computed`} p={`${lab.p}: how the numbers are worked out`} /></h1>
+      <Layer as="div"><Fragment slot="t">
+        <p class="small">The complete method for every row of <a href={`${base}datasets/${d.name}/${d.version}/`}>{d.name}/{d.version}</a>: constants, inputs and where they are read, steps, and rules. It is checked against the published rows by <a href={`${REPO}/blob/main/pipeline/tests/test_methods_text.py`}>test_methods_text.py</a> on every change. Source text: <a href={`${REPO}/blob/main/${rel}`}>{rel}</a>.</p>
+        <div set:html={md(text, 'docs/methods/datasets')} />
+      </Fragment><Fragment slot="p">
+        <p>{PLAIN[dataset]}</p>
+        <p class="small">The full step-by-step method, with every constant and where each number is read, is in the expert view of this page.</p>
+      </Fragment></Layer>
+    </main>
+    <aside class="toc"><p class="cap">Also</p><a href={`${base}methods/#conversion`}>All methods</a><a href={`${base}datasets/${d.name}/${d.version}/`}>Dataset page</a><a href={`${base}known-issues/`}>Known issues</a></aside>
+  </div>
+</Base>

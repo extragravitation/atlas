@@ -163,6 +163,7 @@ const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(lens ? [[
       </tbody></table></div>
 
       <h2 id="source"><L t="Source and conversion" p="Where the data come from and how they were converted" /></h2>
+      {d.current && <p><a href={`${base}methods/${d.name}/`}><L t="The complete method for every row: constants, inputs, places and steps" p="How every number here is worked out, step by step" /></a></p>}
       <SourceConversion d={d} repoDir={repoDir} />
     </main>
     <aside class="toc"><p class="cap">On this page</p>{toc.map(([id, t]) => <a href={'#' + id}>{t}</a>)}</aside>
