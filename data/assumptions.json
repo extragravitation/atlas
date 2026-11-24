@@ -557,6 +557,36 @@
             }
           ],
           "note": "b in M_true = M_HSE / (1 − b). l. 502's simulation range \"$5-30\\%$ at $R_{500}$\" exceeds the slider's maximum; l. 539's \"$10-20\\%$\" at R200 is a nonthermal-pressure fraction, recorded in the term notes and not used as b. The terms hse_bias and nonthermal_pressure state the source's sizes."
+        },
+        "aeg-d-xcop/v3": {
+          "default": 0,
+          "min": 0,
+          "max": 0.2,
+          "default_ref": "Eckert et al. 2022 (arXiv 2205.01110v1) l. 502, sentence (2): \"we conclude that our measurements are mildly biased ($<10\\%$) out to $R_{500}$\"; the source applies no correction. Part B item 7; D-105 O3",
+          "range_ref": "Eckert et al. 2022 l. 502: \"X-COP hydrostatic masses are 10-15\\% lower than weak lensing estimates\" (b ≈ 0.10–0.15) and Eckert 2019's \"7\\% at $R_{500}$, 10\\% at $R_{200}$\"; the maximum 0.2 (v1's) covers both. Part B item 7; D-105 O3",
+          "effects": [
+            {
+              "column": "g_obs",
+              "formula": "g_obs * (1 - p0) / (1 - p)"
+            },
+            {
+              "column": "g_obs_err_lo",
+              "formula": "g_obs_err_lo * (1 - p0) / (1 - p)"
+            },
+            {
+              "column": "g_obs_err_hi",
+              "formula": "g_obs_err_hi * (1 - p0) / (1 - p)"
+            },
+            {
+              "column": "g_obs_err_point_lo",
+              "formula": "g_obs_err_point_lo * (1 - p0) / (1 - p)"
+            },
+            {
+              "column": "g_obs_err_point_hi",
+              "formula": "g_obs_err_point_hi * (1 - p0) / (1 - p)"
+            }
+          ],
+          "note": "b in M_true = M_HSE / (1 − b). l. 502's simulation range \"$5-30\\%$ at $R_{500}$\" exceeds the slider's maximum; l. 539's \"$10-20\\%$\" at R200 is a nonthermal-pressure fraction, recorded in the term notes and not used as b. The terms hse_bias and nonthermal_pressure state the source's sizes."
         }
       }
     },
@@ -1933,6 +1963,11 @@
           "default_ref": "Eckert et al. 2022 (arXiv 2205.01110v1) l. 130 (the HSE equation, \\label{eq:hse}); l. 38 (\"under the assumption of hydrostatic equilibrium\")",
           "effects": [],
           "note": "E22 l. 373: \"the validity of the HSE assumption at large radii is unclear\". Part B item 7."
+        },
+        "aeg-d-xcop/v3": {
+          "default_ref": "Eckert et al. 2022 (arXiv 2205.01110v1) l. 130 (the HSE equation, \\label{eq:hse}); l. 38 (\"under the assumption of hydrostatic equilibrium\")",
+          "effects": [],
+          "note": "E22 l. 373: \"the validity of the HSE assumption at large radii is unclear\". Part B item 7."
         }
       }
     },
@@ -1948,6 +1983,11 @@
       "not_adjustable_reason": "the method's assumption for deprojection; its effect is not computed in v2",
       "datasets": {
         "aeg-d-xcop/v2": {
+          "default_ref": "Eckert et al. 2022 (arXiv 2205.01110v1) l. 97: \"We assumed spherical symmetry and applied a deconvolution … and a geometrical deprojection\"",
+          "effects": [],
+          "note": "Not adjustable; effect not computed in v2. Part B item 7."
+        },
+        "aeg-d-xcop/v3": {
           "default_ref": "Eckert et al. 2022 (arXiv 2205.01110v1) l. 97: \"We assumed spherical symmetry and applied a deconvolution … and a geometrical deprojection\"",
           "effects": [],
           "note": "Not adjustable; effect not computed in v2. Part B item 7."

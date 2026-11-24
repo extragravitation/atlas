@@ -210,7 +210,7 @@ const NOTE_EDITS = {
 };
 // [note text to show, extra sentence or null]
 export function termNote(d, t) {
-  const e = NOTE_EDITS[d.key]?.[termBase(t.term_id)];
+  const e = NOTE_EDITS[d.contentKey || d.key]?.[termBase(t.term_id)];
   let text = t.note || '—';
   if (!e) return [text, null];
   if (e.drop) {

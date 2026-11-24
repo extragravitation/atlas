@@ -1,0 +1,146 @@
+{
+ "items": {
+  "1": {
+   "pass": true,
+   "rows": 109,
+   "per_cluster": {
+    "A644": 19,
+    "A1795": 21,
+    "A2029": 22,
+    "A2142": 20,
+    "A2319": 27
+   }
+  },
+  "2": {
+   "pass": true,
+   "values_csv_rows": 109,
+   "equal_bit_for_bit": {
+    "r_kpc": 109,
+    "g_obs": 109,
+    "g_bar": 109
+   },
+   "components_empty": true,
+   "statuses": true
+  },
+  "3": {
+   "pass": true,
+   "reading_exclusions": 0,
+   "rows_not_plotted": 0
+  },
+  "4": {
+   "pass": true,
+   "rows_exact": 109
+  },
+  "5": {
+   "pass": true,
+   "error_form": "magnitudes",
+   "rows_ok": 109,
+   "levels_ok": true
+  },
+  "6": {
+   "pass": true,
+   "headers": true,
+   "alpha_unit": true,
+   "w_unit": true,
+   "systems_ok": 12,
+   "rows_centroid": true,
+   "mass_model_frac_recomputed_equal": true,
+   "rule1_column_absent": true
+  },
+  "7": {
+   "pass": true,
+   "terms": 22,
+   "term_mismatches": [],
+   "bcg_extra_applies_to_from_reading": "aeg-s-000177;aeg-s-000183",
+   "xray_hse_bias_v2": true,
+   "new_entries": true,
+   "no_icl_or_stars_entries": true,
+   "row_assumptions": true
+  },
+  "8": {
+   "pass": true,
+   "observables": 218,
+   "rows_with_both_observables_ok": 109,
+   "systems": 12,
+   "systems_ok": 12,
+   "all_plotted_default": true,
+   "no_uncertainty_flags": 0
+  },
+  "9": {
+   "pass": true,
+   "a644_rows": true,
+   "flag_only_on_a644": true,
+   "a2319_statements": 7,
+   "a2319_rows": true,
+   "stellar_projection_notes": true,
+   "centroid_on_rows": true,
+   "known_issues": true,
+   "pages": {
+    "a644_expert": true,
+    "a644_plain": true,
+    "a2319_expert": true,
+    "a2319_plain": true,
+    "a2319_statements_above": true,
+    "hse_expert": true,
+    "hse_plain": true,
+    "seven_exclusion_pages": 7
+   }
+  },
+  "10": {
+   "pass": true,
+   "descriptor": true,
+   "archives": true,
+   "eprints": true,
+   "value_change_sentences": true
+  },
+  "11": {
+   "pass": true,
+   "pairs": {
+    "values_vs_rows_and_observables": true,
+    "error_form_vs_error_columns": true,
+    "model_form_vs_model_dependence": true,
+    "err_levels_vs_level_columns": true,
+    "properties_vs_extension_columns": true,
+    "hse_statements_vs_a2319_notes": true,
+    "bcg_extra_mass_vs_applies_to": true,
+    "d096_vs_plotting": true
+   }
+  },
+  "12": {
+   "pass": true,
+   "build1_validate": true,
+   "build1_formula_check": true,
+   "build1_formula_check_covers_v2_rows": 109,
+   "build1_site_check_0_errors": true,
+   "build1_v2_pages": true,
+   "build2_no_v2_table_tracked": true,
+   "build2_tables_ignored": true,
+   "build2_site_check_0_errors": true,
+   "build2_v1_current": true,
+   "build2_rule5_sentence": true,
+   "build2_no_v2_page_point_download": true,
+   "log_files_searched": 14,
+   "log_needles": 1467,
+   "log_hits": 0
+  },
+  "13": {
+   "pass": true,
+   "files_changed": 0
+  }
+ },
+ "local_only": [
+  2,
+  4,
+  5,
+  11,
+  "12 build 1",
+  "12 log check"
+ ],
+ "ci": [
+  "12 build 2",
+  13,
+  "12 checksum comparison"
+ ],
+ "values_csv_sha256_ok": true,
+ "pass": true
+}

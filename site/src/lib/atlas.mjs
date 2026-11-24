@@ -79,6 +79,9 @@ export function loadAtlas() {
   const latest = {};
   for (const d of datasets) if (!latest[d.name] || vnum(d.version) > vnum(latest[d.name].version)) latest[d.name] = d;
   for (const d of datasets) {
+    // A re-issue under D-114 has the same tables as the version it re-issues; content-keyed site logic
+    // (package-note edits, flags, version-specific text) follows that version's key.
+    d.contentKey = d.dp.x_reissue && d.dp.x_previous_version ? d.dp.x_previous_version : d.key;
     d.current = latest[d.name] === d;
     d.supersededBy = d.current ? null : latest[d.name].key;
     d.versions = datasets.filter((x) => x.name === d.name).map((x) => x.key);

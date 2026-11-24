@@ -81,8 +81,8 @@ const toc = [['summary', 'Summary'], ['validation', 'Validation'], ...(lens ? [[
         <div><dt>Data standard</dt><dd>{d.dp.x_standard_version}</dd></div>
         {d.hasCovariance && <div><dt>Covariance</dt><dd>included</dd></div>}
       </dl>
-      {d.name === 'aeg-d-xcop' && d.version === 'v2' && <>
-        <Layer as="p"><Fragment slot="t">{'X-COP v2 takes g_obs and g_bar as released by Eckert et al. 2022, so its values differ from v1\'s by ruling (D-090).'}</Fragment><Fragment slot="p">{'Version 2 uses the values the authors released in 2022, so its numbers differ from version 1.'}</Fragment></Layer>
+      {d.contentKey === 'aeg-d-xcop/v2' && <>
+        <Layer as="p"><Fragment slot="t">{d.version === 'v2' ? 'X-COP v2 takes g_obs and g_bar as released by Eckert et al. 2022, so its values differ from v1\'s by ruling (D-090).' : `X-COP ${d.version} re-issues v2 (D-114): g_obs and g_bar as released by Eckert et al. 2022, so its values differ from v1\'s by ruling (D-090).`}</Fragment><Fragment slot="p">{'Version 2 uses the values the authors released in 2022, so its numbers differ from version 1.'}</Fragment></Layer>
         <Layer as="p"><Fragment slot="t">{'The source states that its hydrostatic masses are "mildly biased (<10%) out to R500" and that "The HSE assumption is likely to be a poorer approximation beyond this point" (Eckert et al. 2022, l. 502). At R200 it gives "a mild contribution of nonthermal pressure (10-20%)" (l. 539).'}</Fragment><Fragment slot="p">{'The source says its masses are “mildly biased”, by less than 10 %, out to a standard cluster radius, R500, and that its assumption that the gas is in balance is likely to hold less well beyond that. Farther out, at R200, it says pressure that does not come from the heat of the gas makes a mild contribution, 10–20 %.'}</Fragment></Layer>
       </>}
       <h3><L t="Cite" p="How to give credit" /></h3>
