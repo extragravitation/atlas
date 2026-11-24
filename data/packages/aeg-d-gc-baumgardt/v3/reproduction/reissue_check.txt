@@ -1,0 +1,12 @@
+== aeg-d-gc-baumgardt: PASS (T1 to T6)
+  T1 pass: measurements.ecsv identical after N (sha256 b6cd45ea728b…)
+  T1 pass: observables.ecsv identical after N (sha256 3322f3907bd5…)
+  T1 pass: systems.ecsv identical after N (sha256 9d632cd555be…)
+  T1 pass: uncertainty_terms.ecsv identical after N (sha256 3f08a4f5d165…)
+  T2 pass: convert.py differs only on line 44: DATASET, VERSION, STANDARD = "aeg-d-gc-baumgardt", "v3", "3.0.0"
+  T3 pass
+  T4 pass
+  T5 pass
+  T6 pass
+  T3 count: 169 entries (169 from v2, 0 new); sha256 null: none
+  T4 count: 5 rules, 0 corrections
