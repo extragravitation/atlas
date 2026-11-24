@@ -27,6 +27,9 @@ jobs:
             grep -q '"standard_version": "3' "$pkg/sources.json" 2>/dev/null || continue
             name=$(basename "$(dirname "$pkg")")-$(basename "$pkg")
             PYTHONPATH=pipeline python -m aeg.reach "$pkg" "reach/$name.json" || status=1
+            # The result also goes into an annotation (gzip, base64), readable through the checks API,
+            # so it can be committed exactly where artifact downloads are not reachable.
+            echo "::notice title=reach $name::$(gzip -9c "reach/$name.json" | base64 -w0)"
           done
           exit $status
       - uses: actions/upload-artifact@v4
