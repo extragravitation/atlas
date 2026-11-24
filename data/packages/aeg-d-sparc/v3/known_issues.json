@@ -1,0 +1,43 @@
+{
+  "issues": [
+    {
+      "issue": 8,
+      "url": "https://github.com/extragravitation/atlas/issues/8",
+      "title": "SPARC: 4 points do not reproduce the authors' published RAR file",
+      "flag": "reproduction_mismatch",
+      "measurements": [
+        "aeg-d-sparc/v3/m001903",
+        "aeg-d-sparc/v3/m002872",
+        "aeg-d-sparc/v3/m002896",
+        "aeg-d-sparc/v3/m003135"
+      ],
+      "unmatched_reference_rows": [
+        [
+          -11.18,
+          -10.66
+        ],
+        [
+          -11.22,
+          -10.58
+        ],
+        [
+          -11.23,
+          -10.58
+        ]
+      ]
+    },
+    {
+      "issue": 222,
+      "url": "https://github.com/extragravitation/atlas/issues/222",
+      "title": "SPARC: gas-profile locator cites §3.4 of Lelli et al. 2016; the statement is in §3.3",
+      "measurements": [],
+      "sources": [
+        "S3"
+      ],
+      "locators": [
+        "^MassModels_Lelli2016c\\.mrt:data row (?P<row>\\d+), column (?P<column>Vgas): atomic gas with helium \\(factor 1\\.33\\); gas profile assumed exponential \\(arXiv:1606\\.09251 §3\\.4\\)$"
+      ],
+      "note": "Locator text only; no value changes. Corrected in locators.json (D-114)."
+    }
+  ]
+}

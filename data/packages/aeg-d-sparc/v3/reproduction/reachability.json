@@ -1,0 +1,82 @@
+{
+ "test": "T7, docs/standard-3.0.0-reissue-test.md",
+ "package": "aeg-d-sparc/v3",
+ "checked_on": "2026-11-24T17:58:52Z",
+ "result": "pass",
+ "n_addresses": 9,
+ "not_200": [],
+ "results": [
+  {
+   "id": "S1",
+   "field": "url",
+   "address": "https://astroweb.case.edu/SPARC/MassModels_Lelli2016c.mrt",
+   "status": 200,
+   "final_url": "https://astroweb.case.edu/SPARC/MassModels_Lelli2016c.mrt",
+   "sha256_present": true
+  },
+  {
+   "id": "S1",
+   "field": "landing_url",
+   "address": "https://astroweb.case.edu/SPARC/",
+   "status": 200,
+   "final_url": "https://astroweb.case.edu/SPARC/",
+   "sha256_present": true
+  },
+  {
+   "id": "S1",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/0004-6256/152/6/157",
+   "status": 200,
+   "final_url": "https://iopscience.iop.org/article/10.3847/0004-6256/152/6/157",
+   "sha256_present": true
+  },
+  {
+   "id": "S2",
+   "field": "url",
+   "address": "https://astroweb.case.edu/SPARC/SPARC_Lelli2016c.mrt",
+   "status": 200,
+   "final_url": "https://astroweb.case.edu/SPARC/SPARC_Lelli2016c.mrt",
+   "sha256_present": true
+  },
+  {
+   "id": "S2",
+   "field": "landing_url",
+   "address": "https://astroweb.case.edu/SPARC/",
+   "status": 200,
+   "final_url": "https://astroweb.case.edu/SPARC/",
+   "sha256_present": true
+  },
+  {
+   "id": "S2",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/0004-6256/152/6/157",
+   "status": 200,
+   "final_url": "https://iopscience.iop.org/article/10.3847/0004-6256/152/6/157",
+   "sha256_present": true
+  },
+  {
+   "id": "S3",
+   "field": "url",
+   "address": "https://arxiv.org/e-print/1606.09251v1",
+   "status": 200,
+   "final_url": "https://arxiv.org/src/1606.09251v1",
+   "sha256_present": true
+  },
+  {
+   "id": "S3",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1606.09251v1",
+   "status": 200,
+   "final_url": "https://arxiv.org/abs/1606.09251v1",
+   "sha256_present": true
+  },
+  {
+   "id": "S3",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/0004-6256/152/6/157",
+   "status": 200,
+   "final_url": "https://iopscience.iop.org/article/10.3847/0004-6256/152/6/157",
+   "sha256_present": true
+  }
+ ]
+}
