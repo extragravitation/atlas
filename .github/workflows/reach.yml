@@ -29,7 +29,11 @@ jobs:
             PYTHONPATH=pipeline python -m aeg.reach "$pkg" "reach/$name.json" || status=1
             # The result also goes into an annotation (gzip, base64), readable through the checks API,
             # so it can be committed exactly where artifact downloads are not reachable.
-            echo "::notice title=reach $name::$(gzip -9c "reach/$name.json" | base64 -w0)"
+            # Annotations are cut at 4096 characters, so the compact form goes there: [id, field, status] per
+            # address, with the time and result. Addresses and hash flags are rebuilt from sources.json
+            # (python -m aeg.reach --expand); the full JSON is in the artifact.
+            python -c "import json,sys;j=json.load(open(sys.argv[1]));print(json.dumps({'package':j['package'],'checked_on':j['checked_on'],'result':j['result'],'rows':[[r['id'],r['field'],r['status']] for r in j['results']]},separators=(',',':')))" "reach/$name.json" > "reach/$name.compact.json"
+            echo "::notice title=reach $name::$(gzip -9c "reach/$name.compact.json" | base64 -w0)"
           done
           exit $status
       - uses: actions/upload-artifact@v4

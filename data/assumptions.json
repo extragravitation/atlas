@@ -438,6 +438,12 @@
           "default_ref": "Register default (Lelli et al. 2016, arXiv:1606.09251 §III.3, read at source); D-034, D-058",
           "effects": [],
           "note": "Not adjustable until a published range is read (D-034)."
+        },
+        "aeg-d-dwarfs/v3": {
+          "default": 1.33,
+          "default_ref": "Register default (Lelli et al. 2016, arXiv:1606.09251 §III.3, read at source); D-034, D-058",
+          "effects": [],
+          "note": "Not adjustable until a published range is read (D-034)."
         }
       },
       "role": "baryonic_inference"
@@ -904,6 +910,11 @@
           "default": "wolf2010",
           "default_ref": "D-025; Wolf et al. 2010 (arXiv:0908.2995)",
           "effects": []
+        },
+        "aeg-d-dwarfs/v3": {
+          "default": "wolf2010",
+          "default_ref": "D-025; Wolf et al. 2010 (arXiv:0908.2995)",
+          "effects": []
         }
       },
       "scope": "dataset",
@@ -926,6 +937,29 @@
           "effects": []
         },
         "aeg-d-dwarfs/v2": {
+          "default": 1,
+          "default_ref": "D-025; Wolf et al. 2010 (arXiv:0908.2995): r½ = 4/3 R_h",
+          "parameter_note": "p scales r½ against 4/3 R_h (p = R_h′/R_h for the half_light_radius term; p = (r½/R_h)/(4/3) for deprojection_4_3)",
+          "effects": [
+            {
+              "column": "g_obs",
+              "formula": "g_obs * p0 / p"
+            },
+            {
+              "column": "g_bar_stars",
+              "formula": "g_bar_stars * (p0 / p)^2"
+            },
+            {
+              "column": "g_bar_gas_cold",
+              "formula": "g_bar_gas_cold * (p0 / p)^2"
+            },
+            {
+              "column": "g_bar",
+              "formula": "(g_bar_stars + g_bar_gas_cold) * (p0 / p)^2"
+            }
+          ]
+        },
+        "aeg-d-dwarfs/v3": {
           "default": 1,
           "default_ref": "D-025; Wolf et al. 2010 (arXiv:0908.2995): r½ = 4/3 R_h",
           "parameter_note": "p scales r½ against 4/3 R_h (p = R_h′/R_h for the half_light_radius term; p = (r½/R_h)/(4/3) for deprojection_4_3)",
@@ -990,6 +1024,29 @@
               "formula": "(g_bar_stars + g_bar_gas_cold) * (1 - x_dwarfs_ellipticity)^(x_dwarfs_rh_semimajor_assumed * (p - p0))"
             }
           ]
+        },
+        "aeg-d-dwarfs/v3": {
+          "default": 0,
+          "default_ref": "D-052 item 2: semi-major where the paper does not say and fits ε",
+          "parameter_note": "p from the semi-major (0) to the circularised (1) reading of r_h, on rows with x_dwarfs_rh_semimajor_assumed = 1",
+          "effects": [
+            {
+              "column": "g_obs",
+              "formula": "g_obs * (1 - x_dwarfs_ellipticity)^(x_dwarfs_rh_semimajor_assumed * (p - p0) / 2)"
+            },
+            {
+              "column": "g_bar_stars",
+              "formula": "g_bar_stars * (1 - x_dwarfs_ellipticity)^(x_dwarfs_rh_semimajor_assumed * (p - p0))"
+            },
+            {
+              "column": "g_bar_gas_cold",
+              "formula": "g_bar_gas_cold * (1 - x_dwarfs_ellipticity)^(x_dwarfs_rh_semimajor_assumed * (p - p0))"
+            },
+            {
+              "column": "g_bar",
+              "formula": "(g_bar_stars + g_bar_gas_cold) * (1 - x_dwarfs_ellipticity)^(x_dwarfs_rh_semimajor_assumed * (p - p0))"
+            }
+          ]
         }
       },
       "scope": "dataset",
@@ -1013,6 +1070,25 @@
           "note": "Enters g_obs and g_bar together; no slider."
         },
         "aeg-d-dwarfs/v2": {
+          "default": 1,
+          "default_ref": "D-036 #6, D-052, D-055 item 8, D-061 item 4; the package distance",
+          "parameter_note": "p scales D. g_obs ∝ 1/D; g_bar_stars ∝ D^e (e = x_dwarfs_gbar_stars_distance_exponent: 0, or −2 for Boötes III, D-061 item 2); gas unchanged (step A dwarfs adjudication F1)",
+          "effects": [
+            {
+              "column": "g_obs",
+              "formula": "g_obs * p0 / p"
+            },
+            {
+              "column": "g_bar_stars",
+              "formula": "g_bar_stars * (p / p0)^x_dwarfs_gbar_stars_distance_exponent"
+            },
+            {
+              "column": "g_bar",
+              "formula": "g_bar_stars * (p / p0)^x_dwarfs_gbar_stars_distance_exponent + g_bar_gas_cold"
+            }
+          ]
+        },
+        "aeg-d-dwarfs/v3": {
           "default": 1,
           "default_ref": "D-036 #6, D-052, D-055 item 8, D-061 item 4; the package distance",
           "parameter_note": "p scales D. g_obs ∝ 1/D; g_bar_stars ∝ D^e (e = x_dwarfs_gbar_stars_distance_exponent: 0, or −2 for Boötes III, D-061 item 2); gas unchanged (step A dwarfs adjudication F1)",
@@ -1055,6 +1131,11 @@
           "default": "D-052 item 4",
           "default_ref": "D-052 item 4; D-061",
           "effects": []
+        },
+        "aeg-d-dwarfs/v3": {
+          "default": "D-052 item 4",
+          "default_ref": "D-052 item 4; D-061",
+          "effects": []
         }
       },
       "scope": "dataset",
@@ -1080,6 +1161,11 @@
           "default": "0.5",
           "default_ref": "REPRODUCTION.md (Gas); D-058",
           "effects": []
+        },
+        "aeg-d-dwarfs/v3": {
+          "default": "0.5",
+          "default_ref": "REPRODUCTION.md (Gas); D-058",
+          "effects": []
         }
       },
       "scope": "dataset",
@@ -1102,6 +1188,11 @@
           "effects": []
         },
         "aeg-d-dwarfs/v2": {
+          "default": "exact",
+          "default_ref": "D-058",
+          "effects": []
+        },
+        "aeg-d-dwarfs/v3": {
           "default": "exact",
           "default_ref": "D-058",
           "effects": []
@@ -1151,6 +1242,43 @@
           ]
         },
         "aeg-d-dwarfs/v2": {
+          "default": 0,
+          "min": -1,
+          "max": 1,
+          "default_ref": "D-039, D-057, D-059; McLaughlin & van der Marel 2005 (VizieR J/ApJS/161/304/clusters, (M/L)1, Milky Way clusters), interpolated by aeg.ml_interp; below [Fe/H] = −2.29 the end value, flag beyond_source_range; M_V,sun = 4.85",
+          "range_ref": "D-060: lower = min over [Fe/H] ± s of ((M/L)1 − e1) × 0.90 × 0.81; upper = max of ((M/L)2 + e2) × 1.10. 0.90: BC03 vs PÉGASE within ~10% (McLaughlin & van der Marel 2005 §3.1); 0.81 = 1.3/1.6, Woo et al. 2008 median Υ_V from colours vs star-formation histories; (M/L)2: Salpeter IMF. Read at source: docs/sources/stellar-ml-2026-10-29.md.",
+          "range_basis": {
+            "min": "D-060 envelope lower bound (age/metallicity error, metallicity spread, code agreement, colour vs SFH)",
+            "max": "D-060 envelope upper bound (Salpeter IMF, code agreement)"
+          },
+          "effects": [
+            {
+              "column": "g_bar_stars",
+              "formula": "g_bar_stars * (1 + ((x_dwarfs_upsilon_v_high / x_dwarfs_upsilon_v - 1 + 1 - x_dwarfs_upsilon_v_low / x_dwarfs_upsilon_v) / 2) * p + ((x_dwarfs_upsilon_v_high / x_dwarfs_upsilon_v - 1 - 1 + x_dwarfs_upsilon_v_low / x_dwarfs_upsilon_v) / 2) * abs(p))"
+            },
+            {
+              "column": "g_bar_err_lo",
+              "formula": "g_bar_err_lo * (1 + ((x_dwarfs_upsilon_v_high / x_dwarfs_upsilon_v - 1 + 1 - x_dwarfs_upsilon_v_low / x_dwarfs_upsilon_v) / 2) * p + ((x_dwarfs_upsilon_v_high / x_dwarfs_upsilon_v - 1 - 1 + x_dwarfs_upsilon_v_low / x_dwarfs_upsilon_v) / 2) * abs(p))"
+            },
+            {
+              "column": "g_bar_err_hi",
+              "formula": "g_bar_err_hi * (1 + ((x_dwarfs_upsilon_v_high / x_dwarfs_upsilon_v - 1 + 1 - x_dwarfs_upsilon_v_low / x_dwarfs_upsilon_v) / 2) * p + ((x_dwarfs_upsilon_v_high / x_dwarfs_upsilon_v - 1 - 1 + x_dwarfs_upsilon_v_low / x_dwarfs_upsilon_v) / 2) * abs(p))"
+            },
+            {
+              "column": "g_bar",
+              "formula": "g_bar_stars * (1 + ((x_dwarfs_upsilon_v_high / x_dwarfs_upsilon_v - 1 + 1 - x_dwarfs_upsilon_v_low / x_dwarfs_upsilon_v) / 2) * p + ((x_dwarfs_upsilon_v_high / x_dwarfs_upsilon_v - 1 - 1 + x_dwarfs_upsilon_v_low / x_dwarfs_upsilon_v) / 2) * abs(p)) + g_bar_gas_cold"
+            },
+            {
+              "column": "g_bar_err_point_lo",
+              "formula": "g_bar_err_point_lo * (1 + ((x_dwarfs_upsilon_v_high / x_dwarfs_upsilon_v - 1 + 1 - x_dwarfs_upsilon_v_low / x_dwarfs_upsilon_v) / 2) * p + ((x_dwarfs_upsilon_v_high / x_dwarfs_upsilon_v - 1 - 1 + x_dwarfs_upsilon_v_low / x_dwarfs_upsilon_v) / 2) * abs(p))"
+            },
+            {
+              "column": "g_bar_err_point_hi",
+              "formula": "g_bar_err_point_hi * (1 + ((x_dwarfs_upsilon_v_high / x_dwarfs_upsilon_v - 1 + 1 - x_dwarfs_upsilon_v_low / x_dwarfs_upsilon_v) / 2) * p + ((x_dwarfs_upsilon_v_high / x_dwarfs_upsilon_v - 1 - 1 + x_dwarfs_upsilon_v_low / x_dwarfs_upsilon_v) / 2) * abs(p))"
+            }
+          ]
+        },
+        "aeg-d-dwarfs/v3": {
           "default": 0,
           "min": -1,
           "max": 1,
@@ -1646,6 +1774,11 @@
           "default": "D-038 1A",
           "default_ref": "D-038 1A; REPRODUCTION.md item 9",
           "effects": []
+        },
+        "aeg-d-dwarfs/v3": {
+          "default": "D-038 1A",
+          "default_ref": "D-038 1A; REPRODUCTION.md item 9",
+          "effects": []
         }
       },
       "scope": "dataset",
@@ -1663,6 +1796,29 @@
       },
       "datasets": {
         "aeg-d-dwarfs/v2": {
+          "default": 0,
+          "default_ref": "each system's structural original (observables structural_param)",
+          "parameter_note": "p shifts ε on rows with x_dwarfs_eps_used = 1",
+          "effects": [
+            {
+              "column": "g_obs",
+              "formula": "g_obs * sqrt((1 - x_dwarfs_ellipticity - x_dwarfs_eps_used * p0) / (1 - x_dwarfs_ellipticity - x_dwarfs_eps_used * p))"
+            },
+            {
+              "column": "g_bar_stars",
+              "formula": "g_bar_stars * (1 - x_dwarfs_ellipticity - x_dwarfs_eps_used * p0) / (1 - x_dwarfs_ellipticity - x_dwarfs_eps_used * p)"
+            },
+            {
+              "column": "g_bar_gas_cold",
+              "formula": "g_bar_gas_cold * (1 - x_dwarfs_ellipticity - x_dwarfs_eps_used * p0) / (1 - x_dwarfs_ellipticity - x_dwarfs_eps_used * p)"
+            },
+            {
+              "column": "g_bar",
+              "formula": "(g_bar_stars + g_bar_gas_cold) * (1 - x_dwarfs_ellipticity - x_dwarfs_eps_used * p0) / (1 - x_dwarfs_ellipticity - x_dwarfs_eps_used * p)"
+            }
+          ]
+        },
+        "aeg-d-dwarfs/v3": {
           "default": 0,
           "default_ref": "each system's structural original (observables structural_param)",
           "parameter_note": "p shifts ε on rows with x_dwarfs_eps_used = 1",

@@ -1,0 +1,2721 @@
+{
+ "test": "T7, docs/standard-3.0.0-reissue-test.md",
+ "package": "aeg-d-dwarfs/v3",
+ "checked_on": "2026-11-24T19:44:54Z",
+ "result": "fail",
+ "n_addresses": 305,
+ "not_200": [
+  {
+   "id": "S20",
+   "field": "doi",
+   "address": "https://doi.org/10.1111/j.1365-2966.2010.17745.x",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S21",
+   "field": "doi",
+   "address": "https://doi.org/10.1111/j.1365-2966.2012.21286.x",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S29",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/adc67e",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S31",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/2041-8213/ac2d9a",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S32",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/aca1c3",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S33",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ad8eba",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S34",
+   "field": "doi",
+   "address": "https://doi.org/10.1093/mnras/stad752",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S35",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ae4a2a",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S36",
+   "field": "doi",
+   "address": "https://doi.org/10.1051/0004-6361/201731450",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S37",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/768/2/172",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S38",
+   "field": "doi",
+   "address": "https://doi.org/10.1093/mnras/stab1624",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S39",
+   "field": "doi",
+   "address": "https://doi.org/10.1111/j.1745-3933.2009.00677.x",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S41",
+   "field": "doi",
+   "address": "https://doi.org/10.1086/510665",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S42",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/752/1/42",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S43",
+   "field": "doi",
+   "address": "https://doi.org/10.1086/587835",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S44",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/813/2/109",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S45",
+   "field": "doi",
+   "address": "https://doi.org/10.1051/0004-6361/201833458",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S47",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/767/1/62",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S48",
+   "field": "doi",
+   "address": "https://doi.org/10.1051/0004-6361/202452619",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S49",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ae290d",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S51",
+   "field": "doi",
+   "address": "https://doi.org/10.1086/533585",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S52",
+   "field": "doi",
+   "address": "https://doi.org/10.1093/mnras/stz518",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S53",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ad3a52",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S54",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ad0cf7",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S55",
+   "field": "doi",
+   "address": "https://doi.org/10.1051/0004-6361/201424645",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S56",
+   "field": "doi",
+   "address": "https://doi.org/10.1093/mnras/stab002",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S57",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/758/2/124",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S58",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ac1353",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S59",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ac1869",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S60",
+   "field": "doi",
+   "address": "https://doi.org/10.1093/mnras/stw3188",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S61",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/0004-637X/833/1/16",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S62",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/770/1/16",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S63",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/aa6570",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S64",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/779/2/102",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S65",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/810/1/56",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S66",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-3881/ab5f0f",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S67",
+   "field": "doi",
+   "address": "https://doi.org/10.1086/510879",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S68",
+   "field": "doi",
+   "address": "https://doi.org/10.1093/mnras/sty1772",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S69",
+   "field": "doi",
+   "address": "https://doi.org/10.1086/529137",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S70",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ad55f0",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S71",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/703/1/692",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S73",
+   "field": "doi",
+   "address": "https://doi.org/10.1093/mnras/sty1986",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S74",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/833/2/167",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S75",
+   "field": "doi",
+   "address": "https://doi.org/10.1093/mnras/stv2014",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S76",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/aa9381",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S77",
+   "field": "doi",
+   "address": "https://doi.org/10.1111/j.1365-2966.2004.08514.x",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S78",
+   "field": "doi",
+   "address": "https://doi.org/10.1111/j.1365-2966.2005.09806.x",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S79",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/aaad02",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S80",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ab7459",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S81",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/aac16b",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S82",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/695/1/L83",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S83",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/aacd0e",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S84",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/abb40b",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S85",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ac5b07",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S87",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/732/2/76",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S88",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ac7226",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S89",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ad393c",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S90",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/756/1/79",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S91",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ae2fe5",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S93",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ac91cb",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S94",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/733/1/46",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S95",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ab7ccb",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S96",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/806/2/230",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S97",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/836/2/202",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S98",
+   "field": "doi",
+   "address": "https://doi.org/10.1086/677352",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S99",
+   "field": "doi",
+   "address": "https://doi.org/10.1051/0004-6361/201937240",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S100",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ad9b0c",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S101",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/752/1/45",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S102",
+   "field": "doi",
+   "address": "https://doi.org/10.1093/mnras/stw2051",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S103",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/0004-6256/151/5/118",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S104",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ac43bd",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S105",
+   "field": "doi",
+   "address": "https://doi.org/10.1086/592076",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S106",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ab31a9",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S108",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ab8ccb",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S109",
+   "field": "doi",
+   "address": "https://doi.org/10.1111/j.1365-2966.2008.13770.x",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S110",
+   "field": "url",
+   "address": "https://www.aanda.org/10.1051/0004-6361/202453567",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S110",
+   "field": "landing_url",
+   "address": "https://www.aanda.org/10.1051/0004-6361/202453567",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S110",
+   "field": "doi",
+   "address": "https://doi.org/10.1051/0004-6361/202453567",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S111",
+   "field": "url",
+   "address": "https://ui.adsabs.harvard.edu/abs/1991AJ....102..130V/abstract",
+   "status": 202,
+   "sha256_present": false
+  },
+  {
+   "id": "S111",
+   "field": "doi",
+   "address": "https://doi.org/10.1086/115861",
+   "status": 202,
+   "sha256_present": false
+  },
+  {
+   "id": "S112",
+   "field": "doi",
+   "address": "https://doi.org/10.1051/0004-6361/201833458",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S113",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ab31a9",
+   "status": 429,
+   "sha256_present": true
+  }
+ ],
+ "results": [
+  {
+   "id": "S1",
+   "field": "url",
+   "address": "https://raw.githubusercontent.com/apace7/local_volume_database/c9fb49c620adab3df32c7d206e8599f4bb624a3a/data/dwarf_mw.csv",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S1",
+   "field": "landing_url",
+   "address": "https://github.com/apace7/local_volume_database",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S2",
+   "field": "url",
+   "address": "https://raw.githubusercontent.com/apace7/local_volume_database/c9fb49c620adab3df32c7d206e8599f4bb624a3a/data/dwarf_m31.csv",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S2",
+   "field": "landing_url",
+   "address": "https://github.com/apace7/local_volume_database",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S3",
+   "field": "url",
+   "address": "https://raw.githubusercontent.com/apace7/local_volume_database/c9fb49c620adab3df32c7d206e8599f4bb624a3a/data/dwarf_local_field.csv",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S3",
+   "field": "landing_url",
+   "address": "https://github.com/apace7/local_volume_database",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S4",
+   "field": "url",
+   "address": "https://raw.githubusercontent.com/apace7/local_volume_database/c9fb49c620adab3df32c7d206e8599f4bb624a3a/table/lvdb.bib",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S4",
+   "field": "landing_url",
+   "address": "https://github.com/apace7/local_volume_database",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S5",
+   "field": "url",
+   "address": "https://content.cld.iop.org/journals/0004-637X/999/1/140/revision1/apjae290dt1_mrt.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S5",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ae290d",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S6",
+   "field": "url",
+   "address": "https://content.cld.iop.org/journals/0004-637X/999/1/140/revision1/apjae290dt5_mrt.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S6",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ae290d",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S7",
+   "field": "url",
+   "address": "https://content.cld.iop.org/journals/0004-637X/768/2/172/revision1/apj466362t3_mrt.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S7",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/768/2/172",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S8",
+   "field": "url",
+   "address": "https://content.cld.iop.org/journals/0004-637X/972/2/180/revision1/apjad55f0t1_mrt.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S8",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ad55f0",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S9",
+   "field": "url",
+   "address": "https://content.cld.iop.org/journals/0004-637X/836/2/202/revision1/apjaa58edt3_mrt.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S9",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/836/2/202",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S10",
+   "field": "url",
+   "address": "https://zenodo.org/records/18688283/files/MemberCatalogs_v1.1.tar.gz?download=1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S10",
+   "field": "landing_url",
+   "address": "https://zenodo.org/records/18688283",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S10",
+   "field": "doi",
+   "address": "https://doi.org/10.5281/zenodo.18688283",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S11",
+   "field": "url",
+   "address": "https://vizier.cfa.harvard.edu/viz-bin/votable?-source=J/A+A/572/A82&-out.all&-out.max=unlimited",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S12",
+   "field": "url",
+   "address": "https://vizier.cfa.harvard.edu/viz-bin/votable?-source=J/A+A/698/A53&-out.all&-out.max=unlimited",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S13",
+   "field": "url",
+   "address": "https://vizier.cfa.harvard.edu/viz-bin/votable?-source=J/AJ/134/566&-out.all&-out.max=unlimited",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S14",
+   "field": "url",
+   "address": "https://vizier.cfa.harvard.edu/viz-bin/votable?-source=J/ApJ/657/241&-out.all&-out.max=unlimited",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S15",
+   "field": "url",
+   "address": "https://vizier.cfa.harvard.edu/viz-bin/votable?-source=J/MNRAS/411/1013&-out.all&-out.max=unlimited",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S16",
+   "field": "url",
+   "address": "https://content.cld.iop.org/journals/0004-637X/752/1/45/revision1/apj430011t2_mrt.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S16",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/752/1/45",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S17",
+   "field": "url",
+   "address": "https://vizier.cfa.harvard.edu/viz-bin/votable?-source=VII/155&-out.all&-out.max=unlimited&recno=1296,9368,852,630,762,809,19722,22478,43,6199,1041",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S18",
+   "field": "url",
+   "address": "https://content.cld.iop.org/journals/0004-637X/913/1/53/revision2/apjabe391t1_mrt.txt",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S19",
+   "field": "url",
+   "address": "https://vizier.idia.ac.za/viz-bin/votable?-source=J/ApJS/161/304/clusters&-out.all&-out.max=unlimited",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S20",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1009.4857v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S20",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1009.4857v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S20",
+   "field": "doi",
+   "address": "https://doi.org/10.1111/j.1365-2966.2010.17745.x",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S21",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1205.2704v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S21",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1205.2704v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S21",
+   "field": "doi",
+   "address": "https://doi.org/10.1111/j.1365-2966.2012.21286.x",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S22",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/astro-ph/0608448v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S22",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/astro-ph/0608448v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S22",
+   "field": "doi",
+   "address": "https://doi.org/10.1086/509718",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S23",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/0904.4463v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S23",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/0904.4463v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S23",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/699/2/1742",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S24",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2404.01394v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S24",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2404.01394v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S24",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-3881/ad38b6",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S25",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2605.12810v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S25",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2605.12810v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S25",
+   "field": "doi",
+   "address": "https://doi.org/10.33232/001c.172763",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S26",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1308.2227v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S26",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1308.2227v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S26",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-6256/146/4/94",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S27",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2302.03708v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S27",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2302.03708v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S27",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/acc943",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S28",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1710.06444v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S28",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1710.06444v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S28",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-3881/aa94d0",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S29",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2501.04772v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S29",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2501.04772v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S29",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/adc67e",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S30",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2602.17652v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S30",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2602.17652v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S31",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2107.09080v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S31",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2107.09080v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S31",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/2041-8213/ac2d9a",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S32",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2203.11788v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S32",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2203.11788v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S32",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/aca1c3",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S33",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2410.00981v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S33",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2410.00981v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S33",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ad8eba",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S34",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2209.15022v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S34",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2209.15022v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S34",
+   "field": "doi",
+   "address": "https://doi.org/10.1093/mnras/stad752",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S35",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2602.20272v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S35",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2602.20272v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S35",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ae4a2a",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S36",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1709.04519v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S36",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1709.04519v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S36",
+   "field": "doi",
+   "address": "https://doi.org/10.1051/0004-6361/201731450",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S37",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1302.6590v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S37",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1302.6590v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S37",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/768/2/172",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S38",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2102.11890v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S38",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2102.11890v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S38",
+   "field": "doi",
+   "address": "https://doi.org/10.1093/mnras/stab1624",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S39",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/0904.3068v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S39",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/0904.3068v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S39",
+   "field": "doi",
+   "address": "https://doi.org/10.1111/j.1745-3933.2009.00677.x",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S40",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2407.04349v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S40",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2407.04349v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S41",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/astro-ph/0611285v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S41",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/astro-ph/0611285v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S41",
+   "field": "doi",
+   "address": "https://doi.org/10.1086/510665",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S42",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1203.5321v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S42",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1203.5321v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S42",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/752/1/42",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S43",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/0801.4027v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S43",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/0801.4027v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S43",
+   "field": "doi",
+   "address": "https://doi.org/10.1086/587835",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S44",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1508.03622v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S44",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1508.03622v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S44",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/813/2/109",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S45",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1805.07350v4",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S45",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1805.07350v4",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S45",
+   "field": "doi",
+   "address": "https://doi.org/10.1051/0004-6361/201833458",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S46",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2407.04698v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S46",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2407.04698v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S47",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1302.3230v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S47",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1302.3230v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S47",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/767/1/62",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S48",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2410.12433v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S48",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2410.12433v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S48",
+   "field": "doi",
+   "address": "https://doi.org/10.1051/0004-6361/202452619",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S49",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2602.10200v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S49",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2602.10200v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S49",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ae290d",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S50",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2602.10202v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S50",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2602.10202v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S51",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/0712.2241v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S51",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/0712.2241v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S51",
+   "field": "doi",
+   "address": "https://doi.org/10.1086/533585",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S52",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1902.07228v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S52",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1902.07228v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S52",
+   "field": "doi",
+   "address": "https://doi.org/10.1093/mnras/stz518",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S53",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2403.13060v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S53",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2403.13060v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S53",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ad3a52",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S54",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2308.08602v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S54",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2308.08602v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S54",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ad0cf7",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S55",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1408.5597v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S55",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1408.5597v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S55",
+   "field": "doi",
+   "address": "https://doi.org/10.1051/0004-6361/201424645",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S56",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2101.03189v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S56",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2101.03189v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S56",
+   "field": "doi",
+   "address": "https://doi.org/10.1093/mnras/stab002",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S57",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1209.2116v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S57",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1209.2116v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S57",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/758/2/124",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S58",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2101.00013v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S58",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2101.00013v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S58",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ac1353",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S59",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2106.12656v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S59",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2106.12656v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S59",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ac1869",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S60",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1612.01560v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S60",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1612.01560v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S60",
+   "field": "doi",
+   "address": "https://doi.org/10.1093/mnras/stw3188",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S61",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1608.04934v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S61",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1608.04934v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S61",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/0004-637X/833/1/16",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S62",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1304.6080v3",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S62",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1304.6080v3",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S62",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/770/1/16",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S63",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1703.02978v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S63",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1703.02978v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S63",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/aa6570",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S64",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1310.0814v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S64",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1310.0814v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S64",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/779/2/102",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S65",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1506.01021v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S65",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1506.01021v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S65",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/810/1/56",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S66",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1912.02186v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S66",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1912.02186v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S66",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-3881/ab5f0f",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S67",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/astro-ph/0611372v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S67",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/astro-ph/0611372v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S67",
+   "field": "doi",
+   "address": "https://doi.org/10.1086/510879",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S68",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1804.06430v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S68",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1804.06430v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S68",
+   "field": "doi",
+   "address": "https://doi.org/10.1093/mnras/sty1772",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S69",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/0709.3281v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S69",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/0709.3281v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S69",
+   "field": "doi",
+   "address": "https://doi.org/10.1086/529137",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S70",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2404.11804v4",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S70",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2404.11804v4",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S70",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ad55f0",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S71",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/0907.5102v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S71",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/0907.5102v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S71",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/703/1/692",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S72",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2607.07803v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S72",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2607.07803v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S72",
+   "field": "doi",
+   "address": "https://doi.org/10.48550/arXiv.2607.07803",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S73",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1807.10655v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S73",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1807.10655v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S73",
+   "field": "doi",
+   "address": "https://doi.org/10.1093/mnras/sty1986",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S74",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1610.01158v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S74",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1610.01158v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S74",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/833/2/167",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S75",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1508.06942v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S75",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1508.06942v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S75",
+   "field": "doi",
+   "address": "https://doi.org/10.1093/mnras/stv2014",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S76",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1710.09038v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S76",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1710.09038v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S76",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/aa9381",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S77",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/astro-ph/0410489v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S77",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/astro-ph/0410489v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S77",
+   "field": "doi",
+   "address": "https://doi.org/10.1111/j.1365-2966.2004.08514.x",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S78",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/astro-ph/0511004v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S78",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/astro-ph/0511004v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S78",
+   "field": "doi",
+   "address": "https://doi.org/10.1111/j.1365-2966.2005.09806.x",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S79",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1802.01581v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S79",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1802.01581v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S79",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/aaad02",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S80",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1910.10134v3",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S80",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1910.10134v3",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S80",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ab7459",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S81",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1806.06891v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S81",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1806.06891v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S81",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/aac16b",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S82",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/0902.4230v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S82",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/0902.4230v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S82",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/695/1/L83",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S83",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1804.08627v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S83",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1804.08627v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S83",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/aacd0e",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S84",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2007.11589v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S84",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2007.11589v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S84",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/abb40b",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S85",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2204.09699v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S85",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2204.09699v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S85",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ac5b07",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S86",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2403.00921v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S86",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2403.00921v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S87",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1102.2902v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S87",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1102.2902v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S87",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/732/2/76",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S88",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2204.01917v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S88",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2204.01917v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S88",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ac7226",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S89",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2402.08731v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S89",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2402.08731v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S89",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ad393c",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S90",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1111.6608v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S90",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1111.6608v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S90",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/756/1/79",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S91",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2509.02546v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S91",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2509.02546v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S91",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ae2fe5",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S92",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/astro-ph/9601165v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S92",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/astro-ph/9601165v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S93",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2206.02801v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S93",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2206.02801v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S93",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ac91cb",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S94",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1007.4198v3",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S94",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1007.4198v3",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S94",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/733/1/46",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S95",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1911.08493v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S95",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1911.08493v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S95",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ab7ccb",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S96",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1505.02161v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S96",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1505.02161v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S96",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/806/2/230",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S97",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1702.08836v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S97",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1702.08836v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S97",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/836/2/202",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S98",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1406.6704v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S98",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1406.6704v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S98",
+   "field": "doi",
+   "address": "https://doi.org/10.1086/677352",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S99",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2001.11410v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S99",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2001.11410v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S99",
+   "field": "doi",
+   "address": "https://doi.org/10.1051/0004-6361/201937240",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S100",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2408.00865v3",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S100",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2408.00865v3",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S100",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ad9b0c",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S101",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1112.1067v3",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S101",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1112.1067v3",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S101",
+   "field": "doi",
+   "address": "https://doi.org/10.1088/0004-637X/752/1/45",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S102",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1605.05338v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S102",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1605.05338v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S102",
+   "field": "doi",
+   "address": "https://doi.org/10.1093/mnras/stw2051",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S103",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1510.05539v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S103",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1510.05539v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S103",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/0004-6256/151/5/118",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S104",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2112.08467v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S104",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2112.08467v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S104",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ac43bd",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S105",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/0712.3054v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S105",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/0712.3054v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S105",
+   "field": "doi",
+   "address": "https://doi.org/10.1086/592076",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S106",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/1809.07801v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S106",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1809.07801v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S106",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ab31a9",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S107",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/astro-ph/0603486v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S107",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/astro-ph/0603486v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S108",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/2004.03425v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S108",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/2004.03425v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S108",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ab8ccb",
+   "status": 429,
+   "sha256_present": true
+  },
+  {
+   "id": "S109",
+   "field": "url",
+   "address": "https://arxiv.org/pdf/0807.1331v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S109",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/0807.1331v2",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S109",
+   "field": "doi",
+   "address": "https://doi.org/10.1111/j.1365-2966.2008.13770.x",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S110",
+   "field": "url",
+   "address": "https://www.aanda.org/10.1051/0004-6361/202453567",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S110",
+   "field": "landing_url",
+   "address": "https://www.aanda.org/10.1051/0004-6361/202453567",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S110",
+   "field": "doi",
+   "address": "https://doi.org/10.1051/0004-6361/202453567",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S111",
+   "field": "url",
+   "address": "https://ui.adsabs.harvard.edu/abs/1991AJ....102..130V/abstract",
+   "status": 202,
+   "sha256_present": false
+  },
+  {
+   "id": "S111",
+   "field": "doi",
+   "address": "https://doi.org/10.1086/115861",
+   "status": 202,
+   "sha256_present": false
+  },
+  {
+   "id": "S112",
+   "field": "url",
+   "address": "https://arxiv.org/e-print/1805.07350v4",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S112",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1805.07350v4",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S112",
+   "field": "doi",
+   "address": "https://doi.org/10.1051/0004-6361/201833458",
+   "status": 403,
+   "sha256_present": true
+  },
+  {
+   "id": "S113",
+   "field": "url",
+   "address": "https://arxiv.org/e-print/1809.07801v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S113",
+   "field": "landing_url",
+   "address": "https://arxiv.org/abs/1809.07801v1",
+   "status": 200,
+   "sha256_present": true
+  },
+  {
+   "id": "S113",
+   "field": "doi",
+   "address": "https://doi.org/10.3847/1538-4357/ab31a9",
+   "status": 429,
+   "sha256_present": true
+  }
+ ],
+ "note": "Expanded from the compact CI annotation; final URLs after redirects are in the run's artifact only."
+}

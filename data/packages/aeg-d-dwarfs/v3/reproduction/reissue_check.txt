@@ -1,0 +1,12 @@
+== aeg-d-dwarfs: PASS (T1 to T6)
+  T1 pass: measurements.ecsv identical after N (sha256 67e68bbe655a…)
+  T1 pass: observables.ecsv identical after N (sha256 a9bbb91993cc…)
+  T1 pass: systems.ecsv identical after N (sha256 f3085a26bfc4…)
+  T1 pass: uncertainty_terms.ecsv identical after N (sha256 c4075ee8544f…)
+  T2 pass with a ruled deviation: convert.py differs on line 44 (version) and on line 131 (D-115): rel = f"data/packages/{DATASET}/v2/reading/resolved.csv"  # D-115: the v2 freeze record; v3 holds a byte copy
+  T3 pass
+  T4 pass
+  T5 pass
+  T6 pass
+  T3 count: 113 entries (19 from v2, 94 new); sha256 null: none
+  T4 count: 307 rules, 18 corrections

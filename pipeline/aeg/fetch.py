@@ -141,6 +141,11 @@ def fetch_package(package_dir: Path) -> list[str]:
     out_dir.mkdir(exist_ok=True)
     problems: list[str] = []
     for entry in spec["sources"]:
+        # Documents verified once by hash and not downloaded in CI (data standard 3.0.0, D-114): arXiv and
+        # journals ask automated tools not to bulk-download, and the conversion never reads them.
+        if entry.get("fetch_in_ci") is False:
+            print(f"skipped      {entry['file']} (fetch_in_ci: false; verified {entry.get('verified', 'once')})")
+            continue
         target = out_dir / entry["file"]
         target.parent.mkdir(parents=True, exist_ok=True)
         if target.is_file() and not verify(target, entry):

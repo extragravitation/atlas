@@ -1,0 +1,3279 @@
+{
+ "standard_version": "3.0.0",
+ "dataset": "aeg-d-dwarfs",
+ "version": "v3",
+ "reproduction_file": {
+  "path": "../../../../docs/standard-3.0.0-reissue-test.md",
+  "sha256": "2fd4a43cf00b3588f89fbc91bd000499df137e9e583549db1f0ee0473b7c8f7e",
+  "frozen": "2026-11-24",
+  "decision": "D-114",
+  "freeze_record": "data/frozen/data-standard-3.0.0.json",
+  "carries": {
+   "path": "REPRODUCTION.md",
+   "sha256": "395460b84359dc10de812fd3c86791832f17575c531272b0b457a7c4c75c020e",
+   "frozen": "2026-11-04",
+   "decision": "D-096, D-097, D-098, D-099",
+   "freeze_record": "data/frozen/dwarfs-v2-test.json",
+   "note": "v2's frozen test, carried over unchanged: v3's tables equal v2's (T1), so its result stands for v3."
+  }
+ },
+ "second_reading": {
+  "path": "reading/resolved.csv",
+  "sha256": "40244aa45771750f4c0123d13bcb476deb7cbead955f883b6942705bb2193bc3",
+  "freeze_record": "data/frozen/dwarfs-v2-reading.json"
+ },
+ "status": "v3: re-issue of v2 under data standard 3.0.0 (D-114). The tables are v2's with the version mapped forward; convert.py differs from v2's only in its version line. Adds the source records and locators of §13, with an entry for every original paper a locator names. No value changes.",
+ "sources": [
+  {
+   "id": "S1",
+   "kind": "data_file",
+   "role": "Local Volume Database (Pace 2025, OJAp 8, 142) v1.1.1, combined table dwarf_mw.csv: the index to the original papers (D-048 item 1)",
+   "url": "https://raw.githubusercontent.com/apace7/local_volume_database/c9fb49c620adab3df32c7d206e8599f4bb624a3a/data/dwarf_mw.csv",
+   "file": "lvdb/dwarf_mw.csv",
+   "bytes": 45690,
+   "sha256": "6970dea6a1c29f9eeb42f3f894dccf7cfc0483e44ddb51de9fa0ecc90b18fa5f",
+   "retrieved": "2026-10-30",
+   "redistributable": true,
+   "evidence_tier": 1,
+   "note": "CC0-1.0 (repository LICENSE). Pinned to commit c9fb49c620adab3df32c7d206e8599f4bb624a3a (2026-10-28). Index only: values come from the originals.",
+   "citation": "Local Volume Database (LVDB) v1.1.1, A. B. Pace, commit c9fb49c620adab3df32c7d206e8599f4bb624a3a; Pace 2025, OJAp 8, 142 (the paper the database asks users to cite)",
+   "identifier": {
+    "landing_url": "https://github.com/apace7/local_volume_database"
+   },
+   "licence": {
+    "status": "stated",
+    "spdx": "CC0-1.0",
+    "uri": "https://raw.githubusercontent.com/apace7/local_volume_database/c9fb49c620adab3df32c7d206e8599f4bb624a3a/LICENSE",
+    "checked_where": "The repository's LICENSE file at the pinned commit (CC0 1.0 Universal)",
+    "checked_on": "2026-11-24"
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/lvdb/dwarf_mw.csv"
+   ]
+  },
+  {
+   "id": "S2",
+   "kind": "data_file",
+   "role": "Local Volume Database (Pace 2025, OJAp 8, 142) v1.1.1, combined table dwarf_m31.csv: the index to the original papers (D-048 item 1)",
+   "url": "https://raw.githubusercontent.com/apace7/local_volume_database/c9fb49c620adab3df32c7d206e8599f4bb624a3a/data/dwarf_m31.csv",
+   "file": "lvdb/dwarf_m31.csv",
+   "bytes": 26793,
+   "sha256": "eb5a6cedf4a585cf30cc8f34cc34eab76d91ad26031435980eb05449325f1b35",
+   "retrieved": "2026-10-30",
+   "redistributable": true,
+   "evidence_tier": 1,
+   "note": "CC0-1.0 (repository LICENSE). Pinned to commit c9fb49c620adab3df32c7d206e8599f4bb624a3a (2026-10-28). Index only: values come from the originals.",
+   "citation": "Local Volume Database (LVDB) v1.1.1, A. B. Pace, commit c9fb49c620adab3df32c7d206e8599f4bb624a3a; Pace 2025, OJAp 8, 142 (the paper the database asks users to cite)",
+   "identifier": {
+    "landing_url": "https://github.com/apace7/local_volume_database"
+   },
+   "licence": {
+    "status": "stated",
+    "spdx": "CC0-1.0",
+    "uri": "https://raw.githubusercontent.com/apace7/local_volume_database/c9fb49c620adab3df32c7d206e8599f4bb624a3a/LICENSE",
+    "checked_where": "The repository's LICENSE file at the pinned commit (CC0 1.0 Universal)",
+    "checked_on": "2026-11-24"
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/lvdb/dwarf_m31.csv"
+   ]
+  },
+  {
+   "id": "S3",
+   "kind": "data_file",
+   "role": "Local Volume Database (Pace 2025, OJAp 8, 142) v1.1.1, combined table dwarf_local_field.csv: the index to the original papers (D-048 item 1)",
+   "url": "https://raw.githubusercontent.com/apace7/local_volume_database/c9fb49c620adab3df32c7d206e8599f4bb624a3a/data/dwarf_local_field.csv",
+   "file": "lvdb/dwarf_local_field.csv",
+   "bytes": 36617,
+   "sha256": "d9ea1a0cf93e2eb1e7f3ed29590211a310c6c6065f064c7dd158793de1b285db",
+   "retrieved": "2026-10-30",
+   "redistributable": true,
+   "evidence_tier": 1,
+   "note": "CC0-1.0 (repository LICENSE). Pinned to commit c9fb49c620adab3df32c7d206e8599f4bb624a3a (2026-10-28). Index only: values come from the originals.",
+   "citation": "Local Volume Database (LVDB) v1.1.1, A. B. Pace, commit c9fb49c620adab3df32c7d206e8599f4bb624a3a; Pace 2025, OJAp 8, 142 (the paper the database asks users to cite)",
+   "identifier": {
+    "landing_url": "https://github.com/apace7/local_volume_database"
+   },
+   "licence": {
+    "status": "stated",
+    "spdx": "CC0-1.0",
+    "uri": "https://raw.githubusercontent.com/apace7/local_volume_database/c9fb49c620adab3df32c7d206e8599f4bb624a3a/LICENSE",
+    "checked_where": "The repository's LICENSE file at the pinned commit (CC0 1.0 Universal)",
+    "checked_on": "2026-11-24"
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/lvdb/dwarf_local_field.csv"
+   ]
+  },
+  {
+   "id": "S4",
+   "kind": "data_file",
+   "role": "Local Volume Database v1.1.1 bibliography (ADS export, table/lvdb.bib): bibcode to title, DOI and arXiv identifier for the originals (reading/originals.csv)",
+   "url": "https://raw.githubusercontent.com/apace7/local_volume_database/c9fb49c620adab3df32c7d206e8599f4bb624a3a/table/lvdb.bib",
+   "file": "lvdb/lvdb.bib",
+   "bytes": 894380,
+   "sha256": "bdd643270c133a6ee6e1664645f030074da1f68a0a1cd0f496152c00467af8e3",
+   "retrieved": "2026-10-30",
+   "redistributable": true,
+   "evidence_tier": 1,
+   "note": "CC0-1.0 (repository LICENSE). Pinned to commit c9fb49c620adab3df32c7d206e8599f4bb624a3a. Locator only.",
+   "citation": "Local Volume Database (LVDB) v1.1.1, A. B. Pace, commit c9fb49c620adab3df32c7d206e8599f4bb624a3a; Pace 2025, OJAp 8, 142 (the paper the database asks users to cite)",
+   "identifier": {
+    "landing_url": "https://github.com/apace7/local_volume_database"
+   },
+   "licence": {
+    "status": "stated",
+    "spdx": "CC0-1.0",
+    "uri": "https://raw.githubusercontent.com/apace7/local_volume_database/c9fb49c620adab3df32c7d206e8599f4bb624a3a/LICENSE",
+    "checked_where": "The repository's LICENSE file at the pinned commit (CC0 1.0 Universal)",
+    "checked_on": "2026-11-24"
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/lvdb/lvdb.bib"
+   ]
+  },
+  {
+   "id": "S5",
+   "kind": "data_file",
+   "role": "Geha et al. 2026, ApJ 999, 140, machine-readable Table 1 (systems, Reff): member positions for the D-051 coverage check",
+   "url": "https://content.cld.iop.org/journals/0004-637X/999/1/140/revision1/apjae290dt1_mrt.txt",
+   "file": "members/geha2026/apjae290dt1_mrt.txt",
+   "bytes": 12032,
+   "sha256": "9de96469e6b06bb9b35dec7a2972db72a2a770fcb149a5d51a29668bed26c57d",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "AAS journal machine-readable table; licence not read, linked not redistributed.",
+   "citation": "Geha, M., Pelliccia, D., Prochaska, J. X., et al. 2026, ApJ 999, 140, \"The Keck/DEIMOS Stellar Archive: I. Uniform Velocities and Metallicities for 78 Milky Way Dwarf Galaxies and Globular Clusters\" (machine-readable table)",
+   "identifier": {
+    "doi": "10.3847/1538-4357/ae290d",
+    "ads_bibcode": "2026ApJ...999..140G"
+   },
+   "licence": {
+    "status": "none_stated",
+    "checked_where": "The machine-readable table itself (file header): no licence or copyright statement. The article page was not read: iopscience.iop.org cannot be reached from the build workspace.",
+    "checked_on": "2026-11-24"
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/members/geha2026/apjae290dt1_mrt.txt"
+   ]
+  },
+  {
+   "id": "S6",
+   "kind": "data_file",
+   "role": "Geha et al. 2026, ApJ 999, 140, machine-readable Table 5 (per-star catalogue; file title line repeats Table 4): member positions for the D-051 coverage check",
+   "url": "https://content.cld.iop.org/journals/0004-637X/999/1/140/revision1/apjae290dt5_mrt.txt",
+   "file": "members/geha2026/apjae290dt5_mrt.txt",
+   "bytes": 10977987,
+   "sha256": "3b731eb3b055cf14feeccf54cea862102b6be1c75a38b66ba1cbbe38664e82f4",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "AAS journal machine-readable table; licence not read, linked not redistributed.",
+   "citation": "Geha, M., Pelliccia, D., Prochaska, J. X., et al. 2026, ApJ 999, 140, \"The Keck/DEIMOS Stellar Archive: I. Uniform Velocities and Metallicities for 78 Milky Way Dwarf Galaxies and Globular Clusters\" (machine-readable table)",
+   "identifier": {
+    "doi": "10.3847/1538-4357/ae290d",
+    "ads_bibcode": "2026ApJ...999..140G"
+   },
+   "licence": {
+    "status": "none_stated",
+    "checked_where": "The machine-readable table itself (file header): no licence or copyright statement. The article page was not read: iopscience.iop.org cannot be reached from the build workspace.",
+    "checked_on": "2026-11-24"
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/members/geha2026/apjae290dt5_mrt.txt"
+   ]
+  },
+  {
+   "id": "S7",
+   "kind": "data_file",
+   "role": "Collins et al. 2013, ApJ 768, 172, machine-readable Table 3 (probable dSph members): member positions for the D-051 coverage check",
+   "url": "https://content.cld.iop.org/journals/0004-637X/768/2/172/revision1/apj466362t3_mrt.txt",
+   "file": "members/collins2013/apj466362t3_mrt.txt",
+   "bytes": 27272,
+   "sha256": "73fdfdc45a84ef9c37d8f5dc6370e03fcd295d0586871d711ad79e0bae0b695d",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "AAS journal MRT; licence not read, linked not redistributed.",
+   "citation": "Collins, M. L. M., Chapman, S. C., Rich, R. M., et al. 2013, ApJ 768, 172, \"A kinematic study of the Andromeda dwarf spheroidal system\" (machine-readable table)",
+   "identifier": {
+    "doi": "10.1088/0004-637X/768/2/172",
+    "ads_bibcode": "2013ApJ...768..172C"
+   },
+   "licence": {
+    "status": "none_stated",
+    "checked_where": "The machine-readable table itself (file header): no licence or copyright statement. The article page was not read: iopscience.iop.org cannot be reached from the build workspace.",
+    "checked_on": "2026-11-24"
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/members/collins2013/apj466362t3_mrt.txt"
+   ]
+  },
+  {
+   "id": "S8",
+   "kind": "data_file",
+   "role": "Kvasova et al. 2024, ApJ 972, 180, machine-readable Table 1 (And XVIII catalogue): member positions for the D-051 coverage check",
+   "url": "https://content.cld.iop.org/journals/0004-637X/972/2/180/revision1/apjad55f0t1_mrt.txt",
+   "file": "members/kvasova2024/apjad55f0t1_mrt.txt",
+   "bytes": 20488,
+   "sha256": "ff3ae7d9d91db2a06b13b609aa0c5c114d6a268fc6eabb3cca2ab89fce76e430",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "AAS journal MRT; licence not read, linked not redistributed.",
+   "citation": "Kvasova, K., Kirby, E. N. & Beaton, R. L. 2024, ApJ 972, 180, \"Kinematics and metallicity of the dwarf spheroidal galaxy Andromeda XVIII\" (machine-readable table)",
+   "identifier": {
+    "doi": "10.3847/1538-4357/ad55f0",
+    "ads_bibcode": "2024ApJ...972..180K"
+   },
+   "licence": {
+    "status": "none_stated",
+    "checked_where": "The machine-readable table itself (file header): no licence or copyright statement. The article page was not read: iopscience.iop.org cannot be reached from the build workspace.",
+    "checked_on": "2026-11-24"
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/members/kvasova2024/apjad55f0t1_mrt.txt"
+   ]
+  },
+  {
+   "id": "S9",
+   "kind": "data_file",
+   "role": "Spencer et al. 2017, ApJ 836, 202, machine-readable Table 3 (Leo II spectroscopy): member positions for the D-051 coverage check",
+   "url": "https://content.cld.iop.org/journals/0004-637X/836/2/202/revision1/apjaa58edt3_mrt.txt",
+   "file": "members/spencer2017/apjaa58edt3_mrt.txt",
+   "bytes": 38229,
+   "sha256": "3f69d8722db105d6f2a8bda24bf0c3e38a219ddfddef515f61f0a6020d3b62db",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "AAS journal MRT; licence not read, linked not redistributed.",
+   "citation": "Spencer, M., Mateo, M., Walker, M., et al. 2017, ApJ 836, 202, \"A multi-epoch kinematic study of the remote dwarf spheroidal galaxy Leo II\" (machine-readable table)",
+   "identifier": {
+    "doi": "10.3847/1538-4357/836/2/202"
+   },
+   "licence": {
+    "status": "none_stated",
+    "checked_where": "The machine-readable table itself (file header): no licence or copyright statement. The article page was not read: iopscience.iop.org cannot be reached from the build workspace.",
+    "checked_on": "2026-11-24"
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/members/spencer2017/apjaa58edt3_mrt.txt"
+   ]
+  },
+  {
+   "id": "S10",
+   "kind": "archive",
+   "role": "Cerny et al. 2026, member catalogues v1.1 (Zenodo 10.5281/zenodo.18688283): member positions for the D-051 coverage check",
+   "url": "https://zenodo.org/records/18688283/files/MemberCatalogs_v1.1.tar.gz?download=1",
+   "file": "members/cerny2026/MemberCatalogs_v1.1.tar.gz",
+   "bytes": 22225,
+   "sha256": "153f21e28406ab9b384fa096cd36ad0450274d11f38543975c15ea6307dfd360",
+   "retrieved": "2026-10-31",
+   "redistributable": true,
+   "evidence_tier": 1,
+   "note": "CC BY 4.0 (Zenodo record). md5 a90c904cd391c34a51379cb03c59a1e3 as listed by Zenodo. members_sha256 (3.0.0): every member of the archive as downloaded on 2026-11-24 (the archive's own SHA-256 matched sources.json).",
+   "citation": "Cerny, W., Geha, M., Li, T. S., Simon, J., et al. 2026, Zenodo, Data Products associated with \"A Chemodynamical Census of the Milky Way's Ultra-Faint Compact Satellites. I. A First Population-Level Look at the Internal Kinematics and Metallicities of 19 Extremely-Low-Mass Halo Stellar Systems\"",
+   "identifier": {
+    "doi": "10.5281/zenodo.18688283",
+    "landing_url": "https://zenodo.org/records/18688283"
+   },
+   "licence": {
+    "status": "stated",
+    "spdx": "CC-BY-4.0",
+    "uri": "https://creativecommons.org/licenses/by/4.0/",
+    "checked_where": "Zenodo record 18688283 (API, metadata.license = cc-by-4.0)",
+    "checked_on": "2026-11-24"
+   },
+   "members_sha256": {
+    "PublicMemberCatalogs/BLISS_1_Members_v1.1.fits": "90355b406bcad326143e56d6a3be87e6f66687d3544e9d737e3edb82b8991d65",
+    "PublicMemberCatalogs/Balbinot_1_Members_v1.1.fits": "7fce780d5d56b2bf642a6a1d70b86c8b1718ddcd233edd6ae42cbc6431988833",
+    "PublicMemberCatalogs/DELVE_1_Members_v1.1.fits": "ba67d19b8ef919f499e7e423dc59d2efadab83dfd6387936e6953048fdeb7a63",
+    "PublicMemberCatalogs/DELVE_3_Members_v1.1.fits": "787fd84a86cf95dd1af00ebcb52a4ce97e5980a569158dc41863c9f4e33f2899",
+    "PublicMemberCatalogs/DELVE_4_Members_v1.1.fits": "547f94a6858b48c9c68db48901a5a70cfd4d008e649c42186daa196986196d27",
+    "PublicMemberCatalogs/DELVE_5_Members_v1.1.fits": "020b782db531dcc22feeaa02d6dee27f7c978c6da9dbc57eb26cbbd43a399a8f",
+    "PublicMemberCatalogs/DELVE_6_Members_v1.1.fits": "6e0f7d8bcb9fd8ead386014369735a5a3dca2514d84a3165d83c0ec26898b70f",
+    "PublicMemberCatalogs/Draco_II_Members_v1.1.fits": "4fff90366d17f984f8c7546dd192592b5970007de9f2554108b0772a0dba4331",
+    "PublicMemberCatalogs/Kim_1_Members_v1.1.fits": "0c457e32b521614d2262a3ac2f9845dedb6e485546dee640d213d48c29cbdc0a",
+    "PublicMemberCatalogs/Kim_3_Members_v1.1.fits": "89cfe7ccdeab7fe6a2e02d6fcfd76a14d3be4058eccee00c64d091c2ee804488",
+    "PublicMemberCatalogs/Koposov_1_Members_v1.1.fits": "fbfc0903a839a3e85d6c5e1f0d4a5cc3bec0ffb2b78b17090250a351dcd5d176",
+    "PublicMemberCatalogs/Koposov_2_Members_v1.1.fits": "3e8fcbb8fe23f1a897a6c0f38a087b930708687b21f7a26a45dd146b45b9e9cd",
+    "PublicMemberCatalogs/Laevens_3_Members_v1.1.fits": "a6f074dddf5ffc98c3f19b4f524bd44c469c69983a4c980999b1ae5732b05816",
+    "PublicMemberCatalogs/Munoz_1_Members_v1.1.fits": "f375687118611dca1fccd896b8e28f6193221cd26fce913f79d720d8ed9bfaea",
+    "PublicMemberCatalogs/PS1_1_Members_v1.1.fits": "e374e8a406fa307d50d4b5bc9782f18abb385753ea5226e41aff98cbccfafed0",
+    "PublicMemberCatalogs/Segue_3_Members_v1.1.fits": "dae3deccd56d5b925c76edbe53af5e438858d909645e95ca5946fff4f7ec6a1b",
+    "PublicMemberCatalogs/YMCA_1_Members_v1.1.fits": "4d11666d3801f006b9d5bbbd02543be76b1822b18c2f026e6b43c7e528fde19e"
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/members/cerny2026/MemberCatalogs_v1.1.tar.gz"
+   ]
+  },
+  {
+   "id": "S11",
+   "kind": "data_file",
+   "role": "Hendricks et al. 2014, A&A 572, A82 (Fornax stars): VizieR VOTable export, member positions for the D-051 coverage check",
+   "url": "https://vizier.cfa.harvard.edu/viz-bin/votable?-source=J/A+A/572/A82&-out.all&-out.max=unlimited",
+   "file": "members/vizier/J_A_A_572_A82.vot",
+   "bytes": 145036,
+   "sha256": "0e8df8ab5b5d3b9a0d2fc5315133f6380d528811cae4d92cf0435b358d8028a8",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "VizieR query export (Harvard mirror); the response is stamped with the request time, so the content hash from <RESOURCE is the check. CDS/VizieR terms of use apply; linked, not redistributed.",
+   "content_from": "<RESOURCE",
+   "content_sha256": "37f9995bd99df735e8cc8d20546676af66397e1fbe4bbeff9c9c3a0bf3d1eae1",
+   "citation": "Hendricks et al. 2014, A&A 572, A82 (Fornax stars) (VizieR export)",
+   "identifier": {
+    "vizier": "J/A+A/572/A82"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "CDS/VizieR terms of use (the export's rights_uri)",
+    "uri": "https://cds.unistra.fr/vizier-org/licences_vizier.html",
+    "checked_where": "The rights_uri in a VizieR VOTable export from the same mirror (J/AJ/134/566, 2026-11-24)",
+    "checked_on": "2026-11-24"
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/members/vizier/J_A_A_572_A82.vot"
+   ]
+  },
+  {
+   "id": "S12",
+   "kind": "data_file",
+   "role": "Tolstoy et al. 2025, A&A 698, A53 (Sextans members, table D1/D2): VizieR VOTable export, member positions for the D-051 coverage check",
+   "url": "https://vizier.cfa.harvard.edu/viz-bin/votable?-source=J/A+A/698/A53&-out.all&-out.max=unlimited",
+   "file": "members/vizier/J_A_A_698_A53.vot",
+   "bytes": 624849,
+   "sha256": "9f25990de20c0ac98bc528a1401f672e895dbc9a6c57845bb3934affd5367e9c",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "VizieR query export (Harvard mirror); the response is stamped with the request time, so the content hash from <RESOURCE is the check. CDS/VizieR terms of use apply; linked, not redistributed.",
+   "content_from": "<RESOURCE",
+   "content_sha256": "966b734eb820726d606d5e36a07bda940902533bb091047ff7dd7210eb38535e",
+   "citation": "Tolstoy et al. 2025, A&A 698, A53 (Sextans members, table D1/D2) (VizieR export)",
+   "identifier": {
+    "vizier": "J/A+A/698/A53"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "CDS/VizieR terms of use (the export's rights_uri)",
+    "uri": "https://cds.unistra.fr/vizier-org/licences_vizier.html",
+    "checked_where": "The rights_uri in a VizieR VOTable export from the same mirror (J/AJ/134/566, 2026-11-24)",
+    "checked_on": "2026-11-24"
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/members/vizier/J_A_A_698_A53.vot"
+   ]
+  },
+  {
+   "id": "S13",
+   "kind": "data_file",
+   "role": "Koch et al. 2007, AJ 134, 566 (Leo II): VizieR VOTable export, member positions for the D-051 coverage check",
+   "url": "https://vizier.cfa.harvard.edu/viz-bin/votable?-source=J/AJ/134/566&-out.all&-out.max=unlimited",
+   "file": "members/vizier/J_AJ_134_566.vot",
+   "bytes": 31683,
+   "sha256": "87b98a1e707f1afe6144181f9128e92fd59f8a99e143fc4a92eb23a13dd3f07a",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "VizieR query export (Harvard mirror); the response is stamped with the request time, so the content hash from <RESOURCE is the check. CDS/VizieR terms of use apply; linked, not redistributed.",
+   "content_from": "<RESOURCE",
+   "content_sha256": "efc12a01398ebd2da14e27032128f113894d5dcf986654316a9903b07fdcc6e7",
+   "citation": "Koch et al. 2007, AJ 134, 566 (Leo II) (VizieR export)",
+   "identifier": {
+    "vizier": "J/AJ/134/566"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "CDS/VizieR terms of use (the export's rights_uri)",
+    "uri": "https://cds.unistra.fr/vizier-org/licences_vizier.html",
+    "checked_where": "The rights_uri in a VizieR VOTable export from the same mirror (J/AJ/134/566, 2026-11-24)",
+    "checked_on": "2026-11-24"
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/members/vizier/J_AJ_134_566.vot"
+   ]
+  },
+  {
+   "id": "S14",
+   "kind": "data_file",
+   "role": "Koch et al. 2007, ApJ 657, 241 (Leo I): VizieR VOTable export, member positions for the D-051 coverage check",
+   "url": "https://vizier.cfa.harvard.edu/viz-bin/votable?-source=J/ApJ/657/241&-out.all&-out.max=unlimited",
+   "file": "members/vizier/J_ApJ_657_241.vot",
+   "bytes": 31338,
+   "sha256": "e45d61a36b81283c13692021eb883114bc8913d39f5dca1311c4bd592a60c068",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "VizieR query export (Harvard mirror); the response is stamped with the request time, so the content hash from <RESOURCE is the check. CDS/VizieR terms of use apply; linked, not redistributed.",
+   "content_from": "<RESOURCE",
+   "content_sha256": "f89ee96d55416bba50195ceba7b79e7154daca09ee031700f8e0fa31f64e9a95",
+   "citation": "Koch et al. 2007, ApJ 657, 241 (Leo I) (VizieR export)",
+   "identifier": {
+    "vizier": "J/ApJ/657/241"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "CDS/VizieR terms of use (the export's rights_uri)",
+    "uri": "https://cds.unistra.fr/vizier-org/licences_vizier.html",
+    "checked_where": "The rights_uri in a VizieR VOTable export from the same mirror (J/AJ/134/566, 2026-11-24)",
+    "checked_on": "2026-11-24"
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/members/vizier/J_ApJ_657_241.vot"
+   ]
+  },
+  {
+   "id": "S15",
+   "kind": "data_file",
+   "role": "Battaglia et al. 2011, MNRAS 411, 1013 (Sextans members): VizieR VOTable export, member positions for the D-051 coverage check",
+   "url": "https://vizier.cfa.harvard.edu/viz-bin/votable?-source=J/MNRAS/411/1013&-out.all&-out.max=unlimited",
+   "file": "members/vizier/J_MNRAS_411_1013.vot",
+   "bytes": 36838,
+   "sha256": "fe85a4209d6369c386bfd7812af03fc92e08824c174fc38cae80cdee405760bc",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "VizieR query export (Harvard mirror); the response is stamped with the request time, so the content hash from <RESOURCE is the check. CDS/VizieR terms of use apply; linked, not redistributed.",
+   "content_from": "<RESOURCE",
+   "content_sha256": "23ac3856e5fd9004803aaca888a28c21c707dd25b107de357f6f6b43a7355ea7",
+   "citation": "Battaglia et al. 2011, MNRAS 411, 1013 (Sextans members) (VizieR export)",
+   "identifier": {
+    "vizier": "J/MNRAS/411/1013"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "CDS/VizieR terms of use (the export's rights_uri)",
+    "uri": "https://cds.unistra.fr/vizier-org/licences_vizier.html",
+    "checked_where": "The rights_uri in a VizieR VOTable export from the same mirror (J/AJ/134/566, 2026-11-24)",
+    "checked_on": "2026-11-24"
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/members/vizier/J_MNRAS_411_1013.vot"
+   ]
+  },
+  {
+   "id": "S16",
+   "kind": "data_file",
+   "role": "Tollerud et al. 2012, ApJ 752, 45, machine-readable Table 2 (SPLASH M31 dSph stars): member positions for the D-051 coverage check",
+   "url": "https://content.cld.iop.org/journals/0004-637X/752/1/45/revision1/apj430011t2_mrt.txt",
+   "file": "members/tollerud2012/apj430011t2_mrt.txt",
+   "bytes": 51178,
+   "sha256": "681c671183161fea3e999e0a728d627704e9b2cc02baa8722fd39c8fb7238842",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "AAS journal MRT; licence not read, linked not redistributed.",
+   "citation": "Tollerud, E. J., Beaton, R. L., Geha, M. C., et al. 2012, ApJ 752, 45, \"The SPLASH Survey: Spectroscopy of 15 M31 Dwarf Spheroidal Satellite Galaxies\" (machine-readable table)",
+   "identifier": {
+    "doi": "10.1088/0004-637X/752/1/45",
+    "ads_bibcode": "2012ApJ...752...45T"
+   },
+   "licence": {
+    "status": "none_stated",
+    "checked_where": "The machine-readable table itself (file header): no licence or copyright statement. The article page was not read: iopscience.iop.org cannot be reached from the build workspace.",
+    "checked_on": "2026-11-24"
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/members/tollerud2012/apj430011t2_mrt.txt"
+   ]
+  },
+  {
+   "id": "S17",
+   "kind": "data_file",
+   "role": "RC3, de Vaucouleurs et al. 1991 (VizieR VII/155): VOTable export of the 11 identified rows (by recno); magnitudes, radii, shapes and positions for 11 systems (D-053, D-056)",
+   "url": "https://vizier.cfa.harvard.edu/viz-bin/votable?-source=VII/155&-out.all&-out.max=unlimited&recno=1296,9368,852,630,762,809,19722,22478,43,6199,1041",
+   "mirrors": [
+    "https://vizier.cds.unistra.fr/viz-bin/votable?-source=VII/155&-out.all&-out.max=unlimited&recno=1296,9368,852,630,762,809,19722,22478,43,6199,1041",
+    "https://vizier.idia.ac.za/viz-bin/votable?-source=VII/155&-out.all&-out.max=unlimited&recno=1296,9368,852,630,762,809,19722,22478,43,6199,1041"
+   ],
+   "file": "members/vizier/VII_155.vot",
+   "bytes": 25256,
+   "sha256": "aeab59d7c519b0235db1308bcb58dfc53f23f9b02a3f3182526d44010b792a29",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "VizieR query export (Harvard mirror); content hash from <RESOURCE. CDS/VizieR terms of use apply; linked, not redistributed. The full-catalogue export (23,011 rows) timed out in CI; this export holds the same 11 rows, checked field by field against the full export on 2026-10-31 (no differences).",
+   "content_from": "<RESOURCE",
+   "content_sha256": "a5e40dd6fab2e6c4cf6b7d1915614357c85688735cb9ff81b29be01aaec27502",
+   "citation": "RC3, de Vaucouleurs et al. 1991 (VizieR VII/155) (VizieR export)",
+   "identifier": {
+    "vizier": "VII/155"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "CDS/VizieR terms of use (the export's rights_uri)",
+    "uri": "https://cds.unistra.fr/vizier-org/licences_vizier.html",
+    "checked_where": "The rights_uri in a VizieR VOTable export from the same mirror (J/AJ/134/566, 2026-11-24)",
+    "checked_on": "2026-11-24"
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/members/vizier/VII_155.vot"
+   ]
+  },
+  {
+   "id": "S18",
+   "kind": "data_file",
+   "role": "Putman et al. 2021, ApJ 913, 53, machine-readable Table 1 (dwarf galaxies within 2 Mpc: positions and HI parameters): the gas side (HI mass and limits)",
+   "url": "https://content.cld.iop.org/journals/0004-637X/913/1/53/revision2/apjabe391t1_mrt.txt",
+   "file": "gas/putman2021/apjabe391t1_mrt.txt",
+   "bytes": 19857,
+   "sha256": "444c6337bde863049b1e1d28d2cf26667c18b0b783bfa667b1e9f542f102637f",
+   "retrieved": "2026-10-31",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "AAS journal MRT; licence not read, linked not redistributed. The VizieR copy (Harvard mirror) returned 504 on 2026-10-31.",
+   "citation": "Putman et al. 2021, ApJ 913, 53 (machine-readable Table 1), as named in the package since v1",
+   "identifier": {
+    "ads_bibcode": "2021ApJ...913...53P"
+   },
+   "licence": {
+    "status": "none_stated",
+    "checked_where": "The machine-readable table itself (file header): no licence or copyright statement. The article page was not read: iopscience.iop.org cannot be reached from the build workspace.",
+    "checked_on": "2026-11-24"
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/gas/putman2021/apjabe391t1_mrt.txt"
+   ]
+  },
+  {
+   "id": "S19",
+   "kind": "data_file",
+   "role": "McLaughlin & van der Marel 2005, ApJS 161, 304 (VizieR J/ApJS/161/304/clusters): per-cluster population M/L_V and [Fe/H], the model table for the dwarf Upsilon_V interpolation (D-039, D-060). Same file and hash as aeg-d-gc-baumgardt/v1.",
+   "url": "https://vizier.idia.ac.za/viz-bin/votable?-source=J/ApJS/161/304/clusters&-out.all&-out.max=unlimited",
+   "mirrors": [
+    "https://vizier.cds.unistra.fr/viz-bin/votable?-source=J/ApJS/161/304/clusters&-out.all&-out.max=unlimited",
+    "https://vizier.cfa.harvard.edu/viz-bin/votable?-source=J/ApJS/161/304/clusters&-out.all&-out.max=unlimited"
+   ],
+   "file": "mvdm05/J_ApJS_161_304_clusters.vot",
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/mvdm05/J_ApJS_161_304_clusters.vot",
+    "data/packages/aeg-d-gc-baumgardt/v1/source/mvdm05/J_ApJS_161_304_clusters.vot"
+   ],
+   "bytes": 119148,
+   "sha256": "282ea6daaaa9da0b690c3efd1384a12e83da9e664e939649896aea8d006dc7ec",
+   "retrieved": "2026-10-30",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "VOTable export from the VizieR mirror at IDIA (South Africa), not the CDS original archive, which could not be reached (deviation #19). The file records its own request URL and date (2026-10-30T15:20 UTC); a new export will differ in those lines.",
+   "content_from": "<RESOURCE",
+   "content_sha256": "619b71cf61b537983574ee73f9b81e1e9733043b2a51d8b7cb482f2ed566d3dd",
+   "citation": "McLaughlin & van der Marel 2005, ApJS 161, 304 (VizieR J/ApJS/161/304/clusters) (VizieR export)",
+   "identifier": {
+    "vizier": "J/ApJS/161/304"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "CDS/VizieR terms of use (the export's rights_uri)",
+    "uri": "https://cds.unistra.fr/vizier-org/licences_vizier.html",
+    "checked_where": "The rights_uri in a VizieR VOTable export from the same mirror (J/AJ/134/566, 2026-11-24)",
+    "checked_on": "2026-11-24"
+   }
+  },
+  {
+   "id": "S20",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Battaglia 2011 MNRAS 411 1013)",
+   "url": "https://arxiv.org/pdf/1009.4857v2",
+   "file": "arxiv/1009.4857v2.pdf",
+   "bytes": 1293264,
+   "sha256": "7508057f0fae4289659b5e3e554ae06c44bdfce46318156234dffaf9e8243b83",
+   "retrieved": "2026-11-24",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Battaglia, G., Tolstoy, E., Helmi, A., et al. 2011, MNRAS 411, 1013, \"Study of the Sextans dwarf spheroidal galaxy from the DART CaII triplet survey\"",
+   "identifier": {
+    "doi": "10.1111/j.1365-2966.2010.17745.x",
+    "arxiv": "1009.4857v2",
+    "landing_url": "https://arxiv.org/abs/1009.4857v2"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1009.4857 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v2 (arXiv 1009.4857v2). First hashed 2026-11-24, from the version the reading records as read. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S21",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Battaglia2012MNRAS.424.1113B)",
+   "url": "https://arxiv.org/pdf/1205.2704v1",
+   "file": "arxiv/1205.2704v1.pdf",
+   "bytes": 4776966,
+   "sha256": "c31652eb1d113e5aa39a1c1c5c4e8c6b7bdce6425ef2fd4166b5fa0c731d1990",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Battaglia, G., Rejkuba, M., Tolstoy, E., et al. 2012, MNRAS 424, 1113, \"A wide-area view of the Phoenix dwarf galaxy from VLT/FORS imaging\"",
+   "identifier": {
+    "doi": "10.1111/j.1365-2966.2012.21286.x",
+    "arxiv": "1205.2704v1",
+    "landing_url": "https://arxiv.org/abs/1205.2704v1",
+    "ads_bibcode": "2012MNRAS.424.1113B"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1205.2704 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (1205.2704v1.pdf; arXiv 1205.2704v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S22",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Belokurov2007ApJ...654..897B)",
+   "url": "https://arxiv.org/pdf/astro-ph/0608448v1",
+   "file": "arxiv/astro-ph_0608448v1.pdf",
+   "bytes": 725581,
+   "sha256": "ec26b97781a08bc9c407edbb433f2a1d6bbc1e7ac5caca254eb28c828b10d49d",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Belokurov, V., Zucker, D. B., Evans, N. W., et al. 2007, ApJ 654, 897, \"Cats and Dogs, Hair and A Hero: A Quintet of New Milky Way Companions\"",
+   "identifier": {
+    "doi": "10.1086/509718",
+    "arxiv": "astro-ph/0608448v1",
+    "landing_url": "https://arxiv.org/abs/astro-ph/0608448v1",
+    "ads_bibcode": "2007ApJ...654..897B"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv licence 'assumed-1991-2003' (the licence arXiv assigns to submissions from 1991 to 2003)",
+    "uri": "http://arxiv.org/licenses/assumed-1991-2003/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/astro-ph/0608448 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv astro-ph/0608448v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S23",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Bernard 2009)",
+   "url": "https://arxiv.org/pdf/0904.4463v1",
+   "file": "arxiv/0904.4463v1.pdf",
+   "bytes": 2423357,
+   "sha256": "48354807f724ccdb427831829b2f74a8fea63d6f577c1f271346981f86a600d2",
+   "retrieved": "2026-11-24",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Bernard, E. J., Monelli, M., Gallart, C., et al. 2009, ApJ 699, 1742, \"The ACS LCID Project. I. Short-Period Variables in the Isolated Dwarf Spheroidal Galaxies Cetus & Tucana\"",
+   "identifier": {
+    "doi": "10.1088/0004-637X/699/2/1742",
+    "arxiv": "0904.4463v1",
+    "landing_url": "https://arxiv.org/abs/0904.4463v1",
+    "ads_bibcode": "2009ApJ...699.1742B"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/0904.4463 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Version v1 as recorded in mcconnachie2012_originals.csv. Hash first recorded in v1/reading/mcconnachie2012_originals.csv (retrieved 2026-11-24); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S24",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Bhardwaj2024AJ....167..247B)",
+   "url": "https://arxiv.org/pdf/2404.01394v1",
+   "file": "arxiv/2404.01394v1.pdf",
+   "bytes": 2161574,
+   "sha256": "94c8dcf3cf3834fcf97589916d5582c28ae4144f3e19586c174ecfb04b56fd78",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Bhardwaj, A., Rejkuba, M., Ngeow, C., et al. 2024, AJ 167, 247, \"Stellar Variability and Distance Indicators in the Near-infrared in Nearby Galaxies. I. RR Lyrae and Anomalous Cepheids in Draco dwarf spheroidal\"",
+   "identifier": {
+    "doi": "10.3847/1538-3881/ad38b6",
+    "arxiv": "2404.01394v1",
+    "landing_url": "https://arxiv.org/abs/2404.01394v1",
+    "ads_bibcode": "2024AJ....167..247B"
+   },
+   "licence": {
+    "status": "stated",
+    "spdx": "CC-BY-NC-ND-4.0",
+    "uri": "http://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2404.01394 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 2404.01394v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S25",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Bissonette2026arXiv260512810B)",
+   "url": "https://arxiv.org/pdf/2605.12810v2",
+   "file": "arxiv/2605.12810v2.pdf",
+   "bytes": 979030,
+   "sha256": "fd9a96f908aa1c28ffdff23d56b0bed3789f2e2255c050f33493370bfbbd51ca",
+   "retrieved": "2026-11-24",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": true,
+   "evidence_tier": 1,
+   "citation": "Bissonette, D., Ji, A. P., Simon, J. D., et al. 2026, arXiv:2605.12810, \"The Metallicity Distribution of the Ultra-Faint Dwarf Galaxy Segue 1\"",
+   "identifier": {
+    "doi": "10.33232/001c.172763",
+    "arxiv": "2605.12810v2",
+    "landing_url": "https://arxiv.org/abs/2605.12810v2",
+    "ads_bibcode": "2026arXiv260512810B"
+   },
+   "licence": {
+    "status": "stated",
+    "spdx": "CC-BY-4.0",
+    "uri": "http://creativecommons.org/licenses/by/4.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2605.12810 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v2 (arXiv 2605.12810v2). First hashed 2026-11-24, from the version the reading records as read. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S26",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Boettcher2013AJ....146...94B)",
+   "url": "https://arxiv.org/pdf/1308.2227v1",
+   "file": "arxiv/1308.2227v1.pdf",
+   "bytes": 571974,
+   "sha256": "ce6a8c6af48d170dcc37feb65dbe3e8724afd7e0c8ef6336cc719190a0845472",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Boettcher, E., Willman, B., Fadely, R., et al. 2013, AJ 146, 94, \"A Search for RR Lyrae Stars in Segue 2 and Segue 3\"",
+   "identifier": {
+    "doi": "10.1088/0004-6256/146/4/94",
+    "arxiv": "1308.2227v1",
+    "landing_url": "https://arxiv.org/abs/1308.2227v1",
+    "ads_bibcode": "2013AJ....146...94B"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1308.2227 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 1308.2227v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S27",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Bruce2023ApJ...950..167B)",
+   "url": "https://arxiv.org/pdf/2302.03708v1",
+   "file": "arxiv/2302.03708v1.pdf",
+   "bytes": 4007071,
+   "sha256": "372c914775a0d88e8a43d0aa41ec61230dc2e7d463dea4bd401597baf584e6e2",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Bruce, J., Li, T. S., Pace, A. B., et al. 2023, ApJ 950, 167, \"Spectroscopic analysis of Milky Way outer halo satellites: Aquarius II and Bootes II\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/acc943",
+    "arxiv": "2302.03708v1",
+    "landing_url": "https://arxiv.org/abs/2302.03708v1",
+    "ads_bibcode": "2023ApJ...950..167B"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2302.03708 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 2302.03708v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S28",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Carlin2017AJ....154..267C)",
+   "url": "https://arxiv.org/pdf/1710.06444v1",
+   "file": "arxiv/1710.06444v1.pdf",
+   "bytes": 2015282,
+   "sha256": "f7050199ca7fe737992a2929b905883f455aee61047d8993e1b7142c63a46cd5",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Carlin, J. L., Sand, D. J., Munoz, R. R., et al. 2017, AJ 154, 267, \"Deep Subaru Hyper Suprime-Cam observations of Milky Way satellites Columba I and Triangulum II\"",
+   "identifier": {
+    "doi": "10.3847/1538-3881/aa94d0",
+    "arxiv": "1710.06444v1",
+    "landing_url": "https://arxiv.org/abs/1710.06444v1",
+    "ads_bibcode": "2017AJ....154..267C"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1710.06444 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (1710.06444v1.pdf; arXiv 1710.06444v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S29",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Casey2025ApJ...984..148C)",
+   "url": "https://arxiv.org/pdf/2501.04772v2",
+   "file": "arxiv/2501.04772v2.pdf",
+   "bytes": 947775,
+   "sha256": "10d48154f38b9cfd6b4b0ccba4005971dbb4255a15c21c1611260d894039bc96",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Casey, Q. O., Mutlu-Pakdil, B., Sand, D. J., et al. 2025, ApJ 984, 148, \"Deep Photometric Observations of Ultra-Faint Milky Way Satellites Centaurus I and Eridanus IV\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/adc67e",
+    "arxiv": "2501.04772v2",
+    "landing_url": "https://arxiv.org/abs/2501.04772v2",
+    "ads_bibcode": "2025ApJ...984..148C"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2501.04772 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v2 (2501.04772v2.pdf; arXiv 2501.04772v2). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S30",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Cerny 2026 arXiv 2602.17652)",
+   "url": "https://arxiv.org/pdf/2602.17652v1",
+   "file": "arxiv/2602.17652v1.pdf",
+   "bytes": 5547390,
+   "sha256": "12a866e72b1e737d441df807b634e572592c951e334a00c9a4e4ce7ab252f5b1",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Cerny, W., Li, T. S., Pace, A. B., et al. 2026, arXiv:2602.17652, \"A Chemodynamical Census of the Milky Way's Ultra-Faint Compact Satellites. I. A First Population-Level Look at the Internal Kinematics and Metallicities of 19 Extremely-Low-Mass Halo Stellar Systems\"",
+   "identifier": {
+    "arxiv": "2602.17652v1",
+    "landing_url": "https://arxiv.org/abs/2602.17652v1",
+    "ads_bibcode": "2026arXiv260217652C"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2602.17652 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 2602.17652v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S31",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Cerny2021ApJ...920L..44C)",
+   "url": "https://arxiv.org/pdf/2107.09080v2",
+   "file": "arxiv/2107.09080v2.pdf",
+   "bytes": 1798062,
+   "sha256": "9c5971b99eb615a68b776d248fc7a4e2b2801f847a48a8cd54e5fc6b7a473bc7",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Cerny, W., Pace, A. B., Drlica-Wagner, A., et al. 2021, ApJ 920, L44, \"Eridanus IV: an Ultra-Faint Dwarf Galaxy Candidate Discovered in the DECam Local Volume Exploration Survey\"",
+   "identifier": {
+    "doi": "10.3847/2041-8213/ac2d9a",
+    "arxiv": "2107.09080v2",
+    "landing_url": "https://arxiv.org/abs/2107.09080v2",
+    "ads_bibcode": "2021ApJ...920L..44C"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2107.09080 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v2 (arXiv 2107.09080v2). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S32",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Cerny2023ApJ...942..111C)",
+   "url": "https://arxiv.org/pdf/2203.11788v1",
+   "file": "arxiv/2203.11788v1.pdf",
+   "bytes": 1532629,
+   "sha256": "1d33874a8f9a1d82e909acd360990a3844bfb0d3d8f05299fa50a7a509f19931",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Cerny, W., Simon, J. D., Li, T. S., et al. 2023, ApJ 942, 111, \"Pegasus IV: Discovery and Spectroscopic Confirmation of an Ultra-Faint Dwarf Galaxy in the Constellation Pegasus\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/aca1c3",
+    "arxiv": "2203.11788v1",
+    "landing_url": "https://arxiv.org/abs/2203.11788v1",
+    "ads_bibcode": "2023ApJ...942..111C"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2203.11788 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (2203.11788v1.pdf; arXiv 2203.11788v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S33",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Cerny2025ApJ...979..164C)",
+   "url": "https://arxiv.org/pdf/2410.00981v1",
+   "file": "arxiv/2410.00981v1.pdf",
+   "bytes": 1556951,
+   "sha256": "86c913db446dd49be329a4411515e73f1ad801e3a9d56f21e7ffa1cfda192230",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": true,
+   "evidence_tier": 1,
+   "citation": "Cerny, W., Chiti, A., Geha, M., et al. 2025, ApJ 979, 164, \"Discovery and Spectroscopic Confirmation of Aquarius III: A Low-Mass Milky Way Satellite Galaxy\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/ad8eba",
+    "arxiv": "2410.00981v1",
+    "landing_url": "https://arxiv.org/abs/2410.00981v1",
+    "ads_bibcode": "2025ApJ...979..164C"
+   },
+   "licence": {
+    "status": "stated",
+    "spdx": "CC-BY-4.0",
+    "uri": "http://creativecommons.org/licenses/by/4.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2410.00981 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (2410.00981v1.pdf; arXiv 2410.00981v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S34",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Charles2023MNRAS.521.3527C)",
+   "url": "https://arxiv.org/pdf/2209.15022v1",
+   "file": "arxiv/2209.15022v1.pdf",
+   "bytes": 8240648,
+   "sha256": "3f4b9343bb44edc0c910647f63eb087c88f9f54f421ee4c4873ceabd6a450ca9",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": true,
+   "evidence_tier": 1,
+   "citation": "Charles, E. J. E., Collins, M. L. M., Rich, R. M., et al. 2023, MNRAS 521, 3527, \"Andromeda XXV -- a dwarf galaxy with a low central dark matter density\"",
+   "identifier": {
+    "doi": "10.1093/mnras/stad752",
+    "arxiv": "2209.15022v1",
+    "landing_url": "https://arxiv.org/abs/2209.15022v1",
+    "ads_bibcode": "2023MNRAS.521.3527C"
+   },
+   "licence": {
+    "status": "stated",
+    "spdx": "CC-BY-4.0",
+    "uri": "http://creativecommons.org/licenses/by/4.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2209.15022 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 2209.15022v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S35",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Chiu 2026 ApJ 1002 55)",
+   "url": "https://arxiv.org/pdf/2602.20272v2",
+   "file": "arxiv/2602.20272v2.pdf",
+   "bytes": 5500598,
+   "sha256": "190961b6e05c112d1d8dc852e0fdf4cf4bc397d9b5aff10a6fee46255cedaa13",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Chiu, C., Geha, M., Cerny, W., et al. 2026, ApJ 1002, 55, \"Willman 1 Revisited: The Kinematics, Chemistry, and Orbital Properties of a Potentially-Disrupting Dwarf Galaxy\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/ae4a2a",
+    "arxiv": "2602.20272v2",
+    "landing_url": "https://arxiv.org/abs/2602.20272v2",
+    "ads_bibcode": "2026ApJ..1002...55C"
+   },
+   "licence": {
+    "status": "stated",
+    "spdx": "CC-BY-NC-ND-4.0",
+    "uri": "http://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2602.20272 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v2 (arXiv 2602.20272v2). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S36",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Cicuendez2018A&A...609A..53C)",
+   "url": "https://arxiv.org/pdf/1709.04519v1",
+   "file": "arxiv/1709.04519v1.pdf",
+   "bytes": 9589643,
+   "sha256": "c80fc61bf54cf5c9503b8cb5feb06c1d0d8f84defccca9c7e1fa5379c4945a07",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Cicuendez, L., Battaglia, G., Irwin, M., et al. 2018, A&A 609, A53, \"Tracing the stellar component of low surface brightness Milky Way Dwarf Galaxies to their outskirts I: Sextans\"",
+   "identifier": {
+    "doi": "10.1051/0004-6361/201731450",
+    "arxiv": "1709.04519v1",
+    "landing_url": "https://arxiv.org/abs/1709.04519v1",
+    "ads_bibcode": "2018A&A...609A..53C"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1709.04519 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (1709.04519v1.pdf; arXiv 1709.04519v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S37",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Collins 2013 ApJ 768 172)",
+   "url": "https://arxiv.org/pdf/1302.6590v1",
+   "file": "arxiv/1302.6590v1.pdf",
+   "bytes": 3872882,
+   "sha256": "b7409f660a0c972dcd714badf5a7d7f6e58755db24ddff3cf7806b6a8696b08f",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Collins, M. L. M., Chapman, S. C., Rich, R. M., et al. 2013, ApJ 768, 172, \"A kinematic study of the Andromeda dwarf spheroidal system\"",
+   "identifier": {
+    "doi": "10.1088/0004-637X/768/2/172",
+    "arxiv": "1302.6590v1",
+    "landing_url": "https://arxiv.org/abs/1302.6590v1",
+    "ads_bibcode": "2013ApJ...768..172C"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1302.6590 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 1302.6590v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S38",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Collins 2021 MNRAS 505 5686)",
+   "url": "https://arxiv.org/pdf/2102.11890v2",
+   "file": "arxiv/2102.11890v2.pdf",
+   "bytes": 1648599,
+   "sha256": "c8414365f2839349036b89aa7cb9d8c6882a2459bac0ff6263746e142eb2160d",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": true,
+   "evidence_tier": 1,
+   "citation": "Collins, M. L. M., Read, J. I., Ibata, R. A., et al. 2021, MNRAS 505, 5686, \"Andromeda XXI -- a dwarf galaxy in a low density dark matter halo\"",
+   "identifier": {
+    "doi": "10.1093/mnras/stab1624",
+    "arxiv": "2102.11890v2",
+    "landing_url": "https://arxiv.org/abs/2102.11890v2",
+    "ads_bibcode": "2021MNRAS.505.5686C"
+   },
+   "licence": {
+    "status": "stated",
+    "spdx": "CC-BY-4.0",
+    "uri": "http://creativecommons.org/licenses/by/4.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2102.11890 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v2 (arXiv 2102.11890v2). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S39",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Correnti 2009)",
+   "url": "https://arxiv.org/pdf/0904.3068v1",
+   "file": "arxiv/0904.3068v1.pdf",
+   "bytes": 422760,
+   "sha256": "cc0206ad33c5878f360cf1610e35c4831dd88b3f85ec378dfb480c460d31de22",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Correnti, M., Bellazzini, M. & Ferraro, F. R. 2009, MNRAS 397, L26, \"Red Clump stars in the Bootes III stellar system\"",
+   "identifier": {
+    "doi": "10.1111/j.1745-3933.2009.00677.x",
+    "arxiv": "0904.3068v1",
+    "landing_url": "https://arxiv.org/abs/0904.3068v1",
+    "ads_bibcode": "2009MNRAS.397L..26C"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/0904.3068 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (0904.3068v1.pdf; arXiv 0904.3068v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S40",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Cullinane2024ApJ...972..133C)",
+   "url": "https://arxiv.org/pdf/2407.04349v1",
+   "file": "arxiv/2407.04349v1.pdf",
+   "bytes": 6639033,
+   "sha256": "97a87531bfecabd26a2d9656b5536aee438ed79b70a0ab081daed7e49e84568c",
+   "retrieved": "2026-11-24",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Cullinane, L. R., Gilbert, K. M., Escala, I., et al. 2024, ApJ 972, 133, \"Elemental Abundances in And XIX From Coadded Spectra\"",
+   "identifier": {
+    "arxiv": "2407.04349v1",
+    "landing_url": "https://arxiv.org/abs/2407.04349v1",
+    "ads_bibcode": "2024ApJ...972..133C"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2407.04349 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 2407.04349v1). First hashed 2026-11-24, from the version the reading records as read. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S41",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (DallOra2006ApJ...653L.109D)",
+   "url": "https://arxiv.org/pdf/astro-ph/0611285v1",
+   "file": "arxiv/astro-ph_0611285v1.pdf",
+   "bytes": 302755,
+   "sha256": "d44ef15cf0a6df1dbfcd937df6c0e27c0a88a9b6495d0a4b828eab332223ac07",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Dall'Ora, M., Clementini, G., Kinemuchi, K., et al. 2006, ApJ 653, L109, \"Variable stars in the newly discovered Milky Way satellite in Bootes\"",
+   "identifier": {
+    "doi": "10.1086/510665",
+    "arxiv": "astro-ph/0611285v1",
+    "landing_url": "https://arxiv.org/abs/astro-ph/0611285v1",
+    "ads_bibcode": "2006ApJ...653L.109D"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv licence 'assumed-1991-2003' (the licence arXiv assigns to submissions from 1991 to 2003)",
+    "uri": "http://arxiv.org/licenses/assumed-1991-2003/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/astro-ph/0611285 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv astro-ph/0611285v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S42",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (DallOra2012ApJ...752...42D)",
+   "url": "https://arxiv.org/pdf/1203.5321v1",
+   "file": "arxiv/1203.5321v1.pdf",
+   "bytes": 684178,
+   "sha256": "d2cef10c35fa4be8bd51a547ad0608bc67ecfa40d5554dab586508e6cc3d0619",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Dall'Ora, M., Kinemuchi, K., Ripepi, V., et al. 2012, ApJ 752, 42, \"Stellar Archaeology in the Galactic halo with the Ultra-Faint Dwarfs: VI. Ursa Major II\"",
+   "identifier": {
+    "doi": "10.1088/0004-637X/752/1/42",
+    "arxiv": "1203.5321v1",
+    "landing_url": "https://arxiv.org/abs/1203.5321v1",
+    "ads_bibcode": "2012ApJ...752...42D"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1203.5321 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 1203.5321v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S43",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (de Jong 2008)",
+   "url": "https://arxiv.org/pdf/0801.4027v2",
+   "file": "arxiv/0801.4027v2.pdf",
+   "bytes": 395484,
+   "sha256": "0857e69d15ae335f4d26081c6c0156b03c27131ddc54c85fb3eb6a8ee4a238fd",
+   "retrieved": "2026-11-24",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "de Jong, J. T. A., Harris, J., Coleman, M. G., et al. 2008, ApJ 680, 1112, \"The structural properties and star formation history of Leo T from deep LBT photometry\"",
+   "identifier": {
+    "doi": "10.1086/587835",
+    "arxiv": "0801.4027v2",
+    "landing_url": "https://arxiv.org/abs/0801.4027v2",
+    "ads_bibcode": "2008ApJ...680.1112D"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv licence 'assumed-1991-2003' (the licence arXiv assigns to submissions from 1991 to 2003)",
+    "uri": "http://arxiv.org/licenses/assumed-1991-2003/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/0801.4027 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v2 (0801.4027v2). Hash first recorded in v1/reading/mcconnachie2012_originals.csv (retrieved 2026-11-24); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S44",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (DrlicaWagner2015ApJ...813..109D)",
+   "url": "https://arxiv.org/pdf/1508.03622v2",
+   "file": "arxiv/1508.03622v2.pdf",
+   "bytes": 4751583,
+   "sha256": "bba087ee73cd0056f2d44d7df3e4c5c0e3adcece05aaa57e46db7e2e0a12f630",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "The DES Collaboration, Drlica-Wagner, A., Bechtol, K., et al. 2015, ApJ 813, 109, \"Eight Ultra-faint Galaxy Candidates Discovered in Year Two of the Dark Energy Survey\"",
+   "identifier": {
+    "doi": "10.1088/0004-637X/813/2/109",
+    "arxiv": "1508.03622v2",
+    "landing_url": "https://arxiv.org/abs/1508.03622v2",
+    "ads_bibcode": "2015ApJ...813..109D"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1508.03622 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v2 (1508.03622v2.pdf; arXiv 1508.03622v2). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S45",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Fritz 2019 A&A 623 A129)",
+   "url": "https://arxiv.org/pdf/1805.07350v4",
+   "file": "arxiv/1805.07350v4.pdf",
+   "bytes": 1381383,
+   "sha256": "8ca4106b6b3e7b0a3d0844a7424a38aa8987d9c06bfafbc38707da5c72236565",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Fritz, T. K., Carrera, R., Battaglia, G., et al. 2019, A&A 623, A129, \"A Gaia DR 2 and VLT/FLAMES search for new satellites of the LMC\"",
+   "identifier": {
+    "doi": "10.1051/0004-6361/201833458",
+    "arxiv": "1805.07350v4",
+    "landing_url": "https://arxiv.org/abs/1805.07350v4",
+    "ads_bibcode": "2019A&A...623A.129F"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1805.07350 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v4 (arXiv 1805.07350v4). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S46",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Fu2024ApJ...975....2F)",
+   "url": "https://arxiv.org/pdf/2407.04698v1",
+   "file": "arxiv/2407.04698v1.pdf",
+   "bytes": 4032078,
+   "sha256": "7849a6109bc232e302ae9097fb90cabbbcf43283b4beddde6d2215a1b1c2a40f",
+   "retrieved": "2026-11-24",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": true,
+   "evidence_tier": 1,
+   "citation": "Fu, S. W., Weisz, D. R., Starkenburg, E., et al. 2024, ApJ 975, 2, \"Stellar Metallicities and Gradients in the Faint M31 Satellites Andromeda XVI and Andromeda XXVIII\"",
+   "identifier": {
+    "arxiv": "2407.04698v1",
+    "landing_url": "https://arxiv.org/abs/2407.04698v1",
+    "ads_bibcode": "2024ApJ...975....2F"
+   },
+   "licence": {
+    "status": "stated",
+    "spdx": "CC-BY-4.0",
+    "uri": "http://creativecommons.org/licenses/by/4.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2407.04698 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 2407.04698v1). First hashed 2026-11-24, from the version the reading records as read. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S47",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Garofalo2013ApJ...767...62G)",
+   "url": "https://arxiv.org/pdf/1302.3230v1",
+   "file": "arxiv/1302.3230v1.pdf",
+   "bytes": 978767,
+   "sha256": "0ca219bbde5b2a176169d115313edc6bf394457a07fc0cb67f4bba621075e125",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Garofalo, A., Cusano, F., Clementini, G., et al. 2013, ApJ 767, 62, \"Variable stars in the ultra-faint dwarf spheroidal galaxy Ursa Major I\"",
+   "identifier": {
+    "doi": "10.1088/0004-637X/767/1/62",
+    "arxiv": "1302.3230v1",
+    "landing_url": "https://arxiv.org/abs/1302.3230v1",
+    "ads_bibcode": "2013ApJ...767...62G"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1302.3230 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 1302.3230v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S48",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Garofalo2025A&A...695A..88G)",
+   "url": "https://arxiv.org/pdf/2410.12433v1",
+   "file": "arxiv/2410.12433v1.pdf",
+   "bytes": 6055257,
+   "sha256": "affea83842d4f6e3a7df181fef758bb5b40d96fdccd69890b37806ae48270450",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Garofalo, A., Clementini, G., Cusano, F., et al. 2025, A&A 695, A88, \"Give to Ursa Minor what is Ursa Minor's: an updated census of the RR Lyrae population in the Ursa Minor dwarf galaxy based on Gaia DR3\"",
+   "identifier": {
+    "doi": "10.1051/0004-6361/202452619",
+    "arxiv": "2410.12433v1",
+    "landing_url": "https://arxiv.org/abs/2410.12433v1",
+    "ads_bibcode": "2025A&A...695A..88G"
+   },
+   "licence": {
+    "status": "stated",
+    "spdx": "CC-BY-NC-ND-4.0",
+    "uri": "http://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2410.12433 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 2410.12433v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S49",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Geha 2026 ApJ 999 140)",
+   "url": "https://arxiv.org/pdf/2602.10200v2",
+   "file": "arxiv/2602.10200v2.pdf",
+   "bytes": 5116667,
+   "sha256": "12118dfd33cc5c042c7d79fb0daf18e23bf970794c6bbf6e46a9647e83302965",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Geha, M., Pelliccia, D., Prochaska, J. X., et al. 2026, ApJ 999, 140, \"The Keck/DEIMOS Stellar Archive: I. Uniform Velocities and Metallicities for 78 Milky Way Dwarf Galaxies and Globular Clusters\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/ae290d",
+    "arxiv": "2602.10200v2",
+    "landing_url": "https://arxiv.org/abs/2602.10200v2",
+    "ads_bibcode": "2026ApJ...999..140G"
+   },
+   "licence": {
+    "status": "stated",
+    "spdx": "CC-BY-NC-ND-4.0",
+    "uri": "http://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2602.10200 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v2 (arXiv 2602.10200v2). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S50",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Geha2026arXiv260210202G)",
+   "url": "https://arxiv.org/pdf/2602.10202v1",
+   "file": "arxiv/2602.10202v1.pdf",
+   "bytes": 693089,
+   "sha256": "1204e5135a2e99ae8498e2d3c5f1b840108ed4fbdffbf7c5477d765ca2fd6fc3",
+   "retrieved": "2026-11-24",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Geha, M. 2026, arXiv:2602.10202, \"The Keck/DEIMOS Stellar Archive: II. Dynamical Masses and Metallicities for a Uniform Sample of Milky Way Satellites\"",
+   "identifier": {
+    "arxiv": "2602.10202v1",
+    "landing_url": "https://arxiv.org/abs/2602.10202v1",
+    "ads_bibcode": "2026arXiv260210202G"
+   },
+   "licence": {
+    "status": "stated",
+    "spdx": "CC-BY-NC-ND-4.0",
+    "uri": "http://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2602.10202 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 2602.10202v1). First hashed 2026-11-24, from the version the reading records as read. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S51",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Greco2008ApJ...675L..73G)",
+   "url": "https://arxiv.org/pdf/0712.2241v1",
+   "file": "arxiv/0712.2241v1.pdf",
+   "bytes": 445481,
+   "sha256": "c2bb2d80e822c779a78c79a3e9cda69c6d40796bf411d64813fb2cfa18f5c47d",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Greco, C., Dall'Ora, M., Clementini, G., et al. 2008, ApJ 675, L73, \"On the newly discovered Canes Venatici II dSph galaxy\"",
+   "identifier": {
+    "doi": "10.1086/533585",
+    "arxiv": "0712.2241v1",
+    "landing_url": "https://arxiv.org/abs/0712.2241v1",
+    "ads_bibcode": "2008ApJ...675L..73G"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv licence 'assumed-1991-2003' (the licence arXiv assigns to submissions from 1991 to 2003)",
+    "uri": "http://arxiv.org/licenses/assumed-1991-2003/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/0712.2241 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 0712.2241v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S52",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Gregory 2019 MNRAS 485 2010)",
+   "url": "https://arxiv.org/pdf/1902.07228v2",
+   "file": "arxiv/1902.07228v2.pdf",
+   "bytes": 2279456,
+   "sha256": "30a451f8ae8804c37f7d7a94e3c9de9c2ecf64fc116351ba53a8164c332422ac",
+   "retrieved": "2026-11-24",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Gregory, A. L., Collins, M. L. M., Read, J. I., et al. 2019, MNRAS 485, 2010, \"Kinematics of the Tucana Dwarf Galaxy: An Unusually Dense Dwarf in the Local Group\"",
+   "identifier": {
+    "doi": "10.1093/mnras/stz518",
+    "arxiv": "1902.07228v2",
+    "landing_url": "https://arxiv.org/abs/1902.07228v2"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1902.07228 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v2 (arXiv 1902.07228v2). First hashed 2026-11-24, from the version the reading records as read. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S53",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Hansen 2024 ApJ 968 21)",
+   "url": "https://arxiv.org/pdf/2403.13060v1",
+   "file": "arxiv/2403.13060v1.pdf",
+   "bytes": 1981536,
+   "sha256": "ae08f8eaf45e6b0426f23d316c38cdd444d0ca2b796b16becccb48ce01850cdd",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": true,
+   "evidence_tier": 1,
+   "citation": "Hansen, T. T., Simon, J. D., Li, T. S., et al. 2024, ApJ 968, 21, \"Chemical Diversity on Small Scales -- Abundance Analysis of the Tucana V Ultra-Faint Dwarf Galaxy\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/ad3a52",
+    "arxiv": "2403.13060v1",
+    "landing_url": "https://arxiv.org/abs/2403.13060v1",
+    "ads_bibcode": "2024ApJ...968...21H"
+   },
+   "licence": {
+    "status": "stated",
+    "spdx": "CC-BY-4.0",
+    "uri": "http://creativecommons.org/licenses/by/4.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2403.13060 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 2403.13060v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S54",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Heiger 2024 ApJ 961 234)",
+   "url": "https://arxiv.org/pdf/2308.08602v1",
+   "file": "arxiv/2308.08602v1.pdf",
+   "bytes": 2462140,
+   "sha256": "8c71f883d9c1829dce95c2524adab3ec15f191e713725c3babe015a96afdc663",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Heiger, M. E., Li, T. S., Pace, A. B., et al. 2024, ApJ 961, 234, \"Reading Between the (Spectral) Lines: Magellan/IMACS spectroscopy of the Ultra-faint Dwarf Galaxies Eridanus IV and Centaurus I\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/ad0cf7",
+    "arxiv": "2308.08602v1",
+    "landing_url": "https://arxiv.org/abs/2308.08602v1",
+    "ads_bibcode": "2024ApJ...961..234H"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2308.08602 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 2308.08602v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S55",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Hendricks 2014 A&A 572 A82)",
+   "url": "https://arxiv.org/pdf/1408.5597v1",
+   "file": "arxiv/1408.5597v1.pdf",
+   "bytes": 2615397,
+   "sha256": "74fea1dbaed77cf0ef475751495485adf40fc9cea5dc06c9d121bacea17579a7",
+   "retrieved": "2026-11-24",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Hendricks, B., Koch, A., Walker, M., et al. 2014, A&A 572, A82, \"Insights from the Outskirts: Chemical and Dynamical Properties in the outer Parts of the Fornax Dwarf Spheroidal Galaxy\"",
+   "identifier": {
+    "doi": "10.1051/0004-6361/201424645",
+    "arxiv": "1408.5597v1",
+    "landing_url": "https://arxiv.org/abs/1408.5597v1"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1408.5597 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 1408.5597v1). First hashed 2026-11-24, from the version the reading records as read. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S56",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Higgs2021MNRAS.503..176H)",
+   "url": "https://arxiv.org/pdf/2101.03189v1",
+   "file": "arxiv/2101.03189v1.pdf",
+   "bytes": 8294881,
+   "sha256": "7776f4d15910ad575bbb66b9a5ca02b9e1039a262bee7989c0df96c3ec9a4f78",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Higgs, C. R., McConnachie, A. W., Annau, N., et al. 2021, MNRAS 503, 176, \"Solo dwarfs II: The stellar structure of isolated Local Group dwarf galaxies\"",
+   "identifier": {
+    "doi": "10.1093/mnras/stab002",
+    "arxiv": "2101.03189v1",
+    "landing_url": "https://arxiv.org/abs/2101.03189v1",
+    "ads_bibcode": "2021MNRAS.503..176H"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2101.03189 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (2101.03189v1.pdf; arXiv 2101.03189v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S57",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Ho 2012 ApJ 758 124)",
+   "url": "https://arxiv.org/pdf/1209.2116v1",
+   "file": "arxiv/1209.2116v1.pdf",
+   "bytes": 1339350,
+   "sha256": "87665337d1b096607800f3beda1d30af538a507b150f6cef3cabb84b3d089969",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Ho, N., Geha, M. C., Munoz, R. R., et al. 2012, ApJ 758, 124, \"Stellar Kinematics of the Andromeda II Dwarf Spheroidal Galaxy\"",
+   "identifier": {
+    "doi": "10.1088/0004-637X/758/2/124",
+    "arxiv": "1209.2116v1",
+    "landing_url": "https://arxiv.org/abs/1209.2116v1",
+    "ads_bibcode": "2012ApJ...758..124H"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1209.2116 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 1209.2116v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S58",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Jenkins2021ApJ...920...92J)",
+   "url": "https://arxiv.org/pdf/2101.00013v2",
+   "file": "arxiv/2101.00013v2.pdf",
+   "bytes": 4576144,
+   "sha256": "c7f28375a50c36442a62a5be4143e700314f9e6e6eb63420490601e9050bcf73",
+   "retrieved": "2026-11-24",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Jenkins, S., Li, T. S., Pace, A. B., et al. 2021, ApJ 920, 92, \"VLT Spectroscopy of Ultra-Faint Dwarf Galaxies. 1. Bo\\\"otes I, Leo IV, Leo V\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/ac1353",
+    "arxiv": "2101.00013v2",
+    "landing_url": "https://arxiv.org/abs/2101.00013v2",
+    "ads_bibcode": "2021ApJ...920...92J"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2101.00013 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v2 (arXiv 2101.00013v2). First hashed 2026-11-24, from the version the reading records as read. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S59",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Ji 2021 ApJ 921 32)",
+   "url": "https://arxiv.org/pdf/2106.12656v2",
+   "file": "arxiv/2106.12656v2.pdf",
+   "bytes": 2459558,
+   "sha256": "a0eb7c2ba1fafa740fdfd37cf8a2f9479b6cb0bc9972fea45ab6e264f27102ee",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Ji, A. P., Koposov, S. E., Li, T. S., et al. 2021, ApJ 921, 32, \"Kinematics of Antlia 2 and Crater 2 from The Southern Stellar Stream Spectroscopic Survey (S5)\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/ac1869",
+    "arxiv": "2106.12656v2",
+    "landing_url": "https://arxiv.org/abs/2106.12656v2",
+    "ads_bibcode": "2021ApJ...921...32J"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2106.12656 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v2 (2106.12656v2.pdf; arXiv 2106.12656v2). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S60",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Kacharov 2017 MNRAS 466 2006)",
+   "url": "https://arxiv.org/pdf/1612.01560v1",
+   "file": "arxiv/1612.01560v1.pdf",
+   "bytes": 3070617,
+   "sha256": "17af3c62705fed77494fef9479f4d3efaf1d121839d0d284926a7068b6211aea",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Kacharov, N., Battaglia, G., Rejkuba, M., et al. 2017, MNRAS 466, 2006, \"Prolate rotation and metallicity gradient in the transforming dwarf galaxy Phoenix\"",
+   "identifier": {
+    "doi": "10.1093/mnras/stw3188",
+    "arxiv": "1612.01560v1",
+    "landing_url": "https://arxiv.org/abs/1612.01560v1",
+    "ads_bibcode": "2017MNRAS.466.2006K"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1612.01560 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 1612.01560v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S61",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Kim2016ApJ...833...16K)",
+   "url": "https://arxiv.org/pdf/1608.04934v2",
+   "file": "arxiv/1608.04934v2.pdf",
+   "bytes": 1637565,
+   "sha256": "7e455ea76aac8c1ee5b0f5b314e49092f8a4e5a4f652676f55f4141201146644",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Kim, D., Jerjen, H., Geha, M., et al. 2016, ApJ 833, 16, \"Portrait of a Dark Horse: a Photometric and Spectroscopic Study of the Ultra-faint Milky Way Satellite Pegasus III\"",
+   "identifier": {
+    "doi": "10.3847/0004-637X/833/1/16",
+    "arxiv": "1608.04934v2",
+    "landing_url": "https://arxiv.org/abs/1608.04934v2",
+    "ads_bibcode": "2016ApJ...833...16K"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1608.04934 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v2 (arXiv 1608.04934v2). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S62",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Kirby 2013 ApJ 770 16)",
+   "url": "https://arxiv.org/pdf/1304.6080v3",
+   "file": "arxiv/1304.6080v3.pdf",
+   "bytes": 812442,
+   "sha256": "0bd36ff6905b0e4a2ba2e873171e703eb5979e676d4841e1254a826ac5e1138b",
+   "retrieved": "2026-11-24",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Kirby, E. N., Boylan-Kolchin, M., Cohen, J. G., et al. 2013, ApJ 770, 16, \"Segue 2: The Least Massive Galaxy\"",
+   "identifier": {
+    "doi": "10.1088/0004-637X/770/1/16",
+    "arxiv": "1304.6080v3",
+    "landing_url": "https://arxiv.org/abs/1304.6080v3"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1304.6080 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v3 (arXiv 1304.6080v3). First hashed 2026-11-24, from the version the reading records as read. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S63",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Kirby 2017 ApJ 838 83)",
+   "url": "https://arxiv.org/pdf/1703.02978v2",
+   "file": "arxiv/1703.02978v2.pdf",
+   "bytes": 491546,
+   "sha256": "9bd28245ff68c5895b979ba09798c72df683004e9867ed96d06a89de1ff04131",
+   "retrieved": "2026-11-24",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Kirby, E. N., Cohen, J. G., Simon, J. D., et al. 2017, ApJ 838, 83, \"Triangulum II: Not Especially Dense After All\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/aa6570",
+    "arxiv": "1703.02978v2",
+    "landing_url": "https://arxiv.org/abs/1703.02978v2"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1703.02978 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v2 (arXiv 1703.02978v2). First hashed 2026-11-24, from the version the reading records as read. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S64",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Kirby2013ApJ...779..102K)",
+   "url": "https://arxiv.org/pdf/1310.0814v2",
+   "file": "arxiv/1310.0814v2.pdf",
+   "bytes": 6453873,
+   "sha256": "851dcaab8eb5da6013ddad700ace2f188b3a93414e561093f8dffed7f0d18929",
+   "retrieved": "2026-11-24",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Kirby, E. N., Cohen, J. G., Guhathakurta, P., et al. 2013, ApJ 779, 102, \"The Universal Stellar Mass-Stellar Metallicity Relation for Dwarf Galaxies\"",
+   "identifier": {
+    "doi": "10.1088/0004-637X/779/2/102",
+    "arxiv": "1310.0814v2",
+    "landing_url": "https://arxiv.org/abs/1310.0814v2",
+    "ads_bibcode": "2013ApJ...779..102K"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1310.0814 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v2 (arXiv 1310.0814v2). First hashed 2026-11-24, from the version the reading records as read. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S65",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Kirby2015ApJ...810...56K)",
+   "url": "https://arxiv.org/pdf/1506.01021v2",
+   "file": "arxiv/1506.01021v2.pdf",
+   "bytes": 528657,
+   "sha256": "56b2dc40e716df20326d3a7dc483670607a46476d614731a8ea8052a242b8532",
+   "retrieved": "2026-11-24",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Kirby, E. N., Simon, J. D. & Cohen, J. G. 2015, ApJ 810, 56, \"Spectroscopic Confirmation of the Dwarf Galaxies Hydra II and Pisces II and the Globular Cluster Laevens 1\"",
+   "identifier": {
+    "doi": "10.1088/0004-637X/810/1/56",
+    "arxiv": "1506.01021v2",
+    "landing_url": "https://arxiv.org/abs/1506.01021v2",
+    "ads_bibcode": "2015ApJ...810...56K"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1506.01021 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v2 (arXiv 1506.01021v2). First hashed 2026-11-24, from the version the reading records as read. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S66",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Kirby2020AJ....159...46K)",
+   "url": "https://arxiv.org/pdf/1912.02186v1",
+   "file": "arxiv/1912.02186v1.pdf",
+   "bytes": 1574427,
+   "sha256": "88d8f1958602957cf7eab2ec93733236adb4082346f58d3c60906513b8c94bbf",
+   "retrieved": "2026-11-24",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Kirby, E. N., Gilbert, K. M., Escala, I., et al. 2020, AJ 159, 46, \"Elemental Abundances in M31: The Kinematics and Chemical Evolution of Dwarf Spheroidal Satellite Galaxies\"",
+   "identifier": {
+    "doi": "10.3847/1538-3881/ab5f0f",
+    "arxiv": "1912.02186v1",
+    "landing_url": "https://arxiv.org/abs/1912.02186v1",
+    "ads_bibcode": "2020AJ....159...46K"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1912.02186 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 1912.02186v1). First hashed 2026-11-24, from the version the reading records as read. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S67",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Koch 2007 ApJ 657 241)",
+   "url": "https://arxiv.org/pdf/astro-ph/0611372v1",
+   "file": "arxiv/astro-ph_0611372v1.pdf",
+   "bytes": 938825,
+   "sha256": "6fdfb5b5fcb066c885aba77624e5cbc3327d58baca67cf7dbd75c61000fa5a3c",
+   "retrieved": "2026-11-24",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Koch, A., Wilkinson, M. I., Kleyna, J. T., et al. 2007, ApJ 657, 241, \"Stellar kinematics and metallicities in the Leo I dwarf spheroidal galaxy -- wide field implications for galactic evolution\"",
+   "identifier": {
+    "doi": "10.1086/510879",
+    "arxiv": "astro-ph/0611372v1",
+    "landing_url": "https://arxiv.org/abs/astro-ph/0611372v1"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv licence 'assumed-1991-2003' (the licence arXiv assigns to submissions from 1991 to 2003)",
+    "uri": "http://arxiv.org/licenses/assumed-1991-2003/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/astro-ph/0611372 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv astro-ph/0611372v1). First hashed 2026-11-24, from the version the reading records as read. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S68",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Koposov 2018 MNRAS 479 5343)",
+   "url": "https://arxiv.org/pdf/1804.06430v1",
+   "file": "arxiv/1804.06430v1.pdf",
+   "bytes": 1930775,
+   "sha256": "30da0760373bea8c00f4caf4593a8c56c31f392e875c334dc1b35f29faea80b1",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Koposov, S. E., Walker, M. G., Belokurov, V., et al. 2018, MNRAS 479, 5343, \"Snake in the Clouds: A new nearby dwarf galaxy in the Magellanic bridge\"",
+   "identifier": {
+    "doi": "10.1093/mnras/sty1772",
+    "arxiv": "1804.06430v1",
+    "landing_url": "https://arxiv.org/abs/1804.06430v1",
+    "ads_bibcode": "2018MNRAS.479.5343K"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1804.06430 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (1804.06430v1.pdf; arXiv 1804.06430v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S69",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Kuehn2008ApJ...674L..81K)",
+   "url": "https://arxiv.org/pdf/0709.3281v2",
+   "file": "arxiv/0709.3281v2.pdf",
+   "bytes": 547154,
+   "sha256": "e13609d99e9c64dc54d0148f5ccb393f09516e3a52f4a1c957cd975e188b0c7d",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Kuehn, C., Kinemuchi, K., Ripepi, V., et al. 2008, ApJ 674, L81, \"Variable Stars in the Newly Discovered Milky Way Dwarf Spheroidal Satellite Canes Venatici I\"",
+   "identifier": {
+    "doi": "10.1086/529137",
+    "arxiv": "0709.3281v2",
+    "landing_url": "https://arxiv.org/abs/0709.3281v2",
+    "ads_bibcode": "2008ApJ...674L..81K"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv licence 'assumed-1991-2003' (the licence arXiv assigns to submissions from 1991 to 2003)",
+    "uri": "http://arxiv.org/licenses/assumed-1991-2003/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/0709.3281 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v2 (arXiv 0709.3281v2). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S70",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Kvasova 2024 ApJ 972 180)",
+   "url": "https://arxiv.org/pdf/2404.11804v4",
+   "file": "arxiv/2404.11804v4.pdf",
+   "bytes": 1738646,
+   "sha256": "4d6de221017ca2c0c89e0005a8b72a622e6782ffa3cfcbf4f0e99c91b0446504",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Kvasova, K., Kirby, E. N. & Beaton, R. L. 2024, ApJ 972, 180, \"Kinematics and metallicity of the dwarf spheroidal galaxy Andromeda XVIII\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/ad55f0",
+    "arxiv": "2404.11804v4",
+    "landing_url": "https://arxiv.org/abs/2404.11804v4",
+    "ads_bibcode": "2024ApJ...972..180K"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2404.11804 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v4 (arXiv 2404.11804v4). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S71",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Lee2009ApJ...703..692L)",
+   "url": "https://arxiv.org/pdf/0907.5102v1",
+   "file": "arxiv/0907.5102v1.pdf",
+   "bytes": 455653,
+   "sha256": "2a53bde3067d44f33935e7018ddf7c9162724529827460c2e7a7356142a04ab6",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Lee, M. G., Yuk, I., Park, H. S., et al. 2009, ApJ 703, 692, \"Star Formation History and Chemical Evolution of the Sextans Dwarf Spheroidal Galaxy\"",
+   "identifier": {
+    "doi": "10.1088/0004-637X/703/1/692",
+    "arxiv": "0907.5102v1",
+    "landing_url": "https://arxiv.org/abs/0907.5102v1",
+    "ads_bibcode": "2009ApJ...703..692L"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/0907.5102 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 0907.5102v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S72",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Li 2026 arXiv 2607.07803)",
+   "url": "https://arxiv.org/pdf/2607.07803v1",
+   "file": "arxiv/2607.07803v1.pdf",
+   "bytes": 5356881,
+   "sha256": "597f873fa9f08d128e2522c793fec04f6ddbc1a5fbcfb6014d57fb09962ae59b",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": true,
+   "evidence_tier": 1,
+   "citation": "Li, T. S., Erkal, D., Pace, A. B., et al. 2026, arXiv:2607.07803, \"Bo\\\"otes III is a Tidally Disrupting Ultra-Faint Dwarf Galaxy on an Eccentric Polar Orbit\"",
+   "identifier": {
+    "doi": "10.48550/arXiv.2607.07803",
+    "arxiv": "2607.07803v1",
+    "landing_url": "https://arxiv.org/abs/2607.07803v1",
+    "ads_bibcode": "2026arXiv260707803L"
+   },
+   "licence": {
+    "status": "stated",
+    "spdx": "CC-BY-4.0",
+    "uri": "http://creativecommons.org/licenses/by/4.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2607.07803 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 2607.07803v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S73",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Longeard2018MNRAS.480.2609L)",
+   "url": "https://arxiv.org/pdf/1807.10655v2",
+   "file": "arxiv/1807.10655v2.pdf",
+   "bytes": 2173668,
+   "sha256": "063ae6dda0b91fb31e89bf0316b3af43298da5d0405542d0cb2bd1b9b2fe9f7a",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Longeard, N., Martin, N., Starkenburg, E., et al. 2018, MNRAS 480, 2609, \"Pristine Dwarf-Galaxy Survey I: A detailed photometric and spectroscopic study of the very metal-poor Draco II satellite\"",
+   "identifier": {
+    "doi": "10.1093/mnras/sty1986",
+    "arxiv": "1807.10655v2",
+    "landing_url": "https://arxiv.org/abs/1807.10655v2",
+    "ads_bibcode": "2018MNRAS.480.2609L"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1807.10655 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v2 (1807.10655v2.pdf; arXiv 1807.10655v2). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S74",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Martin2016ApJ...833..167M)",
+   "url": "https://arxiv.org/pdf/1610.01158v1",
+   "file": "arxiv/1610.01158v1.pdf",
+   "bytes": 3195205,
+   "sha256": "3e1b65f13bf49523f21310987cf98e1c879e552c4fbc33356a61c704e56323e9",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Martin, N. F., Ibata, R. A., Lewis, G. F., et al. 2016, ApJ 833, 167, \"The PAndAS view of the Andromeda satellite system - II. Detailed properties of 23 M31 dwarf spheroidal galaxies\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/833/2/167",
+    "arxiv": "1610.01158v1",
+    "landing_url": "https://arxiv.org/abs/1610.01158v1",
+    "ads_bibcode": "2016ApJ...833..167M"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1610.01158 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (1610.01158v1.pdf; arXiv 1610.01158v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S75",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (MartinezVazquez2015MNRAS.454.1509M)",
+   "url": "https://arxiv.org/pdf/1508.06942v1",
+   "file": "arxiv/1508.06942v1.pdf",
+   "bytes": 980500,
+   "sha256": "a4909d417a02fb1aa53b7cde50f614bd169a3276d2afb6da5cab58660c9bd9fd",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Martínez-Vázquez, C. E., Monelli, M., Bono, G., et al. 2015, MNRAS 454, 1509, \"Variable Stars in Local Group Galaxies. I: Tracing the Early Chemical Enrichment and Radial Gradients in the Sculptor dSph with RR Lyrae Stars\"",
+   "identifier": {
+    "doi": "10.1093/mnras/stv2014",
+    "arxiv": "1508.06942v1",
+    "landing_url": "https://arxiv.org/abs/1508.06942v1",
+    "ads_bibcode": "2015MNRAS.454.1509M"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1508.06942 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 1508.06942v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S76",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (MartinezVazquez2017ApJ...850..137M)",
+   "url": "https://arxiv.org/pdf/1710.09038v1",
+   "file": "arxiv/1710.09038v1.pdf",
+   "bytes": 4484583,
+   "sha256": "8bcd2f412058bc7b29e2fe0fbb37822db1f1c9ca2a1ce12259293207d9002069",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Martínez-Vázquez, C. E., Monelli, M., Bernard, E. J., et al. 2017, ApJ 850, 137, \"The ISLAnds Project III: Variable Stars in Six Andromeda Dwarf Spheroidal Galaxies\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/aa9381",
+    "arxiv": "1710.09038v1",
+    "landing_url": "https://arxiv.org/abs/1710.09038v1",
+    "ads_bibcode": "2017ApJ...850..137M"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1710.09038 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 1710.09038v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S77",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (McConnachie 2005)",
+   "url": "https://arxiv.org/pdf/astro-ph/0410489v1",
+   "file": "arxiv/astro-ph_0410489v1.pdf",
+   "bytes": 397477,
+   "sha256": "71e7d6a8ed0b40ab1af63dab41a3079c2e7e164dbd16558d816ba49d96e35f68",
+   "retrieved": "2026-11-24",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "McConnachie, A. W., Irwin, M. J., Ferguson, A. M. N., et al. 2005, MNRAS 356, 979, \"Distances and Metallicities for 17 Local Group Galaxies\"",
+   "identifier": {
+    "doi": "10.1111/j.1365-2966.2004.08514.x",
+    "arxiv": "astro-ph/0410489v1",
+    "landing_url": "https://arxiv.org/abs/astro-ph/0410489v1",
+    "ads_bibcode": "2005MNRAS.356..979M"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv licence 'assumed-1991-2003' (the licence arXiv assigns to submissions from 1991 to 2003)",
+    "uri": "http://arxiv.org/licenses/assumed-1991-2003/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/astro-ph/0410489 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (astro-ph/0410489v1). Hash first recorded in v1/reading/mcconnachie2012_originals.csv (retrieved 2026-11-24); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S78",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (McConnachie2006MNRAS.365.1263M)",
+   "url": "https://arxiv.org/pdf/astro-ph/0511004v1",
+   "file": "arxiv/astro-ph_0511004v1.pdf",
+   "bytes": 1817770,
+   "sha256": "8165afbd706df4e4bb6f44de4f57680d2e425e9bf806308d264c3b51721d571e",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "McConnachie, A. & Irwin, M. 2006, MNRAS 365, 1263, \"Structural parameters for the M31 dwarf spheroidals\"",
+   "identifier": {
+    "doi": "10.1111/j.1365-2966.2005.09806.x",
+    "arxiv": "astro-ph/0511004v1",
+    "landing_url": "https://arxiv.org/abs/astro-ph/0511004v1",
+    "ads_bibcode": "2006MNRAS.365.1263M"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv licence 'assumed-1991-2003' (the licence arXiv assigns to submissions from 1991 to 2003)",
+    "uri": "http://arxiv.org/licenses/assumed-1991-2003/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/astro-ph/0511004 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv astro-ph/0511004v1; astro-ph/0511004v1; astro-ph_0511004v1.pdf). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S79",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Medina 2018)",
+   "url": "https://arxiv.org/pdf/1802.01581v1",
+   "file": "arxiv/1802.01581v1.pdf",
+   "bytes": 7075081,
+   "sha256": "e0623450912758e1a2699f6657006644a587d159c641f612f701985caf9eb390",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Medina, G., Muñoz, R., Vivas, K., et al. 2018, ApJ 855, 43, \"Discovery of distant RR Lyrae stars in the Milky Way using DECam\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/aaad02",
+    "arxiv": "1802.01581v1",
+    "landing_url": "https://arxiv.org/abs/1802.01581v1",
+    "ads_bibcode": "2018ApJ...855...43M"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1802.01581 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (1802.01581v1; arXiv 1802.01581v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S80",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Moskowitz2020ApJ...892...27M)",
+   "url": "https://arxiv.org/pdf/1910.10134v3",
+   "file": "arxiv/1910.10134v3.pdf",
+   "bytes": 2751681,
+   "sha256": "dbf70ab730ae647f040db75ae613b787bb6a8012ba2e4eb76df86cfc5ea279e2",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Moskowitz, A. G. & Walker, M. G. 2020, ApJ 892, 27, \"Stellar Density Profiles of Dwarf Spheroidal Galaxies\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/ab7459",
+    "arxiv": "1910.10134v3",
+    "landing_url": "https://arxiv.org/abs/1910.10134v3",
+    "ads_bibcode": "2020ApJ...892...27M"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1910.10134 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v3 (1910.10134v3.pdf; arXiv 1910.10134v3). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S81",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Munoz2018ApJ...860...66M)",
+   "url": "https://arxiv.org/pdf/1806.06891v1",
+   "file": "arxiv/1806.06891v1.pdf",
+   "bytes": 9155816,
+   "sha256": "65fec5fddd8de9a3419fa11a79120e329170e3d7da96bf4327acd96eee7ce611",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Munoz, R. R., Cote, P., Santana, F. A., et al. 2018, ApJ 860, 66, \"A MegaCam Survey of Outer Halo Satellites. III. Photometric and Structural Parameters\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/aac16b",
+    "arxiv": "1806.06891v1",
+    "landing_url": "https://arxiv.org/abs/1806.06891v1",
+    "ads_bibcode": "2018ApJ...860...66M"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1806.06891 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (1806.06891v1; 1806.06891v1.pdf; arXiv 1806.06891v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S82",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Musella2009ApJ...695L..83M)",
+   "url": "https://arxiv.org/pdf/0902.4230v1",
+   "file": "arxiv/0902.4230v1.pdf",
+   "bytes": 690480,
+   "sha256": "9d8f9a3e77f9ff4ffce8a646c1cde950b1f2ab882d36843029f944e999743bbd",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Musella, I., Ripepi, V., Clementini, G., et al. 2009, ApJ 695, L83, \"Pulsating Variable Stars in the Coma Berenices dwarf spheroidal galaxy\"",
+   "identifier": {
+    "doi": "10.1088/0004-637X/695/1/L83",
+    "arxiv": "0902.4230v1",
+    "landing_url": "https://arxiv.org/abs/0902.4230v1",
+    "ads_bibcode": "2009ApJ...695L..83M"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/0902.4230 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 0902.4230v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S83",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (MutluPakdil2018ApJ...863...25M)",
+   "url": "https://arxiv.org/pdf/1804.08627v2",
+   "file": "arxiv/1804.08627v2.pdf",
+   "bytes": 1802903,
+   "sha256": "f29216a926009b79dd001e9365eeeab6eea60ec17735d240774ef3bbfcb39013",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Mutlu-Pakdil, B., Sand, D. J., Carlin, J. L., et al. 2018, ApJ 863, 25, \"A Deeper Look at the New Milky Way Satellites: Sagittarius II, Reticulum II, Phoenix II, and Tucana III\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/aacd0e",
+    "arxiv": "1804.08627v2",
+    "landing_url": "https://arxiv.org/abs/1804.08627v2",
+    "ads_bibcode": "2018ApJ...863...25M"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1804.08627 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v2 (1804.08627v2.pdf; arXiv 1804.08627v2). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S84",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (MutluPakdil2020ApJ...902..106M)",
+   "url": "https://arxiv.org/pdf/2007.11589v1",
+   "file": "arxiv/2007.11589v1.pdf",
+   "bytes": 2711928,
+   "sha256": "4bb2ee627f85e292298ee75e22121ad7140234e23ae89ac69c0f7af9c6e1e275",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Mutlu-Pakdil, B., Sand, D. J., Crnojević, D., et al. 2020, ApJ 902, 106, \"The Elusive Distance Gradient in the Ultra-Faint Dwarf Galaxy Hercules: A Combined Hubble Space Telescope and Gaia View\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/abb40b",
+    "arxiv": "2007.11589v1",
+    "landing_url": "https://arxiv.org/abs/2007.11589v1",
+    "ads_bibcode": "2020ApJ...902..106M"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2007.11589 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 2007.11589v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S85",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Oakes2022ApJ...929..116O)",
+   "url": "https://arxiv.org/pdf/2204.09699v2",
+   "file": "arxiv/2204.09699v2.pdf",
+   "bytes": 2520500,
+   "sha256": "ceda2aee038ef23ff6df83a9535c03054f1c35bced3a0e9ed3d7744ba0a2b928",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Oakes, E. K., Hoyt, T. J., Freedman, W. L., et al. 2022, ApJ 929, 116, \"Distances to Local Group Galaxies via Population II, Stellar Distance Indicators. II. The Fornax Dwarf Spheroidal\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/ac5b07",
+    "arxiv": "2204.09699v2",
+    "landing_url": "https://arxiv.org/abs/2204.09699v2",
+    "ads_bibcode": "2022ApJ...929..116O"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2204.09699 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v2 (arXiv 2204.09699v2). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S86",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Ou 2024 ApJ 966 33)",
+   "url": "https://arxiv.org/pdf/2403.00921v1",
+   "file": "arxiv/2403.00921v1.pdf",
+   "bytes": 1930520,
+   "sha256": "4181a5ef1efa39c30c55c70b9c058869072d6543537ff2cbe39b80341e7e4390",
+   "retrieved": "2026-11-24",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Ou, X., Chiti, A., Shipp, N., et al. 2024, ApJ 966, 33, \"Signatures of tidal disruption of the Hercules ultra-faint dwarf galaxy\"",
+   "identifier": {
+    "arxiv": "2403.00921v1",
+    "landing_url": "https://arxiv.org/abs/2403.00921v1"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2403.00921 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 2403.00921v1). First hashed 2026-11-24, from the version the reading records as read. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S87",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Richardson2011ApJ...732...76R)",
+   "url": "https://arxiv.org/pdf/1102.2902v1",
+   "file": "arxiv/1102.2902v1.pdf",
+   "bytes": 634290,
+   "sha256": "5ca5966bcbf9fe1cf5214078135eeb662671d41a3f856bd55f5a2414a9bee05e",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Richardson, J. C., Irwin, M., McConnachie, A. W., et al. 2011, ApJ 732, 76, \"PAndAS' progeny: extending the M31 dwarf galaxy cabal\"",
+   "identifier": {
+    "doi": "10.1088/0004-637X/732/2/76",
+    "arxiv": "1102.2902v1",
+    "landing_url": "https://arxiv.org/abs/1102.2902v1",
+    "ads_bibcode": "2011ApJ...732...76R"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1102.2902 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (1102.2902v1.pdf; arXiv 1102.2902v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S88",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Richstein2022ApJ...933..217R)",
+   "url": "https://arxiv.org/pdf/2204.01917v2",
+   "file": "arxiv/2204.01917v2.pdf",
+   "bytes": 7521852,
+   "sha256": "b8295750c8124c3356a4e048e543feb168435d5e1f47c6b9f6c726112d5fe056",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": true,
+   "evidence_tier": 1,
+   "citation": "Richstein, H., Patel, E., Kallivayalil, N., et al. 2022, ApJ 933, 217, \"Structural parameters and possible association of the Ultra-Faint Dwarfs Pegasus III and Pisces II from deep Hubble Space Telescope photometry\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/ac7226",
+    "arxiv": "2204.01917v2",
+    "landing_url": "https://arxiv.org/abs/2204.01917v2",
+    "ads_bibcode": "2022ApJ...933..217R"
+   },
+   "licence": {
+    "status": "stated",
+    "spdx": "CC-BY-4.0",
+    "uri": "http://creativecommons.org/licenses/by/4.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2204.01917 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v2 (2204.01917v2.pdf; arXiv 2204.01917v2). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S89",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Richstein2024ApJ...967...72R)",
+   "url": "https://arxiv.org/pdf/2402.08731v1",
+   "file": "arxiv/2402.08731v1.pdf",
+   "bytes": 11468427,
+   "sha256": "2ea4f20769afbc80364545ea231e0576f8272e1606e531a470e3cb768d5df4d7",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": true,
+   "evidence_tier": 1,
+   "citation": "Richstein, H., Kallivayalil, N., Simon, J. D., et al. 2024, ApJ 967, 72, \"Deep Hubble Space Telescope Photometry of LMC and Milky Way Ultra-Faint Dwarfs: A careful look into the magnitude-size relation\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/ad393c",
+    "arxiv": "2402.08731v1",
+    "landing_url": "https://arxiv.org/abs/2402.08731v1",
+    "ads_bibcode": "2024ApJ...967...72R"
+   },
+   "licence": {
+    "status": "stated",
+    "spdx": "CC-BY-4.0",
+    "uri": "http://creativecommons.org/licenses/by/4.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2402.08731 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (2402.08731v1.pdf; arXiv 2402.08731v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S90",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Sand2012ApJ...756...79S)",
+   "url": "https://arxiv.org/pdf/1111.6608v2",
+   "file": "arxiv/1111.6608v2.pdf",
+   "bytes": 1245750,
+   "sha256": "c4f4153aff67c5fa721e33bddaf0fd2cdb9576d3489d225e3af20586fd4f290f",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Sand, D. J., Strader, J., Willman, B., et al. 2012, ApJ 756, 79, \"Tidal Signatures in the Faintest Milky Way Satellites: The Detailed Properties of Leo V, Pisces II and Canes Venatici II\"",
+   "identifier": {
+    "doi": "10.1088/0004-637X/756/1/79",
+    "arxiv": "1111.6608v2",
+    "landing_url": "https://arxiv.org/abs/1111.6608v2",
+    "ads_bibcode": "2012ApJ...756...79S"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1111.6608 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v2 (arXiv 1111.6608v2). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S91",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Sandford 2026 ApJ 998 47)",
+   "url": "https://arxiv.org/pdf/2509.02546v1",
+   "file": "arxiv/2509.02546v1.pdf",
+   "bytes": 6006369,
+   "sha256": "4c4d3762a93b05b0e7a91b87e38a49c75b37c0a550c04537b56458728592320f",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": true,
+   "evidence_tier": 1,
+   "citation": "Sandford, N. R., Li, T. S., Koposov, S. E., et al. 2026, ApJ 998, 47, \"Chemodynamics of Bo\\\"otesI with $S^{5}$: Revised Velocity Gradient, Dark Matter Density, and Galactic Chemical Evolution Constraints\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/ae2fe5",
+    "arxiv": "2509.02546v1",
+    "landing_url": "https://arxiv.org/abs/2509.02546v1",
+    "ads_bibcode": "2026ApJ...998...47S"
+   },
+   "licence": {
+    "status": "stated",
+    "spdx": "CC-BY-4.0",
+    "uri": "http://creativecommons.org/licenses/by/4.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2509.02546 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 2509.02546v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S92",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Saviane 1996)",
+   "url": "https://arxiv.org/pdf/astro-ph/9601165v2",
+   "file": "arxiv/astro-ph_9601165v2.pdf",
+   "bytes": 378467,
+   "sha256": "a00ce53f0564da44f12c5819ec2913e6f081d3f82424df4647abf4c0acf7d528",
+   "retrieved": "2026-11-24",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Saviane, I., Held, E. V. & Piotto, G. 1996, A&A 315, 40, \"CCD photometry of the Tucana dwarf galaxy\"",
+   "identifier": {
+    "arxiv": "astro-ph/9601165v2",
+    "landing_url": "https://arxiv.org/abs/astro-ph/9601165v2",
+    "ads_bibcode": "1996A&A...315...40S"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv licence 'assumed-1991-2003' (the licence arXiv assigns to submissions from 1991 to 2003)",
+    "uri": "http://arxiv.org/licenses/assumed-1991-2003/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/astro-ph/9601165 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Version v2 as recorded in mcconnachie2012_originals.csv. Hash first recorded in v1/reading/mcconnachie2012_originals.csv (retrieved 2026-11-24); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S93",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Savino2022ApJ...938..101S)",
+   "url": "https://arxiv.org/pdf/2206.02801v2",
+   "file": "arxiv/2206.02801v2.pdf",
+   "bytes": 3105201,
+   "sha256": "2af0813f1207067064c28d16d05980c85b111f7eead0d150a6375c1c21f78c86",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Savino, A., Weisz, D. R., Skillman, E. D., et al. 2022, ApJ 938, 101, \"The Hubble Space Telescope Survey of M31 Satellite Galaxies I. RR Lyrae-based Distances and Refined 3D Geometric Structure\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/ac91cb",
+    "arxiv": "2206.02801v2",
+    "landing_url": "https://arxiv.org/abs/2206.02801v2",
+    "ads_bibcode": "2022ApJ...938..101S"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2206.02801 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v2 (arXiv 2206.02801v2). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S94",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Simon 2011 ApJ 733 46)",
+   "url": "https://arxiv.org/pdf/1007.4198v3",
+   "file": "arxiv/1007.4198v3.pdf",
+   "bytes": 1189886,
+   "sha256": "6da8811dd67a76bc011c97731bba88fe127e7b4407d2262a1609a7b8d94d6de9",
+   "retrieved": "2026-11-24",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Simon, J. D., Geha, M., Minor, Q. E., et al. 2011, ApJ 733, 46, \"A Complete Spectroscopic Survey of the Milky Way Satellite Segue 1: The Darkest Galaxy\"",
+   "identifier": {
+    "doi": "10.1088/0004-637X/733/1/46",
+    "arxiv": "1007.4198v3",
+    "landing_url": "https://arxiv.org/abs/1007.4198v3"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1007.4198 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v3 (arXiv 1007.4198v3). First hashed 2026-11-24, from the version the reading records as read. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S95",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Simon2020ApJ...892..137S)",
+   "url": "https://arxiv.org/pdf/1911.08493v2",
+   "file": "arxiv/1911.08493v2.pdf",
+   "bytes": 2127327,
+   "sha256": "32c880da304d046db68b381a11085baaf5e1495d94970fb11c2ece3fdb734dba",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Simon, J. D., Li, T. S., Erkal, D., et al. 2020, ApJ 892, 137, \"Birds of a Feather? Magellan/IMACS Spectroscopy of the Ultra-Faint Satellites Grus II, Tucana IV, and Tucana V\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/ab7ccb",
+    "arxiv": "1911.08493v2",
+    "landing_url": "https://arxiv.org/abs/1911.08493v2",
+    "ads_bibcode": "2020ApJ...892..137S"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1911.08493 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v2 (1911.08493v2; 1911.08493v2.pdf; arXiv 1911.08493v2). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S96",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Slater2015ApJ...806..230S)",
+   "url": "https://arxiv.org/pdf/1505.02161v1",
+   "file": "arxiv/1505.02161v1.pdf",
+   "bytes": 3414196,
+   "sha256": "caceefe16109d2e4e345fdd4d8515bc8cc72ee98f8384a2bdcda41aca4173ba9",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Slater, C. T., Bell, E. F., Martin, N. F., et al. 2015, ApJ 806, 230, \"A Deep Study of the Dwarf Satellites Andromeda XXVIII & Andromeda XXIX\"",
+   "identifier": {
+    "doi": "10.1088/0004-637X/806/2/230",
+    "arxiv": "1505.02161v1",
+    "landing_url": "https://arxiv.org/abs/1505.02161v1",
+    "ads_bibcode": "2015ApJ...806..230S"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1505.02161 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (1505.02161v1.pdf; arXiv 1505.02161v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S97",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Spencer 2017 ApJ 836 202)",
+   "url": "https://arxiv.org/pdf/1702.08836v1",
+   "file": "arxiv/1702.08836v1.pdf",
+   "bytes": 3692540,
+   "sha256": "6d9482627bf41800cf1a32c895498ba2315d1edd3c663725ab1f7bbfc289bd9d",
+   "retrieved": "2026-11-24",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Spencer, M., Mateo, M., Walker, M., et al. 2017, ApJ 836, 202, \"A multi-epoch kinematic study of the remote dwarf spheroidal galaxy Leo II\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/836/2/202",
+    "arxiv": "1702.08836v1",
+    "landing_url": "https://arxiv.org/abs/1702.08836v1"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1702.08836 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 1702.08836v1). First hashed 2026-11-24, from the version the reading records as read. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S98",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Stetson 2014)",
+   "url": "https://arxiv.org/pdf/1406.6704v2",
+   "file": "arxiv/1406.6704v2.pdf",
+   "bytes": 3107534,
+   "sha256": "4f22b136e8ea452419e7c01f43805857e949904433d1709e465b8230dd809bc7",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Stetson, P. B., Fiorentino, G., Bono, G., et al. 2014, PASP 126, 616, \"Homogeneous Photometry VI: Variable Stars in the Leo I Dwarf Spheroidal Galaxy\"",
+   "identifier": {
+    "doi": "10.1086/677352",
+    "arxiv": "1406.6704v2",
+    "landing_url": "https://arxiv.org/abs/1406.6704v2",
+    "ads_bibcode": "2014PASP..126..616S"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1406.6704 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v2 (1406.6704v2; arXiv 1406.6704v2). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S99",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Taibi2020A&A...635A.152T)",
+   "url": "https://arxiv.org/pdf/2001.11410v1",
+   "file": "arxiv/2001.11410v1.pdf",
+   "bytes": 1341375,
+   "sha256": "171e8b2d5b552f75d414e79c42e4518a913264b5a384628cca597ce9d048aa3b",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Taibi, S., Battaglia, G., Rejkuba, M., et al. 2020, A&A 635, A152, \"The Tucana dwarf spheroidal galaxy: not such a massive failure after all\"",
+   "identifier": {
+    "doi": "10.1051/0004-6361/201937240",
+    "arxiv": "2001.11410v1",
+    "landing_url": "https://arxiv.org/abs/2001.11410v1",
+    "ads_bibcode": "2020A&A...635A.152T"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2001.11410 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 2001.11410v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S100",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Tan2025ApJ...979..176T)",
+   "url": "https://arxiv.org/pdf/2408.00865v3",
+   "file": "arxiv/2408.00865v3.pdf",
+   "bytes": 1415611,
+   "sha256": "cb51e23289cecdb0ae7b9bcad16e19ca5ac974752f653f5a9197e13d816d9c42",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": true,
+   "evidence_tier": 1,
+   "citation": "Tan, C. Y., Cerny, W., Drlica-Wagner, A., et al. 2025, ApJ 979, 176, \"A Pride of Satellites in the Constellation Leo? Discovery of the Leo VI Milky Way Satellite Galaxy with DELVE Early Data Release 3\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/ad9b0c",
+    "arxiv": "2408.00865v3",
+    "landing_url": "https://arxiv.org/abs/2408.00865v3",
+    "ads_bibcode": "2025ApJ...979..176T"
+   },
+   "licence": {
+    "status": "stated",
+    "spdx": "CC-BY-4.0",
+    "uri": "http://creativecommons.org/licenses/by/4.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2408.00865 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v3 (2408.00865v3.pdf; arXiv 2408.00865v3). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S101",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Tollerud 2012 ApJ 752 45)",
+   "url": "https://arxiv.org/pdf/1112.1067v3",
+   "file": "arxiv/1112.1067v3.pdf",
+   "bytes": 13242283,
+   "sha256": "ea2bc5b4054c6f7c99b9797d901aa82d7c0e99678d09abd3e6851c0d56b21f9d",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Tollerud, E. J., Beaton, R. L., Geha, M. C., et al. 2012, ApJ 752, 45, \"The SPLASH Survey: Spectroscopy of 15 M31 Dwarf Spheroidal Satellite Galaxies\"",
+   "identifier": {
+    "doi": "10.1088/0004-637X/752/1/45",
+    "arxiv": "1112.1067v3",
+    "landing_url": "https://arxiv.org/abs/1112.1067v3",
+    "ads_bibcode": "2012ApJ...752...45T"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1112.1067 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v3 (arXiv 1112.1067v3). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S102",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Torrealba2016MNRAS.463..712T)",
+   "url": "https://arxiv.org/pdf/1605.05338v2",
+   "file": "arxiv/1605.05338v2.pdf",
+   "bytes": 848760,
+   "sha256": "93637b5cae55a8388f3896a5f482add8689bf784f10978aae294c4c770e2b12e",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Torrealba, G., Koposov, S. E., Belokurov, V., et al. 2016, MNRAS 463, 712, \"At the survey limits: discovery of the Aquarius 2 dwarf galaxy in the VST ATLAS and the SDSS data\"",
+   "identifier": {
+    "doi": "10.1093/mnras/stw2051",
+    "arxiv": "1605.05338v2",
+    "landing_url": "https://arxiv.org/abs/1605.05338v2",
+    "ads_bibcode": "2016MNRAS.463..712T"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1605.05338 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v2 (1605.05338v2.pdf; arXiv 1605.05338v2). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S103",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Vivas2016AJ....151..118V)",
+   "url": "https://arxiv.org/pdf/1510.05539v2",
+   "file": "arxiv/1510.05539v2.pdf",
+   "bytes": 1027998,
+   "sha256": "5344946b02da338128656934a9a2e57a33fcc06d169b6c6e67ef642389a40dcb",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Vivas, A. K., Olsen, K., Blum, R., et al. 2016, AJ 151, 118, \"Variable stars in the field of the Hydra II ultra-faint dwarf galaxy\"",
+   "identifier": {
+    "doi": "10.3847/0004-6256/151/5/118",
+    "arxiv": "1510.05539v2",
+    "landing_url": "https://arxiv.org/abs/1510.05539v2",
+    "ads_bibcode": "2016AJ....151..118V"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1510.05539 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v2 (arXiv 1510.05539v2). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S104",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Vivas2022ApJ...926...78V)",
+   "url": "https://arxiv.org/pdf/2112.08467v1",
+   "file": "arxiv/2112.08467v1.pdf",
+   "bytes": 2571020,
+   "sha256": "b58cb7b91398b54bfe9f80af8aea86e513469d3175be277699ecaad850674d80",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": true,
+   "evidence_tier": 1,
+   "citation": "Vivas, K., Martínez-Vázquez, C., Walker, A., et al. 2022, ApJ 926, 78, \"Variable Stars in the giant satellite galaxy Antlia 2\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/ac43bd",
+    "arxiv": "2112.08467v1",
+    "landing_url": "https://arxiv.org/abs/2112.08467v1",
+    "ads_bibcode": "2022ApJ...926...78V"
+   },
+   "licence": {
+    "status": "stated",
+    "spdx": "CC-BY-4.0",
+    "uri": "http://creativecommons.org/licenses/by/4.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2112.08467 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 2112.08467v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S105",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Walsh2008ApJ...688..245W)",
+   "url": "https://arxiv.org/pdf/0712.3054v2",
+   "file": "arxiv/0712.3054v2.pdf",
+   "bytes": 1799653,
+   "sha256": "6cdb3776eb538613c8b8c221c04a2a5b2d2ea5511eefbeea1a5bf84c9eaf0416",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Walsh, S. M., Willman, B., Sand, D., et al. 2008, ApJ 688, 245, \"Bootes II ReBooted: An MMT/MegaCam Study of An Ultra-Faint Milky Way Satellite\"",
+   "identifier": {
+    "doi": "10.1086/592076",
+    "arxiv": "0712.3054v2",
+    "landing_url": "https://arxiv.org/abs/0712.3054v2",
+    "ads_bibcode": "2008ApJ...688..245W"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/0712.3054 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v2 (arXiv 0712.3054v2). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S106",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Wang2019ApJ...881..118W)",
+   "url": "https://arxiv.org/pdf/1809.07801v1",
+   "file": "arxiv/1809.07801v1.pdf",
+   "bytes": 3231346,
+   "sha256": "1eb2e3f906cf9745e0ebc3d39381c96515a17928c4438f9c712bf32011e053b6",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Wang, M., de Boer, T., Pieres, A., et al. 2019, ApJ 881, 118, \"The morphology and structure of stellar populations in the Fornax dwarf spheroidal galaxy from Dark Energy Survey Data\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/ab31a9",
+    "arxiv": "1809.07801v1",
+    "landing_url": "https://arxiv.org/abs/1809.07801v1",
+    "ads_bibcode": "2019ApJ...881..118W"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1809.07801 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (1809.07801v1.pdf; arXiv 1809.07801v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S107",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Willman2006astro.ph..3486W)",
+   "url": "https://arxiv.org/pdf/astro-ph/0603486v1",
+   "file": "arxiv/astro-ph_0603486v1.pdf",
+   "bytes": 367789,
+   "sha256": "4b666beec335072f6ee20135feb618fad769b3e8a166a608d5b06e74653412f7",
+   "retrieved": "2026-10-30",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Willman, B., Masjedi, M., Hogg, D. W., et al. 2006, arXiv:astro-ph/0603486, \"Willman 1 - A Galactic Satellite at 40 kpc With Multiple Stellar Tails\"",
+   "identifier": {
+    "arxiv": "astro-ph/0603486v1",
+    "landing_url": "https://arxiv.org/abs/astro-ph/0603486v1",
+    "ads_bibcode": "2006astro.ph..3486W"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv licence 'assumed-1991-2003' (the licence arXiv assigns to submissions from 1991 to 2003)",
+    "uri": "http://arxiv.org/licenses/assumed-1991-2003/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/astro-ph/0603486 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv astro-ph/0603486v1). Hash first recorded in v1/reading/originals.csv (retrieved 2026-10-30); re-downloaded 2026-11-24 and identical. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S108",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Wojno2020ApJ...895...78W)",
+   "url": "https://arxiv.org/pdf/2004.03425v1",
+   "file": "arxiv/2004.03425v1.pdf",
+   "bytes": 3874289,
+   "sha256": "8f81ce06011cb64bb75bdfb8b71301d5450b4b5b5f18407cf1d84d419de7a31a",
+   "retrieved": "2026-11-24",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Wojno, J., Gilbert, K. M., Kirby, E. N., et al. 2020, ApJ 895, 78, \"Elemental abundances in M31: [Fe/H] and [{\\alpha}/Fe] in M31 Dwarf Galaxies Using Coadded Spectra\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/ab8ccb",
+    "arxiv": "2004.03425v1",
+    "landing_url": "https://arxiv.org/abs/2004.03425v1",
+    "ads_bibcode": "2020ApJ...895...78W"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2004.03425 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v1 (arXiv 2004.03425v1). First hashed 2026-11-24, from the version the reading records as read. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S109",
+   "kind": "document",
+   "role": "Original paper read for the values its locators cite (Woo et al. 2008)",
+   "url": "https://arxiv.org/pdf/0807.1331v2",
+   "file": "arxiv/0807.1331v2.pdf",
+   "bytes": 542454,
+   "sha256": "358e7946f85494f64950097a6feb26b7604beaf21a7613dfa6feca931cb373cc",
+   "retrieved": "2026-11-24",
+   "verified": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Woo, J., Courteau, S. & Dekel, A. 2008, MNRAS 390, 1453, \"Scaling Relations and the Fundamental Line of the Local Group Dwarf Galaxies\"",
+   "identifier": {
+    "doi": "10.1111/j.1365-2966.2008.13770.x",
+    "arxiv": "0807.1331v2",
+    "landing_url": "https://arxiv.org/abs/0807.1331v2"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/0807.1331 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read in arXiv version v2 (arXiv 0807.1331v2). First hashed 2026-11-24, from the version the reading records as read. Verified once by hash; not downloaded by CI (D-114; arXiv asks automated tools not to bulk-download). Not redistributed by the Atlas."
+  },
+  {
+   "id": "S110",
+   "kind": "document",
+   "role": "Monelli et al. 2025, read in the version of record for Leo II's distance (reading/d050_version_of_record.csv)",
+   "url": "https://www.aanda.org/10.1051/0004-6361/202453567",
+   "file": "vor/Monelli2025_AA_700_A201.pdf",
+   "sha256": "6cf940d5de09b969939db84ce76fd0a6d3cb0b842e3362e93e1ded3ba28b5845",
+   "retrieved": "not recorded (read by JvH; see reading/d050_version_of_record.csv)",
+   "fetch_in_ci": false,
+   "redistributable": true,
+   "evidence_tier": 1,
+   "citation": "Monelli, M., Piersimoni, A. M., Martínez-Vázquez, C. E., et al. 2025, A&A 700, A201, \"Variable stars in Local Group galaxies: VII. New insights into the Leo II dSph\"",
+   "identifier": {
+    "doi": "10.1051/0004-6361/202453567",
+    "ads_bibcode": "2025A&A...700A.201M",
+    "landing_url": "https://www.aanda.org/10.1051/0004-6361/202453567"
+   },
+   "licence": {
+    "status": "stated",
+    "spdx": "CC-BY-4.0",
+    "uri": "https://creativecommons.org/licenses/by/4.0",
+    "checked_where": "A&A article page (© The Authors 2025; open access under the Creative Commons Attribution License)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "Read by JvH in the journal PDF (version of record), as reading/d050_version_of_record.csv and residual_sheet.csv record with this SHA-256. Its size was not recorded. Not fetched by CI: the copy read is JvH's; the article is open access at the address above. Authors and title: as listed by the IAC publication page and the A&A article (2026-11-24)."
+  },
+  {
+   "id": "S111",
+   "kind": "document",
+   "role": "van de Rydt et al. 1991 (Phoenix), read in ADS page scans for M_V (reading/d050_version_of_record.csv, reading/residual_sheet.csv)",
+   "url": "https://ui.adsabs.harvard.edu/abs/1991AJ....102..130V/abstract",
+   "file": "scan/1991AJ....102..130V.pdf",
+   "sha256": "77fe063cd85596688ade6d3369a3885cc9e879488d68d375885ba12a3be7a1e4",
+   "retrieved": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "van de Rydt et al. 1991, AJ 102, 130, \"Phoenix: an Intermediate Dwarf Galaxy in the Local Group\" (title as recorded in v1/reading/originals.csv)",
+   "identifier": {
+    "doi": "10.1086/115861",
+    "ads_bibcode": "1991AJ....102..130V"
+   },
+   "licence": {
+    "status": "none_stated",
+    "checked_where": "Not established: neither the ADS record nor the journal page could be read from the build workspace on 2026-11-24; the scans were read in JvH's browser. Not redistributed.",
+    "checked_on": "2026-11-24"
+   },
+   "bytes": 848052,
+   "verified": "2026-11-24",
+   "note": "The ADS scanned-article PDF of the same journal pages (pp. 130 to 136) that the reading read in the browser, page by page. JvH downloaded it on 2026-11-24 (ADS serves scans from a host the build workspace cannot reach) and it was hashed then, under the ruling taken after T7 run 1 failed for this entry while it had no hash. Checked against the reading on its text layer: p. 136, 'We then adopt Mv = −9.9 ± 0.4'; p. 134, '(m − M)0 = 23.1 ± 0.1'; abstract p. 130, the same modulus. Not redistributed: no licence was established."
+  },
+  {
+   "kind": "document",
+   "citation": "Fritz, T. K., Carrera, R., Battaglia, G., et al. 2019, A&A 623, A129, \"A Gaia DR 2 and VLT/FLAMES search for new satellites of the LMC\"",
+   "identifier": {
+    "doi": "10.1051/0004-6361/201833458",
+    "arxiv": "1805.07350v4",
+    "landing_url": "https://arxiv.org/abs/1805.07350v4",
+    "ads_bibcode": "2019A&A...623A.129F"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1805.07350 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "evidence_tier": 1,
+   "id": "S112",
+   "role": "The e-print LaTeX source of the same paper, cited by line for the Phoenix II σ (Table 4, l. 452; caption l. 436)",
+   "url": "https://arxiv.org/e-print/1805.07350v4",
+   "file": "arxiv/1805.07350v4.tar.gz",
+   "bytes": 252804,
+   "sha256": "41cad1cdfcbbff0901afbbe9e8b3212c1c861d52e53ea2c6e35887b311e5dc90",
+   "retrieved": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "note": "Its spec_v1_ref1_arx.tex has SHA-256 9f7efbac9b1730c2c5b408a09ecd0c2213b304e0059ae2afea701cb62a83bd80. The e-print hash equals the one recorded in v2/reading; downloaded and checked 2026-11-24. Not redistributed."
+  },
+  {
+   "kind": "document",
+   "citation": "Wang, M., de Boer, T., Pieres, A., et al. 2019, ApJ 881, 118, \"The morphology and structure of stellar populations in the Fornax dwarf spheroidal galaxy from Dark Energy Survey Data\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/ab31a9",
+    "arxiv": "1809.07801v1",
+    "landing_url": "https://arxiv.org/abs/1809.07801v1",
+    "ads_bibcode": "2019ApJ...881..118W"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1809.07801 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "evidence_tier": 1,
+   "id": "S113",
+   "role": "The e-print LaTeX source of the same paper, cited by line for the Fornax half-light radius (Table 1, l. 106; best fit l. 333)",
+   "url": "https://arxiv.org/e-print/1809.07801v1",
+   "file": "arxiv/1809.07801v1.tar.gz",
+   "bytes": 3056151,
+   "sha256": "c958d9847b7d2cb2ef0fcc4eeb71ed1bf313457a5f3e1316e2e40da2d85533b6",
+   "retrieved": "2026-11-24",
+   "fetch_in_ci": false,
+   "redistributable": false,
+   "note": "Its Fornax_main.tex has SHA-256 dc90a8cec60b6c9a41f9387fdf7490409c968ba7c4545288ecfaa5ae28804fbc. The e-print hash equals the one recorded in v2/reading; downloaded and checked 2026-11-24. Not redistributed."
+  }
+ ],
+ "previous_version": {
+  "path": "data/packages/aeg-d-dwarfs/v1",
+  "reference_commit": "5dc4091"
+ }
+}
