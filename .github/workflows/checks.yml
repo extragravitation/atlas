@@ -35,6 +35,8 @@ jobs:
             python -m aeg.validate "$pkg" || { echo "::error title=standard $pkg::validation failed"; status=1; }
           done
           exit $status
+      - name: Re-issue test T1 to T6 (every dataset with v2 and v3; D-114)
+        run: python -m aeg.reissue_check --all
       - name: Install site
         working-directory: site
         run: npm ci

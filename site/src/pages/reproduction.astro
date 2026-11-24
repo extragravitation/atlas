@@ -42,7 +42,7 @@ const nRows = cur.reduce((s, r) => s + r.plotted, 0);
 const pctOk = nRows ? Math.round((100 * (nRows - nFlag)) / nRows) : 0;
 const label = { pass: ['Passed', 'Passed'], fail: ['Not fully reproduced, on record', 'Did not fully match'] };
 const mark = { pass: '✓', fail: '✕', decided: '◆', reported: '✓' };
-const blob = (pkg, f) => `${REPO}/blob/main/data/packages/${pkg}/${f}`;
+const blob = (pkg, f) => `${REPO}/blob/main/${path.posix.normalize(`data/packages/${pkg}/${f}`)}`;
 ---
 <Base title="Reproduction" active="reproduction" description="Every dataset in the Atlas, checked against what its authors published: the frozen test, its fingerprint, and the result, pass or fail.">
   <div class="doc">

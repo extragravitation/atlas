@@ -1,0 +1,39 @@
+# Re-issue test T7 (docs/standard-3.0.0-reissue-test.md, D-114): every address in each 3.0.0 package's
+# sources.json is reachable. Not a required check. The dated result is uploaded as an artifact and committed
+# to <package>/reproduction/reachability.json by the maintainer; nothing is committed automatically.
+name: reachability
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "data/packages/*/v3/sources.json"
+      - "pipeline/aeg/reach.py"
+permissions:
+  contents: read
+jobs:
+  reach:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check addresses
+        run: |
+          set -uo pipefail
+          mkdir -p reach
+          status=0
+          for pkg in data/packages/*/*/; do
+            grep -q '"standard_version": "3' "$pkg/sources.json" 2>/dev/null || continue
+            name=$(basename "$(dirname "$pkg")")-$(basename "$pkg")
+            PYTHONPATH=pipeline python -m aeg.reach "$pkg" "reach/$name.json" || status=1
+            # The result also goes into an annotation (gzip, base64), readable through the checks API,
+            # so it can be committed exactly where artifact downloads are not reachable.
+            echo "::notice title=reach $name::$(gzip -9c "reach/$name.json" | base64 -w0)"
+          done
+          exit $status
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: reachability
+          path: reach/

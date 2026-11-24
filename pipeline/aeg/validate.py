@@ -626,6 +626,7 @@ def validate_v30(pkg: Path) -> list[str]:
             if "source_ref" not in t.colnames:
                 continue
             mine = [(n, rx, r) for n, tb, rx, r in compiled if tb == tname]
+            no_archive: set[int] = set()
             unmatched, multiple = [], []
             for ref in sorted({str(v) for v in _vals(t["source_ref"]) if v not in (None, "")}):
                 hits = [(n, rx.match(ref), r) for n, rx, r in mine if rx.match(ref)]
@@ -639,13 +640,20 @@ def validate_v30(pkg: Path) -> list[str]:
                     if mv is not None:
                         g = GROUP_REF.match(str(mv))
                         member = mo.group(g.group(1)) if g and g.group(1) in mo.groupdict() else str(mv)
-                        for sid in r.get("sources", []):
+                        # A rule may cite a document beside the archive the value is read from (for example the
+                        # paper that defines a bin); the member belongs to the rule's archive sources.
+                        archives = [sid for sid in r.get("sources", []) if ids.get(sid, {}).get("kind") == "archive"]
+                        if not archives:
+                            no_archive.add(n)
+                        for sid in archives:
                             members_named.setdefault(sid, set()).add(member)
             if unmatched:
                 problems.append(f"{where} {tname}: {len(unmatched)} source_ref values match no locator rule, e.g. {unmatched[0][:160]!r}")
             if multiple:
                 ref, ns = multiple[0]
                 problems.append(f"{where} {tname}: {len(multiple)} source_ref values match more than one rule, e.g. {ref[:120]!r} (rules {ns})")
+            for n in sorted(no_archive):
+                problems.append(f"{where} locators.json rule {n}: names an archive member, but none of its sources is an archive")
 
     # Item 22: archives hash the members they read.
     for sid, e in ids.items():
@@ -660,9 +668,6 @@ def validate_v30(pkg: Path) -> list[str]:
         for mem, h in ms.items():
             if not isinstance(h, str) or not HEX64.match(h):
                 problems.append(f"{where} source {sid}: members_sha256[{mem!r}] is not a hex digest")
-    for sid in members_named:
-        if sid in ids and ids[sid].get("kind") != "archive":
-            problems.append(f"{where} source {sid}: a locator names an archive member, but the source's kind is not archive")
 
     # Item 24: the descriptor agrees with sources.json.
     dp = pkg / "datapackage.json"

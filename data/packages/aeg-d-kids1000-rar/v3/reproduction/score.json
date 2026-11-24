@@ -1,0 +1,60 @@
+{
+  "test": "REPRODUCTION_REV3.md",
+  "items": {
+    "1": {
+      "outcome": "pass",
+      "detail": "45 rows; sample and source_ref equal to v1 row by row: True"
+    },
+    "2": {
+      "outcome": "pass",
+      "detail": "bit-for-bit columns ['g_obs', 'g_obs_err_lo', 'g_obs_err_hi', 'g_bar', 'x_kids1000_rar_esd_t', 'x_kids1000_rar_esd_x', 'x_kids1000_rar_esd_err', 'x_kids1000_rar_bias']: 0 differences; other v1 columns compared ['measurement_id', 'system_id', 'kind', 'channel', 'method_class', 'method', 'r_kpc', 'r_kind', 'g_bar_err_lo', 'g_bar_err_hi', 'adjustable', 'quality_source', 'source_ref', 'x_kids1000_rar_sample']: 0 differences []; v1 columns that changed (all allowed): ['assumptions', 'flags', 'gas_hot_status']"
+    },
+    "3": {
+      "outcome": "pass",
+      "detail": "675 covariance entries; identical to v1 apart from the prefix: True"
+    },
+    "4": {
+      "outcome": "pass",
+      "detail": "err_level 0.683 stated on all rows: True; point-scale columns: none; g_obs errors bit-for-bit v1 (item 2)"
+    },
+    "5": {
+      "outcome": "pass",
+      "detail": "45 rows: bin_coordinate, empty g_bar errors, edges to 1e-12, g_bar inside its bin, hot-gas notes; problems: none"
+    },
+    "6": {
+      "outcome": "pass",
+      "detail": "no_uncertainty on 0 rows; source_quality_low on 16 rows, same as v1: True; known issues linked: [168, 169] (#168 hot-gas flags, #169 the 0.3/3 Mpc wording)"
+    },
+    "7": {
+      "outcome": "pass",
+      "detail": "11 terms, exactly the table: True; covariance not_published, citations present: True; registry v2 entries ['baryons_point_mass', 'deproj_lensing', 'hot_gas_halo']; row assumptions as specified: True"
+    },
+    "8": {
+      "outcome": "pass",
+      "detail": "90 observables, two per row; problems: none"
+    },
+    "9": {
+      "outcome": "pass",
+      "detail": "measurement columns per row; problems: none; dataset page states the exclusion and the hot-gas variant: True; no excluded.csv rows for bins: True"
+    },
+    "10": {
+      "outcome": "pass",
+      "detail": "standard 2.5.1; no x_value_change_ruling; x_selection, x_precedence (D-103), x_baryon_inventory {'stars': 'measured', 'cold gas': 'modelled', 'hot gas': 'known_unmeasured', 'cool and warm (ionised) gas, dust': 'known_unmeasured', 'remnants': 'not_addressed'}, x_search_log, x_second_reading present: True"
+    },
+    "11": {
+      "outcome": "pass",
+      "detail": "45 rows × 11 numbers against the frozen reading: 0 mismatches; covariance 675 entries against the regenerated reading (÷ column 7, × (4G)², as v1): 0 mismatches; plotting statuses as the reading's two findings (hot-gas variant; KiDS-bright rows 1–8): True"
+    },
+    "14": {
+      "outcome": "pass",
+      "detail": "git diff 5dc4091 -- v1: none; untracked changes: none"
+    }
+  },
+  "counts": {
+    "rows": 45,
+    "plotted": 22,
+    "d096_rule2_rows": 8,
+    "d096_rule3_rows": 15,
+    "values_changed": 0
+  }
+}

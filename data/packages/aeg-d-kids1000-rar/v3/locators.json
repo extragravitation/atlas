@@ -1,0 +1,45 @@
+{
+ "standard": "3.0.0 §13 R4",
+ "rules": [
+  {
+   "table": "observables",
+   "match": "^brouwer2021_rar\\.tar:(?P<member>Fig-[A-Za-z0-9_-]+_Nobins\\.txt):data row (?P<row>\\d+), column (?P<column>1) \\(g_bar\\)\\. The released value is the arithmetic midpoint of the source's §2\\.1 bin \\d+ \\(l\\. 174;",
+   "sources": [
+    "S1",
+    "S2"
+   ],
+   "where": {
+    "member": "{member}",
+    "row": "{row}",
+    "column": "{column}",
+    "section": "§2.1",
+    "line": "174"
+   },
+   "note": "The value is read from S1 (member, row, column). §2.1 and l. 174 are in S2 (RAR_paper_Brouwer_4.tex), where the bins are defined; reading/kids-bins.md shows the midpoint."
+  },
+  {
+   "table": "observables",
+   "match": "^brouwer2021_rar\\.tar:(?P<member>Fig-[A-Za-z0-9_-]+_Nobins\\.txt):data row (?P<row>\\d+), column (?P<column>2) \\(ESD_t, h70 M☉/pc², before the bias correction; column 5 is the bias\\) and column 4 \\(error",
+   "sources": [
+    "S1"
+   ],
+   "where": {
+    "member": "{member}",
+    "row": "{row}",
+    "column": "{column}"
+   },
+   "note": "Value in column 2; its error in column 4 and the bias in column 5 of the same row and member."
+  },
+  {
+   "table": "measurements",
+   "match": "^brouwer2021_rar\\.tar:(?P<member>Fig-[A-Za-z0-9_-]+_Nobins\\.txt):data row (?P<row>\\d+)$",
+   "sources": [
+    "S1"
+   ],
+   "where": {
+    "member": "{member}",
+    "row": "{row}"
+   }
+  }
+ ]
+}
