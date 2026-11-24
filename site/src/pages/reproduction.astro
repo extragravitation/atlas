@@ -40,8 +40,8 @@ const nDs = cur.length;
 const nFlag = cur.reduce((s, r) => s + (r.flagged || 0), 0);
 const nRows = cur.reduce((s, r) => s + r.plotted, 0);
 const pctOk = nRows ? Math.round((100 * (nRows - nFlag)) / nRows) : 0;
-const label = { pass: ['Passed', 'Passed'], fail: ['Not fully reproduced, on record', 'Did not fully match'] };
-const mark = { pass: '✓', fail: '✕', decided: '◆', reported: '✓' };
+const label = { pass: ['Passed', 'Passed'], fail: ['Not fully reproduced, on record', 'Did not fully match'], pending: ['Not yet run in full', 'Not finished yet'] };
+const mark = { pass: '✓', fail: '✕', decided: '◆', reported: '✓', pending: '…' };
 const blob = (pkg, f) => `${REPO}/blob/main/${path.posix.normalize(`data/packages/${pkg}/${f}`)}`;
 ---
 <Base title="Reproduction" active="reproduction" description="Every dataset in the Atlas, checked against what its authors published: the frozen test, its fingerprint, and the result, pass or fail.">
@@ -66,7 +66,7 @@ const blob = (pkg, f) => `${REPO}/blob/main/${path.posix.normalize(`data/package
           <tbody>
             {rows.map((r) => <tr>
               <td class="l wrap"><a href={`#${r.package.replace('/', '-')}`}>{r.name}</a></td>
-              <td class="l"><span class={`badge ${r.result === 'pass' ? 'ok' : 'fail'}`}><span aria-hidden="true">{mark[r.result]}</span><L t={label[r.result][0]} p={label[r.result][1]} /></span></td>
+              <td class="l"><span class={`badge ${r.result === 'pass' ? 'ok' : r.result === 'pending' ? '' : 'fail'}`}><span aria-hidden="true">{mark[r.result]}</span><L t={label[r.result][0]} p={label[r.result][1]} /></span></td>
               <td class="l wrap matched"><L t={r.matched} p={r.matched_plain} /></td>
               <td class="nar">{r.flagged}</td>
               <td class="l nar">{r.first_run}</td>
@@ -78,11 +78,11 @@ const blob = (pkg, f) => `${REPO}/blob/main/${path.posix.normalize(`data/package
       {rows.map((r) => <section class="card" id={r.package.replace('/', '-')} style="margin-top:22px">
         <p class="cap">{r.package}</p>
         <h2 style="font-size:22px"><a href={`${base}datasets/${r.package}/`} style="color:var(--ink)">{r.title}</a></h2>
-        <p style="margin:6px 0"><span class={`badge ${r.result === 'pass' ? 'ok' : 'fail'}`}><span aria-hidden="true">{mark[r.result]}</span><L t={label[r.result][0]} p={label[r.result][1]} /></span> <b style="margin-left:6px"><L t={r.matched} p={r.matched_plain} /></b></p>
+        <p style="margin:6px 0"><span class={`badge ${r.result === 'pass' ? 'ok' : r.result === 'pending' ? '' : 'fail'}`}><span aria-hidden="true">{mark[r.result]}</span><L t={label[r.result][0]} p={label[r.result][1]} /></span> <b style="margin-left:6px"><L t={r.matched} p={r.matched_plain} /></b></p>
         <p class="small" style="margin:2px 0 6px"><L t={`Frozen before ${r.frozen_before}; first run ${r.first_run}.${r.d && !r.d.current ? ` Superseded by ${r.d.supersededBy}.` : ''}`} p={`Locked before the data were added; run ${r.first_run}.${r.d && !r.d.current ? ' Replaced by a newer version.' : ''}`} /></p>
         <p style="margin:4px 0"><b><L t="Checked against:" p="Compared with:" /></b> <L t={r.against} p={r.against_plain} /></p>
         <ul class="checks">
-          {r.checks.map((c) => <li class={c.outcome}><span class="m" aria-hidden="true">{mark[c.outcome]}</span><span><b><L t={c.name} p={c.plain} /></b><span class="sr-only"> — {c.outcome}</span>{c.outcome === 'fail' && <span class="small" style="color:var(--fail)"> (failed)</span>}{c.outcome === 'decided' && <span class="small"> (decision rule, not pass/fail)</span>}{c.outcome === 'reported' && <span class="small"> (reported, not pass/fail)</span>}<br /><span class="small"><L t={c.detail} p={c.detail} /></span></span></li>)}
+          {r.checks.map((c) => <li class={c.outcome}><span class="m" aria-hidden="true">{mark[c.outcome]}</span><span><b><L t={c.name} p={c.plain} /></b><span class="sr-only"> — {c.outcome}</span>{c.outcome === 'fail' && <span class="small" style="color:var(--fail)"> (failed)</span>}{c.outcome === 'decided' && <span class="small"> (decision rule, not pass/fail)</span>}{c.outcome === 'reported' && <span class="small"> (reported, not pass/fail)</span>}{c.outcome === 'pending' && <span class="small"> (not yet run)</span>}<br /><span class="small"><L t={c.detail} p={c.detail} /></span></span></li>)}
         </ul>
         <p style="margin:8px 0 0"><b><L t="Status:" p="Where it stands:" /></b> <L t={r.status} p={r.status_plain} /></p>
         {r.since && <p class="small" style="margin-top:6px"><b><L t="Since:" p="Since then:" /></b> <L t={r.since} p={r.since_plain} /></p>}

@@ -675,13 +675,85 @@
         160
       ],
       "flagged": 0,
-      "status": "Current version. Same values as v1 except M54 (D-096). NGC 2298 and Pal 5 are recorded, not plotted (D-097). MW-PAL1 stays recorded (D-046).",
+      "status": "Superseded by v3, which has the same tables and adds source records (D-114). Same values as v1 except M54 (D-096). NGC 2298 and Pal 5 are recorded, not plotted (D-097). MW-PAL1 stays recorded (D-046).",
       "status_plain": "The current globular-cluster version: the same numbers, one cluster updated to follow the authors' own data cut, and two clusters kept on record but off the charts because their sources say they are being pulled apart.",
       "since": "",
       "since_plain": "",
       "scope": "Establishes that v2 changes only what the frozen reading requires, that the one change reproduces with v1's frozen code, and that every value the reading holds is in the package. v1's test 2 result (Pal 1, D-046) carries over.",
       "scope_plain": "Only the changes the second reader found were made, and they recompute exactly.",
       "matched": "every check passed",
+      "matched_plain": "All checks passed"
+    },
+    {
+      "package": "aeg-d-gc-baumgardt/v3",
+      "test_file": "../../../../docs/standard-3.0.0-reissue-test.md",
+      "sha256": "2fd4a43cf00b3588f89fbc91bd000499df137e9e583549db1f0ee0473b7c8f7e",
+      "frozen_before": "conversion",
+      "result": "pass",
+      "first_run": "2026-11-24",
+      "result_files": [
+        "REISSUE.md",
+        "reproduction/reissue_check.txt",
+        "reproduction/reachability.json"
+      ],
+      "against": "v2 (every table byte for byte once the version labels are mapped back, T1), v2's conversion code (T2), and data standard 3.0.0 §13 (source records, locators, archive members, descriptor; T3 to T6); every address reachable (T7). v2's frozen test (REPRODUCTION.md) is carried over unchanged.",
+      "against_plain": "The previous version, number for number, and the new rule that every number must point to a cited, licensed and hash-checked source.",
+      "checks": [
+        {
+          "name": "T1: tables unchanged",
+          "plain": "Same numbers",
+          "outcome": "pass",
+          "detail": "all four tables identical to v2 after N; also rebuilt in CI from the source files"
+        },
+        {
+          "name": "T2: conversion code unchanged",
+          "plain": "Same method",
+          "outcome": "pass",
+          "detail": "convert.py differs from v2 only in its version line"
+        },
+        {
+          "name": "T3: source records",
+          "plain": "Every source cited and licensed",
+          "outcome": "pass",
+          "detail": "169 entries (three database pages, 160 radial-velocity files, the Harris catalogue, four VizieR exports and one arXiv e-print), none unhashed"
+        },
+        {
+          "name": "T4: every value located",
+          "plain": "Every number points to its place",
+          "outcome": "pass",
+          "detail": "5 rules resolve all 2,800 distinct source_ref values (2,721 in observables, 79 in measurements); no corrections"
+        },
+        {
+          "name": "T5: archive members hashed",
+          "plain": "Files inside archives checked",
+          "outcome": "pass",
+          "detail": "no archives"
+        },
+        {
+          "name": "T6: descriptor consistent",
+          "plain": "Package description agrees",
+          "outcome": "pass",
+          "detail": "no licence claimed for an unlicensed source"
+        },
+        {
+          "name": "T7: addresses reachable",
+          "plain": "Links work",
+          "outcome": "pass",
+          "detail": "run 2026-11-24T20:51Z in GitHub Actions: 337 addresses; 333 returned 200, and the four McLaughlin & van der Marel DOI addresses returned 429 (rate limit) on hashed entries"
+        }
+      ],
+      "issues": [
+        159,
+        160
+      ],
+      "flagged": 0,
+      "status": "Current version. Same tables as v2, with every source cited, licensed and hashed, and every value located (D-114). M54 (#159) and the Harris distance calibration (#160) stay as in v2.",
+      "status_plain": "The current globular-cluster version: the same numbers, now each tied to a cited, checked source.",
+      "since": "",
+      "since_plain": "",
+      "scope": "Establishes that v3 changes no value or code from v2 and that its source records meet data standard 3.0.0. It makes no new reading; v2's test and second reading stand.",
+      "scope_plain": "Nothing changed in the numbers; what is new is the record of where each one comes from.",
+      "matched": "T1 to T7 passed",
       "matched_plain": "All checks passed"
     },
     {

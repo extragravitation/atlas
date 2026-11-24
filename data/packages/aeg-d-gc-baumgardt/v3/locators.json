@@ -1,0 +1,68 @@
+{
+ "standard": "3.0.0 §13 R4",
+ "rules": [
+  {
+   "table": "observables",
+   "match": "^veldis\\.html: (?P<cluster>.+), (?P<code>RV|F13|L13|L15|K18|D21|C22|G22|W15|C21|H21|VB21|LI22|T22|P22), <r> = (?P<r>\\d+\\.\\d+)\"$",
+   "sources": [
+    "S1"
+   ],
+   "where": {
+    "table": "the velocity-dispersion table",
+    "row": "{cluster} (name carried down from the cluster's first row), type {code}, <r> = {r}\"",
+    "column": "the dispersion, Δσ Up and Δσ Low"
+   },
+   "note": "Type codes as in the page legend: RV and F13 to G22 are line-of-sight data sets, W15 to P22 proper-motion data sets."
+  },
+  {
+   "table": "observables",
+   "match": "^mwgc\\.dat Part (?P<part>I|II|III), (?P<column>R_Sun|M_V,t|V_t|c|r_c|r_h)$",
+   "sources": [
+    "S4"
+   ],
+   "where": {
+    "section": "Part {part}",
+    "column": "{column}",
+    "row": "the row of the system's cluster, found by its ID (first column) as v1's sources_io.read_harris and norm_name match it to the system's name_in_source; the source_ref text does not name the cluster"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^J/ApJS/161/304/clusters (?P<id>MW\\S+), \\(M/L\\)(?P<n>[12])$",
+   "sources": [
+    "S5"
+   ],
+   "where": {
+    "table": "J/ApJS/161/304/clusters",
+    "row": "{id}",
+    "column": "(M/L){n}"
+   }
+  },
+  {
+   "table": "observables",
+   "match": "^J/ApJS/161/304/models (?P<id>MW\\S+) K, (?P<column>W0/gamma|r0|Rh|Dist)$",
+   "sources": [
+    "S7"
+   ],
+   "where": {
+    "table": "J/ApJS/161/304/models",
+    "row": "{id}, model K",
+    "column": "{column}"
+   }
+  },
+  {
+   "table": "measurements",
+   "match": "^veldis\\.html (?P<cluster>.+) \\((?P<code>RV|F13|L13|L15|K18|D21|C22|G22)\\); mwgc\\.dat; J/ApJS/161/304 models, clusters$",
+   "sources": [
+    "S1",
+    "S4",
+    "S7",
+    "S5"
+   ],
+   "where": {
+    "row": "veldis.html: the {cluster} rows of type {code}; mwgc.dat: the {cluster} rows (the row of the system's cluster, found by its ID (first column) as v1's sources_io.read_harris and norm_name match it to the system's name_in_source; the source_ref text does not name the cluster); J/ApJS/161/304 models and clusters: the {cluster} rows"
+   },
+   "note": "A measurement combines these sources; its inputs are the observables it lists, each located by the rules above."
+  }
+ ]
+}
