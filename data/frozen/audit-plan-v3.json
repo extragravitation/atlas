@@ -1,0 +1,11 @@
+{
+  "description": "Independent audit plan, version 3: the re-run on the six v3 packages (D-113 item 3). Frozen before the seed exists, before the methods text of D-113 item 2 is finished, and before any audit reading.",
+  "frozen_on": "2026-11-24",
+  "decision": "D-116",
+  "spec": "docs/audit/AUDIT_PLAN_v3.md",
+  "supersedes": "data/frozen/audit-plan-v2.json",
+  "files": {
+    "docs/audit/AUDIT_PLAN_v3.md": "e9d0f241f8df0c8f6daa6849a82b5ff4d2679416b8f7d4847114bc9f4116003a",
+    "docs/audit/sample_v3.py": "e52ec8452b68daa06f06cb70db0bbe3208af7a8eb912668c893c81f0c2f163d4"
+  }
+}

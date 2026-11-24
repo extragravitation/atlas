@@ -2577,6 +2577,36 @@ The frozen KiDS v2 test (item 11) makes any such finding a fail of that item. Th
 
 **Data seen.** The CI log of the failed build (KeyError at line 131). No value was looked at.
 
+## D-116 — Audit plan version 3: the re-run on the v3 packages
+
+**Ruling (2026-11-24 15:37, UTC−06:00, JvH).** "rule as reccomended", on the proposal as amended at 15:29. At 15:29 JvH asked whether the plan could be less strict while still sound and defensible, and said "yes" to Claude's four changes. **Proposed by** Claude in `docs/plans/AUDIT_PLAN_v3_PROPOSAL.md` (#230). Implements D-113 item 3.
+
+**Rules.**
+1. **The plan:** `docs/audit/AUDIT_PLAN_v3.md` with `docs/audit/sample_v3.py`, frozen in `data/frozen/audit-plan-v3.json`.
+2. **Q1, rows:** a fresh random sample of the six v3 packages, 220 rows from a frame of 3 750, at 5 % per package with at least 10.
+3. **Q2, seed:** the NIST beacon pulse 24 h after the merge of the PR that completes the methods text (D-113 item 2).
+4. **Q3, Part A verdict:**
+   - **The three decision counts:** material discrepancies, provenance failures and blocking method gaps.
+   - **Pass:** each has a 95 % Clopper–Pearson upper bound of at most 2.5 %, which allows at most one row each in 220.
+   - **Incomplete:** some sampled row's source file cannot be supplied. Such rows are not replaced from the reserve.
+   - **Strict verdict:** zero of everything, reported alongside the primary verdict.
+   - **Corrections:** every error found is corrected by a new version, inside the threshold or not.
+5. **Q4, late hashes:** a source hashed after it was read (dwarfs S111) passes only if both readers find the value in the hashed file. It is reported as its own count. A null hash is a failure.
+6. **Q5, disagreements:** settled by a third fresh reader. Claude steps in only if all three differ, disclosed as not blind.
+7. **Q6, files:** every file is checked against its recorded hash before a reader gets it. Files the workspace cannot reach are downloaded by JvH. No mirror or other version is substituted.
+8. **Part B:** decided by term-scan findings and by checklist questions 1 to 3 (cause assumed, account favoured, label carries the result). Questions 4 to 6 are reported and resolved but do not decide. The strict verdict is reported alongside.
+
+**Disclosed in the plan.** The pass rule was set after version 2's result was known. Most of version 2's 210 method-incomplete rows came from unstated constants (M1). No v3 row had been read.
+
+**Correction during the proposal.** Claude first gave the Clopper–Pearson bounds from memory: 2.5 % for one error and 3.2 % for two, in 220 rows. Computed, they are 2.14 % and 2.83 %, so the threshold was set at 2.5 % rather than 3 % to keep the rule as described.
+
+**Alternatives rejected.**
+- **Re-checking version 2's 254 rows:** they are known rows, and the CI validator already checks every row's records mechanically.
+- **Seeding when the plan is frozen:** the sample would be known while the methods text is still being written.
+- **The zero-defect rule as the only verdict:** stricter than acceptance sampling usually is. It is kept as the reported strict verdict.
+
+**Data seen.** Row counts per v3 package, read from the `role` column. A smoke test of the sampler with a dummy seed (`00ff`) drew 220 identifiers; its output was discarded, and no value was opened.
+
 ## Release record — v0.2 (2026-11-06)
 
 Recorded here because the decision log covers releases (D-110 rule 3). This entry is not a new ruling.
