@@ -27,6 +27,14 @@ jobs:
         run: pytest pipeline/tests -q
       - name: Repository checks
         run: python -m aeg.check
+      - name: Standard validation (every package, against the version it states)
+        run: |
+          set -uo pipefail
+          status=0
+          for pkg in data/packages/*/*/; do
+            python -m aeg.validate "$pkg" || { echo "::error title=standard $pkg::validation failed"; status=1; }
+          done
+          exit $status
       - name: Install site
         working-directory: site
         run: npm ci
