@@ -1,0 +1,972 @@
+{
+ "standard_version": "3.0.0",
+ "dataset": "aeg-d-strong-lensing",
+ "version": "v3",
+ "reproduction_file": {
+  "path": "../../../../docs/standard-3.0.0-reissue-test.md",
+  "sha256": "2fd4a43cf00b3588f89fbc91bd000499df137e9e583549db1f0ee0473b7c8f7e",
+  "frozen": "2026-11-24",
+  "decision": "D-114",
+  "freeze_record": "data/frozen/data-standard-3.0.0.json",
+  "carries": {
+   "path": "REPRODUCTION.md",
+   "sha256": "49dc59c46e6cae4841f7833bfc50165b95dd3969f9b84157cbf96b45be66ab5a",
+   "frozen": "2026-11-05",
+   "decision": "D-094, D-096, D-104",
+   "freeze_record": "data/frozen/lenses-v2-test.json",
+   "note": "v2's frozen test, carried over unchanged: v3's tables equal v2's (T1), so its result stands for v3."
+  }
+ },
+ "second_reading": {
+  "path": "reading/",
+  "freeze_record": "data/frozen/lenses-v2-reading.json"
+ },
+ "status": "v3: re-issue of v2 under data standard 3.0.0 (D-114). The tables are v2's with the version mapped forward; convert.py differs from v2's only in its version line. Adds the source records and locators of §13. No value changes.",
+ "values_from": "v1's tables (values carried bit for bit); v1's sources below, with v1's hashes, stand behind them. Reading-dependent inputs from the frozen second reading (reading/*.csv).",
+ "previous_version": {
+  "path": "data/packages/aeg-d-strong-lensing/v2",
+  "note": "v3 re-issues v2 (D-114); v2 re-issued v1"
+ },
+ "sources": [
+  {
+   "id": "S1",
+   "kind": "data_file",
+   "role": "Bolton et al. 2008, ApJ 682, 964 (SLACS V), VizieR J/ApJ/682/964 table4: lens and source redshifts (SDSS spectroscopy), morphology code Mph",
+   "record": "R5",
+   "url": "https://vizier.cfa.harvard.edu/viz-bin/asu-tsv?-source=J/ApJ/682/964/table4&-out.all&-out.max=unlimited",
+   "mirrors": [
+    "https://vizier.cds.unistra.fr/viz-bin/asu-tsv?-source=J/ApJ/682/964/table4&-out.all&-out.max=unlimited",
+    "https://vizier.idia.ac.za/viz-bin/asu-tsv?-source=J/ApJ/682/964/table4&-out.all&-out.max=unlimited"
+   ],
+   "file": "vizier/J_ApJ_682_964_table4.tsv",
+   "version_read": "VizieR J/ApJ/682/964 (CDS publication 2009-11-07), table4",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "VizieR asu-tsv export from the CfA mirror; the export's rights_uri is the CDS/VizieR licence page (https://cds.unistra.fr/vizier-org/licences_vizier.html); no licence is shown on the record (packaging inventory). Linked, not redistributed. The file stamps its request time; content hash from '#RESOURCE='. Fetched 2026-11-01 with the pipeline's own user-agent (aeg.fetch), no spoofing. Licence as recorded in v2: 'VizieR: none shown on the record; CDS/VizieR terms (rights_uri in the export); journal page © AAS / A&A, all rights reserved (packaging inventory §1)'.",
+   "content_from": "#RESOURCE=",
+   "bytes": 24581,
+   "sha256": "6b252527426f46b651927644762dd89179ea21b67abecd3ad4d96fd491d3c85b",
+   "retrieved": "2026-11-01",
+   "content_sha256": "98db8581c2d98d0cba00f1370698ee7004bf108c8b4e168cf27c4a8deacf37e9",
+   "local_copies": [
+    "data/packages/aeg-d-strong-lensing/v1/source/vizier/J_ApJ_682_964_table4.tsv"
+   ],
+   "citation": "Bolton, A. S., Burles, S., Koopmans, L. V. E., et al. 2008, ApJ 682, 964, \"The Sloan Lens ACS Survey. V. The Full ACS Strong-Lens Sample\"",
+   "identifier": {
+    "doi": "10.1086/589327",
+    "vizier": "J/ApJ/682/964"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "CDS/VizieR terms of use (the export's rights_uri); no licence shown on the VizieR record; the journal pages state © AAS / A&A, all rights reserved",
+    "uri": "https://cds.unistra.fr/vizier-org/licences_vizier.html",
+    "checked_where": "The export's rights_uri and the VizieR record, as recorded in docs/sources/screening-A6S/packaging-inventory.md §1 (2026-10-31); not re-read for this check",
+    "checked_on": "2026-10-31"
+   }
+  },
+  {
+   "id": "S2",
+   "kind": "data_file",
+   "role": "SLACS V, VizieR J/ApJ/682/964 table5: SIE Einstein radii b_SIE (the SLACS observed default; M_E computed, A6S_PRECEDENCE §2.4)",
+   "record": "R5",
+   "url": "https://vizier.cfa.harvard.edu/viz-bin/asu-tsv?-source=J/ApJ/682/964/table5&-out.all&-out.max=unlimited",
+   "mirrors": [
+    "https://vizier.cds.unistra.fr/viz-bin/asu-tsv?-source=J/ApJ/682/964/table5&-out.all&-out.max=unlimited",
+    "https://vizier.idia.ac.za/viz-bin/asu-tsv?-source=J/ApJ/682/964/table5&-out.all&-out.max=unlimited"
+   ],
+   "file": "vizier/J_ApJ_682_964_table5.tsv",
+   "version_read": "VizieR J/ApJ/682/964, table5",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "VizieR asu-tsv export from the CfA mirror; the export's rights_uri is the CDS/VizieR licence page (https://cds.unistra.fr/vizier-org/licences_vizier.html); no licence is shown on the record (packaging inventory). Linked, not redistributed. The file stamps its request time; content hash from '#RESOURCE='. Fetched 2026-11-01 with the pipeline's own user-agent (aeg.fetch), no spoofing. Licence as recorded in v2: 'VizieR: none shown on the record; CDS/VizieR terms (rights_uri in the export); journal page © AAS / A&A, all rights reserved (packaging inventory §1)'.",
+   "content_from": "#RESOURCE=",
+   "bytes": 8173,
+   "sha256": "7084f82a7049180cc773eabeb0af6865ac3736b02fb5b5218febc364a91e874d",
+   "retrieved": "2026-11-01",
+   "content_sha256": "6a83e12f6a594beb08ff82c1ffa13859292f6062a3888449e6630e2b5f0fb797",
+   "local_copies": [
+    "data/packages/aeg-d-strong-lensing/v1/source/vizier/J_ApJ_682_964_table5.tsv"
+   ],
+   "citation": "Bolton, A. S., Burles, S., Koopmans, L. V. E., et al. 2008, ApJ 682, 964, \"The Sloan Lens ACS Survey. V. The Full ACS Strong-Lens Sample\"",
+   "identifier": {
+    "doi": "10.1086/589327",
+    "vizier": "J/ApJ/682/964"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "CDS/VizieR terms of use (the export's rights_uri); no licence shown on the VizieR record; the journal pages state © AAS / A&A, all rights reserved",
+    "uri": "https://cds.unistra.fr/vizier-org/licences_vizier.html",
+    "checked_where": "The export's rights_uri and the VizieR record, as recorded in docs/sources/screening-A6S/packaging-inventory.md §1 (2026-10-31); not re-read for this check",
+    "checked_on": "2026-10-31"
+   }
+  },
+  {
+   "id": "S3",
+   "kind": "data_file",
+   "role": "Grillo et al. 2009, A&A 501, 461, VizieR J/A+A/501/461/lens: stellar masses inside R_E (BC03 Chabrier default, BC03 Salpeter top, Maraston 2005 pair alternative; D-075 item 5), totals and effective radii (profile-step check)",
+   "record": "R13",
+   "url": "https://vizier.cfa.harvard.edu/viz-bin/asu-tsv?-source=J/A+A/501/461/lens&-out.all&-out.max=unlimited",
+   "mirrors": [
+    "https://vizier.cds.unistra.fr/viz-bin/asu-tsv?-source=J/A+A/501/461/lens&-out.all&-out.max=unlimited",
+    "https://vizier.idia.ac.za/viz-bin/asu-tsv?-source=J/A+A/501/461/lens&-out.all&-out.max=unlimited"
+   ],
+   "file": "vizier/J_A+A_501_461_lens.tsv",
+   "version_read": "VizieR J/A+A/501/461, lens table",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "VizieR asu-tsv export from the CfA mirror; the export's rights_uri is the CDS/VizieR licence page (https://cds.unistra.fr/vizier-org/licences_vizier.html); no licence is shown on the record (packaging inventory). Linked, not redistributed. The file stamps its request time; content hash from '#RESOURCE='. Fetched 2026-11-01 with the pipeline's own user-agent (aeg.fetch), no spoofing. Licence as recorded in v2: 'VizieR: none shown on the record; CDS/VizieR terms (rights_uri in the export); journal page © AAS / A&A, all rights reserved (packaging inventory §1)'.",
+   "content_from": "#RESOURCE=",
+   "bytes": 19876,
+   "sha256": "18da2e0f7fb1ee66dd071847e47b76c1fce78f2bcf3d339dadbf7dc468e3443c",
+   "retrieved": "2026-11-01",
+   "content_sha256": "61d683a68c0979e950c5cff4ce452d40dd775d835e60056545a61b6108687f70",
+   "local_copies": [
+    "data/packages/aeg-d-strong-lensing/v1/source/vizier/J_A+A_501_461_lens.tsv"
+   ],
+   "citation": "Grillo, C., Gobat, R., Lombardi, M., et al. 2009, A&A 501, 461, \"Photometric mass and mass decomposition in early-type lens galaxies\"",
+   "identifier": {
+    "doi": "10.1051/0004-6361/200811604",
+    "vizier": "J/A+A/501/461"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "CDS/VizieR terms of use (the export's rights_uri); no licence shown on the VizieR record; the journal pages state © AAS / A&A, all rights reserved",
+    "uri": "https://cds.unistra.fr/vizier-org/licences_vizier.html",
+    "checked_where": "The export's rights_uri and the VizieR record, as recorded in docs/sources/screening-A6S/packaging-inventory.md §1 (2026-10-31); not re-read for this check",
+    "checked_on": "2026-10-31"
+   }
+  },
+  {
+   "id": "S4",
+   "kind": "data_file",
+   "role": "Shu et al. 2017, ApJ 851, 48 (S4TM), Table 1: redshifts (SDSS spectroscopy), de Vaucouleurs R_eff, classification",
+   "record": "R10",
+   "url": "https://content.cld.iop.org/journals/0004-637X/851/1/48/revision1/apjaa9794t1_ascii.txt",
+   "file": "iop/apjaa9794t1_ascii.txt",
+   "version_read": "IOP revision1 ascii",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "AAS journal machine-readable table (content.cld.iop.org); linked, not redistributed. Fetched 2026-11-01 with the pipeline's own user-agent (aeg.fetch), no spoofing. Licence as recorded in v2: 'IOP page: © 2017 AAS, all rights reserved; VizieR ReadMe: no licence statement'.",
+   "bytes": 11893,
+   "sha256": "6af826bf2f6e4a0d4804c12e97c72ba56fefc619be3c4b0ad143cef38301a22d",
+   "retrieved": "2026-11-01",
+   "local_copies": [
+    "data/packages/aeg-d-strong-lensing/v1/source/iop/apjaa9794t1_ascii.txt"
+   ],
+   "citation": "Shu, Y., Brownstein, J. R., Bolton, A. S., et al. 2017, ApJ 851, 48, \"The Sloan Lens ACS Survey. XIII. Discovery of 40 New Galaxy-Scale Strong Lenses\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/aa9794"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "© 2017 AAS, all rights reserved",
+    "checked_where": "The IOP article page, as recorded in docs/sources/screening-A6S/packaging-inventory.md §1 (2026-10-31); not re-read for this check (the host refuses connections from the build workspace)",
+    "checked_on": "2026-10-31"
+   }
+  },
+  {
+   "id": "S5",
+   "kind": "data_file",
+   "role": "S4TM Table 2: b_SIE, log M_Ein, log M*^Chab (total; R9 method)",
+   "record": "R10",
+   "url": "https://content.cld.iop.org/journals/0004-637X/851/1/48/revision1/apjaa9794t2_ascii.txt",
+   "file": "iop/apjaa9794t2_ascii.txt",
+   "version_read": "IOP revision1 ascii",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "AAS journal machine-readable table (content.cld.iop.org); linked, not redistributed. Fetched 2026-11-01 with the pipeline's own user-agent (aeg.fetch), no spoofing. Licence as recorded in v2: 'IOP page: © 2017 AAS, all rights reserved'.",
+   "bytes": 3400,
+   "sha256": "497ca1aaf3bd3b9c546eb4f0e1ae40bfbac48fa384ee8a623ed293ecfba439ed",
+   "retrieved": "2026-11-01",
+   "local_copies": [
+    "data/packages/aeg-d-strong-lensing/v1/source/iop/apjaa9794t2_ascii.txt"
+   ],
+   "citation": "Shu, Y., Brownstein, J. R., Bolton, A. S., et al. 2017, ApJ 851, 48, \"The Sloan Lens ACS Survey. XIII. Discovery of 40 New Galaxy-Scale Strong Lenses\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/aa9794"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "© 2017 AAS, all rights reserved",
+    "checked_where": "The IOP article page, as recorded in docs/sources/screening-A6S/packaging-inventory.md §1 (2026-10-31); not re-read for this check (the host refuses connections from the build workspace)",
+    "checked_on": "2026-10-31"
+   }
+  },
+  {
+   "id": "S6",
+   "kind": "data_file",
+   "role": "Sonnenfeld et al. 2013, ApJ 777, 97 (SL2S III), Table 6: SIE Einstein radii",
+   "record": "R20",
+   "url": "https://content.cld.iop.org/journals/0004-637X/777/2/97/revision1/apj485108t6_mrt.txt",
+   "file": "iop/apj485108t6_mrt.txt",
+   "version_read": "IOP revision1 MRT",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "AAS journal machine-readable table (content.cld.iop.org); linked, not redistributed. Fetched 2026-11-01 with the pipeline's own user-agent (aeg.fetch), no spoofing. Licence as recorded in v2: 'IOP page: © 2013 AAS, all rights reserved'.",
+   "bytes": 5832,
+   "sha256": "3c824245e6c0a5cafbe3036171fb70169697831c3bd76619afd5515b71af60f5",
+   "retrieved": "2026-11-01",
+   "local_copies": [
+    "data/packages/aeg-d-strong-lensing/v1/source/iop/apj485108t6_mrt.txt"
+   ],
+   "citation": "Sonnenfeld, A., Gavazzi, R., Suyu, S. H., et al. 2013, ApJ 777, 97, \"The SL2S Galaxy-scale Lens Sample. III. Lens Models, Surface Photometry and Stellar Masses for the final sample\"",
+   "identifier": {
+    "doi": "10.1088/0004-637X/777/2/97"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "© 2013 AAS, all rights reserved",
+    "checked_where": "The IOP article page, as recorded in docs/sources/screening-A6S/packaging-inventory.md §1 (2026-10-31); not re-read for this check (the host refuses connections from the build workspace)",
+    "checked_on": "2026-10-31"
+   }
+  },
+  {
+   "id": "S7",
+   "kind": "data_file",
+   "role": "SL2S III Table 7: Chabrier and Salpeter BC03 stellar masses (total; column identity from the paper header, adjudication.md §3c)",
+   "record": "R20",
+   "url": "https://content.cld.iop.org/journals/0004-637X/777/2/97/revision1/apj485108t7_mrt.txt",
+   "file": "iop/apj485108t7_mrt.txt",
+   "version_read": "IOP revision1 MRT",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "AAS journal machine-readable table (content.cld.iop.org); linked, not redistributed. Fetched 2026-11-01 with the pipeline's own user-agent (aeg.fetch), no spoofing. Licence as recorded in v2: 'IOP page: © 2013 AAS, all rights reserved'.",
+   "bytes": 5211,
+   "sha256": "c6319d4f682eb2f4de25617c03d65636fd51df466aca1ef6afa3f8f99d175f02",
+   "retrieved": "2026-11-01",
+   "local_copies": [
+    "data/packages/aeg-d-strong-lensing/v1/source/iop/apj485108t7_mrt.txt"
+   ],
+   "citation": "Sonnenfeld, A., Gavazzi, R., Suyu, S. H., et al. 2013, ApJ 777, 97, \"The SL2S Galaxy-scale Lens Sample. III. Lens Models, Surface Photometry and Stellar Masses for the final sample\"",
+   "identifier": {
+    "doi": "10.1088/0004-637X/777/2/97"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "© 2013 AAS, all rights reserved",
+    "checked_where": "The IOP article page, as recorded in docs/sources/screening-A6S/packaging-inventory.md §1 (2026-10-31); not re-read for this check (the host refuses connections from the build workspace)",
+    "checked_on": "2026-10-31"
+   }
+  },
+  {
+   "id": "S8",
+   "kind": "data_file",
+   "role": "Auger et al. 2009, ApJ 705, 1099 (SLACS IX), Table 4: printed log M_Ein for R5's models (input to the reported §2.4 formula check only)",
+   "record": "R7",
+   "url": "https://content.cld.iop.org/journals/0004-637X/705/2/1099/revision1/apj326624t4_ascii.txt",
+   "file": "iop/apj326624t4_ascii.txt",
+   "version_read": "IOP revision1 ascii",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "note": "AAS journal machine-readable table (content.cld.iop.org); linked, not redistributed. Fetched 2026-11-01 with the pipeline's own user-agent (aeg.fetch), no spoofing. Licence as recorded in v2: 'IOP page: © 2009 AAS, all rights reserved'.",
+   "bytes": 13816,
+   "sha256": "7c8a3297628bdf31a65082680c3e96e45c2172ddb49160ab10410ddb6d76c66d",
+   "retrieved": "2026-11-01",
+   "local_copies": [
+    "data/packages/aeg-d-strong-lensing/v1/source/iop/apj326624t4_ascii.txt"
+   ],
+   "citation": "Auger, M. W., Treu, T., Bolton, A. S., et al. 2009, ApJ 705, 1099, \"The Sloan Lens ACS Survey. IX. Colors, Lensing and Stellar Masses of Early-type Galaxies\"",
+   "identifier": {
+    "doi": "10.1088/0004-637X/705/2/1099"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "© 2009 AAS, all rights reserved",
+    "checked_where": "The IOP article page, as recorded in docs/sources/screening-A6S/packaging-inventory.md §1 (2026-10-31); not re-read for this check (the host refuses connections from the build workspace)",
+    "checked_on": "2026-10-31"
+   }
+  },
+  {
+   "id": "S9",
+   "kind": "document",
+   "role": "SLACS V paper: cosmology (§1), adopted 2% error on θ_E (Table 3, §6.1)",
+   "record": "R5",
+   "url": "https://arxiv.org/pdf/0805.1931v1",
+   "file": "arxiv/0805.1931v1.pdf",
+   "version_read": "arXiv:0805.1931v1",
+   "redistributable": false,
+   "evidence_tier": 2,
+   "note": "Values transcribed from printed tables or text are taken from the adjudicated reading files (reading/adjudicated_inputs.csv, reading/adjudicated_supplement.csv), read twice at source.  Fetched 2026-11-01 with the pipeline's own user-agent (aeg.fetch), no spoofing. Licence as recorded in v2: 'arXiv licence: nonexclusive-distrib/1.0 (packaging inventory §1 unless stated)'.",
+   "bytes": 522788,
+   "sha256": "bfe4a042dbfcfac2d0ed49a7fdf155ff777de3bf1b06edd8aca6db5d815d4a96",
+   "retrieved": "2026-11-01",
+   "local_copies": [
+    "data/packages/aeg-d-strong-lensing/v1/source/arxiv/0805.1931v1.pdf"
+   ],
+   "citation": "Bolton, A. S., Burles, S., Koopmans, L. V. E., et al. 2008, ApJ 682, 964, \"The Sloan Lens ACS Survey. V. The Full ACS Strong-Lens Sample\"",
+   "identifier": {
+    "doi": "10.1086/589327",
+    "arxiv": "0805.1931v1",
+    "landing_url": "https://arxiv.org/abs/0805.1931v1",
+    "vizier": "J/ApJ/682/964"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/0805.1931 (licence link)",
+    "checked_on": "2026-11-24"
+   }
+  },
+  {
+   "id": "S10",
+   "kind": "document",
+   "role": "Grillo et al. 2009 paper: cosmology (§1), definition of the inside-R_E masses (§4.2)",
+   "record": "R13",
+   "url": "https://arxiv.org/pdf/0904.3282v2",
+   "file": "arxiv/0904.3282v2.pdf",
+   "version_read": "arXiv:0904.3282v2",
+   "redistributable": false,
+   "evidence_tier": 2,
+   "note": "Values transcribed from printed tables or text are taken from the adjudicated reading files (reading/adjudicated_inputs.csv, reading/adjudicated_supplement.csv), read twice at source.  Fetched 2026-11-01 with the pipeline's own user-agent (aeg.fetch), no spoofing. Licence as recorded in v2: 'arXiv licence: nonexclusive-distrib/1.0 (packaging inventory §1 unless stated)'.",
+   "bytes": 468807,
+   "sha256": "df3746887007595b00e7fb2564ae1e9121e95849c68c04e55d2a06e3324587cf",
+   "retrieved": "2026-11-01",
+   "local_copies": [
+    "data/packages/aeg-d-strong-lensing/v1/source/arxiv/0904.3282v2.pdf"
+   ],
+   "citation": "Grillo, C., Gobat, R., Lombardi, M., et al. 2009, A&A 501, 461, \"Photometric mass and mass decomposition in early-type lens galaxies\"",
+   "identifier": {
+    "doi": "10.1051/0004-6361/200811604",
+    "arxiv": "0904.3282v2",
+    "landing_url": "https://arxiv.org/abs/0904.3282v2",
+    "vizier": "J/A+A/501/461"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/0904.3282 (licence link)",
+    "checked_on": "2026-11-24"
+   }
+  },
+  {
+   "id": "S11",
+   "kind": "document",
+   "role": "SLACS IX paper: cosmology (§1) for the reported formula check",
+   "record": "R7",
+   "url": "https://arxiv.org/pdf/0911.2471v1",
+   "file": "arxiv/0911.2471v1.pdf",
+   "version_read": "arXiv:0911.2471v1",
+   "redistributable": false,
+   "evidence_tier": 2,
+   "note": "Values transcribed from printed tables or text are taken from the adjudicated reading files (reading/adjudicated_inputs.csv, reading/adjudicated_supplement.csv), read twice at source.  Fetched 2026-11-01 with the pipeline's own user-agent (aeg.fetch), no spoofing. Licence as recorded in v2: 'arXiv licence: nonexclusive-distrib/1.0 (packaging inventory §1 unless stated)'.",
+   "bytes": 906322,
+   "sha256": "31f2d6b38c8143a9d8216a0cdfda3ca95e7f5536d3f784f479f47c01228e1668",
+   "retrieved": "2026-11-01",
+   "local_copies": [
+    "data/packages/aeg-d-strong-lensing/v1/source/arxiv/0911.2471v1.pdf"
+   ],
+   "citation": "Auger, M. W., Treu, T., Bolton, A. S., et al. 2009, ApJ 705, 1099, \"The Sloan Lens ACS Survey. IX. Colors, Lensing and Stellar Masses of Early-type Galaxies\"",
+   "identifier": {
+    "doi": "10.1088/0004-637X/705/2/1099",
+    "arxiv": "0911.2471v1",
+    "landing_url": "https://arxiv.org/abs/0911.2471v1"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/0911.2471 (licence link)",
+    "checked_on": "2026-11-24"
+   }
+  },
+  {
+   "id": "S12",
+   "kind": "document",
+   "role": "S4TM paper: cosmology (§1), de Vaucouleurs fit (§3)",
+   "record": "R10",
+   "url": "https://arxiv.org/pdf/1711.00072v2",
+   "file": "arxiv/1711.00072v2.pdf",
+   "version_read": "arXiv:1711.00072v2",
+   "redistributable": false,
+   "evidence_tier": 2,
+   "note": "Values transcribed from printed tables or text are taken from the adjudicated reading files (reading/adjudicated_inputs.csv, reading/adjudicated_supplement.csv), read twice at source.  Fetched 2026-11-01 with the pipeline's own user-agent (aeg.fetch), no spoofing. Licence as recorded in v2: 'arXiv licence: nonexclusive-distrib/1.0 (packaging inventory §1 unless stated)'.",
+   "bytes": 974975,
+   "sha256": "062808fc803780906933f5c6e7d21f3b613ed2f6b91c7c5a8d7e25cfea5e42b5",
+   "retrieved": "2026-11-01",
+   "local_copies": [
+    "data/packages/aeg-d-strong-lensing/v1/source/arxiv/1711.00072v2.pdf"
+   ],
+   "citation": "Shu, Y., Brownstein, J. R., Bolton, A. S., et al. 2017, ApJ 851, 48, \"The Sloan Lens ACS Survey. XIII. Discovery of 40 New Galaxy-Scale Strong Lenses\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/aa9794",
+    "arxiv": "1711.00072v2",
+    "landing_url": "https://arxiv.org/abs/1711.00072v2"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1711.00072 (licence link)",
+    "checked_on": "2026-11-24"
+   }
+  },
+  {
+   "id": "S13",
+   "kind": "document",
+   "role": "Shu et al. 2015 (SLACS XII): the S4TM stellar-mass method (FSPS SSP, F814W, Chabrier; §5)",
+   "record": "R9",
+   "url": "https://arxiv.org/pdf/1407.2240v2",
+   "file": "arxiv/1407.2240v2.pdf",
+   "version_read": "arXiv:1407.2240v2",
+   "redistributable": true,
+   "evidence_tier": 2,
+   "note": "Values transcribed from printed tables or text are taken from the adjudicated reading files (reading/adjudicated_inputs.csv, reading/adjudicated_supplement.csv), read twice at source.  Fetched 2026-11-01 with the pipeline's own user-agent (aeg.fetch), no spoofing. Licence as recorded in v2: 'arXiv licence: CC-by/3.0 (packaging inventory §1 unless stated)'.",
+   "bytes": 1397745,
+   "sha256": "f53c4026d226980310117105c9b92b482996bc5803788246bc0c109575165481",
+   "retrieved": "2026-11-01",
+   "local_copies": [
+    "data/packages/aeg-d-strong-lensing/v1/source/arxiv/1407.2240v2.pdf"
+   ],
+   "citation": "Shu, Y., Bolton, A. S., Brownstein, J. R., et al. 2015, ApJ 803, 71, \"The Sloan Lens ACS Survey. XII. Extending Strong Lensing to Lower Masses\"",
+   "identifier": {
+    "doi": "10.1088/0004-637X/803/2/71",
+    "arxiv": "1407.2240v2",
+    "landing_url": "https://arxiv.org/abs/1407.2240v2"
+   },
+   "licence": {
+    "status": "stated",
+    "spdx": "CC-BY-3.0",
+    "uri": "http://creativecommons.org/licenses/by/3.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1407.2240 (licence link)",
+    "checked_on": "2026-11-24"
+   }
+  },
+  {
+   "id": "S14",
+   "kind": "document",
+   "role": "SL2S III paper: cosmology, grades (§2), Table 4 de Vaucouleurs R_e (CFHT default, HST alternative; D-075 item 5), Table 7 header order",
+   "record": "R20",
+   "url": "https://arxiv.org/pdf/1307.4764v1",
+   "file": "arxiv/1307.4764v1.pdf",
+   "version_read": "arXiv:1307.4764v1",
+   "redistributable": false,
+   "evidence_tier": 2,
+   "note": "Values transcribed from printed tables or text are taken from the adjudicated reading files (reading/adjudicated_inputs.csv, reading/adjudicated_supplement.csv), read twice at source.  Fetched 2026-11-01 with the pipeline's own user-agent (aeg.fetch), no spoofing. Licence as recorded in v2: 'arXiv licence: nonexclusive-distrib/1.0 (packaging inventory §1 unless stated)'.",
+   "bytes": 3098124,
+   "sha256": "95dd93ea5ee9d303ea63c0ef2a5bc4c7df6debdeea8ae3fdb6531b471d40d4d1",
+   "retrieved": "2026-11-01",
+   "local_copies": [
+    "data/packages/aeg-d-strong-lensing/v1/source/arxiv/1307.4764v1.pdf"
+   ],
+   "citation": "Sonnenfeld, A., Gavazzi, R., Suyu, S. H., et al. 2013, ApJ 777, 97, \"The SL2S Galaxy-scale Lens Sample. III. Lens Models, Surface Photometry and Stellar Masses for the final sample\"",
+   "identifier": {
+    "doi": "10.1088/0004-637X/777/2/97",
+    "arxiv": "1307.4764v1",
+    "landing_url": "https://arxiv.org/abs/1307.4764v1"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1307.4764 (licence link)",
+    "checked_on": "2026-11-24"
+   }
+  },
+  {
+   "id": "S15",
+   "kind": "document",
+   "role": "Sonnenfeld et al. 2013, ApJ 777, 98 (SL2S IV), Table 2: spectroscopic lens and source redshifts",
+   "record": "R21",
+   "url": "https://arxiv.org/pdf/1307.4759v1",
+   "file": "arxiv/1307.4759v1.pdf",
+   "version_read": "arXiv:1307.4759v1",
+   "redistributable": false,
+   "evidence_tier": 2,
+   "note": "Values transcribed from printed tables or text are taken from the adjudicated reading files (reading/adjudicated_inputs.csv, reading/adjudicated_supplement.csv), read twice at source.  Fetched 2026-11-01 with the pipeline's own user-agent (aeg.fetch), no spoofing. Licence as recorded in v2: 'arXiv licence: nonexclusive-distrib/1.0 (packaging inventory §1 unless stated)'.",
+   "bytes": 2551293,
+   "sha256": "03e3818848a9b1d169ebf301b453699720a9fdd878103886cd5b79de3494081e",
+   "retrieved": "2026-11-01",
+   "local_copies": [
+    "data/packages/aeg-d-strong-lensing/v1/source/arxiv/1307.4759v1.pdf"
+   ],
+   "citation": "Sonnenfeld, A., Treu, T., Gavazzi, R., et al. 2013, ApJ 777, 98, \"The SL2S Galaxy-scale Lens Sample. IV. The dependence of the total mass density profile of early-type galaxies on redshift, stellar mass, and size\"",
+   "identifier": {
+    "doi": "10.1088/0004-637X/777/2/98",
+    "arxiv": "1307.4759v1",
+    "landing_url": "https://arxiv.org/abs/1307.4759v1"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1307.4759 (licence link)",
+    "checked_on": "2026-11-24"
+   }
+  },
+  {
+   "id": "S16",
+   "kind": "document",
+   "role": "Smith & Lucey 2013 (SNL-0): M_Ein (MFL model), R_Ein, z_l, z_s, cosmology, gas statement",
+   "record": "R28",
+   "url": "https://arxiv.org/pdf/1306.4983v1",
+   "file": "arxiv/1306.4983v1.pdf",
+   "version_read": "arXiv:1306.4983v1",
+   "redistributable": false,
+   "evidence_tier": 2,
+   "note": "Values transcribed from printed tables or text are taken from the adjudicated reading files (reading/adjudicated_inputs.csv, reading/adjudicated_supplement.csv), read twice at source.  Fetched 2026-11-01 with the pipeline's own user-agent (aeg.fetch), no spoofing. Licence as recorded in v2: 'arXiv licence: nonexclusive-distrib/1.0 (packaging inventory §1 unless stated)'.",
+   "bytes": 1005086,
+   "sha256": "d719b53e79ec224c03677cb0b880d3b77ac8b9a3f2bcafec90d7cf574190236d",
+   "retrieved": "2026-11-01",
+   "local_copies": [
+    "data/packages/aeg-d-strong-lensing/v1/source/arxiv/1306.4983v1.pdf"
+   ],
+   "citation": "Smith, R. J. & Lucey, J. R. 2013, MNRAS 434, 1964, \"A giant elliptical galaxy with a lightweight initial mass function\"",
+   "identifier": {
+    "doi": "10.1093/mnras/stt1141",
+    "arxiv": "1306.4983v1",
+    "landing_url": "https://arxiv.org/abs/1306.4983v1"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1306.4983 (licence link)",
+    "checked_on": "2026-11-24"
+   }
+  },
+  {
+   "id": "S17",
+   "kind": "document",
+   "role": "Smith, Lucey & Conroy 2015 (SNELLS): cosmology adopted by R26, gas statement, ranked alternative for SNL-1 (L_J × Υ_ref)",
+   "record": "R25",
+   "url": "https://arxiv.org/pdf/1503.02661v1",
+   "file": "arxiv/1503.02661v1.pdf",
+   "version_read": "arXiv:1503.02661v1",
+   "redistributable": false,
+   "evidence_tier": 2,
+   "note": "Values transcribed from printed tables or text are taken from the adjudicated reading files (reading/adjudicated_inputs.csv, reading/adjudicated_supplement.csv), read twice at source.  Fetched 2026-11-01 with the pipeline's own user-agent (aeg.fetch), no spoofing. Licence as recorded in v2: 'arXiv licence: nonexclusive-distrib/1.0 (packaging inventory §1 unless stated)'.",
+   "bytes": 2175107,
+   "sha256": "b6d67d236133a9e7d4e80d22f2d027748a8d32539e5877d5395c96ed8ea89d0e",
+   "retrieved": "2026-11-01",
+   "local_copies": [
+    "data/packages/aeg-d-strong-lensing/v1/source/arxiv/1503.02661v1.pdf"
+   ],
+   "citation": "Smith, R. J., Lucey, J. R. & Conroy, C. 2015, MNRAS, \"The SINFONI Nearby Elliptical Lens Locator Survey: Discovery of two new low-redshift strong lenses and implications for the initial mass function in giant early-type galaxies\"",
+   "identifier": {
+    "doi": "10.1093/mnras/stv518",
+    "arxiv": "1503.02661v1",
+    "landing_url": "https://arxiv.org/abs/1503.02661v1"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1503.02661 (licence link)",
+    "checked_on": "2026-11-24"
+   }
+  },
+  {
+   "id": "S18",
+   "kind": "document",
+   "role": "Newman et al. 2017: SNL-0 L_r inside θ_Ein and spectroscopic Kroupa M/L; ranked alternative for SNL-1",
+   "record": "R26",
+   "url": "https://arxiv.org/pdf/1612.00065v2",
+   "file": "arxiv/1612.00065v2.pdf",
+   "version_read": "arXiv:1612.00065v2",
+   "redistributable": false,
+   "evidence_tier": 2,
+   "note": "Values transcribed from printed tables or text are taken from the adjudicated reading files (reading/adjudicated_inputs.csv, reading/adjudicated_supplement.csv), read twice at source.  Fetched 2026-11-01 with the pipeline's own user-agent (aeg.fetch), no spoofing. Licence as recorded in v2: 'arXiv licence: nonexclusive-distrib/1.0 (packaging inventory §1 unless stated)'.",
+   "bytes": 1978262,
+   "sha256": "542370972c06f894fa4f16658a2aee698a3e01410ea8652ee52e36f19febcff9",
+   "retrieved": "2026-11-01",
+   "local_copies": [
+    "data/packages/aeg-d-strong-lensing/v1/source/arxiv/1612.00065v2.pdf"
+   ],
+   "citation": "Newman, A. B., Smith, R. J., Conroy, C., et al. 2017, ApJ 845, 157, \"The Initial Mass Function in the Nearest Strong Lenses from SNELLS: Assessing the Consistency of Lensing, Dynamical, and Spectroscopic Constraints\"",
+   "identifier": {
+    "doi": "10.3847/1538-4357/aa816d",
+    "arxiv": "1612.00065v2",
+    "landing_url": "https://arxiv.org/abs/1612.00065v2",
+    "vizier": "J/ApJ/845/157"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1612.00065 (licence link)",
+    "checked_on": "2026-11-24"
+   }
+  },
+  {
+   "id": "S19",
+   "kind": "document",
+   "role": "Collier, Smith & Lucey 2018 (SNL-1, SNL-2): mass inside R_ap, L_F814W inside R_ap, Υ_ref (SNL-1 by D-076 item 3, second reading reading/readings/second-reader-r61-snl1.csv)",
+   "record": "R61",
+   "url": "https://arxiv.org/pdf/1709.01931v1",
+   "file": "arxiv/1709.01931v1.pdf",
+   "version_read": "arXiv:1709.01931v1",
+   "redistributable": false,
+   "evidence_tier": 2,
+   "note": "Values transcribed from printed tables or text are taken from the adjudicated reading files (reading/adjudicated_inputs.csv, reading/adjudicated_supplement.csv), read twice at source.  Fetched 2026-11-01 with the pipeline's own user-agent (aeg.fetch), no spoofing. Licence as recorded in v2: 'arXiv licence: nonexclusive-distrib/1.0 (packaging inventory §1 unless stated)'.",
+   "bytes": 784919,
+   "sha256": "8b9a54259f783f5b843fcfeca20b1d67e0fb2c4af4f1cc1174b571e2c5436552",
+   "retrieved": "2026-11-01",
+   "local_copies": [
+    "data/packages/aeg-d-strong-lensing/v1/source/arxiv/1709.01931v1.pdf"
+   ],
+   "citation": "Collier, W. P., Smith, R. J. & Lucey, J. R. 2018, MNRAS, \"Improved mass constraints for two nearby strong-lensing elliptical galaxies from Hubble Space Telescope Imaging\"",
+   "identifier": {
+    "doi": "10.1093/mnras/stx2297",
+    "arxiv": "1709.01931v1",
+    "landing_url": "https://arxiv.org/abs/1709.01931v1"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1709.01931 (licence link)",
+    "checked_on": "2026-11-24"
+   }
+  },
+  {
+   "id": "S20",
+   "kind": "document",
+   "role": "Poci & Smith 2022 (SNL-1 MGE): the excluded default (no MGE code in v1, D-075 item 2); recorded only",
+   "record": "R33",
+   "url": "https://arxiv.org/pdf/2203.09309v1",
+   "file": "arxiv/2203.09309v1.pdf",
+   "version_read": "arXiv:2203.09309v1",
+   "redistributable": true,
+   "evidence_tier": 2,
+   "note": "Values transcribed from printed tables or text are taken from the adjudicated reading files (reading/adjudicated_inputs.csv, reading/adjudicated_supplement.csv), read twice at source.  Fetched 2026-11-01 with the pipeline's own user-agent (aeg.fetch), no spoofing. Licence as recorded in v2: 'arXiv licence: CC-by/4.0 (packaging inventory §1 unless stated)'.",
+   "bytes": 3202304,
+   "sha256": "92fc46a03b616e627346ff9aea938e7c3b1ac1efdddef8bda9d6909c9106e64e",
+   "retrieved": "2026-11-01",
+   "local_copies": [
+    "data/packages/aeg-d-strong-lensing/v1/source/arxiv/2203.09309v1.pdf"
+   ],
+   "citation": "Poci, A. & Smith, R. J. 2022, MNRAS 512, 5298, \"Comparing Lensing and Stellar Orbital Models of a Nearby Massive Strong-Lens Galaxy\"",
+   "identifier": {
+    "doi": "10.1093/mnras/stac776",
+    "arxiv": "2203.09309v1",
+    "landing_url": "https://arxiv.org/abs/2203.09309v1"
+   },
+   "licence": {
+    "status": "stated",
+    "spdx": "CC-BY-4.0",
+    "uri": "http://creativecommons.org/licenses/by/4.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2203.09309 (licence link)",
+    "checked_on": "2026-11-24"
+   }
+  },
+  {
+   "id": "S21",
+   "kind": "document",
+   "role": "Collier, Smith & Lucey 2018b (J0403−0239): M_Ein, half-separation R_Ein, MUSE redshifts, L_i inside R_Ein, Υ_Ref (Kroupa), Salpeter α = 1.55, cosmology (§4)",
+   "record": "R29",
+   "url": "https://arxiv.org/pdf/1803.07082v1",
+   "file": "arxiv/1803.07082v1.pdf",
+   "version_read": "arXiv:1803.07082v1",
+   "redistributable": false,
+   "evidence_tier": 2,
+   "note": "Values transcribed from printed tables or text are taken from the adjudicated reading files (reading/adjudicated_inputs.csv, reading/adjudicated_supplement.csv), read twice at source.  Fetched 2026-11-01 with the pipeline's own user-agent (aeg.fetch), no spoofing. Licence as recorded in v2: 'arXiv licence: nonexclusive-distrib/1.0 (packaging inventory §1 unless stated)'.",
+   "bytes": 841123,
+   "sha256": "240f01b5b90632642a38029702b4fd663df9e035b0826941b14f535fc6bdd604",
+   "retrieved": "2026-11-01",
+   "local_copies": [
+    "data/packages/aeg-d-strong-lensing/v1/source/arxiv/1803.07082v1.pdf"
+   ],
+   "citation": "Collier, W. P., Smith, R. J. & Lucey, J. R. 2018, MNRAS, \"A new strong-lensing galaxy at z=0.066: Another elliptical galaxy with a lightweight IMF\"",
+   "identifier": {
+    "doi": "10.1093/mnras/sty1188",
+    "arxiv": "1803.07082v1",
+    "landing_url": "https://arxiv.org/abs/1803.07082v1"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1803.07082 (licence link)",
+    "checked_on": "2026-11-24"
+   }
+  },
+  {
+   "id": "S22",
+   "kind": "document",
+   "role": "Collier, Smith & Lucey 2020 (MNELLS): J0403−0239 θ_E, redshifts, cosmology (alternative, D-075 item 2)",
+   "record": "R27",
+   "url": "https://arxiv.org/pdf/2002.07191v1",
+   "file": "arxiv/2002.07191v1.pdf",
+   "version_read": "arXiv:2002.07191v1",
+   "redistributable": false,
+   "evidence_tier": 2,
+   "note": "Values transcribed from printed tables or text are taken from the adjudicated reading files (reading/adjudicated_inputs.csv, reading/adjudicated_supplement.csv), read twice at source.  Fetched 2026-11-01 with the pipeline's own user-agent (aeg.fetch), no spoofing. Licence as recorded in v2: 'arXiv licence: nonexclusive-distrib/1.0 (packaging inventory §1 unless stated)'.",
+   "bytes": 3118219,
+   "sha256": "6465636a5be7989f556b6f9eb2d8b6acb83ad1f3de2a4c1f8d584e11af4ab26d",
+   "retrieved": "2026-11-01",
+   "local_copies": [
+    "data/packages/aeg-d-strong-lensing/v1/source/arxiv/2002.07191v1.pdf"
+   ],
+   "citation": "Collier, W. P., Smith, R. J. & Lucey, J. R. 2020, MNRAS, \"MNELLS: The MUSE Nearby Early-Type Galaxy Lens Locator Survey\"",
+   "identifier": {
+    "doi": "10.1093/mnras/staa602",
+    "arxiv": "2002.07191v1",
+    "landing_url": "https://arxiv.org/abs/2002.07191v1"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2002.07191 (licence link)",
+    "checked_on": "2026-11-24"
+   }
+  },
+  {
+   "id": "S23",
+   "kind": "document",
+   "role": "Smith et al. 2020 (MaNGA lenses): θ_Ein, R_Ein (kpc), M_Ein, L_i inside θ_Ein, Υ_ref, Salpeter α ≈ 1.65, gas statement",
+   "record": "R32",
+   "url": "https://arxiv.org/pdf/1911.06338v1",
+   "file": "arxiv/1911.06338v1.pdf",
+   "version_read": "arXiv:1911.06338v1",
+   "redistributable": false,
+   "evidence_tier": 2,
+   "note": "Values transcribed from printed tables or text are taken from the adjudicated reading files (reading/adjudicated_inputs.csv, reading/adjudicated_supplement.csv), read twice at source.  Fetched 2026-11-01 with the pipeline's own user-agent (aeg.fetch), no spoofing. Licence as recorded in v2: 'arXiv licence: nonexclusive-distrib/1.0 (packaging inventory §1 unless stated)'.",
+   "bytes": 760654,
+   "sha256": "9c08bcb07a8c21d07e6dcca1d8ce200a98b52fd26148f3324feb0cff046aa02b",
+   "retrieved": "2026-11-01",
+   "local_copies": [
+    "data/packages/aeg-d-strong-lensing/v1/source/arxiv/1911.06338v1.pdf"
+   ],
+   "citation": "Smith, R. J., Collier, W. P., Ozaki, S., et al. 2020, MNRAS Letters, \"Subaru FOCAS IFU observations of two z=0.12 strong-lensing elliptical galaxies from SDSS MaNGA\"",
+   "identifier": {
+    "doi": "10.1093/mnrasl/slaa003",
+    "arxiv": "1911.06338v1",
+    "landing_url": "https://arxiv.org/abs/1911.06338v1"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/1911.06338 (licence link)",
+    "checked_on": "2026-11-24"
+   }
+  },
+  {
+   "id": "S24",
+   "kind": "document",
+   "role": "O'Riordan et al. 2025 (NGC 6505): θ_E, M_E, Prospector stellar mass inside θ_E (Chabrier), the printed Chabrier-to-Salpeter factor 0.61 (§3.1), also used as the S4TM Salpeter top (D-076 item 2)",
+   "record": "R30",
+   "url": "https://arxiv.org/pdf/2502.06505v1",
+   "file": "arxiv/2502.06505v1.pdf",
+   "version_read": "arXiv:2502.06505v1",
+   "redistributable": false,
+   "evidence_tier": 2,
+   "note": "Values transcribed from printed tables or text are taken from the adjudicated reading files (reading/adjudicated_inputs.csv, reading/adjudicated_supplement.csv), read twice at source.  Fetched 2026-11-01 with the pipeline's own user-agent (aeg.fetch), no spoofing. Licence as recorded in v2: 'arXiv licence: nonexclusive-distrib/1.0 (packaging inventory §1 unless stated)'.",
+   "bytes": 10156823,
+   "sha256": "0b593fc45bd284b7906fda3e35323d9779695448da9bcd930978ffdedea41dd6",
+   "retrieved": "2026-11-01",
+   "local_copies": [
+    "data/packages/aeg-d-strong-lensing/v1/source/arxiv/2502.06505v1.pdf"
+   ],
+   "citation": "O'Riordan, C. M., Oldham, L. J., Nersesian, A., et al. 2025, A&A 694, A145, \"Euclid: A complete Einstein ring in NGC 6505\"",
+   "identifier": {
+    "doi": "10.1051/0004-6361/202453014",
+    "arxiv": "2502.06505v1",
+    "landing_url": "https://arxiv.org/abs/2502.06505v1"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/2502.06505 (licence link)",
+    "checked_on": "2026-11-24"
+   }
+  },
+  {
+   "id": "S25",
+   "kind": "document",
+   "role": "Kochanek et al. 2000 (CASTLES): redshifts of the recorded CASTLES systems",
+   "record": "R36",
+   "url": "https://arxiv.org/pdf/astro-ph/9909018v2",
+   "file": "arxiv/astro-ph_9909018v2.pdf",
+   "version_read": "arXiv:astro-ph/9909018v2",
+   "redistributable": false,
+   "evidence_tier": 2,
+   "note": "Values transcribed from printed tables or text are taken from the adjudicated reading files (reading/adjudicated_inputs.csv, reading/adjudicated_supplement.csv), read twice at source. The adjudicator read the current version (v2; same SHA-256). Fetched 2026-11-01 with the pipeline's own user-agent (aeg.fetch), no spoofing. Licence as recorded in v2: 'arXiv licence: assumed-1991-2003 (packaging inventory §1 unless stated)'.",
+   "bytes": 479067,
+   "sha256": "bb7c1ec2ffec8bf6c8067cfeab1056b42bdcc408252e8228588c0394dcbf6ae2",
+   "retrieved": "2026-11-01",
+   "local_copies": [
+    "data/packages/aeg-d-strong-lensing/v1/source/arxiv/astro-ph_9909018v2.pdf"
+   ],
+   "citation": "Kochanek, C. S., Falco, E. E., Impey, C. D., et al. 2000, ApJ 543, 131, \"The Fundamental Plane of Gravitational Lens Galaxies and The Evolution of Early-Type Galaxies in Low Density Environments\"",
+   "identifier": {
+    "doi": "10.1086/317074",
+    "arxiv": "astro-ph/9909018v2",
+    "landing_url": "https://arxiv.org/abs/astro-ph/9909018v2"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv licence 'assumed-1991-2003' (the licence arXiv assigns to submissions from 1991 to 2003)",
+    "uri": "http://arxiv.org/licenses/assumed-1991-2003/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/astro-ph/9909018 (licence link)",
+    "checked_on": "2026-11-24"
+   }
+  },
+  {
+   "id": "S26",
+   "kind": "document",
+   "role": "Conroy, Gunn & White 2009 (FSPS): read for a Chabrier-to-Salpeter mass ratio; none printed (adjudicated_supplement.csv)",
+   "record": "R10 model paper",
+   "url": "https://arxiv.org/pdf/0809.4261v2",
+   "file": "arxiv/0809.4261v2.pdf",
+   "version_read": "arXiv:0809.4261v2",
+   "redistributable": false,
+   "evidence_tier": 2,
+   "note": "Values transcribed from printed tables or text are taken from the adjudicated reading files (reading/adjudicated_inputs.csv, reading/adjudicated_supplement.csv), read twice at source.  Fetched 2026-11-01 with the pipeline's own user-agent (aeg.fetch), no spoofing. Licence as recorded in v2: 'arXiv licence: not read (not in the packaging inventory) (packaging inventory §1 unless stated)'.",
+   "bytes": 1409300,
+   "sha256": "c836faafe6223ef990942f896f5cf1cb360b93a91e425aec3d7c568674014598",
+   "retrieved": "2026-11-01",
+   "local_copies": [
+    "data/packages/aeg-d-strong-lensing/v1/source/arxiv/0809.4261v2.pdf"
+   ],
+   "citation": "Conroy, C., Gunn, J. E. & White, M. 2009, ApJ 699, 486, \"The propagation of uncertainties in stellar population synthesis modeling I: The relevance of uncertain aspects of stellar evolution and the IMF to the derived physical properties of galaxies\"",
+   "identifier": {
+    "doi": "10.1088/0004-637X/699/1/486",
+    "arxiv": "0809.4261v2",
+    "landing_url": "https://arxiv.org/abs/0809.4261v2"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/0809.4261 (licence link)",
+    "checked_on": "2026-11-24"
+   }
+  },
+  {
+   "id": "S27",
+   "kind": "document",
+   "role": "Conroy & Gunn 2010 (FSPS): read for a Chabrier-to-Salpeter mass ratio; none printed",
+   "record": "R10 model paper",
+   "url": "https://arxiv.org/pdf/0911.3151v1",
+   "file": "arxiv/0911.3151v1.pdf",
+   "version_read": "arXiv:0911.3151v1",
+   "redistributable": false,
+   "evidence_tier": 2,
+   "note": "Values transcribed from printed tables or text are taken from the adjudicated reading files (reading/adjudicated_inputs.csv, reading/adjudicated_supplement.csv), read twice at source.  Fetched 2026-11-01 with the pipeline's own user-agent (aeg.fetch), no spoofing. Licence as recorded in v2: 'arXiv licence: not read (not in the packaging inventory) (packaging inventory §1 unless stated)'.",
+   "bytes": 2545452,
+   "sha256": "704a7a0c67b04f1c76b5df85173b4f0434cc069315cc59520c81f8fea174135e",
+   "retrieved": "2026-11-01",
+   "local_copies": [
+    "data/packages/aeg-d-strong-lensing/v1/source/arxiv/0911.3151v1.pdf"
+   ],
+   "citation": "Conroy, C. & Gunn, J. E. 2010, ApJ 712, 833, \"The propagation of uncertainties in stellar population synthesis modeling III: model calibration, comparison, and evaluation\"",
+   "identifier": {
+    "doi": "10.1088/0004-637X/712/2/833",
+    "arxiv": "0911.3151v1",
+    "landing_url": "https://arxiv.org/abs/0911.3151v1"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/0911.3151 (licence link)",
+    "checked_on": "2026-11-24"
+   }
+  },
+  {
+   "id": "S28",
+   "kind": "document",
+   "role": "Bruzual & Charlot 2003: read for a Chabrier-to-Salpeter mass ratio; none printed (not needed: R20 prints its own Salpeter masses)",
+   "record": "R20 model paper",
+   "url": "https://arxiv.org/pdf/astro-ph/0309134v1",
+   "file": "arxiv/astro-ph_0309134v1.pdf",
+   "version_read": "arXiv:astro-ph/0309134v1",
+   "redistributable": false,
+   "evidence_tier": 2,
+   "note": "Values transcribed from printed tables or text are taken from the adjudicated reading files (reading/adjudicated_inputs.csv, reading/adjudicated_supplement.csv), read twice at source.  Fetched 2026-11-01 with the pipeline's own user-agent (aeg.fetch), no spoofing. Licence as recorded in v2: 'arXiv licence: not read (not in the packaging inventory) (packaging inventory §1 unless stated)'.",
+   "bytes": 1104870,
+   "sha256": "072998f68479ea6c604fe62f6dd1d3a13d478d788ea767546deb12d20b89391f",
+   "retrieved": "2026-11-01",
+   "local_copies": [
+    "data/packages/aeg-d-strong-lensing/v1/source/arxiv/astro-ph_0309134v1.pdf"
+   ],
+   "citation": "Bruzual, G. & Charlot, S. 2003, MNRAS 344, 1000, \"Stellar population synthesis at the resolution of 2003\"",
+   "identifier": {
+    "doi": "10.1046/j.1365-8711.2003.06897.x",
+    "arxiv": "astro-ph/0309134v1",
+    "landing_url": "https://arxiv.org/abs/astro-ph/0309134v1"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv licence 'assumed-1991-2003' (the licence arXiv assigns to submissions from 1991 to 2003)",
+    "uri": "http://arxiv.org/licenses/assumed-1991-2003/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/astro-ph/0309134 (licence link)",
+    "checked_on": "2026-11-24"
+   }
+  },
+  {
+   "id": "S29",
+   "kind": "document",
+   "record": "R5",
+   "role": "SLACS V e-print, LaTeX source: Table 4 (obstable), column R_e, read line by line for the de Vaucouleurs effective radii (frozen second reading reading/profiles.csv, which records this e-print's hash and the hash of ms_arxiv.tex)",
+   "url": "https://arxiv.org/e-print/0805.1931v1",
+   "file": "arxiv/0805.1931v1.tar.gz",
+   "bytes": 369939,
+   "sha256": "fb72fd1120d6c53164d1442bd99c2dfa5b02ba81656febc67ce7e35c20e85cc5",
+   "retrieved": "2026-11-24",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "citation": "Bolton, A. S., Burles, S., Koopmans, L. V. E., et al. 2008, ApJ 682, 964, \"The Sloan Lens ACS Survey. V. The Full ACS Strong-Lens Sample\"",
+   "identifier": {
+    "doi": "10.1086/589327",
+    "arxiv": "0805.1931v1",
+    "landing_url": "https://arxiv.org/abs/0805.1931v1",
+    "vizier": "J/ApJ/682/964"
+   },
+   "licence": {
+    "status": "stated",
+    "text": "arXiv.org perpetual, non-exclusive license to distribute 1.0",
+    "uri": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "checked_where": "arXiv abstract page https://arxiv.org/abs/0805.1931 (licence link)",
+    "checked_on": "2026-11-24"
+   },
+   "note": "The locators of the R_e observables cite this e-print's ms_arxiv.tex by line; v2 recorded only the PDF (S9). The e-print hash (fb72fd11…5cc5) and ms_arxiv.tex (378fa2f309420310a1e0df85898f5d1bedefc0e5f34325cd0179445a8bf84f0f) equal the values in the frozen reading profiles.csv; downloaded and checked 2026-11-24. Not redistributed."
+  }
+ ],
+ "reference_pages": [
+  {
+   "role": "Planck Collaboration 2016, A&A 594, A13 (Planck 2015 results XIII): abstract headline H0, the paper R29 names (cosmology_h0_j0403)",
+   "url": "https://arxiv.org/abs/1502.01589",
+   "file": "arxiv-abs/1502.01589.html",
+   "bytes": 91551,
+   "sha256": "d85fc462fcabf12405ff913a587196bf78b1e1a35b235de8812f49a4662f9cb9",
+   "quote": "H0= (67.8 +/- 0.9) km/s/Mpc",
+   "retrieved": "2026-11-05",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "licence": "arXiv abstract page; the paper is under arXiv's non-exclusive distribution licence (http://arxiv.org/licenses/nonexclusive-distrib/1.0/, as linked on the page). Linked and hash-recorded, not redistributed",
+   "note": "Read for the H0 value only (REPRODUCTION.md rule 6 and item 9). The page as served on 2026-11-05 has this hash; a different page is accepted only if the quoted H0 is unchanged (checked by reproduction/score.py). Kept out of \"sources\" so that a change to arXiv's page layout cannot stop the package build."
+  },
+  {
+   "role": "Planck Collaboration 2018 (Planck 2018 results VI): abstract headline H0, the paper R32 adopts (cosmology_h0_manga)",
+   "url": "https://arxiv.org/abs/1807.06209",
+   "file": "arxiv-abs/1807.06209.html",
+   "bytes": 78071,
+   "sha256": "17256f2d1adbc17162eb3d0e29bf1a547d6dfb131efe3231d2d32abfc72429fa",
+   "quote": "H_0 = (67.4\\pm 0.5)$km/s/Mpc",
+   "retrieved": "2026-11-05",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "licence": "arXiv abstract page; the paper is under arXiv's non-exclusive distribution licence (http://arxiv.org/licenses/nonexclusive-distrib/1.0/, as linked on the page). Linked and hash-recorded, not redistributed",
+   "note": "Read for the H0 value only (REPRODUCTION.md rule 6 and item 9). The page as served on 2026-11-05 has this hash; a different page is accepted only if the quoted H0 is unchanged (checked by reproduction/score.py). Kept out of \"sources\" so that a change to arXiv's page layout cannot stop the package build."
+  },
+  {
+   "role": "Bennett et al. 2014, ApJ 794, 135: abstract headline H0, the alternative R32 names (cosmology_h0_manga)",
+   "url": "https://arxiv.org/abs/1406.1718",
+   "file": "arxiv-abs/1406.1718.html",
+   "bytes": 44652,
+   "sha256": "4f18ff396491283c7e0fce47b2010caae4ab0c6ab5344a1efabcb924f1f78008",
+   "quote": "69.6+/-0.7 km/s/Mpc",
+   "retrieved": "2026-11-05",
+   "redistributable": false,
+   "evidence_tier": 1,
+   "licence": "arXiv abstract page; the paper is under arXiv's non-exclusive distribution licence (http://arxiv.org/licenses/nonexclusive-distrib/1.0/, as linked on the page). Linked and hash-recorded, not redistributed",
+   "note": "Read for the H0 value only (REPRODUCTION.md rule 6 and item 9). The page as served on 2026-11-05 has this hash; a different page is accepted only if the quoted H0 is unchanged (checked by reproduction/score.py). Kept out of \"sources\" so that a change to arXiv's page layout cannot stop the package build."
+  }
+ ]
+}

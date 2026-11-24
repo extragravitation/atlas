@@ -1,0 +1,12 @@
+== aeg-d-strong-lensing: PASS (T1 to T6)
+  T1 pass: measurements.ecsv identical after N (sha256 caf5f352b1e8…)
+  T1 pass: observables.ecsv identical after N (sha256 5d655cd50b37…)
+  T1 pass: systems.ecsv identical after N (sha256 d1f18e9c5c26…)
+  T1 pass: uncertainty_terms.ecsv identical after N (sha256 0df0e64ae8a9…)
+  T2 pass: convert.py differs only on line 55: DATASET, VERSION, STANDARD = "aeg-d-strong-lensing", "v3", "3.0.0"
+  T3 pass
+  T4 pass
+  T5 pass
+  T6 pass
+  T3 count: 29 entries (28 from v2, 1 new); sha256 null: none
+  T4 count: 29 rules, 1 corrections
