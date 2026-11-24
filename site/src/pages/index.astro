@@ -1,219 +1,191 @@
 ---
+// The front door (D-113 rule 1.4): what the Atlas is, the cross-scale chart at the sources'
+// defaults, the release status, and routes onward. The full map is at map/.
+// The chart is drawn at build time from the same package rows the map uses; nothing is fitted (D-026).
 import Base from '../layouts/Base.astro';
 import L from '../components/L.astro';
-import Layer from '../components/Layer.astro';
-import Slider from '../components/Slider.astro';
-import { loadAtlas, ringed } from '../lib/atlas.mjs';
+import { loadAtlas } from '../lib/atlas.mjs';
 import { datasetLabel } from '../lib/labels.mjs';
-import { systemFlags } from '../lib/flags.mjs';
-import { decisionUrl } from '../lib/refs.mjs';
+import { REPO } from '../lib/md.mjs';
 
+const base = import.meta.env.BASE_URL;
 const atlas = loadAtlas();
-const weight = {}, ds = {};
-let flagged = 0;
-for (const d of atlas.datasets) {
-  const plotted = d.measurements.rows.filter((r) => r.plotted !== 'false');
-  const lab = datasetLabel(d.name), n = plotted.length;
-  const nSys = d.systems ? new Set(plotted.map((r) => r.system_id)).size : 0;
-  flagged += d.measurements.rows.filter((r) => ringed(r.flags)).length;
-  weight[d.key] = d.systems ? (n === nSys ? `${n} ${lab.units}, one point each` : `${n.toLocaleString('en')} points from ${nSys} ${lab.units}`) : `${n} ${lab.units}`;
-  // Projected values carry their own label (D-064 item 3), in both reading layers.
-  const projected = d.measurements.rows.some((r) => r.plotted !== 'false' && r.r_kind === 'projected');
-  ds[d.key] = projected ? ['Strong lensing: projected, at R_E', 'Light-bending, measured in projection inside the ring'] : [`${lab.kind_t} (${lab.t})`, `${lab.kind_p} (${lab.p})`];
+const VAR = { 'aeg-d-sparc': 'sparc', 'aeg-d-gc-baumgardt': 'gc', 'aeg-d-dwarfs': 'dw', 'aeg-d-strong-lensing': 'sl', 'aeg-d-xcop': 'xcop', 'aeg-d-kids1000-rar': 'kids' };
+const ORDER = ['aeg-d-sparc', 'aeg-d-xcop', 'aeg-d-gc-baumgardt', 'aeg-d-dwarfs', 'aeg-d-kids1000-rar', 'aeg-d-strong-lensing'];
+
+// Points: every plotted row with g_obs, g_bar > 0, at the packaged defaults.
+const W = 820, H = 620, ML = 84, MR = 16, MT = 16, MB = 66;
+const X0 = -15, X1 = -7.5, Y0 = -13, Y1 = -7.5;
+const pw = W - ML - MR, ph = H - MT - MB;
+const sx = (v) => ML + ((v - X0) / (X1 - X0)) * pw;
+const sy = (v) => MT + ((Y1 - v) / (Y1 - Y0)) * ph;
+const f1 = (v) => v.toFixed(1);
+let total = 0;
+const marks = [];
+const dsInfo = [];
+const sorted = [...atlas.datasets].sort((a, b) => ORDER.indexOf(a.name) - ORDER.indexOf(b.name));
+for (const d of sorted) {
+  const rows = d.measurements.rows.filter((r) => r.plotted !== 'false');
+  total += rows.length;
+  const v = VAR[d.name] || 'sparc';
+  const projected = rows.some((r) => r.r_kind === 'projected');
+  const stacked = !d.systems;
+  for (const r of rows) {
+    if (!(r.g_obs > 0 && r.g_bar > 0)) continue;
+    const x = Math.log10(r.g_bar), y = Math.log10(r.g_obs);
+    if (x < X0 || x > X1 || y < Y0 || y > Y1) continue;
+    const X = sx(x), Y = sy(y);
+    if (projected) marks.push(`<circle cx="${f1(X)}" cy="${f1(Y)}" r="3.6" fill="none" style="stroke:var(--${v})" stroke-width="1.3"/><circle cx="${f1(X)}" cy="${f1(Y)}" r="1" style="fill:var(--${v})"/>`);
+    else if (stacked) marks.push(`<path d="M${f1(X)} ${f1(Y - 4)}L${f1(X + 4)} ${f1(Y)}L${f1(X)} ${f1(Y + 4)}L${f1(X - 4)} ${f1(Y)}Z" fill="none" style="stroke:var(--${v})" stroke-width="1.4"/>`);
+    else if (d.name === 'aeg-d-sparc') marks.push(`<circle cx="${f1(X)}" cy="${f1(Y)}" r="1.3" style="fill:var(--${v})" fill-opacity="0.55"/>`);
+    else marks.push(`<circle cx="${f1(X)}" cy="${f1(Y)}" r="3" style="fill:var(--${v})" fill-opacity="0.9"/>`);
+  }
+  const lab = datasetLabel(d.name);
+  const nSys = d.systems ? new Set(rows.map((r) => r.system_id)).size : 0;
+  const size = d.systems
+    ? (rows.length === nSys ? `${nSys} ${lab.units}` : `${nSys} ${lab.units} · ${rows.length.toLocaleString('en')} points`)
+    : `${rows.length} ${lab.units}`;
+  dsInfo.push({ v, key: d.key, t: lab.kind_t, p: lab.kind_p, name_t: lab.t, name_p: lab.p, size, method_t: lab.method_t, method_p: lab.method_p, shape: projected ? 'ring' : stacked ? 'diamond' : 'dot', href: `${base}datasets/${d.key}/` });
 }
-// KiDS-1000 error bars (D-083; standard §7a): the error columns carry only what the release gives;
-// the terms the package records with in_error_columns = no are named here, from the package.
-const kids = atlas.datasets.find((d) => d.name === 'aeg-d-kids1000-rar');
-const kidsOut = (kids?.terms || []).filter((t) => t.in_error_columns === 'no');
-const kidsSize = (t) => (t.size_value != null ? ` (${t.size_value} ${t.size_unit || ''})`.replace(' )', ')') : '');
-const kidsErr = kids ? [
-  `KiDS-1000 (diamonds): the bars carry only what the release’s error columns hold (g_obs_err_lo/hi; g_bar is the bin coordinate, with no error)${kidsOut.length ? `. Not in the bars, by the package’s in_error_columns = no: ${kidsOut.map((t) => `${t.term_id}${kidsSize(t)}`).join('; ')}` : ''}. See the dataset page.`,
-  `For the light-bending averages (diamonds), the bars show only the uncertainty released with the data${kidsOut.length ? '; an extra uncertainty the authors add for turning the light-bending signal into a pull is not included' : ''}.`,
-] : ['', ''];
-const nonPos = atlas.datasets.flatMap((d) => d.measurements.rows.filter((r) => !(r.g_bar > 0)).map((r) => r.measurement_id));
-const labels = {
-  x: ['log g_bar, baryonic acceleration (m s⁻²)', 'Pull from detected matter (log, m s⁻²)'],
-  y: ['log g_obs, observed acceleration (m s⁻²)', 'Observed pull (log, m s⁻²)'],
-  yx: ['log (g_obs / g_bar), acceleration discrepancy', 'Extra pull (log of observed ÷ detected)'],
-  xr: ['log radius (kpc)', 'Distance from the centre (log, kpc)'],
-  xs: ['log g_bar (m s⁻²)', 'Pull from detected matter (log)'], ys: ['log g_obs (m s⁻²)', 'Observed pull (log)'], yxs: ['log (g_obs / g_bar)', 'Extra pull (log)'],
-  line: ['g_obs = g_bar · Newtonian gravity on detected matter', 'No extra pull: Newton’s gravity from the matter we detect'],
-  zero: ['g_obs = g_bar', 'No extra pull'],
-  aria_obs: ['Map of observed against baryonic acceleration for every packaged measurement, log axes, with the line g_obs = g_bar', 'Map of the observed pull against the pull from detected matter for every measurement'],
-  aria_ratio: ['Acceleration discrepancy against baryonic acceleration for every packaged measurement', 'Extra pull against the pull from detected matter'],
-  aria_rad: ['Acceleration discrepancy against radius for every packaged measurement with a radius', 'Extra pull against distance from the centre'],
-  xm: ['log M_bar(<r), baryonic mass within r (M☉)', 'Mass of detected matter within that distance (log, M☉)'], xms: ['log M_bar (M☉)', 'Detected mass (log, M☉)'],
-  ym: ['log M_obs(<r) = g_obs r² / G (M☉)', 'Mass implied by the observed pull (log, M☉)'], yms: ['log M_obs (M☉)', 'Implied mass (log, M☉)'],
-  yv: ['log V = √(g_obs r), equivalent circular speed (km s⁻¹)', 'Orbital speed from the observed pull (log, km s⁻¹)'], yvs: ['log V (km s⁻¹)', 'Orbital speed (log)'],
-  zerom: ['M_obs = M_bar', 'No extra pull'],
-  aria_mass: ['Spherical-equivalent enclosed mass from the observed acceleration against that from detected matter, log axes', 'Mass implied by the observed pull against the detected mass'],
-  aria_speed: ['Equivalent circular speed from the observed acceleration against radius, log axes', 'Orbital speed from the observed pull against distance from the centre'],
-  lens: {
-    obs: ['<b>Acceleration lens.</b> Observed against Newtonian baryonic acceleration, measurement by measurement: the plane used in radial-acceleration-relation studies.', '<b>Pull view.</b> Each mark compares the pull we see with the pull the detected matter gives, at one place.'],
-    ratio: ['<b>Ratio lens.</b> log (g_obs / g_bar), the acceleration discrepancy, against g_bar. Zero is g_obs = g_bar; below zero, g_obs is less than g_bar.', '<b>Ratio view.</b> Observed pull ÷ pull from detected matter (1 = equal; below 1 = less), on a log scale, against the pull from detected matter.'],
-    mass: ['<b>Mass lens.</b> Spherical-equivalent enclosed mass, M(&lt;r) = g r² / G, for both sides: the framing of mass-modelling studies. For discs it is a convention, not the true enclosed mass. M_obs / M_bar equals g_obs / g_bar at every point; only the axes change.', '<b>Mass view.</b> The same measurements written as masses: how much mass the observed pull implies within each distance, against the detected mass. The conversion assumes round systems.'],
-    rad: ['<b>Scale lens.</b> log (g_obs / g_bar) against radius, from the smallest to the largest scales measured.', '<b>Distance view.</b> Extra pull against distance from the centre.'],
-    speed: ['<b>Speed lens.</b> Equivalent circular speed V = √(g_obs r) against radius. For disc galaxies these are their rotation curves; for clusters it is the speed a circular orbit would need, not a measured speed.', '<b>Speed view.</b> The observed pull written as the speed of an orbit at each distance. For spinning galaxies this is how fast they turn.'],
-  },
-  pickOuter: ['<b>One point per system, outermost measured radius.</b> {n} of {N} systems: for each, the measurement at the largest radius its data reach, so both sides are enclosed within the measured extent, not the total. How far the data reach depends on the survey and on each system (colour by outermost measured radius to check). Stacked lensing bins are averages, unchanged. Select a point to see its full profile.', '<b>One mark per galaxy or cluster, at the farthest point measured.</b> {n} of {N}. Each compares the pull we see with the pull from detected matter, out to the farthest point the data reach. That is not the whole galaxy: nobody can measure where a galaxy ends. Tap a mark to see all its measurements.'],
-  pickLight: ['<b>One point per system, at a radius set by the light.</b> {n} of {N} systems: for each, the first measurement at or beyond {k} × the source’s effective (half-light) radius. No value is interpolated or extrapolated.', '<b>One mark per galaxy, at the same distance relative to its size:</b> the first measurement at least {k} times the radius that holds half its light. {n} of {N} shown.'],
-  pickLeft: ['Left out: {short} whose data do not reach that radius; {none} whose package gives no effective radius in this form (every dataset except SPARC).', 'Left out: {short} galaxies measured less far than that, and {none} systems whose data give no such radius (everything except the spinning disc galaxies).'],
-  noRadius: ['Stacked lensing bins have no single radius and are not shown in this lens.', 'Averages over many galaxies have no single distance and are left out of this view.'],
-  // Projected points (D-064 item 3): what the ring means in each lens, and in the tooltip.
-  projected: {
-    obs: ['<b>Ring-and-dot marks:</b> strong lensing, projected. Both sides are masses inside the same cylinder of radius R_E, as G M / R_E²; they are not 3D accelerations and are never joined to them.', '<b>Ring-and-dot marks:</b> light-bending, measured in projection inside the ring of images. Both pulls count everything along the line of sight through the ring, so they are a different quantity from the other marks.'],
-    ratio: ['<b>Ring-and-dot marks:</b> strong lensing, projected at R_E (M_E / M_bar inside the same cylinder); not 3D values.', '<b>Ring-and-dot marks:</b> light-bending, measured in projection inside the ring; a different quantity from the other marks.'],
-    mass: ['<b>Ring-and-dot marks:</b> for strong lensing, g r² / G at R_E is the projected mass inside the cylinder, M_E, not a spherical enclosed mass.', '<b>Ring-and-dot marks:</b> for light-bending, this is the mass inside a cylinder through the galaxy, not inside a ball.'],
-    rad: ['<b>Ring-and-dot marks:</b> strong lensing, at the projected Einstein radius R_E.', '<b>Ring-and-dot marks:</b> light-bending, at the radius of the ring of images, seen in projection.'],
-    speed: ['<b>Ring-and-dot marks:</b> for strong lensing, √(g R_E) uses a projected acceleration; it is not a circular speed.', '<b>Ring-and-dot marks:</b> for light-bending, this speed comes from a pull measured in projection; no orbit was measured.'],
-  },
-  // The lens epoch cut (D-033 item 5, D-066), stated where lenses are shown (D-109, context).
-  lensCut: [`Strong lenses are plotted only below a printed z of 0.30: cosmic epoch is a documented gap for v1.0, because the Atlas describes the nearby universe and high-redshift baryon inventories often rely on scaling relations (<a href="${decisionUrl('D-033')}">D-033</a> item 5, <a href="${decisionUrl('D-066')}">D-066</a>). Lenses at z ≥ 0.30 are recorded in full and flagged epoch_gap_v1.`, `Only nearby lenses are drawn (redshift below 0.30). For more distant ones the amount of ordinary matter is often estimated rather than measured, so they are kept in the record, not drawn (<a href="${decisionUrl('D-033')}">D-033</a>, <a href="${decisionUrl('D-066')}">D-066</a>).`],
-  // Per-system flags for the selected-system card (D-109 rule 3), checked against the reading record.
-  eqFlags: Object.fromEntries(Object.values(systemFlags()).map((f) => [f.system, { dataset: f.dataset, quote: f.quote, where: f.where, cites: f.cites, decision: f.decision, url: f.decisionUrl }])),
-  projTip: ['Projected: G M / R_E² on both sides, inside the same cylinder (D-064)', 'Measured in projection inside the ring of images'],
-  kidsErr,
-  ds, weight, flagged: [`Thin ring around a mark: flagged. ${flagged} measurements with a reproduction mismatch or the source’s own quality caveat (see Known issues)`, `Thin ring around a mark: a measurement with a known issue (${flagged}; see Known issues)`], bin: 'Stacked lensing bin',
-};
-const sliders = atlas.datasets.flatMap((d) => d.assumptions.filter((a) => a.adjustable && a.status === 'confirmed' && a.scope === 'dataset').map((a) => ({ a, dataset: d.key })));
-const total = atlas.datasets.reduce((s, d) => s + d.measurements.rows.filter((r) => r.plotted !== 'false').length, 0);
 const nWords = ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'][atlas.datasets.length] || String(atlas.datasets.length);
+const grid = [];
+for (let v = -15; v <= -8; v++) grid.push(`<line x1="${f1(sx(v))}" y1="${MT}" x2="${f1(sx(v))}" y2="${MT + ph}" style="stroke:var(--grid)"/><text x="${f1(sx(v))}" y="${MT + ph + 8}" text-anchor="middle" dominant-baseline="hanging" class="tick">${v}</text>`);
+for (let v = -13; v <= -8; v++) grid.push(`<line x1="${ML}" y1="${f1(sy(v))}" x2="${ML + pw}" y2="${f1(sy(v))}" style="stroke:var(--grid)"/><text x="${ML - 8}" y="${f1(sy(v))}" text-anchor="end" dominant-baseline="central" class="tick">${v}</text>`);
+const a = Math.max(X0, Y0), b = Math.min(X1, Y1);
+const oneToOne = `<line x1="${f1(sx(a))}" y1="${f1(sy(a))}" x2="${f1(sx(b))}" y2="${f1(sy(b))}" style="stroke:var(--ink)" stroke-width="1.4" stroke-dasharray="6 5" opacity="0.8"/>`;
+const ang = (Math.atan2(ph / (Y1 - Y0), pw / (X1 - X0)) * 180) / Math.PI;
+const lx = sx(-12.55) + 8, ly = sy(-12.55) + 20;
+const svg = `${grid.join('')}${oneToOne}${marks.join('')}`;
+const legendShape = (s, v) => s === 'ring' ? `<circle cx="8" cy="8" r="5" fill="none" style="stroke:var(--${v})" stroke-width="1.5"/><circle cx="8" cy="8" r="1.4" style="fill:var(--${v})"/>` : s === 'diamond' ? `<path d="M8 2.5L13.5 8L8 13.5L2.5 8Z" fill="none" style="stroke:var(--${v})" stroke-width="1.5"/>` : `<circle cx="8" cy="8" r="4.5" style="fill:var(--${v})"/>`;
+const CONCEPT_DOI = '10.5281/zenodo.23864355';
 ---
-<Base title="" active="map" figures={true}>
-  <div class="layout">
-    <aside class="rail" aria-label="Display, filters and assumptions">
-      <div data-tab="lens">
-        <p class="cap"><L t="Lens" p="View" /></p>
-        <div class="seg" role="group" aria-label="Lens">
-          <button class="btn" data-view="obs" aria-pressed="true"><L t="Acceleration" p="Pull" /></button>
-          <button class="btn" data-view="ratio" aria-pressed="false"><L t="Ratio" p="Ratio" /></button>
-          <button class="btn" data-view="mass" aria-pressed="false">Mass</button>
-          <button class="btn" data-view="rad" aria-pressed="false"><L t="Scale" p="Distance" /></button>
-          <button class="btn" data-view="speed" aria-pressed="false">Speed</button>
-          <button class="btn" disabled aria-disabled="true" title="Needs the observables recorded under data standard 2.0 (D-029)"><L t="Surface density" p="Density" /></button>
-        </div>
-        <p class="small" style="margin-top:6px"><L t="Same data, different framings (D-030). Surface density needs the recorded observables of data standard 2.0 and arrives with the next packages." p="The same measurements seen in different ways. One more view arrives with the next datasets." /></p>
-      </div>
-      <div data-tab="points">
-        <p class="cap"><L t="Points" p="Marks" /></p>
-        <div class="seg" role="group" aria-label="Points per system">
-          <button class="btn" data-pick="all" aria-pressed="true"><L t="Every measurement" p="Every point" /></button>
-          <button class="btn" data-pick="outer" aria-pressed="false"><L t="One per system: outermost" p="One per object: farthest point" /></button>
-          <button class="btn" data-pick="light" aria-pressed="false"><L t="One per system: 2 × half-light" p="One per object: same relative size" /></button>
-        </div>
-        <p class="small" style="margin-top:6px"><L t="One point per system selects an existing measurement by a fixed rule; nothing is recomputed (D-043). Values are always within a radius, never a total." p="A simpler picture: one mark per galaxy or cluster. Each is a real measurement, picked by a fixed rule." /></p>
-      </div>
-      <div data-tab="data">
-        <p class="cap">Datasets</p>
-        {atlas.datasets.map((d) => <label class="check"><input type="checkbox" id={'ds-' + d.short} checked /><span>{datasetLabel(d.name).t} · {weight[d.key]}</span></label>)}
-      </div>
-      <div data-tab="marks">
-        <p class="cap"><L t="Marks" p="Show as" /></p>
-        <div class="seg" role="group" aria-label="Marks">
-          <button class="btn" data-marks="points" aria-pressed="true">Points</button>
-          <button class="btn" data-marks="tracks" aria-pressed="false">Tracks</button>
-          <button class="btn" data-marks="both" aria-pressed="false">Both</button>
-        </div>
-        <label class="check" style="margin-top:8px"><input type="checkbox" id="err" /><span><L t="Error bars (g_obs and g_bar)" p="Uncertainty bars" /></span></label>
-        <div class="seg" role="group" aria-label="Which uncertainty" style="margin-top:6px">
-          <button class="btn" data-errk="point" aria-pressed="true"><L t="Per point" p="Point by point" /></button>
-          <button class="btn" data-errk="full" aria-pressed="false"><L t="Full (incl. distance, tilt)" p="Including distance and tilt" /></button>
-        </div>
-        <p class="small" style="margin-top:6px"><L t="Vertical bars: g_obs; horizontal bars: g_bar, from each row’s own error columns, lower and upper sides separately. Per point: what varies from one measurement to the next (for SPARC, the rotation-speed error). Distance, inclination and other terms shared by a whole system move all its points together; set distance and inclination on each galaxy’s page, or choose Full to include the released errors in every bar." p="Up-and-down bars show how sure the observed pull is; side-to-side bars show how sure the pull from detected matter is. Point by point shows how much each measurement could vary on its own. Distance and tilt move a whole galaxy at once; you can change them on each galaxy’s page." /></p>
-      </div>
-      <div data-tab="colours">
-        <p class="cap">Colour by</p>
-        <label class="sr-only" for="colsel">Colour by</label>
-        <select id="colsel" class="sel">
-          <option value="dataset">Dataset</option>
-          <option value="channel">Channel (motions or light-bending)</option>
-          <optgroup label="Systematics checks (source properties)">
-            <option value="incl">Inclination (SPARC)</option>
-            <option value="dmethod">Distance method (SPARC)</option>
-            <option value="q">Source quality flag Q (SPARC)</option>
-            <option value="dist">Distance (SPARC)</option>
-            <option value="z">Redshift (X-COP)</option>
-            <option value="rext">Outermost measured radius (all systems)</option>
-          </optgroup>
-        </select>
-        <p class="small" style="margin-top:6px"><L t="Systematics checks colour each measurement by a property its source gives. If the comparison were affected by that property, the colours would separate at fixed g_bar. No fit is made (D-033)." p="Colour the points by something about how they were measured. If that affected the results, the colours would separate." /></p>
-      </div>
-      <div class="scope" data-tab="sliders">
-        <p class="cap"><L t="Assumptions · whole datasets" p="Assumptions you can change" /></p>
-        <p class="small"><L t="One value for every system in the dataset, as the sources adopt it. Distance and inclination are set per galaxy, on each galaxy’s own page." p="Each slider changes one assumption for every system in a dataset. Distance and tilt are set one galaxy at a time, on its own page." /></p>
-        <div style="display:flex;flex-direction:column;gap:12px;margin-top:10px">
-          {sliders.map(({ a, dataset }) => <Slider a={a} dataset={dataset} />)}
-          <label class="check"><input type="checkbox" id="arrows" checked /><span><L t="Movement arrows" p="Show where points move" /></span></label>
-        </div>
-      </div>
-    </aside>
-
-    <main>
-      <p class="kicker">Map · {total.toLocaleString('en')} measurements · {nWords} datasets</p>
-      <h1><L t="Observed gravity compared with Newtonian gravity on detected matter" p="How much pull we see, compared with what the detected matter should give" /></h1>
-      <div class="showing" id="showing">
-        <p class="showing-text"><b><L t="Showing:" p="Showing:" /></b> <span id="showing-text"></span></p>
-        <button type="button" class="btn primary showing-change" id="explore-open" aria-label="Change what the chart shows">Change ▸</button>
-      </div>
-      <figure>
-        <div class="figbox" id="figbox">
-          <div class="zoombar" role="group" aria-label="Zoom">
-            <button type="button" class="btn zb" id="zoom-in" aria-label="Zoom in">+</button>
-            <button type="button" class="btn zb" id="zoom-out" aria-label="Zoom out" disabled>−</button>
-            <button type="button" class="btn zb" id="zoom-pan" aria-pressed="false" title="Pan: drag to move the zoomed view (also: hold the middle mouse button and drag)">✥ Pan</button>
-            <button type="button" class="btn zb" id="zoom-reset" disabled>Reset</button>
-          </div>
-          <canvas id="fig" class="cv zoomable" role="img" aria-label="" tabindex="0"></canvas>
-          <div class="tip" id="tip" hidden></div>
-        </div>
-        <figcaption><b>Figure.</b> <L t="Each mark is one packaged measurement; the legend gives each mark one meaning. Dashed line, where shown: g_obs = g_bar, Newtonian gravity on detected matter accounts for the observed acceleration. A thin ring around a mark: a flagged measurement. A ring with a centre dot: a strong lens, projected value at R_E (D-064). No fitted relation is drawn (D-026)." p="Each mark is one measurement. On the dashed line, Newton’s gravity from the detected matter matches all of the pull. A thin ring around a mark means it has a known issue. A ring with a dot in the middle is a galaxy that bends light, measured inside its ring of images." /> <span id="caption-state"></span></figcaption>
-      </figure>
-      <p class="hint" id="pick-note" hidden></p>
-      <p class="hint" id="lens-note"></p>
-      <ul class="legend" id="legend" aria-label="Legend: select a type to show only it"></ul>
-      <div id="colkey" class="hint" hidden></div>
-      <details class="more hint" data-more><summary><span class="touch-only"><L t="Zoom: pinch or drag a box · Reset to see everything" p="Pinch or drag a box to zoom · Reset to see everything" /></span><span class="mouse-only"><L t="Zoom: wheel or drag a box · Pan: middle button · double-click resets" p="Scroll or drag a box to zoom · double-click to see everything" /></span></summary><L t="Zoom: drag a box over the chart, scroll the wheel over the chart (forward to zoom in, back to zoom out), or pinch on a touch screen; double-click or Reset to see everything. Pan: hold the middle mouse button and drag, or switch on Pan and drag. With the chart focused, + and − zoom, the arrow keys move, P toggles Pan, 0 resets. Zooming changes only the window, never the data." p="To zoom, scroll over the chart, drag a box over it, or pinch with two fingers. To move around, press Pan and drag, or hold down the mouse wheel and drag. Double-click or press Reset to see everything again." /></details>
-      <p class="hint" id="zoom-state-line"><span id="zoom-state"></span></p>
-      <details class="more hint" data-more><summary><L t="Tap a point to select its system" p="Tap a point to pick its galaxy or cluster" /></summary><L t="Select a type in the legend to show only it; select it again to show everything. Hover a point for its values; click it to select its system." p="Tap a type in the legend to show only it; tap again for everything. Tap a point to pick its galaxy or cluster." /></details>
-      <p class="hint" id="neg-note"></p>
-      {nonPos.length > 0 && <details class="more hint" data-more><summary><L t={`${nonPos.length} measurements not plotted (g_bar ≤ 0)`} p={`${nonPos.length} measurements can’t be placed on this chart`} /></summary><L t={`At the defaults, ${nonPos.length} measurements have g_bar ≤ 0 (a component pulls outward), so they cannot be placed on log axes: ${nonPos.join(', ')}.`} p={`For ${nonPos.length} measurements the detected matter pulls outward overall, which a log scale cannot show: ${nonPos.join(', ')}.`} /></details>}
-    </main>
-
-    <aside class="card" aria-label="Selected system">
-      <p class="cap"><L t="Selected system" p="Picked galaxy or cluster" /></p>
-      <div id="card-empty"><h2>None selected</h2><p class="meta"><L t="Click a galaxy or cluster on the map, or search by name. Its measurements are joined in order of radius; its page holds the pull budget." p="Tap any galaxy or cluster on the map, or search for one. Its own page shows how much of its pull Newton’s gravity from the detected matter matches." /></p></div>
-      <div id="card-body" hidden>
-        <h2 id="card-name"></h2>
-        <p class="meta" id="card-meta"></p>
-        <canvas id="card-prof" role="img" aria-label=""></canvas>
-        <p class="small"><span style="color:var(--sel)">●</span> g_obs · <span style="color:var(--bar)">━</span> g_bar</p>
-        <p class="small" id="card-flags"></p>
-        <p class="small eqflag" id="card-eq" hidden></p>
-        <a class="btn primary" id="card-link" href="#" style="margin-top:10px;min-height:44px"><L t="Open system page · pull budget" p="Open its page" /></a>
-        <button class="btn" type="button" id="card-clear" style="margin-top:6px">Clear selection</button>
-      </div>
-    </aside>
-  </div>
-  <div class="xbar" id="xbar" hidden>
-    <button type="button" class="btn" id="explore-close" aria-label="Close Explore">✕</button>
-    <p class="msum" id="msum" aria-live="polite"></p>
-  </div>
-  <div class="msheet" id="msheet" hidden>
-    <div class="mtabs" role="tablist" aria-label="Chart controls">
-      <button role="tab" type="button" data-mtab="lens" aria-selected="true"><L t="Lens" p="View" /></button>
-      <button role="tab" type="button" data-mtab="points"><L t="Points" p="Marks" /></button>
-      <button role="tab" type="button" data-mtab="data">Data</button>
-      <button role="tab" type="button" data-mtab="marks"><L t="Marks" p="Show as" /></button>
-      <button role="tab" type="button" data-mtab="colours">Colours</button>
-      <button role="tab" type="button" data-mtab="sliders"><L t="Assumptions" p="Adjust" /></button>
-      <button role="tab" type="button" data-mtab="system"><L t="Selected" p="Picked" /></button>
-    </div>
-    <div class="mpanels" id="mpanels"></div>
-  </div>
-  <script type="application/json" id="map-labels" set:html={JSON.stringify(labels)}></script>
-  <script>
-    import { start } from '../scripts/map.js';
-    import { mobilePanel } from '../scripts/mobile.js';
-    start().then(mobilePanel);
+<Base title="" active="home">
+  <script is:inline define:vars={{ base }}>
+    // Map links shared before the map moved to map/ (D-113) still open the map, with their view.
+    (function () {
+      var q = new URLSearchParams(location.search), keys = ['view', 'pick', 'errk', 'marks', 'err', 'col', 'hide', 'sel', 'unit', 'eb', 'rng', 'z'];
+      if (keys.some(function (k) { return q.has(k); }) || location.hash === '#explore') location.replace(base + 'map/' + location.search + location.hash);
+    })();
   </script>
+  <div class="front">
+    <section class="intro">
+      <p class="kicker"><L t="v0.2 · preliminary · not peer reviewed" p="Early version · not yet reviewed by outside experts" /></p>
+      <h1 class="headline"><L t="Observed accelerations, compared with the Newtonian prediction from detected baryons" p="How strongly things pull, compared with what their visible matter should give" /></h1>
+      <p class="lede"><L t={`${total.toLocaleString('en')} measurements from ${nWords} published datasets, from star clusters to galaxy clusters. Each point sets the acceleration observed against the acceleration Newtonian gravity predicts from the stars and gas detected. The Atlas describes the comparison and takes no side on the cause.`} p={`${total.toLocaleString('en')} measurements, from small star clusters to giant clusters of galaxies. On the dashed line, the pull matches what Newton’s gravity predicts from the stars and gas we can see. Above it, the pull is stronger. The Atlas describes this; it doesn’t take sides on why.`} /></p>
+    </section>
+
+    <section class="hero">
+      <div class="hero-main">
+        <figure class="chart">
+          <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-labelledby="front-fig-title">
+            <title id="front-fig-title">{`Scatter plot of observed against Newtonian baryonic acceleration, log axes, ${total.toLocaleString('en')} measurements from ${nWords} datasets at the sources’ default assumptions. A dashed line marks equality. At high accelerations points lie near it; at lower accelerations most lie above it.`}</title>
+            <rect x={ML} y={MT} width={pw} height={ph} style="fill:var(--panel)" />
+            <Fragment set:html={svg} />
+            <text x={f1(lx)} y={f1(ly)} class="lbl" transform={`rotate(-${ang.toFixed(1)} ${f1(lx)} ${f1(ly)})`}><tspan data-l="t">g_obs = g_bar</tspan><tspan data-l="p">no extra pull</tspan></text>
+            <text x={f1(ML + pw / 2)} y={H - 8} text-anchor="middle" class="axis short"><tspan data-l="t">log g_bar (m s⁻²)</tspan><tspan data-l="p">Pull from visible matter</tspan></text>
+            <text x={f1(ML + pw / 2)} y={H - 8} text-anchor="middle" class="axis long"><tspan data-l="t">log g_bar, Newtonian acceleration from detected baryons (m s⁻²)</tspan><tspan data-l="p">Pull from the visible matter (log scale)</tspan></text>
+            <text x="22" y={f1(MT + ph / 2)} text-anchor="middle" class="axis short" transform={`rotate(-90 22 ${f1(MT + ph / 2)})`}><tspan data-l="t">log g_obs (m s⁻²)</tspan><tspan data-l="p">Observed pull</tspan></text>
+            <text x="22" y={f1(MT + ph / 2)} text-anchor="middle" class="axis long" transform={`rotate(-90 22 ${f1(MT + ph / 2)})`}><tspan data-l="t">log g_obs, observed acceleration (m s⁻²)</tspan><tspan data-l="p">Observed pull (log scale)</tspan></text>
+          </svg>
+          <figcaption class="small"><L t="At the sources’ default assumptions. Each mark is one packaged measurement; ring-and-dot marks are strong lenses, projected values (D-064); diamonds are stacked weak-lensing bins. No fitted relation is drawn (D-026)." p="Using each study’s own standard assumptions. Each mark is one measurement. Rings with a dot are galaxies that bend light; diamonds are averages over many galaxies." /></figcaption>
+        </figure>
+        <ul class="legend-front" aria-label="Datasets">
+          {dsInfo.map((d) => <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><Fragment set:html={legendShape(d.shape, d.v)} /></svg><L t={d.t} p={d.p} /></li>)}
+        </ul>
+      </div>
+      <aside class="hero-side">
+        <div class="card read">
+          <h2><L t="Reading the chart" p="How to read it" /></h2>
+          <ul>
+            <li><L t="Each point is one published measurement, traced to its source." p="Each dot is one real measurement from a published study." /></li>
+            <li><L t="On the dashed line, the observed acceleration equals the Newtonian prediction from detected baryons." p="On the line, the pull is what the visible matter gives." /></li>
+            <li><L t="Above it, more acceleration is observed than the detected baryons predict." p="Above the line, the pull is stronger than that." /></li>
+            <li><L t="Motions and light-bending are separate channels, drawn with different marks and never merged." p="Motions and light-bending are measured differently, so they get different marks." /></li>
+          </ul>
+        </div>
+        <a class="btn primary big" href={`${base}map/`}><L t="Open the full map →" p="Explore the full map →" /></a>
+        <a class="btn big" href={`${base}data/`}><L t="Download the data" p="Get the data" /></a>
+      </aside>
+    </section>
+
+    <section class="status card" aria-labelledby="status-h">
+      <h2 id="status-h" class="kicker"><L t="Release status" p="How far along this is" /></h2>
+      <p><L t="v0.2 is preliminary and not peer reviewed. An audit of 254 randomly sampled rows, read by AI agents, found no wrong values, but did not pass on source records and methods text. Fixes are under way for v0.3." p="This is an early version and hasn’t been checked by outside experts. Our own check of 254 random rows, done with AI readers, found no wrong numbers, but some source records and method notes are incomplete. We’re fixing that now." /></p>
+      <a href={`${base}reproduction/#audit`}><L t="Read the audit result →" p="See our check →" /></a>
+    </section>
+
+    <section class="routes">
+      <div class="card">
+        <h3><L t="Explore" p="Explore" /></h3>
+        <p><L t="The full map with every view and control, one page per system, and the scale strip." p="The full map, a page for every galaxy and cluster, and how the pull changes with size." /></p>
+        <p class="links"><a href={`${base}map/`}><L t="Full map →" p="Full map →" /></a><a href={`${base}systems/`}><L t="Systems →" p="Galaxies and clusters →" /></a><a href={`${base}strip/`}><L t="Scale strip →" p="Size strip →" /></a></p>
+      </div>
+      <div class="card">
+        <h3><L t="Use the data" p="Use the data" /></h3>
+        <p><L t="Every dataset as a versioned package with its conversion code and frozen tests. Cite the release by its DOI." p="Download every dataset, with the code that built it." /></p>
+        <p class="links"><a href={`${base}data/`}><L t="Downloads →" p="Downloads →" /></a><a href={`${base}about/#cite`}><L t="How to cite →" p="How to cite →" /></a><a href={`https://doi.org/${CONCEPT_DOI}`}>DOI {CONCEPT_DOI} →</a></p>
+      </div>
+      <div class="card">
+        <h3><L t="Check our work" p="Check our work" /></h3>
+        <p><L t="How each value is derived, the reproduction checks, the known issues and every decision with its reason." p="How each number is worked out, our checks, and the problems we know about." /></p>
+        <p class="links"><a href={`${base}methods/`}><L t="Methods →" p="How it works →" /></a><a href={`${base}reproduction/`}><L t="Checks →" p="Checks →" /></a><a href={`${base}known-issues/`}><L t="Known issues →" p="Known issues →" /></a><a href={`${REPO}/blob/main/docs/decisions.md`}><L t="Decision log →" p="Our decisions →" /></a></p>
+      </div>
+    </section>
+
+    <section class="sources" aria-labelledby="sources-h">
+      <h2 id="sources-h"><L t={`${nWords[0].toUpperCase() + nWords.slice(1)} published datasets`} p="Where the measurements come from" /></h2>
+      <ul>
+        {dsInfo.map((d) => <li><span class="dot" style={`background:var(--${d.v})`}></span><span><a href={d.href}><L t={d.name_t} p={d.name_p} /></a><br /><span class="small"><L t={`${d.size} · ${d.method_t}`} p={`${d.size} · ${d.method_p}`} /></span></span></li>)}
+      </ul>
+    </section>
+  </div>
 </Base>
+
+<style>
+  .front { max-width: 1280px; margin: 0 auto; padding: 36px 0 24px; display: flex; flex-direction: column; gap: 40px; }
+  .intro { display: flex; flex-direction: column; gap: 12px; max-width: 920px; }
+  .headline { margin: 0; font-family: 'Inter Tight', var(--sans); font-weight: 700; font-size: clamp(30px, 4.2vw, 46px); line-height: 1.08; letter-spacing: -0.025em; }
+  .lede { margin: 0; font-size: clamp(16px, 1.5vw, 19px); line-height: 1.55; color: var(--muted); max-width: 72ch; }
+  .hero { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 36px; align-items: start; }
+  .hero-main { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+  .chart { margin: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 18px; }
+  .chart svg { display: block; width: 100%; height: auto; }
+  .chart :global(.tick) { font-family: var(--mono); font-size: 12px; fill: var(--muted); }
+  .chart .axis { font-family: var(--sans); font-size: 13px; fill: var(--ink); }
+  .chart .lbl { font-family: var(--sans); font-size: 13px; fill: var(--muted); }
+  .chart figcaption { margin-top: 8px; }
+  .chart .short { display: none; }
+  .legend-front { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 14px; color: var(--muted); }
+  .legend-front li { display: inline-flex; align-items: center; gap: 6px; }
+  .hero-side { display: flex; flex-direction: column; gap: 12px; }
+  .read h2 { margin: 0 0 8px; font-family: 'Inter Tight', var(--sans); font-size: 16px; font-weight: 700; }
+  .read ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 15px; line-height: 1.5; }
+  .read li { margin-bottom: 10px; }
+  .btn.big { min-height: 48px; font-size: 15px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; border-radius: 10px; }
+  .status { flex-direction: row; align-items: center; gap: 24px; padding: 20px 24px; }
+  .status h2 { margin: 0; flex: none; font-size: 12px; }
+  .status p { margin: 0; flex: 1; line-height: 1.5; }
+  .status a { flex: none; font-weight: 600; }
+  .routes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+  .routes .card { padding: 22px; gap: 8px; }
+  .routes h3 { margin: 0; font-family: 'Inter Tight', var(--sans); font-size: 19px; letter-spacing: -0.01em; }
+  .routes p { margin: 0; color: var(--muted); line-height: 1.5; }
+  .routes .links { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 4px; }
+  .routes .links a { font-weight: 600; text-decoration: none; }
+  .sources h2 { margin: 0 0 8px; font-family: 'Inter Tight', var(--sans); font-size: 22px; letter-spacing: -0.015em; }
+  .sources ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 32px; }
+  .sources li { display: flex; gap: 12px; align-items: flex-start; padding: 14px 0; border-top: 1px solid var(--line); line-height: 1.45; }
+  .sources .dot { width: 10px; height: 10px; border-radius: 50%; margin-top: 7px; flex: none; }
+  .sources a { font-weight: 600; text-decoration: none; color: var(--ink); }
+  @media (max-width: 900px) {
+    .front { padding-top: 20px; gap: 28px; }
+    .hero { grid-template-columns: minmax(0, 1fr); }
+    .chart { padding: 10px; }
+    .chart :global(.tick) { font-size: 28px; }
+    .chart .axis, .chart .lbl { font-size: 28px; }
+    .chart .long { display: none; }
+    .chart .short { display: inline; }
+    .status { flex-direction: column; align-items: flex-start; gap: 10px; padding: 18px; }
+    .routes, .sources ul { grid-template-columns: minmax(0, 1fr); }
+  }
+</style>

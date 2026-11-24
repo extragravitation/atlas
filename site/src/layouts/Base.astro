@@ -28,7 +28,7 @@ for (const d of atlas.datasets) {
   }
 }
 const systemIndex = atlas.systems.map((s) => ({ id: s.id, name: s.name, dataset: s.dataset }));
-const nav = [['map', '', 'Map', 'Map'], ['strip', 'strip/', 'Scale strip', 'Scale strip'], ['systems', 'systems/', 'Systems', 'Systems'], ['coverage', 'coverage/', 'Coverage', 'Coverage'], ['datasets', 'datasets/', 'Datasets', 'Datasets'], ['reproduction', 'reproduction/', 'Reproduction', 'Checks'], ['tests', 'tests/', 'Tests', 'Tests'], ['methods', 'methods/', 'Methods', 'How it works'], ['issues', 'known-issues/', 'Known issues', 'Known issues'], ['about', 'about/', 'About', 'About']];
+const nav = [['map', 'map/', 'Map', 'Map'], ['systems', 'systems/', 'Systems', 'Galaxies and clusters'], ['coverage', 'coverage/', 'Coverage', 'Coverage'], ['datasets', 'datasets/', 'Datasets', 'Datasets'], ['methods', 'methods/', 'Methods', 'How it works'], ['about', 'about/', 'About', 'About']];
 ---
 <!doctype html>
 <html lang="en" data-base={base}>
@@ -89,6 +89,9 @@ const nav = [['map', '', 'Map', 'Map'], ['strip', 'strip/', 'Scale strip', 'Scal
       <a href={`${base}for-data-providers/`}>For data providers</a>
       <a href={`${base}data/`}>Data and downloads</a>
       <a href={`${base}reproduction/`}>Reproduction checks</a>
+      <a href={`${base}strip/`}>Scale strip</a>
+      <a href={`${base}tests/`}>Tests</a>
+      <a href={`${base}known-issues/`}>Known issues</a>
       <a href={`${base}about/#cite`}>How to cite</a>
       <a href="https://github.com/extragravitation/atlas">Source repository</a>
       <a href="https://github.com/extragravitation/atlas/issues">Report an error</a>
