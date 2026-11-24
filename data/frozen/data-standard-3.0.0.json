@@ -1,0 +1,9 @@
+{
+  "description": "Data standard 3.0.0 (major: \u00a713 source records and locators; \u00a710 items 19 to 24; D-114), frozen together with the v2-to-v3 re-issue test, before any v3 package is built. Earlier texts stay frozen at their own paths. The validator is not frozen: it must keep implementing the frozen texts.",
+  "frozen_on": "2026-11-24",
+  "decision": "D-114",
+  "files": {
+    "docs/data-standard.md": "a4958ad7eb3c2f661089b9bfb683cbb5eb27a0dd399bb2de1f632efd6969d081",
+    "docs/standard-3.0.0-reissue-test.md": "2fd4a43cf00b3588f89fbc91bd000499df137e9e583549db1f0ee0473b7c8f7e"
+  }
+}

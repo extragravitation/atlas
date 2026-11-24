@@ -1,6 +1,8 @@
 # Atlas data standard
 
-**Version 2.5.1 — FROZEN on merge** (D-099; patch of 2.5.0: wording of §12 only, no effect on any file). Frozen by hash in `data/frozen/data-standard-2.5.1.json`; `python -m aeg.check` fails if this file changes. The next change is a new version with its own file and freeze record. Earlier versions are kept unchanged at their own paths.
+**Version 3.0.0 — FROZEN on merge** (D-114; major: source records and locators, §13). Frozen by hash in `data/frozen/data-standard-3.0.0.json`, together with the v3 re-issue test (`docs/standard-3.0.0-reissue-test.md`); `python -m aeg.check` fails if either file changes. The next change is a new version with its own file and freeze record. Earlier versions are kept unchanged at their own paths (2.5.1: `docs/data-standard-2.5.1.md`).
+
+What changed from 2.5.1, in one line: every source record now carries its own identity, citation and licence; every document a value is read from is a hashed source; archive members are hashed; and every `source_ref` resolves to a source and a place in it through `locators.json` (§13). No column, unit, meaning or value changes.
 
 What changed from 1.3.0, in one line: every measurement now keeps **what was observed** (observables table) as well as g_obs and g_bar, and records how it was selected, how strong the evidence is, how much it leans on fitted forms, whether it is plotted and why not, and which value is the default when several exist.
 
@@ -20,6 +22,7 @@ Semantic versioning, MAJOR.MINOR.PATCH, as in 1.x: **patch** = wording with no e
 | 2.4.0 | 2026-11-04 | D-093 | From step A of the validation plan (all six datasets read at source). Optional §3 columns: `err_level_status`, `g_bar_err_level` and `g_bar_err_level_status` (confidence levels per side, including "not given by the source"); `g_bar_basis` with `g_bar_bin_lo/hi` (g_bar as the source's bin coordinate). §4 `err_level_status`. §7a: `applies_to` may list several systems; `size_kind` `upper_bound` and `lower_bound`; `size_column` may name a measurements column; new column `in_error_columns`. §9 key `x_value_change_ruling` (a ruled exception to §10 item 13). §2a rule 7 (a radius that is both the coordinate and an input). Clarified: the confidence level and rule 5 refer to the measured quantity. A bound on g_bar was considered and left out until a shipped dataset needs it (D-093). All additive; packages stating 2.3.0 or earlier stay valid |
 | 2.5.0 | 2026-11-04 | D-095 | One quantity added to §4a, on both sides: `acceleration_released`, an acceleration computed and released by the source (unit m / s2). Needed where a source releases g_obs or g_bar itself (KiDS-1000's binned g_bar; X-COP 2022's GOBS and GBAR). Nothing else changes; packages stating 2.4.0 or earlier stay valid |
 | 2.5.1 | 2026-11-04 | D-099 | Patch, wording only: §12 now says what packages already do. An extension column may hold a per-row or per-system size named by a §7a `size_column`, and a value a registry formula reads. Core views still never depend on extension columns otherwise. No file changes meaning |
+| 3.0.0 | 2026-11-24 | D-114 | Major: §13 source records and locators. `sources.json` entries require `id`, `kind`, `citation`, `identifier` and a structured `licence`; documents read become hashed sources; archives hash the members read; new required file `locators.json` resolves every `source_ref`; the descriptor must agree with `sources.json`. §10 items 19 to 24. Required only of packages stating 3.0.0; packages stating 2.x stay valid as published |
 
 ## 1. Package layout
 
@@ -29,7 +32,8 @@ One folder per dataset version: `data/packages/<dataset>/<version>/`.
 |---|---|---|
 | `datapackage.json` | Descriptor (§9): name, version, standard version, sources, licence per source record, selection, baryon inventory, precedence, frozen checks | yes |
 | `SOURCE.md` | What was read at source: addresses, dates, licence text or its absence, citation, method summary, search-log row (`docs/sources/search-log-<cell>.md`) | yes |
-| `sources.json` | Every source file: address, file name, bytes, SHA-256, retrieval date, redistributable (true/false), evidence tier | yes |
+| `sources.json` | Every source file and every document a value is read from: address, file name, bytes, SHA-256, retrieval date, redistributable (true/false), evidence tier; from 3.0.0 also `id`, `kind`, `citation`, `identifier`, `licence` and, for archives, `members_sha256` (§13) | yes |
+| `locators.json` | §13: rules that resolve every `source_ref` in observables and measurements to source `id`s and a place (3.0.0) | yes, from 3.0.0 |
 | `REPRODUCTION.md` | Published numbers the package must reproduce, and the tolerance; committed, with its hash in `sources.json`, before `convert.py` first runs | yes |
 | `SECOND_READING.md` | The independent second reading (D-031 item 3): for every number entering the package, the reader, the quote and its location, and any disagreement with the first reading and how it was resolved | yes |
 | `convert.py` | Fetches sources (verifying hashes), converts, writes `tables/` | yes |
@@ -274,8 +278,8 @@ Formula language and combination rules: unchanged from 1.3.0 (D-014).
 
 | Key | Required | Content |
 |---|---|---|
-| `standard_version` | yes | `2.5.0` (or the earlier version the package was issued under) |
-| `licenses` | yes | Per source record, read at source (CDS records vary); derived tables follow share-alike terms where they apply |
+| `standard_version` | yes | `3.0.0` (or the earlier version the package was issued under) |
+| `licenses` | yes | Per source record, read at source (CDS records vary); derived tables follow share-alike terms where they apply. From 3.0.0 must agree with `sources.json` (§13 R5) |
 | `x_selection` | yes | The sample's selection as structured entries (`quantity`, `condition`, `value`, `citation`) plus the source's own wording; for population bins, the bin definitions and the lenses' redshift range or distribution (D-029 2d, D-033) |
 | `x_baryon_inventory` | yes | One entry per component (stars by population, atomic gas, helium, molecular gas, ionised gas, hot gas, intracluster light, dust, remnants as relevant), each with status `measured`, `modelled`, `known_unmeasured`, `stated_negligible` (quoted), `absent_limit` (a measured upper limit, system-specific), `absent_literature_limit` (the kind's literature limit, D-036 #4) or `not_addressed`, and the citation where it was read |
 | `x_precedence` | where any row has `role` | Which dataset is the default for each system and why, under D-038 §3 (originals first; per-star velocities released; most members; most recent; Geha et al. 2026 only where unique) |
@@ -306,6 +310,13 @@ All 1.3.0 items, plus:
 17. (2.4.0) In §7a, `in_error_columns = no` requires `scale = point`, `applies_to = *`, `status = given` and a size.
 18. (2.4.0) Where `x_value_change_ruling` is present, it names a decision in `docs/decisions.md` whose entry has a ruling line (`**Ruling` followed by `.` or ` (`), not "Ruling: pending". Whether the decision is about these values is checked by review, not by the build.
 
+19. (3.0.0) Every `sources.json` entry has `id` (unique in the package), `kind` from the closed list, a non-empty `citation`, an `identifier` with at least one allowed key, and a `licence` object whose `status` is in the closed list, with `checked_where` and `checked_on`; `stated` has `spdx` or `text`; `asked` has `asked`.
+20. (3.0.0) `redistributable` is true only where `licence.status = stated` (whether the stated terms permit redistribution is checked by review).
+21. (3.0.0) `sha256` is a hex digest, or `null` only with `unhashed_reason` and a matching entry in `known_issues.json`.
+22. (3.0.0) Every `archive` entry has `members_sha256`, and it covers every member named by a locator rule (`where.member` or a `member` group).
+23. (3.0.0) `locators.json` present; every rule has `table` (`observables` or `measurements`), an anchored `match` that compiles, `sources` naming existing ids, and at least one `where` key from the closed list, each value literal or a named group of `match`; every `source_ref` in the two tables matches exactly one rule of its table; a rule with `correction` has a matching entry in `known_issues.json`.
+24. (3.0.0) The descriptor's `licenses`, `x_licence_status` and `x_citation` do not contradict `sources.json`: every source a descriptor licence names exists, and a source whose `licence.status` is `none_stated` or `asked` is not given a licence in the descriptor.
+
 Duties outside the build (2.4.0): views say "confidence level not given by the source" where `err_level_status` (or `g_bar_err_level_status`) is `not_given_by_source`; for item 18, the reproduction test reproduces the new source instead of the previous version. These are checked by the site and pattern-test code that uses the rows, and by the package's frozen test.
 
 ## 11. Flags (closed list)
@@ -317,3 +328,38 @@ Duties outside the build (2.4.0): views say "confidence level not given by the s
 As 1.3.0: `x_<dataset short name>_<name>`, with full header information; validated for naming and header completeness only.
 
 The core site, sliders and cross-dataset views never depend on them, with two exceptions (2.5.1, D-099): an extension column may hold the size that a §7a `size_column` names, and a value that a registry effects formula reads (as `system.<column>` or a row column).
+
+## 13. Source records and locators (3.0.0)
+
+Required of packages stating 3.0.0. The purpose is that every value can be traced from the row to the exact place in a hashed, cited, licensed source without reading anything outside the package.
+
+**R1. Source records.** Every `sources.json` entry keeps its 2.x fields and adds:
+
+| Field | Content |
+|---|---|
+| `id` | Short and unique within the package (`S1`, …). A package's existing record numbers (such as `R5`) are kept |
+| `kind` | `data_file`, `archive`, `document` or `web_page` |
+| `citation` | One string: the source's own recommended citation where it gives one; otherwise authors, year, journal, volume and first page; for a database, its name, version or commit, and the paper it asks users to cite |
+| `identifier` | Object with at least one of `doi`, `ads_bibcode`, `arxiv` (with the version read, such as `1612.00065v2`), `vizier`, `landing_url` |
+| `licence` | Object: `status` (`stated`, `none_stated` or `asked`); `spdx` (when stated and an SPDX identifier exists) or `text` and `uri` (the terms as stated); `checked_where` and `checked_on` (always); `asked` (a link to the request, when `asked`) |
+
+`redistributable: true` only where the licence is `stated` and its terms permit redistribution; otherwise the package links to the source and keeps the hash.
+
+**R2. Documents are sources.** Every paper, table, page or web page that a locator names has its own entry, with the hash of the file actually read (the PDF, the arXiv source, or a saved copy of the page). Where no file can be retrieved, `sha256` is `null`, `unhashed_reason` says why, and the entry is listed in `known_issues.json`. Such an entry counts as a provenance failure in any audit; a missing hash is recorded, never waived.
+
+**R3. Archives.** An `archive` entry has `members_sha256` for every member the conversion reads.
+
+**R4. Locators.** `locators.json` holds `{"rules": [...]}`. Each rule:
+
+| Key | Content |
+|---|---|
+| `table` | `observables` or `measurements` |
+| `match` | A regular expression over the exact `source_ref` text, anchored at the start (`^`) |
+| `sources` | List of source `id`s |
+| `where` | Object with keys from the closed list `table`, `page`, `column`, `row`, `line`, `section`, `figure`, `hdu`, `member`; each value literal text, or `{group}` naming a named group of `match` |
+| `correction` | Optional: where the `source_ref` text names the wrong place, `where` gives the right place and `correction` quotes the text it corrects; each correction is also listed in `known_issues.json` |
+| `note` | Optional |
+
+Every `source_ref` in the two tables matches exactly one rule of its table. The table text is not edited: the tables stay as converted, and corrections live in the rules (D-114 Q1).
+
+**R5. The descriptor agrees.** `sources.json` is the authority for citation and licence; the descriptor's `licenses`, `x_licence_status` and `x_citation` must not contradict it.
