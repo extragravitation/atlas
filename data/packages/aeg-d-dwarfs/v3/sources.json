@@ -46,7 +46,10 @@
     "uri": "https://raw.githubusercontent.com/apace7/local_volume_database/c9fb49c620adab3df32c7d206e8599f4bb624a3a/LICENSE",
     "checked_where": "The repository's LICENSE file at the pinned commit (CC0 1.0 Universal)",
     "checked_on": "2026-11-24"
-   }
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/lvdb/dwarf_mw.csv"
+   ]
   },
   {
    "id": "S2",
@@ -70,7 +73,10 @@
     "uri": "https://raw.githubusercontent.com/apace7/local_volume_database/c9fb49c620adab3df32c7d206e8599f4bb624a3a/LICENSE",
     "checked_where": "The repository's LICENSE file at the pinned commit (CC0 1.0 Universal)",
     "checked_on": "2026-11-24"
-   }
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/lvdb/dwarf_m31.csv"
+   ]
   },
   {
    "id": "S3",
@@ -94,7 +100,10 @@
     "uri": "https://raw.githubusercontent.com/apace7/local_volume_database/c9fb49c620adab3df32c7d206e8599f4bb624a3a/LICENSE",
     "checked_where": "The repository's LICENSE file at the pinned commit (CC0 1.0 Universal)",
     "checked_on": "2026-11-24"
-   }
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/lvdb/dwarf_local_field.csv"
+   ]
   },
   {
    "id": "S4",
@@ -118,7 +127,10 @@
     "uri": "https://raw.githubusercontent.com/apace7/local_volume_database/c9fb49c620adab3df32c7d206e8599f4bb624a3a/LICENSE",
     "checked_where": "The repository's LICENSE file at the pinned commit (CC0 1.0 Universal)",
     "checked_on": "2026-11-24"
-   }
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/lvdb/lvdb.bib"
+   ]
   },
   {
    "id": "S5",
@@ -141,7 +153,10 @@
     "status": "none_stated",
     "checked_where": "The machine-readable table itself (file header): no licence or copyright statement. The article page was not read: iopscience.iop.org cannot be reached from the build workspace.",
     "checked_on": "2026-11-24"
-   }
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/members/geha2026/apjae290dt1_mrt.txt"
+   ]
   },
   {
    "id": "S6",
@@ -164,7 +179,10 @@
     "status": "none_stated",
     "checked_where": "The machine-readable table itself (file header): no licence or copyright statement. The article page was not read: iopscience.iop.org cannot be reached from the build workspace.",
     "checked_on": "2026-11-24"
-   }
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/members/geha2026/apjae290dt5_mrt.txt"
+   ]
   },
   {
    "id": "S7",
@@ -187,7 +205,10 @@
     "status": "none_stated",
     "checked_where": "The machine-readable table itself (file header): no licence or copyright statement. The article page was not read: iopscience.iop.org cannot be reached from the build workspace.",
     "checked_on": "2026-11-24"
-   }
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/members/collins2013/apj466362t3_mrt.txt"
+   ]
   },
   {
    "id": "S8",
@@ -210,7 +231,10 @@
     "status": "none_stated",
     "checked_where": "The machine-readable table itself (file header): no licence or copyright statement. The article page was not read: iopscience.iop.org cannot be reached from the build workspace.",
     "checked_on": "2026-11-24"
-   }
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/members/kvasova2024/apjad55f0t1_mrt.txt"
+   ]
   },
   {
    "id": "S9",
@@ -232,7 +256,10 @@
     "status": "none_stated",
     "checked_where": "The machine-readable table itself (file header): no licence or copyright statement. The article page was not read: iopscience.iop.org cannot be reached from the build workspace.",
     "checked_on": "2026-11-24"
-   }
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/members/spencer2017/apjaa58edt3_mrt.txt"
+   ]
   },
   {
    "id": "S10",
@@ -276,7 +303,10 @@
     "PublicMemberCatalogs/PS1_1_Members_v1.1.fits": "e374e8a406fa307d50d4b5bc9782f18abb385753ea5226e41aff98cbccfafed0",
     "PublicMemberCatalogs/Segue_3_Members_v1.1.fits": "dae3deccd56d5b925c76edbe53af5e438858d909645e95ca5946fff4f7ec6a1b",
     "PublicMemberCatalogs/YMCA_1_Members_v1.1.fits": "4d11666d3801f006b9d5bbbd02543be76b1822b18c2f026e6b43c7e528fde19e"
-   }
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/members/cerny2026/MemberCatalogs_v1.1.tar.gz"
+   ]
   },
   {
    "id": "S11",
@@ -302,7 +332,10 @@
     "uri": "https://cds.unistra.fr/vizier-org/licences_vizier.html",
     "checked_where": "The rights_uri in a VizieR VOTable export from the same mirror (J/AJ/134/566, 2026-11-24)",
     "checked_on": "2026-11-24"
-   }
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/members/vizier/J_A_A_572_A82.vot"
+   ]
   },
   {
    "id": "S12",
@@ -328,7 +361,10 @@
     "uri": "https://cds.unistra.fr/vizier-org/licences_vizier.html",
     "checked_where": "The rights_uri in a VizieR VOTable export from the same mirror (J/AJ/134/566, 2026-11-24)",
     "checked_on": "2026-11-24"
-   }
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/members/vizier/J_A_A_698_A53.vot"
+   ]
   },
   {
    "id": "S13",
@@ -354,7 +390,10 @@
     "uri": "https://cds.unistra.fr/vizier-org/licences_vizier.html",
     "checked_where": "The rights_uri in a VizieR VOTable export from the same mirror (J/AJ/134/566, 2026-11-24)",
     "checked_on": "2026-11-24"
-   }
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/members/vizier/J_AJ_134_566.vot"
+   ]
   },
   {
    "id": "S14",
@@ -380,7 +419,10 @@
     "uri": "https://cds.unistra.fr/vizier-org/licences_vizier.html",
     "checked_where": "The rights_uri in a VizieR VOTable export from the same mirror (J/AJ/134/566, 2026-11-24)",
     "checked_on": "2026-11-24"
-   }
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/members/vizier/J_ApJ_657_241.vot"
+   ]
   },
   {
    "id": "S15",
@@ -406,7 +448,10 @@
     "uri": "https://cds.unistra.fr/vizier-org/licences_vizier.html",
     "checked_where": "The rights_uri in a VizieR VOTable export from the same mirror (J/AJ/134/566, 2026-11-24)",
     "checked_on": "2026-11-24"
-   }
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/members/vizier/J_MNRAS_411_1013.vot"
+   ]
   },
   {
    "id": "S16",
@@ -429,7 +474,10 @@
     "status": "none_stated",
     "checked_where": "The machine-readable table itself (file header): no licence or copyright statement. The article page was not read: iopscience.iop.org cannot be reached from the build workspace.",
     "checked_on": "2026-11-24"
-   }
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/members/tollerud2012/apj430011t2_mrt.txt"
+   ]
   },
   {
    "id": "S17",
@@ -459,7 +507,10 @@
     "uri": "https://cds.unistra.fr/vizier-org/licences_vizier.html",
     "checked_where": "The rights_uri in a VizieR VOTable export from the same mirror (J/AJ/134/566, 2026-11-24)",
     "checked_on": "2026-11-24"
-   }
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/members/vizier/VII_155.vot"
+   ]
   },
   {
    "id": "S18",
@@ -481,7 +532,10 @@
     "status": "none_stated",
     "checked_where": "The machine-readable table itself (file header): no licence or copyright statement. The article page was not read: iopscience.iop.org cannot be reached from the build workspace.",
     "checked_on": "2026-11-24"
-   }
+   },
+   "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/gas/putman2021/apjabe391t1_mrt.txt"
+   ]
   },
   {
    "id": "S19",
@@ -494,6 +548,7 @@
    ],
    "file": "mvdm05/J_ApJS_161_304_clusters.vot",
    "local_copies": [
+    "data/packages/aeg-d-dwarfs/v2/source/mvdm05/J_ApJS_161_304_clusters.vot",
     "data/packages/aeg-d-gc-baumgardt/v1/source/mvdm05/J_ApJS_161_304_clusters.vot"
    ],
    "bytes": 119148,
