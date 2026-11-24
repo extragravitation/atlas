@@ -2539,6 +2539,30 @@ The frozen KiDS v2 test (item 11) makes any such finding a fail of that item. Th
 
 **Data seen.** `docs/audit/AUDIT_RESULT.md` and `docs/plans/V0.3_PLAN.md` as of `a757c40`.
 
+## D-114 — Data standard 3.0.0: source records and locators
+
+**Ruling (2026-11-24 10:35, UTC−06:00, JvH).** "as recommended and merge 218". **Proposed by** Claude in `docs/plans/DATA_STANDARD_3.0.0_PROPOSAL.md` (#218). Implements D-113 rule 1.1.
+
+**Context.** The audit (#186) found no wrong values in 254 rows. Provenance failed in 250 of them: `sources.json` had no citation (P1) and mostly no licence (P2), documents named in locators had no hashed record (P3), some locators gave no place or the wrong one (P4), and the KiDS archive's members were not hashed. Of the 226 entries across the six v2 packages, 36 stated a licence and none a citation.
+
+**Rules.**
+1. **Data standard 3.0.0** as written in `docs/data-standard.md` §13 and §10 items 19 to 24:
+   1. every `sources.json` entry carries `id`, `kind`, `citation`, `identifier` and a structured `licence`;
+   2. every document a value is read from is a hashed source;
+   3. archives hash the members they read;
+   4. every `source_ref` resolves through rules in `locators.json`;
+   5. the descriptor agrees with `sources.json`.
+
+   It is a major version because these fields become required. Packages stating 2.x stay valid as published.
+2. **Q1: locators go in a separate `locators.json`.** Tables and `convert.py` are unchanged apart from the version label; a wrong place in a `source_ref` is corrected in the rule, quoted, and listed as a known issue.
+3. **Q2: a document that cannot be retrieved as a file** gets `sha256: null` with a reason. It is listed as a known issue and counts as a provenance failure in the re-run audit. Where an arXiv version exists, that version is hashed and recorded.
+4. **Q3: citation form** is one `citation` string plus an `identifier` object. Structured citation fields are left for the v1.0 re-issue.
+5. **Re-issue test:** `docs/standard-3.0.0-reissue-test.md`, frozen with the standard before any v3 package is built. "Bit for bit" in D-113 rule 1.1 is made exact there. The version is part of every identifier and table header, so v3 tables must equal v2's byte for byte once those are mapped back. The one allowed exception is new issue numbers added to the `known_issues` column.
+
+**Alternatives rejected.** Rewriting `source_ref` in the tables: cleaner tables, but every `convert.py` would change and the values could no longer be shown unchanged by a mechanical test. Accepting a document without a hash: it would loosen the provenance rule in order to pass the audit. Structured citations now: more work, with no gain for v0.3.
+
+**Data seen.** The six v2 `sources.json` files and `source_ref` columns (counts only), and `docs/audit/AUDIT_RESULT.md`. No v3 package exists.
+
 ## Release record — v0.2 (2026-11-06)
 
 Recorded here because the decision log covers releases (D-110 rule 3). This entry is not a new ruling.
