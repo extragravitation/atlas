@@ -2520,6 +2520,25 @@ The frozen KiDS v2 test (item 11) makes any such finding a fail of that item. Th
 
 **Data seen.** The repository state: `sources.json` across the six v2 packages has a citation in 0 of 226 entries and a licence in 36. Also seen: the site's audit text, and `docs/sources/checklist-reviews.md`.
 
+## D-113 — v0.3 narrowed to passing the audit, plus a front door for the site
+
+**Ruling (2026-11-24 10:10, UTC−06:00, JvH).** "Yes - and begin with the page redesign." Before that (10:07): "we need to be more focused", pointing to the three audit findings. **Proposed by** JvH (the focus on the audit) and Claude (the three work items, the re-audit, and the front-door redesign, which JvH asked to include). Amends D-112 rule 3.
+
+**Context.** The v0.3 plan of 2026-11-18 had five strands. The audit (#186) is what a sceptical reader checks first, and it did not pass on two counts: source records (250 of 254 rows) and methods text (210 of 254 rows). Methods text was not in the plan.
+
+**Rules.**
+1. **v0.3 contains four items:**
+   1. source records: a minimal data standard 3.0.0 (citation, licence and locator on every source), then the six packages re-issued as v3 with every value unchanged, checked bit for bit;
+   2. methods text completed for every row the site shows;
+   3. the audit re-run on the v3 packages, its plan frozen before the sample is drawn; the result is published whether it passes or fails;
+   4. a front door for the site: a front page that says in one line what the Atlas is, shows the cross-scale chart cleanly, states the release status and audit result plainly, and links onward. The full map tool moves to its own page with every control intact. A mockup is approved by JvH before it is built.
+2. **Deferred to after v0.3,** in addition to D-112 rule 5: the well-known test systems section and the scope statement (completeness plan 1.3, 1.4), the D-038 note (1.5), the accessibility findings from pass 1, and the D-107 neutrality items that need new readings.
+3. **Order:** the front-door mockup first (JvH, 2026-11-24); the standard 3.0.0 draft in parallel, as the critical path for the data work.
+
+**Alternatives rejected.** The full D-112 scope (spreads effort across work a sceptical reader does not check first); the three audit items alone (the site would still open on a control panel with no front door).
+
+**Data seen.** `docs/audit/AUDIT_RESULT.md` and `docs/plans/V0.3_PLAN.md` as of `a757c40`.
+
 ## Release record — v0.2 (2026-11-06)
 
 Recorded here because the decision log covers releases (D-110 rule 3). This entry is not a new ruling.
