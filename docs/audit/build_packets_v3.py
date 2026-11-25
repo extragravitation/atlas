@@ -56,10 +56,12 @@ def rule_for(rules, table, ref):
     if len(hit) != 1:
         raise SystemExit(f"{len(hit)} locator rules match {table} source_ref {ref!r}")
     r = hit[0]
-    out = {"sources": r["sources"], "where": {k: redact(str(v)) for k, v in r.get("where", {}).items()}}
+    g = re.match(r["match"], ref).groupdict()
+    fill = lambda v: re.sub(r"\{(\w+)\}", lambda x: str(g.get(x.group(1), x.group(0))), str(v))  # the rule's {group} templates
+    out = {"sources": r["sources"], "where": {k: redact(fill(v)) for k, v in r.get("where", {}).items()}}
     for k in ("correction", "note"):
         if k in r:
-            out[k] = redact(str(r[k]))
+            out[k] = redact(fill(r[k]))
     return out
 
 
