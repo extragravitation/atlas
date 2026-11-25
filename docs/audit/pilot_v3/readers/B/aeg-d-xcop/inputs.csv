@@ -1,0 +1,23 @@
+measurement_id,input,value,unit,file,place,at_locator
+aeg-d-xcop/v3/m000001,RADIUS,64.18796,kpc,data_E22.tar.gz:A644/gbar_gobs_A644.fits,"HDU 1 (BinTable), row 1 (1-based), column RADIUS",yes (row locator; column not separately named)
+aeg-d-xcop/v3/m000001,GBAR,5.0754078e-11,m/s^2,data_E22.tar.gz:A644/gbar_gobs_A644.fits,"HDU 1 (BinTable), row 1 (1-based), column GBAR",yes
+aeg-d-xcop/v3/m000001,GBAR_ERR,4.0907286e-12,m/s^2,data_E22.tar.gz:A644/gbar_gobs_A644.fits,"HDU 1 (BinTable), row 1 (1-based), column GBAR_ERR",yes (row locator; column not separately named)
+aeg-d-xcop/v3/m000001,GOBS,2.2402964e-10,m/s^2,data_E22.tar.gz:A644/gbar_gobs_A644.fits,"HDU 1 (BinTable), row 1 (1-based), column GOBS",yes
+aeg-d-xcop/v3/m000001,GOBS_ERR_LO,4.0164424e-11,m/s^2,data_E22.tar.gz:A644/gbar_gobs_A644.fits,"HDU 1 (BinTable), row 1 (1-based), column GOBS_ERR_LO",yes (row locator; column not separately named)
+aeg-d-xcop/v3/m000001,GOBS_ERR_HI,4.111222e-11,m/s^2,data_E22.tar.gz:A644/gbar_gobs_A644.fits,"HDU 1 (BinTable), row 1 (1-based), column GOBS_ERR_HI",yes (row locator; column not separately named)
+aeg-d-xcop/v3/m000078,RADIUS,1408.9169,kpc,data_E22.tar.gz:A2142/gbar_gobs_A2142.fits,"HDU 1 (BinTable), row 16 (1-based), column RADIUS",yes (row locator; column not separately named)
+aeg-d-xcop/v3/m000078,GBAR,9.869631e-12,m/s^2,data_E22.tar.gz:A2142/gbar_gobs_A2142.fits,"HDU 1 (BinTable), row 16 (1-based), column GBAR",yes
+aeg-d-xcop/v3/m000078,GBAR_ERR,1.305801e-13,m/s^2,data_E22.tar.gz:A2142/gbar_gobs_A2142.fits,"HDU 1 (BinTable), row 16 (1-based), column GBAR_ERR",yes (row locator; column not separately named)
+aeg-d-xcop/v3/m000078,GOBS,6.49069e-11,m/s^2,data_E22.tar.gz:A2142/gbar_gobs_A2142.fits,"HDU 1 (BinTable), row 16 (1-based), column GOBS",yes
+aeg-d-xcop/v3/m000078,GOBS_ERR_LO,5.58112e-12,m/s^2,data_E22.tar.gz:A2142/gbar_gobs_A2142.fits,"HDU 1 (BinTable), row 16 (1-based), column GOBS_ERR_LO",yes (row locator; column not separately named)
+aeg-d-xcop/v3/m000078,GOBS_ERR_HI,6.5398975e-12,m/s^2,data_E22.tar.gz:A2142/gbar_gobs_A2142.fits,"HDU 1 (BinTable), row 16 (1-based), column GOBS_ERR_HI",yes (row locator; column not separately named)
+aeg-d-xcop/v3/m000001,g_obs definition (S3),g_{obs}(r) = G M_HSE(<r)/r^2,-,ep_2205.01110v1 (tar.gz) : hydromass.tex,line 453 (subsection 'The galaxy cluster radial acceleration relation'),yes
+aeg-d-xcop/v3/m000001,g_bar definition (S3),"g_{bar}(r) = G(M_gas(<r)+M_*,BCG(<r)+M_*,sat(<r))/r^2",-,ep_2205.01110v1 (tar.gz) : hydromass.tex,line 456,yes
+aeg-d-xcop/v3/m000001,NP evaluated at radii of observed data (S3),'we evaluate it at the radii of the observed data and present them in the form of data points',-,ep_2205.01110v1 (tar.gz) : hydromass.tex,"line 263, inside \subsection{Optimization} (starts l. 256 = Sect. 3.5 by count); NP method itself is \subsection{Nonparametric log-normal mixture reconstruction}, l. 226-255 (= Sect. 3.4)","partly: line yes; section no (l. 263 is in 3.5, not 3.4)"
+aeg-d-xcop/v3/m000001,ICL excluded (S3),"'Intracluster light, which is not included in our analysis'",-,ep_2205.01110v1 (tar.gz) : hydromass.tex,line 410,yes
+aeg-d-xcop/v3/m000001,"BCG dynamical M/L (S3, cited in rows.json source_ref under l. 456)",Upsilon_*DYN: 'We use this best fitting stellar mass-to-light ratio to derive the enclosed stellar mass of the BCG',-,ep_2205.01110v1 (tar.gz) : hydromass.tex,line 107 (subsubsection BCG),no (source_ref attaches it to l. 456; it is at l. 107)
+aeg-d-xcop/v3/m000078,g_obs definition (S3),g_{obs}(r) = G M_HSE(<r)/r^2,-,ep_2205.01110v1 (tar.gz) : hydromass.tex,line 453 (subsection 'The galaxy cluster radial acceleration relation'),yes
+aeg-d-xcop/v3/m000078,g_bar definition (S3),"g_{bar}(r) = G(M_gas(<r)+M_*,BCG(<r)+M_*,sat(<r))/r^2",-,ep_2205.01110v1 (tar.gz) : hydromass.tex,line 456,yes
+aeg-d-xcop/v3/m000078,NP evaluated at radii of observed data (S3),'we evaluate it at the radii of the observed data and present them in the form of data points',-,ep_2205.01110v1 (tar.gz) : hydromass.tex,"line 263, inside \subsection{Optimization} (starts l. 256 = Sect. 3.5 by count); NP method itself is \subsection{Nonparametric log-normal mixture reconstruction}, l. 226-255 (= Sect. 3.4)","partly: line yes; section no (l. 263 is in 3.5, not 3.4)"
+aeg-d-xcop/v3/m000078,ICL excluded (S3),"'Intracluster light, which is not included in our analysis'",-,ep_2205.01110v1 (tar.gz) : hydromass.tex,line 410,yes
+aeg-d-xcop/v3/m000078,"BCG dynamical M/L (S3, cited in rows.json source_ref under l. 456)",Upsilon_*DYN: 'We use this best fitting stellar mass-to-light ratio to derive the enclosed stellar mass of the BCG',-,ep_2205.01110v1 (tar.gz) : hydromass.tex,line 107 (subsubsection BCG),no (source_ref attaches it to l. 456; it is at l. 107)

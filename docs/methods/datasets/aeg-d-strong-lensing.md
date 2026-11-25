@@ -16,7 +16,8 @@ A row's `source_ref` reads "observed Rm; stellar Rn": the observed side comes fr
 | M☉ | 1.98840987 × 10³⁰ kg | IAU 2015 nominal (stated in code) |
 | 1 pc | 3.0856775814913673 × 10¹⁶ m; 1 kpc = 10³ pc, 1 Mpc = 10⁶ pc | IAU 2015 B2 |
 | c | 299 792 458 m s⁻¹ | exact |
-| 1″ | π / (180 × 3600) rad | |
+| 1″ | π / (180 × 3600) rad; angles enter every formula in radians | |
+| H₀ | km s⁻¹ Mpc⁻¹ → s⁻¹: H₀ × 10³ / (10⁶ pc in m) | |
 
 ## 2. Steps
 
@@ -30,12 +31,14 @@ A row's `source_ref` reads "observed Rm; stellar Rn": the observed side comes fr
    - **Printed:** where the observed record prints M_E, it is used as printed, converting log₁₀ values where the source prints them so.
    - **Printed aperture mass:** where the record prints a mass inside an aperture and the aperture is taken as the Einstein radius (R61, for SNL-1 and SNL-2), that mass and aperture are used.
    - **Computed:** otherwise M_E = θ_E² c² D_s D_l / (4 G D_ls).
+   - **θ_E** is the SIE Einstein radius exactly as printed: `bSIE` (R5), `b_SIE` (R10), or the record's own column. It is used with no axis-ratio correction.
 4. **Stellar mass inside R_E,** by the route in §3:
-   - **printed inside R_E:** used as printed;
+   - **printed inside R_E:** used as printed, in the unit the table states; R13's `MChaBC2` is in units of 10¹⁰ M☉. It is used at the precision printed;
    - **profile:**
      - M★(<R_E) = M★,total × f, where f = P(2n, b_n (θ_E / R_e)^(1/n)) is the fraction of a Sérsic profile's light inside a cylinder of radius θ_E;
      - R_e and n are those of the source's light profile, with n = 4 for de Vaucouleurs;
-     - P is the regularised lower incomplete gamma function, and b_n solves P(2n, b_n) = ½;
+     - P is the regularised lower incomplete gamma function, and b_n solves P(2n, b_n) = ½, to a relative tolerance of 10⁻¹⁰ (b₄ = 7.669249…);
+     - θ_E and R_e are both in arcsec, and R_e is used as printed, with no circularisation;
    - **L × Υ:** M★(<R_E) = L(<R_E) × Υ, both printed by the source, with the luminosity inside the same aperture.
 
    The stellar mass is always at the source's default IMF: Chabrier, or the source's own fixed IMF. The Salpeter value is the upper end of the IMF slider only.
@@ -48,6 +51,12 @@ A row's `source_ref` reads "observed Rm; stellar Rn": the observed side comes fr
    - g_obs = G M_E / R_E²;
    - g_bar = G (M★(<R_E) + M_gas,hot + M_gas,cold) / R_E²;
    - g_bar_stars, g_bar_gas_hot and g_bar_gas_cold are the three terms.
+
+**Inputs listed but not used in a row's value.**
+- **Salpeter stellar masses** (for example R13's `MSalBC2`): the upper end of the IMF slider only.
+- **R5's R_e** on SLACS rows: carried for the profile alternative and for the record.
+- **Redshifts, θ_E or masses** that the stellar record also prints (R13 prints its own z_l, z_s and θ_E): not used. The observed record's values are used, as the route table says.
+- **z_s on rows whose M_E is printed:** used only for the redshift rule in §4.
 
 ## 3. Routes, by record pair
 
@@ -64,7 +73,7 @@ A row's `source_ref` reads "observed Rm; stellar Rn": the observed side comes fr
 
 **Places.** The table and column of every input are given above and in the locator rules of `locators.json`.
 
-**Cosmology.** Each record's cosmology is read in its own paper, at the places the A6 reading recorded (`v1/reading/adjudicated_inputs.csv` and `adjudicated_supplement.csv`, rows with quantity H0 or Om):
+**Cosmology.** Each record's cosmology is read in its own paper; the paper is in `sources.json` under the same record:
 - R5: arXiv:0805.1931v1 §1, last paragraph;
 - R10: arXiv:1711.00072v2 §1, last paragraph;
 - R20: arXiv:1307.4764v1 §1, last paragraph;
@@ -74,13 +83,22 @@ A row's `source_ref` reads "observed Rm; stellar Rn": the observed side comes fr
 - R29: §4, paragraph 2 (arXiv v1 p. 3);
 - R30: §1.
 
+**Lens names.** Sources print names differently, for example `SDSSJ0946+1006` and `J0946+1006`. A lens is matched across records by its J-coordinate name.
+
 **SLACS errors.** For the SLACS rows (R5) no per-lens θ_E error is printed. The survey-wide adopted error of 2 % (R5 Table 3, §6.1) is used for the uncertainty only.
 
-## 4. Not plotted, by rule
+## 4. Which lenses have a row, and which are plotted
 
-- **Spectroscopic redshifts:** a lens is plotted only if its lens and source redshifts are both measured spectroscopically (D-063 item 5).
-- **Redshift cut:** a lens is plotted only if its printed z_l is below 0.30 (D-066).
-- **Recorded rows:** lenses that fail either rule are recorded in the systems table, and have no default row.
+1. **A confirmed lens of early type, by the source's own label:**
+   - SLACS (R5): grade A only (`grade A`);
+   - R10: a classification beginning with E;
+   - a morphology code `E`, or a description naming an elliptical, E/S0 or early-type galaxy.
+
+   Other lenses are recorded in the systems table with the reason (D-063 items 5 and 6).
+2. **Spectroscopic redshifts:** the lens and source redshifts are both measured spectroscopically. That is, the source describes them as spectroscopic, or (R29) measured them with MUSE. A redshift the source describes as an estimate, a z_FP or a fundamental-plane value does not count (D-063 item 5).
+3. **Redshift cut:** the observed record's printed z_l is below 0.30 (D-066). Lenses at or above it are recorded, with the flag `epoch_gap_v1`.
+
+Lenses that fail any of these rules have no default row.
 
 ## 5. Uncertainties shown with a row
 

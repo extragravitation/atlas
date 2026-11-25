@@ -120,9 +120,12 @@ def main() -> int:
         for mid in mids:
             r = m[mid]
             refs = [("measurements", str(r["source_ref"]))]
+            labels = {}
             for i in (str(r["observed_from"]) + ";" + str(r["baryonic_from"])).split(";"):
                 if i in o:
-                    refs.append(("observables", str(o[i]["source_ref"])))
+                    ref = str(o[i]["source_ref"])
+                    refs.append(("observables", ref))
+                    labels.setdefault(ref, set()).add(str(o[i]["quantity"]))
             seen, items = set(), []
             for t, ref in refs:
                 if (t, ref) in seen:
@@ -130,12 +133,19 @@ def main() -> int:
                 seen.add((t, ref))
                 lr = rule_for(rules, t, ref)
                 used.update(lr["sources"])
-                items.append({"source_ref": redact(ref), "locator": lr})
+                item = {"source_ref": redact(ref), "locator": lr}
+                if t == "observables":
+                    item["quantity"] = "; ".join(sorted(labels.get(ref, ())))  # what the input is, never its value
+                items.append(item)
             rows.append({"measurement_id": mid, "system": str(s[str(r["system_id"])]["name_in_source"]) if str(r["system_id"]) in s else "(population average: no single system)", "inputs": items})
         (d / "BRIEF.md").write_text(brief, encoding="utf-8")
         method = (ROOT / "docs/methods/datasets" / f"{ds}.md").read_text(encoding="utf-8")
         (d / "METHOD.md").write_text(method, encoding="utf-8")
         (d / "rows.json").write_text(json.dumps(rows, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+        # Every source of the same reading record as a source used (e.g. the paper that states a record's
+        # cosmology next to its data tables), so that what the methods page says to read is in the packet.
+        recs = {src[i].get("record") for i in used} - {None, ""}
+        used |= {i for i, e in src.items() if e.get("record") in recs}
         ents = [src[i] for i in sorted(used, key=lambda x: int(re.sub(r"\D", "", x) or 0))]
         (d / "sources.json").write_text(json.dumps(ents, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
         missing = [x for x in (get_file(e, files_dir, d / "files") for e in ents) if x]

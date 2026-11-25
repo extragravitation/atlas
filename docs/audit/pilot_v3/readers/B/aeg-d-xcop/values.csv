@@ -1,0 +1,3 @@
+measurement_id,g_obs,g_bar,notes
+aeg-d-xcop/v3/m000001,2.2402964e-10,5.0754078e-11,A644 row 1: values read unchanged from float32 FITS columns GOBS/GBAR (TUNIT 'm/s^2'); RADIUS=64.18796 kpc; no arithmetic applied (method step 1)
+aeg-d-xcop/v3/m000078,6.49069e-11,9.869631e-12,A2142 row 16: values read unchanged from float32 FITS columns GOBS/GBAR (TUNIT 'm/s^2'); RADIUS=1408.9169 kpc; no arithmetic applied (method step 1)
