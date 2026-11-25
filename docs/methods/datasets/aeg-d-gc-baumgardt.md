@@ -21,9 +21,16 @@ This text is meant to be complete for every row of `tables/measurements.ecsv`. I
 | W₀ and r₀ of the King (1966) fit | dimensionless, arcsec | VizieR J/ApJS/161/304 `models`: the row `MW-<name>` with `Mod = K`, columns `W0/gamma` and `r0` |
 | R_h, the projected half-light radius | log₁₀(pc) | the same row, column `Rh` |
 | The distance the fit assumed | kpc | the same row, column `Dist` |
-| Υ_V, the stellar mass-to-light ratio | M☉/L☉ (V band) | VizieR J/ApJS/161/304 `clusters`: row `MW-<name>`, column `(M/L)1` (Bruzual & Charlot 2003 with a Chabrier disk IMF) |
+| Υ_V, the stellar mass-to-light ratio | M☉/L☉ (V band) | VizieR J/ApJS/161/304 `clusters`: row `MW-<name>`, column `(M/L)1` (Bruzual & Charlot 2003 with a Chabrier disk IMF). Not the models table's own `M/L` column |
 | R_Sun, the distance | kpc | Harris `mwgc.dat` Part I, column `R_Sun`, the cluster's row |
 | M_V,t, the integrated absolute magnitude | mag | Harris `mwgc.dat` Part II, column `M_V,t`, the cluster's row |
+
+**Reading the files.**
+- **`veldis.html`:** one HTML table. A cluster's rows begin at the row that prints its name in the first cell, and run until the next row that prints a name. Rows with no cells are spacers and are skipped. The page repeats some row tags; only rows with cells count.
+- **Bins:** every row of the cluster with the chosen Type is one bin. The bins are sorted by `<r>`.
+- **Columns:** σ is the column headed σ. Δσ Up and Δσ Low are used only for the uncertainties (§8).
+- **`mwgc.dat`:** fixed-width text in three parts. A value is read by the character positions of its column label in the part's header line. Some clusters have a blank Name field, so splitting on white space misreads them. A cluster's row is the one whose ID (the first field) matches the system, after the name rules below.
+- **VizieR exports:** VOTable; the rows are found by the `Cluster` column.
 
 **Matching names.** Names are matched across the three sources by `v1/sources_io.norm_name`:
 - upper-case the name;
@@ -32,6 +39,8 @@ This text is meant to be complete for every row of `tables/measurements.ecsv`. I
 - write `TERZAN<n>` as `TER<n>`.
 
 Then the aliases listed in that function apply: 2MSGC01 / 2MS1 → 2MASSGC01, 2MSGC02 / 2MS2 → 2MASSGC02, DJORG1 → DJOR1, DJORG2 → DJOR2, 1636283 → ESO452SC11, ESOSC06 → ESO280SC06, GRAN3PATCHICK125 → GRAN3, PATCHICK126 → PAT126, SAGITTARIUSII → SGR2 and GRAN1ESO456SC29 → GRAN1. Example: `NGC 104` and `MW-NGC104` are the same cluster.
+
+**Listed but not used in g:** Harris `V_t`, the clusters table's `(M/L)2`, and Δσ Up and Δσ Low, which are used only in §8. They are named in the row's source text for the record.
 
 ## 3. Which profile is used
 
@@ -50,13 +59,16 @@ Then the aliases listed in that function apply: 2MSGC01 / 2MS1 → 2MASSGC01, 2M
 1. **King (1966) model** from W₀ and r₀, the lowered isothermal sphere in McLaughlin & van der Marel's dimensionless form, with x = r/r₀:
    - **density:** ρ(W) ∝ e^W erf(√W) − √(4W/π) (1 + 2W/3);
    - **Poisson equation:** (1/x²) d/dx (x² dW/dx) = −9 ρ(W)/ρ(W₀), with W(0) = W₀ and dW/dx(0) = 0;
-   - **tidal radius:** x_t is where W first reaches 0.
+   - **tidal radius:** x_t is where W first reaches 0; ρ = 0 for W ≤ 0. Light follows ρ: ρ is the luminosity density, up to a constant that cancels;
+   - **starting values:** at x = 10⁻⁶, W = W₀ and dW/dx = 0. The series W ≈ W₀ − 1.5 x² gives the same result;
+   - **check:** log₁₀ x_t reproduces the `Conc` column of the models table.
    - **The Atlas's numerics:** fourth-order Runge–Kutta in ln x, 400 steps per decade from x = 10⁻⁶, the tidal radius by linear interpolation of the sign change of W, and the trapezoidal rule for projections.
    - Any integration accurate to about 10⁻⁴ in the light fractions gives the same g_obs well within the audit tolerance.
 2. **Projected (cylinder) light fraction** inside a projected radius R:
    - L_cyl(R) = L(<R) + ∫_R^{r_t} 4π r² ρ(r) [1 − √(1 − R²/r²)] dr, where L(<r) is the 3D light inside r (light follows ρ);
    - divide by the total light L(<r_t). This gives F(R), which is 0 at R = 0 and 1 at R = r_t.
-   - R is in arcsec, the unit of r₀.
+   - F is evaluated at R / r₀, both in arcsec, so no distance enters the weights.
+   - The 3D light L(<r) is the integral of 4π r² ρ on the same grid as the model. Any quadrature that converges to about 10⁻⁴ in F gives the same g_obs well within the audit tolerance.
 3. **Bin edges.** The page gives only each bin's mean radius `<r>`, so the edges are inferred from the sorted radii r₁ < … < r_n:
    - the first edge is 0;
    - each inner edge is the midpoint (r_i + r_{i+1})/2;

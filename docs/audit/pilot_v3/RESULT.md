@@ -1,6 +1,6 @@
-# Pilot result (D-118): part 1, X-COP and strong lenses
+# Pilot result (D-118)
 
-**Status.** Part 1 is done: the two packages whose source files the workspace can reach. The other four packages (SPARC, KiDS-1000, globular clusters, dwarfs) wait for their hosts to be allowed or their files to be supplied. Each reader's own files are in `readers/<A|B>/<package>/`.
+**Status.** The pilot is complete: 12 rows, two per package, and two readers each, 16 readers in all. Part 1 covered X-COP and the lenses. Part 2 covered SPARC, KiDS-1000, the globular clusters and the dwarfs; it ran after JvH allowed the source hosts, and every file was fetched and verified in the workspace. Each reader's own files are in `readers/<A|B>/<package>/`.
 
 **Disclosure.**
 - **Packet builder changed after packets were built.** The packets for part 1 were built before two fixes to `build_packets_v3.py`. Locator templates were left unfilled (`{column}`), and VizieR exports were checked by their whole-file hash. These are listed in "Packet builder" below. The fixes were committed before any reader output was opened.
@@ -44,3 +44,38 @@ No discrepancy.
 - **Unreachable hosts.** Found while building, not by the readers:
   - The workspace cannot reach the SPARC, KiDS, Baumgardt, Harris and IDIA VizieR hosts.
   - The other VizieR mirrors give different content bytes for the IDIA exports, so they cannot replace them.
+
+
+# Part 2: SPARC, KiDS-1000, globular clusters, dwarfs
+
+**Packets:** built after the part 1 builder fixes, from commit `ea789b7`. Every file was found and verified.
+
+## Values
+
+All eight readers reproduced every value; no discrepancy:
+- **SPARC** (m000669, m001593): identical to the Atlas rows, to all printed digits.
+- **KiDS-1000** (m000003, m000012): identical, including which row is plotted.
+- **Globular clusters** (m000066, m000020): within 0.00001 dex. Both readers wrote their own King (1966) integration from the text. Both reproduced the source's own concentration (`Conc`) for both clusters.
+- **Dwarfs** (m000053 Reticulum III, an upper limit; m000014 Andromeda XVII): within 0.00001 dex.
+
+## Method gaps reported, and what was done
+
+| Gap (readers) | Done |
+|---|---|
+| SPARC: where data-row counting starts; how a galaxy's Table 1 row is found (A, B) | Stated: after the last line of dashes; by the galaxy's name |
+| SPARC: Table 1's header byte positions do not fit its data lines (A, B) | Checked at source: the lines are 131 bytes, but the header describes 113. Stated: read by white space |
+| SPARC: which distance; which columns are δi and δD; `g_bar_gas` vs `g_bar_gas_cold`; unused inputs `SBdisk`, `SBbul`, `f_D` (A, B) | Stated |
+| SPARC: the quote "as suggested by SPS models" does not support Υ_disk = 0.5 in the cited paper (B) | Checked: the cited paper says "as suggested by stellar population models" (l. 29) and gives Υ_bul = 1.4 Υ_disk (l. 261). The quote came from a second paper. Corrected to cite those lines |
+| SPARC: the uncertainty formula cites a paper not in the packet (A, B) | Stated as cited, not supplied. It does not enter g |
+| KiDS: comment marker; identifier-to-row mapping (A, B) | Stated: lines beginning `#`; the identifiers in three blocks of 15. A first draft gave the wrong block order; the test caught it before commit |
+| KiDS: README constants differ; h₇₀ scaling; the header calls g_bar "Radius" (A, B) | Stated |
+| KiDS: the isolation limit also appears as g_bar < 10⁻¹³ m s⁻² (l. 595), which would also drop row 9 (B) | Checked at source. Stated: the Atlas follows the paper's count of seven points (l. 508), by row number. Known issue #169 covers the paper's inconsistent limit |
+| Globular clusters: how to read `veldis.html` (where a cluster's rows end, spacer rows); how to read `mwgc.dat` (fixed width, blank names); the Harris lookup was given as code (A, B) | Stated as rules |
+| Globular clusters: King integration start values, ρ for W ≤ 0, F at R/r₀, the projection grid (A, B) | Stated, with the `Conc` check |
+| Globular clusters: unused inputs (`V_t`, `(M/L)2`, Δσ); which M/L column (A, B) | Stated |
+| Globular clusters: the packet hides each bin's radius, because it is an input value (A) | Kept, as the plan requires. Stated: every row of the chosen Type is a bin, sorted by radius |
+| **Dwarfs: the source of M_V on a "M_V + (m − M)" route was not named, and 11 candidate papers were listed (A, B)** | **The one gap that would have slowed a stranger most.** The per-system table now names the paper, table and row of M_V, and which modulus is added, from the structure reading |
+| Dwarfs: σ and [Fe/H] places pointed to selection files not in the packet; which [Fe/H] (mean or median, spectroscopic or photometric) (B) | The per-system table now gives the page, table and row of σ, and of [Fe/H] with its quantity and kind, from the reading records |
+| Dwarfs: modulus or printed distance when a paper prints both; ellipticity given only as an upper limit; duplicate [Fe/H] rows in the Υ table; how the `MW` prefix is matched; page numbering; rounding order (A, B) | Stated |
+
+**New tests.** `test_stated_identifier_mappings` checks the identifier-to-row mappings now stated for SPARC, KiDS and X-COP.

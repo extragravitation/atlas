@@ -311,3 +311,23 @@ def test_lenses_independent_implementation_all_rows():
         gb = G * ms * (1 + f(r, "gas_hot_frac") + f(r, "gas_cold_frac")) * MSUN / re_ ** 2
         assert close(G * me * MSUN / re_ ** 2, float(r["g_obs"]), 1e-9), r["measurement_id"]
         assert close(gb, float(r["g_bar"]), 1e-9), r["measurement_id"]
+
+
+def test_stated_identifier_mappings():
+    """The identifier-to-row mappings the methods pages state (added after the pilot, D-118)."""
+    m, _ = tables("aeg-d-sparc")
+    for r in m:
+        assert int(str(r["measurement_id"])[-6:]) == int(str(r["source_ref"]).split("data row ")[1].split(",")[0])
+    m, _ = tables("aeg-d-kids1000-rar")
+    order = ["kids_bright", "kids_bright_hotgas", "gama"]
+    for r in m:
+        n = int(str(r["measurement_id"])[-6:])
+        assert str(r["x_kids1000_rar_sample"]) == order[(n - 1) // 15]
+        assert int(str(r["source_ref"]).rsplit("data row ", 1)[1]) == (n - 1) % 15 + 1
+    m, _ = tables("aeg-d-xcop")
+    counts = [("A644", 19), ("A1795", 21), ("A2029", 22), ("A2142", 20), ("A2319", 27)]
+    expect = [(c, k) for c, n in counts for k in range(1, n + 1)]
+    for r in m:
+        n = int(str(r["measurement_id"])[-6:])
+        c, k = expect[n - 1]
+        assert str(r["source_ref"]) == f"data_E22.tar.gz:{c}/gbar_gobs_{c}.fits:row {k}"

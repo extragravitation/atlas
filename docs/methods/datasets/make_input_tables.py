@@ -59,7 +59,19 @@ def dwarfs() -> str:
     m = Table.read(pkg / "tables/measurements.ecsv", format="ascii.ecsv")
     o = {r["observable_id"]: r for r in Table.read(pkg / "tables/observables.ecsv", format="ascii.ecsv")}
     s = {r["system_id"]: r for r in Table.read(pkg / "tables/systems.ecsv", format="ascii.ecsv")}
-    gas_rows = {r["key"]: r for r in csv.DictReader(open(ROOT / "data/packages/aeg-d-dwarfs/v1/reading/gas_values.csv", encoding="utf-8"))}
+    rd = ROOT / "data/packages/aeg-d-dwarfs/v1/reading"
+    rows_of = lambda f: list(csv.DictReader(open(rd / f, encoding="utf-8")))
+    gas_rows = {r["key"]: r for r in rows_of("gas_values.csv")}
+    # Places from the reading records, so that the page names the exact place even where a source_ref
+    # only names the paper (pilot, D-118). Values are matched internally and never written.
+    sig_sel = {r["key"]: r for r in rows_of("sigma_selection_v3.csv")}
+    sig_loc = {(r["key"], r["value_id"]): r for r in rows_of("sigma_values.csv")}
+    struct = {r["key"]: r for r in rows_of("structure_selection.csv")}
+    feh = {r["key"]: r for r in rows_of("feh_values.csv")}
+    feh_loc: dict = {}
+    for f in ("feh_reading_1.csv", "feh_reading_1_d059.csv", "feh_reading_1_followup.csv"):
+        for r in rows_of(f):
+            feh_loc.setdefault((r["key"], r["quantity"], r["value"]), r["location"])
     find = rules_for(pkg)
     order = ["sigma_los", "half_light_radius", "distance", "apparent_magnitude", "luminosity", "metallicity_feh"]
     label = {"sigma_los": "σ", "half_light_radius": "r_h and ε", "distance": "Distance", "apparent_magnitude": "m_V,0",
@@ -80,8 +92,24 @@ def dwarfs() -> str:
             for ob in by_q.get(q, []):
                 if q == "luminosity" and "apparent_magnitude" in by_q:
                     continue
-                ref = redact(str(ob["source_ref"]))
+                raw = str(ob["source_ref"])
+                ref = redact(raw)
                 extra = ""
+                if q == "sigma_los" and "reading/sigma_selection" in raw and key in sig_sel:
+                    sv = sig_loc.get((key, sig_sel[key]["default_value_id"]), {})
+                    ref = f"{sig_sel[key]['default_paper']} ({sv.get('copy_read', '')}), {redact(sv.get('location', ''))}"
+                if q == "metallicity_feh" and key in feh:
+                    fv = feh[key]
+                    loc = feh_loc.get((key, fv["quantity"], fv["feh"]), "")
+                    kind = {"none": "kind not stated by the source", "": "kind not stated"}.get(fv["kind"], fv["kind"])
+                    ref = f"{fv['paper']}, {redact(loc)} ({fv['quantity'].replace('feh_', '')} [Fe/H], {kind})"
+                if q == "distance" and key in struct:
+                    dq = struct[key].get("distance_quantity", "")
+                    extra = " Read as " + ("the distance modulus." if "modulus" in dq else "the distance in kpc." if dq else "printed.")
+                if q == "apparent_magnitude" and raw.startswith("M_V + (m-M)") and key in struct:
+                    st = struct[key]
+                    ref = (f"M_V from {redact(st['M_V_loc'])}, plus the modulus the paper uses "
+                           + ("(its own, read as above)" if st.get("mv_distance_basis") == "own" else f"({st.get('mv_distance_basis', '')})"))
                 if q == "half_light_radius":
                     conv = re.sub(r"^as printed \((.*)\)$", r"\1", str(ob["x_dwarfs_parameter"]))
                     extra = f" Convention: {conv}."

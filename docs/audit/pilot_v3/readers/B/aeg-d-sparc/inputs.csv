@@ -1,0 +1,37 @@
+measurement_id,input,value,unit,file,place,at_locator
+aeg-d-sparc/v3/m000669,ID,NGC1090,---,MassModels_Lelli2016c.mrt,"data row 669 (file line 694), column ID bytes 1-11",yes
+aeg-d-sparc/v3/m000669,R,9.11,kpc,MassModels_Lelli2016c.mrt,"data row 669 (file line 694), column R bytes 20-25",yes
+aeg-d-sparc/v3/m000669,Vobs,174.00,km/s,MassModels_Lelli2016c.mrt,"data row 669 (file line 694), column Vobs bytes 27-32",yes
+aeg-d-sparc/v3/m000669,e_Vobs,4.84,km/s,MassModels_Lelli2016c.mrt,"data row 669 (file line 694), column e_Vobs bytes 34-38",yes
+aeg-d-sparc/v3/m000669,Vgas,9.64,km/s,MassModels_Lelli2016c.mrt,"data row 669 (file line 694), column Vgas bytes 40-45",yes
+aeg-d-sparc/v3/m000669,Vdisk,169.05,km/s,MassModels_Lelli2016c.mrt,"data row 669 (file line 694), column Vdisk bytes 47-52",yes
+aeg-d-sparc/v3/m000669,Vbul,0.00,km/s,MassModels_Lelli2016c.mrt,"data row 669 (file line 694), column Vbul bytes 54-59",yes
+aeg-d-sparc/v3/m000669,SBdisk,67.81,solLum/pc2,MassModels_Lelli2016c.mrt,"data row 669 (file line 694), column SBdisk bytes 61-67",yes
+aeg-d-sparc/v3/m000669,SBbul,0.00,solLum/pc2,MassModels_Lelli2016c.mrt,"data row 669 (file line 694), column SBbul bytes 69-76",yes
+aeg-d-sparc/v3/m000669,D,37.0,Mpc,MassModels_Lelli2016c.mrt,"data row 669 (file line 694), column D bytes 13-18",yes
+aeg-d-sparc/v3/m000669,galaxy_Galaxy,NGC1090,---,SPARC_Lelli2016c.mrt,"data row 42 (file line 140), column Galaxy (whitespace token 1; header byte ranges do not match data)",yes
+aeg-d-sparc/v3/m000669,galaxy_D,37.00,Mpc,SPARC_Lelli2016c.mrt,"data row 42 (file line 140), column D (whitespace token 3; header byte ranges do not match data)",yes
+aeg-d-sparc/v3/m000669,galaxy_e_D,9.25,Mpc,SPARC_Lelli2016c.mrt,"data row 42 (file line 140), column e_D (whitespace token 4; header byte ranges do not match data)",yes
+aeg-d-sparc/v3/m000669,galaxy_f_D,1,---,SPARC_Lelli2016c.mrt,"data row 42 (file line 140), column f_D (whitespace token 5; header byte ranges do not match data)",yes
+aeg-d-sparc/v3/m000669,galaxy_Inc,64.0,deg,SPARC_Lelli2016c.mrt,"data row 42 (file line 140), column Inc (whitespace token 6; header byte ranges do not match data)",no (not named in locator; same row)
+aeg-d-sparc/v3/m000669,galaxy_e_Inc,3.0,deg,SPARC_Lelli2016c.mrt,"data row 42 (file line 140), column e_Inc (whitespace token 7; header byte ranges do not match data)",no (not named in locator; same row)
+aeg-d-sparc/v3/m001593,ID,NGC5985,---,MassModels_Lelli2016c.mrt,"data row 1593 (file line 1618), column ID bytes 1-11",yes
+aeg-d-sparc/v3/m001593,R,22.52,kpc,MassModels_Lelli2016c.mrt,"data row 1593 (file line 1618), column R bytes 20-25",yes
+aeg-d-sparc/v3/m001593,Vobs,294.00,km/s,MassModels_Lelli2016c.mrt,"data row 1593 (file line 1618), column Vobs bytes 27-32",yes
+aeg-d-sparc/v3/m001593,e_Vobs,4.19,km/s,MassModels_Lelli2016c.mrt,"data row 1593 (file line 1618), column e_Vobs bytes 34-38",yes
+aeg-d-sparc/v3/m001593,Vgas,40.50,km/s,MassModels_Lelli2016c.mrt,"data row 1593 (file line 1618), column Vgas bytes 40-45",yes
+aeg-d-sparc/v3/m001593,Vdisk,204.38,km/s,MassModels_Lelli2016c.mrt,"data row 1593 (file line 1618), column Vdisk bytes 47-52",yes
+aeg-d-sparc/v3/m001593,Vbul,44.09,km/s,MassModels_Lelli2016c.mrt,"data row 1593 (file line 1618), column Vbul bytes 54-59",yes
+aeg-d-sparc/v3/m001593,SBdisk,25.48,solLum/pc2,MassModels_Lelli2016c.mrt,"data row 1593 (file line 1618), column SBdisk bytes 61-67",yes
+aeg-d-sparc/v3/m001593,SBbul,0.00,solLum/pc2,MassModels_Lelli2016c.mrt,"data row 1593 (file line 1618), column SBbul bytes 69-76",yes
+aeg-d-sparc/v3/m001593,D,39.7,Mpc,MassModels_Lelli2016c.mrt,"data row 1593 (file line 1618), column D bytes 13-18",yes
+aeg-d-sparc/v3/m001593,galaxy_Galaxy,NGC5985,---,SPARC_Lelli2016c.mrt,"data row 86 (file line 184), column Galaxy (whitespace token 1; header byte ranges do not match data)",yes
+aeg-d-sparc/v3/m001593,galaxy_D,39.70,Mpc,SPARC_Lelli2016c.mrt,"data row 86 (file line 184), column D (whitespace token 3; header byte ranges do not match data)",yes
+aeg-d-sparc/v3/m001593,galaxy_e_D,9.90,Mpc,SPARC_Lelli2016c.mrt,"data row 86 (file line 184), column e_D (whitespace token 4; header byte ranges do not match data)",yes
+aeg-d-sparc/v3/m001593,galaxy_f_D,1,---,SPARC_Lelli2016c.mrt,"data row 86 (file line 184), column f_D (whitespace token 5; header byte ranges do not match data)",yes
+aeg-d-sparc/v3/m001593,galaxy_Inc,60.0,deg,SPARC_Lelli2016c.mrt,"data row 86 (file line 184), column Inc (whitespace token 6; header byte ranges do not match data)",no (not named in locator; same row)
+aeg-d-sparc/v3/m001593,galaxy_e_Inc,2.0,deg,SPARC_Lelli2016c.mrt,"data row 86 (file line 184), column e_Inc (whitespace token 7; header byte ranges do not match data)",no (not named in locator; same row)
+aeg-d-sparc/v3/m000669,distance_method_text,"f_D=1: Hubble flow, H0 = 73 km/s/Mpc, Virgocentric infall corrected; error scheme 25% for 20<D<=40 Mpc",---,1606.09251v1.tar.gz > SPARC.tex,"§2.2 Galaxy Distances, heading l.113, group III at l.121 (f_D code text also in SPARC_Lelli2016c.mrt header Note (2))","yes (file is files/1606.09251v1.tar.gz, not arxiv/... as sources.json states)"
+aeg-d-sparc/v3/m000669,helium_factor,1.33,---,1606.09251v1.tar.gz > SPARC.tex,"§3.3 l.199 (also MassModels_Lelli2016c.mrt header Note (2))",yes
+aeg-d-sparc/v3/m001593,distance_method_text,"f_D=1: Hubble flow, H0 = 73 km/s/Mpc, Virgocentric infall corrected; error scheme 25% for 20<D<=40 Mpc",---,1606.09251v1.tar.gz > SPARC.tex,"§2.2 Galaxy Distances, heading l.113, group III at l.121 (f_D code text also in SPARC_Lelli2016c.mrt header Note (2))","yes (file is files/1606.09251v1.tar.gz, not arxiv/... as sources.json states)"
+aeg-d-sparc/v3/m001593,helium_factor,1.33,---,1606.09251v1.tar.gz > SPARC.tex,"§3.3 l.199 (also MassModels_Lelli2016c.mrt header Note (2))",yes
