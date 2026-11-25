@@ -56,6 +56,17 @@
         "^Munoz\\ 2018\\ M_V\\ \\+\\ 5\\ log10\\(D/10\\ pc\\),\\ D\\ =\\ 97\\ kpc\\ \\(Table\\ 1;\\ D\\-061\\ item\\ 3\\)$"
       ],
       "note": "No value changes. The Munoz 2018 M_V rules carry a correction (Table 6, not Table 1). Van de Rydt et al. 1991 had no file hash (ADS scans) and failed T7 run 1 for that reason; under the ruling after that run, ADS's PDF of the same scans was hashed on 2026-11-24 (S111)."
+    },
+    {
+      "issue": 232,
+      "url": "https://github.com/extragravitation/atlas/issues/232",
+      "title": "Dwarfs v3: gas inputs locate 'Putman et al. 2021 Table 1, None' instead of the galaxy's row",
+      "measurements": [],
+      "sources": [],
+      "locators": [
+        "^Putman\\ et\\ al\\.\\ 2021\\ Table\\ 1,\\ None$"
+      ],
+      "note": "No value changes. A locator correction (D-117) gives each galaxy's row; the table text stays as converted (D-114 Q1)."
     }
   ]
 }
