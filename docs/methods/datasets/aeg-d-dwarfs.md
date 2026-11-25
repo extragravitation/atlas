@@ -1,6 +1,6 @@
 # Dwarf galaxies (aeg-d-dwarfs/v3): how each row is computed
 
-This text is complete for every row of `tables/measurements.ecsv`. A reader with the source files, the locators (`locators.json`), the per-system input table at the end of this page and this text should be able to recompute g_obs and g_bar without the Atlas code. The code is:
+This text is meant to be complete for every row of `tables/measurements.ecsv`. Its arithmetic, and the selection rules where the tables allow, are checked against every published row by `pipeline/tests/test_methods_text.py`. Whether a reader who does not know the code can follow it is tested only by the independent audit (D-116). A reader with the source files, the locators (`locators.json`), the per-system input table at the end of this page and this text should be able to recompute g_obs and g_bar without the Atlas code. The code is:
 - `v1/reproduction/inputs.py`, with `gas.py` and `upsilon.py`, which assembles the inputs;
 - `pipeline/aeg/ml_interp.py`, the interpolation;
 - `v1/convert.py`, which computes the accelerations;

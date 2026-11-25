@@ -84,7 +84,7 @@ const toc = [['stance', 'Stance'], ['quantities', 'What is measured'], ['baselin
       <h2 id="conversion"><L t="Conversion steps and constants" p="How the numbers are worked out" /></h2>
       <Layer><Fragment slot="t">
         <p class="small">This section was added after the independent audit found steps that the written methods did not state (audit findings M1–M7; <a href={`${REPO}/blob/main/docs/audit/AUDIT_RESULT.md`}>audit result</a>, D-107). It summarises what the conversions do. It does not change any value.</p>
-        <p><b>Complete method per dataset</b>, with every constant, input, place and rule, checked against every published row: {atlas.datasets.map((d, i) => <>{i > 0 && ' · '}<a href={`${base}methods/${d.name}/`}>{datasetLabel(d.name).t}</a></>)}.</p>
+        <p><b>Full method per dataset</b>, with every constant, input, place and rule; its arithmetic is checked against every published row: {atlas.datasets.map((d, i) => <>{i > 0 && ' · '}<a href={`${base}methods/${d.name}/`}>{datasetLabel(d.name).t}</a></>)}.</p>
         <h3>Constants and units (all datasets)</h3>
         <ul>
           <li><b>G</b> = 6.67430 × 10⁻¹¹ m³ kg⁻¹ s⁻² (CODATA 2018; the same value as CODATA 2022).</li>

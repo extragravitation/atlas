@@ -1,6 +1,6 @@
 # SPARC rotation curves (aeg-d-sparc/v3): how each row is computed
 
-This text is complete for every row of `tables/measurements.ecsv`. The code is `v1/convert.py`, carried unchanged in value through v2 and v3. Where this text and the code differ, the error is in this text; please report it.
+This text is meant to be complete for every row of `tables/measurements.ecsv`. Its arithmetic, and the selection rules where the tables allow, are checked against every published row by `pipeline/tests/test_methods_text.py`. Whether a reader who does not know the code can follow it is tested only by the independent audit (D-116). The code is `v1/convert.py`, carried unchanged in value through v2 and v3. Where this text and the code differ, the error is in this text; please report it.
 
 ## 1. Constants and units
 

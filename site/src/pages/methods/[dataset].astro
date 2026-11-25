@@ -40,7 +40,7 @@ const text = fs.readFileSync(file, 'utf-8').replace(/^# .*\n/, '');
       <p class="kicker"><a href={`${base}methods/`}><L t="Methods" p="How it works" /></a></p>
       <h1><L t={`${lab.t}: how each value is computed`} p={`${lab.p}: how the numbers are worked out`} /></h1>
       <Layer as="div"><Fragment slot="t">
-        <p class="small">The complete method for every row of <a href={`${base}datasets/${d.name}/${d.version}/`}>{d.name}/{d.version}</a>: constants, inputs and where they are read, steps, and rules. It is checked against the published rows by <a href={`${REPO}/blob/main/pipeline/tests/test_methods_text.py`}>test_methods_text.py</a> on every change. Source text: <a href={`${REPO}/blob/main/${rel}`}>{rel}</a>.</p>
+        <p class="small">The complete method for every row of <a href={`${base}datasets/${d.name}/${d.version}/`}>{d.name}/{d.version}</a>: constants, inputs and where they are read, steps, and rules. Its arithmetic, and the selection rules where the tables allow, are checked against every published row by <a href={`${REPO}/blob/main/pipeline/tests/test_methods_text.py`}>test_methods_text.py</a> on every change. That test was written by the author of this text. Whether a reader who does not know the code can follow it is tested only by the independent audit. Source text: <a href={`${REPO}/blob/main/${rel}`}>{rel}</a>.</p>
         <div set:html={md(text, 'docs/methods/datasets')} />
       </Fragment><Fragment slot="p">
         <p>{PLAIN[dataset]}</p>

@@ -1,6 +1,6 @@
 # Globular clusters (aeg-d-gc-baumgardt/v3): how each row is computed
 
-This text is complete for every row of `tables/measurements.ecsv`. A reader with the source files, the locators (`locators.json`) and this page should be able to recompute g_obs and g_bar without the Atlas code. The code that does it is `v1/analysis.py` (with `pipeline/aeg/dispersion.py` and `pipeline/aeg/king66.py`), and `v2/convert.py` for the two v2 changes. Where this text and the code differ, that is an error in this text: please report it.
+This text is meant to be complete for every row of `tables/measurements.ecsv`. Its arithmetic, and the selection rules where the tables allow, are checked against every published row by `pipeline/tests/test_methods_text.py`. Whether a reader who does not know the code can follow it is tested only by the independent audit (D-116). A reader with the source files, the locators (`locators.json`) and this page should be able to recompute g_obs and g_bar without the Atlas code. The code that does it is `v1/analysis.py` (with `pipeline/aeg/dispersion.py` and `pipeline/aeg/king66.py`), and `v2/convert.py` for the two v2 changes. Where this text and the code differ, that is an error in this text: please report it.
 
 ## 1. Constants and units
 
@@ -76,7 +76,7 @@ Then the aliases listed in that function apply: 2MSGC01 / 2MS1 → 2MASSGC01, 2M
 ## 5. The two v2 changes (D-096, D-097)
 
 - **NGC 6715 (M54):** the `RV` bins with `<r>` greater than 200″ are dropped before steps 3 to 5. These are the bins at 269.01″, 410.12″ and 679.1″, so 13 of its 16 bins are kept. Baumgardt 2017 states: "We have therefore neglected all data points beyond 200'' in the dynamical analysis of this cluster" (arXiv 1609.08794v1, l. 588–589).
-- **NGC 2298 and Pal 5:** computed as above, but recorded and not plotted. Their sources describe them as possibly out of equilibrium (data/registry/excluded.csv). Their rows keep their g_obs and g_bar.
+- **NGC 2298 and Pal 5:** computed as above, but recorded and not plotted. Their rows have `role = alternative` and `not_plotted_reason = other`, because their sources describe them as possibly out of equilibrium (`data/registry/excluded.csv`). The rows keep their g_obs and g_bar.
 
 ## 6. Clusters with no McLaughlin & van der Marel fit (alternative and recorded rows only)
 

@@ -1,11 +1,15 @@
-"""The written methods (docs/methods/datasets/*.md, D-113 item 2) reproduce every row.
+"""Arithmetic and selection checks of the written methods (docs/methods/datasets/*.md, D-113 item 2).
 
-Each test recomputes g_obs and g_bar for every default row of a v3 package from
-the inputs the row names in the observables table, following only the steps the
-dataset's methods page states, and compares with the published row. It checks
-that the text is complete and right; it does not re-read the sources (the audit
-does that). Where a step needs a numerical model the text specifies (the King
-1966 projection), the Atlas's implementation of that specification is used.
+What these tests show: following only the steps the methods pages state, the inputs each row names
+(read from the Atlas's own observables table and, where noted, its stored intermediate columns) give
+the published g_obs and g_bar, for default and alternative rows; and, where cheap, that the stated
+selection rules pick the rows the package uses.
+
+What they do not show:
+- that the inputs were read correctly from the sources (the audit does that);
+- that the text is complete for a reader who does not know the code. They were written by the
+  author of the text, who does know it. Only a blind reading can test completeness.
+Steps not re-derived here, because their inputs are not in the tables, are listed per test.
 """
 
 from __future__ import annotations
@@ -144,6 +148,7 @@ def test_kids_text_reproduces_every_row():
 
 
 def test_xcop_text_reproduces_every_row():
+    # Trivial by construction: the source releases g_obs and g_bar; this only shows the Atlas converts nothing.
     m, ob = tables("aeg-d-xcop")
     rows = defaults(m)
     assert len(rows) == 109
@@ -203,3 +208,106 @@ def test_dwarf_input_table_is_current():
     spec.loader.exec_module(mit)
     page = (ROOT / "docs/methods/datasets/aeg-d-dwarfs.md").read_text(encoding="utf-8")
     assert page.split(mit.MARK, 1)[1].strip() == mit.dwarfs().strip()
+
+
+# --------------------------------------------------------------------------- stronger checks (added on review)
+
+def test_gc_selection_rules_pick_the_bins_used():
+    """§3 and §5 of the globular-cluster page: line-of-sight Types only; >= 2 bins and coverage >= 0.80;
+    RV first, then more stars, then the later year; M54's bins beyond 200 arcsec dropped. Applied to every
+    sigma_los observable of each system, the rules must select exactly the Type and bins each default row uses."""
+    import collections
+    from aeg.king66 import King66
+    m, ob = tables("aeg-d-gc-baumgardt")
+    year = {"RV": 0, "F13": 2013, "L13": 2013, "L15": 2015, "K18": 2018, "D21": 2021, "C22": 2022, "G22": 2022}
+    by = collections.defaultdict(lambda: collections.defaultdict(list))
+    for o in ob.values():
+        if str(o["quantity"]) == "sigma_los":
+            by[o["system_id"]][str(o["x_gc_baumgardt_dataset"])].append(o)
+    m54 = "aeg-s-000295"
+    for r in defaults(m):
+        sid = r["system_id"]
+        par = {str(ob[i]["x_gc_baumgardt_parameter"]): float(ob[i]["value"]) for i in ids(r["baryonic_from"])}
+        k = King66(par["McLaughlin & van der Marel 2005 King fit: W0/gamma"], par["McLaughlin & van der Marel 2005 King fit: r0"])
+        ok = []
+        for typ, bins in by[sid].items():
+            assert typ in year
+            keep = [b for b in bins if not (sid == m54 and typ == "RV" and float(b["x_gc_baumgardt_r_arcsec"]) > 200)]
+            rad = sorted(float(b["x_gc_baumgardt_r_arcsec"]) for b in keep)
+            if len(rad) < 2:
+                continue
+            if k.cumulative_fraction(rad[-1] + 0.5 * (rad[-1] - rad[-2])) >= 0.80:
+                n_star = sum(0 if str(b["x_gc_baumgardt_n_star"]) == "--" else int(b["x_gc_baumgardt_n_star"]) for b in bins)
+                ok.append(((typ != "RV", -n_star, -year[typ]), typ, {b["observable_id"] for b in keep}))
+        assert ok, r["measurement_id"]
+        _, typ, chosen = sorted(ok, key=lambda x: x[0])[0]
+        used = {i for i in ids(r["observed_from"]) if str(ob[i]["quantity"]) == "sigma_los"}
+        assert used == chosen, r["measurement_id"]
+
+
+def test_dwarf_luminosity_and_gas_from_the_stated_routes():
+    """§3 steps 4 and 6 of the dwarf page, from the printed inputs: L_V from m_V,0 and the package
+    distance's modulus; gas from Putman Table 1 (values as transcribed in v1/reading/gas_values.csv)
+    rescaled to the package distance, times 1.33, halved. Not re-derived here: Υ_V (needs the
+    McLaughlin & van der Marel table, not in the repository) and Boötes III's distance-independent L_V."""
+    import csv
+    import json
+    m, ob = tables("aeg-d-dwarfs")
+    sysrows = {r["system_id"]: r for r in Table.read(ROOT / "data/packages/aeg-d-dwarfs/v3/tables/systems.ecsv", format="ascii.ecsv")}
+    gas = {r["key"]: r for r in csv.DictReader(open(ROOT / "data/packages/aeg-d-dwarfs/v1/reading/gas_values.csv", encoding="utf-8"))}
+    n_l = n_g = 0
+    for r in defaults(m):
+        q = {}
+        for i in ids(r["baryonic_from"]):
+            q.setdefault(str(ob[i]["quantity"]), ob[i])
+        d = float(q["distance"]["value"])
+        if "apparent_magnitude" in q:
+            mu = 5.0 * math.log10(d * 1000.0 / 10.0)
+            lv = 10 ** (-0.4 * (float(q["apparent_magnitude"]["value"]) - mu - 4.85))
+            assert close(lv, float(r["x_dwarfs_l_v"]), 1e-4), r["measurement_id"]
+            n_l += 1
+        key = json.loads(str(sysrows[r["system_id"]]["properties"]))["lvdb_key"]
+        g = gas.get(key)
+        if str(r["x_dwarfs_gas_status"]) == "measured":
+            mg = 0.5 * 1.33 * float(g["MHI"]) * (d / float(g["Dist"])) ** 2
+            assert close(mg, float(r["x_dwarfs_m_gas_rh"]), 1e-5), r["measurement_id"]
+            n_g += 1
+        else:
+            assert float(r["x_dwarfs_m_gas_rh"]) == 0.0
+    assert n_l == 63 and n_g == 2
+
+
+def test_lenses_independent_implementation_all_rows():
+    """The lens page's formulas implemented again without the Atlas's lensing module (scipy quadrature,
+    gamma function and root finder), on default and alternative rows."""
+    from scipy.integrate import quad
+    from scipy.optimize import brentq
+    from scipy.special import gammainc
+    m, ob = tables("aeg-d-strong-lensing")
+    X = "x_strong_lensing_"
+    f = lambda r, k: None if str(r[X + k]) == "--" else float(r[X + k])
+    c, arcsec = 299792458.0, math.pi / 180 / 3600
+
+    def dc(z, h0, om):
+        return c / (h0 * 1e3 / (PC * 1e6)) * quad(lambda x: 1 / math.sqrt(om * (1 + x) ** 3 + 1 - om), 0, z, epsrel=1e-12)[0]
+    for r in m:
+        th, zl, zs, h0, om = f(r, "theta_e_arcsec"), f(r, "z_l"), f(r, "z_s"), f(r, "h0"), f(r, "om")
+        re_ = float(r["r_kpc"]) * 1e3 * PC if str(r[X + "r_e_source"]) == "printed" else th * arcsec * dc(zl, h0, om) / (1 + zl)
+        if str(r[X + "m_e_source"]) == "computed":
+            dl, ds = dc(zl, h0, om) / (1 + zl), dc(zs, h0, om) / (1 + zs)
+            dls = (dc(zs, h0, om) - dc(zl, h0, om)) / (1 + zs)
+            me = (th * arcsec) ** 2 * c * c * ds * dl / (4 * G * dls) / MSUN
+        else:
+            me = f(r, "m_e_msun")
+        route = str(r[X + "mstar_route"])
+        if route == "profile":
+            n = f(r, "sersic_n")
+            b = brentq(lambda x: gammainc(2 * n, x) - 0.5, 1e-6, 50)
+            ms = f(r, "mstar_msun") * gammainc(2 * n, b * (th / f(r, "r_eff_arcsec")) ** (1 / n))
+        elif route == "L_times_ML":
+            ms = f(r, "l_aperture_lsun") * f(r, "ml")
+        else:
+            ms = f(r, "mstar_msun")
+        gb = G * ms * (1 + f(r, "gas_hot_frac") + f(r, "gas_cold_frac")) * MSUN / re_ ** 2
+        assert close(G * me * MSUN / re_ ** 2, float(r["g_obs"]), 1e-9), r["measurement_id"]
+        assert close(gb, float(r["g_bar"]), 1e-9), r["measurement_id"]
