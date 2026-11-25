@@ -2607,6 +2607,25 @@ The frozen KiDS v2 test (item 11) makes any such finding a fail of that item. Th
 
 **Data seen.** Row counts per v3 package, read from the `role` column. A smoke test of the sampler with a dummy seed (`00ff`) drew 220 identifiers; its output was discarded, and no value was opened.
 
+## D-117 — Dwarfs v3: locator correction for the gas inputs
+
+**Ruling (2026-11-24, UTC−06:00, JvH).** "Fix the locator now (Recommended)", in answer to the question put in the session. **Proposed by** Claude, found while writing the dwarf methods page (D-113 item 2). Issue #232.
+
+**Context.**
+- All 60 dwarf gas observables carry the source_ref `Putman et al. 2021 Table 1, None`. They are 58 H I upper limits and 2 detections.
+- The cause is in v1's converter: it read a column `Galaxy`, but `v1/reading/gas_values.csv` names it `galaxy_as_printed`.
+- The values are right. The v3 locator gave only "table 1", so the row was not recorded in the package.
+- `aeg-d-dwarfs/v3` is merged but not released.
+
+**Rules.**
+1. **The correction.** The one locator rule for that text, in `aeg-d-dwarfs/v3/locators.json`, now gives the galaxy's row, named by `galaxy_as_printed`, and the columns `l_MHI`, `MHI` and `Dist`. It quotes "None" as the text it corrects (data standard 3.0.0 §13 R4). It is listed under known issue #232.
+2. **Nothing else changes.** The tables, `convert.py` and every value stay as they are (D-114 Q1).
+3. **The checks are re-run.** T1 to T6 are run again and recorded; the T4 count becomes 19 corrections. The ledger and `REISSUE.md` say that the correction was added after the first run.
+
+**Alternatives rejected.** Leaving the package as it is: the methods page would name the row, but the package's own record would stay vague until a later re-issue.
+
+**Data seen.** The source_ref text and the column names of `gas_values.csv`. No value was looked at.
+
 ## Release record — v0.2 (2026-11-06)
 
 Recorded here because the decision log covers releases (D-110 rule 3). This entry is not a new ruling.

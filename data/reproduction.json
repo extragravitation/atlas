@@ -578,7 +578,7 @@
           "name": "T4: every value located",
           "plain": "Every number points to its place",
           "outcome": "pass",
-          "detail": "307 rules resolve all 307 source_ref values; places taken from the reading records where the text gives none; 18 corrections (Munoz 2018 M_V is in Table 6, not Table 1; #227)"
+          "detail": "307 rules resolve all 307 source_ref values; places taken from the reading records where the text gives none; 19 corrections: Munoz 2018 M_V is in Table 6, not Table 1 (18 rules, #227); the gas inputs' row, written as \"None\" by v1's converter (1 rule, #232; D-117, added 2026-11-24 after the run, T1 to T6 re-run and passed)"
         },
         {
           "name": "T5: archive members hashed",
@@ -601,7 +601,8 @@
       ],
       "issues": [
         156,
-        227
+        227,
+        232
       ],
       "flagged": 0,
       "status": "Current version. Same tables as v2, with every source cited, licensed and hashed, and every value located (D-114). The Munoz 2018 locator correction and the late hash of van de Rydt 1991 are under #227.",

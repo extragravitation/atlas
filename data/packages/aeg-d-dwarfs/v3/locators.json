@@ -1971,8 +1971,12 @@
     "S18"
    ],
    "where": {
-    "table": "1"
-   }
+    "table": "1",
+    "row": "the galaxy's row: the name in column galaxy_as_printed of v1/reading/gas_values.csv for the system's LVDB key",
+    "column": "l_MHI, MHI and Dist"
+   },
+   "correction": "None",
+   "note": "v1's converter wrote the galaxy name as None (it read a column Galaxy that gas_values.csv does not have). The row is the galaxy's own row of Putman et al. 2021 Table 1 (issue #232; D-117). The methods page lists each system's row."
   },
   {
    "table": "observables",

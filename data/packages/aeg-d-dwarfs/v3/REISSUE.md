@@ -37,6 +37,10 @@
 - **The converter:** `convert.py` differs from v2's in its version line and, by ruling D-115, in line 131 (T2). Line 131 is the key of the frozen-reading check, which now names v2's reading file. Line 132 still compares v3's byte copy against that frozen hash, so the check is unchanged. It still builds from v1's tables and readings, and it rewrites `reading/conversion_changes.json`, whose `aeg-d-dwarfs/v2` labels now read v3.
 - **Carried over from v2 and still valid:** `REPRODUCTION.md`, its result, `SECOND_READING.md` and `reading/`.
 
+## Correction added after the run (D-117, issue #232)
+
+All 60 gas inputs carry the source_ref `Putman et al. 2021 Table 1, None`. v1's converter read a column `Galaxy` that `v1/reading/gas_values.csv` does not have; the column is `galaxy_as_printed`. The locator rule now gives the galaxy's row, named by `galaxy_as_printed`, and the columns `l_MHI`, `MHI` and `Dist`. It quotes "None" as the text it corrects. The table text and every value are unchanged. T1 to T6 were re-run after the change and pass; the T4 count is now 19 corrections.
+
 ## Test result
 
 T1 to T6: see `reproduction/reissue_check.txt`. T7: run 1 failed (`reproduction/reachability_run1_fail.json`); run 2 passed after the ruled remedy (`reproduction/reachability.json`).
