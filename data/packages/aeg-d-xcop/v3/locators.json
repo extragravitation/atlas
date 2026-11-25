@@ -13,10 +13,11 @@
     "hdu": "1",
     "row": "{row}",
     "column": "{column}",
-    "section": "§3.4",
+    "section": "§3.5 (Optimization)",
     "line": "263; 453"
    },
-   "note": "Value from S1 (member, HDU 1, row, column). §3.4 (the nonparametric reconstruction), l. 263 (evaluated at the radii of the observed data) and l. 453 (g_obs = G M_HSE(<r)/r²) are in S3, hydromass.tex; checked 2026-11-24."
+   "note": "Value from S1 (member, HDU 1, row, column). In S3, hydromass.tex: l. 263 is in §3.5 (Optimization), not §3.4; it says the reconstruction is evaluated at the radii of the observed data. The source does not state which of its two methods for g_obs (nonparametric reconstruction or Einasto fit, l. 458) the released column holds (reading/model_form.md); the text's 'non-parametric' is an association (l. 263, l. 445), not a statement. l. 453: g_obs = G M_HSE(<r)/r². Issue #234; D-119.",
+   "correction": "E22 §3.4, l. 263; and \"non-parametric hydrostatic reconstruction\" as the source of the released column"
   },
   {
    "table": "observables",
@@ -30,9 +31,11 @@
     "hdu": "1",
     "row": "{row}",
     "column": "{column}",
-    "line": "456; 410"
+    "section": "§2.4.1 (BCG)",
+    "line": "101–112; 456; 410"
    },
-   "note": "Value from S1. l. 456 (the g_bar equation) and l. 410 ('Intracluster light, which is not included in our analysis') are in S3, hydromass.tex; checked 2026-11-24."
+   "note": "Value from S1. In S3, hydromass.tex: the dynamical mass-to-light ratio of the central galaxy is in §2.4.1 (BCG), l. 101–112, not l. 456; l. 456 is the g_bar equation; l. 410: 'Intracluster light, which is not included in our analysis'. Issue #234; D-119.",
+   "correction": "E22 l. 456 for the central galaxy's dynamical mass-to-light ratio"
   },
   {
    "table": "measurements",

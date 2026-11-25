@@ -34,6 +34,14 @@ v2 recorded "arXiv non-exclusive distribution licence 1.0" for all five e-prints
 - **S3 to S5:** CC BY 4.0 on arXiv.
 - **S6 and S7:** the arXiv non-exclusive licence to distribute 1.0.
 
+## Corrections added after the run (D-119, issue #234)
+
+Found by both readers of the methods pilot (D-118). The `source_ref` text of the observables makes two wrong citations:
+- **GOBS:** it cites E22 "§3.4, l. 263". Line 263 is in §3.5 (Optimization). The same text calls the released column the "non-parametric hydrostatic reconstruction", which the source never states (`reading/model_form.md`).
+- **GBAR:** it cites "l. 456" for the central galaxy's dynamical mass-to-light ratio, which is in §2.4.1, l. 101–112. Line 456 is the g_bar equation.
+
+Two locator corrections now give the right places, and quote the text they correct. The table text, every value and `model_dependence` (none) are unchanged. T1 to T6 were re-run and pass.
+
 ## Test result
 
 - **T1 to T6:** pass (`reproduction/reissue_check.txt`). CI rebuilt the package from the archive and it equals the committed tables.

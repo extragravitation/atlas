@@ -184,6 +184,17 @@
       "url": "https://github.com/extragravitation/atlas/issues/179",
       "title": "X-COP v2 part A: erratum to the frozen test, row counts (D-091); see REPRODUCTION_RESULT_PART_A.md",
       "measurements": []
+    },
+    {
+      "issue": 234,
+      "url": "https://github.com/extragravitation/atlas/issues/234",
+      "title": "X-COP v3: two source_ref citations to E22 point to the wrong section or line, and one overstates the source (D-119)",
+      "measurements": [],
+      "rows": false,
+      "locators": [
+        "^data_E22\\.tar\\.gz:(?P<member>[A-Za-z0-9]+/gbar_gobs_[A-Za-z0-9]+\\.fits):row (?P<row>\\d+), (?P<column>GOBS); the source computed g: non-parametric hydrostatic reconstruction evaluated at the radii of the data \\(E22 §3\\.4, l\\. 263\\); g_obs = G M_HSE\\(<r\\)/r² \\(l\\. 453\\)$",
+        "^data_E22\\.tar\\.gz:(?P<member>[A-Za-z0-9]+/gbar_gobs_[A-Za-z0-9]+\\.fits):row (?P<row>\\d+), (?P<column>GBAR); the source computed g, including the central galaxy's dynamical mass-to-light ratio: G \\(M_gas \\+ M★,BCG \\+ M★,sat\\)\\(<r\\)/r² \\(E22 l\\. 456\\); ICL excluded \\(l\\. 410\\)$"
+      ]
     }
   ]
 }

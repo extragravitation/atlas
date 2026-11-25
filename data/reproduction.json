@@ -1139,7 +1139,7 @@
           "name": "T4: every value located",
           "plain": "Every number points to its place",
           "outcome": "pass",
-          "detail": "3 rules resolve all 327 source_ref values; line citations to Eckert et al. 2022 checked at source; no corrections"
+          "detail": "3 rules resolve all 327 source_ref values. At the run there were no corrections, and the line citations to Eckert et al. 2022 were recorded as checked at source; that check missed two errors. On 2026-11-25 two corrections were added (D-119, #234): l. 263 is in §3.5, not §3.4, and the source does not state that the released g_obs is its nonparametric reconstruction; the dynamical mass-to-light ratio is at l. 101–112, not l. 456. T1 to T6 re-run and passed"
         },
         {
           "name": "T5: archive members hashed",
@@ -1165,7 +1165,8 @@
         129,
         136,
         178,
-        179
+        179,
+        234
       ],
       "flagged": 19,
       "status": "Current version. Same tables as v2, with every source cited, licensed and hashed, and every value located (D-114). Part A's failures and part B's pass stand as reported for v2. A644 carries D-092's note.",
