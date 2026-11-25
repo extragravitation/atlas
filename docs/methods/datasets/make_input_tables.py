@@ -95,7 +95,7 @@ def dwarfs() -> str:
         else:
             gtxt = f"Putman et al. 2021 Table 1, row \"{g.get('galaxy_as_printed', '')}\"; " + (
                 "an upper limit: no gas term" if gs.startswith("absent") else "a detection: MHI and Dist")
-            gplace = "table 1; row as named"
+            gplace = where_text(find("Putman et al. 2021 Table 1, None")).replace(" of v1/reading/gas_values.csv for the system's LVDB key", f" (\"{g.get('galaxy_as_printed', '')}\")")
         out.append(f"| Gas | {gtxt} | {gplace} |")
         out.append(f"| Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |\n")
     return "\n".join(out)

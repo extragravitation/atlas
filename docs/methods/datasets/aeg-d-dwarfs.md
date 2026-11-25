@@ -116,7 +116,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And I'. | page: 15 · table: 5 · row: 'And I' |
 | m_V,0 | printed m_V,0 (Martin2016ApJ...833..167M p. 9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And I). | page: 9 · table: 2 · row: And I |
 | [Fe/H] | Kirby2020AJ....159...46K. | page: 13 · table: 4 · row: And I; And III; And V; And VII; And X · section: 4.1 |
-| Gas | Putman et al. 2021 Table 1, row "Andromeda I"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Andromeda I"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Andromeda I") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Andromeda II
@@ -128,7 +128,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And II'. | page: 15 · table: 5 · row: 'And II' |
 | m_V,0 | printed m_V,0 (Martin2016ApJ...833..167M p. 9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And II). | page: 9 · table: 2 · row: And II |
 | [Fe/H] | Wojno2020ApJ...895...78W. | page: 23 · table: 6 · row: And II; And IX; And XIV; And XV · section: 7.3 |
-| Gas | Putman et al. 2021 Table 1, row "Andromeda II"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Andromeda II"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Andromeda II") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Andromeda III
@@ -140,7 +140,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And III'. | page: 15 · table: 5 · row: 'And III' |
 | m_V,0 | printed m_V,0 (Martin2016ApJ...833..167M p. 9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And III). | page: 9 · table: 2 · row: And III |
 | [Fe/H] | Kirby2020AJ....159...46K. | page: 13 · table: 4 · row: And I; And III; And V; And VII; And X · section: 4.1 |
-| Gas | Putman et al. 2021 Table 1, row "Andromeda III"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Andromeda III"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Andromeda III") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Andromeda IX
@@ -152,7 +152,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And IX'. | page: 15 · table: 5 · row: 'And IX' |
 | m_V,0 | printed m_V,0 (Martin2016ApJ...833..167M p. 9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And IX). | page: 9 · table: 2 · row: And IX |
 | [Fe/H] | Wojno2020ApJ...895...78W. | page: 23 · table: 6 · row: And II; And IX; And XIV; And XV · section: 7.3 |
-| Gas | Putman et al. 2021 Table 1, row "Andromeda IX"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Andromeda IX"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Andromeda IX") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Andromeda V
@@ -164,7 +164,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And V'. | page: 15 · table: 5 · row: 'And V' |
 | m_V,0 | printed m_V,0 (Martin2016ApJ...833..167M p. 9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And V). | page: 9 · table: 2 · row: And V |
 | [Fe/H] | Kirby2020AJ....159...46K. | page: 13 · table: 4 · row: And I; And III; And V; And VII; And X · section: 4.1 |
-| Gas | Putman et al. 2021 Table 1, row "Andromeda V"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Andromeda V"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Andromeda V") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Andromeda VI
@@ -176,7 +176,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And VI'. | page: 15 · table: 5 · row: 'And VI' |
 | m_V,0 | McConnachie 2006 M_V + McConnachie 2005 modulus. | page: 10 (McConnachie 2006); 23 and 9 (McConnachie 2005) · table: 4 (McConnachie 2006, M_V); 2 (McConnachie 2005, modulus) · section: 3.10 (McConnachie 2005) |
 | [Fe/H] | Collins2013ApJ...768..172C. | page: 27; 33; 30 · table: 4; 5 · row: And VI; And XI; And XII; And XVII; And XX; And XXII; And XXIII; And XXVII; And XXX (Cass II |
-| Gas | Putman et al. 2021 Table 1, row "Andromeda VI"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Andromeda VI"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Andromeda VI") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Andromeda VII
@@ -188,7 +188,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And VII'. | page: 15 · table: 5 · row: 'And VII' |
 | m_V,0 | McConnachie 2006 M_V + McConnachie 2005 modulus. | page: 10 (McConnachie 2006); 23 and 9 (McConnachie 2005) · table: 4 (McConnachie 2006, M_V); 2 (McConnachie 2005, modulus) · section: 3.10 (McConnachie 2005) |
 | [Fe/H] | Kirby2020AJ....159...46K. | page: 13 · table: 4 · row: And I; And III; And V; And VII; And X · section: 4.1 |
-| Gas | Putman et al. 2021 Table 1, row "Andromeda VII"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Andromeda VII"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Andromeda VII") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Andromeda X
@@ -200,7 +200,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And X'. | page: 15 · table: 5 · row: 'And X' |
 | m_V,0 | printed m_V,0 (Martin2016ApJ...833..167M p. 9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And X). | page: 9 · table: 2 · row: And X |
 | [Fe/H] | Kirby2020AJ....159...46K. | page: 13 · table: 4 · row: And I; And III; And V; And VII; And X · section: 4.1 |
-| Gas | Putman et al. 2021 Table 1, row "Andromeda X"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Andromeda X"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Andromeda X") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Andromeda XI
@@ -212,7 +212,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And XI'. | page: 15 · table: 5 · row: 'And XI' |
 | m_V,0 | printed m_V,0 (Martin2016ApJ...833..167M p. 9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And XI). | page: 9 · table: 2 · row: And XI |
 | [Fe/H] | Collins2013ApJ...768..172C. | page: 27; 33; 30 · table: 4; 5 · row: And VI; And XI; And XII; And XVII; And XX; And XXII; And XXIII; And XXVII; And XXX (Cass II |
-| Gas | Putman et al. 2021 Table 1, row "Andromeda XI"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Andromeda XI"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Andromeda XI") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Andromeda XII
@@ -224,7 +224,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And XII'. | page: 15 · table: 5 · row: 'And XII' |
 | m_V,0 | printed m_V,0 (Martin2016ApJ...833..167M p. 9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And XII). | page: 9 · table: 2 · row: And XII |
 | [Fe/H] | Collins2013ApJ...768..172C. | page: 27; 33; 30 · table: 4; 5 · row: And VI; And XI; And XII; And XVII; And XX; And XXII; And XXIII; And XXVII; And XXX (Cass II |
-| Gas | Putman et al. 2021 Table 1, row "Andromeda XII"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Andromeda XII"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Andromeda XII") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Andromeda XIV
@@ -236,7 +236,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And XIV'. | page: 15 · table: 5 · row: 'And XIV' |
 | m_V,0 | printed m_V,0 (Martin2016ApJ...833..167M p. 9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And XIV). | page: 9 · table: 2 · row: And XIV |
 | [Fe/H] | Wojno2020ApJ...895...78W. | page: 23 · table: 6 · row: And II; And IX; And XIV; And XV · section: 7.3 |
-| Gas | Putman et al. 2021 Table 1, row "Andromeda XIV"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Andromeda XIV"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Andromeda XIV") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Andromeda XIX
@@ -248,7 +248,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And XIX'. | page: 15 · table: 5 · row: 'And XIX' |
 | m_V,0 | printed m_V,0 (Martin2016ApJ...833..167M p. 9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And XIX). | page: 9 · table: 2 · row: And XIX |
 | [Fe/H] | Cullinane2024ApJ...972..133C. | page: 12-13 · section: 4.2 |
-| Gas | Putman et al. 2021 Table 1, row "Andromeda XIX"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Andromeda XIX"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Andromeda XIX") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Andromeda XV
@@ -260,7 +260,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And XV'. | page: 15 · table: 5 · row: 'And XV' |
 | m_V,0 | printed m_V,0 (Martin2016ApJ...833..167M p. 9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And XV). | page: 9 · table: 2 · row: And XV |
 | [Fe/H] | Wojno2020ApJ...895...78W. | page: 23 · table: 6 · row: And II; And IX; And XIV; And XV · section: 7.3 |
-| Gas | Putman et al. 2021 Table 1, row "Andromeda XV"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Andromeda XV"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Andromeda XV") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Andromeda XVI
@@ -272,7 +272,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | MartinezVazquez2017ApJ...850..137M p. 18, Table 8 (Summary of the different true distance moduli (µ0) obtained using several methods), row And XVI. | page: 18 · table: 8 · row: And XVI |
 | m_V,0 | printed m_V,0 (Martin2016ApJ...833..167M p. 9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And XVI). | page: 9 · table: 2 · row: And XVI |
 | [Fe/H] | Fu2024ApJ...975....2F. | page: 9; 1; 7 · table: 2 · section: 4.1 |
-| Gas | Putman et al. 2021 Table 1, row "Andromeda XVI"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Andromeda XVI"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Andromeda XVI") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Andromeda XVII
@@ -284,7 +284,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And XVII'. | page: 15 · table: 5 · row: 'And XVII' |
 | m_V,0 | printed m_V,0 (Martin2016ApJ...833..167M p. 9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And XVII). | page: 9 · table: 2 · row: And XVII |
 | [Fe/H] | Collins2013ApJ...768..172C. | page: 27; 33; 30 · table: 4; 5 · row: And VI; And XI; And XII; And XVII; And XX; And XXII; And XXIII; And XXVII; And XXX (Cass II |
-| Gas | Putman et al. 2021 Table 1, row "Andromeda XVII"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Andromeda XVII"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Andromeda XVII") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Andromeda XVIII
@@ -296,7 +296,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Higgs2021MNRAS.503..176H PDF p.16, Table 2 (Derived positional and shape information), row And XVIII. | page: 16 · table: 2 · row: And XVIII |
 | m_V,0 | printed m_V,0 (Martin2016ApJ...833..167M p. 9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And XVIII). | page: 9 · table: 2 · row: And XVIII |
 | [Fe/H] | Kvasova2024ApJ...972..180K. | page: 10-11; 11 · section: 4.3 · table: 4 · row: 'This work' |
-| Gas | Putman et al. 2021 Table 1, row "Andromeda XVIII"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Andromeda XVIII"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Andromeda XVIII") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Andromeda XX
@@ -308,7 +308,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And XX'. | page: 15 · table: 5 · row: 'And XX' |
 | m_V,0 | printed m_V,0 (Martin2016ApJ...833..167M p. 9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And XX). | page: 9 · table: 2 · row: And XX |
 | [Fe/H] | Collins2013ApJ...768..172C. | page: 27; 33; 30 · table: 4; 5 · row: And VI; And XI; And XII; And XVII; And XX; And XXII; And XXIII; And XXVII; And XXX (Cass II |
-| Gas | Putman et al. 2021 Table 1, row "Andromeda XX"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Andromeda XX"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Andromeda XX") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Andromeda XXI
@@ -320,7 +320,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And XXI'. | page: 15 · table: 5 · row: 'And XXI' |
 | m_V,0 | printed m_V,0 (Martin2016ApJ...833..167M p. 9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And XXI). | page: 9 · table: 2 · row: And XXI |
 | [Fe/H] | Collins2021MNRAS.505.5686C. | page: 4; 1; 7; 10 · table: 2 · section: 3.4; 6 |
-| Gas | Putman et al. 2021 Table 1, row "Andromeda XXI"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Andromeda XXI"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Andromeda XXI") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Andromeda XXII
@@ -332,7 +332,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And XXII'. | page: 15 · table: 5 · row: 'And XXII' |
 | m_V,0 | printed m_V,0 (Martin2016ApJ...833..167M p. 9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And XXII/Tri I). | page: 9 · table: 2 · row: And XXII/Tri I |
 | [Fe/H] | Collins2013ApJ...768..172C. | page: 27; 33; 30 · table: 4; 5 · row: And VI; And XI; And XII; And XVII; And XX; And XXII; And XXIII; And XXVII; And XXX (Cass II |
-| Gas | Putman et al. 2021 Table 1, row "Andromeda XXII"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Andromeda XXII"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Andromeda XXII") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Andromeda XXIII
@@ -344,7 +344,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And XXIII'. | page: 15 · table: 5 · row: 'And XXIII' |
 | m_V,0 | printed m_V,0 (Martin2016ApJ...833..167M p. 9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And XXIII). | page: 9 · table: 2 · row: And XXIII |
 | [Fe/H] | Collins2013ApJ...768..172C. | page: 27; 33; 30 · table: 4; 5 · row: And VI; And XI; And XII; And XVII; And XX; And XXII; And XXIII; And XXVII; And XXX (Cass II |
-| Gas | Putman et al. 2021 Table 1, row "Andromeda XXIII"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Andromeda XXIII"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Andromeda XXIII") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Andromeda XXV
@@ -356,7 +356,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And XXV'. | page: 15 · table: 5 · row: 'And XXV' |
 | m_V,0 | printed m_V,0 (Martin2016ApJ...833..167M p. 9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And XXV). | page: 9 · table: 2 · row: And XXV |
 | [Fe/H] | Charles2023MNRAS.521.3527C. | page: 4; 1; 6 · table: 2 · section: 5; 8 |
-| Gas | Putman et al. 2021 Table 1, row "Andromeda XXV"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Andromeda XXV"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Andromeda XXV") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Andromeda XXVII
@@ -368,7 +368,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Richardson2011ApJ...732...76R p.11, Table 1, col And XXVII, row (m − M)0. | page: 11 · table: 1 · row: (m − M · column: And XXVII |
 | m_V,0 | M_V + (m-M) used by the paper (own). | row: the system's row in the paper that gives its distance modulus |
 | [Fe/H] | Collins2013ApJ...768..172C. | page: 27; 33; 30 · table: 4; 5 · row: And VI; And XI; And XII; And XVII; And XX; And XXII; And XXIII; And XXVII; And XXX (Cass II |
-| Gas | Putman et al. 2021 Table 1, row "Andromeda XXVII"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Andromeda XXVII"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Andromeda XXVII") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Andromeda XXVIII
@@ -380,7 +380,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And XXVIII'. | page: 15 · table: 5 · row: 'And XXVIII' |
 | m_V,0 | M_V + (m-M) used by the paper (own). | row: the system's row in the paper that gives its distance modulus |
 | [Fe/H] | Slater2015ApJ...806..230S. | page: 3; 4 · table: 1 · section: 4 |
-| Gas | Putman et al. 2021 Table 1, row "Andromeda XXVIII"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Andromeda XXVIII"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Andromeda XXVIII") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Antlia II
@@ -392,7 +392,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Vivas2022ApJ...926...78V p.9, §3.3; no_uncertainty: no error printed. | page: 9 · section: 3.3 |
 | m_V,0 | M_V + (m-M) used by the paper (cited). | row: the system's row in the paper that gives its distance modulus |
 | [Fe/H] | Ji2021ApJ...921...32J. | page: 7; 12; 15 · table: 1; 2 · row: ⟨[Fe/H]⟩ (dex; Antlia2 · section: 4; 5; 7.1.2 |
-| Gas | Putman et al. 2021 Table 1, row "Antlia 2"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Antlia 2"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Antlia 2") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Aquarius II
@@ -404,7 +404,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Torrealba2016MNRAS.463..712T p. 2, Table 1 (Properties of Aqu 2), (m − M) row; also p. 4 Fig. 2 caption (printed value). | page: 2; 4 · table: 1 |
 | m_V,0 | M_V + (m-M) used by the paper (own). | row: the system's row in the paper that gives its distance modulus |
 | [Fe/H] | Bruce2023ApJ...950..167B. | page: 5; 1; 12 · table: 2 · row: [Fe/H] · section: 4.1 |
-| Gas | Putman et al. 2021 Table 1, row "Aquarius II"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Aquarius II"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Aquarius II") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Aquarius III
@@ -428,7 +428,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | DallOra2006ApJ...653L.109D p.6, Sect. 5. | page: 6 · section: 5 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
 | [Fe/H] | Sandford2026ApJ...998...47S. | page: 8; 16; 13; 26 · table: 3; 5 · column: p.13 · section: 4.4; 8 |
-| Gas | Putman et al. 2021 Table 1, row "Bootes"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Bootes"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Bootes") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Bootes II
@@ -440,7 +440,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Walsh2008ApJ...688..245W p. 11, Table 1 (Boötes II Properties), row (m − M). | page: 11 · table: 1 · row: (m − M |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
 | [Fe/H] | Geha2026arXiv260210202G. | page: 17; 18; 19 · row: Aquarius III Aqr3; Bootes II Boo2; CVn I CVn1; CVn II CVn2; ComaBer CB; Draco Dra; Herc Herc; Hydra 2 Hyd2; Leo I Leo1; Leo II Leo2; Leo IV Leo4; Pegasus 3 Peg3; Pegasus 4 Peg4; Segue 2 Seg2; UMa 1 UMa1; UMa 2 UMa2; Ursa Minor UMi |
-| Gas | Putman et al. 2021 Table 1, row "Bootes II"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Bootes II"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Bootes II") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Bootes III
@@ -452,7 +452,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Li2026arXiv260707803L p.10, §4. | page: 10 · section: 4 |
 | Magnitude route (if no m_V,0) | Correnti 2009 M_V, distance-independent (D-061 item 2). | page: 5 · section: 4 (iii) |
 | [Fe/H] | Li2026arXiv260707803L. | page: 5; 1; 6; 23 · table: 1 · row: (8 · section: 3.3; 7 |
-| Gas | Putman et al. 2021 Table 1, row "Bootes III"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Bootes III"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Bootes III") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Canes Venatici I
@@ -464,7 +464,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Kuehn2008ApJ...674L..81K PDF p.6, Section 5 (An Improved Distance Estimate for CVn I). | page: 6 · section: 5 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
 | [Fe/H] | Geha2026arXiv260210202G. | page: 17; 18; 19 · row: Aquarius III Aqr3; Bootes II Boo2; CVn I CVn1; CVn II CVn2; ComaBer CB; Draco Dra; Herc Herc; Hydra 2 Hyd2; Leo I Leo1; Leo II Leo2; Leo IV Leo4; Pegasus 3 Peg3; Pegasus 4 Peg4; Segue 2 Seg2; UMa 1 UMa1; UMa 2 UMa2; Ursa Minor UMi |
-| Gas | Putman et al. 2021 Table 1, row "Canes Venatici I"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Canes Venatici I"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Canes Venatici I") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Canes Venatici II
@@ -476,7 +476,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Greco2008ApJ...675L..73G §5, p. 7. | page: 7 · section: 5 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
 | [Fe/H] | Geha2026arXiv260210202G. | page: 17; 18; 19 · row: Aquarius III Aqr3; Bootes II Boo2; CVn I CVn1; CVn II CVn2; ComaBer CB; Draco Dra; Herc Herc; Hydra 2 Hyd2; Leo I Leo1; Leo II Leo2; Leo IV Leo4; Pegasus 3 Peg3; Pegasus 4 Peg4; Segue 2 Seg2; UMa 1 UMa1; UMa 2 UMa2; Ursa Minor UMi |
-| Gas | Putman et al. 2021 Table 1, row "Canes Venatici II"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Canes Venatici II"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Canes Venatici II") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Cassiopeia II
@@ -488,7 +488,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And XXX'. | page: 15 · table: 5 · row: 'And XXX' |
 | m_V,0 | printed m_V,0 (Martin2016ApJ...833..167M p. 9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row Cas II/And XXX). | page: 9 · table: 2 · row: Cas II/And XXX |
 | [Fe/H] | Collins2013ApJ...768..172C. | page: 27; 33; 30 · table: 4; 5 · row: And VI; And XI; And XII; And XVII; And XX; And XXII; And XXIII; And XXVII; And XXX (Cass II |
-| Gas | Putman et al. 2021 Table 1, row "Andromeda XXX"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Andromeda XXX"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Andromeda XXX") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Columba I
@@ -500,7 +500,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Carlin2017AJ....154..267C p.5, Table 1, col Col I, row m − M. | page: 5 · table: 1 · row: m − M · column: Col I |
 | m_V,0 | M_V + (m-M) used by the paper (own). | row: the system's row in the paper that gives its distance modulus |
 | [Fe/H] | Fritz2019A&A...623A.129F. | page: 12 · table: 3 · row: Columba I; Phoenix II; Reticulum III · section: 5 |
-| Gas | Putman et al. 2021 Table 1, row "Columba I"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Columba I"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Columba I") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Coma Berenices
@@ -512,7 +512,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Musella2009ApJ...695L..83M PDF p.7, Section 4. | page: 7 · section: 4 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
 | [Fe/H] | Geha2026arXiv260210202G. | page: 17; 18; 19 · row: Aquarius III Aqr3; Bootes II Boo2; CVn I CVn1; CVn II CVn2; ComaBer CB; Draco Dra; Herc Herc; Hydra 2 Hyd2; Leo I Leo1; Leo II Leo2; Leo IV Leo4; Pegasus 3 Peg3; Pegasus 4 Peg4; Segue 2 Seg2; UMa 1 UMa1; UMa 2 UMa2; Ursa Minor UMi |
-| Gas | Putman et al. 2021 Table 1, row "Coma Berenices"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Coma Berenices"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Coma Berenices") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Draco
@@ -524,7 +524,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Bhardwaj2024AJ....167..247B p.10, Table 5 (Distance modulus estimates to Draco dSph galaxy), final rows. | page: 10 · table: 5 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
 | [Fe/H] | Geha2026arXiv260210202G. | page: 17; 18; 19 · row: Aquarius III Aqr3; Bootes II Boo2; CVn I CVn1; CVn II CVn2; ComaBer CB; Draco Dra; Herc Herc; Hydra 2 Hyd2; Leo I Leo1; Leo II Leo2; Leo IV Leo4; Pegasus 3 Peg3; Pegasus 4 Peg4; Segue 2 Seg2; UMa 1 UMa1; UMa 2 UMa2; Ursa Minor UMi |
-| Gas | Putman et al. 2021 Table 1, row "Draco"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Draco"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Draco") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Draco II
@@ -536,7 +536,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Longeard2018MNRAS.480.2609L p.8, Table 1, row Distance modulus. | page: 8 · table: 1 · row: Distance modulus |
 | m_V,0 | M_V + (m-M) used by the paper (own). | row: the system's row in the paper that gives its distance modulus |
 | [Fe/H] | Cerny2026arXiv260217652C. | page: 40; 48 · table: 4 · row: Draco II · column: [Fe/H]model · section: 6.2; 7.3.5 |
-| Gas | Putman et al. 2021 Table 1, row "Draco II"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Draco II"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Draco II") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Eridanus IV
@@ -560,7 +560,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Oakes2022ApJ...929..116O p.13, §7; also p.1 abstract and p.13 §6.4. | page: 13; 1 · section: 7; 6.4 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
 | [Fe/H] | Kirby2013ApJ...779..102K. | page: 12 · table: 4 · row: Fornax; Leo T; Sculptor; Sextans |
-| Gas | Putman et al. 2021 Table 1, row "Fornax"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Fornax"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Fornax") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Hercules
@@ -572,7 +572,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | MutluPakdil2020ApJ...902..106M PDF p.6, Table 9 (Structural Properties of Hercules), row m − M. | page: 6 · table: 9 · row: m − M |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
 | [Fe/H] | Geha2026arXiv260210202G. | page: 17; 18; 19 · row: Aquarius III Aqr3; Bootes II Boo2; CVn I CVn1; CVn II CVn2; ComaBer CB; Draco Dra; Herc Herc; Hydra 2 Hyd2; Leo I Leo1; Leo II Leo2; Leo IV Leo4; Pegasus 3 Peg3; Pegasus 4 Peg4; Segue 2 Seg2; UMa 1 UMa1; UMa 2 UMa2; Ursa Minor UMi |
-| Gas | Putman et al. 2021 Table 1, row "Hercules"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Hercules"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Hercules") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Hydra II
@@ -584,7 +584,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Vivas2016AJ....151..118V p. 17, Sect. 4. | page: 17 · section: 4 |
 | m_V,0 | printed m_V,0 (Richstein2024ApJ...967...72R p. 9, Table 2, row Hya II). | page: 9 · table: 2 · row: Hya II |
 | [Fe/H] | Geha2026arXiv260210202G. | page: 17; 18; 19 · row: Aquarius III Aqr3; Bootes II Boo2; CVn I CVn1; CVn II CVn2; ComaBer CB; Draco Dra; Herc Herc; Hydra 2 Hyd2; Leo I Leo1; Leo II Leo2; Leo IV Leo4; Pegasus 3 Peg3; Pegasus 4 Peg4; Segue 2 Seg2; UMa 1 UMa1; UMa 2 UMa2; Ursa Minor UMi |
-| Gas | Putman et al. 2021 Table 1, row "Hydra II"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Hydra II"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Hydra II") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Hydrus I
@@ -596,7 +596,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Koposov2018MNRAS.479.5343K p. 6, Table 1 (Key photometric and kinematic properties of the Hydrus 1 dwarf galaxy), m-M row. | page: 6 · table: 1 |
 | m_V,0 | M_V + (m-M) used by the paper (own). | row: the system's row in the paper that gives its distance modulus |
 | [Fe/H] | Koposov2018MNRAS.479.5343K. | page: 6; 9 · table: 1 · section: 4.3 |
-| Gas | Putman et al. 2021 Table 1, row "Hydrus I"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Hydrus I"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Hydrus I") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Leo I
@@ -608,7 +608,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Stetson 2014, midpoint of the two printed values. | page: 11 · section: 4.1 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
 | [Fe/H] | Geha2026arXiv260210202G. | page: 17; 18; 19 · row: Aquarius III Aqr3; Bootes II Boo2; CVn I CVn1; CVn II CVn2; ComaBer CB; Draco Dra; Herc Herc; Hydra 2 Hyd2; Leo I Leo1; Leo II Leo2; Leo IV Leo4; Pegasus 3 Peg3; Pegasus 4 Peg4; Segue 2 Seg2; UMa 1 UMa1; UMa 2 UMa2; Ursa Minor UMi |
-| Gas | Putman et al. 2021 Table 1, row "Leo I"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Leo I"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Leo I") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Leo II
@@ -620,7 +620,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Monelli2025A&A...700A.201M (headline; version of record). | page: 7 · section: 4 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
 | [Fe/H] | Geha2026arXiv260210202G. | page: 17; 18; 19 · row: Aquarius III Aqr3; Bootes II Boo2; CVn I CVn1; CVn II CVn2; ComaBer CB; Draco Dra; Herc Herc; Hydra 2 Hyd2; Leo I Leo1; Leo II Leo2; Leo IV Leo4; Pegasus 3 Peg3; Pegasus 4 Peg4; Segue 2 Seg2; UMa 1 UMa1; UMa 2 UMa2; Ursa Minor UMi |
-| Gas | Putman et al. 2021 Table 1, row "Leo II"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Leo II"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Leo II") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Leo IV
@@ -632,7 +632,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Medina 2018, RR Lyrae mean. | page: 10 · section: 5.1 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
 | [Fe/H] | Geha2026arXiv260210202G. | page: 17; 18; 19 · row: Aquarius III Aqr3; Bootes II Boo2; CVn I CVn1; CVn II CVn2; ComaBer CB; Draco Dra; Herc Herc; Hydra 2 Hyd2; Leo I Leo1; Leo II Leo2; Leo IV Leo4; Pegasus 3 Peg3; Pegasus 4 Peg4; Segue 2 Seg2; UMa 1 UMa1; UMa 2 UMa2; Ursa Minor UMi |
-| Gas | Putman et al. 2021 Table 1, row "Leo IV"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Leo IV"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Leo IV") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Leo T
@@ -644,7 +644,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Higgs2021MNRAS.503..176H PDF p.16, Table 2 (Derived positional and shape information), row Leo T. | page: 16 · table: 2 · row: Leo T |
 | m_V,0 | de Jong 2008 M_V + red-clump modulus (D-061 item 6). | page: 5 (M_V); 7 (red-clump modulus) · table: 1 · section: 4 (M_V); 6 (modulus) |
 | [Fe/H] | Kirby2013ApJ...779..102K. | page: 12 · table: 4 · row: Fornax; Leo T; Sculptor; Sextans |
-| Gas | Putman et al. 2021 Table 1, row "Leo T"; a detection: MHI and Dist | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Leo T"; a detection: MHI and Dist | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Leo T") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Leo V
@@ -656,7 +656,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Medina 2018, RR Lyrae mean. | page: 10 · section: 5.1 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
 | [Fe/H] | Jenkins2021ApJ...920...92J. | page: 17; 21 · table: 5 · row: [Fe/H] M1 · section: 5.6; 6 |
-| Gas | Putman et al. 2021 Table 1, row "Leo V"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Leo V"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Leo V") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Leo VI
@@ -680,7 +680,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Kim2016ApJ...833...16K p. 5, Table 1. | page: 5 · table: 1 |
 | m_V,0 | printed m_V,0 (Richstein2022ApJ...933..217R PDF p.12, Table 3, Pegasus III). | page: 12 · table: 3 |
 | [Fe/H] | Geha2026arXiv260210202G. | page: 17; 18; 19 · row: Aquarius III Aqr3; Bootes II Boo2; CVn I CVn1; CVn II CVn2; ComaBer CB; Draco Dra; Herc Herc; Hydra 2 Hyd2; Leo I Leo1; Leo II Leo2; Leo IV Leo4; Pegasus 3 Peg3; Pegasus 4 Peg4; Segue 2 Seg2; UMa 1 UMa1; UMa 2 UMa2; Ursa Minor UMi |
-| Gas | Putman et al. 2021 Table 1, row "Pegasus III"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Pegasus III"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Pegasus III") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Pegasus IV
@@ -704,7 +704,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Battaglia2012MNRAS.424.1113B p.3, Table 1, row (m-M)0. | page: 3 · table: 1 · row: (m-M |
 | m_V,0 | van de Rydt 1991 M_V + adopted modulus (D-061 item 5). | page: 136 (M_V); 134 (modulus) · section: 8 (M_V); 4 (modulus) |
 | [Fe/H] | Kacharov2017MNRAS.466.2006K. | page: 12; 1; 17 · section: 6; 6.3 |
-| Gas | Putman et al. 2021 Table 1, row "Phoenix"; a detection: MHI and Dist | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Phoenix"; a detection: MHI and Dist | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Phoenix") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Phoenix II
@@ -716,7 +716,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | MutluPakdil2018ApJ...863...25M p.8, Table 6 (Structural Properties), row m − M; also p. 12, §4.3 (printed value). | page: 8; 12 · table: 6 · row: m − M · section: 4.3 |
 | m_V,0 | printed m_V,0 (Richstein2024ApJ...967...72R p. 9, Table 2, row Phe II). | page: 9 · table: 2 · row: Phe II |
 | [Fe/H] | Fritz2019A&A...623A.129F. | page: 12 · table: 3 · row: Columba I; Phoenix II; Reticulum III · section: 5 |
-| Gas | Putman et al. 2021 Table 1, row "Phoenix 2"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Phoenix 2"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Phoenix 2") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Pisces II
@@ -728,7 +728,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Sand2012ApJ...756...79S p.16, Table 5, row Pisces II. | page: 16 · table: 5 · row: Pisces II |
 | m_V,0 | printed m_V,0 (Richstein2022ApJ...933..217R PDF p.12, Table 3, Pisces II). | page: 12 · table: 3 |
 | [Fe/H] | Kirby2015ApJ...810...56K. | page: 10; 1 · table: 3 · row: ⟨[Fe/H]⟩ |
-| Gas | Putman et al. 2021 Table 1, row "Pisces II"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Pisces II"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Pisces II") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Reticulum III
@@ -740,7 +740,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | DrlicaWagner2015ApJ...813..109D p. 17, Table 1 (Detection of ultra-faint galaxy candidates), row DES J0345−6026 (Ret III). | page: 17 · table: 1 · row: DES J0345−6026 (Ret III |
 | m_V,0 | M_V + (m-M) used by the paper (own). | row: the system's row in the paper that gives its distance modulus |
 | [Fe/H] | Fritz2019A&A...623A.129F. | page: 12 · table: 3 · row: Columba I; Phoenix II; Reticulum III · section: 5 |
-| Gas | Putman et al. 2021 Table 1, row "Reticulum III"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Reticulum III"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Reticulum III") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Sculptor
@@ -752,7 +752,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | MartinezVazquez2015MNRAS.454.1509M p.7, Table 3, row <µ>ADOPTED, CLEAN; also p. 3, §3 (printed value). | page: 7; 3 · table: 3 · row: <µ>ADOPTED · section: 3 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
 | [Fe/H] | Kirby2013ApJ...779..102K. | page: 12 · table: 4 · row: Fornax; Leo T; Sculptor; Sextans |
-| Gas | Putman et al. 2021 Table 1, row "Sculptor"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Sculptor"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Sculptor") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Segue 1
@@ -764,7 +764,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Belokurov2007ApJ...654..897B PDF p.6, Table 1 (Properties of the New Milky Way Satellites), column Segue 1, row (m−M)0. | page: 6 · table: 1 · row: (m−M · column: Segue 1 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
 | [Fe/H] | Bissonette2026arXiv260512810B. | page: 2; 1; 5; 7; 6 · table: 1; 4 · row: (14 · section: 4; 5 |
-| Gas | Putman et al. 2021 Table 1, row "Segue 1"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Segue 1"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Segue 1") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Segue 2
@@ -776,7 +776,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Boettcher 2013, BHB stars (D-055 item 8). | page: 6 · section: 3.2 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
 | [Fe/H] | Geha2026arXiv260210202G. | page: 17; 18; 19 · row: Aquarius III Aqr3; Bootes II Boo2; CVn I CVn1; CVn II CVn2; ComaBer CB; Draco Dra; Herc Herc; Hydra 2 Hyd2; Leo I Leo1; Leo II Leo2; Leo IV Leo4; Pegasus 3 Peg3; Pegasus 4 Peg4; Segue 2 Seg2; UMa 1 UMa1; UMa 2 UMa2; Ursa Minor UMi |
-| Gas | Putman et al. 2021 Table 1, row "Segue II"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Segue II"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Segue II") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Sextans
@@ -788,7 +788,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Lee2009ApJ...703..692L p.4, Sect. 3; p.19, Table 3; no_uncertainty: no error printed. | page: 4; 19 · table: 3 · section: 3 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
 | [Fe/H] | Kirby2013ApJ...779..102K. | page: 12 · table: 4 · row: Fornax; Leo T; Sculptor; Sextans |
-| Gas | Putman et al. 2021 Table 1, row "Sextans"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Sextans"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Sextans") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Triangulum II
@@ -800,7 +800,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Carlin2017AJ....154..267C p.5, Table 1, col Tri II, row m − M. | page: 5 · table: 1 · row: m − M · column: Tri II |
 | m_V,0 | printed m_V,0 (Richstein2024ApJ...967...72R p. 9, Table 2, row Tri II). | page: 9 · table: 2 · row: Tri II |
 | [Fe/H] | Kirby2017ApJ...838...83K. | page: 6; 8 · table: 3 · section: 4 |
-| Gas | Putman et al. 2021 Table 1, row "Triangulum II"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Triangulum II"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Triangulum II") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Tucana
@@ -812,7 +812,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Bernard 2009, RR Lyrae, reddening-corrected (D-053). | page: 19 · section: 6.3 |
 | m_V,0 | Saviane 1996 M_V + its own TRGB modulus (D-053). | page: 9 · table: 5 · row: MV |
 | [Fe/H] | Taibi2020A&A...635A.152T. | page: 11; 3 · table: 1 · section: 6.1; 8 |
-| Gas | Putman et al. 2021 Table 1, row "Tucana"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Tucana"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Tucana") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Tucana V
@@ -824,7 +824,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Simon2020ApJ...892..137S p.9, Table 6, row (3). | page: 9 · table: 6 · row: (3 |
 | m_V,0 | Simon 2020 M_V + Table 6 distance 55 kpc (D-061 item 7). | table: 6 |
 | [Fe/H] | Hansen2024ApJ...968...21H. | page: 8; 7 · section: 5.1 |
-| Gas | Putman et al. 2021 Table 1, row "Tucana V"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Tucana V"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Tucana V") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Ursa Major I
@@ -836,7 +836,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Garofalo2013ApJ...767...62G p.7–8, §4; also abstract p.1 and §6 p.9. | page: 7–8; 1; 9 · section: 4; 6 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
 | [Fe/H] | Geha2026arXiv260210202G. | page: 17; 18; 19 · row: Aquarius III Aqr3; Bootes II Boo2; CVn I CVn1; CVn II CVn2; ComaBer CB; Draco Dra; Herc Herc; Hydra 2 Hyd2; Leo I Leo1; Leo II Leo2; Leo IV Leo4; Pegasus 3 Peg3; Pegasus 4 Peg4; Segue 2 Seg2; UMa 1 UMa1; UMa 2 UMa2; Ursa Minor UMi |
-| Gas | Putman et al. 2021 Table 1, row "Ursa Major I"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Ursa Major I"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Ursa Major I") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Ursa Major II
@@ -848,7 +848,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | DallOra2012ApJ...752...42D p.7, Sect. 3. | page: 7 · section: 3 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
 | [Fe/H] | Geha2026arXiv260210202G. | page: 17; 18; 19 · row: Aquarius III Aqr3; Bootes II Boo2; CVn I CVn1; CVn II CVn2; ComaBer CB; Draco Dra; Herc Herc; Hydra 2 Hyd2; Leo I Leo1; Leo II Leo2; Leo IV Leo4; Pegasus 3 Peg3; Pegasus 4 Peg4; Segue 2 Seg2; UMa 1 UMa1; UMa 2 UMa2; Ursa Minor UMi |
-| Gas | Putman et al. 2021 Table 1, row "Ursa Major II"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Ursa Major II"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Ursa Major II") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Ursa Minor
@@ -860,7 +860,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Garofalo2025A&A...695A..88G PDF p.6, Section 3.1. | page: 6 · section: 3.1 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
 | [Fe/H] | Geha2026arXiv260210202G. | page: 17; 18; 19 · row: Aquarius III Aqr3; Bootes II Boo2; CVn I CVn1; CVn II CVn2; ComaBer CB; Draco Dra; Herc Herc; Hydra 2 Hyd2; Leo I Leo1; Leo II Leo2; Leo IV Leo4; Pegasus 3 Peg3; Pegasus 4 Peg4; Segue 2 Seg2; UMa 1 UMa1; UMa 2 UMa2; Ursa Minor UMi |
-| Gas | Putman et al. 2021 Table 1, row "Ursa Minor"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Ursa Minor"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Ursa Minor") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
 
 ### Willman 1
@@ -872,5 +872,5 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Distance | Willman2006astro.ph..3486W §3.1, p. 3. | page: 3 · section: 3.1 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
 | [Fe/H] | Chiu2026ApJ..1002...55C. | page: 7; 1; 9; 16 · table: 2 · section: 4.2; 8 |
-| Gas | Putman et al. 2021 Table 1, row "Willman 1"; an upper limit: no gas term | table 1; row as named |
+| Gas | Putman et al. 2021 Table 1, row "Willman 1"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Willman 1") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
