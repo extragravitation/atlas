@@ -1139,7 +1139,7 @@
           "name": "T4: every value located",
           "plain": "Every number points to its place",
           "outcome": "pass",
-          "detail": "3 rules resolve all 327 source_ref values; line citations to Eckert et al. 2022 checked at source; no corrections"
+          "detail": "3 rules resolve all 327 source_ref values; line citations to Eckert et al. 2022 checked at source; no corrections; 2 corrections added 2026-11-25 after the run (D-119, #234): wrong section and line for two E22 citations, and an unstated 'non-parametric' claim. T1 to T6 re-run and passed"
         },
         {
           "name": "T5: archive members hashed",
@@ -1165,7 +1165,8 @@
         129,
         136,
         178,
-        179
+        179,
+        234
       ],
       "flagged": 19,
       "status": "Current version. Same tables as v2, with every source cited, licensed and hashed, and every value located (D-114). Part A's failures and part B's pass stand as reported for v2. A644 carries D-092's note.",

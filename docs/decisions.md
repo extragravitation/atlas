@@ -2626,6 +2626,24 @@ The frozen KiDS v2 test (item 11) makes any such finding a fail of that item. Th
 
 **Data seen.** The source_ref text and the column names of `gas_values.csv`. No value was looked at.
 
+## D-119 — X-COP v3: locator corrections for two E22 citations
+
+**Ruling (2026-11-25, UTC−06:00, JvH).** "Correct the locators (Recommended)", in answer to the question put in the session. **Found by** both readers of the methods pilot (D-118), and checked by Claude in `hydromass.tex`. Issue #234.
+
+**Context.** The `source_ref` text of the X-COP v3 observables makes two citations to Eckert et al. 2022 (`hydromass.tex`) that are wrong:
+- **GOBS:** it cites "§3.4, l. 263" and says the column is the "non-parametric hydrostatic reconstruction". Line 263 is in §3.5 (Optimization). The source never says which of its two methods (nonparametric, or Einasto, l. 458) the released column holds; the package's own v2 reading found no such statement (`reading/model_form.md`).
+- **GBAR:** it cites "l. 456" for the central galaxy's dynamical mass-to-light ratio. That is in §2.4.1, l. 101–112; l. 456 is the g_bar equation.
+
+The values are unaffected. The package is merged but not released.
+
+**Rules.**
+1. **The corrections.** Two locator corrections in `aeg-d-xcop/v3/locators.json` give the right section and lines. Each quotes the text it corrects, and states in its note that "non-parametric" is an association, not a statement of the source. They are listed under known issue #234.
+2. **Nothing else changes.** The tables, `convert.py`, the values and `model_dependence` (none) stay as they are (D-114 Q1).
+3. **The checks are re-run.** T1 to T6 are run again and recorded. The ledger and `REISSUE.md` say the corrections were added after the first run.
+4. **The methods page** for X-COP states the same facts.
+
+**Alternatives rejected.** Correcting only the methods page: the package's own record would still cite the wrong places, and the audit's provenance check could flag these rows.
+
 ## Release record — v0.2 (2026-11-06)
 
 Recorded here because the decision log covers releases (D-110 rule 3). This entry is not a new ruling.

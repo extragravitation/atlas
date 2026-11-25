@@ -9,4 +9,4 @@
   T5 pass
   T6 pass
   T3 count: 7 entries (7 from v2, 0 new); sha256 null: none
-  T4 count: 3 rules, 0 corrections
+  T4 count: 3 rules, 2 corrections
