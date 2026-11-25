@@ -1,0 +1,3 @@
+measurement_id,g_obs,g_bar,notes
+aeg-d-sparc/v3/m000669,1.077034e-10,5.116191e-11,"NGC1090; g_bar_stars=5.083133e-11; g_bar_gas=3.305865e-13; dg_obs=2.8128e-11; dg_obs_point=5.9918e-12; dg_bar=1.2708e-11 (uncertainties per METHOD §4, informational)"
+aeg-d-sparc/v3/m001593,1.243872e-10,3.437441e-11,"NGC5985; g_bar_stars=3.201398e-11; g_bar_gas=2.360430e-12; dg_obs=3.1620e-11; dg_obs_point=3.5455e-12; dg_bar=8.0070e-12 (uncertainties per METHOD §4, informational)"

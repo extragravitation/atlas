@@ -1,0 +1,18 @@
+measurement_id,input,value,unit,file,place,at_locator
+aeg-d-dwarfs/v3/m000053,sigma (upper limit),< 31.2,km s^-1,files/1805.07350v4.pdf (Fritz 2019),"p.12, Table 3, row Reticulum III (only row for Ret III, upper block 'all possible members'), col sigma_V,hel",yes (p.12 Table 3); not found on p.1 (abstract gives only Phoenix II sigma)
+aeg-d-dwarfs/v3/m000053,r_h (azimuthally averaged = circularised),2.4 (+0.9/-0.8),arcmin,files/1508.03622v2.pdf (Drlica-Wagner 2015),"p.17, Table 1, row DES J0345-6026 (Ret III), col rh",yes
+aeg-d-dwarfs/v3/m000053,ellipticity,< 0.4 (upper limit; not used: radius already circularised),dimensionless,files/1508.03622v2.pdf,"p.17, Table 1, row DES J0345-6026 (Ret III), col epsilon",yes
+aeg-d-dwarfs/v3/m000053,distance modulus (m-M),19.81 +/- 0.31,mag,files/1508.03622v2.pdf,"p.17, Table 1, row DES J0345-6026 (Ret III), col m-M",yes
+aeg-d-dwarfs/v3/m000053,M_V,-3.3 +/- 0.29,mag,files/1508.03622v2.pdf,"p.17, Table 2 (Derived properties), row DES J0345-6026 (Ret III), col MV","yes (paper that gives the modulus; locator names no table, found in Table 2)"
+aeg-d-dwarfs/v3/m000053,"m_V,0 (rebuilt = M_V + (m-M))",16.51,mag,derived,-3.3 + 19.81,n/a
+aeg-d-dwarfs/v3/m000053,[Fe/H],-2.81 +/- 0.29,dex,files/1805.07350v4.pdf (Fritz 2019),"p.12, Table 3, row Reticulum III, col <[Fe/H]>",yes
+aeg-d-dwarfs/v3/m000053,HI mass (Putman),"l_MHI='<', MHI=1.0E+03, Dist=92",Msun; kpc,files/apjabe391t1_mrt.txt,"Table 1, row 'Reticulum III' (file line 120), cols l_MHI, MHI, Dist",yes
+aeg-d-dwarfs/v3/m000053,Upsilon_V,"1.931 (end value at [Fe/H]=-2.29, MW-NGC5053; beyond_source_range)",Msun/Lsun,files/J_ApJS_161_304_clusters.vot,"clusters table, MW rows (148 rows, 100 distinct [Fe/H], all logAge 10.11), col (M/L)1",yes
+aeg-d-dwarfs/v3/m000014,sigma,2.9 (+2.2/-1.9),km s^-1,files/1302.6590v1.pdf (Collins 2013),"p.27, Table 4, row And XVII, col sigma_v; same value p.33, Table 5",yes
+aeg-d-dwarfs/v3/m000014,r_h (semi-major),1.4 +/- 0.3,arcmin,files/1610.01158v1.pdf (Martin 2016),"p.9, Table 1, row And XVII, col rh (arcmin)",yes
+aeg-d-dwarfs/v3/m000014,ellipticity,0.50 +/- 0.10,dimensionless,files/1610.01158v1.pdf,"p.9, Table 1, row And XVII, col epsilon",yes
+aeg-d-dwarfs/v3/m000014,distance modulus mu,24.40 +/- 0.07,mag,files/2206.02801v2.pdf (Savino 2022),"p.15, Table 5, row And XVII, col mu (D printed 758.6 +25/-24 kpc)",yes
+aeg-d-dwarfs/v3/m000014,"m_V,0",16.6 +/- 0.3,mag,files/1610.01158v1.pdf,"p.9, Table 2, row And XVII, col mV,0",yes
+aeg-d-dwarfs/v3/m000014,[Fe/H],"-1.7 +/- 0.2 (Table 4); -1.7+/-0.3 (Table 5, [Fe/H]spec)",dex,files/1302.6590v1.pdf,"p.27, Table 4, row And XVII, col [Fe/H]spec; p.33, Table 5",yes
+aeg-d-dwarfs/v3/m000014,HI mass (Putman),"l_MHI='<', MHI=4.2E+04, Dist=728",Msun; kpc,files/apjabe391t1_mrt.txt,"Table 1, row 'Andromeda XVII' (file line 157), cols l_MHI, MHI, Dist",yes
+aeg-d-dwarfs/v3/m000014,Upsilon_V,"1.867 (table node [Fe/H]=-1.70, MW-IC1257; also -1.76/-1.75 give 1.867)",Msun/Lsun,files/J_ApJS_161_304_clusters.vot,"clusters table, MW rows, col (M/L)1",yes

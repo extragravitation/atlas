@@ -1,0 +1,29 @@
+measurement_id,input,value,unit,file,place,at_locator
+aeg-d-sparc/v3/m000669,R,9.11,kpc,MassModels_Lelli2016c.mrt,"data row 669 (file line 694), column R",yes (row; locator names the row but no column for this input)
+aeg-d-sparc/v3/m000669,Vobs,174.00,km/s,MassModels_Lelli2016c.mrt,"data row 669 (file line 694), column Vobs",yes
+aeg-d-sparc/v3/m000669,e_Vobs,4.84,km/s,MassModels_Lelli2016c.mrt,"data row 669 (file line 694), column e_Vobs",yes
+aeg-d-sparc/v3/m000669,Vgas,9.64,km/s,MassModels_Lelli2016c.mrt,"data row 669 (file line 694), column Vgas",yes
+aeg-d-sparc/v3/m000669,Vdisk,169.05,km/s,MassModels_Lelli2016c.mrt,"data row 669 (file line 694), column Vdisk",yes
+aeg-d-sparc/v3/m000669,Vbul,0.00,km/s,MassModels_Lelli2016c.mrt,"data row 669 (file line 694), column Vbul",yes
+aeg-d-sparc/v3/m000669,SBdisk,67.81,solLum/pc2,MassModels_Lelli2016c.mrt,"data row 669 (file line 694), column SBdisk",yes
+aeg-d-sparc/v3/m000669,SBbul,0.00,solLum/pc2,MassModels_Lelli2016c.mrt,"data row 669 (file line 694), column SBbul",yes
+aeg-d-sparc/v3/m000669,D (MassModels),37.0,Mpc,MassModels_Lelli2016c.mrt,"data row 669 (file line 694), column D",yes (row; locator names the row but no column for this input)
+aeg-d-sparc/v3/m000669,D (Table 1),37.00,Mpc,SPARC_Lelli2016c.mrt,"data row 42 (file line 140), galaxy NGC1090, column D",yes
+aeg-d-sparc/v3/m000669,e_D (Table 1),9.25,Mpc,SPARC_Lelli2016c.mrt,"data row 42 (file line 140), galaxy NGC1090, column e_D",yes
+aeg-d-sparc/v3/m000669,f_D (Table 1),1,---,SPARC_Lelli2016c.mrt,"data row 42 (file line 140), galaxy NGC1090, column f_D",yes
+aeg-d-sparc/v3/m000669,Inc (Table 1),64.0,deg,SPARC_Lelli2016c.mrt,"data row 42 (file line 140), galaxy NGC1090, column Inc",yes (row 42/86 as located; Inc/e_Inc not named in locator columns)
+aeg-d-sparc/v3/m000669,e_Inc (Table 1),3.0,deg,SPARC_Lelli2016c.mrt,"data row 42 (file line 140), galaxy NGC1090, column e_Inc",yes (row 42/86 as located; Inc/e_Inc not named in locator columns)
+aeg-d-sparc/v3/m001593,R,22.52,kpc,MassModels_Lelli2016c.mrt,"data row 1593 (file line 1618), column R",yes (row; locator names the row but no column for this input)
+aeg-d-sparc/v3/m001593,Vobs,294.00,km/s,MassModels_Lelli2016c.mrt,"data row 1593 (file line 1618), column Vobs",yes
+aeg-d-sparc/v3/m001593,e_Vobs,4.19,km/s,MassModels_Lelli2016c.mrt,"data row 1593 (file line 1618), column e_Vobs",yes
+aeg-d-sparc/v3/m001593,Vgas,40.50,km/s,MassModels_Lelli2016c.mrt,"data row 1593 (file line 1618), column Vgas",yes
+aeg-d-sparc/v3/m001593,Vdisk,204.38,km/s,MassModels_Lelli2016c.mrt,"data row 1593 (file line 1618), column Vdisk",yes
+aeg-d-sparc/v3/m001593,Vbul,44.09,km/s,MassModels_Lelli2016c.mrt,"data row 1593 (file line 1618), column Vbul",yes
+aeg-d-sparc/v3/m001593,SBdisk,25.48,solLum/pc2,MassModels_Lelli2016c.mrt,"data row 1593 (file line 1618), column SBdisk",yes
+aeg-d-sparc/v3/m001593,SBbul,0.00,solLum/pc2,MassModels_Lelli2016c.mrt,"data row 1593 (file line 1618), column SBbul",yes
+aeg-d-sparc/v3/m001593,D (MassModels),39.7,Mpc,MassModels_Lelli2016c.mrt,"data row 1593 (file line 1618), column D",yes (row; locator names the row but no column for this input)
+aeg-d-sparc/v3/m001593,D (Table 1),39.70,Mpc,SPARC_Lelli2016c.mrt,"data row 86 (file line 184), galaxy NGC5985, column D",yes
+aeg-d-sparc/v3/m001593,e_D (Table 1),9.90,Mpc,SPARC_Lelli2016c.mrt,"data row 86 (file line 184), galaxy NGC5985, column e_D",yes
+aeg-d-sparc/v3/m001593,f_D (Table 1),1,---,SPARC_Lelli2016c.mrt,"data row 86 (file line 184), galaxy NGC5985, column f_D",yes
+aeg-d-sparc/v3/m001593,Inc (Table 1),60.0,deg,SPARC_Lelli2016c.mrt,"data row 86 (file line 184), galaxy NGC5985, column Inc",yes (row 42/86 as located; Inc/e_Inc not named in locator columns)
+aeg-d-sparc/v3/m001593,e_Inc (Table 1),2.0,deg,SPARC_Lelli2016c.mrt,"data row 86 (file line 184), galaxy NGC5985, column e_Inc",yes (row 42/86 as located; Inc/e_Inc not named in locator columns)

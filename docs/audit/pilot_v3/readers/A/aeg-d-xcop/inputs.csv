@@ -1,0 +1,23 @@
+measurement_id,input,value,unit,file,place,at_locator
+aeg-d-xcop/v3/m000001,RADIUS,64.18796,kpc,data_E22.tar.gz:A644/gbar_gobs_A644.fits,"HDU 1 (BinTable), row 1 (1-based), column RADIUS (TTYPE/TUNIT in HDU 1 header)",yes
+aeg-d-xcop/v3/m000001,GOBS,2.2402964e-10,m/s^2,data_E22.tar.gz:A644/gbar_gobs_A644.fits,"HDU 1 (BinTable), row 1 (1-based), column GOBS (TTYPE/TUNIT in HDU 1 header)",yes
+aeg-d-xcop/v3/m000001,GOBS_ERR_LO,4.0164424e-11,m/s^2,data_E22.tar.gz:A644/gbar_gobs_A644.fits,"HDU 1 (BinTable), row 1 (1-based), column GOBS_ERR_LO (TTYPE/TUNIT in HDU 1 header)",yes
+aeg-d-xcop/v3/m000001,GOBS_ERR_HI,4.111222e-11,m/s^2,data_E22.tar.gz:A644/gbar_gobs_A644.fits,"HDU 1 (BinTable), row 1 (1-based), column GOBS_ERR_HI (TTYPE/TUNIT in HDU 1 header)",yes
+aeg-d-xcop/v3/m000001,GBAR,5.0754078e-11,m/s^2,data_E22.tar.gz:A644/gbar_gobs_A644.fits,"HDU 1 (BinTable), row 1 (1-based), column GBAR (TTYPE/TUNIT in HDU 1 header)",yes
+aeg-d-xcop/v3/m000001,GBAR_ERR,4.0907286e-12,m/s^2,data_E22.tar.gz:A644/gbar_gobs_A644.fits,"HDU 1 (BinTable), row 1 (1-based), column GBAR_ERR (TTYPE/TUNIT in HDU 1 header)",yes
+aeg-d-xcop/v3/m000078,RADIUS,1408.9169,kpc,data_E22.tar.gz:A2142/gbar_gobs_A2142.fits,"HDU 1 (BinTable), row 16 (1-based), column RADIUS (TTYPE/TUNIT in HDU 1 header)",yes
+aeg-d-xcop/v3/m000078,GOBS,6.49069e-11,m/s^2,data_E22.tar.gz:A2142/gbar_gobs_A2142.fits,"HDU 1 (BinTable), row 16 (1-based), column GOBS (TTYPE/TUNIT in HDU 1 header)",yes
+aeg-d-xcop/v3/m000078,GOBS_ERR_LO,5.58112e-12,m/s^2,data_E22.tar.gz:A2142/gbar_gobs_A2142.fits,"HDU 1 (BinTable), row 16 (1-based), column GOBS_ERR_LO (TTYPE/TUNIT in HDU 1 header)",yes
+aeg-d-xcop/v3/m000078,GOBS_ERR_HI,6.5398975e-12,m/s^2,data_E22.tar.gz:A2142/gbar_gobs_A2142.fits,"HDU 1 (BinTable), row 16 (1-based), column GOBS_ERR_HI (TTYPE/TUNIT in HDU 1 header)",yes
+aeg-d-xcop/v3/m000078,GBAR,9.869631e-12,m/s^2,data_E22.tar.gz:A2142/gbar_gobs_A2142.fits,"HDU 1 (BinTable), row 16 (1-based), column GBAR (TTYPE/TUNIT in HDU 1 header)",yes
+aeg-d-xcop/v3/m000078,GBAR_ERR,1.305801e-13,m/s^2,data_E22.tar.gz:A2142/gbar_gobs_A2142.fits,"HDU 1 (BinTable), row 16 (1-based), column GBAR_ERR (TTYPE/TUNIT in HDU 1 header)",yes
+aeg-d-xcop/v3/m000001,g_obs definition,g_{\rm obs}(r) = \frac{GM_{\rm HSE}(<r)}{r^2},-,ep_2205.01110v1:hydromass.tex,line 453 (§5.5 RAR),yes
+aeg-d-xcop/v3/m000001,NP evaluated at data radii,'...we evaluate it at the radii of the observed data and present them in the form of data points',-,ep_2205.01110v1:hydromass.tex,"line 263, which lies in §3.5 Optimization (\subsection at l.256), not §3.4 (l.226)","partly: line yes, section no"
+aeg-d-xcop/v3/m000001,g_bar definition,"G(M_gas(<r)+M_star,BCG(<r)+M_star,sat(<r))/r^2",-,ep_2205.01110v1:hydromass.tex,line 456,yes
+aeg-d-xcop/v3/m000001,ICL excluded,"'Intracluster light, which is not included in our analysis'",-,ep_2205.01110v1:hydromass.tex,line 410 (§5.3),yes
+aeg-d-xcop/v3/m000001,BCG dynamical mass-to-light ratio,'We use this best fitting stellar mass-to-light ratio to derive the enclosed stellar mass of the BCG',-,ep_2205.01110v1:hydromass.tex,line 107 (§2.4.1); not on l.456 as the source_ref wording implies (no line locator given),no (no locator; found l.107)
+aeg-d-xcop/v3/m000078,g_obs definition,g_{\rm obs}(r) = \frac{GM_{\rm HSE}(<r)}{r^2},-,ep_2205.01110v1:hydromass.tex,line 453 (§5.5 RAR),yes
+aeg-d-xcop/v3/m000078,NP evaluated at data radii,'...we evaluate it at the radii of the observed data and present them in the form of data points',-,ep_2205.01110v1:hydromass.tex,"line 263, which lies in §3.5 Optimization (\subsection at l.256), not §3.4 (l.226)","partly: line yes, section no"
+aeg-d-xcop/v3/m000078,g_bar definition,"G(M_gas(<r)+M_star,BCG(<r)+M_star,sat(<r))/r^2",-,ep_2205.01110v1:hydromass.tex,line 456,yes
+aeg-d-xcop/v3/m000078,ICL excluded,"'Intracluster light, which is not included in our analysis'",-,ep_2205.01110v1:hydromass.tex,line 410 (§5.3),yes
+aeg-d-xcop/v3/m000078,BCG dynamical mass-to-light ratio,'We use this best fitting stellar mass-to-light ratio to derive the enclosed stellar mass of the BCG',-,ep_2205.01110v1:hydromass.tex,line 107 (§2.4.1); not on l.456 as the source_ref wording implies (no line locator given),no (no locator; found l.107)

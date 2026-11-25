@@ -1,0 +1,3 @@
+measurement_id,g_obs,g_bar,notes
+aeg-d-gc-baumgardt/v3/m000066,4.4370e-10,1.0134e-09,NGC 6712; profile RV (only line-of-sight Type; 5 bins; coverage 0.9769); sigma=4.0284 km/s; King W0=5.10 gives log(r_t/r0)=1.050; R_h=2.6669 pc (Harris 6.9 kpc = MvdM Dist 6.9 kpc); r_half=3.5558 pc; L_V=8.7096e4 L_sun; Upsilon_V=2.111. Units m s^-2.
+aeg-d-gc-baumgardt/v3/m000020,1.7520e-09,1.4196e-09,"NGC 5139; profile RV chosen (RV first; coverage 0.9982, 23 bins); other line-of-sight candidate K18 has coverage 0.1975 (<0.80, not plottable); sigma=13.4806 km/s; King W0=6.20 gives log(r_t/r0)=1.306; R_h=7.5636 pc (10^0.887 x 5.2/5.3); r_half=10.0848 pc; L_V=1.10662e6 L_sun; Upsilon_V=1.872. Units m s^-2."

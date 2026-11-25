@@ -1,0 +1,3 @@
+measurement_id,g_obs,g_bar,notes
+aeg-d-sparc/v3/m000669,1.0770343992e-10,5.1161911747e-11,"NGC1090 R=9.11 kpc; g_bar_stars=5.083133e-11, g_bar_gas_cold=3.305865e-13; uncert (s4, not in g): dg_obs=2.8128e-11, point-scale dg_obs=5.9918e-12, dg_bar=1.2708e-11 m s^-2"
+aeg-d-sparc/v3/m001593,1.2438721077e-10,3.4374410403e-11,"NGC5985 R=22.52 kpc; g_bar_stars=3.201398e-11, g_bar_gas_cold=2.360430e-12; uncert (s4, not in g): dg_obs=3.1620e-11, point-scale dg_obs=3.5455e-12, dg_bar=8.0070e-12 m s^-2"

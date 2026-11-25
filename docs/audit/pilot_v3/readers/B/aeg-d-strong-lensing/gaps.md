@@ -1,0 +1,16 @@
+# Method gaps (reader B, aeg-d-strong-lensing, rows m000021 and m000101)
+
+1. **R10 cosmology not verifiable in the packet.** METHOD §3 places R10's H0=70, Ωm=0.274 in arXiv:1711.00072v2 §1, but that paper is not among the source files (only the two IOP ascii tables). I used the values stated in METHOD.md; not read at source.
+2. **Row-level locators are indirect.** The first input of each row points to "the observables rows named in observed_from and baryonic_from", which are not in the packet. I mapped the remaining listed inputs to method steps myself (e.g. which of the listed inputs is θ_E, which is M★).
+3. **Inputs listed but unused.** m000021 lists R_e (S29, ms_arxiv.tex line 1821) and MSalBC2, neither of which the "printed inside R_E" route uses for g_obs/g_bar. I assumed R_e is a profile-step check only (as sources.json S3 role hints) and MSalBC2 is the IMF-slider top only.
+4. **Choice of R5 vs R13 values for θ_E and z.** R13 (Grillo lens table) also prints zl=0.222, zs=0.609, θE=1.38 and a lensing mass Mtotlen; I followed the §3 table and used R5 (table4/table5). Not explicitly stated that R13's own copies are ignored.
+5. **Unit of MChaBC2.** Read as 10^10 M☉ from the VizieR unit row ("10+10solMass"); the method does not state the conversion.
+6. **Integer precision of MChaBC2.** VizieR prints MChaBC2 as an integer (9); the method does not say whether a higher-precision value (e.g. from the paper) should be used. Used 9×10^10 as printed.
+7. **Hot gas factor.** "M_gas,hot = 0.0012 × M★(<R_E)" applied with the central value 0.0012; range not used. Cold gas = 0. Interpreted gas terms as added in M☉ before multiplying by M☉ in kg.
+8. **Sérsic route details (m000101).** Assumed R_eff from Table 1 is used as printed (not circularised with q=0.91) and in the same angular units as θ_E (both arcsec); method says "R_e … of the source's light profile" without addressing circularisation or axis convention. Also assumed b_SIE equals θ_E for the R_E step (METHOD §3 table says so implicitly: "computed from θ_E (Table 2 b_SIE)").
+9. **b_n root-finding.** Method gives the defining equation P(2n,b_n)=½ but no numerical tolerance; solved with Brent's method (b_4 = 7.66925).
+10. **Unit conversion of H0.** c/H0 with H0 in km s⁻¹ Mpc⁻¹ converted using the stated pc; implied, not written.
+11. **θ_E in radians for M_E formula.** Implied by the 1″ constant; not stated explicitly that θ_E is converted before use in M_E = θ_E² c² D_s D_l /(4 G D_ls).
+12. **Spectroscopic-redshift rule.** Judged satisfied from source descriptions (zFG "directly from SDSS database", zBG measured per Bolton 2004; S4 role "SDSS spectroscopy"); the method does not say which printed field proves spectroscopic status.
+13. **"Printed z_l" for the z<0.30 cut.** Used zFG=0.2219 (R5) and z_L=0.1206 (R10); R13's rounded 0.222 would give the same outcome.
+14. **VizieR file hashes.** Whole-file sha256 of the three .tsv files differs from sources.json `sha256` (export stamps request time); the `content_sha256` from the '#RESOURCE=' line to end of file matches all three. Interpreting "content hash from '#RESOURCE='" as "from that line to EOF" was my inference. The tar.gz, ms_arxiv.tex and both IOP files match their stated hashes.

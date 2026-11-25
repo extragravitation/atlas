@@ -1,0 +1,21 @@
+measurement_id,input,value,unit,file,place,at_locator
+aeg-d-strong-lensing/v3/m000021,theta_E (bSIE),1.38,arcsec,files/J_ApJ_682_964_table5.tsv,"VizieR table5, row Name=J0946+1006 (recno 19, file line 65), column bSIE",yes
+aeg-d-strong-lensing/v3/m000021,z_l (zFG),0.2219,,files/J_ApJ_682_964_table4.tsv,"VizieR table4, row Name=J0946+1006 (recno 33, file line 91), column zFG",yes
+aeg-d-strong-lensing/v3/m000021,z_s (zBG),0.6085,,files/J_ApJ_682_964_table4.tsv,"VizieR table4, row Name=J0946+1006 (recno 33, file line 91), column zBG",yes
+aeg-d-strong-lensing/v3/m000021,M*(<R_E) Chabrier BC03 (MChaBC2),9,10+10 solMass,files/J_A+A_501_461_lens.tsv,"VizieR lens table, row SLACS=J0946+1006 (recno 18, file line 99), column MChaBC2",yes
+aeg-d-strong-lensing/v3/m000021,E_MChaBC2 (upper error),1,10+10 solMass,files/J_A+A_501_461_lens.tsv,"same row, column E_MChaBC2",yes
+aeg-d-strong-lensing/v3/m000021,e_MChaBC2 (lower error),2,10+10 solMass,files/J_A+A_501_461_lens.tsv,"same row, column e_MChaBC2",yes
+aeg-d-strong-lensing/v3/m000021,MSalBC2 (Salpeter slider top; not used in default),15,10+10 solMass,files/J_A+A_501_461_lens.tsv,"same row, column MSalBC2",yes
+aeg-d-strong-lensing/v3/m000021,E_MSalBC2,1,10+10 solMass,files/J_A+A_501_461_lens.tsv,"same row, column E_MSalBC2",yes
+aeg-d-strong-lensing/v3/m000021,e_MSalBC2,3,10+10 solMass,files/J_A+A_501_461_lens.tsv,"same row, column e_MSalBC2",yes
+aeg-d-strong-lensing/v3/m000021,R_e (not used by this route),2.35,arcsec,files/0805.1931v1.tar.gz -> ms_arxiv.tex,"Table 4 (label obstable), row 094656.68+100652.8, column R_e, line 1821",yes
+aeg-d-strong-lensing/v3/m000021,H0,70,km s^-1 Mpc^-1,files/0805.1931v1.tar.gz -> ms_arxiv.tex,"Sec.1 last paragraph, lines 186-191",yes
+aeg-d-strong-lensing/v3/m000021,Omega_M,0.3,,files/0805.1931v1.tar.gz -> ms_arxiv.tex,"Sec.1 last paragraph, lines 188-190 (Omega_Lambda=0.7, i.e. flat)",yes
+aeg-d-strong-lensing/v3/m000101,theta_E (b_SIE),1.62,arcsec,files/apjaa9794t2_ascii.txt,"Table 2, row SDSSJ0757+1956 (file line 14), column b_SIE",yes
+aeg-d-strong-lensing/v3/m000101,M_E log10(M_Ein/M_sun),11.24,log10 Msun,files/apjaa9794t2_ascii.txt,"Table 2, row SDSSJ0757+1956, column (7) log_10(M_Ein/M_sun)",yes
+aeg-d-strong-lensing/v3/m000101,M*total log10(M*Chab/M_sun),11.34,log10 Msun,files/apjaa9794t2_ascii.txt,"Table 2, row SDSSJ0757+1956, column (8) log10(M*^Chab/M_sun)",yes
+aeg-d-strong-lensing/v3/m000101,z_L,0.1206,,files/apjaa9794t1_ascii.txt,"Table 1, row SDSSJ0757+1956 (file line 28), column (3) z_L",yes
+aeg-d-strong-lensing/v3/m000101,z_S,0.8326,,files/apjaa9794t1_ascii.txt,"Table 1, row SDSSJ0757+1956, column (4) z_S",yes
+aeg-d-strong-lensing/v3/m000101,R_eff,3.67,arcsec,files/apjaa9794t1_ascii.txt,"Table 1, row SDSSJ0757+1956, column (8) R_eff",yes
+aeg-d-strong-lensing/v3/m000101,H0,70,km s^-1 Mpc^-1,METHOD.md,"Sec.3 routes table (R10 paper Sec.1 not in packet; unverified at source)",no
+aeg-d-strong-lensing/v3/m000101,Omega_m,0.274,,METHOD.md,"Sec.3 routes table (R10 paper Sec.1 not in packet; unverified at source)",no

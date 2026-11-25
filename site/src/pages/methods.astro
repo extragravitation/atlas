@@ -83,7 +83,8 @@ const toc = [['stance', 'Stance'], ['quantities', 'What is measured'], ['baselin
 
       <h2 id="conversion"><L t="Conversion steps and constants" p="How the numbers are worked out" /></h2>
       <Layer><Fragment slot="t">
-        <p class="small">This section was added after the independent audit found steps that the written methods did not state (audit findings M1–M7; <a href={`${REPO}/blob/main/docs/audit/AUDIT_RESULT.md`}>audit result</a>, D-107). It describes what the conversions do. It does not change any value. Each package's own method file is completed when the package is re-issued.</p>
+        <p class="small">This section was added after the independent audit found steps that the written methods did not state (audit findings M1–M7; <a href={`${REPO}/blob/main/docs/audit/AUDIT_RESULT.md`}>audit result</a>, D-107). It summarises what the conversions do. It does not change any value.</p>
+        <p><b>Full method per dataset</b>, with every constant, input, place and rule; its arithmetic is checked against every published row: {atlas.datasets.map((d, i) => <>{i > 0 && ' · '}<a href={`${base}methods/${d.name}/`}>{datasetLabel(d.name).t}</a></>)}.</p>
         <h3>Constants and units (all datasets)</h3>
         <ul>
           <li><b>G</b> = 6.67430 × 10⁻¹¹ m³ kg⁻¹ s⁻² (CODATA 2018; the same value as CODATA 2022).</li>
@@ -126,7 +127,7 @@ const toc = [['stance', 'Stance'], ['quantities', 'What is measured'], ['baselin
           <li><b>Distances.</b> Flat ΛCDM in each source's own cosmology, with radiation neglected: D_A from the comoving distance, and D_ls = (D_C(z_s) − D_C(z_l)) / (1 + z_s).</li>
           <li><b>Einstein mass.</b> M_E = θ_E² c² D_s D_l / (4 G D_ls), with R_E = θ_E D_l. Where the source prints M_E, the printed value is used.</li>
           <li><b>Stellar mass.</b> M★(&lt;R_E) is the total stellar mass times the projected light fraction inside R_E, for the source's light profile (de Vaucouleurs, n = 4).</li>
-          <li><b>Gas.</b> Cold gas inside R_E is the registered term of 0.12 % of M★(&lt;R_E), with a range of 0.015–2.5 % (D-076).</li>
+          <li><b>Gas.</b> The registered term (D-076): hot gas inside R_E is 0.12 % of M★(&lt;R_E), with a range of 0.015–2.5 %; cold gas is 0, with a range of 0–2 %. (Corrected 2026-11-24: this line first called the 0.12 % term cold gas. The values were always as stated here.)</li>
           <li><b>Accelerations.</b> g = G M / R_E² on both sides.</li>
           <li><b>ESO 325-G004 (SNL-0).</b> The CMB-frame redshift (0.0347) is used. The registered gas term applies there too.</li>
         </ul>
@@ -134,6 +135,7 @@ const toc = [['stance', 'Stance'], ['quantities', 'What is measured'], ['baselin
         <p>The current version follows the source's released accelerations (above). The superseded v1 conversion is described in <a href={`${REPO}/blob/main/data/packages/aeg-d-xcop/v1/SOURCE.md`}>its SOURCE.md</a>. Its row locators count rows from 1.</p>
       </Fragment><Fragment slot="p">
         <p>Every number uses the same physical constants: the standard values of the strength of gravity, the mass of the Sun, the length of a parsec and the speed of light. For each kind of system, this section spells out every step from the published numbers to the two pulls, so that anyone can redo them. It was added after an outside-style audit showed that some steps had not been written down.</p>
+        <p>Each kind of system has its own page with the full method: {atlas.datasets.map((d, i) => <>{i > 0 && ' · '}<a href={`${base}methods/${d.name}/`}>{datasetLabel(d.name).p || datasetLabel(d.name).t}</a></>)}.</p>
       </Fragment></Layer>
 
       <h2 id="assumptions"><L t="Assumptions and sliders" p="Assumptions you can change" /></h2>
