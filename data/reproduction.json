@@ -1139,7 +1139,7 @@
           "name": "T4: every value located",
           "plain": "Every number points to its place",
           "outcome": "pass",
-          "detail": "3 rules resolve all 327 source_ref values; line citations to Eckert et al. 2022 checked at source; no corrections; 2 corrections added 2026-11-25 after the run (D-119, #234): wrong section and line for two E22 citations, and an unstated 'non-parametric' claim. T1 to T6 re-run and passed"
+          "detail": "3 rules resolve all 327 source_ref values. At the run there were no corrections, and the line citations to Eckert et al. 2022 were recorded as checked at source; that check missed two errors. On 2026-11-25 two corrections were added (D-119, #234): l. 263 is in §3.5, not §3.4, and the source does not state that the released g_obs is its nonparametric reconstruction; the dynamical mass-to-light ratio is at l. 101–112, not l. 456. T1 to T6 re-run and passed"
         },
         {
           "name": "T5: archive members hashed",
