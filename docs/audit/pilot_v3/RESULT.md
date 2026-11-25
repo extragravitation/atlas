@@ -67,7 +67,7 @@ All eight readers reproduced every value; no discrepancy:
 | SPARC: which distance; which columns are δi and δD; `g_bar_gas` vs `g_bar_gas_cold`; unused inputs `SBdisk`, `SBbul`, `f_D` (A, B) | Stated |
 | SPARC: the quote "as suggested by SPS models" does not support Υ_disk = 0.5 in the cited paper (B) | Checked: the cited paper says "as suggested by stellar population models" (l. 29) and gives Υ_bul = 1.4 Υ_disk (l. 261). The quote came from a second paper. Corrected to cite those lines |
 | SPARC: the uncertainty formula cites a paper not in the packet (A, B) | Stated as cited, not supplied. It does not enter g |
-| KiDS: comment marker; identifier-to-row mapping (A, B) | Stated: lines beginning `#`; the identifiers in three blocks of 15. A first draft gave the wrong block order; the test caught it before commit |
+| KiDS: comment marker; identifier-to-row mapping (A, B) | Stated: lines beginning `#`; the identifiers in three blocks of 15. A first draft gave the wrong block order. A check against the table caught it before commit, and a test now covers it |
 | KiDS: README constants differ; h₇₀ scaling; the header calls g_bar "Radius" (A, B) | Stated |
 | KiDS: the isolation limit also appears as g_bar < 10⁻¹³ m s⁻² (l. 595), which would also drop row 9 (B) | Checked at source. Stated: the Atlas follows the paper's count of seven points (l. 508), by row number. Known issue #169 covers the paper's inconsistent limit |
 | Globular clusters: how to read `veldis.html` (where a cluster's rows end, spacer rows); how to read `mwgc.dat` (fixed width, blank names); the Harris lookup was given as code (A, B) | Stated as rules |
