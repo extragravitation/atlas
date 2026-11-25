@@ -82,8 +82,8 @@ Each input is read from the paper and place in the per-system table (§7). The l
 ## 4. Special cases (named in the per-system table)
 
 - **Tucana:**
-  - Saviane 1996 prints R_e = 205 pc, circularised, at its own modulus 24.69.
-  - It is turned into an angle at that modulus: R_h [arcmin] = 205 / (D(24.69) [pc]) × (180/π) × 60.
+  - Saviane 1996 prints the radius R_e in pc, circularised, at its own TRGB modulus.
+  - It is turned into an angle at that modulus: R_h [arcmin] = R_e / D(μ_Saviane) [pc] × (180/π) × 60.
   - It is then used at the package distance, from Bernard 2009 (D-053).
 - **Boötes III:** the radius and ellipticity are those of the standard one-component Plummer fit of Moskowitz 2020, Table 3 (D-061 item 1).
 

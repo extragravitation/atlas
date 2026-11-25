@@ -75,7 +75,7 @@ Then the aliases listed in that function apply: 2MSGC01 / 2MS1 → 2MASSGC01, 2M
 
 ## 5. The two v2 changes (D-096, D-097)
 
-- **NGC 6715 (M54):** the `RV` bins with `<r>` greater than 200″ are dropped before steps 3 to 5. These are the bins at 269.01″, 410.12″ and 679.1″, so 13 of its 16 bins are kept. Baumgardt 2017 states: "We have therefore neglected all data points beyond 200'' in the dynamical analysis of this cluster" (arXiv 1609.08794v1, l. 588–589).
+- **NGC 6715 (M54):** the `RV` bins with `<r>` greater than 200″ are dropped before steps 3 to 5. Baumgardt 2017 states: "We have therefore neglected all data points beyond 200'' in the dynamical analysis of this cluster" (arXiv 1609.08794v1, l. 588–589).
 - **NGC 2298 and Pal 5:** computed as above, but recorded and not plotted. Their rows have `role = alternative` and `not_plotted_reason = other`, because their sources describe them as possibly out of equilibrium (`data/registry/excluded.csv`). The rows keep their g_obs and g_bar.
 
 ## 6. Clusters with no McLaughlin & van der Marel fit (alternative and recorded rows only)

@@ -2626,6 +2626,23 @@ The frozen KiDS v2 test (item 11) makes any such finding a fail of that item. Th
 
 **Data seen.** The source_ref text and the column names of `gas_values.csv`. No value was looked at.
 
+## D-118 — A pilot of the audit readings before the methods text is merged
+
+**Ruling (2026-11-25 05:53, UTC−06:00, JvH).** JvH asked "What would a good scientist do?". Claude made the call: run a small blind pilot before merging the methods text (#231). It is logged here as the project instructions require.
+
+**Why.** The methods test (`test_methods_text.py`) checks arithmetic and selection rules, but it was written by the author of the text, who knows the code. Only a reader who does not know the code can find steps the text leaves out, and those are exactly what the audit counts as method gaps. Piloting a preregistered procedure before the test proper is standard practice. It costs no rigour here, because the audit sample does not exist until 24 h after the text is merged.
+
+**Rules.**
+1. **The protocol:** `docs/audit/pilot_v3/PILOT.md`, committed before any pilot packet was opened. The packet builder, `docs/audit/build_packets_v3.py`, is committed with it.
+2. **Rows:** 12, two per package, drawn with the public hash of main commit c0cf4c4 as seed and the prefix `aeg-pilot-v3`.
+3. **Readers:** two fresh agents per package, with the audit packet and brief, plus an instruction to list every step they had to infer.
+4. **Gaps:** every reported gap is fixed in the text before #231 merges, and listed in `docs/audit/pilot_v3/RESULT.md`. Discrepancies in values are investigated as exploratory.
+5. **Overlap:** pilot rows that the audit later draws are kept and disclosed.
+
+**Found while setting up the pilot.**
+- **Unreachable hosts:** the workspace cannot reach the SPARC, KiDS, Baumgardt, Harris or IDIA VizieR hosts, nor the NIST beacon.
+- **VizieR mirrors:** the other VizieR mirrors serve the same catalogue with different content bytes, so they cannot stand in for the recorded IDIA exports.
+- **Values in the methods text:** two places held values of individual rows, the M54 bin radii and Tucana's printed radius and modulus. They were removed, so the text carries rules only (plan v3 §2.5).
 ## D-119 — X-COP v3: locator corrections for two E22 citations
 
 **Ruling (2026-11-25, UTC−06:00, JvH).** "Correct the locators (Recommended)", in answer to the question put in the session. **Found by** both readers of the methods pilot (D-118), and checked by Claude in `hydromass.tex`. Issue #234.
