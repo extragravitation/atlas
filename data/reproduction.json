@@ -1177,7 +1177,7 @@
       "scope": "Establishes that v3 changes no value or code from v2 and that its source records meet data standard 3.0.0. It makes no new reading; v2's tests and second reading stand.",
       "scope_plain": "Nothing changed in the numbers; what is new is the record of where each one comes from.",
       "matched": "T1 to T7 passed",
-      "matched_plain": "All checks passed"
+      "matched_plain": "The re-issue checks passed. The earlier test of these clusters stands as reported for v2: some of its part A checks failed, and part B passed."
     }
   ]
 }

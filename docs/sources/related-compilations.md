@@ -219,6 +219,14 @@ These were left out to keep the list short. Any could replace a selected item.
 
 ---
 
+## Added 2026-11-26 (audit v3 Part B, finding B7; D-122)
+
+Both reviews then listed were organised around one account. Two reviews organised around the other main account were read at source and added, so each account has one review of observations and one of challenges.
+- Salucci 2019, The Astronomy and Astrophysics Review 27, 2 (60 pp.). arXiv 1811.08843. "The distribution of dark matter in galaxies". Read: the arXiv PDF title page and the NED Level 5 contents page, which gives the journal reference. Scope: the distribution of the non-luminous matter in galaxies of different luminosity and Hubble type. Data: not stated.
+- Bullock & Boylan-Kolchin 2017, Annual Review of Astronomy and Astrophysics 55, 343–387. arXiv 1707.04256. "Small-Scale Challenges to the ΛCDM Paradigm". Read: the arXiv abstract page and the NED Level 5 reprint, which gives the journal reference. Scope: challenges on scales below about 1 Mpc and masses below about 10¹¹ M☉. Data: not stated.
+
+---
+
 ## Unverified candidates and gaps
 
 - Landing pages of the databases: http://astroweb.cwru.edu/SPARC/, https://people.smp.uq.edu.au/HolgerBaumgardt/globular/, https://github.com/apace7/local_volume_database (HTTP 403) and https://www.astro.unige.ch/xcop. All were unreachable from this environment: curl returned 000 or 403, and WebFetch reported them as not allowlisted. Their licences, formats and current versions are therefore unverified. These must be checked before the Atlas links or cites them as data sources.
