@@ -1,0 +1,11 @@
+measurement_id,g_obs,g_bar,notes
+aeg-d-xcop/v3/m000102,7.93742364e-11,1.14501048e-11,"A2319 row 20; g_obs=GOBS, g_bar=GBAR as stored (float32, shown to 9 sig. fig.); r=1103.70483 kpc; no conversion (METHOD §3 step 1)"
+aeg-d-xcop/v3/m000062,2.11968117e-11,4.72604334e-12,"A2029 row 22; g_obs=GOBS, g_bar=GBAR as stored (float32, shown to 9 sig. fig.); r=2668.78564 kpc; no conversion (METHOD §3 step 1)"
+aeg-d-xcop/v3/m000016,6.66804598e-11,7.2573449e-12,"A644 row 16; g_obs=GOBS, g_bar=GBAR as stored (float32, shown to 9 sig. fig.); r=1127.61841 kpc; no conversion (METHOD §3 step 1)"
+aeg-d-xcop/v3/m000105,5.66095226e-11,1.00628264e-11,"A2319 row 23; g_obs=GOBS, g_bar=GBAR as stored (float32, shown to 9 sig. fig.); r=1373.17896 kpc; no conversion (METHOD §3 step 1)"
+aeg-d-xcop/v3/m000038,2.9024904e-11,4.65916238e-12,"A1795 row 19; g_obs=GOBS, g_bar=GBAR as stored (float32, shown to 9 sig. fig.); r=1590.62 kpc; no conversion (METHOD §3 step 1)"
+aeg-d-xcop/v3/m000033,6.41796824e-11,8.44147582e-12,"A1795 row 14; g_obs=GOBS, g_bar=GBAR as stored (float32, shown to 9 sig. fig.); r=856.487732 kpc; no conversion (METHOD §3 step 1)"
+aeg-d-xcop/v3/m000001,2.24029642e-10,5.0754078e-11,"A644 row 1; g_obs=GOBS, g_bar=GBAR as stored (float32, shown to 9 sig. fig.); r=64.1879578 kpc; no conversion (METHOD §3 step 1)"
+aeg-d-xcop/v3/m000030,1.08676221e-10,1.21892522e-11,"A1795 row 11; g_obs=GOBS, g_bar=GBAR as stored (float32, shown to 9 sig. fig.); r=522.653503 kpc; no conversion (METHOD §3 step 1)"
+aeg-d-xcop/v3/m000079,5.77336998e-11,9.19142019e-12,"A2142 row 17; g_obs=GOBS, g_bar=GBAR as stored (float32, shown to 9 sig. fig.); r=1527.49902 kpc; no conversion (METHOD §3 step 1)"
+aeg-d-xcop/v3/m000081,3.54129434e-11,6.40218347e-12,"A2142 row 19; g_obs=GOBS, g_bar=GBAR as stored (float32, shown to 9 sig. fig.); r=2221.81665 kpc; no conversion (METHOD §3 step 1)"

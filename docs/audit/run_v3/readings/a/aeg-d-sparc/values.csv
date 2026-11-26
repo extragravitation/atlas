@@ -1,0 +1,171 @@
+measurement_id,g_obs,g_bar,notes
+aeg-d-sparc/v3/m000194,3.0500491401e-11,3.7247824424e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001043,3.8333327495e-11,1.0074554651e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001697,1.9826278922e-11,2.7051578549e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001920,2.8723988392e-11,2.5756876888e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000852,5.2021787655e-11,8.6302471437e-12,ok
+aeg-d-sparc/v3/m000622,1.0597573331e-10,5.9770377455e-11,ok
+aeg-d-sparc/v3/m002736,6.0476769908e-11,8.5931263991e-12,ok
+aeg-d-sparc/v3/m002978,3.9613040455e-11,6.7101237885e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m002963,2.8644982105e-11,4.3055881133e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m002044,2.2757701698e-10,2.0034297263e-10,ok
+aeg-d-sparc/v3/m002464,2.9453308410e-11,7.3131314303e-12,ok
+aeg-d-sparc/v3/m003241,1.0057178533e-09,7.1062229605e-10,ok
+aeg-d-sparc/v3/m001047,2.5208107087e-11,5.9697892372e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001623,6.2656874229e-11,2.3438908685e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001232,1.4740506278e-10,1.0623932486e-10,ok
+aeg-d-sparc/v3/m002517,8.8291166917e-12,2.4376878014e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m002495,1.0604221234e-10,1.6172491417e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m002876,3.2236433483e-11,6.0138106619e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000390,1.1454681707e-11,3.2710758619e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000784,4.1212181776e-11,8.8030289662e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m003108,2.3662253291e-10,1.4346000016e-10,ok
+aeg-d-sparc/v3/m002800,2.4677603031e-11,1.1545893643e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000876,1.5154018990e-10,8.4804682627e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000362,2.1713413570e-11,4.6667647301e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m002300,3.8606206464e-11,1.3244771255e-11,ok
+aeg-d-sparc/v3/m000034,1.6008151455e-11,1.7162609357e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m002411,8.0716919854e-10,7.3503533512e-10,ok
+aeg-d-sparc/v3/m002440,2.9760090968e-10,2.1963950473e-10,ok
+aeg-d-sparc/v3/m003338,1.9939595941e-11,4.2848133879e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m002955,4.7952019186e-11,8.7004423797e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000316,1.0870030185e-10,1.6384649771e-11,"no Vbul input listed; file Vbul = 0.00, used as 0; Vgas negative; sign kept per METHOD §3.3"
+aeg-d-sparc/v3/m003136,2.0814423034e-11,4.6915155845e-12,ok
+aeg-d-sparc/v3/m001782,3.6403100559e-10,3.9983243194e-10,Vgas negative; sign kept per METHOD §3.3
+aeg-d-sparc/v3/m000579,4.3138409289e-11,9.1605153316e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000934,2.3481793785e-10,2.3049079711e-10,ok
+aeg-d-sparc/v3/m001751,8.3542816279e-11,4.2479170139e-11,ok
+aeg-d-sparc/v3/m001503,2.1273880191e-11,5.7723770410e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m002773,5.3826736474e-10,1.2563205090e-09,ok
+aeg-d-sparc/v3/m002276,1.0204308175e-10,1.8371548982e-10,ok
+aeg-d-sparc/v3/m002098,8.2651585541e-10,7.6379024844e-10,Vgas negative; sign kept per METHOD §3.3
+aeg-d-sparc/v3/m001999,1.0684008279e-10,2.6850066527e-11,ok
+aeg-d-sparc/v3/m002368,2.4598083365e-11,7.6772014559e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000681,3.4290826341e-11,1.1820563254e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000810,7.6521016798e-10,5.0403190343e-10,Vgas negative; sign kept per METHOD §3.3
+aeg-d-sparc/v3/m000730,2.1463276137e-10,1.1807293514e-10,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m002738,2.0396794342e-11,1.4388825368e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000414,1.4110022632e-10,7.7978994452e-11,ok
+aeg-d-sparc/v3/m000843,8.8167142356e-11,1.9703733636e-11,ok
+aeg-d-sparc/v3/m001770,4.4001149955e-11,1.7033372653e-11,ok
+aeg-d-sparc/v3/m000928,5.1771659589e-10,5.2399557883e-10,ok
+aeg-d-sparc/v3/m000493,1.9205225140e-11,5.6682112250e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001511,1.8277471279e-10,1.1976849973e-10,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m002161,7.5600899264e-11,2.1693197289e-11,ok
+aeg-d-sparc/v3/m001342,3.9368433306e-11,1.2258269058e-11,ok
+aeg-d-sparc/v3/m001034,9.7847664779e-11,4.6351767709e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m002459,5.1900127150e-11,1.5099342702e-11,ok
+aeg-d-sparc/v3/m001787,1.8547533177e-10,1.4914401501e-10,ok
+aeg-d-sparc/v3/m002500,4.9054809757e-11,5.8208539262e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m002313,3.4426096780e-11,1.0138378756e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001062,8.2798774607e-10,6.6064341369e-10,"no Vbul input listed; file Vbul = 0.00, used as 0; Vgas negative; sign kept per METHOD §3.3"
+aeg-d-sparc/v3/m001578,2.6676176382e-10,7.1756442701e-11,Vgas negative; sign kept per METHOD §3.3
+aeg-d-sparc/v3/m001622,6.4643792457e-11,2.5562887343e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001608,2.0824779464e-10,7.6704642766e-11,"no Vbul input listed; file Vbul = 0.00, used as 0; Vgas negative; sign kept per METHOD §3.3"
+aeg-d-sparc/v3/m002941,1.8480298384e-11,4.8718635058e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001726,2.2164112271e-10,2.0286230323e-10,ok
+aeg-d-sparc/v3/m000975,7.9546400741e-10,9.7498039638e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m002831,4.1187793165e-11,1.3608511872e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001235,1.0846790076e-10,6.8946685499e-11,ok
+aeg-d-sparc/v3/m001252,4.0738808815e-11,1.2627234955e-11,ok
+aeg-d-sparc/v3/m001781,4.0009389026e-10,4.5647968532e-10,Vgas negative; sign kept per METHOD §3.3
+aeg-d-sparc/v3/m002553,9.2602130767e-11,2.2217842318e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001509,2.5677288640e-10,1.6657756261e-10,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m003360,1.3067632290e-11,1.7745859233e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001469,5.8672302839e-11,1.7282565364e-11,ok
+aeg-d-sparc/v3/m001207,2.1688888946e-10,8.3879359053e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001660,1.2388300036e-10,1.0086377920e-10,ok
+aeg-d-sparc/v3/m002054,1.6178024680e-10,1.0135990028e-10,ok
+aeg-d-sparc/v3/m001894,1.7796804284e-11,3.1095854919e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001506,1.0427710243e-09,6.4852251295e-10,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m003370,1.8836226724e-11,6.2248202481e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000575,5.1245614818e-11,1.3384813084e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001136,3.6656873133e-11,1.2268678970e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001818,1.4855833537e-10,9.4612779054e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001504,1.8978304404e-11,5.1610758211e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001146,1.7360046313e-10,7.8371056590e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001126,1.4441975443e-11,1.1716373190e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001129,1.2326813293e-11,8.6355379039e-13,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m002657,1.1283902919e-10,2.9992157428e-11,ok
+aeg-d-sparc/v3/m001028,1.0964531716e-10,5.2912300367e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000482,2.9059550631e-11,1.1675223815e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m002078,2.2849177512e-09,2.0984763130e-09,Vgas negative; sign kept per METHOD §3.3
+aeg-d-sparc/v3/m001223,7.4886144928e-11,2.6861182194e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000443,1.3905847076e-11,4.7653011073e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000417,1.2880042442e-10,6.6891929823e-11,ok
+aeg-d-sparc/v3/m001424,3.8805920309e-11,1.4285086303e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000954,5.1334567172e-11,3.3528956070e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000817,5.4458989058e-10,2.5663726235e-10,Vgas negative; sign kept per METHOD §3.3
+aeg-d-sparc/v3/m001417,5.3516096119e-11,2.7613590938e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m003386,1.7465936205e-11,3.7136233275e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000549,1.0463742564e-10,4.6099844933e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000835,2.2981529009e-10,8.4837444136e-11,ok
+aeg-d-sparc/v3/m001970,9.7227642867e-12,6.5812402592e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m002889,2.3234075462e-11,5.8323621056e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000486,2.7515159351e-11,9.4144244108e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m003094,4.3330679885e-10,3.5690842739e-10,ok
+aeg-d-sparc/v3/m003355,1.6343408668e-11,1.7251118693e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001916,2.0794700535e-11,3.0867335874e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m003210,1.9591033181e-11,4.5401283652e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000015,7.2444126057e-12,2.0940104745e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000146,3.8063478545e-11,3.3661329192e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000391,1.5482861093e-11,3.1389338064e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000753,1.1051068630e-10,6.1229727646e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000846,7.0224776113e-11,1.4582439958e-11,ok
+aeg-d-sparc/v3/m002528,1.1267623739e-11,1.1809605494e-12,"no Vbul input listed; file Vbul = 0.00, used as 0; Vgas negative; sign kept per METHOD §3.3"
+aeg-d-sparc/v3/m002634,3.2941263640e-10,1.7255435892e-10,ok
+aeg-d-sparc/v3/m001811,5.0556513928e-11,1.6391213285e-11,ok
+aeg-d-sparc/v3/m002413,7.3728947173e-10,6.7174812377e-10,ok
+aeg-d-sparc/v3/m003169,2.1655323326e-10,1.5903041522e-10,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m002422,5.2452865636e-10,4.7142628585e-10,ok
+aeg-d-sparc/v3/m001871,9.8353034022e-11,3.1112701292e-11,ok
+aeg-d-sparc/v3/m001275,2.1989790362e-11,9.9092994436e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001824,1.8228833182e-10,9.2055259033e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m002672,3.3521981943e-09,3.3722907566e-09,Vgas negative; sign kept per METHOD §3.3
+aeg-d-sparc/v3/m002160,7.9203351679e-11,2.3501144096e-11,ok
+aeg-d-sparc/v3/m003187,6.4971522868e-11,3.0370787464e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m002375,3.8568834840e-11,1.0811056303e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001088,2.4235205388e-10,1.6871780266e-10,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m002660,7.8511573110e-11,1.5383422656e-11,ok
+aeg-d-sparc/v3/m002949,8.2709251944e-11,1.0267864865e-11,"no Vbul input listed; file Vbul = 0.00, used as 0; Vgas negative; sign kept per METHOD §3.3"
+aeg-d-sparc/v3/m001490,1.1969165355e-10,8.8136766916e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m002902,1.4444765606e-11,4.9003472676e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001215,3.9554830923e-11,9.4655096659e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000116,7.6804254504e-11,2.8491562487e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m003055,6.9070684602e-11,9.9185684749e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m002131,4.6214833509e-10,2.8468075670e-10,Vgas negative; sign kept per METHOD §3.3
+aeg-d-sparc/v3/m003372,1.8335866251e-11,5.9629335827e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001713,2.6210882241e-11,3.9376429591e-12,ok
+aeg-d-sparc/v3/m003216,2.8695376789e-09,2.6476470751e-09,ok
+aeg-d-sparc/v3/m001474,3.1994642924e-11,8.0400458433e-12,ok
+aeg-d-sparc/v3/m000534,3.1952999518e-11,8.2797471339e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000939,1.9908838964e-10,1.2794269125e-10,ok
+aeg-d-sparc/v3/m001734,1.7827037178e-10,1.3007196240e-10,ok
+aeg-d-sparc/v3/m001005,2.4395315323e-11,2.7516535001e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001288,1.2310501512e-10,1.1685580722e-10,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m002945,1.5172680477e-11,5.1735419785e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000887,5.7768578740e-11,1.7673284006e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m003116,9.1325732585e-11,3.9865992278e-11,ok
+aeg-d-sparc/v3/m003237,1.1216030380e-09,7.8335281357e-10,ok
+aeg-d-sparc/v3/m000077,1.5610441641e-11,5.4567405678e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000775,5.6246745634e-11,1.4740712577e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001882,3.0147284524e-11,1.1280610848e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000990,9.3439663643e-12,1.8948415625e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001486,2.0877441317e-10,1.9809304192e-10,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000263,7.9745571374e-11,7.9271995287e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000863,5.5457835591e-10,6.0776260633e-10,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m002858,1.2339073402e-10,1.5821451907e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m002765,5.4415652923e-11,1.4120829278e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001838,1.1461451392e-10,6.8850273200e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m002987,2.5224797173e-11,3.2082513642e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m000387,1.3703409379e-11,3.2164861623e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m002351,8.5885215648e-12,8.3602763703e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001124,1.5134439282e-11,1.3640179795e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001297,2.0281722730e-10,8.5348498544e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m002277,1.0071830330e-10,1.7050818870e-10,ok
+aeg-d-sparc/v3/m002444,2.8137589595e-10,2.0263418112e-10,ok
+aeg-d-sparc/v3/m003391,1.8144529511e-11,2.5295067810e-12,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001558,6.1398015433e-11,2.1993687329e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001096,7.7522948099e-11,2.3097960376e-11,"no Vbul input listed; file Vbul = 0.00, used as 0"
+aeg-d-sparc/v3/m001406,9.2794636120e-11,8.4134557985e-11,"no Vbul input listed; file Vbul = 0.00, used as 0; Vgas negative; sign kept per METHOD §3.3"
+aeg-d-sparc/v3/m001449,3.4170954676e-10,2.6418743928e-10,ok
