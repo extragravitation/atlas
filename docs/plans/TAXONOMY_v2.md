@@ -31,7 +31,7 @@ From smallest to largest. The Solar System and wide binaries lie below the origi
 
 | # | Kind | Includes | Why included | Notes |
 |---|---|---|---|---|
-| A0 | Planetary system (reference) | the Solar System | Newtonian gravity on known masses, tested to high precision: the high-acceleration reference end | Shown as a limit on anomalous acceleration, not a point (D-028) |
+| A0 | Planetary system (reference) | the Solar System | Newtonian gravity on known masses, tested to high precision: the high-acceleration reference end | Shown as a limit on any acceleration beyond the Newtonian (ephemeris) prediction, not a point (D-028) |
 | A1 | Wide binary stars | pairs separated by about 10³–10⁵ AU | The smallest bound systems reaching low accelerations: G M☉ / (10⁴ AU)² ≈ 6 × 10⁻¹¹ m s⁻², comparable to the outer parts of galaxies; measured without galaxy modelling | Case study of each team's published results; no per-system g_obs (D-028) |
 | A2 | Open clusters | young and intermediate-age clusters in the disc | Small stellar systems of known age and counted stellar mass, without gas | |
 | A3 | Globular clusters | Milky Way and nearby-galaxy globular clusters | Old stellar systems without gas; accelerations from high in the core to low in the outskirts | D-024 |

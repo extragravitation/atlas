@@ -2689,6 +2689,32 @@ The values are unaffected. The package is merged but not released.
 **Alternatives rejected.** A new dwarfs v4 package: the change is to locators only, in a package not yet released, which is the same case as D-117 and D-119. Holding v0.3 until a new audit passes: it delays a release whose values all reproduced, and the failure is published either way.
 
 **Data seen.** The audit's readings and adjudication, the cited pages of Higgs 2021, Ji 2021, Vivas 2022, Slater 2015, Savino 2022, Casey 2025 and Cerny 2021, and the package values of the six systems.
+## D-122 — Audit v3 Part B: resolutions of the neutrality findings
+
+**Ruling (2026-11-26, UTC−06:00, JvH).** In answer to the three questions put in the session on `docs/audit/run_v3/partB/neutrality_v3.md`: "Keep, with a stated reason (Recommended)" for B3 (the site name) and for B13 (the D-097 dwarfs), and "Yes, as proposed (Recommended)" for B1, B2, B4 to B12 and the three factual errors.
+
+**Rules.**
+1. **B3, site name: no change.** The name names the subject the Atlas describes, as a field guide is named for what it covers. The About page says, in both layers, that the Atlas also shows where the pull ratio is 1 or below.
+2. **B13, D-097 dwarfs: no change.** Systems taken off the map on their sources' statements stay listed as "recorded, not plotted", with each source quoted, so nothing is hidden.
+3. **Site text (this PR and the next):**
+   - B2: "pull ratio" is the plain name for g_obs/g_bar; "extra pull" names the phenomenon only.
+   - B4: reading guidance for points below the line, in both layers; About says "differs from".
+   - B5: the mass view is a change of units; the symbol is M_g,obs = g_obs r²/G.
+   - B6: "Pull budget" and "Detected share" are removed.
+   - B7: two reviews organised around the other main account are added, read at source and recorded in `docs/sources/related-compilations.md`. The heading becomes "The g_obs–g_bar comparison for one kind of system".
+   - B8: the Tests template wording.
+   - B11: the Coverage wording, in `docs/plans/TAXONOMY_v2.md` (D-108), which only this sentence changes.
+   - B12: "a flat cosmology", replacing "Flat ΛCDM".
+   - The X-COP "non-parametric" claim on Methods and the system pages, and the X-COP v3 plain status line.
+4. **Package and registry text (separate PRs, each for "merge"):**
+   - B1: the KiDS "halo" wording.
+   - B9: the KiDS dataset title.
+   - The X-COP v3 GOBS column description.
+   - B10: a "kind not settled" label.
+   - The dwarf citation arXiv IDs.
+
+   Released versions are not overwritten.
+5. **Part B is re-counted** once all the PRs are merged. It passes only if no deciding finding is left unresolved.
 
 ## Release record — v0.2 (2026-11-06)
 

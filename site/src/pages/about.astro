@@ -27,7 +27,7 @@ const related = [
     ['Tian et al. 2024, A&A 684, A180', '2402.12016', 'the brightest cluster galaxies (dynamics) and their clusters (lensing) on one acceleration plot.'],
     ['McGaugh et al. 2026, ApJ (accepted)', '2603.06479', 'baryonic against dynamical mass from galaxies to clusters, from dynamics and lensing; a mass plot, not a radial acceleration plot.'],
   ]],
-  ['The relation taken to one new kind of system', [
+  ['The g_obs–g_bar comparison for one kind of system', [
     ['McGaugh, Lelli & Schombert 2016, PRL 117, 201101', '1609.05917', 'disc galaxies (SPARC): 2 693 points in 153 galaxies.'],
     ['Brouwer et al. 2021, A&A 650, A113', '2106.11677', 'weak lensing around isolated galaxies (KiDS-1000), two decades lower in acceleration.'],
     ['Mistele et al. 2024, JCAP 04, 020', '2310.15248', 'weak lensing joined to kinematics, to large radii.'],
@@ -47,6 +47,8 @@ const related = [
   ['Reviews', [
     ['Famaey & McGaugh 2012, Living Reviews in Relativity 15, 10', '1112.3960', 'observations at all scales, organised around one account of the discrepancy.'],
     ['Desmond 2025, Moriond proceedings', '2505.21638', 'successes and failures of one account across scales.'],
+    ['Salucci 2019, Astronomy and Astrophysics Review 27, 2', '1811.08843', 'the distribution of the non-luminous matter in galaxies of different luminosity and Hubble type, organised around another account.'],
+    ['Bullock & Boylan-Kolchin 2017, Annual Review of Astronomy and Astrophysics 55, 343', '1707.04256', 'challenges to that account below about 1 Mpc.'],
   ]],
 ];
 const toc = [['status', 'What this is'], ['charter', 'Charter'], ['related', 'Related compilations'], ['authorship', 'Authorship and AI assistance'], ['interests', 'Competing interests'], ['review', 'Review status'], ['privacy', 'Privacy and analytics'], ['cite', 'How to cite'], ['report', 'Report an error'], ['corrections', 'Corrections'], ['licences', 'Licences']];
@@ -56,7 +58,7 @@ const toc = [['status', 'What this is'], ['charter', 'Charter'], ['related', 'Re
     <main class="prose">
       <p class="kicker">About</p>
       <h1><L t="About the Atlas" p="About this Atlas" /></h1>
-      <Layer as="p" class="lede"><Fragment slot="t">An open atlas of the acceleration discrepancy: where and how the observed gravitational acceleration exceeds what Newtonian gravity predicts from detected baryonic matter, across every kind of system where the two can be compared. It is cause-agnostic and reference-explicit: it takes no side on the cause, and states its reference calculation openly. It describes the observations as carefully as possible, so that they can serve as the test any account of them must pass.</Fragment><Fragment slot="p">This Atlas maps where, and by how much, things are pulled harder than Newton’s gravity from the detected matter would pull them, in every kind of object where the two can be compared. It says openly what it compares with, and it takes no side on why they differ.</Fragment></Layer>
+      <Layer as="p" class="lede"><Fragment slot="t">An open atlas of the acceleration discrepancy: where and how the observed gravitational acceleration differs from what Newtonian gravity predicts from detected baryonic matter, across every kind of system where the two can be compared. It is cause-agnostic and reference-explicit: it takes no side on the cause, and states its reference calculation openly. It describes the observations as carefully as possible, so that they can serve as the test any account of them must pass.</Fragment><Fragment slot="p">This Atlas maps where, and by how much, things are pulled harder than Newton’s gravity from the detected matter would pull them, in every kind of object where the two can be compared. It says openly what it compares with, and it takes no side on why they differ.</Fragment></Layer>
 
       <h2 id="status"><L t="What this is: a preliminary pre-release" p="An early version" /></h2>
       <p><L t={`The site shows the Atlas as it now stands: ${nDs} (${dsNames}), each in its latest version, with earlier versions kept unchanged on their dataset pages. The last tagged release is ${relVersion} (${relDate}), preliminary and not peer reviewed (D-077); work since then is listed below as unreleased. The first public release, v1.0, will cover every kind of system in the taxonomy (D-028). Until then the site is not indexed by search engines, has not been reviewed outside the project, and may change without notice; released data will never be overwritten.`} p={`The site shows the Atlas as it is now: ${nDs} (${dsNamesP}). The last numbered version came out on ${relDate}; later changes are listed below. The full first release will cover every kind of object. Until then nobody outside the project has checked it, and it may change. Data we have released are never changed afterwards.`} /> <a href={`${base}coverage/`}>Coverage</a> · <a href={`${base}for-data-providers/`}><L t="For data providers" p="For data providers" /></a></p>

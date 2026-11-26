@@ -34,25 +34,25 @@ const nonPos = atlas.datasets.flatMap((d) => d.measurements.rows.filter((r) => !
 const labels = {
   x: ['log g_bar, baryonic acceleration (m s⁻²)', 'Pull from detected matter (log, m s⁻²)'],
   y: ['log g_obs, observed acceleration (m s⁻²)', 'Observed pull (log, m s⁻²)'],
-  yx: ['log (g_obs / g_bar), acceleration discrepancy', 'Extra pull (log of observed ÷ detected)'],
+  yx: ['log (g_obs / g_bar), acceleration discrepancy', 'Pull ratio (log of observed ÷ detected)'],
   xr: ['log radius (kpc)', 'Distance from the centre (log, kpc)'],
-  xs: ['log g_bar (m s⁻²)', 'Pull from detected matter (log)'], ys: ['log g_obs (m s⁻²)', 'Observed pull (log)'], yxs: ['log (g_obs / g_bar)', 'Extra pull (log)'],
+  xs: ['log g_bar (m s⁻²)', 'Pull from detected matter (log)'], ys: ['log g_obs (m s⁻²)', 'Observed pull (log)'], yxs: ['log (g_obs / g_bar)', 'Pull ratio (log)'],
   line: ['g_obs = g_bar · Newtonian gravity on detected matter', 'No extra pull: Newton’s gravity from the matter we detect'],
   zero: ['g_obs = g_bar', 'No extra pull'],
   aria_obs: ['Map of observed against baryonic acceleration for every packaged measurement, log axes, with the line g_obs = g_bar', 'Map of the observed pull against the pull from detected matter for every measurement'],
-  aria_ratio: ['Acceleration discrepancy against baryonic acceleration for every packaged measurement', 'Extra pull against the pull from detected matter'],
-  aria_rad: ['Acceleration discrepancy against radius for every packaged measurement with a radius', 'Extra pull against distance from the centre'],
+  aria_ratio: ['Acceleration discrepancy against baryonic acceleration for every packaged measurement', 'Pull ratio against the pull from detected matter'],
+  aria_rad: ['Acceleration discrepancy against radius for every packaged measurement with a radius', 'Pull ratio against distance from the centre'],
   xm: ['log M_bar(<r), baryonic mass within r (M☉)', 'Mass of detected matter within that distance (log, M☉)'], xms: ['log M_bar (M☉)', 'Detected mass (log, M☉)'],
-  ym: ['log M_obs(<r) = g_obs r² / G (M☉)', 'Mass implied by the observed pull (log, M☉)'], yms: ['log M_obs (M☉)', 'Implied mass (log, M☉)'],
+  ym: ['log M_g,obs(<r) = g_obs r² / G (M☉)', 'Observed pull written as a mass, g_obs r²/G (log, M☉)'], yms: ['log M_g,obs (M☉)', 'Observed pull as a mass (log, M☉)'],
   yv: ['log V = √(g_obs r), equivalent circular speed (km s⁻¹)', 'Orbital speed from the observed pull (log, km s⁻¹)'], yvs: ['log V (km s⁻¹)', 'Orbital speed (log)'],
-  zerom: ['M_obs = M_bar', 'No extra pull'],
-  aria_mass: ['Spherical-equivalent enclosed mass from the observed acceleration against that from detected matter, log axes', 'Mass implied by the observed pull against the detected mass'],
+  zerom: ['M_g,obs = M_bar', 'No extra pull'],
+  aria_mass: ['Spherical-equivalent enclosed mass from the observed acceleration against that from detected matter, log axes', 'The observed pull written as a mass, against the detected mass'],
   aria_speed: ['Equivalent circular speed from the observed acceleration against radius, log axes', 'Orbital speed from the observed pull against distance from the centre'],
   lens: {
     obs: ['<b>Acceleration lens.</b> Observed against Newtonian baryonic acceleration, measurement by measurement: the plane used in radial-acceleration-relation studies.', '<b>Pull view.</b> Each mark compares the pull we see with the pull the detected matter gives, at one place.'],
     ratio: ['<b>Ratio lens.</b> log (g_obs / g_bar), the acceleration discrepancy, against g_bar. Zero is g_obs = g_bar; below zero, g_obs is less than g_bar.', '<b>Ratio view.</b> Observed pull ÷ pull from detected matter (1 = equal; below 1 = less), on a log scale, against the pull from detected matter.'],
-    mass: ['<b>Mass lens.</b> Spherical-equivalent enclosed mass, M(&lt;r) = g r² / G, for both sides: the framing of mass-modelling studies. For discs it is a convention, not the true enclosed mass. M_obs / M_bar equals g_obs / g_bar at every point; only the axes change.', '<b>Mass view.</b> The same measurements written as masses: how much mass the observed pull implies within each distance, against the detected mass. The conversion assumes round systems.'],
-    rad: ['<b>Scale lens.</b> log (g_obs / g_bar) against radius, from the smallest to the largest scales measured.', '<b>Distance view.</b> Extra pull against distance from the centre.'],
+    mass: ['<b>Mass lens.</b> Spherical-equivalent enclosed mass, M(&lt;r) = g r² / G, for both sides: the framing of mass-modelling studies. For discs it is a convention, not the true enclosed mass. M_g,obs / M_bar equals g_obs / g_bar at every point; only the axes change. It is a change of units, not a claim that the difference is mass.', '<b>Mass view.</b> The same measurements written as masses: the observed pull turned into the mass that would give it under Newton’s gravity (g r²/G), against the detected mass. It is a change of units, not a claim that the difference is mass, and it assumes round systems.'],
+    rad: ['<b>Scale lens.</b> log (g_obs / g_bar) against radius, from the smallest to the largest scales measured.', '<b>Distance view.</b> Pull ratio against distance from the centre.'],
     speed: ['<b>Speed lens.</b> Equivalent circular speed V = √(g_obs r) against radius. For disc galaxies these are their rotation curves; for clusters it is the speed a circular orbit would need, not a measured speed.', '<b>Speed view.</b> The observed pull written as the speed of an orbit at each distance. For spinning galaxies this is how fast they turn.'],
   },
   pickOuter: ['<b>One point per system, outermost measured radius.</b> {n} of {N} systems: for each, the measurement at the largest radius its data reach, so both sides are enclosed within the measured extent, not the total. How far the data reach depends on the survey and on each system (colour by outermost measured radius to check). Stacked lensing bins are averages, unchanged. Select a point to see its full profile.', '<b>One mark per galaxy or cluster, at the farthest point measured.</b> {n} of {N}. Each compares the pull we see with the pull from detected matter, out to the farthest point the data reach. That is not the whole galaxy: nobody can measure where a galaxy ends. Tap a mark to see all its measurements.'],
@@ -181,7 +181,7 @@ const nWords = ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'ei
 
     <aside class="card" aria-label="Selected system">
       <p class="cap"><L t="Selected system" p="Picked galaxy or cluster" /></p>
-      <div id="card-empty"><h2>None selected</h2><p class="meta"><L t="Click a galaxy or cluster on the map, or search by name. Its measurements are joined in order of radius; its page holds the pull budget." p="Tap any galaxy or cluster on the map, or search for one. Its own page shows how much of its pull Newton’s gravity from the detected matter matches." /></p></div>
+      <div id="card-empty"><h2>None selected</h2><p class="meta"><L t="Click a galaxy or cluster on the map, or search by name. Its measurements are joined in order of radius; its page shows the observed and baryonic accelerations." p="Tap any galaxy or cluster on the map, or search for one. Its own page shows how much of its pull Newton’s gravity from the detected matter matches." /></p></div>
       <div id="card-body" hidden>
         <h2 id="card-name"></h2>
         <p class="meta" id="card-meta"></p>
@@ -189,7 +189,7 @@ const nWords = ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'ei
         <p class="small"><span style="color:var(--sel)">●</span> g_obs · <span style="color:var(--bar)">━</span> g_bar</p>
         <p class="small" id="card-flags"></p>
         <p class="small eqflag" id="card-eq" hidden></p>
-        <a class="btn primary" id="card-link" href="#" style="margin-top:10px;min-height:44px"><L t="Open system page · pull budget" p="Open its page" /></a>
+        <a class="btn primary" id="card-link" href="#" style="margin-top:10px;min-height:44px"><L t="Open system page" p="Open its page" /></a>
         <button class="btn" type="button" id="card-clear" style="margin-top:6px">Clear selection</button>
       </div>
     </aside>
