@@ -2689,6 +2689,7 @@ The values are unaffected. The package is merged but not released.
 **Alternatives rejected.** A new dwarfs v4 package: the change is to locators only, in a package not yet released, which is the same case as D-117 and D-119. Holding v0.3 until a new audit passes: it delays a release whose values all reproduced, and the failure is published either way.
 
 **Data seen.** The audit's readings and adjudication, the cited pages of Higgs 2021, Ji 2021, Vivas 2022, Slater 2015, Savino 2022, Casey 2025 and Cerny 2021, and the package values of the six systems.
+
 ## D-122 — Audit v3 Part B: resolutions of the neutrality findings
 
 **Ruling (2026-11-26, UTC−06:00, JvH).** In answer to the three questions put in the session on `docs/audit/run_v3/partB/neutrality_v3.md`: "Keep, with a stated reason (Recommended)" for B3 (the site name) and for B13 (the D-097 dwarfs), and "Yes, as proposed (Recommended)" for B1, B2, B4 to B12 and the three factual errors.
