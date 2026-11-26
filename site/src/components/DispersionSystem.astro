@@ -2,6 +2,7 @@
 // System page for a dispersion-supported system with one value per system (data standard 2.0;
 // first case: globular clusters, D-025, D-036 ii, D-045). Everything shown is read from the
 // package tables and checks/; nothing is computed here except unit conversions for display.
+import { unsettled } from '../lib/kind.mjs';
 import L from './L.astro';
 import Quote from './Quote.astro';
 import SystemUncertainties from './SystemUncertainties.astro';
@@ -41,7 +42,7 @@ const xt = []; for (let k = Math.ceil(lx0); k <= lx1; k++) xt.push(10 ** k);
 const yt = []; const step = sMax > 20 ? 5 : sMax > 8 ? 2 : 1; for (let v = 0; v <= sMax * 1.05; v += step) yt.push(v);
 const halfR = R.distance_mpc && P.r_h_pc ? (P.r_h_pc / (R.distance_mpc * 1e6)) * 206264.806 : null;
 ---
-<p class="lede"><L t={`${R.class_in_source}, ${R.host}. ${lab.method_t}. ${plotted ? 'Plotted: one value at the 3D half-light radius.' : 'Recorded, not plotted.'}`} p={`${lab.one_p}. ${plotted ? 'Shown on the map as one point.' : 'Kept in the record but not shown on the map, for the reasons below.'}`} /></p>
+<p class="lede"><L t={`${R.class_in_source}${unsettled(R) !== null ? ` in the source catalogue; kind not settled (${unsettled(R)})` : ''}, ${R.host}. ${lab.method_t}. ${plotted ? 'Plotted: one value at the 3D half-light radius.' : 'Recorded, not plotted.'}`} p={`${unsettled(R) !== null ? 'A group of stars in the outskirts of our galaxy; sources disagree on whether it is a star cluster or a small galaxy' : lab.one_p}. ${plotted ? 'Shown on the map as one point.' : 'Kept in the record but not shown on the map, for the reasons below.'}`} /></p>
 
 <h2 id="status"><L t="Status" p="On the map?" /></h2>
 {plotted ? (
