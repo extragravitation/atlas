@@ -114,7 +114,7 @@ const CONCEPT_DOI = '10.5281/zenodo.23864355';
 
     <section class="status card" aria-labelledby="status-h">
       <h2 id="status-h" class="kicker"><L t="Release status" p="How far along this is" /></h2>
-      <p><L t="v0.2 is preliminary and not peer reviewed. An audit of 254 randomly sampled rows, read by AI agents, found no wrong values, but did not pass on source records and methods text. Fixes are under way for v0.3." p="This is an early version and hasn’t been checked by outside experts. Our own check of 254 random rows, done with AI readers, found no wrong numbers, but some source records and method notes are incomplete. We’re fixing that now." /></p>
+      <p><L t="Preliminary and not peer reviewed. A second frozen audit (v3; 220 random rows, AI readers, 2026-11-26) reproduced every sampled value from its source, but fails on provenance: 3 rows recorded the wrong place for an input (95 % upper bound 3.5 %, above the 2.5 % threshold). Those records are corrected; the result stands as observed. Its neutrality check passes after fixes." p="This is an early version and hasn’t been checked by outside experts. Our second check of 220 random numbers, done with AI readers, found every number right, but 3 records pointed to the wrong place in a paper, which is more than our limit allows. We fixed them, and we report the result as it came out." /></p>
       <a href={`${base}reproduction/#audit`}><L t="Read the audit result →" p="See our check →" /></a>
     </section>
 
