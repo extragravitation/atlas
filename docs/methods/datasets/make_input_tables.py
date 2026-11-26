@@ -65,7 +65,8 @@ def dwarfs() -> str:
     # Places from the reading records, so that the page names the exact place even where a source_ref
     # only names the paper (pilot, D-118). Values are matched internally and never written.
     sig_sel = {r["key"]: r for r in rows_of("sigma_selection_v3.csv")}
-    sig_loc = {(r["key"], r["value_id"]): r for r in rows_of("sigma_values.csv")}
+    # Keyed by paper too: value_id restarts at v1 for each paper, so (key, value_id) alone picked another paper's row.
+    sig_loc = {(r["key"], r["paper"], r["value_id"]): r for r in rows_of("sigma_values.csv")}
     struct = {r["key"]: r for r in rows_of("structure_selection.csv")}
     feh = {r["key"]: r for r in rows_of("feh_values.csv")}
     feh_loc: dict = {}
@@ -96,7 +97,7 @@ def dwarfs() -> str:
                 ref = redact(raw)
                 extra = ""
                 if q == "sigma_los" and "reading/sigma_selection" in raw and key in sig_sel:
-                    sv = sig_loc.get((key, sig_sel[key]["default_value_id"]), {})
+                    sv = sig_loc[(key, sig_sel[key]["default_paper"], sig_sel[key]["default_value_id"])]
                     ref = f"{sig_sel[key]['default_paper']} ({sv.get('copy_read', '')}), {redact(sv.get('location', ''))}"
                 if q == "metallicity_feh" and key in feh:
                     fv = feh[key]
