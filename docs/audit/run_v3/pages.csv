@@ -1,0 +1,12 @@
+dataset,rank,system_id,page
+aeg-d-sparc/v3,1,aeg-s-000124,systems/aeg-s-000124/
+aeg-d-sparc/v3,2,aeg-s-000071,systems/aeg-s-000071/
+aeg-d-xcop/v3,1,aeg-s-000182,systems/aeg-s-000182/
+aeg-d-xcop/v3,2,aeg-s-000187,systems/aeg-s-000187/
+aeg-d-kids1000-rar/v3,,,(no system pages)
+aeg-d-strong-lensing/v3,1,aeg-s-000614,systems/aeg-s-000614/
+aeg-d-strong-lensing/v3,2,aeg-s-000412,systems/aeg-s-000412/
+aeg-d-gc-baumgardt/v3,1,aeg-s-000192,systems/aeg-s-000192/
+aeg-d-gc-baumgardt/v3,2,aeg-s-000217,systems/aeg-s-000217/
+aeg-d-dwarfs/v3,1,aeg-s-000380,systems/aeg-s-000380/
+aeg-d-dwarfs/v3,2,aeg-s-000383,systems/aeg-s-000383/
