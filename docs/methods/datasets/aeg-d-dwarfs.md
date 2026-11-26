@@ -127,7 +127,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Ho 2012 ApJ 758 124 (arXiv 0911.1998v3), p11, Sec. 4; Table 2 (p13) column And II; Table 3 (p22) row And II; Sec. 7 conclusions (p21). | page: 1; 7 · section: 5.2.1 |
+| σ | Ho 2012 ApJ 758 124 (arXiv 1209.2116v1), p1 abstract; p7 Sec. 5.2.1 ('average dispersion, ⟨σv⟩ = [value] km s−1'). | page: 1; 7 · section: 5.2.1 |
 | r_h and ε | Martin2016ApJ...833..167M p. 9, Table 1 (Derived structural parameters of the dwarf galaxies), row And II. Convention: semi-major. | page: 9 · table: 1 · row: And II |
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And II'. Read as the distance modulus. | page: 15 · table: 5 · row: 'And II' |
 | m_V,0 | printed m_V,0 (Martin2016ApJ...833..167M p. 9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And II). | page: 9 · table: 2 · row: And II |
@@ -175,7 +175,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Collins 2013 ApJ 768 172 (arXiv 2505.04475v3), p8, Table 5, row And VI (This work). | page: 27; 33; 37; 39; 40; 10; 11; 14; 15; 38; 16; 19; 20 · table: 4; 5 |
+| σ | Collins 2013 ApJ 768 172 (arXiv 1302.6590v1), p.27, Table 4, sigma_v column; also p.33 Table 5, p.37 Table A1 Full algorithm, p.39 Sec B.2. | page: 27; 33; 37; 39; 40; 10; 11; 14; 15; 38; 16; 19; 20 · table: 4; 5 |
 | r_h and ε | McConnachie2006MNRAS.365.1263M p. 10, Table 4 (Integrated photometry), row Andromeda VI, col r1/2 (′); no_uncertainty: no error printed. Convention: circularised. | page: 10 · table: 4 · row: Andromeda VI · column: r1/2 (′ |
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And VI'. Read as the distance modulus. | page: 15 · table: 5 · row: 'And VI' |
 | m_V,0 | McConnachie 2006 M_V + McConnachie 2005 modulus. | page: 10 (McConnachie 2006); 23 and 9 (McConnachie 2005) · table: 4 (McConnachie 2006, M_V); 2 (McConnachie 2005, modulus) · section: 3.10 (McConnachie 2005) |
@@ -211,7 +211,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Collins 2013 ApJ 768 172 (arXiv 1112.1067v3), p. 19, Figure 14 panel (c) annotation. | page: 27; 33; 37; 39; 40; 10; 11; 14; 15; 38; 16; 19; 20 · table: 4; 5 |
+| σ | Collins 2013 ApJ 768 172 (arXiv 1302.6590v1), p.27, Table 4, sigma_v column; also p.33 Table 5, p.37 Table A1 Full algorithm, p.40 Sec B.3. | page: 27; 33; 37; 39; 40; 10; 11; 14; 15; 38; 16; 19; 20 · table: 4; 5 |
 | r_h and ε | Martin2016ApJ...833..167M p. 9, Table 1 (Derived structural parameters of the dwarf galaxies), row And XI. Convention: semi-major. | page: 9 · table: 1 · row: And XI |
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And XI'. Read as the distance modulus. | page: 15 · table: 5 · row: 'And XI' |
 | m_V,0 | printed m_V,0 (Martin2016ApJ...833..167M p. 9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And XI). | page: 9 · table: 2 · row: And XI |
@@ -223,7 +223,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Collins 2013 ApJ 768 172 (arXiv 1112.1067v3), p. 20, Figure 15 panel (c) annotation. An upper limit. | page: 27; 33; 37; 39; 40; 10; 11; 14; 15; 38; 16; 19; 20 · table: 4; 5 |
+| σ | Collins 2013 ApJ 768 172 (arXiv 1302.6590v1), p.27, Table 4, sigma_v column; also p.33 Table 5, p.37 Table A1 Full algorithm ('0+4.0'), p.40 Sec B.4. An upper limit. | page: 27; 33; 37; 39; 40; 10; 11; 14; 15; 38; 16; 19; 20 · table: 4; 5 |
 | r_h and ε | Martin2016ApJ...833..167M p. 9, Table 1 (Derived structural parameters of the dwarf galaxies), row And XII. Convention: semi-major. | page: 9 · table: 1 · row: And XII |
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And XII'. Read as the distance modulus. | page: 15 · table: 5 · row: 'And XII' |
 | m_V,0 | printed m_V,0 (Martin2016ApJ...833..167M p. 9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And XII). | page: 9 · table: 2 · row: And XII |
@@ -247,7 +247,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Collins 2013 ApJ 768 172 (arXiv 1910.12879v2), p9, Sect. 3.2; also p1 abstract; p12 Table 3; Sect. 3.3; Sect. 5. | page: 27; 33; 37; 39; 40; 10; 11; 14; 15; 38; 16; 19; 20 · table: 4; 5 |
+| σ | Collins 2013 ApJ 768 172 (arXiv 1302.6590v1), p.27, Table 4, sigma_v column; also p.11 Sec 4.3, p.27 Sec 5 text, p.33 Table 5, p.37 Table A1 Full algorithm. | page: 27; 33; 37; 39; 40; 10; 11; 14; 15; 38; 16; 19; 20 · table: 4; 5 |
 | r_h and ε | Martin2016ApJ...833..167M p. 9, Table 1 (Derived structural parameters of the dwarf galaxies), row And XIX. Convention: semi-major. | page: 9 · table: 1 · row: And XIX |
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And XIX'. Read as the distance modulus. | page: 15 · table: 5 · row: 'And XIX' |
 | m_V,0 | printed m_V,0 (Martin2016ApJ...833..167M p. 9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And XIX). | page: 9 · table: 2 · row: And XIX |
@@ -295,7 +295,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Kvasova 2024 ApJ 972 180 (arXiv 1112.1067v3), p9, Table 3, row And XVIII, column σLOS. | page: 7; 11 · table: 2; 4 · column: '38 stars |
+| σ | Kvasova 2024 ApJ 972 180 (arXiv 2404.11804v4), p.7, Table 2, Kinematic models, σv (no rotation), column '38 stars, (56)'; also p.11 Table 4 'This work' row. | page: 7; 11 · table: 2; 4 · column: '38 stars |
 | r_h and ε | Higgs2021MNRAS.503..176H PDF p.16, Table 3 (Best-fit Sérsic parameters), row And XVIII. Convention: semi-major. | page: 16 · table: 3 (r_h: column Rs); 2 (ε: column e) · row: And XVIII |
 | Distance | Higgs2021MNRAS.503..176H PDF p.16, Table 2 (Derived positional and shape information), row And XVIII. Read as the distance modulus. | page: 16 · table: 2 · row: And XVIII |
 | m_V,0 | printed m_V,0 (Martin2016ApJ...833..167M p. 9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And XVIII). | page: 9 · table: 2 · row: And XVIII |
@@ -331,7 +331,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Collins 2013 ApJ 768 172 (arXiv 1112.1067v3), p9, Table 3, row And XXII; Sec. 4.15. | page: 27; 33; 37; 39; 40; 10; 11; 14; 15; 38; 16; 19; 20 · table: 4; 5 |
+| σ | Collins 2013 ApJ 768 172 (arXiv 1302.6590v1), p.27, Table 4, sigma_v column; also p.15 Sec 4.6 text, p.33 Table 5, p.37 Table A1 Full algorithm. | page: 27; 33; 37; 39; 40; 10; 11; 14; 15; 38; 16; 19; 20 · table: 4; 5 |
 | r_h and ε | Martin2016ApJ...833..167M p. 9, Table 1 (Derived structural parameters of the dwarf galaxies), row And XXII/Tri I. Convention: semi-major. | page: 9 · table: 1 · row: And XXII/Tri I |
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And XXII'. Read as the distance modulus. | page: 15 · table: 5 · row: 'And XXII' |
 | m_V,0 | printed m_V,0 (Martin2016ApJ...833..167M p. 9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And XXII/Tri I). | page: 9 · table: 2 · row: And XXII/Tri I |
@@ -343,7 +343,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Collins 2013 ApJ 768 172 (arXiv 2505.04475v3), p8, Table 5, row AndXXIII (This work). | page: 27; 33; 37; 39; 40; 10; 11; 14; 15; 38; 16; 19; 20 · table: 4; 5 |
+| σ | Collins 2013 ApJ 768 172 (arXiv 1302.6590v1), p.27, Table 4, sigma_v column; also p.15 Sec 4.7 text, Fig.12 label, p.33 Table 5, p.37 Table A1 Full algorithm, p.38 Table A3 Full sample. | page: 27; 33; 37; 39; 40; 10; 11; 14; 15; 38; 16; 19; 20 · table: 4; 5 |
 | r_h and ε | Martin2016ApJ...833..167M p. 9, Table 1 (Derived structural parameters of the dwarf galaxies), row And XXIII. Convention: semi-major. | page: 9 · table: 1 · row: And XXIII |
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And XXIII'. Read as the distance modulus. | page: 15 · table: 5 · row: 'And XXIII' |
 | m_V,0 | printed m_V,0 (Martin2016ApJ...833..167M p. 9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And XXIII). | page: 9 · table: 2 · row: And XXIII |
@@ -379,7 +379,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Collins 2013 ApJ 768 172 (arXiv 1302.0848v2), p3, Table 1, row (11), And XXVIII column. | page: 27; 33; 37; 39; 40; 10; 11; 14; 15; 38; 16; 19; 20 · table: 4; 5 |
+| σ | Collins 2013 ApJ 768 172 (arXiv 1302.6590v1), p.27, Table 4, sigma_v column; also p.33 Table 5. | page: 27; 33; 37; 39; 40; 10; 11; 14; 15; 38; 16; 19; 20 · table: 4; 5 |
 | r_h and ε | Higgs2021MNRAS.503..176H PDF p.16, Table 3 (Best-fit Sérsic parameters), row And XXVIII. Convention: semi-major. | page: 16 · table: 3 (r_h: column Rs); 2 (ε: column e) · row: And XXVIII |
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And XXVIII'. Read as the distance modulus. | page: 15 · table: 5 · row: 'And XXVIII' |
 | m_V,0 | M_V from Slater2015ApJ...806..230S p.3, Table 1, column And XXVIII, plus the modulus the paper uses (its own, read as above). | row: the system's row in the paper that gives its distance modulus |
@@ -415,7 +415,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Geha 2026 ApJ 999 140 (arXiv 2602.10202v1), p.17, Appendix Table A1 (Derived Properties of Milky Way Satellites Observed with Keck/DEIMOS), row 'Aquarius III', columns (12)-(15). An upper limit. | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
+| σ | Geha 2026 ApJ 999 140 (arXiv 2602.10200v2), p32, Appendix, Table A1, row Aqr3, col. 17. An upper limit. | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
 | r_h and ε | Cerny2025ApJ...979..164C p.7, Table 1, row ah. Convention: semi-major (a_h; circularised value printed too). | page: 7 · table: 1 · row: ah |
 | Distance | Cerny2025ApJ...979..164C p.7, Table 1, row (m − M)0. Read as the distance modulus. | page: 7 · table: 1 · row: (m − M |
 | m_V,0 | M_V from Cerny2025ApJ...979..164C p.7, Table 1, row MV, plus the modulus the paper uses (its own, read as above). | row: the system's row in the paper that gives its distance modulus |
@@ -439,7 +439,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Geha 2026 ApJ 999 140 (arXiv 0809.0700v1), p6, §3.5; also abstract and §5 (p9). | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
+| σ | Geha 2026 ApJ 999 140 (arXiv 2602.10200v2), p32, Appendix, Table A1, row Boo2, cols. 14-16. | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
 | r_h and ε | Munoz2018ApJ...860...66M p.27, Table 5, Primary Sample, row Bootes II, col re,s (arcmin). Convention: semi-major (assumed, D-052 item 2). | page: 27 · table: 5 · row: Bootes II · column: re |
 | Distance | Walsh2008ApJ...688..245W p. 11, Table 1 (Boötes II Properties), row (m − M). Read as the distance modulus. | page: 11 · table: 1 · row: (m − M |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
@@ -463,7 +463,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Geha 2026 ApJ 999 140 (arXiv 0706.0516v2), p9, Table 3, row Canes Venatici I. | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
+| σ | Geha 2026 ApJ 999 140 (arXiv 2602.10200v2), p32, Appendix, Table A1, row CVn1, cols. 14-16. | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
 | r_h and ε | Munoz2018ApJ...860...66M p.27, Table 5, Primary Sample, row CVn I, col re,s (arcmin). Convention: semi-major (assumed, D-052 item 2). | page: 27 · table: 5 · row: CVn I · column: re |
 | Distance | Kuehn2008ApJ...674L..81K PDF p.6, Section 5 (An Improved Distance Estimate for CVn I). Read as the distance modulus. | page: 6 · section: 5 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
@@ -475,7 +475,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Geha 2026 ApJ 999 140 (arXiv 0706.0516v2), p9, Table 3, row Canes Venatici II. | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
+| σ | Geha 2026 ApJ 999 140 (arXiv 2602.10200v2), p32, Appendix, Table A1, row CVn2, cols. 14-16. | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
 | r_h and ε | Munoz2018ApJ...860...66M p.27, Table 5, Primary Sample, row CVn II, col re,s (arcmin). Convention: semi-major (assumed, D-052 item 2). | page: 27 · table: 5 · row: CVn II · column: re |
 | Distance | Greco2008ApJ...675L..73G §5, p. 7. Read as the distance modulus. | page: 7 · section: 5 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
@@ -511,7 +511,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Geha 2026 ApJ 999 140 (arXiv 0706.0516v2), p9, Table 3, row Coma Berenices. | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
+| σ | Geha 2026 ApJ 999 140 (arXiv 2602.10200v2), p32, Appendix, Table A1, row CB, cols. 14-16. | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
 | r_h and ε | Munoz2018ApJ...860...66M p.27, Table 5, Primary Sample, row ComBer, col re,s (arcmin). Convention: semi-major (assumed, D-052 item 2). | page: 27 · table: 5 · row: ComBer · column: re |
 | Distance | Musella2009ApJ...695L..83M PDF p.7, Section 4. Read as the distance modulus. | page: 7 · section: 4 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
@@ -523,7 +523,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Geha 2026 ApJ 999 140 (arXiv 2602.10202v1), p.17, Appendix Table A1 (Derived Properties of Milky Way Satellites Observed with Keck/DEIMOS), row 'Draco', columns (12)-(15). | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
+| σ | Geha 2026 ApJ 999 140 (arXiv 2602.10200v2), p32, Appendix, Table A1, row Dra, cols. 14-16. | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
 | r_h and ε | Munoz2018ApJ...860...66M p.27, Table 5, Primary Sample, row Draco, col re,s (arcmin). Convention: semi-major (assumed, D-052 item 2). | page: 27 · table: 5 · row: Draco · column: re |
 | Distance | Bhardwaj2024AJ....167..247B p.10, Table 5 (Distance modulus estimates to Draco dSph galaxy), final rows. Read as the distance modulus. | page: 10 · table: 5 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
@@ -535,7 +535,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Cerny 2026 arXiv 2602.17652 (arXiv 2602.10202v1), p.17, Appendix Table A1 (Derived Properties of Milky Way Satellites Observed with Keck/DEIMOS), row 'Draco II', columns (12)-(15). An upper limit. | page: 38; 33; 34; 48–49 · table: 3 · row: Draco II (σv · section: 5.2; 7.3.5 |
+| σ | Cerny 2026 arXiv 2602.17652 (arXiv 2602.17652v1), p38 Table 3 row Draco II (σv); p33 Sec. 5.2; p34 Fig. 21; p48–49 Sec. 7.3.5. An upper limit. | page: 38; 33; 34; 48–49 · table: 3 · row: Draco II (σv · section: 5.2; 7.3.5 |
 | r_h and ε | Longeard2018MNRAS.480.2609L p.8, Table 1, row rh (arcmin). Convention: semi-major. | page: 8 · table: 1 · row: rh (arcmin |
 | Distance | Longeard2018MNRAS.480.2609L p.8, Table 1, row Distance modulus. Read as the distance modulus. | page: 8 · table: 1 · row: Distance modulus |
 | m_V,0 | M_V from Longeard2018MNRAS.480.2609L p.8, Table 1, row MV, plus the modulus the paper uses (its own, read as above). | row: the system's row in the paper that gives its distance modulus |
@@ -559,7 +559,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Hendricks 2014 A&A 572 A82 (arXiv 0811.0118v1), whole paper checked (abstract; Secs. 1–3; Tables 1–5). | page: 5 · section: 2.1 |
+| σ | Hendricks 2014 A&A 572 A82 (arXiv 1408.5597v1), p.5, Sect. 2.1. | page: 5 · section: 2.1 |
 | r_h and ε | Wang2019ApJ...881..118W Table 1, Sérsic column (arXiv 1809.07801v1 Fornax_main.tex l. 106); the source's stated best fit, l. 333 (D-101; D-096 rule 1); no_uncertainty: no error printed. Convention: as printed (semi-major (assumed, D-052 item 2)); Sérsic fit. | table: 1 · column: (arXiv 1809.07801v1 Fornax_main.tex l. 106 · line: 106; 333 |
 | Distance | Oakes2022ApJ...929..116O p.13, §7; also p.1 abstract and p.13 §6.4. Read as the distance modulus. | page: 13; 1 · section: 7; 6.4 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
@@ -571,7 +571,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Ou 2024 ApJ 966 33 (arXiv 0706.0516v2), p14, §3.5, Hercules. | page: 15 · table: 2 |
+| σ | Ou 2024 ApJ 966 33 (arXiv 2403.00921v1), p.15, Table 2, 'No Gradient' column. | page: 15 · table: 2 |
 | r_h and ε | Munoz2018ApJ...860...66M p.27, Table 5, Primary Sample, row Hercules, col re,s (arcmin). Convention: semi-major (assumed, D-052 item 2). | page: 27 · table: 5 · row: Hercules · column: re |
 | Distance | MutluPakdil2020ApJ...902..106M PDF p.6, Table 9 (Structural Properties of Hercules), row m − M. Read as the distance modulus. | page: 6 · table: 9 · row: m − M |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
@@ -583,7 +583,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Geha 2026 ApJ 999 140 (arXiv 2602.10202v1), p.17, Appendix Table A1 (Derived Properties of Milky Way Satellites Observed with Keck/DEIMOS), row 'Hydra 2', columns (12)-(15). An upper limit. | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
+| σ | Geha 2026 ApJ 999 140 (arXiv 2602.10200v2), p32, Appendix, Table A1, row Hyd2, col. 17. An upper limit. | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
 | r_h and ε | Munoz2018ApJ...860...66M p.27, Table 5, Secondary Sample, row Hydra II, col re,s (arcmin). Convention: semi-major (assumed, D-052 item 2). | page: 27 · table: 5 · row: Hydra II · column: re |
 | Distance | Vivas2016AJ....151..118V p. 17, Sect. 4. Read as the distance in kpc. | page: 17 · section: 4 |
 | m_V,0 | printed m_V,0 (Richstein2024ApJ...967...72R p. 9, Table 2, row Hya II). | page: 9 · table: 2 · row: Hya II |
@@ -607,7 +607,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Koch 2007 ApJ 657 241 (arXiv astro-ph/0608151v2), p12, §5.5; also footnote 21 p11 ('cold point' velocity dispersion near the King limiting radius ... 3.9). | page: 18 · table: 3 · row: 'GMOS + DEIMOS' |
+| σ | Koch 2007 ApJ 657 241 (arXiv astro-ph/0611372v1), p.18, Table 3 (Mean velocities and dispersions for different fields), row 'GMOS + DEIMOS'. | page: 18 · table: 3 · row: 'GMOS + DEIMOS' |
 | r_h and ε | Munoz2018ApJ...860...66M p.27, Table 5, Primary Sample, row Leo I, col re,s (arcmin). Convention: semi-major (assumed, D-052 item 2). | page: 27 · table: 5 · row: Leo I · column: re |
 | Distance | Stetson 2014, midpoint of the two printed values. Read as printed. | page: 11 · section: 4.1 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
@@ -631,7 +631,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Geha 2026 ApJ 999 140 (arXiv 0706.0516v2), p9, Table 3, row Leo IV. | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
+| σ | Geha 2026 ApJ 999 140 (arXiv 2602.10200v2), p33, Appendix, Table A1, row Leo4, cols. 14-16. | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
 | r_h and ε | Munoz2018ApJ...860...66M p.27, Table 5, Primary Sample, row Leo IV, col re,s (arcmin). Convention: semi-major (assumed, D-052 item 2). | page: 27 · table: 5 · row: Leo IV · column: re |
 | Distance | Medina 2018, RR Lyrae mean. Read as printed. | page: 10 · section: 5.1 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
@@ -643,7 +643,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Geha 2026 ApJ 999 140 (arXiv 0706.0516v2), p9, Table 3, row Leo T. | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
+| σ | Geha 2026 ApJ 999 140 (arXiv 2602.10200v2), p33, Appendix, Table A1, row LeoT, cols. 14-16. | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
 | r_h and ε | Higgs2021MNRAS.503..176H PDF p.16, Table 3 (Best-fit Sérsic parameters), row Leo T. Convention: semi-major. | page: 16 · table: 3 (r_h: column Rs); 2 (ε: column e) · row: Leo T |
 | Distance | Higgs2021MNRAS.503..176H PDF p.16, Table 2 (Derived positional and shape information), row Leo T. Read as the distance modulus. | page: 16 · table: 2 · row: Leo T |
 | m_V,0 | de Jong 2008 M_V + red-clump modulus (D-061 item 6). | page: 5 (M_V); 7 (red-clump modulus) · table: 1 · section: 4 (M_V); 6 (modulus) |
@@ -655,7 +655,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Geha 2026 ApJ 999 140 (arXiv 2101.00013v2), p.16 §5.2; p.17 Table 5 bottom panel sigma_V M1 (bold). | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
+| σ | Geha 2026 ApJ 999 140 (arXiv 2602.10200v2), p33, Appendix, Table A1, row Leo5, cols. 14-16. | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
 | r_h and ε | Munoz2018ApJ...860...66M p.27, Table 5, Primary Sample, row Leo V, col re,s (arcmin). Convention: semi-major (assumed, D-052 item 2). | page: 27 · table: 5 · row: Leo V · column: re |
 | Distance | Medina 2018, RR Lyrae mean. Read as printed. | page: 10 · section: 5.1 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
@@ -667,7 +667,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Geha 2026 ApJ 999 140 (arXiv 2408.00865v3), p.10, Sect. 5.2; Table 1; Fig. A2 left panel; Sect. 8. | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
+| σ | Geha 2026 ApJ 999 140 (arXiv 2602.10200v2), p33, Appendix, Table A1, row Leo6, cols. 14-16. | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
 | r_h and ε | Tan2025ApJ...979..176T p.8, Table 1, row ah. Convention: semi-major (a_h; circularised value printed too). | page: 8 · table: 1 · row: ah |
 | Distance | Tan2025ApJ...979..176T p.8, Table 1, row (m − M)0. Read as the distance modulus. | page: 8 · table: 1 · row: (m − M |
 | m_V,0 | M_V from Tan2025ApJ...979..176T p.8, Table 1, row MV, plus the modulus the paper uses (its own, read as above). | row: the system's row in the paper that gives its distance modulus |
@@ -679,7 +679,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Geha 2026 ApJ 999 140 (arXiv 1608.04934v2), p5, Table 1; §7 (p7) method (a); abstract; §8. | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
+| σ | Geha 2026 ApJ 999 140 (arXiv 2602.10200v2), p33, Appendix, Table A1, row Peg3, cols. 14-16. | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
 | r_h and ε | Richstein2022ApJ...933..217R p. 7, Table 1 (Pegasus III), Exponential block, column This Work, row ah (arcmin). Convention: semi-major (a_h; circularised value printed too). | page: 7 · table: 1 · row: ah (arcmin · column: This Work |
 | Distance | Kim2016ApJ...833...16K p. 5, Table 1. Read as the distance modulus. | page: 5 · table: 1 |
 | m_V,0 | printed m_V,0 (Richstein2022ApJ...933..217R PDF p.12, Table 3, Pegasus III). | page: 12 · table: 3 |
@@ -691,7 +691,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Geha 2026 ApJ 999 140 (arXiv 2602.10202v1), p.18, Appendix Table A1 (Derived Properties of Milky Way Satellites Observed with Keck/DEIMOS), row 'Pegasus 4', columns (12)-(15). | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
+| σ | Geha 2026 ApJ 999 140 (arXiv 2602.10200v2), p33, Appendix, Table A1, row Peg4, cols. 14-16. | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
 | r_h and ε | Cerny2023ApJ...942..111C p.7, Table 1 (azimuthally averaged r_h; D-062 item 2). Convention: circularised. | page: 7 · table: 1 |
 | Distance | Cerny2023ApJ...942..111C p.7, Table 1. Read as the distance modulus. | page: 7 · table: 1 |
 | m_V,0 | M_V from Cerny2023ApJ...942..111C p.7, Table 1, plus the modulus the paper uses (its own, read as above). | row: the system's row in the paper that gives its distance modulus |
@@ -751,7 +751,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Geha 2026 ApJ 999 140 (arXiv 0811.0118v1), whole paper checked (abstract; Secs. 1–3; Tables 1–5). | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
+| σ | Geha 2026 ApJ 999 140 (arXiv 2602.10200v2), p34, Appendix, Table A1, row Scl, cols. 14-16. | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
 | r_h and ε | Munoz2018ApJ...860...66M p.27, Table 5, Primary Sample, row Sculptor, col re,s (arcmin). Convention: semi-major (assumed, D-052 item 2). | page: 27 · table: 5 · row: Sculptor · column: re |
 | Distance | MartinezVazquez2015MNRAS.454.1509M p.7, Table 3, row <µ>ADOPTED, CLEAN; also p. 3, §3 (printed value). Read as the distance modulus. | page: 7; 3 · table: 3 · row: <µ>ADOPTED · section: 3 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
@@ -787,7 +787,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Battaglia 2011 MNRAS 411 1013 (arXiv 2504.02787v1), p12 Table 2; Sec. 4.3. | page: 5; 15 · table: 1 · section: 3.4 |
+| σ | Battaglia 2011 MNRAS 411 1013 (arXiv 1009.4857v2), p.5, Sect. 3.4; p.15, Table 1. | page: 5; 15 · table: 1 · section: 3.4 |
 | r_h and ε | Cicuendez2018A&A...609A..53C p.9, Table 3, row 2D Half-light rh, col King. Convention: semi-major. | page: 9 · table: 3 · row: 2D Half-light rh · column: King |
 | Distance | Lee2009ApJ...703..692L p.4, Sect. 3; p.19, Table 3; no_uncertainty: no error printed. Read as the distance modulus. | page: 4; 19 · table: 3 · section: 3 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
@@ -811,7 +811,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Gregory 2019 MNRAS 485 2010 (arXiv 2001.11410v1), p.9, Table 3, sample P91, model Linear. | page: 7 |
+| σ | Gregory 2019 MNRAS 485 2010 (arXiv 1902.07228v2), p7, Figure 5 panel annotation. | page: 7 |
 | r_h and ε | Saviane 1996[value]0 = [value], as an angle (D-053; D-058 rescaling); error printed in pc ([value]), converted as the value. Convention: circularised. | page: 9 · table: 5 · row: Re (pc) |
 | Distance | Bernard 2009, RR Lyrae, reddening-corrected (D-053). Read as printed. | page: 19 · section: 6.3 |
 | m_V,0 | Saviane 1996 M_V + its own TRGB modulus (D-053). | page: 9 · table: 5 · row: MV |
@@ -835,7 +835,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Geha 2026 ApJ 999 140 (arXiv 0706.0516v2), p9, Table 3, row Ursa Major I. | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
+| σ | Geha 2026 ApJ 999 140 (arXiv 2602.10200v2), p34, Appendix, Table A1, row UMa1, cols. 14-16. | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
 | r_h and ε | Munoz2018ApJ...860...66M p.27, Table 5, Primary Sample, row UMa I, col re,s (arcmin). Convention: semi-major (assumed, D-052 item 2). | page: 27 · table: 5 · row: UMa I · column: re |
 | Distance | Garofalo2013ApJ...767...62G p.7–8, §4; also abstract p.1 and §6 p.9. Read as the distance modulus. | page: 7–8; 1; 9 · section: 4; 6 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
@@ -847,7 +847,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Geha 2026 ApJ 999 140 (arXiv 0706.0516v2), p9, Table 3, row Ursa Major II. | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
+| σ | Geha 2026 ApJ 999 140 (arXiv 2602.10200v2), p34, Appendix, Table A1, row UMa2, cols. 14-16. | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
 | r_h and ε | Munoz2018ApJ...860...66M p.27, Table 5, Primary Sample, row UMa II, col re,s (arcmin). Convention: semi-major (assumed, D-052 item 2). | page: 27 · table: 5 · row: UMa II · column: re |
 | Distance | DallOra2012ApJ...752...42D p.7, Sect. 3. Read as the distance modulus. | page: 7 · section: 3 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
@@ -859,7 +859,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Geha 2026 ApJ 999 140 (arXiv 2002.09503v2), p.9 §4.1; p.9 Table 3 (σv 8.7+0.3−0.3, 'This Work'). | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
+| σ | Geha 2026 ApJ 999 140 (arXiv 2602.10200v2), p34, Appendix, Table A1, row UMi, cols. 14-16. | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
 | r_h and ε | Munoz2018ApJ...860...66M p.27, Table 5, Primary Sample, row UMi, col re,s (arcmin). Convention: semi-major (assumed, D-052 item 2). | page: 27 · table: 5 · row: UMi · column: re |
 | Distance | Garofalo2025A&A...695A..88G PDF p.6, Section 3.1. Read as the distance modulus. | page: 6 · section: 3.1 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
@@ -871,7 +871,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 
 | Input | Read from | Place (locator) |
 |---|---|---|
-| σ | Chiu 2026 ApJ 1002 55 (arXiv 2602.10202v1), p.19, Appendix Table A1 (Derived Properties of Milky Way Satellites Observed with Keck/DEIMOS), row 'Willman 1', columns (12)-(15). | page: 8; 7; 1 · table: 2 · section: 4.1 |
+| σ | Chiu 2026 ApJ 1002 55 (arXiv 2602.20272v2), p8, Sect. 4.1; p7 Table 2 (footnote b: cited value); p1 abstract. | page: 8; 7; 1 · table: 2 · section: 4.1 |
 | r_h and ε | Munoz2018ApJ...860...66M p.27, Table 5, Primary Sample, row Willman 1, col re,s (arcmin). Convention: semi-major (assumed, D-052 item 2). | page: 27 · table: 5 · row: Willman 1 · column: re |
 | Distance | Willman2006astro.ph..3486W §3.1, p. 3. Read as the distance in kpc. | page: 3 · section: 3.1 |
 | m_V,0 | Munoz 2018 M_V + 5 log10(D/10 pc), D = [value] (Table 1; D-061 item 3). | table: 6 (M_V); 1 (R, the distance) |
