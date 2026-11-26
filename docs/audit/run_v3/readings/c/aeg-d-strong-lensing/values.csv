@@ -1,0 +1,11 @@
+measurement_id,g_obs,g_bar,notes
+aeg-d-strong-lensing/v3/m000133,3.69713919e-09,2.78859190e-09,"M_E printed=9.332543e+10 Msun; R_E=1.875739 kpc; f_deV=0.336510; M*=7.030696e+10 Msun; gas hot=0.0012*M*, cold=0"
+aeg-d-strong-lensing/v3/m000109,2.84957008e-09,2.39215584e-09,"M_E printed=3.467369e+10 Msun; R_E=1.302314 kpc; f_deV=0.297502; M*=2.907296e+10 Msun; gas hot=0.0012*M*, cold=0"
+aeg-d-strong-lensing/v3/m000017,2.65406762e-09,7.94159548e-10,"M_E computed=4.015192e+11 Msun; R_E=4.592006 kpc; M*=1.2000e+11 Msun; gas hot=0.0012*M*, cold=0"
+aeg-d-strong-lensing/v3/m000045,2.54040676e-09,6.55813013e-10,"M_E computed=1.939162e+11 Msun; R_E=3.261825 kpc; M*=5.0000e+10 Msun; gas hot=0.0012*M*, cold=0"
+aeg-d-strong-lensing/v3/m000105,3.28238309e-09,2.19810311e-09,"M_E printed=2.187762e+11 Msun; R_E=3.047970 kpc; f_deV=0.121713; M*=1.463315e+11 Msun; gas hot=0.0012*M*, cold=0"
+aeg-d-strong-lensing/v3/m000107,2.12232047e-09,1.51784885e-09,"M_E printed=1.621810e+11 Msun; R_E=3.263622 kpc; f_deV=0.242045; M*=1.158502e+11 Msun; gas hot=0.0012*M*, cold=0"
+aeg-d-strong-lensing/v3/m000116,2.49211382e-09,1.37506601e-09,"M_E printed=1.513561e+11 Msun; R_E=2.909520 kpc; f_deV=0.302855; M*=8.341321e+10 Msun; gas hot=0.0012*M*, cold=0"
+aeg-d-strong-lensing/v3/m000093,2.76647599e-09,1.37489907e-09,"M_E computed=1.208727e+11 Msun; R_E=2.467777 kpc; M*=6.0000e+10 Msun; gas hot=0.0012*M*, cold=0"
+aeg-d-strong-lensing/v3/m000144,1.76431308e-09,1.23334416e-09,"M_E printed=2.8200e+11 Msun; R_E printed 4.72 kpc; M*=L_Ein*Upsilon_ref=1.968960e+11 Msun (Kroupa IMF, source fixed IMF); gas hot=0.0012*M*, cold=0"
+aeg-d-strong-lensing/v3/m000083,1.42213425e-09,5.54213555e-10,"M_E computed=4.881327e+11 Msun; R_E=6.916779 kpc; M*=1.9000e+11 Msun; gas hot=0.0012*M*, cold=0"

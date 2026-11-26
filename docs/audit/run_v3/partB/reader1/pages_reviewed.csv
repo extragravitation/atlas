@@ -1,0 +1,33 @@
+page,reviewed,notes
+index.html,yes,"Read all text, alt text, legend and axis labels. Also noted, outside the checklist: the release-status line says the audit 'did not pass on source records and methods text' and leaves out that the neutrality check also failed (4 must-fix findings)."
+map/index.html,yes,"Read all panel text, slider sources, legends, and the inline chart configuration (lens labels, axis titles, view notes). Dataset colours are categorical and carry no result."
+about/index.html,yes,"Read the full page, including the changelog. Outside the checklist: 'v1.0, will cover every kind of system in the taxonomy (D-028)' contradicts the Methods and Coverage pages (D-110 narrows v1.0). 'Version 0.2 ... is the only release so far' contradicts the changelog's v0.1 release. How to cite gives the v0.1 DOI although v0.2 is the latest release."
+methods/index.html,yes,"Read the full page. Outside the checklist: 'Disc galaxies dominate the current measurements (3,391 of 3,837)' and 'KiDS-1000 ... 45 stacked bins' count every recorded row, while the home page and map show 3,734 measurements and 22 bins. The basis of each count is not stated."
+methods/aeg-d-dwarfs/index.html,yes,Read the prose. Checked the per-system locator table by extracting every author-year / arXiv pair; several pairs do not match.
+methods/aeg-d-gc-baumgardt/index.html,yes,Read in full.
+methods/aeg-d-kids1000-rar/index.html,yes,Read in full; no findings.
+methods/aeg-d-sparc/index.html,yes,Read in full; no findings.
+methods/aeg-d-strong-lensing/index.html,yes,Read in full; no findings.
+methods/aeg-d-xcop/index.html,yes,Read in full; no findings.
+known-issues/index.html,yes,"Read in full. Outside the checklist: #227 is listed as open, but its title says the items were 'resolved in v3', and the header reads '0 resolved'."
+for-data-providers/index.html,yes,Read in full; no findings.
+coverage/index.html,yes,"Read in full, including the frozen taxonomy, matrix, selection protocol and release gate. The z < 0.30 epoch cut is a threshold, but the page states its reason and says it was fixed before any value was seen, so it is not raised."
+reproduction/index.html,yes,Read the prose of every test card and the audit summary. Did not check the hash strings.
+tests/index.html,yes,Read in full.
+datasets/index.html,yes,Read in full.
+datasets/aeg-d-dwarfs/v3/index.html,yes,"Read the prose, headings, test summary and uncertainty table. Skimmed the long per-row and reference tables for wording. Did not check values."
+datasets/aeg-d-gc-baumgardt/v3/index.html,yes,"Read the prose, test summary, uncertainty and assumption tables. Skimmed the per-row tables. The plain 'It can be changed with a slider on the map' here refers to the Υ_V slider, which is on the map, so it is correct."
+datasets/aeg-d-kids1000-rar/v3/index.html,yes,Read in full.
+datasets/aeg-d-sparc/v3/index.html,yes,Read in full.
+datasets/aeg-d-strong-lensing/v3/index.html,yes,"Read the prose, test summary, funnel and uncertainty table. Skimmed the long per-lens and reference tables."
+datasets/aeg-d-xcop/v3/index.html,yes,"Read in full, including the uncertainty and assumption tables. Source quotations that name an account ('a DM mass component', the cited paper titles) are quotations and are allowed."
+systems/aeg-s-000124/index.html,yes,"SPARC galaxy UGC05750. Same template as aeg-s-000071, compared line by line; the same findings apply (pull budget, slider location)."
+systems/aeg-s-000071/index.html,yes,"SPARC galaxy NGC4088. Read in full, plus the labels in the pull-budget chart script."
+systems/aeg-s-000182/index.html,yes,"X-COP A2255, recorded only. Read in full."
+systems/aeg-s-000187/index.html,yes,"X-COP Zw1215, recorded only. Same template as aeg-s-000182 (compared line by line); the same plain-reason finding applies."
+systems/aeg-s-000614/index.html,yes,"Lens HSCJ142449-005321, epoch gap, readers differ. Read the status, readings and inputs. Skimmed the uncertainty table."
+systems/aeg-s-000412/index.html,yes,"Lens J0252+0039. Read the status, the Einstein-radius figure text, alternatives, flags and inputs. Skimmed the uncertainty table."
+systems/aeg-s-000192/index.html,yes,"Crater, recorded only. Read in full."
+systems/aeg-s-000217/index.html,yes,"NGC 362. Read the parts that differ from the Crater template (values, profile, inputs, error columns). The ratio of 0.41 is cited in findings elsewhere."
+systems/aeg-s-000380/index.html,yes,"Eridanus IV. Read the status, inputs and uncertainties. The plain slider text here refers to the Υ_V slider, which is on the map, so it is correct."
+systems/aeg-s-000383/index.html,yes,"Hydra II, an upper-limit system. Compared line by line with the aeg-s-000380 template and read the differences (upper-limit σ, assumed semi-major radius, gas limit). Gas source text reads 'Table 1, None' (finding)."
