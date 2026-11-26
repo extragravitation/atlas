@@ -2661,6 +2661,17 @@ The values are unaffected. The package is merged but not released.
 
 **Alternatives rejected.** Correcting only the methods page: the package's own record would still cite the wrong places, and the audit's provenance check could flag these rows.
 
+## D-120 — Audit v3: Claude merges the audit's record-keeping pull requests
+
+**Ruling (2026-11-25, UTC−06:00, JvH).** "You are authorized to do what you need to do", given in the session in answer to which audit steps needed him.
+
+**Rules.**
+1. **What Claude may merge itself**, once its checks pass: the audit's records, namely the seed record, the sample and page choice, the reader packets and readings, the comparison, provenance results, adjudication, the verdict and the result write-up.
+2. **What still needs JvH's ruling and "merge N":** anything that changes what the Atlas says or how it measures, including corrections, new package versions, changes to methods text or package data, a freeze break, any deviation from plan v3, and the v0.3 release.
+3. **Disclosure.** Each such pull request says it was merged under D-120.
+
+**Reason.** The audit's steps are fixed by plan v3 (D-116) and `RUN_STEPS.md`, all committed before the seed. Merging the records as they are made puts each step on the public record at once, in order, and adds no choice that could bend the result.
+
 ## Release record — v0.2 (2026-11-06)
 
 Recorded here because the decision log covers releases (D-110 rule 3). This entry is not a new ruling.
