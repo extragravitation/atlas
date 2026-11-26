@@ -296,7 +296,7 @@ def main() -> int:
     }
     fdesc = {
         "r_kpc": (u.kpc, "phys.size.radius", "Three-dimensional radius, RADIUS as released"),
-        "g_obs": (acc, "phys.acceleration", "Observed acceleration, GOBS as released (the source's non-parametric hydrostatic g_obs)"),
+        "g_obs": (acc, "phys.acceleration", "Observed acceleration, GOBS as released (the source's hydrostatic g_obs; the source does not say which of its two methods, nonparametric or Einasto, this column holds; D-119)"),
         "g_obs_err_lo": (acc, "stat.error;phys.acceleration", "GOBS_ERR_LO, read as an error magnitude (reading/error_form.md; part B item 5); level not given by the source"),
         "g_obs_err_hi": (acc, "stat.error;phys.acceleration", "GOBS_ERR_HI, read as an error magnitude (reading/error_form.md; part B item 5); level not given by the source"),
         "g_bar": (acc, "phys.acceleration", "Baryonic acceleration, GBAR as released (gas, central galaxy and satellites, as one total)"),

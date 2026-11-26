@@ -48,3 +48,7 @@ Two locator corrections now give the right places, and quote the text they corre
 - **T7:** pass (`reproduction/reachability.json`, 2026-11-24). 12 of 19 addresses returned 200, including both archive links. The 7 DOI links returned HTTP 403 from the publishers (A&A and Oxford University Press) to the automated request. Every entry is hashed, so under T7 this is recorded, not failed.
 
 **Exclusion register:** the seven clusters without stellar data are recorded, not plotted (part B rule 2). They are listed again under `aeg-d-xcop/v3` in `data/registry/excluded.csv`, with v2's reason and citation unchanged. The converter requires those rows, and the site shows them.
+
+## Wording changed after the audit (D-122)
+
+Audit v3 Part B found Atlas wording in this package's column descriptions that its neutrality rules do not allow (`docs/audit/run_v3/partB/neutrality_v3.md`). The descriptions were reworded in `convert.py` and the package was rebuilt. Only ECSV header lines and `datapackage.json` changed; no value and no table cell changed. The re-issue test now allows these exact header texts and converter lines, each listed under D-122 in `pipeline/aeg/reissue_check.py`, and T1 to T6 passed on 2026-11-26. v2 is released and stays as published.

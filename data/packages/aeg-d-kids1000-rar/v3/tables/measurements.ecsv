@@ -82,7 +82,7 @@
 #   unit: m / s2
 #   datatype: float64
 #   description: "The source's g_bar bin coordinate, as released: the arithmetic midpoint of its \xA72.1 bin (stars plus cold gas; plus\
-#     \ an assumed hot-gas halo for the variant)"
+#     \ the authors' assumed hot-gas distribution for the variant)"
 #   meta: !!omap
 #   - {ucd: phys.acceleration;meta.modelled}
 # - name: g_bar_err_lo
@@ -132,7 +132,7 @@
 #   - {ucd: meta.code}
 # - name: gas_hot_status
 #   datatype: string
-#   description: 'Hot gas: absent, or modelled (the authors'' assumed halo, hot-gas variant only; D-034)'
+#   description: 'Hot gas: absent, or modelled (the authors'' assumed hot-gas distribution, hot-gas variant only; D-034)'
 #   meta: !!omap
 #   - {ucd: meta.code}
 # - name: observed_from

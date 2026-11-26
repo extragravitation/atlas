@@ -16,12 +16,13 @@ SRC = ROOT / "data/packages" / DS
 def pair(tmp_path):
     if not (SRC / "v3").is_dir():
         pytest.skip("no v3 package yet")
+    base = tmp_path / DS  # named as the dataset, so ruled deviations (keyed by dataset) apply as in the repo
     for v in ("v2", "v3"):
-        (tmp_path / v / "tables").mkdir(parents=True)
+        (base / v / "tables").mkdir(parents=True)
         for f in (SRC / v / "tables").glob("*.ecsv"):
-            shutil.copy(f, tmp_path / v / "tables" / f.name)
-        shutil.copy(SRC / v / "convert.py", tmp_path / v / "convert.py")
-    return tmp_path / "v2", tmp_path / "v3"
+            shutil.copy(f, base / v / "tables" / f.name)
+        shutil.copy(SRC / v / "convert.py", base / v / "convert.py")
+    return base / "v2", base / "v3"
 
 
 def test_real_pair_passes(pair):
@@ -57,3 +58,13 @@ def test_code_change_fails(pair):
     f = pair[1] / "convert.py"
     f.write_text(f.read_text(encoding="utf-8").replace("ISOLATION_LIMIT = 1e-13", "ISOLATION_LIMIT = 2e-13"), encoding="utf-8")
     assert not t2_code(*pair)[0]
+
+
+def test_header_deviation_only_as_ruled(pair):
+    """A ruled T1 header deviation (D-122) is put back exactly; any other header change still fails."""
+    f = pair[1] / "tables/measurements.ecsv"
+    t = f.read_text(encoding="utf-8")
+    assert "assumed hot-gas distribution" in t
+    f.write_text(t.replace("assumed hot-gas distribution for the variant", "assumed hot gas for the variant"), encoding="utf-8")
+    ok, out = t1_tables(DS, *pair)
+    assert not ok

@@ -24,6 +24,23 @@ VERSION_LINE = re.compile(r'^DATASET, VERSION, STANDARD = "[^"]+", "v\d+", "[\d.
 # Ruled deviations from T2: (dataset, the v3 line exactly) -> decision. Each permits one more changed line.
 T2_DEVIATIONS = {
     ("aeg-d-dwarfs", '    rel = f"data/packages/{DATASET}/v2/reading/resolved.csv"  # D-115: the v2 freeze record; v3 holds a byte copy'): "D-115",
+    ('aeg-d-kids1000-rar', '        col("g_bar", M["g_bar"], acc, "phys.acceleration;meta.modelled", "The source\'s g_bar bin coordinate, as released: the arithmetic midpoint of its §2.1 bin (stars plus cold gas; plus the authors\' assumed hot-gas distribution for the variant)", True),'): "D-122",
+    ('aeg-d-kids1000-rar', '        col("gas_hot_status", M["gas_hot_status"], ucd="meta.code", description="Hot gas: absent, or modelled (the authors\' assumed hot-gas distribution, hot-gas variant only; D-034)"),'): "D-122",
+    ('aeg-d-xcop', '        "g_obs": (acc, "phys.acceleration", "Observed acceleration, GOBS as released (the source\'s hydrostatic g_obs; the source does not say which of its two methods, nonparametric or Einasto, this column holds; D-119)"),'): "D-122",
+}
+
+# Ruled deviations from T1: (dataset, table) -> list of (v3 header text, v2 header text, decision). Only ECSV
+# header (#) lines may be listed; N(v3) has each v3 text put back to its v2 text before the hashes are compared.
+T1_DEVIATIONS = {
+    ("aeg-d-kids1000-rar", "measurements.ecsv"): [
+        ("#     \\ the authors' assumed hot-gas distribution for the variant)\"", "#     \\ an assumed hot-gas halo for the variant)\"", "D-122"),
+        ("#   description: 'Hot gas: absent, or modelled (the authors'' assumed hot-gas distribution, hot-gas variant only; D-034)'",
+         "#   description: 'Hot gas: absent, or modelled (the authors'' assumed halo, hot-gas variant only; D-034)'", "D-122"),
+    ],
+    ("aeg-d-xcop", "measurements.ecsv"): [
+        ("#   description: Observed acceleration, GOBS as released (the source's hydrostatic g_obs; the source does not say which of its two methods,\n#     nonparametric or Einasto, this column holds; D-119)",
+         "#   description: Observed acceleration, GOBS as released (the source's non-parametric hydrostatic g_obs)", "D-122"),
+    ],
 }
 
 
@@ -57,8 +74,18 @@ def t1_tables(dataset: str, v2: Path, v3: Path) -> tuple[bool, list[str]]:
         a = (v2 / "tables" / name).read_text(encoding="utf-8")
         sv2 = re.search(r"^# - \{standard_version: ([\d.]+)\}$", a, flags=re.M)
         n = normalise((v3 / "tables" / name).read_text(encoding="utf-8"), dataset, sv2.group(1) if sv2 else "")
+        ruled = []
+        for t3, t2_, dec in T1_DEVIATIONS.get((dataset, name), []):
+            assert all(x.startswith("#") for x in t3.split("\n") + t2_.split("\n")), "T1 deviations are header lines only"
+            if t3 in n:
+                n = n.replace(t3, t2_)
+                ruled.append(dec)
         if _sha(n.encode()) == _sha(a.encode()):
-            out.append(f"T1 pass: {name} identical after N (sha256 {_sha(a.encode())[:12]}…)")
+            if ruled:
+                out.append(f"T1 pass with ruled header deviations: {name} identical after N once {len(ruled)} ruled header text(s) "
+                           f"are put back ({', '.join(sorted(set(ruled)))}) (sha256 {_sha(a.encode())[:12]}…)")
+            else:
+                out.append(f"T1 pass: {name} identical after N (sha256 {_sha(a.encode())[:12]}…)")
             continue
         # The one permitted difference: issue numbers added to known_issues cells, none dropped.
         t2, i2 = _known_issues_cells(a)

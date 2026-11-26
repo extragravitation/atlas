@@ -1,9 +1,9 @@
 == aeg-d-kids1000-rar: PASS (T1 to T6)
   T1 pass: covariance.ecsv identical after N (sha256 ec57bcdc6276…)
-  T1 pass: measurements.ecsv identical after N (sha256 337449a8d689…)
+  T1 pass with ruled header deviations: measurements.ecsv identical after N once 2 ruled header text(s) are put back (D-122) (sha256 337449a8d689…)
   T1 pass: observables.ecsv identical after N (sha256 0339f5f27fe7…)
   T1 pass: uncertainty_terms.ecsv identical after N (sha256 f7dee2c874c5…)
-  T2 pass: convert.py differs only on line 38: DATASET, VERSION, STANDARD = "aeg-d-kids1000-rar", "v3", "3.0.0"
+  T2 pass with a ruled deviation: convert.py differs on line 38 (version) and on line 317, 326 (D-122, D-122): col("g_bar", M["g_bar"], acc, "phys.acceleration;meta.modelled", "The source's g_bar bin coordinate, as released: the arithmetic midpoint of its §2.1 bin (stars plus cold gas; plus the authors' assumed hot-gas distribution for the variant)", True),
   T3 pass
   T4 pass
   T5 pass

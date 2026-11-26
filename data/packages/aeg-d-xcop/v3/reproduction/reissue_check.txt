@@ -1,9 +1,9 @@
 == aeg-d-xcop: PASS (T1 to T6)
-  T1 pass: measurements.ecsv identical after N (sha256 18b8b71d9c19…)
+  T1 pass with ruled header deviations: measurements.ecsv identical after N once 1 ruled header text(s) are put back (D-122) (sha256 18b8b71d9c19…)
   T1 pass: observables.ecsv identical after N (sha256 5ff03dff0585…)
   T1 pass: systems.ecsv identical after N (sha256 48ee1dc98833…)
   T1 pass: uncertainty_terms.ecsv identical after N (sha256 fff2dbf7187f…)
-  T2 pass: convert.py differs only on line 47: DATASET, VERSION, STANDARD = "aeg-d-xcop", "v3", "3.0.0"
+  T2 pass with a ruled deviation: convert.py differs on line 47 (version) and on line 299 (D-122): "g_obs": (acc, "phys.acceleration", "Observed acceleration, GOBS as released (the source's hydrostatic g_obs; the source does not say which of its two methods, nonparametric or Einasto, this column holds; D-119)"),
   T3 pass
   T4 pass
   T5 pass
