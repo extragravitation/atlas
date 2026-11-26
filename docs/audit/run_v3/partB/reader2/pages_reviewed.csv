@@ -1,0 +1,33 @@
+page,reviewed,notes
+index.html,yes,"Read in full, both layers, including chart SVG labels and alt text."
+map/index.html,yes,"Read in full, both layers. Also read the map-labels JSON on the page and the label strings in the map script (lens descriptions, axis labels, tooltips, legend)."
+about/index.html,yes,"Read in full, both layers, including the changelog."
+methods/index.html,yes,"Read in full, both layers."
+methods/aeg-d-dwarfs/index.html,yes,"Read the method text and plain summary. Skimmed the per-system input-location table (about 1,600 lines) with term searches only."
+methods/aeg-d-gc-baumgardt/index.html,yes,"Read in full, both layers."
+methods/aeg-d-kids1000-rar/index.html,yes,"Read in full, both layers."
+methods/aeg-d-sparc/index.html,yes,"Read in full, both layers."
+methods/aeg-d-strong-lensing/index.html,yes,Read the plain summary. Read the technical text with term searches and a skim; not read line by line.
+methods/aeg-d-xcop/index.html,yes,"Read in full, both layers."
+known-issues/index.html,yes,"Read in full, both layers. Measurement ID lists skimmed."
+for-data-providers/index.html,yes,"Read in full, both layers."
+coverage/index.html,yes,"Read in full, both layers."
+reproduction/index.html,yes,"Read the summary, the per-dataset table and the SPARC and X-COP detail. The rest skimmed with term searches."
+tests/index.html,yes,"Read in full, both layers (accounts and tests section)."
+datasets/index.html,yes,"Read in full, both layers."
+datasets/aeg-d-dwarfs/v3/index.html,partial,"Partly read: prose and uncertainty terms skimmed (lines over 120 characters), plus term searches. Citation and hash tables not read line by line."
+datasets/aeg-d-gc-baumgardt/v3/index.html,partial,Partly read: prose skimmed plus term searches. Hash and file tables not read line by line.
+datasets/aeg-d-kids1000-rar/v3/index.html,yes,"Prose, uncertainty terms, assumptions and column descriptions read. Hash tables skimmed."
+datasets/aeg-d-sparc/v3/index.html,yes,"Prose, selection figure caption, uncertainties, assumptions and columns read. Hash tables skimmed."
+datasets/aeg-d-strong-lensing/v3/index.html,partial,Partly read: prose skimmed (lines over 120 characters) plus term searches. The long per-system lists and tables not read line by line.
+datasets/aeg-d-xcop/v3/index.html,yes,"Prose, uncertainty terms, assumptions and columns read. Hash tables skimmed."
+systems/aeg-s-000124/index.html,yes,"Read in full, both layers. Also read the pull-budget label JSON and the budget script strings."
+systems/aeg-s-000071/index.html,yes,Compared with aeg-s-000124 (same template); differences and the label JSON checked.
+systems/aeg-s-000182/index.html,yes,"Read in full, both layers."
+systems/aeg-s-000187/index.html,yes,"Read in full, by diff against aeg-s-000182."
+systems/aeg-s-000614/index.html,yes,"Status, reasons and readings section read, both layers. Uncertainty table skimmed."
+systems/aeg-s-000412/index.html,yes,Read the technical layer (long system lists skimmed). Plain layer spot-checked.
+systems/aeg-s-000192/index.html,yes,"Status, reasons and figure read, both layers. Uncertainty table skimmed."
+systems/aeg-s-000217/index.html,yes,"Status, figure and inputs read. Rest skimmed. Plain layer spot-checked."
+systems/aeg-s-000380/index.html,partial,Term searches and a template comparison with aeg-s-000383. Not read line by line.
+systems/aeg-s-000383/index.html,yes,"Read in full, both layers."
