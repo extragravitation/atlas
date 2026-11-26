@@ -44,3 +44,11 @@ All 60 gas inputs carry the source_ref `Putman et al. 2021 Table 1, None`. v1's 
 ## Test result
 
 T1 to T6: see `reproduction/reissue_check.txt`. T7: run 1 failed (`reproduction/reachability_run1_fail.json`); run 2 passed after the ruled remedy (`reproduction/reachability.json`).
+
+## Corrections added after the audit (D-121, issue #243)
+
+Audit v3 found, and Claude then checked across all 64 systems, two kinds of wrong place in the record. No value changes.
+- **Ellipticity, Higgs et al. 2021.** For Andromeda XVIII, Andromeda XXVIII and Leo T, the source_ref names p. 16 Table 3 for r_h and ε. Table 3 gives r_h (column Rs) but no ellipticity; ε is column e of Table 2. The three locator rules now give both tables, and quote "Table 3 (Best-fit Sérsic parameters)" as the text they correct.
+- **M_V route "used by the paper".** The rules took M_V from the paper of the package distance. For Antlia II the paper is Ji et al. 2021 Table 1 (the rule named Vivas et al. 2022, which prints no M_V); for Andromeda XXVIII, Slater et al. 2015 Table 1; for Eridanus IV, Casey et al. 2025 Table 4. The two rules now name these papers. The source_ref text names no paper, so these are rule fixes, not quoted corrections.
+
+T1 to T6 were run again on 2026-11-26 and passed; the T4 count is 22 corrections.
