@@ -2672,6 +2672,24 @@ The values are unaffected. The package is merged but not released.
 
 **Reason.** The audit's steps are fixed by plan v3 (D-116) and `RUN_STEPS.md`, all committed before the seed. Merging the records as they are made puts each step on the public record at once, in order, and adds no choice that could bend the result.
 
+## D-121 — Audit v3 Part A: dwarf locator corrections, and v0.3 released with the failed result posted
+
+**Ruling (2026-11-26, UTC−06:00, JvH).** "Correct locators in v3 (Recommended)" and "Release with fail posted (Recommended)", in answer to the two questions put in the session after the Part A verdict. Issue #243.
+
+**Context.** Audit v3 Part A (plan v3, D-116) reproduced all 220 sampled rows: 0 material discrepancies and 0 method gaps. Its provenance check found 3 failures, all in the dwarfs (`docs/audit/run_v3/adjudication.csv`). That gives a one-sided 95 % bound of 3.49 %, above the 2.5 % threshold, so the verdict is **fail**. Claude then checked all 64 dwarf systems for the same two errors, and 6 systems have them:
+- **Ellipticity, Higgs et al. 2021:** recorded as p. 16 Table 3, but printed in Table 2 (column e). Andromeda XVIII, Andromeda XXVIII and Leo T.
+- **M_V route "used by the paper":** the rule took M_V from the paper of the package distance, but for three systems it is printed in another paper, as the methods page says and the values confirm. Antlia II: Ji et al. 2021, not Vivas et al. 2022. Andromeda XXVIII: Slater et al. 2015, not Savino et al. 2022. Eridanus IV: Casey et al. 2025, not Cerny et al. 2021, which prints a different M_V.
+
+**Rules.**
+1. **The corrections.** Three Higgs rules give both tables and quote "Table 3 (Best-fit Sérsic parameters)" as the text they correct (data standard 3.0.0 §13 R4). The two M_V-route rules name the right papers and places. All are listed under known issue #243. The tables, `convert.py` and every value are unchanged (D-114 Q1). T1 to T6 were re-run and passed; the T4 count is 22 corrections.
+2. **The verdict stands.** The audit is not re-scored. Its result is published as "fail (provenance)", with the corrections listed beside it.
+3. **v0.3 is released** once the corrections and the Part B resolutions are merged, with the audit result on the site and in the release record.
+4. **A fresh audit (v4)** runs before v1.0 and the methods paper, under a new frozen plan with a new seed.
+
+**Alternatives rejected.** A new dwarfs v4 package: the change is to locators only, in a package not yet released, which is the same case as D-117 and D-119. Holding v0.3 until a new audit passes: it delays a release whose values all reproduced, and the failure is published either way.
+
+**Data seen.** The audit's readings and adjudication, the cited pages of Higgs 2021, Ji 2021, Vivas 2022, Slater 2015, Savino 2022, Casey 2025 and Cerny 2021, and the package values of the six systems.
+
 ## Release record — v0.2 (2026-11-06)
 
 Recorded here because the decision log covers releases (D-110 rule 3). This entry is not a new ruling.

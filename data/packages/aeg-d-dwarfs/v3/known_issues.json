@@ -67,6 +67,26 @@
         "^Putman\\ et\\ al\\.\\ 2021\\ Table\\ 1,\\ None$"
       ],
       "note": "No value changes. A locator correction (D-117) gives each galaxy's row; the table text stays as converted (D-114 Q1)."
+    },
+    {
+      "issue": 243,
+      "url": "https://github.com/extragravitation/atlas/issues/243",
+      "title": "Dwarfs v3: ellipticity and M_V locators point to the wrong table or paper for six systems (audit v3)",
+      "systems": [
+        "aeg-s-000358",
+        "aeg-s-000366",
+        "aeg-s-000367",
+        "aeg-s-000380",
+        "aeg-s-000390"
+      ],
+      "measurements": [],
+      "sources": [],
+      "locators": [
+        "^Higgs2021MNRAS\\.503\\.\\.176H\\ PDF\\ p\\.16,\\ Table\\ 3\\ \\(Best\\-fit\\ Sérsic\\ parameters\\),\\ row\\ And\\ XVIII$",
+        "^Higgs2021MNRAS\\.503\\.\\.176H\\ PDF\\ p\\.16,\\ Table\\ 3\\ \\(Best\\-fit\\ Sérsic\\ parameters\\),\\ row\\ And\\ XXVIII$",
+        "^Higgs2021MNRAS\\.503\\.\\.176H\\ PDF\\ p\\.16,\\ Table\\ 3\\ \\(Best\\-fit\\ Sérsic\\ parameters\\),\\ row\\ Leo\\ T$"
+      ],
+      "note": "No value changes. Three locator corrections give Table 2 for the Higgs et al. 2021 ellipticity; the M_V route names Ji 2021 (Antlia II), Slater 2015 (And XXVIII) and Casey 2025 (Eridanus IV). The table text stays as converted (D-114 Q1). D-121."
     }
   ]
 }

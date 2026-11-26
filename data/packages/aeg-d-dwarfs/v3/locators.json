@@ -663,9 +663,11 @@
    ],
    "where": {
     "page": "16",
-    "table": "3",
+    "table": "3 (r_h: column Rs); 2 (ε: column e)",
     "row": "And XVIII"
-   }
+   },
+   "correction": "Table 3 (Best-fit Sérsic parameters)",
+   "note": "Higgs et al. 2021 p. 16: r_h is the Rs column of Table 3; the ellipticity is the e column of Table 2 (\"Derived positional and shape information\"). The source_ref names Table 3 for both; Table 3 prints no ellipticity (issue #243, D-121; found by audit v3)."
   },
   {
    "table": "observables",
@@ -675,9 +677,11 @@
    ],
    "where": {
     "page": "16",
-    "table": "3",
+    "table": "3 (r_h: column Rs); 2 (ε: column e)",
     "row": "And XXVIII"
-   }
+   },
+   "correction": "Table 3 (Best-fit Sérsic parameters)",
+   "note": "Higgs et al. 2021 p. 16: r_h is the Rs column of Table 3; the ellipticity is the e column of Table 2 (\"Derived positional and shape information\"). The source_ref names Table 3 for both; Table 3 prints no ellipticity (issue #243, D-121; found by audit v3)."
   },
   {
    "table": "observables",
@@ -687,9 +691,11 @@
    ],
    "where": {
     "page": "16",
-    "table": "3",
+    "table": "3 (r_h: column Rs); 2 (ε: column e)",
     "row": "Leo T"
-   }
+   },
+   "correction": "Table 3 (Best-fit Sérsic parameters)",
+   "note": "Higgs et al. 2021 p. 16: r_h is the Rs column of Table 3; the ellipticity is the e column of Table 2 (\"Derived positional and shape information\"). The source_ref names Table 3 for both; Table 3 prints no ellipticity (issue #243, D-121; found by audit v3)."
   },
   {
    "table": "observables",
@@ -1060,12 +1066,15 @@
    "table": "observables",
    "match": "^M_V\\ \\+\\ \\(m\\-M\\)\\ used\\ by\\ the\\ paper\\ \\(cited\\)$",
    "sources": [
-    "S104"
+    "S59"
    ],
    "where": {
-    "row": "the system's row in the paper that gives its distance modulus"
+    "page": "7",
+    "table": "1",
+    "column": "Antlia 2",
+    "row": "MV; µ (mag)"
    },
-   "note": "The source_ref names no paper. The paper is the one that gives the system's distance modulus, named by that system's distance observable; the place is that paper's table or text for the system."
+   "note": "Antlia II only. M_V and the modulus the paper uses are printed in Ji et al. 2021 p. 7, Table 1 (rows MV and µ (mag), column Antlia 2). Before D-121 this rule named S104, Vivas et al. 2022, the paper of the package distance, which prints no M_V (issue #243; found by audit v3)."
   },
   {
    "table": "observables",
@@ -1081,12 +1090,14 @@
     "S68",
     "S100",
     "S32",
-    "S44"
+    "S44",
+    "S96",
+    "S29"
    ],
    "where": {
     "row": "the system's row in the paper that gives its distance modulus"
    },
-   "note": "The source_ref names no paper. The paper is the one that gives the system's distance modulus, named by that system's distance observable; the place is that paper's table or text for the system."
+   "note": "The source_ref names no paper. The paper is the one that gives the system's distance modulus, named by that system's distance observable; the place is that paper's table or text for the system. Two exceptions, where M_V comes from a paper other than the one giving the package distance (as the methods page says): Andromeda XXVIII, Slater et al. 2015 (S96) p. 3, Table 1 (rows MV and (m − M)0); Eridanus IV, Casey et al. 2025 (S29) p. 5, Table 4 (rows MV (mag) and m − M (mag), column Eri IV). Added by D-121 (issue #243; found by audit v3)."
   },
   {
    "table": "observables",

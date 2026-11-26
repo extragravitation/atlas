@@ -296,7 +296,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Input | Read from | Place (locator) |
 |---|---|---|
 | σ | Kvasova 2024 ApJ 972 180 (arXiv 1112.1067v3), p9, Table 3, row And XVIII, column σLOS. | page: 7; 11 · table: 2; 4 · column: '38 stars |
-| r_h and ε | Higgs2021MNRAS.503..176H PDF p.16, Table 3 (Best-fit Sérsic parameters), row And XVIII. Convention: semi-major. | page: 16 · table: 3 · row: And XVIII |
+| r_h and ε | Higgs2021MNRAS.503..176H PDF p.16, Table 3 (Best-fit Sérsic parameters), row And XVIII. Convention: semi-major. | page: 16 · table: 3 (r_h: column Rs); 2 (ε: column e) · row: And XVIII |
 | Distance | Higgs2021MNRAS.503..176H PDF p.16, Table 2 (Derived positional and shape information), row And XVIII. Read as the distance modulus. | page: 16 · table: 2 · row: And XVIII |
 | m_V,0 | printed m_V,0 (Martin2016ApJ...833..167M p. 9, Table 2 (Derived luminosity-related properties of the dwarf galaxies), row And XVIII). | page: 9 · table: 2 · row: And XVIII |
 | [Fe/H] | Kvasova2024ApJ...972..180K, p.10-11, Sec. 4.3 (Metallicity) (mean [Fe/H], spectroscopic). | page: 10-11; 11 · section: 4.3 · table: 4 · row: 'This work' |
@@ -380,7 +380,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Input | Read from | Place (locator) |
 |---|---|---|
 | σ | Collins 2013 ApJ 768 172 (arXiv 1302.0848v2), p3, Table 1, row (11), And XXVIII column. | page: 27; 33; 37; 39; 40; 10; 11; 14; 15; 38; 16; 19; 20 · table: 4; 5 |
-| r_h and ε | Higgs2021MNRAS.503..176H PDF p.16, Table 3 (Best-fit Sérsic parameters), row And XXVIII. Convention: semi-major. | page: 16 · table: 3 · row: And XXVIII |
+| r_h and ε | Higgs2021MNRAS.503..176H PDF p.16, Table 3 (Best-fit Sérsic parameters), row And XXVIII. Convention: semi-major. | page: 16 · table: 3 (r_h: column Rs); 2 (ε: column e) · row: And XXVIII |
 | Distance | Savino2022ApJ...938..101S p.15, Table 5, row 'And XXVIII'. Read as the distance modulus. | page: 15 · table: 5 · row: 'And XXVIII' |
 | m_V,0 | M_V from Slater2015ApJ...806..230S p.3, Table 1, column And XXVIII, plus the modulus the paper uses (its own, read as above). | row: the system's row in the paper that gives its distance modulus |
 | [Fe/H] | Slater2015ApJ...806..230S, p.3, Table 1 (Properties of And XXVIII & XXIX); method Sec. 4 p.4 (mean [Fe/H], spectroscopic). | page: 3; 4 · table: 1 · section: 4 |
@@ -394,7 +394,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | σ | Ji 2021 ApJ 921 32 (arXiv 2106.12656v2), p.7, Table 1, 'σv, no kv' row, Antlia 2. | page: 7 · table: 1 |
 | r_h and ε | Ji2021ApJ...921...32J p. 7, Table 1 (Galaxy Properties), Antlia 2 column, row rh (arcmin); also p. 6, §3 [value], no error). Convention: circularised. | page: 7; 6 · table: 1 · row: rh (arcmin · section: 3 |
 | Distance | Vivas2022ApJ...926...78V p.9, §3.3; no_uncertainty: no error printed. Read as the distance modulus. | page: 9 · section: 3.3 |
-| m_V,0 | M_V from Ji2021ApJ...921...32J PDF p.7, Table 1 (Galaxy Properties), Antlia 2 column, row MV, plus the modulus the paper uses (cited). | row: the system's row in the paper that gives its distance modulus |
+| m_V,0 | M_V from Ji2021ApJ...921...32J PDF p.7, Table 1 (Galaxy Properties), Antlia 2 column, row MV, plus the modulus the paper uses (cited). | page: 7 · table: 1 · column: Antlia 2 · row: MV; µ (mag) |
 | [Fe/H] | Ji2021ApJ...921...32J, p.7, Sec. 4, Table 1 (Galaxy Properties), row ⟨[Fe/H]⟩ (dex, CaT) (mean [Fe/H], spectroscopic). | page: 7; 12; 15 · table: 1; 2 · row: ⟨[Fe/H]⟩ (dex; Antlia2 · section: 4; 5; 7.1.2 |
 | Gas | Putman et al. 2021 Table 1, row "Antlia 2"; an upper limit: no gas term | table: 1 · row: the galaxy's row: the name in column galaxy_as_printed ("Antlia 2") · column: l_MHI, MHI and Dist |
 | Υ_V | McLaughlin & van der Marel 2005 `clusters`, (M/L)1 interpolated at the [Fe/H] above | |
@@ -644,7 +644,7 @@ The table is generated from the package by `docs/methods/datasets/make_input_tab
 | Input | Read from | Place (locator) |
 |---|---|---|
 | σ | Geha 2026 ApJ 999 140 (arXiv 0706.0516v2), p9, Table 3, row Leo T. | page: 32; 33; 34 · row: Aqr2; Aqr3; Boo2; CVn1; CVn2; Col1; CB; Dra; Hyd2; Leo4; Leo5; Leo6; LeoT; Peg3; Peg4; Pisc2; Scl; UMa1; UMa2; UMi |
-| r_h and ε | Higgs2021MNRAS.503..176H PDF p.16, Table 3 (Best-fit Sérsic parameters), row Leo T. Convention: semi-major. | page: 16 · table: 3 · row: Leo T |
+| r_h and ε | Higgs2021MNRAS.503..176H PDF p.16, Table 3 (Best-fit Sérsic parameters), row Leo T. Convention: semi-major. | page: 16 · table: 3 (r_h: column Rs); 2 (ε: column e) · row: Leo T |
 | Distance | Higgs2021MNRAS.503..176H PDF p.16, Table 2 (Derived positional and shape information), row Leo T. Read as the distance modulus. | page: 16 · table: 2 · row: Leo T |
 | m_V,0 | de Jong 2008 M_V + red-clump modulus (D-061 item 6). | page: 5 (M_V); 7 (red-clump modulus) · table: 1 · section: 4 (M_V); 6 (modulus) |
 | [Fe/H] | Kirby2013ApJ...779..102K, p.12, Table 4 (Summary of MDFs), Local Group dIrrs, row Leo T (mean [Fe/H], spectroscopic). | page: 12 · table: 4 · row: Fornax; Leo T; Sculptor; Sextans |
