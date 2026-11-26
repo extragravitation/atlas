@@ -3,6 +3,7 @@
 // the Einstein radius R_E (D-064), with the inputs as read at source, the cosmology, the gas term and the
 // reported checks. Everything shown is read from the package files; the only arithmetic here turns the
 // package's accelerations into masses inside the same cylinder (M = g R_E² / G = g × M_E / g_obs).
+import { unsettled } from '../lib/kind.mjs';
 import L from './L.astro';
 import Quote from './Quote.astro';
 import EpochCut from './EpochCut.astro';
@@ -149,7 +150,7 @@ const gapRows = gap ? Object.entries(P.readings || {}).flatMap(([scope, e]) => [
       <thead><tr><th class="l"><L t="Survey" p="From" /></th><th class="l"><L t="Item" p="What" /></th><th class="l"><L t="Reader A" p="First reader" /></th><th class="l"><L t="Reader B" p="Second reader" /></th><th class="l"><L t="Readers" p="Same?" /></th></tr></thead>
       <tbody>{gapRows.map((r) => <tr><td class="l">{r.scope}</td><td class="l">{r.label}</td><td class="l"><Quote text={r.a} /></td><td class="l"><Quote text={r.b} /></td><td class="l">{r.diff ? <b><L t="differ" p="differ" /></b> : <L t="agree" p="same" />}</td></tr>)}</tbody>
     </table></div>
-    <p class="small" style="margin-top:6px"><L t={`Kind used for this lens: ${R.taxonomy_kind}, ${R.kind_label}. Lens redshift from ${(R.distance_ref || '').replace(/^lens redshift /, '')}.`} p="Read straight from the papers; not yet checked by a third person." /> <a href={`${REPO}/blob/main/${repoDir}/SECOND_READING.md#epoch-gap-systems-d-066-item-2`}>SECOND_READING.md</a></p>
+    <p class="small" style="margin-top:6px"><L t={`${unsettled(R) !== null ? `Kind not settled: ${unsettled(R)}. The package records such lenses under code ${R.taxonomy_kind}, which here means only that the kind is not settled` : `Kind used for this lens: ${R.taxonomy_kind}, ${R.kind_label}`}. Lens redshift from ${(R.distance_ref || '').replace(/^lens redshift /, '')}.`} p="Read straight from the papers; not yet checked by a third person." /> <a href={`${REPO}/blob/main/${repoDir}/SECOND_READING.md#epoch-gap-systems-d-066-item-2`}>SECOND_READING.md</a></p>
   </>
 )}
 

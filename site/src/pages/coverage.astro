@@ -1,6 +1,7 @@
 ---
 // Kinds of system and coverage (D-028): what the Atlas covers, what it will cover, and the gaps.
 // Rendered from docs/plans/TAXONOMY_v2.md (D-108; version 1 is docs/plans/TAXONOMY.md, D-028), the ruled document, so the page cannot drift from it.
+import { unsettled, kindKey, UNSETTLED_KEY } from '../lib/kind.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import Base from '../layouts/Base.astro';
@@ -55,8 +56,8 @@ const kindName = Object.fromEntries([...matrix.matchAll(/^\| (A\d+) ([^|]+?) \|/
 const inHand = atlas.datasets.map((d) => {
   const plotted = new Set(d.measurements.rows.filter((r) => r.plotted !== 'false').map((r) => r.system_id));
   const by = {};
-  if (d.systems) for (const x of d.systems.rows) if (plotted.has(x.system_id) && x.taxonomy_kind) by[x.taxonomy_kind] = (by[x.taxonomy_kind] || 0) + 1;
-  const kinds = Object.entries(by).sort((a, b) => b[1] - a[1]).map(([k, n]) => `${k} ${kindName[k] || ''} (${n})`.replace(/\s+\(/, ' ('));
+  if (d.systems) for (const x of d.systems.rows) if (plotted.has(x.system_id) && x.taxonomy_kind) { const k = kindKey(x); by[k] = (by[k] || 0) + 1; }
+  const kinds = Object.entries(by).sort((a, b) => b[1] - a[1]).map(([k, n]) => (k === UNSETTLED_KEY ? `Kind not settled (${n})` : `${k} ${kindName[k] || ''} (${n})`.replace(/\s+\(/, ' (')));
   return { d, col: COLUMN[d.name] || d.measurements.rows[0].method_class, kinds: d.systems ? joinAnd(kinds) : 'A4 and A6, stacked (an environment selection, §3)', plotted: d.systems ? plottedSystemCount(d) : null };
 });
 ---

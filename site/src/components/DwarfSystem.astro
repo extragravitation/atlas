@@ -2,6 +2,7 @@
 // System page for an A5/A7 dwarf galaxy (aeg-d-dwarfs): one published dispersion per system,
 // structure, distance and magnitude from the double-read originals (D-048 to D-062). Everything
 // shown is read from the package tables; nothing is computed here except unit conversions.
+import { unsettled } from '../lib/kind.mjs';
 import L from './L.astro';
 import Quote from './Quote.astro';
 import SystemUncertainties from './SystemUncertainties.astro';
@@ -41,7 +42,7 @@ const FLAG_T = {
   structure_from_arxiv_vor_cells_empty: 'The published table prints no half-light radius or ellipticity; the arXiv values are used (D-050).',
 };
 ---
-<p class="lede"><L t={`${R.class_in_source}, ${R.host}. ${R.kind_label === 'dwarf galaxy' ? '' : 'Kind: ' + R.kind_label + '. '}${lab.method_t}. ${plotted ? 'Plotted: one value at the 3D half-light radius.' : 'Recorded, not plotted.'}`} p={`${lab.one_p}. ${plotted ? 'Shown on the map as one point.' : 'Kept in the record but not shown on the map, for the reason below.'}`} /></p>
+<p class="lede"><L t={`${R.class_in_source}, ${R.host}. ${R.kind_label === 'dwarf galaxy' ? '' : unsettled(R) !== null ? 'Kind not settled: ' + unsettled(R) + '. ' : 'Kind: ' + R.kind_label + '. '}${lab.method_t}. ${plotted ? 'Plotted: one value at the 3D half-light radius.' : 'Recorded, not plotted.'}`} p={`${unsettled(R) !== null ? 'A small, faint system near our own; whether it is a galaxy or a star cluster is not settled' : lab.one_p}. ${plotted ? 'Shown on the map as one point.' : 'Kept in the record but not shown on the map, for the reason below.'}`} /></p>
 
 <h2 id="status"><L t="Status" p="On the map?" /></h2>
 {plotted ? (
