@@ -50,7 +50,8 @@
 # - name: g_obs
 #   unit: m / s2
 #   datatype: float64
-#   description: Observed acceleration, GOBS as released (the source's non-parametric hydrostatic g_obs)
+#   description: Observed acceleration, GOBS as released (the source's hydrostatic g_obs; the source does not say which of its two methods,
+#     nonparametric or Einasto, this column holds; D-119)
 #   meta: !!omap
 #   - {ucd: phys.acceleration}
 # - name: g_obs_err_lo
