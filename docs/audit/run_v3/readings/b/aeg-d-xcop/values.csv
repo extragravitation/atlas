@@ -1,0 +1,11 @@
+measurement_id,g_obs,g_bar,notes
+aeg-d-xcop/v3/m000102,7.93742364e-11,1.14501048e-11,A2319 row 20; r=1103.7048 kpc; GOBS and GBAR used unchanged as stored float32 (METHOD §3 step 1); no constants used
+aeg-d-xcop/v3/m000062,2.11968117e-11,4.72604334e-12,A2029 row 22; r=2668.7856 kpc; GOBS and GBAR used unchanged as stored float32 (METHOD §3 step 1); no constants used
+aeg-d-xcop/v3/m000016,6.66804598e-11,7.25734490e-12,A644 row 16; r=1127.6184 kpc; GOBS and GBAR used unchanged as stored float32 (METHOD §3 step 1); no constants used
+aeg-d-xcop/v3/m000105,5.66095226e-11,1.00628264e-11,A2319 row 23; r=1373.179 kpc; GOBS and GBAR used unchanged as stored float32 (METHOD §3 step 1); no constants used
+aeg-d-xcop/v3/m000038,2.90249040e-11,4.65916238e-12,A1795 row 19; r=1590.62 kpc; GOBS and GBAR used unchanged as stored float32 (METHOD §3 step 1); no constants used
+aeg-d-xcop/v3/m000033,6.41796824e-11,8.44147582e-12,A1795 row 14; r=856.48773 kpc; GOBS and GBAR used unchanged as stored float32 (METHOD §3 step 1); no constants used
+aeg-d-xcop/v3/m000001,2.24029642e-10,5.07540780e-11,A644 row 1; r=64.18796 kpc; GOBS and GBAR used unchanged as stored float32 (METHOD §3 step 1); no constants used
+aeg-d-xcop/v3/m000030,1.08676221e-10,1.21892522e-11,A1795 row 11; r=522.6535 kpc; GOBS and GBAR used unchanged as stored float32 (METHOD §3 step 1); no constants used
+aeg-d-xcop/v3/m000079,5.77336998e-11,9.19142019e-12,A2142 row 17; r=1527.499 kpc; GOBS and GBAR used unchanged as stored float32 (METHOD §3 step 1); no constants used
+aeg-d-xcop/v3/m000081,3.54129434e-11,6.40218347e-12,A2142 row 19; r=2221.8167 kpc; GOBS and GBAR used unchanged as stored float32 (METHOD §3 step 1); no constants used

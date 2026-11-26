@@ -1,0 +1,87 @@
+measurement_id,input,value,unit,file,place,at_locator
+aeg-d-dwarfs/v3/m000013,sigma_los,3.8 ± 2.9,km/s,files/1112.1067v3.pdf,"p.9, Table 3, row And XVI, column σLOS",yes
+aeg-d-dwarfs/v3/m000013,r_h (major axis),1.0 ± 0.1,arcmin,files/1610.01158v1.pdf,"p.9, Table 1, row And XVI, column rh (arcmin)",yes
+aeg-d-dwarfs/v3/m000013,ellipticity,0.29 ± 0.08,,files/1610.01158v1.pdf,"p.9, Table 1, row And XVI, column ǫ",yes
+aeg-d-dwarfs/v3/m000013,distance modulus,23.70±0.08(0.09),mag,files/1710.09038v1.pdf,"p.18, Table 8, row And XVI, column PWR (the column the paper adopts as final, p.18 text and abstract)",yes
+aeg-d-dwarfs/v3/m000013,"m_V,0",16.1 ± 0.3,mag,files/1610.01158v1.pdf,"p.9, Table 2, row And XVI, column mV,0",yes
+aeg-d-dwarfs/v3/m000013,[Fe/H],−2.17 +0.05 −0.05,dex,files/2407.04698v1.pdf,"p.9, Table 2, Global MDF, ⟨[Fe/H]⟩, column And XVI",yes
+aeg-d-dwarfs/v3/m000013,gas,< 2.0E+04 (l_MHI=<); Dist 476,Msun; kpc,files/apjabe391t1_mrt.txt,"row Andromeda XVI (line 148), columns l_MHI, MHI, Dist",yes
+aeg-d-dwarfs/v3/m000013,Upsilon_V (M/L)1 interpolated,1.91100,M_sun/L_sun,files/J_ApJS_161_304_clusters.vot,"rows with Cluster starting 'MW' (148 rows, logAge 10.11); column (M/L)1 vs [Fe/H]; interp",yes
+aeg-d-dwarfs/v3/m000024,sigma_los,7.69 +0.40 −0.37,km/s,files/2106.12656v2.pdf,"p.7, Table 1, row σv, no kv, column Antlia 2",yes
+aeg-d-dwarfs/v3/m000024,r_h (circularised),66.3 ± 4.6,arcmin,files/2106.12656v2.pdf,"p.7, Table 1, row rh (arcmin), column Antlia 2 (Circularized half light radius)",yes
+aeg-d-dwarfs/v3/m000024,distance modulus,20.47,mag,files/2112.08467v1.pdf,"p.9, §3.3 (µ0 = 20.47, dispersion 0.09)",yes
+aeg-d-dwarfs/v3/m000024,M_V,−9.86 ± 0.08,mag,files/2106.12656v2.pdf,"p.7, Table 1, row MV, column Antlia 2",no: rows.json locator names Vivas 2022 (S104); M_V found in Ji 2021 p.7 Table 1 as the METHOD text says
+aeg-d-dwarfs/v3/m000024,modulus used by the M_V paper,"20.6 ± 0.11 (ref. 1, Torrealba 2019)",mag,files/2106.12656v2.pdf,"p.7, Table 1, row µ (mag), column Antlia 2","no: locator names Vivas 2022 (S104), whose modulus is 20.47; Ji 2021 uses 20.6"
+aeg-d-dwarfs/v3/m000024,[Fe/H],−1.90 ± 0.04,dex,files/2106.12656v2.pdf,"p.7, Table 1, row ⟨[Fe/H]⟩ (dex, CaT), column Antlia 2",yes
+aeg-d-dwarfs/v3/m000024,gas,< 111 (l_MHI=<); Dist 132,Msun; kpc,files/apjabe391t1_mrt.txt,row Antlia 2 (line 129),yes
+aeg-d-dwarfs/v3/m000024,Upsilon_V (M/L)1 interpolated,1.87400,M_sun/L_sun,files/J_ApJS_161_304_clusters.vot,"rows with Cluster starting 'MW' (148 rows, logAge 10.11); column (M/L)1 vs [Fe/H]; interp",yes
+aeg-d-dwarfs/v3/m000041,sigma_los,2.69 +0.51 −0.43,km/s,files/1804.06430v1.pdf,"p.6, Table 1, row σlos (also p.9 §4.3)",yes
+aeg-d-dwarfs/v3/m000041,r_h (major axis),7.42 +0.62 −0.54,arcmin,files/1804.06430v1.pdf,"p.6, Table 1, row rhalf,maj",yes
+aeg-d-dwarfs/v3/m000041,ellipticity,0.21 +0.15 −0.07,,files/1804.06430v1.pdf,"p.6, Table 1, row 1 − b/a",yes
+aeg-d-dwarfs/v3/m000041,distance modulus,17.20 ± 0.04,mag,files/1804.06430v1.pdf,"p.6, Table 1, row m-M",yes
+aeg-d-dwarfs/v3/m000041,M_V,−4.71 ± 0.08,mag,files/1804.06430v1.pdf,"p.6, Table 1, row MV",yes
+aeg-d-dwarfs/v3/m000041,modulus used by the M_V paper,17.20 ± 0.04,mag,files/1804.06430v1.pdf,"p.6, Table 1, row m-M",yes
+aeg-d-dwarfs/v3/m000041,[Fe/H],−2.52 ± 0.09,dex,files/1804.06430v1.pdf,"p.6, Table 1, row <[Fe/H]> (also p.9 §4.3)",yes
+aeg-d-dwarfs/v3/m000041,gas,< 125 (l_MHI=<); Dist 28,Msun; kpc,files/apjabe391t1_mrt.txt,row Hydrus I (line 91),yes
+aeg-d-dwarfs/v3/m000041,Upsilon_V (M/L)1 interpolated,1.93100,M_sun/L_sun,files/J_ApJS_161_304_clusters.vot,"rows with Cluster starting 'MW' (148 rows, logAge 10.11); column (M/L)1 vs [Fe/H]; beyond_source_range(low)",yes
+aeg-d-dwarfs/v3/m000015,sigma_los,10.0 +1.1 −1.0,km/s,files/2404.11804v4.pdf,"p.7, Table 2, row σv (no rotation), 38-star column; same value p.11 Table 4 row This work (Nmem 38)","yes (rows.json locator); the METHOD.md per-system text instead names arXiv 1112.1067v3 p9 Table 3, which is wrong"
+aeg-d-dwarfs/v3/m000015,"r_h (Sérsic R_s, major axis)",0.92 ± 0.05,arcmin,files/2101.03189v1.pdf,"p.16, Table 3, row And XVIII, column Rs",yes
+aeg-d-dwarfs/v3/m000015,ellipticity,0.44 ± 0.12,,files/2101.03189v1.pdf,"p.16, Table 2, row And XVIII, column e","no: locator for r_h and ε gives Table 3, which has no ellipticity; found in Table 2 same page"
+aeg-d-dwarfs/v3/m000015,distance modulus,25.36±0.08,mag,files/2101.03189v1.pdf,"p.16, Table 2, row And XVIII, column (m − M)o",yes
+aeg-d-dwarfs/v3/m000015,"m_V,0",16.2 ± 0.4,mag,files/1610.01158v1.pdf,"p.9, Table 2, row And XVIII, column mV,0",yes
+aeg-d-dwarfs/v3/m000015,[Fe/H],−1.49 +0.36 −0.36,dex,files/2404.11804v4.pdf,"p.11, Table 4, row This work, column [Fe/H] (also p.10 §4.3 text)",yes
+aeg-d-dwarfs/v3/m000015,gas,< 2.2E+05 (l_MHI=<); Dist 1213,Msun; kpc,files/apjabe391t1_mrt.txt,row Andromeda XVIII (line 192),yes
+aeg-d-dwarfs/v3/m000015,Upsilon_V (M/L)1 interpolated,1.89000,M_sun/L_sun,files/J_ApJS_161_304_clusters.vot,"rows with Cluster starting 'MW' (148 rows, logAge 10.11); column (M/L)1 vs [Fe/H]; interp",yes
+aeg-d-dwarfs/v3/m000001,sigma_los,10.2 ± 1.9*,km/s,files/1112.1067v3.pdf,"p.9, Table 3, row And I, column σLOS",yes
+aeg-d-dwarfs/v3/m000001,r_h (major axis),3.9 ± 0.1,arcmin,files/1610.01158v1.pdf,"p.9, Table 1, row And I, column rh (arcmin)",yes
+aeg-d-dwarfs/v3/m000001,ellipticity,0.28 ± 0.03,,files/1610.01158v1.pdf,"p.9, Table 1, row And I, column ǫ",yes
+aeg-d-dwarfs/v3/m000001,distance modulus,24.45 ± 0.05,mag,files/2206.02801v2.pdf,"p.15, Table 5, row And I, column µ",yes
+aeg-d-dwarfs/v3/m000001,"m_V,0",13.1 ± 0.2,mag,files/1610.01158v1.pdf,"p.9, Table 2, row And I, column mV,0",yes
+aeg-d-dwarfs/v3/m000001,[Fe/H],−1.51 ± 0.02,dex,files/1912.02186v1.pdf,"p.13, Table 4, row And I, column ⟨[Fe/H]⟩",yes
+aeg-d-dwarfs/v3/m000001,gas,< 7.5E+04 (l_MHI=<); Dist 745,Msun; kpc,files/apjabe391t1_mrt.txt,row Andromeda I (line 161),yes
+aeg-d-dwarfs/v3/m000001,Upsilon_V (M/L)1 interpolated,1.88600,M_sun/L_sun,files/J_ApJS_161_304_clusters.vot,"rows with Cluster starting 'MW' (148 rows, logAge 10.11); column (M/L)1 vs [Fe/H]; interp",yes
+aeg-d-dwarfs/v3/m000063,sigma_los,8.86 (−0.24 +0.27),km/s,files/2602.10200v2.pdf,"p.34, Table A1, row Ursa Minor/UMi, column (14) σsys 2reff","yes (rows.json locator); METHOD.md per-system text instead quotes 8.7+0.3−0.3 from arXiv 2002.09503v2 p.9 Table 3, a paper not supplied"
+aeg-d-dwarfs/v3/m000063,"r_h (re,s, major axis assumed)",17.32 ± 0.11,arcmin,files/1806.06891v1.pdf,"p.27, Table 5, Primary Sample, row 34 UMi, column re,s (arcmin)",yes
+aeg-d-dwarfs/v3/m000063,ellipticity,0.55 ± 0.01,,files/1806.06891v1.pdf,"p.27, Table 5, row 34 UMi, ellipticity column (ǫs)",yes
+aeg-d-dwarfs/v3/m000063,distance modulus,19.23 ± 0.09,mag,files/2410.12433v1.pdf,"p.6, §3.1 (also abstract p.1)",yes
+aeg-d-dwarfs/v3/m000063,M_V,−9.03 ± 0.05,mag,files/1806.06891v1.pdf,"p.28, Table 6, row 34 UMi, column MV",yes
+aeg-d-dwarfs/v3/m000063,D_T1 (R),76.0,kpc,files/1806.06891v1.pdf,"p.22, Table 1, row 34 UMi, column R (kpc)",yes
+aeg-d-dwarfs/v3/m000063,[Fe/H],−2.23 ± 0.01,dex,files/2602.10202v1.pdf,"p.19, Table A1, row Ursa Minor UMi, column (16) [Fe/H]",yes
+aeg-d-dwarfs/v3/m000063,gas,< 601 (l_MHI=<); Dist 76,Msun; kpc,files/apjabe391t1_mrt.txt,row Ursa Minor (line 112),yes
+aeg-d-dwarfs/v3/m000063,Upsilon_V (M/L)1 interpolated,1.92050,M_sun/L_sun,files/J_ApJS_161_304_clusters.vot,"rows with Cluster starting 'MW' (148 rows, logAge 10.11); column (M/L)1 vs [Fe/H]; interp",yes
+aeg-d-dwarfs/v3/m000029,sigma_los,1.69 +1.03 −0.85,km/s,files/2607.07803v1.pdf,"p.5, Table 1, row (7) σv, column This work",yes
+aeg-d-dwarfs/v3/m000029,"r_h (Rh,1c, circularised)",33.03 +2.59 −2.40,arcmin,files/1910.10134v3.pdf,"p.12, Table 3, row BooIII DCLS, column Rh,1c",yes
+aeg-d-dwarfs/v3/m000029,ellipticity (not used: radius circularised),0.33 +0.08 −0.09,,files/1910.10134v3.pdf,"p.12, Table 3, row BooIII DCLS, column ǫ1c",yes
+aeg-d-dwarfs/v3/m000029,distance modulus,18.43 ± 0.09,mag,files/2607.07803v1.pdf,"p.10, §4 (⟨m − M⟩ = 18.43 ± 0.09, D = 48.5 ± 1.9 kpc)",yes
+aeg-d-dwarfs/v3/m000029,M_V (distance-independent),−5.8 ± 0.5,mag,files/0904.3068v1.pdf,"p.5, §4 (iii) text (MV ≃ −5.8 ± 0.5)",yes
+aeg-d-dwarfs/v3/m000029,[Fe/H],−2.34 +0.11 −0.11,dex,files/2607.07803v1.pdf,"p.5, Table 1, row (8) [Fe/H], column This work",yes
+aeg-d-dwarfs/v3/m000029,gas,< 108 (l_MHI=<); Dist 47,Msun; kpc,files/apjabe391t1_mrt.txt,row Bootes III (line 103),yes
+aeg-d-dwarfs/v3/m000029,Upsilon_V (M/L)1 interpolated,1.93100,M_sun/L_sun,files/J_ApJS_161_304_clusters.vot,"rows with Cluster starting 'MW' (148 rows, logAge 10.11); column (M/L)1 vs [Fe/H]; beyond_source_range(low)",yes
+aeg-d-dwarfs/v3/m000061,sigma_los,7.16 (−1.04 +1.21),km/s,files/2602.10200v2.pdf,"p.34, Table A1, row UMa 1/UMa1, column (14) σsys 2reff","yes (rows.json locator); METHOD.md text names arXiv 0706.0516v2 p9 Table 3, not supplied"
+aeg-d-dwarfs/v3/m000061,"r_h (re,s, major axis assumed)",8.34 ± 0.34,arcmin,files/1806.06891v1.pdf,"p.27, Table 5, Primary Sample, row 18 UMa I, column re,s (arcmin)",yes
+aeg-d-dwarfs/v3/m000061,ellipticity,0.57 ± 0.03,,files/1806.06891v1.pdf,"p.27, Table 5, row 18 UMa I, ellipticity column (ǫs)",yes
+aeg-d-dwarfs/v3/m000061,distance modulus,19.94±0.13,mag,files/1302.3230v1.pdf,"pp.7–8, §4 (µ0 = 19.94±0.13 mag; also abstract p.1)",yes
+aeg-d-dwarfs/v3/m000061,M_V,−5.12 ± 0.38,mag,files/1806.06891v1.pdf,"p.28, Table 6, row 18 UMa I, column MV",yes
+aeg-d-dwarfs/v3/m000061,D_T1 (R),97.0,kpc,files/1806.06891v1.pdf,"p.22, Table 1, row 18 UMa I, column R (kpc)",yes
+aeg-d-dwarfs/v3/m000061,[Fe/H],−2.56 ± 0.07,dex,files/2602.10202v1.pdf,"p.19, Table A1, row UMa 1 UMa1, column (16) [Fe/H]",yes
+aeg-d-dwarfs/v3/m000061,gas,< 6.9E+03 (l_MHI=<); Dist 97,Msun; kpc,files/apjabe391t1_mrt.txt,row Ursa Major I (line 122),yes
+aeg-d-dwarfs/v3/m000061,Upsilon_V (M/L)1 interpolated,1.93100,M_sun/L_sun,files/J_ApJS_161_304_clusters.vot,"rows with Cluster starting 'MW' (148 rows, logAge 10.11); column (M/L)1 vs [Fe/H]; beyond_source_range(low)",yes
+aeg-d-dwarfs/v3/m000047,sigma_los,6.05 (−0.86 +1.07),km/s,files/2602.10200v2.pdf,"p.33, Table A1, row Leo T/LeoT, column (14) σsys 2reff","yes (rows.json locator); METHOD.md text names arXiv 0706.0516v2 p9 Table 3, not supplied"
+aeg-d-dwarfs/v3/m000047,"r_h (Sérsic R_s, major axis)",1.39 ± 0.20,arcmin,files/2101.03189v1.pdf,"p.16, Table 3, row Leo T, column Rs",yes
+aeg-d-dwarfs/v3/m000047,ellipticity,0.12±0.08,,files/2101.03189v1.pdf,"p.16, Table 2, row Leo T, column e",no: locator gives Table 3 (no ellipticity); found in Table 2 same page
+aeg-d-dwarfs/v3/m000047,distance modulus,23.08±0.08,mag,files/2101.03189v1.pdf,"p.16, Table 2, row Leo T, column (m − M)o",yes
+aeg-d-dwarfs/v3/m000047,M_V,−8.0,mag,files/0801.4027v2.pdf,"p.5, Table 1, MV row, total column; §4 text MV,total ≃ −8.0",yes
+aeg-d-dwarfs/v3/m000047,red-clump modulus,23.1±0.2,mag,files/0801.4027v2.pdf,"p.7, §6 text (also p.5 Table 1 row m-MRC)",yes
+aeg-d-dwarfs/v3/m000047,[Fe/H],−1.74 ± 0.04,dex,files/1310.0814v2.pdf,"p.12, Table 4, Local Group dIrrs, row Leo T, column ⟨[Fe/H]⟩",yes
+aeg-d-dwarfs/v3/m000047,MHI (detection),2.8E+05,Msun,files/apjabe391t1_mrt.txt,"row Leo T (line 145), column MHI, l_MHI blank",yes
+aeg-d-dwarfs/v3/m000047,Dist (Putman),409,kpc,files/apjabe391t1_mrt.txt,"row Leo T (line 145), column Dist",yes
+aeg-d-dwarfs/v3/m000047,Upsilon_V (M/L)1 interpolated,1.86700,M_sun/L_sun,files/J_ApJS_161_304_clusters.vot,"rows with Cluster starting 'MW' (148 rows, logAge 10.11); column (M/L)1 vs [Fe/H]; interp",yes
+aeg-d-dwarfs/v3/m000038,sigma_los,11.84 ± 0.45,km/s,files/1408.5597v1.pdf,"p.5, §2.1 text (σ sys = 11.84 ± 0.45 km s−1)","yes (rows.json locator); METHOD.md text names arXiv 0811.0118v1, but the supplied file is 1408.5597v1"
+aeg-d-dwarfs/v3/m000038,"r_h (2D half-light, Sérsic, major axis assumed)",20.1′,arcmin,files/1809.07801v1.tar.gz,"Fornax_main.tex line 106, Table 1, Sersic column; best fit stated line 333; also PDF p.4 Table 1",yes
+aeg-d-dwarfs/v3/m000038,ellipticity,0.31 ± 0.002,,files/1809.07801v1.pdf,"p.4, Table 1, row Ellipticity, column Sersic (tex line 97)",yes
+aeg-d-dwarfs/v3/m000038,distance modulus,20.770 ± 0.042stat ± 0.024sys,mag,files/2204.09699v2.pdf,"p.13, §7 (also §6.4 p.13, abstract p.1)",yes
+aeg-d-dwarfs/v3/m000038,M_V,−13.46 ± 0.14,mag,files/1806.06891v1.pdf,"p.28, Table 6, row 4 Fornax, column MV",yes
+aeg-d-dwarfs/v3/m000038,D_T1 (R),147.0,kpc,files/1806.06891v1.pdf,"p.22, Table 1, row 4 Fornax, column R (kpc)",yes
+aeg-d-dwarfs/v3/m000038,[Fe/H],−1.04 ± 0.01,dex,files/1310.0814v2.pdf,"p.12, Table 4, Milky Way dSphs, row Fornax, column ⟨[Fe/H]⟩",yes
+aeg-d-dwarfs/v3/m000038,gas,< 3.4E+03 (l_MHI=<); Dist 139,Msun; kpc,files/apjabe391t1_mrt.txt,row Fornax (line 131),yes
+aeg-d-dwarfs/v3/m000038,Upsilon_V (M/L)1 interpolated,2.08900,M_sun/L_sun,files/J_ApJS_161_304_clusters.vot,"rows with Cluster starting 'MW' (148 rows, logAge 10.11); column (M/L)1 vs [Fe/H]; interp",yes

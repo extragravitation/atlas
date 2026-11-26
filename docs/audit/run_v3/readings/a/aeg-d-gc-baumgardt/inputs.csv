@@ -1,0 +1,249 @@
+measurement_id,input,value,unit,file,place,at_locator
+aeg-d-gc-baumgardt/v3/m000068,"sigma (<r>=21.72"")",5.79,km/s,veldis.html,"velocity-dispersion table, line 10748, cluster NGC 6723, Type RV, <r>=21.72, NStar=60, column σ",yes
+aeg-d-gc-baumgardt/v3/m000068,<r> (bin),21.72,arcsec,veldis.html,"line 10748, cluster NGC 6723, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000068,"sigma (<r>=47.75"")",5.43,km/s,veldis.html,"velocity-dispersion table, line 10808, cluster NGC 6723, Type RV, <r>=47.75, NStar=60, column σ",yes
+aeg-d-gc-baumgardt/v3/m000068,<r> (bin),47.75,arcsec,veldis.html,"line 10808, cluster NGC 6723, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000068,"sigma (<r>=69.54"")",4.85,km/s,veldis.html,"velocity-dispersion table, line 10832, cluster NGC 6723, Type RV, <r>=69.54, NStar=60, column σ",yes
+aeg-d-gc-baumgardt/v3/m000068,<r> (bin),69.54,arcsec,veldis.html,"line 10832, cluster NGC 6723, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000068,"sigma (<r>=90.35"")",4.74,km/s,veldis.html,"velocity-dispersion table, line 10850, cluster NGC 6723, Type RV, <r>=90.35, NStar=60, column σ",yes
+aeg-d-gc-baumgardt/v3/m000068,<r> (bin),90.35,arcsec,veldis.html,"line 10850, cluster NGC 6723, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000068,"sigma (<r>=115.73"")",4.41,km/s,veldis.html,"velocity-dispersion table, line 10862, cluster NGC 6723, Type RV, <r>=115.73, NStar=60, column σ",yes
+aeg-d-gc-baumgardt/v3/m000068,<r> (bin),115.73,arcsec,veldis.html,"line 10862, cluster NGC 6723, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000068,"sigma (<r>=148.52"")",4.09,km/s,veldis.html,"velocity-dispersion table, line 10868, cluster NGC 6723, Type RV, <r>=148.52, NStar=60, column σ",yes
+aeg-d-gc-baumgardt/v3/m000068,<r> (bin),148.52,arcsec,veldis.html,"line 10868, cluster NGC 6723, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000068,"sigma (<r>=183.91"")",3.13,km/s,veldis.html,"velocity-dispersion table, line 10880, cluster NGC 6723, Type RV, <r>=183.91, NStar=60, column σ",yes
+aeg-d-gc-baumgardt/v3/m000068,<r> (bin),183.91,arcsec,veldis.html,"line 10880, cluster NGC 6723, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000068,"sigma (<r>=247.42"")",3.31,km/s,veldis.html,"velocity-dispersion table, line 10886, cluster NGC 6723, Type RV, <r>=247.42, NStar=60, column σ",yes
+aeg-d-gc-baumgardt/v3/m000068,<r> (bin),247.42,arcsec,veldis.html,"line 10886, cluster NGC 6723, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000068,"sigma (<r>=368.23"")",2.58,km/s,veldis.html,"velocity-dispersion table, line 10892, cluster NGC 6723, Type RV, <r>=368.23, NStar=13, column σ",yes
+aeg-d-gc-baumgardt/v3/m000068,<r> (bin),368.23,arcsec,veldis.html,"line 10892, cluster NGC 6723, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000068,W0 (W0/gamma),5.40,dimensionless,J_ApJS_161_304_models.vot,"TABLEDATA row recno=370 Cluster=MW-NGC6723 Mod=K, column W0/gamma",yes
+aeg-d-gc-baumgardt/v3/m000068,r0,55.030,arcsec,J_ApJS_161_304_models.vot,"recno=370 MW-NGC6723 Mod=K, column r0",yes
+aeg-d-gc-baumgardt/v3/m000068,Rh,0.589,log10(pc),J_ApJS_161_304_models.vot,"recno=370 MW-NGC6723 Mod=K, column Rh",yes
+aeg-d-gc-baumgardt/v3/m000068,Dist (MvdM fit),8.7,kpc,J_ApJS_161_304_models.vot,"recno=370 MW-NGC6723 Mod=K, column Dist",yes
+aeg-d-gc-baumgardt/v3/m000068,Conc (check only),1.11,log10(rt/r0),J_ApJS_161_304_models.vot,"recno=370 MW-NGC6723 Mod=K, column Conc",yes
+aeg-d-gc-baumgardt/v3/m000068,Upsilon_V ((M/L)1),2.036,Msun/Lsun (V),J_ApJS_161_304_clusters.vot,"recno=164 Cluster=MW-NGC6723, column (M/L)1",yes
+aeg-d-gc-baumgardt/v3/m000068,"(M/L)2 (listed, not used)",3.442,Msun/Lsun (V),J_ApJS_161_304_clusters.vot,"recno=164 Cluster=MW-NGC6723, column (M/L)2",yes
+aeg-d-gc-baumgardt/v3/m000068,R_Sun,8.7,kpc,mwgc.dat,"Part I, line 208, ID 'NGC 6723', column R_Sun (chars 69-73)",yes
+aeg-d-gc-baumgardt/v3/m000068,"M_V,t",-7.83,mag,mwgc.dat,"Part II, line 388, ID 'NGC 6723', column M_V,t (chars 49-53)",yes
+aeg-d-gc-baumgardt/v3/m000068,"V_t (listed, not used)",7.01,mag,mwgc.dat,"Part II, line 388, ID 'NGC 6723', column V_t",yes
+aeg-d-gc-baumgardt/v3/m000032,"sigma (<r>=25.81"")",7.02,km/s,veldis.html,"velocity-dispersion table, line 4516, cluster NGC 5986, Type RV, <r>=25.81, NStar=47, column σ",yes
+aeg-d-gc-baumgardt/v3/m000032,<r> (bin),25.81,arcsec,veldis.html,"line 4516, cluster NGC 5986, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000032,"sigma (<r>=63.54"")",7.15,km/s,veldis.html,"velocity-dispersion table, line 4582, cluster NGC 5986, Type RV, <r>=63.54, NStar=47, column σ",yes
+aeg-d-gc-baumgardt/v3/m000032,<r> (bin),63.54,arcsec,veldis.html,"line 4582, cluster NGC 5986, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000032,"sigma (<r>=93.08"")",4.65,km/s,veldis.html,"velocity-dispersion table, line 4612, cluster NGC 5986, Type RV, <r>=93.08, NStar=47, column σ",yes
+aeg-d-gc-baumgardt/v3/m000032,<r> (bin),93.08,arcsec,veldis.html,"line 4612, cluster NGC 5986, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000032,"sigma (<r>=128.10"")",4.84,km/s,veldis.html,"velocity-dispersion table, line 4624, cluster NGC 5986, Type RV, <r>=128.10, NStar=47, column σ",yes
+aeg-d-gc-baumgardt/v3/m000032,<r> (bin),128.10,arcsec,veldis.html,"line 4624, cluster NGC 5986, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000032,"sigma (<r>=202.50"")",5.37,km/s,veldis.html,"velocity-dispersion table, line 4636, cluster NGC 5986, Type RV, <r>=202.50, NStar=47, column σ",yes
+aeg-d-gc-baumgardt/v3/m000032,<r> (bin),202.50,arcsec,veldis.html,"line 4636, cluster NGC 5986, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000032,"sigma (<r>=296.04"")",3.26,km/s,veldis.html,"velocity-dispersion table, line 4642, cluster NGC 5986, Type RV, <r>=296.04, NStar=9, column σ",yes
+aeg-d-gc-baumgardt/v3/m000032,<r> (bin),296.04,arcsec,veldis.html,"line 4642, cluster NGC 5986, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000032,W0 (W0/gamma),5.90,dimensionless,J_ApJS_161_304_models.vot,"TABLEDATA row recno=256 Cluster=MW-NGC5986 Mod=K, column W0/gamma",yes
+aeg-d-gc-baumgardt/v3/m000032,r0,30.560,arcsec,J_ApJS_161_304_models.vot,"recno=256 MW-NGC5986 Mod=K, column r0",yes
+aeg-d-gc-baumgardt/v3/m000032,Rh,0.473,log10(pc),J_ApJS_161_304_models.vot,"recno=256 MW-NGC5986 Mod=K, column Rh",yes
+aeg-d-gc-baumgardt/v3/m000032,Dist (MvdM fit),10.4,kpc,J_ApJS_161_304_models.vot,"recno=256 MW-NGC5986 Mod=K, column Dist",yes
+aeg-d-gc-baumgardt/v3/m000032,Conc (check only),1.23,log10(rt/r0),J_ApJS_161_304_models.vot,"recno=256 MW-NGC5986 Mod=K, column Conc",yes
+aeg-d-gc-baumgardt/v3/m000032,Upsilon_V ((M/L)1),1.876,Msun/Lsun (V),J_ApJS_161_304_clusters.vot,"recno=102 Cluster=MW-NGC5986, column (M/L)1",yes
+aeg-d-gc-baumgardt/v3/m000032,"(M/L)2 (listed, not used)",3.143,Msun/Lsun (V),J_ApJS_161_304_clusters.vot,"recno=102 Cluster=MW-NGC5986, column (M/L)2",yes
+aeg-d-gc-baumgardt/v3/m000032,R_Sun,10.4,kpc,mwgc.dat,"Part I, line 116, ID 'NGC 5986', column R_Sun (chars 69-73)",yes
+aeg-d-gc-baumgardt/v3/m000032,"M_V,t",-8.44,mag,mwgc.dat,"Part II, line 296, ID 'NGC 5986', column M_V,t (chars 49-53)",yes
+aeg-d-gc-baumgardt/v3/m000032,"V_t (listed, not used)",7.52,mag,mwgc.dat,"Part II, line 296, ID 'NGC 5986', column V_t",yes
+aeg-d-gc-baumgardt/v3/m000054,"sigma (<r>=10.65"")",13.39,km/s,veldis.html,"velocity-dispersion table, line 8245, cluster NGC 6440, Type RV, <r>=10.65, NStar=50, column σ",yes
+aeg-d-gc-baumgardt/v3/m000054,<r> (bin),10.65,arcsec,veldis.html,"line 8245, cluster NGC 6440, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000054,"sigma (<r>=13.72"")",13.82,km/s,veldis.html,"velocity-dispersion table, line 8252, cluster NGC 6440, Type RV, <r>=13.72, NStar=50, column σ",yes
+aeg-d-gc-baumgardt/v3/m000054,<r> (bin),13.72,arcsec,veldis.html,"line 8252, cluster NGC 6440, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000054,"sigma (<r>=27.98"")",11.83,km/s,veldis.html,"velocity-dispersion table, line 8258, cluster NGC 6440, Type RV, <r>=27.98, NStar=50, column σ",yes
+aeg-d-gc-baumgardt/v3/m000054,<r> (bin),27.98,arcsec,veldis.html,"line 8258, cluster NGC 6440, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000054,"sigma (<r>=87.87"")",9.06,km/s,veldis.html,"velocity-dispersion table, line 8270, cluster NGC 6440, Type RV, <r>=87.87, NStar=50, column σ",yes
+aeg-d-gc-baumgardt/v3/m000054,<r> (bin),87.87,arcsec,veldis.html,"line 8270, cluster NGC 6440, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000054,"sigma (<r>=177.16"")",4.21,km/s,veldis.html,"velocity-dispersion table, line 8282, cluster NGC 6440, Type RV, <r>=177.16, NStar=20, column σ",yes
+aeg-d-gc-baumgardt/v3/m000054,<r> (bin),177.16,arcsec,veldis.html,"line 8282, cluster NGC 6440, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000054,W0 (W0/gamma),7.30,dimensionless,J_ApJS_161_304_models.vot,"TABLEDATA row recno=322 Cluster=MW-NGC6440 Mod=K, column W0/gamma",yes
+aeg-d-gc-baumgardt/v3/m000054,r0,8.500,arcsec,J_ApJS_161_304_models.vot,"recno=322 MW-NGC6440 Mod=K, column r0",yes
+aeg-d-gc-baumgardt/v3/m000054,Rh,0.069,log10(pc),J_ApJS_161_304_models.vot,"recno=322 MW-NGC6440 Mod=K, column Rh",yes
+aeg-d-gc-baumgardt/v3/m000054,Dist (MvdM fit),8.4,kpc,J_ApJS_161_304_models.vot,"recno=322 MW-NGC6440 Mod=K, column Dist",yes
+aeg-d-gc-baumgardt/v3/m000054,Conc (check only),1.62,log10(rt/r0),J_ApJS_161_304_models.vot,"recno=322 MW-NGC6440 Mod=K, column Conc",yes
+aeg-d-gc-baumgardt/v3/m000054,Upsilon_V ((M/L)1),2.981,Msun/Lsun (V),J_ApJS_161_304_clusters.vot,"recno=137 Cluster=MW-NGC6440, column (M/L)1",yes
+aeg-d-gc-baumgardt/v3/m000054,"(M/L)2 (listed, not used)",5.207,Msun/Lsun (V),J_ApJS_161_304_clusters.vot,"recno=137 Cluster=MW-NGC6440, column (M/L)2",yes
+aeg-d-gc-baumgardt/v3/m000054,R_Sun,8.5,kpc,mwgc.dat,"Part I, line 167, ID 'NGC 6440', column R_Sun (chars 69-73)",yes
+aeg-d-gc-baumgardt/v3/m000054,"M_V,t",-8.75,mag,mwgc.dat,"Part II, line 347, ID 'NGC 6440', column M_V,t (chars 49-53)",yes
+aeg-d-gc-baumgardt/v3/m000054,"V_t (listed, not used)",9.20,mag,mwgc.dat,"Part II, line 347, ID 'NGC 6440', column V_t",yes
+aeg-d-gc-baumgardt/v3/m000012,"sigma (<r>=49.25"")",2.86,km/s,veldis.html,"velocity-dispersion table, line 924, cluster NGC 288, Type RV, <r>=49.25, NStar=85, column σ",yes
+aeg-d-gc-baumgardt/v3/m000012,<r> (bin),49.25,arcsec,veldis.html,"line 924, cluster NGC 288, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000012,"sigma (<r>=94.10"")",2.65,km/s,veldis.html,"velocity-dispersion table, line 948, cluster NGC 288, Type RV, <r>=94.10, NStar=85, column σ",yes
+aeg-d-gc-baumgardt/v3/m000012,<r> (bin),94.10,arcsec,veldis.html,"line 948, cluster NGC 288, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000012,"sigma (<r>=137.21"")",2.74,km/s,veldis.html,"velocity-dispersion table, line 960, cluster NGC 288, Type RV, <r>=137.21, NStar=85, column σ",yes
+aeg-d-gc-baumgardt/v3/m000012,<r> (bin),137.21,arcsec,veldis.html,"line 960, cluster NGC 288, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000012,"sigma (<r>=188.51"")",2.49,km/s,veldis.html,"velocity-dispersion table, line 972, cluster NGC 288, Type RV, <r>=188.51, NStar=85, column σ",yes
+aeg-d-gc-baumgardt/v3/m000012,<r> (bin),188.51,arcsec,veldis.html,"line 972, cluster NGC 288, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000012,"sigma (<r>=246.57"")",2.57,km/s,veldis.html,"velocity-dispersion table, line 984, cluster NGC 288, Type RV, <r>=246.57, NStar=85, column σ",yes
+aeg-d-gc-baumgardt/v3/m000012,<r> (bin),246.57,arcsec,veldis.html,"line 984, cluster NGC 288, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000012,"sigma (<r>=350.01"")",1.88,km/s,veldis.html,"velocity-dispersion table, line 996, cluster NGC 288, Type RV, <r>=350.01, NStar=85, column σ",yes
+aeg-d-gc-baumgardt/v3/m000012,<r> (bin),350.01,arcsec,veldis.html,"line 996, cluster NGC 288, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000012,"sigma (<r>=639.10"")",1.45,km/s,veldis.html,"velocity-dispersion table, line 1008, cluster NGC 288, Type RV, <r>=639.10, NStar=39, column σ",yes
+aeg-d-gc-baumgardt/v3/m000012,<r> (bin),639.10,arcsec,veldis.html,"line 1008, cluster NGC 288, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000012,W0 (W0/gamma),4.80,dimensionless,J_ApJS_161_304_models.vot,"TABLEDATA row recno=208 Cluster=MW-NGC288 Mod=K, column W0/gamma",yes
+aeg-d-gc-baumgardt/v3/m000012,r0,92.870,arcsec,J_ApJS_161_304_models.vot,"recno=208 MW-NGC288 Mod=K, column r0",yes
+aeg-d-gc-baumgardt/v3/m000012,Rh,0.756,log10(pc),J_ApJS_161_304_models.vot,"recno=208 MW-NGC288 Mod=K, column Rh",yes
+aeg-d-gc-baumgardt/v3/m000012,Dist (MvdM fit),8.8,kpc,J_ApJS_161_304_models.vot,"recno=208 MW-NGC288 Mod=K, column Dist",yes
+aeg-d-gc-baumgardt/v3/m000012,Conc (check only),0.99,log10(rt/r0),J_ApJS_161_304_models.vot,"recno=208 MW-NGC288 Mod=K, column Conc",yes
+aeg-d-gc-baumgardt/v3/m000012,Upsilon_V ((M/L)1),1.972,Msun/Lsun (V),J_ApJS_161_304_clusters.vot,"recno=82 Cluster=MW-NGC288, column (M/L)1",yes
+aeg-d-gc-baumgardt/v3/m000012,"(M/L)2 (listed, not used)",3.325,Msun/Lsun (V),J_ApJS_161_304_clusters.vot,"recno=82 Cluster=MW-NGC288, column (M/L)2",yes
+aeg-d-gc-baumgardt/v3/m000012,R_Sun,8.9,kpc,mwgc.dat,"Part I, line 74, ID 'NGC 288', column R_Sun (chars 69-73)",yes
+aeg-d-gc-baumgardt/v3/m000012,"M_V,t",-6.75,mag,mwgc.dat,"Part II, line 254, ID 'NGC 288', column M_V,t (chars 49-53)",yes
+aeg-d-gc-baumgardt/v3/m000012,"V_t (listed, not used)",8.09,mag,mwgc.dat,"Part II, line 254, ID 'NGC 288', column V_t",yes
+aeg-d-gc-baumgardt/v3/m000056,"sigma (<r>=33.46"")",3.13,km/s,veldis.html,"velocity-dispersion table, line 8713, cluster NGC 6496, Type RV, <r>=33.46, NStar=47, column σ",yes
+aeg-d-gc-baumgardt/v3/m000056,<r> (bin),33.46,arcsec,veldis.html,"line 8713, cluster NGC 6496, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000056,"sigma (<r>=64.62"")",2.73,km/s,veldis.html,"velocity-dispersion table, line 8726, cluster NGC 6496, Type RV, <r>=64.62, NStar=47, column σ",yes
+aeg-d-gc-baumgardt/v3/m000056,<r> (bin),64.62,arcsec,veldis.html,"line 8726, cluster NGC 6496, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000056,"sigma (<r>=103.62"")",2.56,km/s,veldis.html,"velocity-dispersion table, line 8732, cluster NGC 6496, Type RV, <r>=103.62, NStar=47, column σ",yes
+aeg-d-gc-baumgardt/v3/m000056,<r> (bin),103.62,arcsec,veldis.html,"line 8732, cluster NGC 6496, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000056,"sigma (<r>=158.59"")",1.97,km/s,veldis.html,"velocity-dispersion table, line 8744, cluster NGC 6496, Type RV, <r>=158.59, NStar=47, column σ",yes
+aeg-d-gc-baumgardt/v3/m000056,<r> (bin),158.59,arcsec,veldis.html,"line 8744, cluster NGC 6496, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000056,"sigma (<r>=302.74"")",1.53,km/s,veldis.html,"velocity-dispersion table, line 8756, cluster NGC 6496, Type RV, <r>=302.74, NStar=15, column σ",yes
+aeg-d-gc-baumgardt/v3/m000056,<r> (bin),302.74,arcsec,veldis.html,"line 8756, cluster NGC 6496, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000056,W0 (W0/gamma),0.30,dimensionless,J_ApJS_161_304_models.vot,"TABLEDATA row recno=328 Cluster=MW-NGC6496 Mod=K, column W0/gamma",yes
+aeg-d-gc-baumgardt/v3/m000056,r0,226.700,arcsec,J_ApJS_161_304_models.vot,"recno=328 MW-NGC6496 Mod=K, column r0",yes
+aeg-d-gc-baumgardt/v3/m000056,Rh,0.534,log10(pc),J_ApJS_161_304_models.vot,"recno=328 MW-NGC6496 Mod=K, column Rh",yes
+aeg-d-gc-baumgardt/v3/m000056,Dist (MvdM fit),11.5,kpc,J_ApJS_161_304_models.vot,"recno=328 MW-NGC6496 Mod=K, column Dist",yes
+aeg-d-gc-baumgardt/v3/m000056,Conc (check only),0.00,log10(rt/r0),J_ApJS_161_304_models.vot,"recno=328 MW-NGC6496 Mod=K, column Conc",yes
+aeg-d-gc-baumgardt/v3/m000056,Upsilon_V ((M/L)1),2.497,Msun/Lsun (V),J_ApJS_161_304_clusters.vot,"recno=140 Cluster=MW-NGC6496, column (M/L)1",yes
+aeg-d-gc-baumgardt/v3/m000056,"(M/L)2 (listed, not used)",4.293,Msun/Lsun (V),J_ApJS_161_304_clusters.vot,"recno=140 Cluster=MW-NGC6496, column (M/L)2",yes
+aeg-d-gc-baumgardt/v3/m000056,R_Sun,11.3,kpc,mwgc.dat,"Part I, line 172, ID 'NGC 6496', column R_Sun (chars 69-73)",yes
+aeg-d-gc-baumgardt/v3/m000056,"M_V,t",-7.20,mag,mwgc.dat,"Part II, line 352, ID 'NGC 6496', column M_V,t (chars 49-53)",yes
+aeg-d-gc-baumgardt/v3/m000056,"V_t (listed, not used)",8.54,mag,mwgc.dat,"Part II, line 352, ID 'NGC 6496', column V_t",yes
+aeg-d-gc-baumgardt/v3/m000003,"sigma (<r>=80.73"")",2.54,km/s,veldis.html,"velocity-dispersion table, line 314, cluster IC 4499, Type RV, <r>=80.73, NStar=37, column σ",yes
+aeg-d-gc-baumgardt/v3/m000003,<r> (bin),80.73,arcsec,veldis.html,"line 314, cluster IC 4499, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000003,"sigma (<r>=242.98"")",1.95,km/s,veldis.html,"velocity-dispersion table, line 326, cluster IC 4499, Type RV, <r>=242.98, NStar=31, column σ",yes
+aeg-d-gc-baumgardt/v3/m000003,<r> (bin),242.98,arcsec,veldis.html,"line 326, cluster IC 4499, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000003,W0 (W0/gamma),5.80,dimensionless,J_ApJS_161_304_models.vot,"TABLEDATA row recno=184 Cluster=MW-IC4499 Mod=K, column W0/gamma",yes
+aeg-d-gc-baumgardt/v3/m000003,r0,54.900,arcsec,J_ApJS_161_304_models.vot,"recno=184 MW-IC4499 Mod=K, column r0",yes
+aeg-d-gc-baumgardt/v3/m000003,Rh,0.974,log10(pc),J_ApJS_161_304_models.vot,"recno=184 MW-IC4499 Mod=K, column Rh",yes
+aeg-d-gc-baumgardt/v3/m000003,Dist (MvdM fit),18.9,kpc,J_ApJS_161_304_models.vot,"recno=184 MW-IC4499 Mod=K, column Dist",yes
+aeg-d-gc-baumgardt/v3/m000003,Conc (check only),1.21,log10(rt/r0),J_ApJS_161_304_models.vot,"recno=184 MW-IC4499 Mod=K, column Conc",yes
+aeg-d-gc-baumgardt/v3/m000003,Upsilon_V ((M/L)1),1.874,Msun/Lsun (V),J_ApJS_161_304_clusters.vot,"recno=72 Cluster=MW-IC4499, column (M/L)1",yes
+aeg-d-gc-baumgardt/v3/m000003,"(M/L)2 (listed, not used)",3.138,Msun/Lsun (V),J_ApJS_161_304_clusters.vot,"recno=72 Cluster=MW-IC4499, column (M/L)2",yes
+aeg-d-gc-baumgardt/v3/m000003,R_Sun,18.8,kpc,mwgc.dat,"Part I, line 108, ID 'IC 4499', column R_Sun (chars 69-73)",yes
+aeg-d-gc-baumgardt/v3/m000003,"M_V,t",-7.32,mag,mwgc.dat,"Part II, line 288, ID 'IC 4499', column M_V,t (chars 49-53)",yes
+aeg-d-gc-baumgardt/v3/m000003,"V_t (listed, not used)",9.76,mag,mwgc.dat,"Part II, line 288, ID 'IC 4499', column V_t",yes
+aeg-d-gc-baumgardt/v3/m000031,"sigma (<r>=7.60"")",7.66,km/s,veldis.html,"velocity-dispersion table, line 4012, cluster NGC 5904, Type RV, <r>=7.60, NStar=400, column σ",yes
+aeg-d-gc-baumgardt/v3/m000031,<r> (bin),7.60,arcsec,veldis.html,"line 4012, cluster NGC 5904, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000031,"sigma (<r>=15.54"")",7.29,km/s,veldis.html,"velocity-dispersion table, line 4030, cluster NGC 5904, Type RV, <r>=15.54, NStar=400, column σ",yes
+aeg-d-gc-baumgardt/v3/m000031,<r> (bin),15.54,arcsec,veldis.html,"line 4030, cluster NGC 5904, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000031,"sigma (<r>=21.35"")",6.61,km/s,veldis.html,"velocity-dispersion table, line 4042, cluster NGC 5904, Type RV, <r>=21.35, NStar=400, column σ",yes
+aeg-d-gc-baumgardt/v3/m000031,<r> (bin),21.35,arcsec,veldis.html,"line 4042, cluster NGC 5904, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000031,"sigma (<r>=26.08"")",6.86,km/s,veldis.html,"velocity-dispersion table, line 4060, cluster NGC 5904, Type RV, <r>=26.08, NStar=400, column σ",yes
+aeg-d-gc-baumgardt/v3/m000031,<r> (bin),26.08,arcsec,veldis.html,"line 4060, cluster NGC 5904, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000031,"sigma (<r>=30.35"")",6.83,km/s,veldis.html,"velocity-dispersion table, line 4072, cluster NGC 5904, Type RV, <r>=30.35, NStar=400, column σ",yes
+aeg-d-gc-baumgardt/v3/m000031,<r> (bin),30.35,arcsec,veldis.html,"line 4072, cluster NGC 5904, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000031,"sigma (<r>=34.53"")",7.42,km/s,veldis.html,"velocity-dispersion table, line 4084, cluster NGC 5904, Type RV, <r>=34.53, NStar=400, column σ",yes
+aeg-d-gc-baumgardt/v3/m000031,<r> (bin),34.53,arcsec,veldis.html,"line 4084, cluster NGC 5904, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000031,"sigma (<r>=38.70"")",7.47,km/s,veldis.html,"velocity-dispersion table, line 4096, cluster NGC 5904, Type RV, <r>=38.70, NStar=400, column σ",yes
+aeg-d-gc-baumgardt/v3/m000031,<r> (bin),38.70,arcsec,veldis.html,"line 4096, cluster NGC 5904, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000031,"sigma (<r>=43.53"")",6.87,km/s,veldis.html,"velocity-dispersion table, line 4108, cluster NGC 5904, Type RV, <r>=43.53, NStar=400, column σ",yes
+aeg-d-gc-baumgardt/v3/m000031,<r> (bin),43.53,arcsec,veldis.html,"line 4108, cluster NGC 5904, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000031,"sigma (<r>=48.67"")",7.07,km/s,veldis.html,"velocity-dispersion table, line 4120, cluster NGC 5904, Type RV, <r>=48.67, NStar=400, column σ",yes
+aeg-d-gc-baumgardt/v3/m000031,<r> (bin),48.67,arcsec,veldis.html,"line 4120, cluster NGC 5904, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000031,"sigma (<r>=54.49"")",6.75,km/s,veldis.html,"velocity-dispersion table, line 4132, cluster NGC 5904, Type RV, <r>=54.49, NStar=400, column σ",yes
+aeg-d-gc-baumgardt/v3/m000031,<r> (bin),54.49,arcsec,veldis.html,"line 4132, cluster NGC 5904, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000031,"sigma (<r>=66.60"")",6.73,km/s,veldis.html,"velocity-dispersion table, line 4150, cluster NGC 5904, Type RV, <r>=66.60, NStar=400, column σ",yes
+aeg-d-gc-baumgardt/v3/m000031,<r> (bin),66.60,arcsec,veldis.html,"line 4150, cluster NGC 5904, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000031,"sigma (<r>=89.91"")",6.82,km/s,veldis.html,"velocity-dispersion table, line 4174, cluster NGC 5904, Type RV, <r>=89.91, NStar=400, column σ",yes
+aeg-d-gc-baumgardt/v3/m000031,<r> (bin),89.91,arcsec,veldis.html,"line 4174, cluster NGC 5904, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000031,"sigma (<r>=106.92"")",6.71,km/s,veldis.html,"velocity-dispersion table, line 4192, cluster NGC 5904, Type RV, <r>=106.92, NStar=400, column σ",yes
+aeg-d-gc-baumgardt/v3/m000031,<r> (bin),106.92,arcsec,veldis.html,"line 4192, cluster NGC 5904, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000031,"sigma (<r>=122.36"")",6.27,km/s,veldis.html,"velocity-dispersion table, line 4198, cluster NGC 5904, Type RV, <r>=122.36, NStar=400, column σ",yes
+aeg-d-gc-baumgardt/v3/m000031,<r> (bin),122.36,arcsec,veldis.html,"line 4198, cluster NGC 5904, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000031,"sigma (<r>=167.90"")",5.41,km/s,veldis.html,"velocity-dispersion table, line 4210, cluster NGC 5904, Type RV, <r>=167.90, NStar=100, column σ",yes
+aeg-d-gc-baumgardt/v3/m000031,<r> (bin),167.90,arcsec,veldis.html,"line 4210, cluster NGC 5904, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000031,"sigma (<r>=216.24"")",6.05,km/s,veldis.html,"velocity-dispersion table, line 4222, cluster NGC 5904, Type RV, <r>=216.24, NStar=100, column σ",yes
+aeg-d-gc-baumgardt/v3/m000031,<r> (bin),216.24,arcsec,veldis.html,"line 4222, cluster NGC 5904, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000031,"sigma (<r>=274.72"")",5.16,km/s,veldis.html,"velocity-dispersion table, line 4240, cluster NGC 5904, Type RV, <r>=274.72, NStar=100, column σ",yes
+aeg-d-gc-baumgardt/v3/m000031,<r> (bin),274.72,arcsec,veldis.html,"line 4240, cluster NGC 5904, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000031,"sigma (<r>=355.10"")",4.50,km/s,veldis.html,"velocity-dispersion table, line 4252, cluster NGC 5904, Type RV, <r>=355.10, NStar=100, column σ",yes
+aeg-d-gc-baumgardt/v3/m000031,<r> (bin),355.10,arcsec,veldis.html,"line 4252, cluster NGC 5904, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000031,"sigma (<r>=499.22"")",3.02,km/s,veldis.html,"velocity-dispersion table, line 4258, cluster NGC 5904, Type RV, <r>=499.22, NStar=100, column σ",yes
+aeg-d-gc-baumgardt/v3/m000031,<r> (bin),499.22,arcsec,veldis.html,"line 4258, cluster NGC 5904, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000031,"sigma (<r>=882.34"")",3.92,km/s,veldis.html,"velocity-dispersion table, line 4264, cluster NGC 5904, Type RV, <r>=882.34, NStar=70, column σ",yes
+aeg-d-gc-baumgardt/v3/m000031,<r> (bin),882.34,arcsec,veldis.html,"line 4264, cluster NGC 5904, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000031,W0 (W0/gamma),7.60,dimensionless,J_ApJS_161_304_models.vot,"TABLEDATA row recno=253 Cluster=MW-NGC5904 Mod=K, column W0/gamma",yes
+aeg-d-gc-baumgardt/v3/m000031,r0,26.320,arcsec,J_ApJS_161_304_models.vot,"recno=253 MW-NGC5904 Mod=K, column r0",yes
+aeg-d-gc-baumgardt/v3/m000031,Rh,0.586,log10(pc),J_ApJS_161_304_models.vot,"recno=253 MW-NGC5904 Mod=K, column Rh",yes
+aeg-d-gc-baumgardt/v3/m000031,Dist (MvdM fit),7.5,kpc,J_ApJS_161_304_models.vot,"recno=253 MW-NGC5904 Mod=K, column Dist",yes
+aeg-d-gc-baumgardt/v3/m000031,Conc (check only),1.71,log10(rt/r0),J_ApJS_161_304_models.vot,"recno=253 MW-NGC5904 Mod=K, column Conc",yes
+aeg-d-gc-baumgardt/v3/m000031,Upsilon_V ((M/L)1),1.958,Msun/Lsun (V),J_ApJS_161_304_clusters.vot,"recno=99 Cluster=MW-NGC5904, column (M/L)1",yes
+aeg-d-gc-baumgardt/v3/m000031,"(M/L)2 (listed, not used)",3.300,Msun/Lsun (V),J_ApJS_161_304_clusters.vot,"recno=99 Cluster=MW-NGC5904, column (M/L)2",yes
+aeg-d-gc-baumgardt/v3/m000031,R_Sun,7.5,kpc,mwgc.dat,"Part I, line 112, ID 'NGC 5904', column R_Sun (chars 69-73)",yes
+aeg-d-gc-baumgardt/v3/m000031,"M_V,t",-8.81,mag,mwgc.dat,"Part II, line 292, ID 'NGC 5904', column M_V,t (chars 49-53)",yes
+aeg-d-gc-baumgardt/v3/m000031,"V_t (listed, not used)",5.65,mag,mwgc.dat,"Part II, line 292, ID 'NGC 5904', column V_t",yes
+aeg-d-gc-baumgardt/v3/m000061,"sigma (<r>=28.90"")",6.68,km/s,veldis.html,"velocity-dispersion table, line 9242, cluster NGC 6553, Type RV, <r>=28.90, NStar=120, column σ",yes
+aeg-d-gc-baumgardt/v3/m000061,<r> (bin),28.90,arcsec,veldis.html,"line 9242, cluster NGC 6553, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000061,"sigma (<r>=66.95"")",7.26,km/s,veldis.html,"velocity-dispersion table, line 9254, cluster NGC 6553, Type RV, <r>=66.95, NStar=120, column σ",yes
+aeg-d-gc-baumgardt/v3/m000061,<r> (bin),66.95,arcsec,veldis.html,"line 9254, cluster NGC 6553, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000061,"sigma (<r>=130.19"")",6.62,km/s,veldis.html,"velocity-dispersion table, line 9272, cluster NGC 6553, Type RV, <r>=130.19, NStar=120, column σ",yes
+aeg-d-gc-baumgardt/v3/m000061,<r> (bin),130.19,arcsec,veldis.html,"line 9272, cluster NGC 6553, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000061,"sigma (<r>=253.16"")",5.66,km/s,veldis.html,"velocity-dispersion table, line 9284, cluster NGC 6553, Type RV, <r>=253.16, NStar=78, column σ",yes
+aeg-d-gc-baumgardt/v3/m000061,<r> (bin),253.16,arcsec,veldis.html,"line 9284, cluster NGC 6553, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000061,W0 (W0/gamma),5.60,dimensionless,J_ApJS_161_304_models.vot,"TABLEDATA row recno=343 Cluster=MW-NGC6553 Mod=K, column W0/gamma",yes
+aeg-d-gc-baumgardt/v3/m000061,r0,34.930,arcsec,J_ApJS_161_304_models.vot,"recno=343 MW-NGC6553 Mod=K, column r0",yes
+aeg-d-gc-baumgardt/v3/m000061,Rh,0.254,log10(pc),J_ApJS_161_304_models.vot,"recno=343 MW-NGC6553 Mod=K, column Rh",yes
+aeg-d-gc-baumgardt/v3/m000061,Dist (MvdM fit),6.0,kpc,J_ApJS_161_304_models.vot,"recno=343 MW-NGC6553 Mod=K, column Dist",yes
+aeg-d-gc-baumgardt/v3/m000061,Conc (check only),1.16,log10(rt/r0),J_ApJS_161_304_models.vot,"recno=343 MW-NGC6553 Mod=K, column Conc",yes
+aeg-d-gc-baumgardt/v3/m000061,Upsilon_V ((M/L)1),3.242,Msun/Lsun (V),J_ApJS_161_304_clusters.vot,"recno=149 Cluster=MW-NGC6553, column (M/L)1",yes
+aeg-d-gc-baumgardt/v3/m000061,"(M/L)2 (listed, not used)",5.707,Msun/Lsun (V),J_ApJS_161_304_clusters.vot,"recno=149 Cluster=MW-NGC6553, column (M/L)2",yes
+aeg-d-gc-baumgardt/v3/m000061,R_Sun,6.0,kpc,mwgc.dat,"Part I, line 186, ID 'NGC 6553', column R_Sun (chars 69-73)",yes
+aeg-d-gc-baumgardt/v3/m000061,"M_V,t",-7.77,mag,mwgc.dat,"Part II, line 366, ID 'NGC 6553', column M_V,t (chars 49-53)",yes
+aeg-d-gc-baumgardt/v3/m000061,"V_t (listed, not used)",8.06,mag,mwgc.dat,"Part II, line 366, ID 'NGC 6553', column V_t",yes
+aeg-d-gc-baumgardt/v3/m000079,"sigma (<r>=20.46"")",1.09,km/s,veldis.html,"velocity-dispersion table, line 12796, cluster Ter 7, Type RV, <r>=20.46, NStar=23, column σ",yes
+aeg-d-gc-baumgardt/v3/m000079,<r> (bin),20.46,arcsec,veldis.html,"line 12796, cluster Ter 7, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000079,"sigma (<r>=98.29"")",0.50,km/s,veldis.html,"velocity-dispersion table, line 12803, cluster Ter 7, Type RV, <r>=98.29, NStar=22, column σ",yes
+aeg-d-gc-baumgardt/v3/m000079,<r> (bin),98.29,arcsec,veldis.html,"line 12803, cluster Ter 7, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000079,W0 (W0/gamma),4.50,dimensionless,J_ApJS_161_304_models.vot,"TABLEDATA row recno=427 Cluster=MW-TERZAN7 Mod=K, column W0/gamma",yes
+aeg-d-gc-baumgardt/v3/m000079,r0,34.590,arcsec,J_ApJS_161_304_models.vot,"recno=427 MW-TERZAN7 Mod=K, column r0",yes
+aeg-d-gc-baumgardt/v3/m000079,Rh,0.717,log10(pc),J_ApJS_161_304_models.vot,"recno=427 MW-TERZAN7 Mod=K, column Rh",yes
+aeg-d-gc-baumgardt/v3/m000079,Dist (MvdM fit),23.2,kpc,J_ApJS_161_304_models.vot,"recno=427 MW-TERZAN7 Mod=K, column Dist",yes
+aeg-d-gc-baumgardt/v3/m000079,Conc (check only),0.93,log10(rt/r0),J_ApJS_161_304_models.vot,"recno=427 MW-TERZAN7 Mod=K, column Conc",yes
+aeg-d-gc-baumgardt/v3/m000079,Upsilon_V ((M/L)1),2.581,Msun/Lsun (V),J_ApJS_161_304_clusters.vot,"recno=202 Cluster=MW-TERZAN7, column (M/L)1",yes
+aeg-d-gc-baumgardt/v3/m000079,"(M/L)2 (listed, not used)",4.450,Msun/Lsun (V),J_ApJS_161_304_clusters.vot,"recno=202 Cluster=MW-TERZAN7, column (M/L)2",yes
+aeg-d-gc-baumgardt/v3/m000079,R_Sun,22.8,kpc,mwgc.dat,"Part I, line 213, ID 'Terzan 7', column R_Sun (chars 69-73)",yes
+aeg-d-gc-baumgardt/v3/m000079,"M_V,t",-5.01,mag,mwgc.dat,"Part II, line 393, ID 'Terzan 7', column M_V,t (chars 49-53)",yes
+aeg-d-gc-baumgardt/v3/m000079,"V_t (listed, not used)",12.00,mag,mwgc.dat,"Part II, line 393, ID 'Terzan 7', column V_t",yes
+aeg-d-gc-baumgardt/v3/m000076,"sigma (<r>=7.92"")",10.36,km/s,veldis.html,"velocity-dispersion table, line 12014, cluster NGC 7089, Type RV, <r>=7.92, NStar=400, column σ",yes
+aeg-d-gc-baumgardt/v3/m000076,<r> (bin),7.92,arcsec,veldis.html,"line 12014, cluster NGC 7089, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000076,"sigma (<r>=15.72"")",10.47,km/s,veldis.html,"velocity-dispersion table, line 12026, cluster NGC 7089, Type RV, <r>=15.72, NStar=400, column σ",yes
+aeg-d-gc-baumgardt/v3/m000076,<r> (bin),15.72,arcsec,veldis.html,"line 12026, cluster NGC 7089, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000076,"sigma (<r>=21.39"")",9.53,km/s,veldis.html,"velocity-dispersion table, line 12038, cluster NGC 7089, Type RV, <r>=21.39, NStar=400, column σ",yes
+aeg-d-gc-baumgardt/v3/m000076,<r> (bin),21.39,arcsec,veldis.html,"line 12038, cluster NGC 7089, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000076,"sigma (<r>=26.54"")",9.92,km/s,veldis.html,"velocity-dispersion table, line 12056, cluster NGC 7089, Type RV, <r>=26.54, NStar=400, column σ",yes
+aeg-d-gc-baumgardt/v3/m000076,<r> (bin),26.54,arcsec,veldis.html,"line 12056, cluster NGC 7089, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000076,"sigma (<r>=31.75"")",9.62,km/s,veldis.html,"velocity-dispersion table, line 12074, cluster NGC 7089, Type RV, <r>=31.75, NStar=400, column σ",yes
+aeg-d-gc-baumgardt/v3/m000076,<r> (bin),31.75,arcsec,veldis.html,"line 12074, cluster NGC 7089, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000076,"sigma (<r>=36.92"")",9.47,km/s,veldis.html,"velocity-dispersion table, line 12092, cluster NGC 7089, Type RV, <r>=36.92, NStar=400, column σ",yes
+aeg-d-gc-baumgardt/v3/m000076,<r> (bin),36.92,arcsec,veldis.html,"line 12092, cluster NGC 7089, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000076,"sigma (<r>=41.77"")",10.04,km/s,veldis.html,"velocity-dispersion table, line 12110, cluster NGC 7089, Type RV, <r>=41.77, NStar=400, column σ",yes
+aeg-d-gc-baumgardt/v3/m000076,<r> (bin),41.77,arcsec,veldis.html,"line 12110, cluster NGC 7089, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000076,"sigma (<r>=47.07"")",9.68,km/s,veldis.html,"velocity-dispersion table, line 12134, cluster NGC 7089, Type RV, <r>=47.07, NStar=400, column σ",yes
+aeg-d-gc-baumgardt/v3/m000076,<r> (bin),47.07,arcsec,veldis.html,"line 12134, cluster NGC 7089, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000076,"sigma (<r>=51.69"")",9.01,km/s,veldis.html,"velocity-dispersion table, line 12152, cluster NGC 7089, Type RV, <r>=51.69, NStar=200, column σ",yes
+aeg-d-gc-baumgardt/v3/m000076,<r> (bin),51.69,arcsec,veldis.html,"line 12152, cluster NGC 7089, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000076,"sigma (<r>=56.21"")",9.47,km/s,veldis.html,"velocity-dispersion table, line 12164, cluster NGC 7089, Type RV, <r>=56.21, NStar=200, column σ",yes
+aeg-d-gc-baumgardt/v3/m000076,<r> (bin),56.21,arcsec,veldis.html,"line 12164, cluster NGC 7089, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000076,"sigma (<r>=88.58"")",8.29,km/s,veldis.html,"velocity-dispersion table, line 12218, cluster NGC 7089, Type RV, <r>=88.58, NStar=100, column σ",yes
+aeg-d-gc-baumgardt/v3/m000076,<r> (bin),88.58,arcsec,veldis.html,"line 12218, cluster NGC 7089, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000076,"sigma (<r>=165.41"")",6.86,km/s,veldis.html,"velocity-dispersion table, line 12236, cluster NGC 7089, Type RV, <r>=165.41, NStar=100, column σ",yes
+aeg-d-gc-baumgardt/v3/m000076,<r> (bin),165.41,arcsec,veldis.html,"line 12236, cluster NGC 7089, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000076,"sigma (<r>=278.44"")",5.13,km/s,veldis.html,"velocity-dispersion table, line 12254, cluster NGC 7089, Type RV, <r>=278.44, NStar=100, column σ",yes
+aeg-d-gc-baumgardt/v3/m000076,<r> (bin),278.44,arcsec,veldis.html,"line 12254, cluster NGC 7089, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000076,"sigma (<r>=536.05"")",4.13,km/s,veldis.html,"velocity-dispersion table, line 12260, cluster NGC 7089, Type RV, <r>=536.05, NStar=73, column σ",yes
+aeg-d-gc-baumgardt/v3/m000076,<r> (bin),536.05,arcsec,veldis.html,"line 12260, cluster NGC 7089, Type RV, column <r>",yes
+aeg-d-gc-baumgardt/v3/m000076,W0 (W0/gamma),7.20,dimensionless,J_ApJS_161_304_models.vot,"TABLEDATA row recno=394 Cluster=MW-NGC7089 Mod=K, column W0/gamma",yes
+aeg-d-gc-baumgardt/v3/m000076,r0,19.800,arcsec,J_ApJS_161_304_models.vot,"recno=394 MW-NGC7089 Mod=K, column r0",yes
+aeg-d-gc-baumgardt/v3/m000076,Rh,0.551,log10(pc),J_ApJS_161_304_models.vot,"recno=394 MW-NGC7089 Mod=K, column Rh",yes
+aeg-d-gc-baumgardt/v3/m000076,Dist (MvdM fit),11.5,kpc,J_ApJS_161_304_models.vot,"recno=394 MW-NGC7089 Mod=K, column Dist",yes
+aeg-d-gc-baumgardt/v3/m000076,Conc (check only),1.59,log10(rt/r0),J_ApJS_161_304_models.vot,"recno=394 MW-NGC7089 Mod=K, column Conc",yes
+aeg-d-gc-baumgardt/v3/m000076,Upsilon_V ((M/L)1),1.872,Msun/Lsun (V),J_ApJS_161_304_clusters.vot,"recno=176 Cluster=MW-NGC7089, column (M/L)1",yes
+aeg-d-gc-baumgardt/v3/m000076,"(M/L)2 (listed, not used)",3.134,Msun/Lsun (V),J_ApJS_161_304_clusters.vot,"recno=176 Cluster=MW-NGC7089, column (M/L)2",yes
+aeg-d-gc-baumgardt/v3/m000076,R_Sun,11.5,kpc,mwgc.dat,"Part I, line 225, ID 'NGC 7089', column R_Sun (chars 69-73)",yes
+aeg-d-gc-baumgardt/v3/m000076,"M_V,t",-9.03,mag,mwgc.dat,"Part II, line 405, ID 'NGC 7089', column M_V,t (chars 49-53)",yes
+aeg-d-gc-baumgardt/v3/m000076,"V_t (listed, not used)",6.47,mag,mwgc.dat,"Part II, line 405, ID 'NGC 7089', column V_t",yes

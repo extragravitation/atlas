@@ -1,0 +1,81 @@
+measurement_id,input,value,unit,file,place,at_locator
+aeg-d-strong-lensing/v3/m000017,theta_E (bSIE),1.63,arcsec,files/J_ApJ_682_964_table5.tsv,"table5, row Name=J0912+0029, column bSIE (file line 62)",yes
+aeg-d-strong-lensing/v3/m000017,z_l (zFG),0.1642,,files/J_ApJ_682_964_table4.tsv,"table4, row Name=J0912+0029, column zFG (file line 85)",yes
+aeg-d-strong-lensing/v3/m000017,z_s (zBG),0.3239,,files/J_ApJ_682_964_table4.tsv,"table4, row Name=J0912+0029, column zBG (file line 85)",yes
+aeg-d-strong-lensing/v3/m000017,"M*(<R_E) Chabrier BC03 (MChaBC2; e_, E_)",12 (-2 +2),10+10solMass (1e10 Msun),files/J_A+A_501_461_lens.tsv,"lens table, row SLACS=J0912+0029, columns MChaBC2, E_MChaBC2, e_MChaBC2 (file line 96)",yes
+aeg-d-strong-lensing/v3/m000017,"M*(<R_E) Salpeter BC03 (MSalBC2; e_, E_) [slider only, not used]",21 (-4 +3),10+10solMass (1e10 Msun),files/J_A+A_501_461_lens.tsv,"lens table, row SLACS=J0912+0029, columns MSalBC2, E_MSalBC2, e_MSalBC2 (file line 96)",yes
+aeg-d-strong-lensing/v3/m000017,"R_e [carried, not used]",3.87,arcsec,files/0805.1931v1.tar.gz (ms_arxiv.tex),"Table 4 (obstable), column R_e, ms_arxiv.tex line 1815",yes
+aeg-d-strong-lensing/v3/m000017,"lens morphology/status (Mph, Lens) [selection]","E, A",,files/J_ApJ_682_964_table4.tsv,"table4, row Name=J0912+0029, columns Mph, Lens (file line 85)",yes
+aeg-d-strong-lensing/v3/m000017,"cosmology H0, Omega_M (flat)","70, 0.3","km s^-1 Mpc^-1, -",files/0805.1931v1.pdf,"arXiv:0805.1931v1 p.2, §1 last paragraph ('Throughout this work, we assume ... OmegaM = 0.3, OmegaLambda = 0.7, H0 = 70')",yes
+aeg-d-strong-lensing/v3/m000045,theta_E (bSIE),1.68,arcsec,files/J_ApJ_682_964_table5.tsv,"table5, row Name=J1143-0144, column bSIE (file line 81)",yes
+aeg-d-strong-lensing/v3/m000045,z_l (zFG),0.1060,,files/J_ApJ_682_964_table4.tsv,"table4, row Name=J1143-0144, column zFG (file line 117)",yes
+aeg-d-strong-lensing/v3/m000045,z_s (zBG),0.4019,,files/J_ApJ_682_964_table4.tsv,"table4, row Name=J1143-0144, column zBG (file line 117)",yes
+aeg-d-strong-lensing/v3/m000045,"M*(<R_E) Chabrier BC03 (MChaBC2; e_, E_)",5 (-1 +1),10+10solMass (1e10 Msun),files/J_A+A_501_461_lens.tsv,"lens table, row SLACS=J1143-0144, columns MChaBC2, E_MChaBC2, e_MChaBC2 (file line 112)",yes
+aeg-d-strong-lensing/v3/m000045,"M*(<R_E) Salpeter BC03 (MSalBC2; e_, E_) [slider only, not used]",9 (-1 +1),10+10solMass (1e10 Msun),files/J_A+A_501_461_lens.tsv,"lens table, row SLACS=J1143-0144, columns MSalBC2, E_MSalBC2, e_MSalBC2 (file line 112)",yes
+aeg-d-strong-lensing/v3/m000045,"R_e [carried, not used]",4.80,arcsec,files/0805.1931v1.tar.gz (ms_arxiv.tex),"Table 4 (obstable), column R_e, ms_arxiv.tex line 1906",yes
+aeg-d-strong-lensing/v3/m000045,"lens morphology/status (Mph, Lens) [selection]","E, A",,files/J_ApJ_682_964_table4.tsv,"table4, row Name=J1143-0144, columns Mph, Lens (file line 117)",yes
+aeg-d-strong-lensing/v3/m000045,"cosmology H0, Omega_M (flat)","70, 0.3","km s^-1 Mpc^-1, -",files/0805.1931v1.pdf,"arXiv:0805.1931v1 p.2, §1 last paragraph ('Throughout this work, we assume ... OmegaM = 0.3, OmegaLambda = 0.7, H0 = 70')",yes
+aeg-d-strong-lensing/v3/m000093,theta_E (bSIE),1.60,arcsec,files/J_ApJ_682_964_table5.tsv,"table5, row Name=J2321-0939, column bSIE (file line 108)",yes
+aeg-d-strong-lensing/v3/m000093,z_l (zFG),0.0819,,files/J_ApJ_682_964_table4.tsv,"table4, row Name=J2321-0939, column zFG (file line 187)",yes
+aeg-d-strong-lensing/v3/m000093,z_s (zBG),0.5324,,files/J_ApJ_682_964_table4.tsv,"table4, row Name=J2321-0939, column zBG (file line 187)",yes
+aeg-d-strong-lensing/v3/m000093,"M*(<R_E) Chabrier BC03 (MChaBC2; e_, E_)",6 (-1 +2),10+10solMass (1e10 Msun),files/J_A+A_501_461_lens.tsv,"lens table, row SLACS=J2321-0939, columns MChaBC2, E_MChaBC2, e_MChaBC2 (file line 137)",yes
+aeg-d-strong-lensing/v3/m000093,"M*(<R_E) Salpeter BC03 (MSalBC2; e_, E_) [slider only, not used]",11 (-2 +3),10+10solMass (1e10 Msun),files/J_A+A_501_461_lens.tsv,"lens table, row SLACS=J2321-0939, columns MSalBC2, E_MSalBC2, e_MSalBC2 (file line 137)",yes
+aeg-d-strong-lensing/v3/m000093,"R_e [carried, not used]",4.11,arcsec,files/0805.1931v1.tar.gz (ms_arxiv.tex),"Table 4 (obstable), column R_e, ms_arxiv.tex line 1990",yes
+aeg-d-strong-lensing/v3/m000093,"lens morphology/status (Mph, Lens) [selection]","E, A",,files/J_ApJ_682_964_table4.tsv,"table4, row Name=J2321-0939, columns Mph, Lens (file line 187)",yes
+aeg-d-strong-lensing/v3/m000093,"cosmology H0, Omega_M (flat)","70, 0.3","km s^-1 Mpc^-1, -",files/0805.1931v1.pdf,"arXiv:0805.1931v1 p.2, §1 last paragraph ('Throughout this work, we assume ... OmegaM = 0.3, OmegaLambda = 0.7, H0 = 70')",yes
+aeg-d-strong-lensing/v3/m000083,theta_E (bSIE),1.78,arcsec,files/J_ApJ_682_964_table5.tsv,"table5, row Name=J1630+4520, column bSIE (file line 103)",yes
+aeg-d-strong-lensing/v3/m000083,z_l (zFG),0.2479,,files/J_ApJ_682_964_table4.tsv,"table4, row Name=J1630+4520, column zFG (file line 167)",yes
+aeg-d-strong-lensing/v3/m000083,z_s (zBG),0.7933,,files/J_ApJ_682_964_table4.tsv,"table4, row Name=J1630+4520, column zBG (file line 167)",yes
+aeg-d-strong-lensing/v3/m000083,"M*(<R_E) Chabrier BC03 (MChaBC2; e_, E_)",19 (-2 +1),10+10solMass (1e10 Msun),files/J_A+A_501_461_lens.tsv,"lens table, row SLACS=J1630+4520, columns MChaBC2, E_MChaBC2, e_MChaBC2 (file line 132)",yes
+aeg-d-strong-lensing/v3/m000083,"M*(<R_E) Salpeter BC03 (MSalBC2; e_, E_) [slider only, not used]",34 (-4 +1),10+10solMass (1e10 Msun),files/J_A+A_501_461_lens.tsv,"lens table, row SLACS=J1630+4520, columns MSalBC2, E_MSalBC2, e_MSalBC2 (file line 132)",yes
+aeg-d-strong-lensing/v3/m000083,"R_e [carried, not used]",1.96,arcsec,files/0805.1931v1.tar.gz (ms_arxiv.tex),"Table 4 (obstable), column R_e, ms_arxiv.tex line 1956",yes
+aeg-d-strong-lensing/v3/m000083,"lens morphology/status (Mph, Lens) [selection]","E, A",,files/J_ApJ_682_964_table4.tsv,"table4, row Name=J1630+4520, columns Mph, Lens (file line 167)",yes
+aeg-d-strong-lensing/v3/m000083,"cosmology H0, Omega_M (flat)","70, 0.3","km s^-1 Mpc^-1, -",files/0805.1931v1.pdf,"arXiv:0805.1931v1 p.2, §1 last paragraph ('Throughout this work, we assume ... OmegaM = 0.3, OmegaLambda = 0.7, H0 = 70')",yes
+aeg-d-strong-lensing/v3/m000133,theta_E (b_SIE),0.59,arcsec,files/apjaa9794t2_ascii.txt,"Table 2, row SDSSJ2324+0105, column b_SIE (col 2; file line 47)",yes
+aeg-d-strong-lensing/v3/m000133,log10(M_Ein/M_sun),10.97,dex (Msun),files/apjaa9794t2_ascii.txt,"Table 2, row SDSSJ2324+0105, column 'log_10 (M_Ein/M_sun)' (col 7; file line 47)",yes
+aeg-d-strong-lensing/v3/m000133,log10(M*Chab/M_sun) total,11.32,dex (Msun),files/apjaa9794t2_ascii.txt,"Table 2, row SDSSJ2324+0105, column 8 (header printed in LaTeX as log10(M_*^Chab/M_sun); file line 47)",yes
+aeg-d-strong-lensing/v3/m000133,z_L,0.1899,,files/apjaa9794t1_ascii.txt,"Table 1, row SDSSJ2324+0105, column z_L (col 3; file line 124)",yes
+aeg-d-strong-lensing/v3/m000133,z_S,0.2775,,files/apjaa9794t1_ascii.txt,"Table 1, row SDSSJ2324+0105, column z_S (col 4; file line 124)",yes
+aeg-d-strong-lensing/v3/m000133,"R_eff (de Vaucouleurs, intermediate-axis)",1.10,arcsec,files/apjaa9794t1_ascii.txt,"Table 1, row SDSSJ2324+0105, column R_eff (col 8; file line 124)",yes
+aeg-d-strong-lensing/v3/m000133,Classification [selection],E-S-A,,files/apjaa9794t1_ascii.txt,"Table 1, row SDSSJ2324+0105, column Classification (col 11; file line 124)",yes
+aeg-d-strong-lensing/v3/m000133,"cosmology H0, Omega_m (flat)","70, 0.274","km s^-1 Mpc^-1, -",files/1711.00072v2.pdf,"arXiv:1711.00072v2 p.2, §1 last paragraph ('we adopt ... Omega_m = 0.274, Omega_Lambda = 0.726 and H0 = 70')",yes
+aeg-d-strong-lensing/v3/m000109,theta_E (b_SIE),0.59,arcsec,files/apjaa9794t2_ascii.txt,"Table 2, row SDSSJ1040+3626, column b_SIE (col 2; file line 23)",yes
+aeg-d-strong-lensing/v3/m000109,log10(M_Ein/M_sun),10.54,dex (Msun),files/apjaa9794t2_ascii.txt,"Table 2, row SDSSJ1040+3626, column 'log_10 (M_Ein/M_sun)' (col 7; file line 23)",yes
+aeg-d-strong-lensing/v3/m000109,log10(M*Chab/M_sun) total,10.99,dex (Msun),files/apjaa9794t2_ascii.txt,"Table 2, row SDSSJ1040+3626, column 8 (header printed in LaTeX as log10(M_*^Chab/M_sun); file line 23)",yes
+aeg-d-strong-lensing/v3/m000109,z_L,0.1225,,files/apjaa9794t1_ascii.txt,"Table 1, row SDSSJ1040+3626, column z_L (col 3; file line 58)",yes
+aeg-d-strong-lensing/v3/m000109,z_S,0.2846,,files/apjaa9794t1_ascii.txt,"Table 1, row SDSSJ1040+3626, column z_S (col 4; file line 58)",yes
+aeg-d-strong-lensing/v3/m000109,"R_eff (de Vaucouleurs, intermediate-axis)",1.30,arcsec,files/apjaa9794t1_ascii.txt,"Table 1, row SDSSJ1040+3626, column R_eff (col 8; file line 58)",yes
+aeg-d-strong-lensing/v3/m000109,Classification [selection],E-U-A,,files/apjaa9794t1_ascii.txt,"Table 1, row SDSSJ1040+3626, column Classification (col 11; file line 58)",yes
+aeg-d-strong-lensing/v3/m000109,"cosmology H0, Omega_m (flat)","70, 0.274","km s^-1 Mpc^-1, -",files/1711.00072v2.pdf,"arXiv:1711.00072v2 p.2, §1 last paragraph ('we adopt ... Omega_m = 0.274, Omega_Lambda = 0.726 and H0 = 70')",yes
+aeg-d-strong-lensing/v3/m000105,theta_E (b_SIE),0.70,arcsec,files/apjaa9794t2_ascii.txt,"Table 2, row SDSSJ0920+3028, column b_SIE (col 2; file line 18)",yes
+aeg-d-strong-lensing/v3/m000105,log10(M_Ein/M_sun),11.34,dex (Msun),files/apjaa9794t2_ascii.txt,"Table 2, row SDSSJ0920+3028, column 'log_10 (M_Ein/M_sun)' (col 7; file line 18)",yes
+aeg-d-strong-lensing/v3/m000105,log10(M*Chab/M_sun) total,12.08,dex (Msun),files/apjaa9794t2_ascii.txt,"Table 2, row SDSSJ0920+3028, column 8 (header printed in LaTeX as log10(M_*^Chab/M_sun); file line 18)",yes
+aeg-d-strong-lensing/v3/m000105,z_L,0.2881,,files/apjaa9794t1_ascii.txt,"Table 1, row SDSSJ0920+3028, column z_L (col 3; file line 43)",yes
+aeg-d-strong-lensing/v3/m000105,z_S,0.3918,,files/apjaa9794t1_ascii.txt,"Table 1, row SDSSJ0920+3028, column z_S (col 4; file line 43)",yes
+aeg-d-strong-lensing/v3/m000105,"R_eff (de Vaucouleurs, intermediate-axis)",4.25,arcsec,files/apjaa9794t1_ascii.txt,"Table 1, row SDSSJ0920+3028, column R_eff (col 8; file line 43)",yes
+aeg-d-strong-lensing/v3/m000105,Classification [selection],E-S-A,,files/apjaa9794t1_ascii.txt,"Table 1, row SDSSJ0920+3028, column Classification (col 11; file line 43)",yes
+aeg-d-strong-lensing/v3/m000105,"cosmology H0, Omega_m (flat)","70, 0.274","km s^-1 Mpc^-1, -",files/1711.00072v2.pdf,"arXiv:1711.00072v2 p.2, §1 last paragraph ('we adopt ... Omega_m = 0.274, Omega_Lambda = 0.726 and H0 = 70')",yes
+aeg-d-strong-lensing/v3/m000107,theta_E (b_SIE),1.14,arcsec,files/apjaa9794t2_ascii.txt,"Table 2, row SDSSJ1010+3124, column b_SIE (col 2; file line 21)",yes
+aeg-d-strong-lensing/v3/m000107,log10(M_Ein/M_sun),11.21,dex (Msun),files/apjaa9794t2_ascii.txt,"Table 2, row SDSSJ1010+3124, column 'log_10 (M_Ein/M_sun)' (col 7; file line 21)",yes
+aeg-d-strong-lensing/v3/m000107,log10(M*Chab/M_sun) total,11.68,dex (Msun),files/apjaa9794t2_ascii.txt,"Table 2, row SDSSJ1010+3124, column 8 (header printed in LaTeX as log10(M_*^Chab/M_sun); file line 21)",yes
+aeg-d-strong-lensing/v3/m000107,z_L,0.1668,,files/apjaa9794t1_ascii.txt,"Table 1, row SDSSJ1010+3124, column z_L (col 3; file line 52)",yes
+aeg-d-strong-lensing/v3/m000107,z_S,0.4245,,files/apjaa9794t1_ascii.txt,"Table 1, row SDSSJ1010+3124, column z_S (col 4; file line 52)",yes
+aeg-d-strong-lensing/v3/m000107,"R_eff (de Vaucouleurs, intermediate-axis)",3.26,arcsec,files/apjaa9794t1_ascii.txt,"Table 1, row SDSSJ1010+3124, column R_eff (col 8; file line 52)",yes
+aeg-d-strong-lensing/v3/m000107,Classification [selection],E-S-A,,files/apjaa9794t1_ascii.txt,"Table 1, row SDSSJ1010+3124, column Classification (col 11; file line 52)",yes
+aeg-d-strong-lensing/v3/m000107,"cosmology H0, Omega_m (flat)","70, 0.274","km s^-1 Mpc^-1, -",files/1711.00072v2.pdf,"arXiv:1711.00072v2 p.2, §1 last paragraph ('we adopt ... Omega_m = 0.274, Omega_Lambda = 0.726 and H0 = 70')",yes
+aeg-d-strong-lensing/v3/m000116,theta_E (b_SIE),1.25,arcsec,files/apjaa9794t2_ascii.txt,"Table 2, row SDSSJ1127+2312, column b_SIE (col 2; file line 30)",yes
+aeg-d-strong-lensing/v3/m000116,log10(M_Ein/M_sun),11.18,dex (Msun),files/apjaa9794t2_ascii.txt,"Table 2, row SDSSJ1127+2312, column 'log_10 (M_Ein/M_sun)' (col 7; file line 30)",yes
+aeg-d-strong-lensing/v3/m000116,log10(M*Chab/M_sun) total,11.44,dex (Msun),files/apjaa9794t2_ascii.txt,"Table 2, row SDSSJ1127+2312, column 8 (header printed in LaTeX as log10(M_*^Chab/M_sun); file line 30)",yes
+aeg-d-strong-lensing/v3/m000116,z_L,0.1303,,files/apjaa9794t1_ascii.txt,"Table 1, row SDSSJ1127+2312, column z_L (col 3; file line 70)",yes
+aeg-d-strong-lensing/v3/m000116,z_S,0.3610,,files/apjaa9794t1_ascii.txt,"Table 1, row SDSSJ1127+2312, column z_S (col 4; file line 70)",yes
+aeg-d-strong-lensing/v3/m000116,"R_eff (de Vaucouleurs, intermediate-axis)",2.69,arcsec,files/apjaa9794t1_ascii.txt,"Table 1, row SDSSJ1127+2312, column R_eff (col 8; file line 70)",yes
+aeg-d-strong-lensing/v3/m000116,Classification [selection],E-S-A,,files/apjaa9794t1_ascii.txt,"Table 1, row SDSSJ1127+2312, column Classification (col 11; file line 70)",yes
+aeg-d-strong-lensing/v3/m000116,"cosmology H0, Omega_m (flat)","70, 0.274","km s^-1 Mpc^-1, -",files/1711.00072v2.pdf,"arXiv:1711.00072v2 p.2, §1 last paragraph ('we adopt ... Omega_m = 0.274, Omega_Lambda = 0.726 and H0 = 70')",yes
+aeg-d-strong-lensing/v3/m000144,theta_Ein [not used in value; R_E printed],2.03±0.04,arcsec,files/1911.06338v1.pdf,"Table 1 (p.5), row thetaEin, column J1436+4943",yes
+aeg-d-strong-lensing/v3/m000144,M_Ein,28.2±1.1,10^10 Msun,files/1911.06338v1.pdf,"Table 1 (p.5), row MEin, column J1436+4943",yes
+aeg-d-strong-lensing/v3/m000144,R_Ein,4.72±0.09,kpc,files/1911.06338v1.pdf,"Table 1 (p.5), row REin, column J1436+4943",yes
+aeg-d-strong-lensing/v3/m000144,z_lens,0.125,,files/1911.06338v1.pdf,"Table 1 (p.5), row zlens, column J1436+4943",yes
+aeg-d-strong-lensing/v3/m000144,z_src,1.231,,files/1911.06338v1.pdf,"Table 1 (p.5), row zsrc, column J1436+4943",yes
+aeg-d-strong-lensing/v3/m000144,L_Ein (rest-frame SDSS i),6.72±0.10,10^10 Lsun,files/1911.06338v1.pdf,"Table 1 (p.5), row LEin, column J1436+4943",yes
+aeg-d-strong-lensing/v3/m000144,"Upsilon_ref (Kroupa, i band)",2.93±0.26,Msun/Lsun,files/1911.06338v1.pdf,"§5 (p.3), 'we assume Upsilon_ref = 2.93±0.26'; also Table 1 (p.5) row Upsilon_ref",yes
+aeg-d-strong-lensing/v3/m000144,gas statement (quoted assumption),"'a central black hole, gas, etc but these are expected to be negligible'",,files/1911.06338v1.pdf,"§5 (p.3), third paragraph",n/a (not in rows.json locators)

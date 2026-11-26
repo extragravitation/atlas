@@ -1,0 +1,86 @@
+measurement_id,input,value,unit,file,place,at_locator
+aeg-d-dwarfs/v3/m000013,sigma,3.8,km s-1,1112.1067v3.pdf,p9 Table 3 row And XVI col sigmaLOS (3.8 +/- 2.9),yes
+aeg-d-dwarfs/v3/m000013,r_h (semi-major),1.0,arcmin,1610.01158v1.pdf,p9 Table 1 row And XVI col rh (arcmin),yes
+aeg-d-dwarfs/v3/m000013,ellipticity,0.29,-,1610.01158v1.pdf,p9 Table 1 row And XVI col epsilon,yes
+aeg-d-dwarfs/v3/m000013,distance modulus,23.70,mag,1710.09038v1.pdf,"p18 Table 8 row And XVI col PWR (the paper adopts PWR as final: p17 text ""We adopt the distances obtained with the PWR""); locator gives no column",yes
+aeg-d-dwarfs/v3/m000013,"m_V,0",16.1,mag,1610.01158v1.pdf,"p9 Table 2 row And XVI col mV,0",yes
+aeg-d-dwarfs/v3/m000013,[Fe/H],-2.17,dex,2407.04698v1.pdf,p9 Table 2 Global MDF <[Fe/H]> And XVI,yes
+aeg-d-dwarfs/v3/m000013,Upsilon_V,1.91100,Msun/Lsun,J_ApJS_161_304_clusters.vot,"(M/L)1 linearly interpolated over MW-* rows (unique [Fe/H], all logAge 10.11) at -2.17 (between -2.22:1.919 and -2.12:1.903)",yes
+aeg-d-dwarfs/v3/m000013,HI,l_MHI=<; MHI=2.0E+04; Dist=476,Msun; kpc,apjabe391t1_mrt.txt,row Andromeda XVI (file line 148),yes
+aeg-d-dwarfs/v3/m000024,sigma,7.69,km s-1,2106.12656v2.pdf,"p7 Table 1 row sigma_v no k_v, Antlia 2 column",yes
+aeg-d-dwarfs/v3/m000024,r_h (circularised),66.3,arcmin,2106.12656v2.pdf,"p7 Table 1 row rh (arcmin), Antlia 2",yes
+aeg-d-dwarfs/v3/m000024,distance modulus,20.47,mag,2112.08467v1.pdf,p9 Sec. 3.3 text mu0 = 20.47 (124.1 kpc),yes
+aeg-d-dwarfs/v3/m000024,M_V,-9.86,mag,2106.12656v2.pdf,"p7 Table 1 row MV, Antlia 2","no (locator names S104 Vivas 2022, which prints no M_V; found in Ji 2021 Table 1 as METHOD.md section 7 says)"
+aeg-d-dwarfs/v3/m000024,modulus used by the paper,20.6,mag,2106.12656v2.pdf,"p7 Table 1 row mu (mag), Antlia 2 (ref. Torrealba 2019)",no (locator names S104; found in Ji 2021 Table 1)
+aeg-d-dwarfs/v3/m000024,[Fe/H],-1.90,dex,2106.12656v2.pdf,"p7 Table 1 row <[Fe/H]> (dex, CaT), Antlia 2",yes
+aeg-d-dwarfs/v3/m000024,Upsilon_V,1.87400,Msun/Lsun,J_ApJS_161_304_clusters.vot,"(M/L)1 linearly interpolated over MW-* rows (unique [Fe/H], all logAge 10.11) at -1.90 (row at -1.90)",yes
+aeg-d-dwarfs/v3/m000024,HI,l_MHI=<; MHI=111; Dist=132,Msun; kpc,apjabe391t1_mrt.txt,row Antlia 2 (file line 129),yes
+aeg-d-dwarfs/v3/m000041,sigma,2.69,km s-1,1804.06430v1.pdf,p6 Table 1 row sigma_los (2.69 +0.51 -0.43); also p9 Sec. 4.3,yes
+aeg-d-dwarfs/v3/m000041,r_h (semi-major),7.42,arcmin,1804.06430v1.pdf,"p6 Table 1 row rhalf,maj",yes
+aeg-d-dwarfs/v3/m000041,ellipticity,0.21,-,1804.06430v1.pdf,p6 Table 1 row 1-b/a,yes
+aeg-d-dwarfs/v3/m000041,distance modulus,17.20,mag,1804.06430v1.pdf,p6 Table 1 row m-M,yes
+aeg-d-dwarfs/v3/m000041,M_V,-4.71,mag,1804.06430v1.pdf,p6 Table 1 row MV,yes
+aeg-d-dwarfs/v3/m000041,modulus used by the paper,17.20,mag,1804.06430v1.pdf,p6 Table 1 row m-M,yes
+aeg-d-dwarfs/v3/m000041,[Fe/H],-2.52,dex,1804.06430v1.pdf,p6 Table 1 row <[Fe/H]>,yes
+aeg-d-dwarfs/v3/m000041,Upsilon_V,1.93100,Msun/Lsun,J_ApJS_161_304_clusters.vot,"(M/L)1 linearly interpolated over MW-* rows (unique [Fe/H], all logAge 10.11); -2.52 below range, end value at -2.29 (beyond_source_range)",yes
+aeg-d-dwarfs/v3/m000041,HI,l_MHI=<; MHI=125; Dist=28,Msun; kpc,apjabe391t1_mrt.txt,row Hydrus I (file line 91),yes
+aeg-d-dwarfs/v3/m000015,sigma,10.0,km s-1,2404.11804v4.pdf,"p11 Table 4 row This work (Nmem 38) col sigma_v (10.0 +1.1 -1.0); same as p7 Table 2 sigma_v no rotation, 56 members",yes
+aeg-d-dwarfs/v3/m000015,r_h (semi-major),0.92,arcmin,2101.03189v1.pdf,p16 Table 3 row And XVIII col R_s,yes
+aeg-d-dwarfs/v3/m000015,ellipticity,0.44,-,2101.03189v1.pdf,p16 Table 2 row And XVIII col e,no (locator gives Table 3; e is in Table 2)
+aeg-d-dwarfs/v3/m000015,distance modulus,25.36,mag,2101.03189v1.pdf,p16 Table 2 row And XVIII col (m-M)o,yes
+aeg-d-dwarfs/v3/m000015,"m_V,0",16.2,mag,1610.01158v1.pdf,"p9 Table 2 row And XVIII col mV,0",yes
+aeg-d-dwarfs/v3/m000015,[Fe/H],-1.49,dex,2404.11804v4.pdf,p11 Table 4 row This work; p10-11 Sec. 4.3 text,yes
+aeg-d-dwarfs/v3/m000015,Upsilon_V,1.89000,Msun/Lsun,J_ApJS_161_304_clusters.vot,"(M/L)1 linearly interpolated over MW-* rows (unique [Fe/H], all logAge 10.11) at -1.49 (between -1.50:1.888 and -1.49:1.890)",yes
+aeg-d-dwarfs/v3/m000015,HI,l_MHI=<; MHI=2.2E+05; Dist=1213,Msun; kpc,apjabe391t1_mrt.txt,row Andromeda XVIII (file line 192),yes
+aeg-d-dwarfs/v3/m000001,sigma,10.2,km s-1,1112.1067v3.pdf,p9 Table 3 row And I col sigmaLOS (10.2 +/- 1.9*),yes
+aeg-d-dwarfs/v3/m000001,r_h (semi-major),3.9,arcmin,1610.01158v1.pdf,p9 Table 1 row And I col rh (arcmin),yes
+aeg-d-dwarfs/v3/m000001,ellipticity,0.28,-,1610.01158v1.pdf,p9 Table 1 row And I col epsilon,yes
+aeg-d-dwarfs/v3/m000001,distance modulus,24.45,mag,2206.02801v2.pdf,p15 Table 5 row And I col mu,yes
+aeg-d-dwarfs/v3/m000001,"m_V,0",13.1,mag,1610.01158v1.pdf,"p9 Table 2 row And I col mV,0",yes
+aeg-d-dwarfs/v3/m000001,[Fe/H],-1.51,dex,1912.02186v1.pdf,p13 Table 4 row And I col <[Fe/H]>,yes
+aeg-d-dwarfs/v3/m000001,Upsilon_V,1.88600,Msun/Lsun,J_ApJS_161_304_clusters.vot,"(M/L)1 linearly interpolated over MW-* rows (unique [Fe/H], all logAge 10.11) at -1.51 (row at -1.51)",yes
+aeg-d-dwarfs/v3/m000001,HI,l_MHI=<; MHI=7.5E+04; Dist=745,Msun; kpc,apjabe391t1_mrt.txt,row Andromeda I (file line 161),yes
+aeg-d-dwarfs/v3/m000063,sigma,8.86,km s-1,2602.10200v2.pdf,p34 Table A1 row Ursa Minor UMi col 14 sigma_sys(2reff),yes
+aeg-d-dwarfs/v3/m000063,r_h (semi-major assumed),17.32,arcmin,1806.06891v1.pdf,"p27 Table 5 Primary Sample row 34 UMi col re,s (arcmin)",yes
+aeg-d-dwarfs/v3/m000063,ellipticity,0.55,-,1806.06891v1.pdf,p27 Table 5 row UMi col epsilon_s,yes
+aeg-d-dwarfs/v3/m000063,distance modulus,19.23,mag,2410.12433v1.pdf,"p6 Sec. 3.1 text (19.23 +/- 0.09, d = 70 kpc)",yes
+aeg-d-dwarfs/v3/m000063,M_V,-9.03,mag,1806.06891v1.pdf,p28 Table 6 row 34 UMi col MV,"yes (locator gives table, no page)"
+aeg-d-dwarfs/v3/m000063,Munoz Table 1 distance R,76.0,kpc,1806.06891v1.pdf,p22 Table 1 row 34 UMi col R,"yes (locator gives table, no page)"
+aeg-d-dwarfs/v3/m000063,[Fe/H],-2.23,dex,2602.10202v1.pdf,p19 Table A1 row Ursa Minor UMi col [Fe/H],yes
+aeg-d-dwarfs/v3/m000063,Upsilon_V,1.92050,Msun/Lsun,J_ApJS_161_304_clusters.vot,"(M/L)1 linearly interpolated over MW-* rows (unique [Fe/H], all logAge 10.11) at -2.23 (between -2.26:1.925 and -2.22:1.919)",yes
+aeg-d-dwarfs/v3/m000063,HI,l_MHI=<; MHI=601; Dist=76,Msun; kpc,apjabe391t1_mrt.txt,row Ursa Minor (file line 112),yes
+aeg-d-dwarfs/v3/m000029,sigma,1.69,km s-1,2607.07803v1.pdf,"p5 Table 1 row (7) sigma_v, This work (1.69 +1.03 -0.85)",yes
+aeg-d-dwarfs/v3/m000029,r_h (circularised),33.03,arcmin,1910.10134v3.pdf,"p12 Table 3 row BooIII_DCLS col Rh,1c (1-Plummer)",yes
+aeg-d-dwarfs/v3/m000029,ellipticity (not used: radius circularised),0.33,-,1910.10134v3.pdf,p12 Table 3 row BooIII_DCLS col eps_1c,yes
+aeg-d-dwarfs/v3/m000029,distance modulus,18.43,mag,2607.07803v1.pdf,p10 Sec. 4 text <m-M> = 18.43 +/- 0.09 (48.5 kpc),yes
+aeg-d-dwarfs/v3/m000029,M_V,-5.8,mag,0904.3068v1.pdf,p5 item (iii) text M_V ~ -5.8 +/- 0.5,yes
+aeg-d-dwarfs/v3/m000029,[Fe/H],-2.34,dex,2607.07803v1.pdf,p5 Table 1 row (8) This work,yes
+aeg-d-dwarfs/v3/m000029,Upsilon_V,1.93100,Msun/Lsun,J_ApJS_161_304_clusters.vot,"(M/L)1 linearly interpolated over MW-* rows (unique [Fe/H], all logAge 10.11); -2.34 below range, end value at -2.29 (beyond_source_range)",yes
+aeg-d-dwarfs/v3/m000029,HI,l_MHI=<; MHI=108; Dist=47,Msun; kpc,apjabe391t1_mrt.txt,row Bootes III (file line 103; flag 8),yes
+aeg-d-dwarfs/v3/m000061,sigma,7.16,km s-1,2602.10200v2.pdf,p34 Table A1 row UMa 1 UMa1 col 14 sigma_sys(2reff),yes
+aeg-d-dwarfs/v3/m000061,r_h (semi-major assumed),8.34,arcmin,1806.06891v1.pdf,"p27 Table 5 Primary Sample row 18 UMa I col re,s (arcmin)",yes
+aeg-d-dwarfs/v3/m000061,ellipticity,0.57,-,1806.06891v1.pdf,p27 Table 5 row UMa I col epsilon_s,yes
+aeg-d-dwarfs/v3/m000061,distance modulus,19.94,mag,1302.3230v1.pdf,p7-8 Sec. 4 text mu0 = 19.94 +/- 0.13; also abstract p1,yes
+aeg-d-dwarfs/v3/m000061,M_V,-5.12,mag,1806.06891v1.pdf,p28 Table 6 row 18 UMa I col MV,"yes (locator gives table, no page)"
+aeg-d-dwarfs/v3/m000061,Munoz Table 1 distance R,97.0,kpc,1806.06891v1.pdf,p22 Table 1 row 18 UMa I col R,"yes (locator gives table, no page)"
+aeg-d-dwarfs/v3/m000061,[Fe/H],-2.56,dex,2602.10202v1.pdf,p19 Table A1 row UMa 1 UMa1 col [Fe/H],yes
+aeg-d-dwarfs/v3/m000061,Upsilon_V,1.93100,Msun/Lsun,J_ApJS_161_304_clusters.vot,"(M/L)1 linearly interpolated over MW-* rows (unique [Fe/H], all logAge 10.11); -2.56 below range, end value at -2.29 (beyond_source_range)",yes
+aeg-d-dwarfs/v3/m000061,HI,l_MHI=<; MHI=6.9E+03; Dist=97,Msun; kpc,apjabe391t1_mrt.txt,row Ursa Major I (file line 122),yes
+aeg-d-dwarfs/v3/m000047,sigma,6.05,km s-1,2602.10200v2.pdf,p33 Table A1 row Leo T LeoT col 14 sigma_sys(2reff),yes
+aeg-d-dwarfs/v3/m000047,r_h (semi-major),1.39,arcmin,2101.03189v1.pdf,p16 Table 3 row Leo T col R_s,yes
+aeg-d-dwarfs/v3/m000047,ellipticity,0.12,-,2101.03189v1.pdf,p16 Table 2 row Leo T col e,no (locator gives Table 3; e is in Table 2)
+aeg-d-dwarfs/v3/m000047,distance modulus,23.08,mag,2101.03189v1.pdf,p16 Table 2 row Leo T col (m-M)o,yes
+aeg-d-dwarfs/v3/m000047,M_V,-8.0,mag,0801.4027v2.pdf,"p5 Table 1 row MV (mag), All column; p5 Sec. 4 text MV,total ~ -8.0",yes
+aeg-d-dwarfs/v3/m000047,red-clump modulus (paper own),23.1,mag,0801.4027v2.pdf,p5 Table 1 row m-M_RC; p7 Sec. 6 text 23.1 +/- 0.2,yes
+aeg-d-dwarfs/v3/m000047,[Fe/H],-1.74,dex,1310.0814v2.pdf,p12 Table 4 Local Group dIrrs row Leo T col <[Fe/H]>,yes
+aeg-d-dwarfs/v3/m000047,Upsilon_V,1.86700,Msun/Lsun,J_ApJS_161_304_clusters.vot,"(M/L)1 linearly interpolated over MW-* rows (unique [Fe/H], all logAge 10.11) at -1.74 (row at -1.74)",yes
+aeg-d-dwarfs/v3/m000047,HI,"l_MHI=(none, detection); MHI=2.8E+05; Dist=409",Msun; kpc,apjabe391t1_mrt.txt,row Leo T (file line 145),yes
+aeg-d-dwarfs/v3/m000038,sigma,11.84,km s-1,1408.5597v1.pdf,p5 Sec. 2.1 text sigma_sys = 11.84 +/- 0.45 (Fig. 4 on p5 shows 11.62 +/- 0.45),yes
+aeg-d-dwarfs/v3/m000038,r_h (semi-major assumed),20.1,arcmin,1809.07801v1.tar.gz,"Fornax_main.tex l.106, 2D Half-light r_h, Sersic column (PDF p4 Table 1); best fit stated l.333",yes
+aeg-d-dwarfs/v3/m000038,ellipticity,0.31,-,1809.07801v1.pdf,"p4 Table 1 row Ellipticity, Sersic column (tex l.97)",yes
+aeg-d-dwarfs/v3/m000038,distance modulus,20.770,mag,2204.09699v2.pdf,p13 Sec. 7 and Sec. 6.4 <mu0> = 20.770 +/- 0.042 +/- 0.024,yes
+aeg-d-dwarfs/v3/m000038,M_V,-13.46,mag,1806.06891v1.pdf,p28 Table 6 row 4 Fornax col MV,"yes (locator gives table, no page)"
+aeg-d-dwarfs/v3/m000038,Munoz Table 1 distance R,147.0,kpc,1806.06891v1.pdf,p22 Table 1 row 4 Fornax col R,"yes (locator gives table, no page)"
+aeg-d-dwarfs/v3/m000038,[Fe/H],-1.04,dex,1310.0814v2.pdf,p12 Table 4 Milky Way dSphs row Fornax col <[Fe/H]>,yes
+aeg-d-dwarfs/v3/m000038,Upsilon_V,2.08900,Msun/Lsun,J_ApJS_161_304_clusters.vot,"(M/L)1 linearly interpolated over MW-* rows (unique [Fe/H], all logAge 10.11) at -1.04 (row at -1.04)",yes
+aeg-d-dwarfs/v3/m000038,HI,l_MHI=<; MHI=3.4E+03; Dist=139,Msun; kpc,apjabe391t1_mrt.txt,row Fornax (file line 131; flag 19),yes
