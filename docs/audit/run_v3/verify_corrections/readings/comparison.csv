@@ -1,0 +1,6 @@
+stratum,measurement_id,code,method_gap,atlas_g_obs,atlas_g_bar,a_g_obs,a_g_bar,a_status,b_g_obs,b_g_bar,b_status,c_g_obs,c_g_bar,c_status,notes
+aeg-d-dwarfs/v3,aeg-d-dwarfs/v3/m000015,agree,,3.0847801878943035e-11,5.327820484654619e-13,3.0847802e-11,5.3278072e-13,ok,3.0847802e-11,5.3278205e-13,ok,,,,
+aeg-d-dwarfs/v3,aeg-d-dwarfs/v3/m000023,agree,,1.3950804732734143e-11,3.1216660784056773e-13,1.3950805e-11,3.1216661e-13,ok,1.3950805e-11,3.1216661e-13,ok,,,,
+aeg-d-dwarfs/v3,aeg-d-dwarfs/v3/m000024,agree,,1.800718448654109e-12,8.701521929723589e-15,1.8007184e-12,8.7014835e-15,ok,1.8007184e-12,8.7015219e-15,ok,,,,
+aeg-d-dwarfs/v3,aeg-d-dwarfs/v3/m000037,agree,,4.37124310554215e-11,5.4114317776316964e-14,4.3712431e-11,5.4114318e-14,ok,4.3712431e-11,5.4114318e-14,ok,,,,
+aeg-d-dwarfs/v3,aeg-d-dwarfs/v3/m000047,agree,,1.7035640760354378e-11,1.0106857143993323e-12,1.7035641e-11,1.0106857e-12,ok,1.7035641e-11,1.0106857e-12,ok,,,,

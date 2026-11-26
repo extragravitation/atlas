@@ -6,9 +6,9 @@ The Atlas describes where and how the observed gravitational acceleration (g_obs
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23864356.svg)](https://doi.org/10.5281/zenodo.23864356)
 
-**Status:** version 0.1, a **preliminary pre-release, not peer reviewed** (2026-11-01). Six datasets are live at https://extragravitation.org. The v1.0 release gates (#16) are not met.
+**Status:** version 0.3, a **preliminary pre-release, not peer reviewed** (2026-11-26). Six datasets are live at https://extragravitation.org. The v1.0 release gates (#16) are not met.
 
-**Cite:** van Hemert, J. (2026). *Atlas of Extra Gravitation*, version 0.1 (preliminary, not peer reviewed). Zenodo. https://doi.org/10.5281/zenodo.23864356. All versions: https://doi.org/10.5281/zenodo.23864355. Also cite the original sources of any data you use (listed on each dataset page).
+**Cite:** van Hemert, J. (2026). *Atlas of Extra Gravitation*, version 0.3 (preliminary, not peer reviewed). Zenodo. All versions: https://doi.org/10.5281/zenodo.23864355 (resolves to the latest; each version has its own DOI on that page). Also cite the original sources of any data you use (listed on each dataset page).
 
 ## Principles
 

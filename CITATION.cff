@@ -1,16 +1,16 @@
 cff-version: 1.2.0
 message: "If you use the Atlas of Extra Gravitation, please cite it as below, and cite the original sources of any data you use (listed on each dataset page)."
 title: "Atlas of Extra Gravitation"
-abstract: "An open, theory-neutral atlas of the acceleration discrepancy: where and how the observed gravitational acceleration exceeds what Newtonian gravity predicts from detected baryonic matter, from star clusters to galaxy clusters."
+abstract: "An open, theory-neutral atlas of the acceleration discrepancy: where and how the observed gravitational acceleration differs from what Newtonian gravity predicts from detected baryonic matter, from star clusters to galaxy clusters."
 type: dataset
 authors:
   - family-names: "van Hemert"
     given-names: "John"
     affiliation: "Independent researcher, Calgary"
     orcid: "https://orcid.org/0009-0003-1893-7096"
-version: "v0.2"
-date-released: "2026-11-06"
-doi: "10.5281/zenodo.24017479"
+version: "v0.3"
+date-released: "2026-11-26"
+doi: "10.5281/zenodo.23864355"
 identifiers:
   - type: doi
     value: "10.5281/zenodo.24017479"
