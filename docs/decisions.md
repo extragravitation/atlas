@@ -2703,7 +2703,7 @@ The values are unaffected. The package is merged but not released.
    - B6: "Pull budget" and "Detected share" are removed.
    - B7: two reviews organised around the other main account are added, read at source and recorded in `docs/sources/related-compilations.md`. The heading becomes "The g_obs–g_bar comparison for one kind of system".
    - B8: the Tests template wording.
-   - B11: the Coverage wording, in `docs/plans/TAXONOMY_v2.md` (D-108), which only this sentence changes.
+   - B11: the Coverage wording. `docs/plans/TAXONOMY_v2.md` (D-108) is hash-frozen and is not edited, so a note under it on the Coverage page gives the neutral reading.
    - B12: "a flat cosmology", replacing "Flat ΛCDM".
    - The X-COP "non-parametric" claim on Methods and the system pages, and the X-COP v3 plain status line.
 4. **Package and registry text (separate PRs, each for "merge"):**
