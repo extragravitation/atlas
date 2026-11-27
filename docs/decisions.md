@@ -2320,6 +2320,8 @@ The frozen KiDS v2 test (item 11) makes any such finding a fail of that item. Th
 
 **Data seen.** The email thread of 2026-11-02/03 and the part B result. No new data.
 
+**Record (2026-11-27).** Rule 2's notice was not sent on 2026-11-05. JvH sent it on 2026-11-27 (18:19 UTC), in the existing thread, linking to `aeg-d-xcop/v3`. In the meantime the data were published in v0.2 and v0.3 without it. It asked about A644 (#136) and about citation (#19); see the comments on those issues. Rules 1, 3 and 4 are unchanged.
+
 ## D-107 — Audit v2 result: v0.2 ships with it; corrections by re-issue after v0.2
 
 **Ruling (2026-11-05, JvH).**
