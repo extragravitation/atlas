@@ -72,7 +72,7 @@ The two causes were checked across all 64 dwarf systems. This check is explorato
 - **Ellipticity placed in Higgs Table 3:** 3 systems (Andromeda XVIII, Andromeda XXVIII, Leo T).
 - **M_V routed to the paper of the package distance, when another paper prints it:** 3 systems (Antlia II → Ji 2021; Andromeda XXVIII → Slater 2015; Eridanus IV → Casey 2025, where the distance paper prints a different M_V).
 
-The values of all six systems were checked against the printed numbers. They were corrected by locator corrections in dwarfs v3 (D-121, issue #243, #244); no value changed.
+That is 6 corrections across 5 systems, since Andromeda XXVIII has both errors (an earlier draft said "six systems"). The values of all five systems were checked against the printed numbers. They were corrected by locator corrections in dwarfs v3 (D-121, issue #243, #244); no value changed.
 
 ## 3. Part B
 
@@ -128,3 +128,11 @@ The readers' `gaps.md` files record wording points that changed no value. Exampl
 - the SPARC row locators do not name Inc and e_Inc.
 
 These are inputs to the next revision of the methods text, before audit v4 (D-121).
+
+## 6. Independent check of the corrections (exploratory, after the result; D-123)
+
+The corrections in §2.4 were made by Claude. Before release, two fresh blind readers re-read the five corrected dwarf systems from packets built on the corrected locators (main after #244). They used the same frozen brief and tools: Andromeda XVIII, Andromeda XXVIII, Antlia II, Eridanus IV and Leo T (m000015, m000023, m000024, m000037, m000047).
+- **Comparison:** 5 of 5 rows agree with the Atlas; 0 method gaps.
+- **Provenance:** checks 1 to 6 pass on all 5 rows. Both readers found every input at the place its corrected locator gives, so no row needed adjudication.
+
+This check does not change or re-score the audit; Part A's verdict stays fail. It shows only that the corrections hold. The records are in `run_v3/verify_corrections/`.

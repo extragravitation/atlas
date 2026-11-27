@@ -1,0 +1,44 @@
+measurement_id,input,value,unit,file,place,at_locator
+aeg-d-dwarfs/v3/m000015,sigma,10.0 (+1.1 -1.0),km s^-1,files/2404.11804v4.pdf,"PDF p.7, Table 2, Kinematic models, row ""σv (no rotation)"", column ""38 stars, (56)""; same value p.11 Table 4 row ""This work"", column σv",yes
+aeg-d-dwarfs/v3/m000015,"r_h (semi-major, Sersic Rs)",0.92 ± 0.05,arcmin,files/2101.03189v1.pdf,"PDF p.16, Table 3, row And XVIII, column Rs [']",yes
+aeg-d-dwarfs/v3/m000015,ellipticity e,0.44 ± 0.12,dimensionless,files/2101.03189v1.pdf,"PDF p.16, Table 2, row And XVIII, column e (moment-based ellipticity, eq. 4 of the paper)",yes
+aeg-d-dwarfs/v3/m000015,distance modulus (m-M)o,25.36 ± 0.08,mag,files/2101.03189v1.pdf,"PDF p.16, Table 2, row And XVIII, column (m − M)o (Distance column prints 1178±43 kpc; not used)",yes
+aeg-d-dwarfs/v3/m000015,"m_V,0",16.2 ± 0.4,mag,files/1610.01158v1.pdf,"PDF p.9, Table 2, row And XVIII, column mV,0",yes
+aeg-d-dwarfs/v3/m000015,"[Fe/H] (mean, spectroscopic)",-1.49,dex,files/2404.11804v4.pdf,"PDF p.10, Sec. 4.3 Metallicity text (""mean metallicity of ⟨[Fe/H]⟩ = −1.49""); p.11 Table 4 row ""This work"", column [Fe/H] (inter) −1.49 ±0.36; p.11 text",yes
+aeg-d-dwarfs/v3/m000015,gas: l_MHI / MHI / Dist,< / 2.2E+05 / 1213,Msun / Msun / kpc,files/apjabe391t1_mrt.txt,"line 192, row ""Andromeda XVIII"" (MRT column is ""Galaxy""; no column named galaxy_as_printed exists in this file); bytes 86, 88-94, 46-49",yes
+aeg-d-dwarfs/v3/m000015,Upsilon_V table,(M/L)1 interpolated at [Fe/H]=-1.49 -> 1.890 (exact table node),Msun/Lsun,files/J_ApJS_161_304_clusters.vot,"clusters, rows Cluster starting ""MW"" (148 rows, 100 distinct [Fe/H], logAge 10.11), column (M/L)1",yes
+aeg-d-dwarfs/v3/m000023,sigma,6.6 (+2.9 -2.1),km s^-1,files/1302.6590v1.pdf,"PDF p.27, Table 4, row And XXVIII, column σv; same value p.33 Table 5 row AndXXVIII",yes
+aeg-d-dwarfs/v3/m000023,"r_h (semi-major, Sersic Rs)",1.38 ± 0.06,arcmin,files/2101.03189v1.pdf,"PDF p.16, Table 3, row And XXVIII, column Rs",yes
+aeg-d-dwarfs/v3/m000023,ellipticity e,0.42 ± 0.06,dimensionless,files/2101.03189v1.pdf,"PDF p.16, Table 2, row And XXVIII, column e",yes
+aeg-d-dwarfs/v3/m000023,distance modulus mu (package),24.36 ± 0.05,mag,files/2206.02801v2.pdf,"PDF p.15, Table 5, row And XXVIII, column µ",yes
+aeg-d-dwarfs/v3/m000023,M_V,-8.7 ± 0.4,mag,files/1505.02161v1.pdf,"PDF p.3, Table 1, row MV, column And XXVIII (also p.3 Sec. 3.1 text)",yes
+aeg-d-dwarfs/v3/m000023,(m-M)0 used by the paper giving M_V,24.55 ± 0.13,mag,files/1505.02161v1.pdf,"PDF p.3, Table 1, row (m − M)0, column And XXVIII",yes
+aeg-d-dwarfs/v3/m000023,"[Fe/H] (mean, spectroscopic)",-1.84 ± 0.15,dex,files/1505.02161v1.pdf,"PDF p.3, Table 1, row ⟨[Fe/H]⟩, column And XXVIII (method Sec. 4, p.3-4)",yes
+aeg-d-dwarfs/v3/m000023,gas: l_MHI / MHI / Dist,< / 1.8E+04 / 661,Msun / Msun / kpc,files/apjabe391t1_mrt.txt,"line 153, row ""Andromeda XXVIII"" (column ""Galaxy"")",yes
+aeg-d-dwarfs/v3/m000023,Upsilon_V table,(M/L)1 interpolated at [Fe/H]=-1.84 between -1.85 (1.870) and -1.83 (1.869) -> 1.8695,Msun/Lsun,files/J_ApJS_161_304_clusters.vot,"clusters, MW rows, column (M/L)1",yes
+aeg-d-dwarfs/v3/m000024,"sigma (σv, no kv)",7.69 (+0.40 -0.37),km s^-1,files/2106.12656v2.pdf,"PDF p.7, Table 1, row ""σv, no kv (km s−1)"", column Antlia 2",yes
+aeg-d-dwarfs/v3/m000024,r_h (circularised),66.3 ± 4.6,arcmin,files/2106.12656v2.pdf,"PDF p.7, Table 1, row ""rh (arcmin)"" (Circularized half light radius), column Antlia 2; also p.6 Sec. 3 text ""rh = 66.3 arcmin""",yes
+aeg-d-dwarfs/v3/m000024,distance modulus mu0 (package),20.47,mag,files/2112.08467v1.pdf,"PDF p.9, Sec. 3.3 text: ""The corresponding distance modulus is µ0 = 20.47"" (mean distance 124.1 kpc printed alongside; not used)",yes
+aeg-d-dwarfs/v3/m000024,M_V,-9.86 ± 0.08,mag,files/2106.12656v2.pdf,"PDF p.7, Table 1, row MV, column Antlia 2",yes
+aeg-d-dwarfs/v3/m000024,mu used by the paper giving M_V,20.6 ± 0.11,mag,files/2106.12656v2.pdf,"PDF p.7, Table 1, row µ (mag), column Antlia 2",yes
+aeg-d-dwarfs/v3/m000024,"[Fe/H] (mean, CaT)",-1.90 ± 0.04,dex,files/2106.12656v2.pdf,"PDF p.7, Table 1, row ⟨[Fe/H]⟩ (dex, CaT), column Antlia 2",yes
+aeg-d-dwarfs/v3/m000024,gas: l_MHI / MHI / Dist,< / 111 / 132,Msun / Msun / kpc,files/apjabe391t1_mrt.txt,"line 129, row ""Antlia 2"" (column ""Galaxy"")",yes
+aeg-d-dwarfs/v3/m000024,Upsilon_V table,(M/L)1 at [Fe/H]=-1.90 -> 1.874 (exact table node),Msun/Lsun,files/J_ApJS_161_304_clusters.vot,"clusters, MW rows, column (M/L)1",yes
+aeg-d-dwarfs/v3/m000037,sigma,6.1 (+1.2 -0.9),km s^-1,files/2308.08602v1.pdf,"PDF p.3, Table 1, row σv, column Eri IV; same p.15 Table 5 row ""Full vsys (fiducial)""",yes
+aeg-d-dwarfs/v3/m000037,r_h (semi-major),3.24 ± 0.48,arcmin,files/2501.04772v2.pdf,"PDF p.5, Table 4, row rh (arcmin), column Eri IV (note defines rh as along the semi-major axis)",yes
+aeg-d-dwarfs/v3/m000037,ellipticity ε = 1 − b/a,0.26 ± 0.09,dimensionless,files/2501.04772v2.pdf,"PDF p.5, Table 4, row ǫ, column Eri IV",yes
+aeg-d-dwarfs/v3/m000037,distance modulus m−M (package),19.42 (+0.01 -0.08 ± 0.1),mag,files/2107.09080v2.pdf,"PDF p.5, Table 1, row m−M",yes
+aeg-d-dwarfs/v3/m000037,M_V,-3.55 ± 0.24,mag,files/2501.04772v2.pdf,"PDF p.5, Table 4, row MV (mag), column Eri IV",yes
+aeg-d-dwarfs/v3/m000037,m − M used by the paper giving M_V,19.22 ± 0.11,mag,files/2501.04772v2.pdf,"PDF p.5, Table 4, row m − M (mag), column Eri IV",yes
+aeg-d-dwarfs/v3/m000037,"[Fe/H] (mean, spectroscopic)",-2.87 (+0.08 -0.07),dex,files/2308.08602v1.pdf,"PDF p.3, Table 1, row [Fe/H], column Eri IV; also p.15 Table 5 ""Full metallicity (fiducial)""",yes
+aeg-d-dwarfs/v3/m000037,gas,"not in Putman 2021 Table 1 (only ""Eridanus 3"" and ""Eridanus II"" rows present)",,files/apjabe391t1_mrt.txt,whole file searched,yes
+aeg-d-dwarfs/v3/m000037,Upsilon_V table,[Fe/H]=-2.87 below table minimum -2.29 -> end value 1.931 (beyond_source_range),Msun/Lsun,files/J_ApJS_161_304_clusters.vot,"clusters, MW rows, column (M/L)1; minimum-[Fe/H] row -2.29",yes
+aeg-d-dwarfs/v3/m000047,sigma,6.05 (err -0.86 +1.07),km s^-1,files/2602.10200v2.pdf,"PDF p.33, Table A1 (continued), row LeoT, columns 14-16",yes
+aeg-d-dwarfs/v3/m000047,"r_h (semi-major, Sersic Rs)",1.39 ± 0.20,arcmin,files/2101.03189v1.pdf,"PDF p.16, Table 3, row Leo T, column Rs",yes
+aeg-d-dwarfs/v3/m000047,ellipticity e,0.12 ± 0.08,dimensionless,files/2101.03189v1.pdf,"PDF p.16, Table 2, row Leo T, column e",yes
+aeg-d-dwarfs/v3/m000047,distance modulus (m-M)o (package),23.08 ± 0.08,mag,files/2101.03189v1.pdf,"PDF p.16, Table 2, row Leo T, column (m − M)o",yes
+aeg-d-dwarfs/v3/m000047,M_V,-8.0,mag,files/0801.4027v2.pdf,"PDF p.5, Table 1, row MV (mag), column All; same in Sec. 4 text p.5 (""MV,total ≃ −8.0 mag"")",yes
+aeg-d-dwarfs/v3/m000047,red-clump modulus m-M_RC,23.1 ± 0.2,mag,files/0801.4027v2.pdf,"PDF p.5, Table 1, row m-M_RC (mag); p.7 Sec. 6 text (""distance modulus of Leo T to be 23.1±0.2"")",yes
+aeg-d-dwarfs/v3/m000047,"[Fe/H] (mean, spectroscopic)",-1.74 ± 0.04,dex,files/1310.0814v2.pdf,"PDF p.12, Table 4, Local Group dIrrs, row Leo T, column ⟨[Fe/H]⟩",yes
+aeg-d-dwarfs/v3/m000047,gas: l_MHI / MHI / Dist,(blank: detection) / 2.8E+05 / 409,Msun / Msun / kpc,files/apjabe391t1_mrt.txt,"line 145, row ""Leo T"" (column ""Galaxy"")",yes
+aeg-d-dwarfs/v3/m000047,Upsilon_V table,(M/L)1 at [Fe/H]=-1.74 -> 1.867 (exact table node),Msun/Lsun,files/J_ApJS_161_304_clusters.vot,"clusters, MW rows, column (M/L)1",yes

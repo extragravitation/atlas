@@ -71,7 +71,7 @@
     {
       "issue": 243,
       "url": "https://github.com/extragravitation/atlas/issues/243",
-      "title": "Dwarfs v3: ellipticity and M_V locators point to the wrong table or paper for six systems (audit v3)",
+      "title": "Dwarfs v3: ellipticity and M_V locators point to the wrong table or paper for five systems (audit v3)",
       "systems": [
         "aeg-s-000358",
         "aeg-s-000366",

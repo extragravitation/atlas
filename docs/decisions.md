@@ -2676,7 +2676,7 @@ The values are unaffected. The package is merged but not released.
 
 **Ruling (2026-11-26, UTC−06:00, JvH).** "Correct locators in v3 (Recommended)" and "Release with fail posted (Recommended)", in answer to the two questions put in the session after the Part A verdict. Issue #243.
 
-**Context.** Audit v3 Part A (plan v3, D-116) reproduced all 220 sampled rows: 0 material discrepancies and 0 method gaps. Its provenance check found 3 failures, all in the dwarfs (`docs/audit/run_v3/adjudication.csv`). That gives a one-sided 95 % bound of 3.49 %, above the 2.5 % threshold, so the verdict is **fail**. Claude then checked all 64 dwarf systems for the same two errors, and 6 systems have them:
+**Context.** Audit v3 Part A (plan v3, D-116) reproduced all 220 sampled rows: 0 material discrepancies and 0 method gaps. Its provenance check found 3 failures, all in the dwarfs (`docs/audit/run_v3/adjudication.csv`). That gives a one-sided 95 % bound of 3.49 %, above the 2.5 % threshold, so the verdict is **fail**. Claude then checked all 64 dwarf systems for the same two errors: there are 6 corrections across 5 systems, since Andromeda XXVIII has both (corrected from "6 systems" on 2026-11-26, D-123):
 - **Ellipticity, Higgs et al. 2021:** recorded as p. 16 Table 3, but printed in Table 2 (column e). Andromeda XVIII, Andromeda XXVIII and Leo T.
 - **M_V route "used by the paper":** the rule took M_V from the paper of the package distance, but for three systems it is printed in another paper, as the methods page says and the values confirm. Antlia II: Ji et al. 2021, not Vivas et al. 2022. Andromeda XXVIII: Slater et al. 2015, not Savino et al. 2022. Eridanus IV: Casey et al. 2025, not Cerny et al. 2021, which prints a different M_V.
 
@@ -2716,6 +2716,23 @@ The values are unaffected. The package is merged but not released.
 
    Released versions are not overwritten.
 5. **Part B is re-counted** once all the PRs are merged. It passes only if no deciding finding is left unresolved.
+
+## D-123 — v0.3: independent check of the corrections, then release
+
+**Ruling (2026-11-26, UTC−06:00).** JvH: "I'm ok with the rulings, as long as they are what a good scientist would do." Claude made the call, as the project's operating rule 6 allows ("what would a good scientist do?").
+
+**Rules.**
+1. **The corrections are re-read blind before release.** The audit's corrections were made by Claude, so two fresh blind readers re-read the five corrected dwarf systems with the frozen brief and tools. Result: 5 of 5 agree, and every input was found at its corrected locator (`AUDIT_RESULT_v3.md` §6). This is exploratory; the audit is not re-scored.
+2. **v0.3 is released** with the audit stated as observed:
+   - values reproduced;
+   - provenance failed;
+   - the records found are corrected and independently re-read;
+   - the rate after the corrections is to be measured by audit v4 (D-121 rule 4).
+3. **No further changes before release.** The SPARC locators not naming Inc and e_Inc, and the open Part B findings under questions 4 to 6, go to v0.4 as known issues. Audit v4 should test a stable target.
+4. **Count corrected.** D-121 said "6 systems". It is 6 corrections across 5 systems, because Andromeda XXVIII has both errors. D-121, the audit result, the known issue and issue #243 are corrected, with notes.
+5. **Publication.** JvH publishes the GitHub release, which mints the Zenodo version DOI, as for v0.2. Claude then records it under "Release record — v0.3" and adds the version DOI to CITATION.cff.
+
+**Why.** An author checking his own corrections is the bias the audit exists to remove. A blind re-read costs little and changes what can honestly be claimed: the corrections are verified, not just asserted. Releasing now, with the failure stated, keeps the record versioned and citable. Holding the release would not make the result any truer.
 
 ## Release record — v0.2 (2026-11-06)
 
