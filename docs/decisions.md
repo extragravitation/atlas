@@ -2750,6 +2750,20 @@ The values are unaffected. The package is merged but not released.
 
 **Why.** A citable release should not knowingly carry false statements when they are cheap to fix. Gaps and unknown errors are a different matter: they are disclosed and measured by audit v4, not patched piecemeal.
 
+## Release record — v0.3 (2026-11-27)
+
+Recorded here because the decision log covers releases (D-110 rule 3). This entry is not a new ruling.
+
+- **Tag and release:** JvH published the GitHub release `v0.3`, "v0.3 - Preliminary (not peer reviewed)", marked pre-release, on commit `8c13406`, at 2026-11-27T15:21:35Z (D-121 rule 3, D-123, D-124).
+- **Zenodo**, read on the record page on 2026-11-27:
+  - version DOI **10.5281/zenodo.24593351**;
+  - concept DOI (all versions) 10.5281/zenodo.23864355, which now resolves to v0.3;
+  - file `extragravitation/atlas-v0.3.zip`, 10.9 MB, md5 `812777ae99bd2184f3f7dd32e9589d36`.
+
+  The record keeps the "isDocumentedBy" link to the protocol (10.5281/zenodo.23780203). **Its Notes field says "Version 0.2 is a preliminary pre-release"**, carried from `.zenodo.json`. The file is now version-neutral for later releases; the v0.3 record's note is corrected by JvH on Zenodo.
+- **Contents:** the six v3 datasets (data standard 3.0.0), the methods text for every row, and audit v3. Part A failed on provenance (3 of 220 rows; 0 material discrepancies), and its records are corrected and independently re-read. Part B passed after D-122.
+- **Known issues closed on release:** #222, #225, #227, #232 and #234 (fixed in v3, D-124 rule 3). #243 was closed by its fix (#244).
+
 ## Release record — v0.2 (2026-11-06)
 
 Recorded here because the decision log covers releases (D-110 rule 3). This entry is not a new ruling.
