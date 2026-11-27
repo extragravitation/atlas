@@ -13,7 +13,7 @@ This text is meant to be complete for every row of `tables/measurements.ecsv`. I
 **One row of the measurements table is one data row** of `MassModels_Lelli2016c.mrt`, in file order. The `source_ref` gives its number.
 - **Counting:** data rows are counted from 1, starting with the first line after the last line of dashes, which ends the header and its notes.
 - **Measurement identifiers:** m000001 is data row 1, and so on.
-- **Reading the file:** it is read by the byte positions its header gives, which fit its data lines.
+- **Reading the file:** it is read by the byte positions its header gives, which fit its data lines. The data section has no blank lines. Each locator names a row; R and the velocities are read from that row.
 
 **From that row:**
 
@@ -21,11 +21,12 @@ This text is meant to be complete for every row of `tables/measurements.ecsv`. I
 |---|---|---|
 | `R` | radius in the disc plane | kpc |
 | `Vobs` | observed rotation velocity | km s⁻¹ |
+| `e_Vobs` | error of Vobs (used only for the uncertainty, §4) | km s⁻¹ |
 | `Vgas` | gas contribution, for Υ = 1 and including helium | km s⁻¹ |
 | `Vdisk` | stellar disc contribution, for Υ = 1 | km s⁻¹ |
 | `Vbul` | stellar bulge contribution, for Υ = 1 (0 where there is no bulge) | km s⁻¹ |
 
-**The galaxy's row of `SPARC_Lelli2016c.mrt`** gives the distance D and its error e_D, and the inclination Inc and its error e_Inc. These are used only for the uncertainty (§4).
+**The galaxy's row of `SPARC_Lelli2016c.mrt`** gives the distance D and its error e_D, and the inclination Inc and its error e_Inc. These are used only for the uncertainty (§4). The row locators name the inputs of g_obs and g_bar, and the distance; Inc and e_Inc are read from the same row, at the place this paragraph gives.
 - **Finding the row:** by the galaxy's name, column `Galaxy`. The `source_ref` gives the row number, counting data rows the same way.
 - **Reading the file:** its data lines are wider than the byte positions in its header allow (131 against 113 bytes), so the file is read by splitting on white space.
 - **Distance:** D is taken from this table. The mass-model file repeats it for each galaxy, and nothing is rescaled.

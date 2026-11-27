@@ -63,7 +63,7 @@ A row's `source_ref` reads "observed Rm; stellar Rn": the observed side comes fr
 | `source_ref` | Rows | Observed side | R_E | Stellar route | Cosmology (H₀ km s⁻¹ Mpc⁻¹, Ω_m) |
 |---|---:|---|---|---|---|
 | observed R5; stellar R13 | 48 | θ_E (R5 Table 5 `bSIE`) → M_E computed; z_l and z_s from R5 Table 4 (`zFG`, `zBG`) | computed | printed inside R_E: R13 `MChaBC2` (Chabrier, BC03) | 70, 0.3 (R5), flat |
-| observed R10; stellar R10 | 37 | M_E printed (R10 Table 2, log₁₀ M_Ein) | computed from θ_E (Table 2 `b_SIE`) | profile: R10 Table 2 total M★ (Chabrier, log₁₀), de Vaucouleurs R_eff from R10 Table 1 | 70, 0.274 (R10), flat |
+| observed R10; stellar R10 | 37 | M_E printed (R10 Table 2, log₁₀ M_Ein: column 7 of the machine-readable table, headed `log_10 (M_Ein/M_sun)`) | computed from θ_E (Table 2 `b_SIE`) | profile: R10 Table 2 total M★ (Chabrier, log₁₀: column 8, whose header is a LaTeX string for log₁₀ M★^Chab/M☉), de Vaucouleurs R_eff from R10 Table 1. R10 prints names as `SDSSJhhmm+ddmm`; a lens is matched by its J-coordinate | 70, 0.274 (R10), flat |
 | observed R20; stellar R20 | 2 | θ_E (R20 Table 6) → M_E computed; z from R21 Table 2 | computed | profile: R20 Table 7 total M★ (Chabrier), de Vaucouleurs R_eff from R20 Table 4 | 70, 0.3 (R20), flat |
 | observed R61; stellar R61 | 2 | M(≤ R_ap) printed (R61 Table 2, adopted mass), with R_ap (Table 1) as the Einstein radius | computed from R_ap | L × Υ: R61 Table 1 L_F814W(≤ R_ap) × the Υ of R61 §5 | 70.4, 0.272 (R61), flat |
 | observed R32; stellar R32 | 2 | M_E printed (R32 Table 1) | printed in kpc (R32 Table 1) | L × Υ: R32 Table 1 L_Ein × Υ_ref of R32 §5 | not needed: R32 names its cosmology only |

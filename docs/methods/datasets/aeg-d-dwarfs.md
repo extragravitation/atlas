@@ -51,8 +51,8 @@ Each input is read from the paper and place in the per-system table (§7). The l
    - **The package distance D** is the one in the per-system table, read as the table says: as the distance modulus, or as the distance in kpc. Where a paper prints both, the one named is used. A modulus is turned into kpc by §1.
    - **A range** printed for the distance (Leo I, Stetson 2014) is used at its midpoint.
 4. **Luminosity:** L_V = 10^(−0.4 (m_V,0 − μ − 4.85)) L☉, with μ the modulus of the package distance D. Where m_V,0 is not printed, it is rebuilt by the route the per-system table gives:
-   - **"M_V + (m − M) used by the paper":** m_V,0 = M_V + the paper's own modulus;
-   - **Munoz 2018 systems:** m_V,0 = M_V (Table 6) + 5 log₁₀(D_T1 / 10 pc), where D_T1 is the system's distance in Table 1 of the same paper (D-061 item 3);
+   - **"M_V + (m − M) used by the paper":** m_V,0 = M_V + the modulus that same paper uses with it. "(own)" means the paper measured that modulus itself; "(cited)" means it took the modulus from earlier work and prints it (Antlia II: Ji et al. 2021 Table 1 prints µ = 20.6, from Torrealba 2019). The paper is the one the per-system table names for M_V. It is usually the paper of the package distance, but not for Antlia II (Ji 2021), Andromeda XXVIII (Slater 2015) and Eridanus IV (Casey 2025) (D-121);
+   - **Munoz 2018 systems:** m_V,0 = M_V (Table 6, PDF p. 28) + 5 log₁₀(D_T1 / 10 pc), where D_T1 is the system's distance in Table 1 of the same paper (PDF p. 22) (D-061 item 3);
    - **Andromeda VI and VII:** M_V from McConnachie 2006, with the moduli of McConnachie 2005;
    - **Phoenix:** M_V from van de Rydt et al. 1991 p. 136, with that paper's adopted modulus, p. 134 (D-061 item 5);
    - **Leo T:** M_V from de Jong 2008, with that paper's modulus (D-061 item 6);
@@ -88,6 +88,8 @@ Each input is read from the paper and place in the per-system table (§7). The l
   - It is turned into an angle at that modulus: R_h [arcmin] = R_e / D(μ_Saviane) [pc] × (180/π) × 60.
   - It is then used at the package distance, from Bernard 2009 (D-053).
 - **Boötes III:** the radius and ellipticity are those of the standard one-component Plummer fit of Moskowitz 2020, Table 3 (D-061 item 1).
+- **Andromeda XVI, distance:** Martínez-Vázquez et al. 2017 Table 8 (p. 18) prints four RR Lyrae moduli. The PWR value is used, because the paper adopts "the distances obtained with the PWR as … final adopted distances" (p. 17).
+- **Ellipticity conventions:** ε is used as printed. Higgs et al. 2021 define their ellipticity e from intensity-weighted second moments (their eq. 4, after McConnachie & Irwin 2006), not as 1 − b/a; it is used unchanged as ε. Their e is in Table 2 (p. 16), and their Sérsic R_s, measured along the semi-major axis, is in Table 3. For Munoz 2018 systems, ε is the Sérsic-fit ellipticity ε_s of Table 5 (PDF p. 27), in the same row as r_e,s. For Fornax, r_h and ε are the rows "2D Half-light r_h" (l. 106) and "Ellipticity" (l. 97) of the Sérsic column of Wang et al. 2019 Table 1 (20.1′ and 0.31).
 
 ## 5. The two v2 changes (D-096)
 

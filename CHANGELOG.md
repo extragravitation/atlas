@@ -4,6 +4,13 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
 
 ## Unreleased
 
+- Methods text (D-125): amended from the audit v3 readers' notes, with each source claim checked at the source; triage in `docs/audit/run_v3/gaps_triage.md`.
+  - SPARC: e_Vobs, where Inc, e_Inc and R are read.
+  - KiDS: what the README says about column 1, and the basis for reading it as g_bar.
+  - GC: spacer rows, the mwgc.dat reading rule, the same-year tie.
+  - Lenses: R10 columns and names.
+  - Dwarfs: the And XVI PWR column, the ellipticity conventions (Higgs e, Munoz ε_s, Wang Fornax rows), "(own)" and "(cited)" moduli, Munoz page numbers.
+
 ## v0.3 — 2026-11-27 (preliminary pre-release, not peer reviewed; DOI 10.5281/zenodo.24593351)
 
 Summary: the six datasets were re-issued under data standard 3.0.0 (v3), the methods text is complete for every row, the front page was redesigned, and a second frozen audit was run. The audit reproduced all 220 sampled values from their sources and **failed on provenance**: 3 rows recorded the wrong place for an input. Those records are corrected and were independently re-read (D-121, D-123). Its neutrality part passed after the fixes of D-122. The rate after the corrections is to be measured by audit v4.

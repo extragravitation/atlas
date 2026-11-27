@@ -26,10 +26,10 @@ This text is meant to be complete for every row of `tables/measurements.ecsv`. I
 | M_V,t, the integrated absolute magnitude | mag | Harris `mwgc.dat` Part II, column `M_V,t`, the cluster's row |
 
 **Reading the files.**
-- **`veldis.html`:** one HTML table. A cluster's rows begin at the row that prints its name in the first cell, and run until the next row that prints a name. Rows with no cells are spacers and are skipped. The page repeats some row tags; only rows with cells count.
+- **`veldis.html`:** one HTML table. A cluster's rows begin at the row that prints its name in the first cell, and run until the next row that prints a name. Spacer rows hold one blank cell (`<td>&nbsp; </td>`) and are skipped; a data row has at least 7 cells. The page repeats some row tags; only rows with cells count.
 - **Bins:** every row of the cluster with the chosen Type is one bin. The bins are sorted by `<r>`.
 - **Columns:** σ is the column headed σ. Δσ Up and Δσ Low are used only for the uncertainties (§8).
-- **`mwgc.dat`:** fixed-width text in three parts. A value is read by the character positions of its column label in the part's header line. Some clusters have a blank Name field, so splitting on white space misreads them. A cluster's row is the one whose ID (the first field) matches the system, after the name rules below.
+- **`mwgc.dat`:** fixed-width text in three parts, read by v1's frozen reader (`v1/sources_io.py`, `_fixed_part`). The ID is characters 1 to 12 of the line, trimmed (IDs contain spaces, as in `NGC 288`). After that, each white-space-separated value belongs to the column whose label, in the part's header line, has its right edge nearest the value's right edge: the values are right-aligned. The tokens `c` and `c:` are flags, not values. Some clusters have a blank Name field, which is why splitting the whole line on white space misreads them. A cluster's row is the one whose ID matches the system, after the name rules below.
 - **VizieR exports:** VOTable; the rows are found by the `Cluster` column.
 
 **Matching names.** Names are matched across the three sources by `v1/sources_io.norm_name`:
@@ -50,7 +50,7 @@ Then the aliases listed in that function apply: 2MSGC01 / 2MS1 → 2MASSGC01, 2M
 - **Default among candidates that pass:**
   1. `RV` first;
   2. then the larger total NStar (a Type that prints no NStar counts as 0);
-  3. then the later year of the Type's code: F13 and L13 are 2013, L15 2015, K18 2018, D21 2021, C22 and G22 2022.
+  3. then the later year of the Type's code: F13 and L13 are 2013, L15 2015, K18 2018, D21 2021, C22 and G22 2022. Two Types of the same year are not ranked further; no v3 row needs it.
 - **Other candidates.** The rest are alternative rows (`role = alternative`). Candidates that fail the plotting rules are also alternative rows, with `not_plotted_reason = coverage_below_threshold`.
 - **In practice.** Every default row in v3 uses Type `RV`.
 
