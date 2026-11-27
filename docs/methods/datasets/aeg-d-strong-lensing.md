@@ -21,7 +21,7 @@ A row's `source_ref` reads "observed Rm; stellar Rn": the observed side comes fr
 
 ## 2. Steps
 
-1. **Distances,** in a flat ΛCDM cosmology with the H₀ and Ω_m the source states (§3), radiation neglected:
+1. **Distances,** in a flat cosmology (Ω_Λ = 1 − Ω_m) with the H₀ and Ω_m the source states (§3), radiation neglected:
    - E(z) = √(Ω_m (1+z)³ + 1 − Ω_m);
    - D_C(z) = (c/H₀) ∫₀^z dz′ / E(z′), by Simpson's rule with 2000 intervals; any accurate integral gives the same result;
    - D_l = D_C(z_l) / (1 + z_l) and D_s = D_C(z_s) / (1 + z_s);
