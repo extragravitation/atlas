@@ -10,8 +10,11 @@ authors:
     orcid: "https://orcid.org/0009-0003-1893-7096"
 version: "v0.3"
 date-released: "2026-11-26"
-doi: "10.5281/zenodo.23864355"
+doi: "10.5281/zenodo.24593351"
 identifiers:
+  - type: doi
+    value: "10.5281/zenodo.24593351"
+    description: "Version 0.3 (preliminary pre-release, not peer reviewed)"
   - type: doi
     value: "10.5281/zenodo.24017479"
     description: "Version 0.2 (preliminary pre-release, not peer reviewed)"
