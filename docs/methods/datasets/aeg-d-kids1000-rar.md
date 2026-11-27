@@ -29,7 +29,7 @@ This text is meant to be complete for every row of `tables/measurements.ecsv`. I
 
 | Column | Content |
 |---|---|
-| 1 | g_bar, as released. The file's header calls it `Radius(m/s^2)`; the README says column 1 is the baryonic acceleration of the bin. It equals the arithmetic midpoint of its bin (§4) |
+| 1 | g_bar, as released. The file's header calls it `Radius(m/s^2)`, and the README (l. 25) describes it as "the mean projected distance from the lens center … in meter-per-second-squared for the RAR data". That it is g_bar comes from the paper: the R-bins were chosen to correspond to 15 logarithmic bins in g_bar (§2.1, l. 174). It equals the arithmetic midpoint of its bin (§4) |
 | 2 | ESD_t, the tangential excess surface density ΔΣ, before the bias correction |
 | 4 | the 1σ error on ESD_t ("The 1-sigma error value on ESD_t", README) |
 | 5 | the bias, (1 + K) |

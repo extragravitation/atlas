@@ -2750,6 +2750,23 @@ The values are unaffected. The package is merged but not released.
 
 **Why.** A citable release should not knowingly carry false statements when they are cheap to fix. Gaps and unknown errors are a different matter: they are disclosed and measured by audit v4, not patched piecemeal.
 
+## D-125 — v0.4 scope and audit plan v4
+
+**Ruling (2026-11-27, UTC−06:00, JvH).** "Text only, then audit v4 (Recommended)" and "Yes, as described (Recommended)", in answer to two questions put in the session (`claude/WORKPLAN_2026-11-27.md` in the project).
+
+**Rules.**
+1. **v0.4 is text only:**
+   - methods text, from the audit v3 readers' notes (`docs/audit/run_v3/gaps_triage.md`);
+   - site plain/expert parity, number-to-source routes and stated reasons for thresholds, from the 41 audit v3 Part B findings under questions 4 to 6.
+
+   The v3 packages are released and are not changed unless an error is found; a change would be a new package version. The SPARC row locators not naming Inc and e_Inc are not an error, so no SPARC v4 is made.
+2. **Audit plan v4** is plan v3 with only these declared changes:
+   - input values are compared at the source's precision, and binary floats (FITS) within a relative 1 × 10⁻⁶, not as exact strings;
+   - the per-dataset methods pages are formally in the Part B page set;
+   - a fresh sample of the same size and strata, with the same thresholds.
+
+   It is frozen with the trigger commit once the v0.4 text work is merged, and the seed follows 24 h later (as D-116).
+
 ## Release record — v0.3 (2026-11-27)
 
 Recorded here because the decision log covers releases (D-110 rule 3). This entry is not a new ruling.
