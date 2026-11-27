@@ -1,0 +1,13 @@
+{
+  "description": "Independent audit plan, version 4: the measured re-run after the audit v3 corrections (D-121 rule 4, D-125 rule 2). Frozen before the seed exists and before any audit v4 reading.",
+  "frozen_on": "on merge of 'Audit plan v4 frozen (D-125)'",
+  "decision": "D-125",
+  "spec": "docs/audit/AUDIT_PLAN_v4.md",
+  "supersedes": "data/frozen/audit-plan-v3.json",
+  "files": {
+    "docs/audit/AUDIT_PLAN_v4.md": "3dd6a680c52ff7d8de16faf932c07c72ee2264e1d7e806a5dbf090c32522686d",
+    "docs/audit/sample_v4.py": "fd283829cafaa922150d6d97e682ec3d378c09215adb457bd7485d8f587521e7",
+    "docs/audit/choose_pages_v4.py": "6296a308d7b319a6956752bdfb889da43f6ed0a0aa2c58d0cdf091d9b9d14f91",
+    "docs/audit/compare_v4.py": "9a98bafa413dfddf8428ad4c0000c6bfab74184034135b92f59be8fa7bc8304a"
+  }
+}

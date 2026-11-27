@@ -4,6 +4,8 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
 
 ## Unreleased
 
+- Audit plan v4 (D-125): `docs/audit/AUDIT_PLAN_v4.md`, frozen with `sample_v4.py`, `choose_pages_v4.py` and `compare_v4.py` (`data/frozen/audit-plan-v4.json`). It is plan v3 with only the declared changes: the trigger and seed, a fresh key prefix, inputs compared within a relative 10⁻⁶, the methods pages in Part B, and packet completeness checked before any reader starts.
+
 - Site plain/expert parity, part 3 (D-125): each per-dataset methods page has a plain version of every section, in place of a three-line summary. The lensing methods text says "flat cosmology", not "flat ΛCDM". The outcomes of the 41 findings are recorded in `docs/audit/run_v3/partB/parity_triage.md`.
 
 - Site plain/expert parity, part 1 (D-125; audit v3 Part B, questions 4 to 6):
