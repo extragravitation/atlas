@@ -10,13 +10,50 @@ import { loadAtlas } from '../../lib/atlas.mjs';
 import { datasetLabel } from '../../lib/labels.mjs';
 import { md, REPO } from '../../lib/md.mjs';
 
+// Plain versions of each method (audit v3 Part B, finding 32; D-125). Each list mirrors the sections of the
+// technical text in everyday words and claims nothing the technical text does not.
 const PLAIN = {
-  'aeg-d-sparc': 'For each point on a spinning disc galaxy, the observed pull comes from how fast stars and gas go round at that distance from the centre. The pull from detected matter comes from the starlight, the hydrogen gas and the helium mixed with it, using fixed, published brightness-to-mass factors. Every number comes straight from one row of the published table.',
-  'aeg-d-xcop': 'For the five big galaxy clusters with star data, the scientists released both pulls themselves, at each distance from the centre. The Atlas shows them exactly as released and converts nothing.',
-  'aeg-d-kids1000-rar': 'These are averages over many lone galaxies. The observed pull comes from how much they bend the light of galaxies behind them, using the recipe the scientists published with their data. The pull from detected matter is the value the scientists used to group the galaxies. Eight points that the scientists themselves left out of their tests are kept on record but not drawn.',
-  'aeg-d-gc-baumgardt': 'For each old, dense ball of stars in our galaxy, the observed pull comes from how fast its stars swarm, averaged over the cluster with more weight where there is more light. The pull from detected matter comes from the total starlight and a standard brightness-to-mass factor. Both are taken at the radius that holds half the light.',
-  'aeg-d-dwarfs': 'For each small galaxy near our own, the observed pull comes from how fast its stars swarm. The pull from detected matter comes from the starlight, a brightness-to-mass factor that depends on how rich in metals the stars are, and hydrogen gas where it was found. Both are taken at the radius that holds half the light. The table at the end says which paper each number is read from.',
-  'aeg-d-strong-lensing': 'For each galaxy that bends the light of a galaxy behind it into a ring or arcs, both pulls are measured inside the ring, seen in projection. The observed pull comes from the size of the ring; the pull from detected matter comes from the stars inside the ring, plus a small allowance for gas.',
+  'aeg-d-sparc': [
+    'Where the numbers come from: one published table of 175 spinning disc galaxies (Lelli, McGaugh & Schombert 2016). Each point on the map is one row of that table, one distance from a galaxy’s centre. No row is left out.',
+    'The observed pull: from how fast the stars and gas go round at that distance. Faster motion at the same distance means a stronger pull.',
+    'The pull from detected matter: the table gives how much each part (the disc of stars, the central bulge, the gas) would pull on its own. Starlight is turned into mass with fixed factors published by the same authors (0.5 for the disc and 0.7 for the bulge, in near-infrared light). The gas already includes helium. The parts are added up. In a few places the gas pulls slightly outward, and that is kept as the source gives it.',
+    'What is assumed: those two light-to-mass factors. On the map, sliders show what changes if they are different, within the published range. Each galaxy’s own page also has sliders for its distance and tilt, within their published errors.',
+    'Uncertainties: the error bars combine the uncertainty in the rotation speed, the tilt of the disc and the distance, as the authors’ own formula gives. They are shown but do not change the values.',
+  ],
+  'aeg-d-xcop': [
+    'Where the numbers come from: the X-COP team (Eckert et al. 2022) published both pulls themselves, for five big galaxy clusters, at each distance from the centre.',
+    'How they are used: exactly as released. The Atlas changes nothing and converts nothing. Every released point is on the map.',
+    'What the source does not say: whether the distances are measured in three dimensions, the confidence level of the error bars, and which of its two methods produced the observed pull. We say so rather than guess.',
+    'The other seven clusters in the survey have no star measurements, so they are kept on record but not drawn.',
+  ],
+  'aeg-d-kids1000-rar': [
+    'Where the numbers come from: the KiDS-1000 team (Brouwer et al. 2021) measured how thousands of lone galaxies bend the light of galaxies behind them, and released averages in 15 steps of the pull from detected matter, for three samples.',
+    'The observed pull: worked out from the amount of light-bending in each step, using the recipe the authors published with their data, including their correction factor.',
+    'The pull from detected matter: the value the authors used to group the galaxies into steps. It is used as given.',
+    'Left off the map: in the bright sample, the 8 steps where the galaxies may not be truly alone, which the authors themselves leave out of their comparisons. The version that adds the authors’ estimate of hot gas is kept as an alternative, not drawn.',
+    'Uncertainties: the error bars on the observed pull come from the authors’ published error. The pull from detected matter has no released error; the authors state in words that the star masses are uncertain by about 0.2 dex (a factor of about 1.6).',
+  ],
+  'aeg-d-gc-baumgardt': [
+    'Where the numbers come from: star speeds measured at several distances from the centre of each old star cluster in our galaxy (Baumgardt’s online catalogue), the clusters’ published shapes (McLaughlin & van der Marel 2005), and their total brightness and distance (Harris 2010).',
+    'The observed pull: the star speeds are averaged over the whole cluster, giving more weight where there is more light. The shape model says how the light is spread. The average must cover at least 80 % of the cluster’s light, a rule fixed before any data were looked at. The pull is then worked out at the radius that holds half the light.',
+    'The pull from detected matter: the cluster’s total starlight is turned into mass with a published light-to-mass factor for its kind of stars. Half of that mass lies inside the half-light radius. Clusters like these are taken to hold no gas.',
+    'What is assumed: how the half-light radius seen on the sky relates to the real one in three dimensions (a standard published rule), and the light-to-mass factor. Both are listed with their ranges.',
+    'Left off the map: clusters with too little coverage or missing inputs; two whose source says their rising star speeds could be due to the cluster being pulled apart; one whose kind is disputed; and one whose source’s size numbers disagree with each other. All stay in the record.',
+  ],
+  'aeg-d-dwarfs': [
+    'Where the numbers come from: for each small galaxy near our own, the spread of its stars’ speeds, its size, shape, distance, brightness and the heavy-element content of its stars, each read from a published paper. The table at the end of the technical view says which paper and where.',
+    'The observed pull: from the spread of the star speeds, at the radius that holds half the light, using a standard published rule (Wolf et al. 2010). Where only an upper limit on the spread exists, the point is shown as an upper limit.',
+    'The pull from detected matter: the starlight is turned into mass with a factor that depends on how rich the stars are in heavy elements, read from a published table of star clusters. Half of it lies inside the half-light radius. Hydrogen gas is added where it was detected, with helium, and half of it is taken to lie inside that radius; where only an upper limit exists, no gas is counted.',
+    'What is assumed: the half-light rule, the light-to-mass factor, and, where a paper does not say, that the size was measured along the long axis. Each is flagged on the galaxy’s page.',
+    'Left off the map: eight galaxies whose own studies say they are being pulled apart or are not settled. Their numbers stay in the record.',
+  ],
+  'aeg-d-strong-lensing': [
+    'Where the numbers come from: galaxies that bend the light of a more distant galaxy into a ring or arcs, from several published surveys. Both pulls are measured inside the ring, as seen on the sky.',
+    'The observed pull: from the size of the ring and the distances to the two galaxies, using Einstein’s gravity. Where a survey prints the mass inside the ring, that is used.',
+    'The pull from detected matter: the mass of the stars inside the ring, from the survey’s own star masses (at its standard assumption about how stars form), plus a small allowance for gas, with its range shown.',
+    'Which lenses are drawn: confirmed lenses in round or lens-shaped galaxies, with both distances measured directly, and nearer than redshift 0.30. The others stay in the record with the reason.',
+    'Uncertainties: the error in the ring’s size affects both pulls, so it is carried on both. A slider shows what changes under a different assumption about how stars form.',
+  ],
 };
 
 export function getStaticPaths() {
@@ -43,8 +80,8 @@ const text = fs.readFileSync(file, 'utf-8').replace(/^# .*\n/, '');
         <p class="small">The complete method for every row of <a href={`${base}datasets/${d.name}/${d.version}/`}>{d.name}/{d.version}</a>: constants, inputs and where they are read, steps, and rules. Its arithmetic, and the selection rules where the tables allow, are checked against every published row by <a href={`${REPO}/blob/main/pipeline/tests/test_methods_text.py`}>test_methods_text.py</a> on every change. That test was written by the author of this text. Whether a reader who does not know the code can follow it is tested only by the independent audit. Source text: <a href={`${REPO}/blob/main/${rel}`}>{rel}</a>.</p>
         <div set:html={md(text, 'docs/methods/datasets')} />
       </Fragment><Fragment slot="p">
-        <p>{PLAIN[dataset]}</p>
-        <p class="small">The full step-by-step method, with every constant and where each number is read, is in the expert view of this page.</p>
+        {PLAIN[dataset].map((p) => <p>{p}</p>)}
+        <p class="small">Every constant, and the exact place each number is read, are in the technical view of this page.</p>
       </Fragment></Layer>
     </main>
     <aside class="toc"><p class="cap">Also</p><a href={`${base}methods/#conversion`}>All methods</a><a href={`${base}datasets/${d.name}/${d.version}/`}>Dataset page</a><a href={`${base}known-issues/`}>Known issues</a></aside>

@@ -4,6 +4,8 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
 
 ## Unreleased
 
+- Site plain/expert parity, part 3 (D-125): each per-dataset methods page has a plain version of every section, in place of a three-line summary. The lensing methods text says "flat cosmology", not "flat ΛCDM". The outcomes of the 41 findings are recorded in `docs/audit/run_v3/partB/parity_triage.md`.
+
 - Site plain/expert parity, part 1 (D-125; audit v3 Part B, questions 4 to 6):
   - plain wording: SPARC gas includes helium; the map card; the Methods stance (Einstein's gravity for lensing, even-handedness, the five kinds of content); About states the search result; the X-COP v3 page names its version;
   - Coverage: the epoch-cut caption, and the reasons for the 0.30 cut (D-066, D-033);
