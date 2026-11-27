@@ -46,7 +46,7 @@ Then the aliases listed in that function apply: 2MSGC01 / 2MS1 → 2MASSGC01, 2M
 
 - **Line of sight only.** Only line-of-sight Types are converted: `RV`, `F13`, `L13`, `L15`, `K18`, `D21`, `C22` and `G22` (the page's legend). Proper-motion Types (`W15`, `C21`, `H21`, `VB21`, `LI22`, `T22`, `P22`) are recorded as observables and never enter g_obs.
 - **Candidates.** Each line-of-sight Type a cluster has is one candidate profile. Its rows, sorted by `<r>`, are its bins.
-- **Plotting rules.** A candidate can be plotted only if it has at least two bins and its light coverage (§4, step 4) is at least 0.80.
+- **Plotting rules.** A candidate can be plotted only if it has at least two bins and its light coverage (§4, step 4) is at least 0.80. The 80 % coverage rule was fixed before any profile was opened (D-036 item 1); the covered fraction is recorded and shown for every candidate, so the cut can be seen and moved.
 - **Default among candidates that pass:**
   1. `RV` first;
   2. then the larger total NStar (a Type that prints no NStar counts as 0);
@@ -88,7 +88,7 @@ Then the aliases listed in that function apply: 2MSGC01 / 2MS1 → 2MASSGC01, 2M
 ## 5. The two v2 changes (D-096, D-097)
 
 - **NGC 6715 (M54):** the `RV` bins with `<r>` greater than 200″ are dropped before steps 3 to 5. Baumgardt 2017 states: "We have therefore neglected all data points beyond 200'' in the dynamical analysis of this cluster" (arXiv 1609.08794v1, l. 588–589).
-- **NGC 2298 and Pal 5:** computed as above, but recorded and not plotted. Their rows have `role = alternative` and `not_plotted_reason = other`, because their sources describe them as possibly out of equilibrium (`data/registry/excluded.csv`). The rows keep their g_obs and g_bar.
+- **NGC 2298 and Pal 5:** computed as above, but recorded and not plotted. Their rows have `role = alternative` and `not_plotted_reason = other`, because Baumgardt & Hilker 2018 report that their velocity-dispersion profiles rise towards the outer parts, which "could be due to the ongoing tidal disruption of these clusters" (l. 226–227). D-098 classes this as a finding under D-097, so they are recorded and not plotted (`data/registry/excluded.csv`). The rows keep their g_obs and g_bar.
 
 ## 6. Clusters with no McLaughlin & van der Marel fit (alternative and recorded rows only)
 
