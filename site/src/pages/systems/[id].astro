@@ -1,6 +1,7 @@
 ---
 // System page (object level): the pull budget of one galaxy or cluster, its facts, its
 // measurements and its citation. All values come from the package tables.
+import { issuePlain } from '../../lib/issues_plain.mjs';
 import Base from '../../layouts/Base.astro';
 import L from '../../components/L.astro';
 import Layer from '../../components/Layer.astro';
@@ -181,7 +182,7 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
     <dl class="facts">
       {facts.map(([k, v, note]) => <div><dt><L t={k} p={FACT_P[k] || k} /></dt><dd>{Array.isArray(v) ? <L t={v[0]} p={v[1]} /> : v}{note && <span class="small" style="display:block"><L t={note} p={FACT_NOTE_P[k] || 'As the source gives it.'} /></span>}</dd></div>)}
     </dl>
-    {issues.length > 0 && <><h2 id="issues"><L t="Known issues" p="Known problems" /></h2><ul>{issues.map((k) => <li><a href={k.url}>#{k.issue}</a>: {k.title}</li>)}</ul></>}
+    {issues.length > 0 && <><h2 id="issues"><L t="Known issues" p="Known problems" /></h2><ul>{issues.map((k) => <li><a href={k.url}>#{k.issue}</a>: <L t={k.title} p={issuePlain(k.issue)} /></li>)}</ul></>}
     <h2 id="cite"><L t="Cite" p="How to cite" /></h2>
     <p class="boxed" style="font-family:var(--mono);font-size:13px">{`Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.name}), dataset ${d.name} ${d.version}. https://extragravitation.org/systems/${sys.id}/. Source: ${d.citation}`}</p>
     <p class="small"><a href={`${base}datasets/${d.name}/${d.version}/`}>{d.title}</a></p>
@@ -192,7 +193,7 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
     <h1>{sys.name}</h1>
     <Excluded sys={sys} />
     {isLens ? <LensSystem sys={sys} d={d} lab={lab} /> : d.name === 'aeg-d-dwarfs' ? <DwarfSystem sys={sys} d={d} lab={lab} /> : <DispersionSystem sys={sys} d={d} lab={lab} />}
-    {issues.length > 0 && <><h2 id="issues"><L t="Known issues" p="Known problems" /></h2><ul>{issues.map((k) => <li><a href={k.url}>#{k.issue}</a>: {k.title}{k.decision ? ` (${k.decision})` : ''}</li>)}</ul></>}
+    {issues.length > 0 && <><h2 id="issues"><L t="Known issues" p="Known problems" /></h2><ul>{issues.map((k) => <li><a href={k.url}>#{k.issue}</a>: <L t={`${k.title}${k.decision ? ` (${k.decision})` : ''}`} p={issuePlain(k.issue)} /></li>)}</ul></>}
     <h2 id="cite"><L t="Cite" p="How to cite" /></h2>
     <p class="boxed" style="font-family:var(--mono);font-size:13px">{cite}</p>
     <p class="small"><a href={`${base}datasets/${d.name}/${d.version}/`}>{d.title}</a> · <a href={`${base}downloads/${d.name}/${d.version}/measurements.csv`}>CSV</a></p>
@@ -270,7 +271,7 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
       <h3><L t="Detected matter counted in g_bar" p="What the detected matter includes" /></h3>
       <ul class="small">{inventory.map(([k, v, extra]) => <li><b><L t={k[0]} p={k[1]} /></b>: <L t={v[0] + extra} p={v[1] + extra} /></li>)}</ul>
       <p class="small"><L t="From the status columns of this system’s rows (D-034); where a row records a component as absent, the reason comes from the package’s baryon inventory (x_baryon_inventory)." p="Matter marked “not counted” adds nothing to the pull from detected matter. The list below says why." /></p>
-      {inv.length > 0 && <details class="small"><summary><L t="Baryon inventory of the dataset" p="Every kind of matter the dataset considers" /></summary><ul>{inv.map((e) => <li><b>{e.component}</b>: {INV_STATUS[e.status] || e.status}{(e.citation || e.note) ? <span class="muted"> · <Quote text={e.citation || e.note} /></span> : ''}</li>)}</ul></details>}
+      {inv.length > 0 && <details class="small"><summary><L t="Baryon inventory of the dataset" p="Every kind of matter the dataset considers" /></summary><ul>{inv.map((e) => <li><b>{e.component}</b>: {INV_STATUS[e.status] || e.status}{(e.citation || e.note) ? <Layer as="span"><Fragment slot="t"><span class="muted"> · <Quote text={e.citation || e.note} /></span></Fragment><Fragment slot="p"></Fragment></Layer> : ''}</li>)}</ul><p class="small"><L t="Each entry gives the source for its status." p="Each kind of matter is listed with whether it was measured, modelled, known to be small, or not measured. The technical view gives the source for each." /></p></details>}
       </div>
       <div class="post">
       <h2 id="facts"><L t="Facts" p="About this system" /></h2>
@@ -292,7 +293,7 @@ const cite = `Atlas of Extra Gravitation (pre-release), system ${sys.id} (${sys.
 
       <h2 id="issues"><L t="Known issues and flags" p="Known problems" /></h2>
       {issues.length === 0 && otherFlags.length === 0 && <p><L t="No known issues or flags on this system’s measurements." p="Nothing known to be wrong with these measurements." /></p>}
-      {issues.length > 0 && <ul>{issues.map((k) => <li><a href={k.url}>#{k.issue}</a>: {k.title} ({rows.filter((r) => (k.measurements || []).includes(r.measurement_id)).length} of {rows.length} measurements here; ringed on the figures)</li>)}</ul>}
+      {issues.length > 0 && <ul>{issues.map((k) => <li><a href={k.url}>#{k.issue}</a>: <L t={`${k.title} (${rows.filter((r) => (k.measurements || []).includes(r.measurement_id)).length} of ${rows.length} measurements here; ringed on the figures)`} p={issuePlain(k.issue)} /></li>)}</ul>}
       {otherFlags.filter((f) => !['reproduction_mismatch', 'source_quality_low'].includes(f)).length > 0 && <p class="small">Other flags: {otherFlags.filter((f) => !['reproduction_mismatch', 'source_quality_low'].includes(f)).join(', ')} (see the dataset page for what each means).</p>}
 
       <h2 id="cite"><L t="Cite" p="How to cite" /></h2>

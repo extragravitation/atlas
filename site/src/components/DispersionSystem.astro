@@ -2,6 +2,8 @@
 // System page for a dispersion-supported system with one value per system (data standard 2.0;
 // first case: globular clusters, D-025, D-036 ii, D-045). Everything shown is read from the
 // package tables and checks/; nothing is computed here except unit conversions for display.
+import Layer from './Layer.astro';
+import { plainReason } from '../lib/reasons_plain.mjs';
 import { unsettled } from '../lib/kind.mjs';
 import L from './L.astro';
 import Quote from './Quote.astro';
@@ -56,7 +58,7 @@ const halfR = R.distance_mpc && P.r_h_pc ? (P.r_h_pc / (R.distance_mpc * 1e6)) *
 ) : (
   <div class="boxed">
     <p><b><L t="Not plotted." p="Not on the map." /></b> <L t="Reasons, as recorded in the package:" p="Why:" /></p>
-    <ul class="small">{(P.reasons_not_plotted || []).map((r) => <li><Quote text={r} /></li>)}</ul>
+    <ul class="small">{(P.reasons_not_plotted || []).map((r) => <li><Layer as="span"><Fragment slot="t"><Quote text={r} /></Fragment><Fragment slot="p">{plainReason(r)}</Fragment></Layer></li>)}</ul>
   </div>
 )}
 {alts.length > 0 && (
