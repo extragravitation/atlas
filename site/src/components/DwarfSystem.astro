@@ -75,7 +75,7 @@ const FLAG_T = {
   <>
     <div tabindex="0" class="tablebox"><table>
       <thead><tr><th class="l">Quantity</th><th>Value</th><th>Error</th><th class="l">Unit</th><th class="l">Source</th></tr></thead>
-      <tbody>{[sig, ...inputs].filter(Boolean).map((o) => <tr><td class="l">{o.quantity.replace(/_/g, ' ')}{o.x_dwarfs_parameter ? ` (${o.x_dwarfs_parameter})` : ''}{o.limit === 'upper' ? ' · upper limit' : ''}</td><td>{o.value}</td><td>{o.err_lo == null ? '–' : o.err_lo === o.err_hi ? `± ${o.err_lo}` : `−${o.err_lo} / +${o.err_hi}`}</td><td class="l">{o.unit}</td><td class="l small">{o.source_ref}</td></tr>)}</tbody>
+      <tbody>{[sig, ...inputs].filter(Boolean).map((o) => <tr><td class="l">{o.quantity.replace(/_/g, ' ')}{o.x_dwarfs_parameter ? ` (${o.x_dwarfs_parameter})` : ''}{o.limit === 'upper' ? ' · upper limit' : ''}</td><td>{o.value}</td><td>{o.err_lo == null ? '–' : o.err_lo === o.err_hi ? `± ${o.err_lo}` : `−${o.err_lo} / +${o.err_hi}`}</td><td class="l">{o.unit}</td><td class="l small">{o.source_ref}{/,\s*None\s*$/.test(o.source_ref || '') && <> <L t={`(“None” is a converter error in the source text: the value is in this galaxy’s own row of that table, as the package locator gives; known issue #232, D-117)`} p={`(the row is this galaxy’s own row; see known issue #232)`} /></>}</td></tr>)}</tbody>
     </table></div>
     <p class="small"><L t="Every printed input was read twice from the original paper and checked by an independent second reading (SECOND_READING.md); the version of record was checked where it differs from arXiv (D-050)." p="Each number was read twice from the original paper, and then checked by a separate second reading." /></p>
   </>

@@ -4,6 +4,11 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
 
 ## Unreleased
 
+- Site plain/expert parity, part 1 (D-125; audit v3 Part B, questions 4 to 6):
+  - plain wording: SPARC gas includes helium; the map card; the Methods stance (Einstein's gravity for lensing, even-handedness, the five kinds of content); About states the search result; the X-COP v3 page names its version;
+  - Coverage: the epoch-cut caption, and the reasons for the 0.30 cut (D-066, D-033);
+  - GC methods: the reason for the 80 % coverage rule (D-036), and the source's own words for NGC 2298 and Pal 5 (D-098);
+  - Hydra II: the source text's "None" is explained beside it (#232).
 - Methods text (D-125): amended from the audit v3 readers' notes, with each source claim checked at the source; triage in `docs/audit/run_v3/gaps_triage.md`.
   - SPARC: e_Vobs, where Inc, e_Inc and R are read.
   - KiDS: what the README says about column 1, and the basis for reading it as g_bar.
