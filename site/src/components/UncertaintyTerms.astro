@@ -79,6 +79,8 @@ const applies = (t) => !sys || t.applies_to === '*' || String(t.applies_to || ''
 const specific = new Set(sys ? terms.filter((t) => t.term_id.endsWith('_' + sys.id) && applies(t)).map((t) => base(t.term_id)) : []);
 const order = { point: 0, system: 1, dataset: 2 };
 const sliderIds = new Set((d.assumptions || []).filter((a) => a.adjustable && a.status === 'confirmed').map((a) => a.id));
+// Where each slider is: dataset-wide sliders are on the map; per-system ones on each system's own page (map.astro).
+const sliderScope = new Map((d.assumptions || []).map((a) => [a.id, a.scope]));
 const rows = terms
   .filter((t) => applies(t) && !(t.applies_to === '*' && specific.has(t.term_id)))
   .map((t) => ({ t, sz: size(t) }))
@@ -112,7 +114,7 @@ const unsized = (t) => (t.assumption_id && t.status === 'not_given_by_source' ? 
     <table>
       <thead><tr><th class="l" scope="col"><L t="Uncertainty" p="Uncertainty" /></th><th class="l" scope="col"><L t="Scale" p="Affects" /></th><th class="l" scope="col"><L t="Moves" p="Moves" /></th><th class="l" scope="col"><L t="Status" p="Given?" /></th><th class="l" scope="col"><L t="Size" p="Size" /></th>{hasInErr && <th class="l" scope="col"><L t="In error columns" p="In the error bars?" /></th>}<th class="l" scope="col"><L t="Source" p="Source" /></th></tr></thead>
       <tbody>{rows.map(({ t, sz }) => { const n = termName(t); const slider = t.assumption_id && sliderIds.has(t.assumption_id); const [note, extra] = termNote(d, t); const sc = scaleText(t), st = statusText(t); const us = slider ? unsized(t) : []; const usT = us.length ? ` Slider ${t.assumption_id}: its range is the assumption registry’s dataset-wide range (scope: dataset), not a size stated for ${us.map(sysName).join(', ')}.` : ''; return <tr>
-        <td class="l termcell"><b><L t={n[0]} p={n[1]} /></b>{!sys && t.applies_to !== '*' && <span class="small"> <L t={`(applies to ${nSys(t)} system${nSys(t) === 1 ? '' : 's'})`} p={`(${nSys(t)} system${nSys(t) === 1 ? '' : 's'} only)`} /></span>}<br /><span class="small"><Layer as="span"><Fragment slot="t"><Quote text={note} />{(extra ? ' ' + extra : '') + usT}</Fragment><Fragment slot="p">{n[2] + (slider ? ' It can be changed with a slider on the map.' : '') + (us.length ? ' The source gives no size for this one, so the slider’s range is the one for the whole dataset.' : '')}</Fragment></Layer></span></td>
+        <td class="l termcell"><b><L t={n[0]} p={n[1]} /></b>{!sys && t.applies_to !== '*' && <span class="small"> <L t={`(applies to ${nSys(t)} system${nSys(t) === 1 ? '' : 's'})`} p={`(${nSys(t)} system${nSys(t) === 1 ? '' : 's'} only)`} /></span>}<br /><span class="small"><Layer as="span"><Fragment slot="t"><Quote text={note} />{(extra ? ' ' + extra : '') + usT}</Fragment><Fragment slot="p">{n[2] + (slider ? (sliderScope.get(t.assumption_id) === 'dataset' ? ' It can be changed with a slider on the map.' : ' It can be changed with a slider on each system’s own page.') : '') + (us.length ? ' The source gives no size for this one, so the slider’s range is the one for the whole dataset.' : '')}</Fragment></Layer></span></td>
         <td class="l wrapcell"><L t={sc[0]} p={sc[1]} /></td>
         <td class="l"><L t={MOVES[t.moves]?.[0] || t.moves} p={MOVES[t.moves]?.[1] || t.moves} /></td>
         <td class="l wrapcell"><L t={st.t} p={st.p} />{st.route && <span class="small" style="display:block"><L t={st.route} p="The Atlas’s rule is in the technical view." /></span>}</td>

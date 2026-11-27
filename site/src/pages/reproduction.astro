@@ -55,7 +55,7 @@ const blob = (pkg, f) => `${REPO}/blob/main/${path.posix.normalize(`data/package
         <div><dt><L t="Datasets" p="Datasets" /></dt><dd style="font-size:28px">{nDs}</dd></div>
         <div><dt><L t="Tests passed" p="Matched" /></dt><dd style="font-size:28px;color:var(--ok)">{nPass}</dd></div>
         <div><dt><L t="Not fully reproduced, on record" p="Did not fully match" /></dt><dd style="font-size:28px;color:var(--fail)">{nFail}</dd></div>
-        <div><dt><L t="Points with no flag" p="Points that match" /></dt><dd style="font-size:28px;color:var(--ok)">{pctOk} % <span class="small">{(nRows - nFlag).toLocaleString('en-CA')} of {nRows.toLocaleString('en-CA')}</span></dd></div>
+        <div><dt><L t="Points with no flag" p="Points with no flag" /></dt><dd style="font-size:28px;color:var(--ok)">{pctOk} % <span class="small">{(nRows - nFlag).toLocaleString('en-CA')} of {nRows.toLocaleString('en-CA')}</span></dd></div>
       </dl>
       <p class="small"><L t="Fingerprints verified at build: each frozen test file's SHA-256 is recomputed when the site is built and must equal the value recorded when it was frozen. The build fails otherwise." p="Each locked check is fingerprinted, and the site will not build if any has been changed." /></p>
 
