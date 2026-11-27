@@ -2734,6 +2734,22 @@ The values are unaffected. The package is merged but not released.
 
 **Why.** An author checking his own corrections is the bias the audit exists to remove. A blind re-read costs little and changes what can honestly be claimed: the corrections are verified, not just asserted. Releasing now, with the failure stated, keeps the record versioned and citable. Holding the release would not make the result any truer.
 
+## D-124 — v0.3: correct the site's known factual errors before release (amends D-123 rule 3)
+
+**Ruling (2026-11-27, UTC−06:00).** JvH asked, "shouldnt we fix the problems first, or should we do this on the next release?". Claude made the call under the project's operating rule 6.
+
+**Rules.**
+1. **Fixed before v0.3.** These are statements on the site that are wrong or overstated, all from the audit v3 Part B readers' notes, each checked at its source. No data, record or package changes.
+   - About: the v1.0 scope (D-110); the release history; the citation, which named v0.1; the plain analytics note, which said "now fixed".
+   - Methods: the row and bin counts now say recorded against plotted; the confidence level of the X-COP errors; the SPARC error formula now credits Lelli, McGaugh, Schombert & Pawlowski 2017 (arXiv:1610.08981), confirmed on arXiv.
+   - System pages: the plain text now says where each slider is, following its scope.
+   - Reproduction: the GC plain status follows the source's "could be due to"; "Points that match" becomes "Points with no flag"; the SPARC v3 plain status keeps issue #8.
+   - Dataset pages: the plain licence line is no longer stated as settled; the index badge says "Re-issue test" for v3.
+2. **Left for v0.4.** Missing plain-language versions of technical text, the SPARC locators that don't name Inc and e_Inc, missing source routes, and the other wording points. These make no statement false, and audit v4 should test a stable target.
+3. **Known issues** fixed in v3 (#222, #225, #227, #232, #234) are closed when v0.3 is released and listed in its release record.
+
+**Why.** A citable release should not knowingly carry false statements when they are cheap to fix. Gaps and unknown errors are a different matter: they are disclosed and measured by audit v4, not patched piecemeal.
+
 ## Release record — v0.2 (2026-11-06)
 
 Recorded here because the decision log covers releases (D-110 rule 3). This entry is not a new ruling.

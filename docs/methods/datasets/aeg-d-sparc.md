@@ -47,6 +47,6 @@ With C = 3.2407792894443656 × 10⁻¹⁴:
 
 These do not enter g_obs or g_bar.
 
-- **g_obs:** δg_obs = g_obs √[(2 e_Vobs/Vobs)² + (2 δi / tan i)² + (δD/D)²] (McGaugh, Lelli & Schombert 2016, arXiv:1610.08981, eq. 2; that paper is cited, not supplied). Here δi = e_Inc and δD = e_D, from the galaxy's row; i and δi are in radians.
+- **g_obs:** δg_obs = g_obs √[(2 e_Vobs/Vobs)² + (2 δi / tan i)² + (δD/D)²] (Lelli, McGaugh, Schombert & Pawlowski 2017, ApJ 836, 152, arXiv:1610.08981, eq. 2; that paper is cited, not supplied). Here δi = e_Inc and δD = e_D, from the galaxy's row; i and δi are in radians.
 - **Point-scale g_obs error:** g_obs × 2 e_Vobs / Vobs, the velocity part only.
 - **g_bar:** √[(0.10 g_bar_gas_cold)² + (0.25 g_bar_stars)²].

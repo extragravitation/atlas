@@ -8,6 +8,7 @@ All notable changes to the Atlas are recorded here. Site releases (v0.1, …) ar
 
 Summary: the six datasets were re-issued under data standard 3.0.0 (v3), the methods text is complete for every row, the front page was redesigned, and a second frozen audit was run. The audit reproduced all 220 sampled values from their sources and **failed on provenance**: 3 rows recorded the wrong place for an input. Those records are corrected and were independently re-read (D-121, D-123). Its neutrality part passed after the fixes of D-122. The rate after the corrections is to be measured by audit v4.
 
+- Site factual corrections before release (D-124): About (v1.0 scope, release history, citation, analytics note); Methods (recorded and plotted counts, X-COP error level, SPARC error-formula attribution); slider location in plain text; Reproduction plain wording (GC, SPARC #8, flags); dataset licence line; "Re-issue test" badge.
 
 - Audit v3 result (D-116): `docs/audit/AUDIT_RESULT_v3.md`. Part A fails on provenance (3 of 220 rows; 95 % bound 3.49 %; 0 material discrepancies, 0 method gaps); Part B passes after D-122. It is linked from the front page, About and Reproduction, next to the version 2 result.
 - Site (D-122, B10): systems whose kind the sources or readers do not settle (70 systems: 61 lenses, 8 dwarfs and Crater) are shown as "kind not settled", not under A7 "Galaxies in unusual configurations". This is done in the pages, with the logic in `site/src/lib/kind.mjs`; the package code stays A7 (D-114 Q1). The Coverage page counts them separately.
