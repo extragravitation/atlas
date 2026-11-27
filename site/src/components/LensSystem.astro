@@ -3,6 +3,7 @@
 // the Einstein radius R_E (D-064), with the inputs as read at source, the cosmology, the gas term and the
 // reported checks. Everything shown is read from the package files; the only arithmetic here turns the
 // package's accelerations into masses inside the same cylinder (M = g R_E² / G = g × M_E / g_obs).
+import { plainReason } from '../lib/reasons_plain.mjs';
 import { unsettled } from '../lib/kind.mjs';
 import L from './L.astro';
 import Quote from './Quote.astro';
@@ -135,7 +136,7 @@ const gapRows = gap ? Object.entries(P.readings || {}).flatMap(([scope, e]) => [
 ) : (
   <div class="boxed">
     <p><b><L t="Not plotted." p="Not on the map." /></b> <L t="Reasons, as recorded in the package:" p="Why:" /></p>
-    <ul class="small">{(P.reasons_not_plotted || []).map((r) => <li><Quote text={r} /></li>)}</ul>
+    <ul class="small">{(P.reasons_not_plotted || []).map((r) => <li><Layer as="span"><Fragment slot="t"><Quote text={r} /></Fragment><Fragment slot="p">{plainReason(r)}</Fragment></Layer></li>)}</ul>
     <p class="small"><L t={`Survey: ${P.scope}. Lens redshift ${R.redshift ?? '–'}${zs != null ? `, source redshift ${zs}` : ''} (${R.distance_ref || 'as printed'}).`} p={`From ${surveyName((P.scope || '').split(' | ')[0])}.`} /></p>
     {gap && <p class="small"><L t={`Epoch gap (D-066 item 2): flagged epoch_gap_v1. No g_obs or g_bar is computed for lenses at z_l ≥ 0.30 in this version.${P.z_l_all_readings && P.z_l_all_readings.length > 1 ? ` The readings give z_l = ${P.z_l_all_readings.join(', ')}; the redshift column holds the lowest, so the cut holds for every reading.` : ''}`} p="This lens is far enough away that its light set out long ago. This version of the Atlas records it but leaves it off the map." /></p>}
     {gap && <EpochCut />}

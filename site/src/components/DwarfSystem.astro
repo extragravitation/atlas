@@ -2,6 +2,7 @@
 // System page for an A5/A7 dwarf galaxy (aeg-d-dwarfs): one published dispersion per system,
 // structure, distance and magnitude from the double-read originals (D-048 to D-062). Everything
 // shown is read from the package tables; nothing is computed here except unit conversions.
+import Layer from './Layer.astro';
 import { unsettled } from '../lib/kind.mjs';
 import L from './L.astro';
 import Quote from './Quote.astro';
@@ -19,7 +20,32 @@ const limit = def?.limit === 'upper';
 const e10 = (v) => (v === null || v === undefined || v === '' ? '–' : (v / 1e-10).toPrecision(3));
 const fmt = (v, n = 3) => (v === null || v === undefined || v === '' ? '–' : Number(v).toPrecision(n));
 const flags = [...(def?.flags || '').split(';'), ...(def?.x_dwarfs_flags || '').split(' ')].filter(Boolean);
+// Plain versions of the flags (audit v3 Part B, finding 25; D-125). They say the same as FLAG_T in everyday words.
+const FLAG_P = {
+  star_count_weighting: 'The spread of star speeds is measured over the member stars, and taken to stand for the spread weighted by light.',
+  beyond_source_range: 'This galaxy’s stars are poorer in heavy elements than any in the table used to turn light into mass, so the table’s last value is used.',
+  no_uncertainty: 'One of the numbers used has no stated uncertainty.',
+  rh_semimajor_assumed: 'The study does not say how its size was measured; we assume along the long axis, as is usual when a shape is fitted.',
+  mv_distance_from_table1: 'The brightness is adjusted to our distance using the distance the same study lists.',
+  mv_modulus_assumed: 'The study does not say which distance its brightness assumes; its own adopted distance is used.',
+  mv_distance_independent: 'The study says its brightness does not depend on the distance.',
+  distance_range_midpoint: 'The study gives a range of distances; the middle is used, and the range is the uncertainty.',
+  rh_from_physical_at_source_distance: 'The study gives the size in parsecs, a unit of distance; it is turned back into an angle at the study’s own distance.',
+  limit_from_1sigma_upper_error: 'The study’s best estimate of the star speeds’ spread is zero, so only an upper limit is shown.',
+  feh_median: 'The heavy-element content is the study’s middle value, not its average.',
+  feh_photometric: 'The heavy-element content comes from colours, not from spectra.',
+  feh_stacked_spectrum: 'The heavy-element content comes from many spectra added together.',
+  feh_from_dispersion_paper: 'The heavy-element content comes from the same study as the star speeds.',
+  hi_upper_limit_5sigma: 'Only an upper limit on the galaxy’s gas exists, so no gas is counted.',
+  gas_half_total: 'The galaxy’s gas was measured; half of it, with helium added, is taken to lie inside the half-light size.',
+  spread_zero: 'The study gives no spread in heavy-element content, so the light-to-mass range does not include one.',
+  source_preprint_sigma_feh: 'The star speeds and heavy-element content come from a study not yet checked by a journal.',
+  source_preprint_sigma_distance_feh: 'The star speeds, distance and heavy-element content come from a study not yet checked by a journal.',
+  source_preprint_distance: 'The distance comes from a study not yet checked by a journal.',
+  structure_from_arxiv_vor_cells_empty: 'The journal version of the table leaves the size and shape blank, so the values from the study’s preprint are used.',
+};
 const FLAG_T = {
+  star_count_weighting: 'The dispersion is that of the member-star sample, taken as representative of the light-weighted dispersion (a named assumption, D-038 1A).',
   beyond_source_range: 'Metallicity at or below the lowest tabulated in the mass-to-light model table: its end value is used, with no extrapolation (D-060).',
   no_uncertainty: 'No uncertainty printed for an input.',
   rh_semimajor_assumed: 'The paper does not say whether its half-light radius is semi-major or circularised; semi-major is assumed because an ellipticity is fitted (D-052 item 2).',
@@ -64,7 +90,7 @@ const FLAG_T = {
 {flags.length > 0 && (
   <>
     <h3><L t="How the inputs were chosen" p="Notes on this galaxy’s numbers" /></h3>
-    <ul class="small">{flags.map((f) => <li><code>{f}</code>: {FLAG_T[f] || 'see the dataset page.'}</li>)}</ul>
+    <ul class="small">{flags.map((f) => <li><Layer as="span"><Fragment slot="t"><code>{f}</code>: {FLAG_T[f] || 'see the dataset page.'}</Fragment><Fragment slot="p">{FLAG_P[f] || FLAG_T[f] || 'See the dataset page.'}</Fragment></Layer></li>)}</ul>
   </>
 )}
 

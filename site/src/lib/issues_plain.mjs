@@ -2,6 +2,12 @@
 // GitHub; each line here says the same thing in everyday words, and claims no more than the issue.
 // An issue without an entry gets the fallback, which points to the expert layer.
 export const ISSUE_PLAIN = {
+  222: 'For 26 disc-galaxy (SPARC) gas values, the note on where the method is described pointed to a section of the paper that does not exist (3.4); the statement is in section 3.3. No number changes. Version 3 records the right place.',
+  225: 'For four lens distances, the note on where the value is printed named a table file that was never recorded. The values are in Table 2 of the paper itself, where they were checked. No number changes. Version 3 records the right place.',
+  227: 'In the dwarf-galaxy data, some notes on where numbers are printed named the wrong table (the brightness table of one study) or named a paper but no place in it, and some documents had no fingerprint. No number changes. Version 3 records each place.',
+  232: 'For every dwarf-galaxy gas value, the note on where it is printed says "Table 1, None" instead of naming the galaxy’s row, because of an error in our first conversion. The values are right. Version 3’s records give the galaxy’s own row.',
+  234: 'For the X-COP clusters, two notes on where the method is described pointed to the wrong section or line of the paper, and one said more than the paper does (that the observed pull comes from one particular method). No number changes. Version 3 records the right places and wording.',
+  243: 'An audit found that for five dwarf galaxies the note on where a number is printed pointed to the wrong table or paper: the shape (how flattened the galaxy looks) and, for three, the brightness. The numbers themselves were right. The notes were corrected and checked again by two independent readers.',
   8: 'In the disc-galaxy data (SPARC), 4 of about 2,700 points do not match the authors’ own published list. We do not say which is right, and we have asked the authors. The 4 points are ringed on the charts.',
   19: 'For 3 of the 12 X-COP clusters (A644, A2029 and A2319), the mass profiles in the public archive differ by a few per cent from the table in the paper. We do not say which is right. Their points are ringed, and we have asked the team.',
   64: 'The KiDS-1000 points were labelled as having no uncertainty, but only the pull from detected matter lacks one; the observed pull has error bars. The label was misleading. No number or chart was affected.',
